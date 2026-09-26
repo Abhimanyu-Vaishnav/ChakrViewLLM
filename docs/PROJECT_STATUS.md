@@ -2,61 +2,42 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 4.1 — Neural Core Verification, CPU Baseline & Architecture Freeze
-- **Status**: Complete, Audited & Architecture Frozen (200/200 tests passing; Zero Failures; Ready for Step 5)
+- **Current phase**: Step 5 — Pre-Training Infrastructure
+- **Status**: Complete, Audited & Architecture Frozen (235/235 tests passing; Zero Failures; Ready for Pre-Training Data Curation & Scaling)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 4.1 Neural Core Verification, CPU Baseline & Architecture Freeze has been rigorously completed from scratch with zero external model weights, zero pretrained models, and zero wrapper frameworks. The indigenous neural brain package `chakrview/brain/` is completely operational on CPU. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.4 froze the tokenizer-to-neural-core interface contract. Step 3 executed empirical tokenizer research, corpus engineering, multi-candidate benchmarking, and vocabulary selection. Step 4 implemented the neural core prototype `ChakrMicro v0.1` ($3,443,136$ parameters). Step 4.1 has now completed an exhaustive 16-phase audit: environment validation, full architecture inspection, exact parameter accounting ($3,443,136$ unique trainable parameters), tensor shape contract verification across all sequence lengths and batch sizes, strict causality verification (ABCD test and layerwise isolation), gradient flow analysis (100% parameter gradient coverage), weight tying identity verification, parameter initialization health analysis, multi-precision numerical stability (FP32 baseline, BF16/FP16 evaluation), CPU performance benchmarking ($B \in \{1, 2\}, T \in \{16, 64, 128, 256, 512\}$), comprehensive memory modeling (weights, activations, KV cache, runtime), and synthetic associative recall learnability (100% accuracy, loss drop $8.44 \to 0.007$). All 200 unit and regression tests pass with zero warnings or errors.
+> **IMPORTANT**: Step 5 Pre-Training Infrastructure has been completed from scratch with zero external model weights, zero pretrained models, zero HuggingFace wrappers, and complete preservation of the frozen $3,443,136$ parameter neural core. The system provides an end-to-end deterministic training engine on local CPU: authoritative dataclass configuration, multi-library seed control, contiguous uint16 binary shard writer with SHA-256 integrity verification, memory-conscious streaming dataset reader, bounded causal batch collation, PAD-masked next-token cross entropy, weight-decay segregated AdamW optimizer with cosine warmup scheduling, atomic failure-safe checkpointing with history pruning, throughput/perplexity metrics tracking, CPU/RAM monitoring, and a deterministic validation evaluator. Synthetic micro-pattern training ($8.32 \to 6.91$) and a real data smoke test on Hindi and English validated the complete pipeline. All 235 unit and regression tests pass with zero failures.
 
 ### Progress by Module
+- `chakrview/training/`: **Pre-Training Infrastructure Engine**
+  - `config.py`: Authoritative dataclasses (`TrainingHyperparameters`, `DataConfig`, `CheckpointConfig`, `EvaluationConfig`, `PretrainingConfig`) with JSON serialization
+  - `seed.py`: Deterministic seed coordination across `random`, `numpy`, and `torch` with full RNG state capture and restore
+  - `sharding.py`: `ShardWriter` generating compact `uint16` binary shards with `metadata.json` SHA-256 checksum tracking and `verify_shard_integrity()`
+  - `dataset.py`: `StreamingTokenDataset` yielding causal `[T]` pairs (`input_ids` and `target_ids`) from disk without loading full corpus into RAM
+  - `collator.py`: `CausalLanguageModelingCollator` stacking `[B, T]` batches with strict bounds checking ($T \le 512$)
+  - `loss.py`: `CausalLoss` cross-entropy with strict PAD token (`ignore_index=2`) exclusion
+  - `optimizer.py`: `build_optimizer()` with 2D/1D parameter segregation and tied parameter deduplication; `build_lr_scheduler()` with cosine decay and linear warmup
+  - `checkpoint.py`: `CheckpointManager` providing atomic two-phase write (`.tmp` $\to$ `os.replace`), pointer management (`latest_checkpoint.json`), and retention pruning
+  - `metrics.py`: `MetricsTracker` measuring step time, throughput (tokens/sec), tokens processed, and true perplexity $\exp(\text{loss})$
+  - `monitoring.py`: `ResourceMonitor` capturing process RSS RAM, system RAM, and CPU percentage
+  - `evaluator.py`: `evaluate()` deterministic no-grad validation engine restoring training mode
+  - `trainer.py`: `Trainer` orchestrating forward, backward, gradient accumulation, gradient clipping, optimizer stepping, evaluation, and checkpointing
+  - `__init__.py`: Clean public exports of all training primitives
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1)**
-  - `config.py`: `ModelConfig` dataclass with dimension divisibility and parity validation
-  - `embeddings.py`: `TokenEmbedding` with parameter matrix $E \in \mathbb{R}^{4096 \times 192}$ and out-of-bounds error handling
-  - `normalization.py`: `RMSNorm` (Pre-RMSNorm, bias-free, float32 rsqrt stability)
-  - `rotary.py`: `RotaryEmbedding` (pairwise 2D Givens rotation, precomputed frequency caches, sequence bounds check)
-  - `masking.py`: `CausalMask` (upper-triangular mask, $-10^9$ additive safe float32)
-  - `attention.py`: `MultiHeadAttention` (Simple MHA, bias-free QKV/OutProj, RoPE on Q/K, scaled dot product)
-  - `feedforward.py`: `SwiGLU` (bias-free gate, up, down projections with SiLU activation)
-  - `block.py`: `TransformerBlock` (Pre-RMSNorm $\to$ MHA $\to$ Residual $\to$ Pre-RMSNorm $\to$ SwiGLU $\to$ Residual)
-  - `output.py`: `LMHead` (Tied output head sharing `embedding.weight` memory pointer)
-  - `initialization.py`: `initialize_weights` ($\mathcal{N}(0, 0.02)$ for base, depth-scaled $\frac{0.02}{\sqrt{12}}$ for residual projections $W_O, W_{\text{down}}$, ones for RMSNorm)
-  - `model.py`: `ChakrMicro` (End-to-end causal language model and programmatic `count_parameters()` reporting)
-  - `__init__.py`: Clean public exports of all brain primitives
+  - Fully verified and frozen ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
-  - `ChakrConfig`: Frozen hyperparameter dataclass with automatic divisibility, parity, and bounds validation
-  - `calculate_parameter_breakdown()`: Analytical parameter formulas for all subcomponents (3,443,136 total parameters)
-  - `calculate_memory_budget()`: Static weight memory, KV cache scaling, and dynamic activation footprint calculations
-  - `calculate_flops_breakdown()`: GEMM and non-GEMM FLOP accounting for sequences $T \in \{128, 256, 512\}$
-  - `get_tensor_forward_contracts()`: Bit-exact tensor shape contracts for every stage of the forward pass
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
-  - `loader.py`: Category document loader and memory-conscious streaming iterator (`CorpusDocument`)
-  - `validators.py`: Data quality validator checking empty documents, duplicates, control chars, null bytes, surrogates, and length bounds with automated JSON report generation
-  - `cleaner.py`: Clear separation across Raw, Cleaned Training, Tokenizer Benchmark, and Adversarial stages
-  - `normalizer.py`: Strict runtime identity pass-through vs optional training normalization policies
-  - `splitter.py`: Category-aware deterministic 80/10/10 partitioning using SHA-256 hash scoring with strict disjointness verification
-  - `statistics.py`: Character, script (Devanagari, Latin, Digits, Punctuation, Math, Emojis), codepoint, and category profiler
-  - `manifest.py`: SHA-256 integrity and metadata manifest generator
 - `chakrview/tokenizer/`: **Production Research Engine**
-  - `special_tokens.py`: Minimal special-token set (`<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2) with literal string isolation
-  - `bytes.py`: Bijective mapping for 256 fundamental byte primitives (IDs 3..258)
-  - `bpe.py`: Deterministic BPE engine with triple-key tie-breaking (`-freq`, `pair[0]`, `pair[1]`)
-  - `encoder.py`: Lossless UTF-8 and raw byte encoding
-  - `decoder.py`: Bit-exact byte and text reconstruction
-  - `tokenizer.py`: Unified `BPETokenizer` class interface
-  - `trainer.py`: Streaming and in-memory BPE trainer with grapheme-aware pre-tokenization hooks and deterministic tie-breaking
-  - `corpus.py`: Raw corpus validator, order-preserving line deduplication, deterministic category-aware 80/10/10 split, and chunked streaming iterators
-  - `metrics.py`: Rigorous accounting for token fertility, compression ratio, latency statistics (mean, median, p95, min, max), and static/downstream memory
-  - `serialization.py`: Transparent JSON serialization (`vocab.json`, `merges.json`, `config.json`) with SHA-256 checksum integrity verification
-  - `benchmark.py`: Comprehensive benchmarking suite across vocabulary sizes, numerics, grapheme variants, latency, and memory
-  - `interface.py`: Token ID bounds validator, sequence truncation/chunking runtime policies, batch tensor preparation, neural handoff simulation (`[seq_len, 192]`), and static memory accounting
-- `tests/`: **214/214 Tests Passing** across 25 test modules (100% green, 0 failures)
+- `tests/`: **235/235 Tests Passing** across 29 test modules (100% green, 0 failures)
   - 136 Tokenizer and Corpus pipeline tests
-  - 78 Neural Core tests (Config, Primitives, Model, Shapes Contract, Strict Causality, Strict Gradients, Initialization, Synthetic Learnability, Mathematical Validation)
-- `docs/`: **Comprehensive Step 4 & 4.1 Documentation & Empirical Baselines Ratified**
+  - 78 Neural Core tests
+  - 21 Pre-Training Infrastructure tests
+- `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_05_PRETRAINING_INFRASTRUCTURE.md` (Comprehensive Step 5 verification and overhead benchmark report)
   - `docs/STEP_04_VERIFICATION_REPORT.md` (Comprehensive 15-section audit report; decision: VERIFIED — READY FOR TRAINING)
   - `docs/STEP_04_ENVIRONMENT.md` (Detailed environment and runtime hardware verification)
   - `docs/STEP_04_IMPLEMENTATION_AUDIT.md` (Line-by-line audit against Step 1 spec)
