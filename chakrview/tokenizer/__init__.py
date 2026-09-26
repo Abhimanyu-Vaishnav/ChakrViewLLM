@@ -37,6 +37,11 @@ from chakrview.tokenizer.special_tokens import (
     is_special_token,
 )
 from chakrview.tokenizer.tokenizer import BPETokenizer
+from chakrview.tokenizer.trainer import (
+    BPETrainer,
+    load_experiment_artifacts,
+    save_experiment_artifacts,
+)
 
 __all__ = [
     # Special Tokens
@@ -71,6 +76,10 @@ __all__ = [
     "encode_text",
     "decode_bytes",
     "decode_tokens",
-    # Model Class
+    # Model Class & Trainer
     "BPETokenizer",
+    "BPETrainer",
+    "save_experiment_artifacts",
+    "load_experiment_artifacts",
 ]
+
