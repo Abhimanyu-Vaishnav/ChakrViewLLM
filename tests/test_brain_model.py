@@ -34,7 +34,25 @@ def test_chakr_micro_weight_tying_identity():
     cfg = ModelConfig()
     model = ChakrMicro(cfg)
     
-    # Must share the exact data pointer
+    # 1. Must share the exact data pointer and object identity
+    assert model.lm_head.weight is model.embedding.weight
+    assert model.lm_head.weight.data_ptr() == model.embedding.weight.data_ptr()
+    
+    # 2. Only one parameter tensor with this storage is registered in model.parameters()
+    matching_params = [p for p in model.parameters() if p.data_ptr() == model.embedding.weight.data_ptr()]
+    assert len(matching_params) == 1, f"Expected 1 registered tied parameter, found {len(matching_params)}"
+    
+    # 3. Optimizer update modifies the single shared storage simultaneously
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    orig_val = model.embedding.weight[0, 0].item()
+    
+    loss = model(torch.tensor([[0, 1]], dtype=torch.long)).sum()
+    loss.backward()
+    optimizer.step()
+    
+    # Both views must reflect the identical new value
+    assert model.embedding.weight[0, 0].item() != orig_val
+    assert model.embedding.weight[0, 0].item() == model.lm_head.weight[0, 0].item()
     assert model.lm_head.weight.data_ptr() == model.embedding.weight.data_ptr()
 
 
