@@ -6,11 +6,11 @@ This empirical benchmark establishes the baseline CPU performance of **ChakrMicr
 
 - **Evaluation Backend**: Local CPU execution via PyTorch 2.14.0+cpu (Intel oneDNN / MKL, 4 execution threads).
 - **Development Machine CPU**: Intel Core i9-13900H (14C/20T, 32 GB DDR5 RAM).
-- **Model Initialization Time**: 25.97 ms
+- **Model Initialization Time**: 26.00 ms
 - **Parameter Memory Footprint (FP32)**: 13.13 MiB (3,443,136 parameters × 4 bytes)
-- **Base Process Memory**: 207.4 MB
-- **Post-Initialization Memory**: 232.8 MB
-- **Peak Working Set**: 278.2 MB
+- **Base Process Memory**: 206.0 MB
+- **Post-Initialization Memory**: 231.4 MB
+- **Peak Working Set**: 276.2 MB
 
 ---
 
@@ -31,21 +31,21 @@ Throughput is defined as $\text{Throughput} = \frac{B \times T}{\text{Median Lat
 
 | Context ($T$) | Cold Run (ms) | Warmup Mean (ms) | Warm Median (ms) | Warm p95 (ms) | ms / Token | Throughput (tok/s) | Process RSS (MB) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **16** | 3.52 ms | 2.26 ms | **2.19 ms** | 3.18 ms | 0.1370 ms | **7,297.3** | 234.9 MB |
-| **64** | 3.99 ms | 3.83 ms | **3.88 ms** | 5.42 ms | 0.0606 ms | **16,488.5** | 236.5 MB |
-| **128** | 6.42 ms | 5.95 ms | **5.88 ms** | 6.57 ms | 0.0459 ms | **21,776.5** | 241.2 MB |
-| **256** | 10.53 ms | 10.48 ms | **10.02 ms** | 11.04 ms | 0.0391 ms | **25,549.9** | 243.4 MB |
-| **512** | 21.55 ms | 20.44 ms | **20.27 ms** | 27.15 ms | 0.0396 ms | **25,265.7** | 257.5 MB |
+| **16** | 3.55 ms | 2.54 ms | **2.33 ms** | 3.30 ms | 0.1456 ms | **6,865.8** | 233.5 MB |
+| **64** | 6.19 ms | 4.38 ms | **5.90 ms** | 7.18 ms | 0.0922 ms | **10,841.4** | 235.1 MB |
+| **128** | 7.54 ms | 7.25 ms | **6.01 ms** | 7.38 ms | 0.0469 ms | **21,308.1** | 239.7 MB |
+| **256** | 10.97 ms | 11.75 ms | **11.87 ms** | 15.37 ms | 0.0464 ms | **21,565.7** | 241.9 MB |
+| **512** | 28.21 ms | 29.32 ms | **26.36 ms** | 31.41 ms | 0.0515 ms | **19,421.1** | 256.0 MB |
 
 ### Batch Size B = 2 (Batched Prompt / Concurrent Inference)
 
 | Context ($T$) | Cold Run (ms) | Warmup Mean (ms) | Warm Median (ms) | Warm p95 (ms) | ms / Token | Throughput (tok/s) | Process RSS (MB) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **16** | 3.42 ms | 2.80 ms | **3.16 ms** | 3.39 ms | 0.0988 ms | **10,123.1** | 257.5 MB |
-| **64** | 5.71 ms | 5.74 ms | **6.47 ms** | 9.23 ms | 0.0506 ms | **19,768.3** | 247.0 MB |
-| **128** | 10.95 ms | 9.36 ms | **9.52 ms** | 14.91 ms | 0.0372 ms | **26,905.2** | 249.0 MB |
-| **256** | 16.53 ms | 19.62 ms | **16.73 ms** | 26.36 ms | 0.0327 ms | **30,601.5** | 253.1 MB |
-| **512** | 49.55 ms | 44.43 ms | **41.16 ms** | 48.10 ms | 0.0402 ms | **24,877.0** | 278.2 MB |
+| **16** | 3.36 ms | 3.16 ms | **3.09 ms** | 4.65 ms | 0.0966 ms | **10,349.3** | 256.0 MB |
+| **64** | 6.59 ms | 5.86 ms | **6.70 ms** | 17.52 ms | 0.0524 ms | **19,092.2** | 245.5 MB |
+| **128** | 28.13 ms | 24.63 ms | **26.37 ms** | 29.74 ms | 0.1030 ms | **9,708.5** | 247.5 MB |
+| **256** | 48.52 ms | 48.89 ms | **48.45 ms** | 50.70 ms | 0.0946 ms | **10,566.7** | 251.5 MB |
+| **512** | 118.21 ms | 106.38 ms | **109.41 ms** | 124.76 ms | 0.1068 ms | **9,359.5** | 276.2 MB |
 
 ---
 
