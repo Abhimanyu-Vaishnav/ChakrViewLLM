@@ -1,0 +1,32 @@
+{
+  "project": "ChakrView",
+  "version": "0.1.0",
+  "architecture": {
+    "model_name": "Chakr-Micro",
+    "d_model": 192,
+    "layers": 6,
+    "heads": 6,
+    "head_dim": 32,
+    "ffn_dim": 512,
+    "max_context": 512,
+    "vocab_size": 4096,
+    "weight_tying": true,
+    "bias": false,
+    "norm": "RMSNorm",
+    "positional_encoding": "RoPE"
+  },
+  "hardware_targets": [
+    "CPU",
+    "28nm_class",
+    "ARM_NEON",
+    "x86_AVX2"
+  ],
+  "benchmarks": {
+    "reconstruction_lossless": true,
+    "special_tokens": {
+      "<BOS>": 0,
+      "<EOS>": 1,
+      "<PAD>": 2
+    }
+  }
+}

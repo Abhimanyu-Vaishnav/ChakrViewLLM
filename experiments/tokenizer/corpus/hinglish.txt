@@ -1,0 +1,11 @@
+bhai mujhe ek lightweight AI model banana hai jo mere purane laptop par smoothly run kare.
+kya ChakrView bina GPU ke sirf CPU par inferencing kar sakta hai?
+ha bilkul, iska hidden dimension 192 hai aur context length 512 tokens tak limited hai.
+tokenizer ka kaam text ko byte tokens mein split karna hota hai taaki lossless reconstruction possible ho.
+agar vocab size 4096 select karein toh embedding matrix ka size 4096 cross 192 hoga.
+mujhe lagta hai ki Hindi aur English dono ke liye byte-level BPE sabse best choice hai.
+pehle hum synthetic benchmarks par learnability verify karenge fir actual training start hogi.
+code compile ho gaya hai aur saare 107 tests green pass ho rahe hain.
+aaj hum Step 3 ka empirical tokenizer benchmark execute kar rahe hain taaki measurable data mile.
+koi assumption nahi lena hai, sab kuch benchmark evidence se prove karna zaroori hai.
+RAM usage aur CPU clock speed optimize karke purane 28nm chips par bhi test karenge.

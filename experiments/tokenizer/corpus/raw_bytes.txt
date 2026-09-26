@@ -1,0 +1,9 @@
+Raw byte 0x00 is NULL byte, encoded as foundational token ID 3.
+Raw byte 0xFF is 255, encoded as foundational token ID 258.
+Byte 0x0A is newline, encoded as foundational token ID 13.
+Byte 0x20 is space, encoded as foundational token ID 35.
+Devanagari characters are 3-byte UTF-8 sequences starting with 0xE0 0xA4 or 0xE0 0xA5.
+Emojis are 4-byte UTF-8 sequences starting with 0xF0 0x9F.
+High bytes 0x80 through 0xFF without UTF-8 header are preserved as individual byte tokens.
+No matter what arbitrary 8-bit octet sequence is provided, byte-level BPE reconstructs it bit-for-bit.
+All 256 fundamental byte primitives map bijectively to token IDs 3 through 258 without collision.

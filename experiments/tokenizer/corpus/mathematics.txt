@@ -1,0 +1,12 @@
+f(x) = (1 / (sigma * sqrt(2 * pi))) * exp(- (x - mu)^2 / (2 * sigma^2))
+RoPE(q, m) = [q_0 * cos(m * theta) - q_1 * sin(m * theta), q_0 * sin(m * theta) + q_1 * cos(m * theta)]
+RMSNorm(u) = (u / sqrt(mean(u^2) + epsilon)) * gamma
+Attention(Q, K, V) = softmax(Q * K^T / sqrt(d_k) + M) * V
+SwiGLU(x) = (Swish(x * W_gate) * (x * W_up)) * W_down
+Swish(z) = z * sigmoid(z) = z / (1 + exp(-z))
+Loss(theta) = - (1 / N) * sum(log p(y_t | x_{<t}))
+sum_{i=1}^{n} i = n * (n + 1) / 2
+lim_{x -> 0} (sin(x) / x) = 1
+int_{0}^{inf} e^{-x^2} dx = sqrt(pi) / 2
+alpha + beta <= gamma * delta
+nabla^2 psi + (8 * pi^2 * m / h^2) * (E - V) * psi = 0

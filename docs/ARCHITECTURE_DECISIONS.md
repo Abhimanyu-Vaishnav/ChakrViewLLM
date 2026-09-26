@@ -198,39 +198,60 @@ Adopt **$V = 4096$ as the provisional tokenizer vocabulary configuration** for t
 
 ---
 
-## Step 1 & 2 Frozen vs Unfrozen Decisions
+## ADR 16: Empirical Ratification of Vocabulary Size V = 4096 & Numeric Strategy Configuration
+
+### Context
+Step 3 executed a comprehensive empirical benchmark across four candidate vocabulary sizes ($V = 2048, 4096, 8192, 16384$) on a 23-category control corpus ($748\text{ items}, 61,644\text{ UTF-8 bytes}$) and evaluated three candidate numeric tokenization strategies (Candidate A: single digits, Candidate B: 2-digit chunks, Candidate C: normal BPE).
+
+### Decision
+1. **Ratify $V = 4096$** as the definitive vocabulary configuration for Chakr-Micro v0.1:
+   - $3$ special tokens ($\langle\text{BOS}\rangle=0, \langle\text{EOS}\rangle=1, \langle\text{PAD}\rangle=2$)
+   - $256$ foundational byte primitives (IDs $3\dots258$)
+   - $3,837$ learned BPE merges (IDs $259\dots4095$)
+2. **Retain Candidate C (Normal BPE)** as the primary default numeric tokenization strategy, with **Candidate A (Single Digits)** preserved as an isolated modular adapter for arithmetic-intensive tasks.
+
+### Reasoning & Trade-offs
+- **Pareto Optimality for Micro Scale**: $V = 4096$ delivers $1.76\text{ tokens/word}$ on Hindi and $1.89$ on English, outperforming $V = 2048$ ($2.46$ Hindi, $2.57$ English) by $26.2\%$ in sequence compression.
+- **Model Parameter Balance**: In Chakr-Micro ($d_{\text{model}} = 192$), an embedding matrix of $4096$ tokens consumes $786,432$ parameters ($22.84\%$ of the total $3,443,136$ model parameters), leaving $77.16\%$ for relational reasoning Transformer blocks. In contrast, $V = 8192$ consumes $1,572,864$ parameters ($37.2\%$ of total weights), over-allocating capacity to static lookup tables.
+- **Merge Exhaustion at Scale**: Candidate $V = 16384$ completely exhausted available unique pairs on the control corpus at $16,092$ merges (actual vocab $16,351$), exhibiting severe corpus memorization and inflating table memory to $3.88\text{ MB}$.
+- **Lossless Invariant Across All Suites**: All candidates passed $100\%$ lossless round-trip reconstruction on all 23 corpus categories, the 41-item Unicode/Indic adversarial suite, and all 11 arbitrary raw byte test cases.
+
+---
+
+## Step 1, 2 & 3 Frozen vs Unfrozen Decisions
 
 ### Frozen:
 - decoder-only causal architecture
-- pre-RMSNorm
-- RoPE positional embedding
-- SwiGLU feed-forward activation
-- bias-free linear projections
+- pre-RMSNorm ($\epsilon = 10^{-5}$)
+- RoPE positional embedding ($\Theta = 10000.0, d_{\text{rot}} = 32$)
+- SwiGLU feed-forward activation ($d_{\text{ff}} = 512$)
+- bias-free linear projections ($b = 0$)
 - weight tying ($W_{\text{out}} = E^T$)
-- Simple Multi-Head Attention (MHA) for v0.1
+- Simple Multi-Head Attention (MHA) for v0.1 ($H=6, H_{kv}=6$)
 - maximum context of 512 tokens for Chakr-Micro
 - no pretrained weights
 - byte-level fallback (256 base bytes, zero `<UNK>`)
 - special token IDs: `<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2
+- vocabulary size: $V = 4096$ ratified for v0.1
 - lossless round-trip invariant: $\text{Decode}(\text{Encode}(S)) \equiv S$
-- tokenizer-to-neural-core handoff contract: token IDs $\in [0, V-1] \to [B, T, d]$
+- tokenizer-to-neural-core handoff contract: token IDs $\in [0, 4095] \to [B, T, 192]$
 
 ### Unfrozen (Provisional / Experimental):
-- final vocabulary size ($V=4096$ provisional; replaceable by $V=8192$ if larger corpus justifies)
-- numeric tokenization strategy (Candidate A vs Candidate B vs Candidate C)
-- optimizer hyperparameters
-- initialization details
-- exact dropout policy
-- quantization implementation (INT8/INT4)
-- future GQA (extension point)
+- advanced pre-tokenization regex rules (grapheme cluster boundaries)
+- numeric tokenization task-specific switching policy
+- optimizer hyperparameters for training loop
+- weight initialization scale calibration
+- quantization implementation (INT8/INT4 kernels)
+- future GQA (extension point for larger models)
 - future dynamic depth / sparse computation
 
 ---
 
 ## Implementation Prerequisite Rule
 
-> **MANDATORY RULE**: No neural model implementation should begin until Step 3 planning and approval are officially provided.
+> **MANDATORY RULE**: Step 3 empirical benchmarking is complete and ratified. Implementation of the neural core and training pipeline shall strictly commence upon official approval of Step 4 instructions.
 
 ---
 *End of Architecture Decision Records*
+
 
