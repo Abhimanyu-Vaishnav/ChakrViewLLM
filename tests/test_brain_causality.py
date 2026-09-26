@@ -100,3 +100,34 @@ def test_four_token_explicit_causality_abcd():
     # Position 3 (D vs D') must differ
     diff_d = torch.max(torch.abs(out1[:, 3, :] - out2[:, 3, :])).item()
     assert diff_d > 1e-2, f"Expected position D to differ, but got diff {diff_d}"
+
+
+def test_arbitrary_prefix_t_isolation():
+    """
+    Given identical tokens before position t:
+    Changing token t+1 and later MUST NOT change logits at positions <= t.
+    """
+    torch.manual_seed(999)
+    cfg = ModelConfig()
+    model = ChakrMicro(cfg)
+    model.eval()
+    
+    T = 32
+    t = 12  # Cutoff position
+    
+    seq_orig = torch.randint(0, 4096, (1, T), dtype=torch.long)
+    seq_mod = seq_orig.clone()
+    # Change tokens at position t+1 and later
+    seq_mod[0, t + 1:] = torch.randint(0, 4096, (1, T - (t + 1)), dtype=torch.long)
+    
+    with torch.no_grad():
+        out_orig = model(seq_orig)
+        out_mod = model(seq_mod)
+        
+    # Logits at positions <= t must remain strictly unchanged
+    diff_prefix = torch.max(torch.abs(out_orig[:, :t + 1, :] - out_mod[:, :t + 1, :])).item()
+    assert diff_prefix < 1e-6, f"Leakage detected! Positions <= {t} differed by {diff_prefix}"
+    
+    # Logits at positions > t must differ
+    diff_suffix = torch.max(torch.abs(out_orig[:, t + 1:, :] - out_mod[:, t + 1:, :])).item()
+    assert diff_suffix > 1e-3, f"Expected altered tokens to change suffix, but got diff {diff_suffix}"
