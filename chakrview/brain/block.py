@@ -2,6 +2,7 @@
 TransformerBlock module for ChakrView.
 """
 
+from typing import Optional
 import torch
 import torch.nn as nn
 from chakrview.brain.config import ModelConfig
@@ -25,16 +26,17 @@ class TransformerBlock(nn.Module):
         self.norm_2 = RMSNorm(config.d_model, eps=config.rms_norm_eps)
         self.ffn = SwiGLU(config)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, attention_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
         """
         Args:
             x: Residual state tensor of shape [B, T, d_model].
+            attention_mask: Optional mask tensor of shape [B, T].
             
         Returns:
             Updated state tensor of shape [B, T, d_model].
         """
         # Pre-norm attention residual
-        x = x + self.attn(self.norm_1(x))
+        x = x + self.attn(self.norm_1(x), attention_mask=attention_mask)
         # Pre-norm FFN residual
         x = x + self.ffn(self.norm_2(x))
         return x

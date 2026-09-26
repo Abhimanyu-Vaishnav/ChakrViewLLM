@@ -121,6 +121,14 @@ Empirically measured on Intel i9-13900H (Windows 11, PyTorch 2.14.0+cpu, 4 threa
 - Validated across $T \in \{1, 8, 32, 128, 512\}$ with zero crashes, finite values, and determinism under `model.eval()`.
 - Invalid sequence length ($T = 513$) is strictly rejected with explicit `ValueError`.
 
+### 5.8 Mathematical Invariant Validation
+- Dedicated mathematical validation suite (`tests/test_brain_mathematical_validation.py`):
+  1. RMSNorm: dim=-1 normalization, learnable $\gamma$, eps stability, verified absence of mean subtraction.
+  2. RoPE: exact pairwise 2D Givens rotations for $Q$ and $K$; verified $V$ strictly unrotated; tested up to $T=512$.
+  3. Attention: exact scale factor $1/\sqrt{d_{\text{head}}} = 1/\sqrt{32} \approx 0.1767767$, causal masking, softmax stability.
+  4. SwiGLU: verified $W_{\text{down}}(\text{SiLU}(W_{\text{gate}}(x)) \odot W_{\text{up}}(x))$ against manual reference tensor computation.
+  5. Weight tying: pointer equality and deduplication verified.
+
 ---
 
 ## 6. Comprehensive Memory Accounting

@@ -49,12 +49,17 @@ class ChakrMicro(nn.Module):
         # Apply deterministic initialization
         initialize_weights(self, config)
 
-    def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
+    def forward(
+        self,
+        input_ids: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+    ) -> torch.Tensor:
         """
         Forward pass from token IDs to next-token logits.
         
         Args:
             input_ids: Integer tensor of shape [B, T] where values are in [0, V-1].
+            attention_mask: Optional mask tensor of shape [B, T] (1 for valid, 0 for padding).
             
         Returns:
             Logits tensor of shape [B, T, vocab_size].
@@ -70,7 +75,7 @@ class ChakrMicro(nn.Module):
         
         # 2. Sequential transformer blocks: [B, T, d_model]
         for layer in self.layers:
-            x = layer(x)
+            x = layer(x, attention_mask=attention_mask)
             
         # 3. Final Pre-RMSNorm: [B, T, d_model]
         x = self.final_norm(x)
