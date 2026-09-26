@@ -1,0 +1,10 @@
+The x86-64 microarchitecture implements out-of-order execution pipelines with hardware branch predictors.
+Vector processing units support AVX2 256-bit wide registers (ymm0 through ymm15) executing 8 single-precision floats.
+AVX-512 extensions provide 512-bit registers (zmm0 through zmm31) doubling vector throughput per instruction cycle.
+ARM Cortex-A53 microarchitectures utilize in-order execution pipelines with 128-bit NEON vector processing units.
+Memory latency is mitigated through multi-level hardware caching: L1 data cache (32 KB), L2 cache (512 KB), and unified L3 cache.
+Direct memory access (DMA) engines transfer contiguous blocks of data without continuous CPU core polling.
+Matrix multiplication algorithms optimize inner loops using cache tiling to maximize L1/L2 data residency.
+Row-major memory layouts ensure unit-stride memory accesses, preventing translation lookaside buffer (TLB) misses.
+Instruction level parallelism (ILP) allows superscalar processors to issue multiple independent micro-ops simultaneously.
+Hardware performance counters measure instruction cache misses, branch mispredictions, and memory bus saturation.

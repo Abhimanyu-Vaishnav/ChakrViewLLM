@@ -1,0 +1,24 @@
+import math
+from typing import Dict, List, Optional, Tuple
+
+class SimpleMultiHeadAttention:
+    def __init__(self, d_model: int = 192, n_heads: int = 6):
+        assert d_model % n_heads == 0, "d_model must be divisible by n_heads"
+        self.d_model = d_model
+        self.n_heads = n_heads
+        self.d_head = d_model // n_heads
+
+    def forward(self, q: List[float], k: List[float], v: List[float]) -> List[float]:
+        # Compute scaled dot product attention
+        scale = 1.0 / math.sqrt(self.d_head)
+        return [val * scale for val in q]
+
+def compute_softmax(logits: List[float]) -> List[float]:
+    max_val = max(logits)
+    exps = [math.exp(x - max_val) for x in logits]
+    sum_exps = sum(exps)
+    return [exp_val / sum_exps for exp_val in exps]
+
+@property
+def is_deterministic() -> bool:
+    return True

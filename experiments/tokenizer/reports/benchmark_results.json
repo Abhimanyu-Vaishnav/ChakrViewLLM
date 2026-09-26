@@ -1,0 +1,3349 @@
+{
+  "benchmark_metadata": {
+    "title": "ChakrView Step 3 Empirical Tokenizer Benchmark",
+    "timestamp_iso": "2026-09-26T08:29:43Z",
+    "seed": 42,
+    "corpus_item_count": 748,
+    "corpus_utf8_bytes": 61644
+  },
+  "phase_3_4_vocabulary_candidates": {
+    "v2048": {
+      "candidate_name": "v2048",
+      "1_total_token_count": 18159,
+      "2_total_utf8_byte_count": 61644,
+      "3_tokens_per_character": 0.4047,
+      "4_tokens_per_word": 2.6779,
+      "5_bytes_per_token": 3.3947,
+      "6_compression_ratio": 3.3947,
+      "7_hindi_efficiency": {
+        "tokens_per_word": 2.463,
+        "bytes_per_token": 5.976
+      },
+      "8_english_efficiency": {
+        "tokens_per_word": 2.573,
+        "bytes_per_token": 3.062
+      },
+      "9_hinglish_efficiency": {
+        "tokens_per_word": 1.866,
+        "bytes_per_token": 3.178
+      },
+      "10_sanskrit_efficiency": {
+        "tokens_per_word": 3.869,
+        "bytes_per_token": 4.82
+      },
+      "11_code_efficiency": {
+        "tokens_per_word": 2.555,
+        "bytes_per_token": 2.918
+      },
+      "12_math_efficiency": {
+        "tokens_per_word": 2.461,
+        "bytes_per_token": 2.24
+      },
+      "13_numeric_efficiency": {
+        "tokens_per_word": 3.03,
+        "bytes_per_token": 1.972
+      },
+      "14_unicode_efficiency": {
+        "tokens_per_word": 2.851,
+        "bytes_per_token": 2.377
+      },
+      "15_emoji_efficiency": {
+        "tokens_per_word": 3.092,
+        "bytes_per_token": 2.134
+      },
+      "16_encode_latency_us_per_item": 429.76,
+      "17_decode_latency_us_per_item": 3.15,
+      "18_process_memory_kb": 435.7,
+      "19_tokenizer_merge_table_bytes": 446159,
+      "20_number_of_learned_merges": 1789,
+      "actual_vocab_size": 2048,
+      "failed_reconstructions": 0,
+      "is_lossless": true,
+      "category_breakdown": {
+        "code": {
+          "item_count": 109,
+          "bytes": 3692,
+          "chars": 3692,
+          "words": 454,
+          "tokens": 1118,
+          "tokens_per_char": 0.3028,
+          "tokens_per_word": 2.4626,
+          "bytes_per_token": 3.3023,
+          "compression_ratio": 3.3023
+        },
+        "currencies": {
+          "item_count": 8,
+          "bytes": 393,
+          "chars": 360,
+          "words": 50,
+          "tokens": 149,
+          "tokens_per_char": 0.4139,
+          "tokens_per_word": 2.98,
+          "bytes_per_token": 2.6376,
+          "compression_ratio": 2.6376
+        },
+        "dates": {
+          "item_count": 8,
+          "bytes": 324,
+          "chars": 324,
+          "words": 42,
+          "tokens": 156,
+          "tokens_per_char": 0.4815,
+          "tokens_per_word": 3.7143,
+          "bytes_per_token": 2.0769,
+          "compression_ratio": 2.0769
+        },
+        "devanagari_conjuncts": {
+          "item_count": 7,
+          "bytes": 829,
+          "chars": 297,
+          "words": 38,
+          "tokens": 136,
+          "tokens_per_char": 0.4579,
+          "tokens_per_word": 3.5789,
+          "bytes_per_token": 6.0956,
+          "compression_ratio": 6.0956
+        },
+        "emojis": {
+          "item_count": 9,
+          "bytes": 429,
+          "chars": 321,
+          "words": 65,
+          "tokens": 201,
+          "tokens_per_char": 0.6262,
+          "tokens_per_word": 3.0923,
+          "bytes_per_token": 2.1343,
+          "compression_ratio": 2.1343
+        },
+        "english": {
+          "item_count": 88,
+          "bytes": 9402,
+          "chars": 9402,
+          "words": 1193,
+          "tokens": 3070,
+          "tokens_per_char": 0.3265,
+          "tokens_per_word": 2.5733,
+          "bytes_per_token": 3.0625,
+          "compression_ratio": 3.0625
+        },
+        "hindi": {
+          "item_count": 86,
+          "bytes": 18562,
+          "chars": 7022,
+          "words": 1261,
+          "tokens": 3106,
+          "tokens_per_char": 0.4423,
+          "tokens_per_word": 2.4631,
+          "bytes_per_token": 5.9762,
+          "compression_ratio": 5.9762
+        },
+        "hinglish": {
+          "item_count": 58,
+          "bytes": 4293,
+          "chars": 4293,
+          "words": 724,
+          "tokens": 1351,
+          "tokens_per_char": 0.3147,
+          "tokens_per_word": 1.866,
+          "bytes_per_token": 3.1776,
+          "compression_ratio": 3.1776
+        },
+        "indian_names": {
+          "item_count": 10,
+          "bytes": 1607,
+          "chars": 911,
+          "words": 104,
+          "tokens": 511,
+          "tokens_per_char": 0.5609,
+          "tokens_per_word": 4.9135,
+          "bytes_per_token": 3.1448,
+          "compression_ratio": 3.1448
+        },
+        "json_data": {
+          "item_count": 32,
+          "bytes": 552,
+          "chars": 552,
+          "words": 54,
+          "tokens": 205,
+          "tokens_per_char": 0.3714,
+          "tokens_per_word": 3.7963,
+          "bytes_per_token": 2.6927,
+          "compression_ratio": 2.6927
+        },
+        "line_endings": {
+          "item_count": 11,
+          "bytes": 131,
+          "chars": 131,
+          "words": 11,
+          "tokens": 47,
+          "tokens_per_char": 0.3588,
+          "tokens_per_word": 4.2727,
+          "bytes_per_token": 2.7872,
+          "compression_ratio": 2.7872
+        },
+        "linux_paths": {
+          "item_count": 11,
+          "bytes": 405,
+          "chars": 405,
+          "words": 11,
+          "tokens": 181,
+          "tokens_per_char": 0.4469,
+          "tokens_per_word": 16.4545,
+          "bytes_per_token": 2.2376,
+          "compression_ratio": 2.2376
+        },
+        "math": {
+          "item_count": 42,
+          "bytes": 2602,
+          "chars": 2552,
+          "words": 382,
+          "tokens": 1183,
+          "tokens_per_char": 0.4636,
+          "tokens_per_word": 3.0969,
+          "bytes_per_token": 2.1995,
+          "compression_ratio": 2.1995
+        },
+        "mathematics": {
+          "item_count": 12,
+          "bytes": 616,
+          "chars": 616,
+          "words": 148,
+          "tokens": 270,
+          "tokens_per_char": 0.4383,
+          "tokens_per_word": 1.8243,
+          "bytes_per_token": 2.2815,
+          "compression_ratio": 2.2815
+        },
+        "mixed": {
+          "item_count": 37,
+          "bytes": 3420,
+          "chars": 3110,
+          "words": 502,
+          "tokens": 970,
+          "tokens_per_char": 0.3119,
+          "tokens_per_word": 1.9323,
+          "bytes_per_token": 3.5258,
+          "compression_ratio": 3.5258
+        },
+        "mixed_unicode": {
+          "item_count": 8,
+          "bytes": 690,
+          "chars": 578,
+          "words": 111,
+          "tokens": 280,
+          "tokens_per_char": 0.4844,
+          "tokens_per_word": 2.5225,
+          "bytes_per_token": 2.4643,
+          "compression_ratio": 2.4643
+        },
+        "numbers": {
+          "item_count": 60,
+          "bytes": 2425,
+          "chars": 2412,
+          "words": 406,
+          "tokens": 1230,
+          "tokens_per_char": 0.51,
+          "tokens_per_word": 3.0296,
+          "bytes_per_token": 1.9715,
+          "compression_ratio": 1.9715
+        },
+        "python_code": {
+          "item_count": 20,
+          "bytes": 803,
+          "chars": 803,
+          "words": 108,
+          "tokens": 222,
+          "tokens_per_char": 0.2765,
+          "tokens_per_word": 2.0556,
+          "bytes_per_token": 3.6171,
+          "compression_ratio": 3.6171
+        },
+        "raw_bytes": {
+          "item_count": 9,
+          "bytes": 669,
+          "chars": 669,
+          "words": 108,
+          "tokens": 203,
+          "tokens_per_char": 0.3034,
+          "tokens_per_word": 1.8796,
+          "bytes_per_token": 3.2956,
+          "compression_ratio": 3.2956
+        },
+        "sanskrit": {
+          "item_count": 10,
+          "bytes": 2275,
+          "chars": 833,
+          "words": 122,
+          "tokens": 472,
+          "tokens_per_char": 0.5666,
+          "tokens_per_word": 3.8689,
+          "bytes_per_token": 4.8199,
+          "compression_ratio": 4.8199
+        },
+        "scientific_notation": {
+          "item_count": 5,
+          "bytes": 195,
+          "chars": 195,
+          "words": 18,
+          "tokens": 117,
+          "tokens_per_char": 0.6,
+          "tokens_per_word": 6.5,
+          "bytes_per_token": 1.6667,
+          "compression_ratio": 1.6667
+        },
+        "technical": {
+          "item_count": 10,
+          "bytes": 1139,
+          "chars": 1139,
+          "words": 142,
+          "tokens": 358,
+          "tokens_per_char": 0.3143,
+          "tokens_per_word": 2.5211,
+          "bytes_per_token": 3.1816,
+          "compression_ratio": 3.1816
+        },
+        "unicode": {
+          "item_count": 58,
+          "bytes": 4405,
+          "chars": 2626,
+          "words": 605,
+          "tokens": 1924,
+          "tokens_per_char": 0.7327,
+          "tokens_per_word": 3.1802,
+          "bytes_per_token": 2.2895,
+          "compression_ratio": 2.2895
+        },
+        "urls": {
+          "item_count": 10,
+          "bytes": 510,
+          "chars": 474,
+          "words": 10,
+          "tokens": 206,
+          "tokens_per_char": 0.4346,
+          "tokens_per_word": 20.6,
+          "bytes_per_token": 2.4757,
+          "compression_ratio": 2.4757
+        },
+        "whitespace": {
+          "item_count": 12,
+          "bytes": 359,
+          "chars": 359,
+          "words": 46,
+          "tokens": 132,
+          "tokens_per_char": 0.3677,
+          "tokens_per_word": 2.8696,
+          "bytes_per_token": 2.7197,
+          "compression_ratio": 2.7197
+        },
+        "windows_paths": {
+          "item_count": 10,
+          "bytes": 516,
+          "chars": 516,
+          "words": 12,
+          "tokens": 215,
+          "tokens_per_char": 0.4167,
+          "tokens_per_word": 17.9167,
+          "bytes_per_token": 2.4,
+          "compression_ratio": 2.4
+        },
+        "zwj_zwnj": {
+          "item_count": 8,
+          "bytes": 401,
+          "chars": 279,
+          "words": 54,
+          "tokens": 146,
+          "tokens_per_char": 0.5233,
+          "tokens_per_word": 2.7037,
+          "bytes_per_token": 2.7466,
+          "compression_ratio": 2.7466
+        }
+      }
+    },
+    "v4096": {
+      "candidate_name": "v4096",
+      "1_total_token_count": 13397,
+      "2_total_utf8_byte_count": 61644,
+      "3_tokens_per_character": 0.2986,
+      "4_tokens_per_word": 1.9757,
+      "5_bytes_per_token": 4.6013,
+      "6_compression_ratio": 4.6013,
+      "7_hindi_efficiency": {
+        "tokens_per_word": 1.763,
+        "bytes_per_token": 8.35
+      },
+      "8_english_efficiency": {
+        "tokens_per_word": 1.885,
+        "bytes_per_token": 4.181
+      },
+      "9_hinglish_efficiency": {
+        "tokens_per_word": 1.304,
+        "bytes_per_token": 4.548
+      },
+      "10_sanskrit_efficiency": {
+        "tokens_per_word": 3.074,
+        "bytes_per_token": 6.067
+      },
+      "11_code_efficiency": {
+        "tokens_per_word": 1.979,
+        "bytes_per_token": 3.82
+      },
+      "12_math_efficiency": {
+        "tokens_per_word": 1.721,
+        "bytes_per_token": 3.219
+      },
+      "13_numeric_efficiency": {
+        "tokens_per_word": 2.32,
+        "bytes_per_token": 2.574
+      },
+      "14_unicode_efficiency": {
+        "tokens_per_word": 2.295,
+        "bytes_per_token": 2.962
+      },
+      "15_emoji_efficiency": {
+        "tokens_per_word": 2.277,
+        "bytes_per_token": 2.899
+      },
+      "16_encode_latency_us_per_item": 578.17,
+      "17_decode_latency_us_per_item": 2.6,
+      "18_process_memory_kb": 900.34,
+      "19_tokenizer_merge_table_bytes": 921944,
+      "20_number_of_learned_merges": 3837,
+      "actual_vocab_size": 4096,
+      "failed_reconstructions": 0,
+      "is_lossless": true,
+      "category_breakdown": {
+        "code": {
+          "item_count": 109,
+          "bytes": 3692,
+          "chars": 3692,
+          "words": 454,
+          "tokens": 792,
+          "tokens_per_char": 0.2145,
+          "tokens_per_word": 1.7445,
+          "bytes_per_token": 4.6616,
+          "compression_ratio": 4.6616
+        },
+        "currencies": {
+          "item_count": 8,
+          "bytes": 393,
+          "chars": 360,
+          "words": 50,
+          "tokens": 120,
+          "tokens_per_char": 0.3333,
+          "tokens_per_word": 2.4,
+          "bytes_per_token": 3.275,
+          "compression_ratio": 3.275
+        },
+        "dates": {
+          "item_count": 8,
+          "bytes": 324,
+          "chars": 324,
+          "words": 42,
+          "tokens": 111,
+          "tokens_per_char": 0.3426,
+          "tokens_per_word": 2.6429,
+          "bytes_per_token": 2.9189,
+          "compression_ratio": 2.9189
+        },
+        "devanagari_conjuncts": {
+          "item_count": 7,
+          "bytes": 829,
+          "chars": 297,
+          "words": 38,
+          "tokens": 95,
+          "tokens_per_char": 0.3199,
+          "tokens_per_word": 2.5,
+          "bytes_per_token": 8.7263,
+          "compression_ratio": 8.7263
+        },
+        "emojis": {
+          "item_count": 9,
+          "bytes": 429,
+          "chars": 321,
+          "words": 65,
+          "tokens": 148,
+          "tokens_per_char": 0.4611,
+          "tokens_per_word": 2.2769,
+          "bytes_per_token": 2.8986,
+          "compression_ratio": 2.8986
+        },
+        "english": {
+          "item_count": 88,
+          "bytes": 9402,
+          "chars": 9402,
+          "words": 1193,
+          "tokens": 2249,
+          "tokens_per_char": 0.2392,
+          "tokens_per_word": 1.8852,
+          "bytes_per_token": 4.1805,
+          "compression_ratio": 4.1805
+        },
+        "hindi": {
+          "item_count": 86,
+          "bytes": 18562,
+          "chars": 7022,
+          "words": 1261,
+          "tokens": 2223,
+          "tokens_per_char": 0.3166,
+          "tokens_per_word": 1.7629,
+          "bytes_per_token": 8.35,
+          "compression_ratio": 8.35
+        },
+        "hinglish": {
+          "item_count": 58,
+          "bytes": 4293,
+          "chars": 4293,
+          "words": 724,
+          "tokens": 944,
+          "tokens_per_char": 0.2199,
+          "tokens_per_word": 1.3039,
+          "bytes_per_token": 4.5477,
+          "compression_ratio": 4.5477
+        },
+        "indian_names": {
+          "item_count": 10,
+          "bytes": 1607,
+          "chars": 911,
+          "words": 104,
+          "tokens": 396,
+          "tokens_per_char": 0.4347,
+          "tokens_per_word": 3.8077,
+          "bytes_per_token": 4.0581,
+          "compression_ratio": 4.0581
+        },
+        "json_data": {
+          "item_count": 32,
+          "bytes": 552,
+          "chars": 552,
+          "words": 54,
+          "tokens": 159,
+          "tokens_per_char": 0.288,
+          "tokens_per_word": 2.9444,
+          "bytes_per_token": 3.4717,
+          "compression_ratio": 3.4717
+        },
+        "line_endings": {
+          "item_count": 11,
+          "bytes": 131,
+          "chars": 131,
+          "words": 11,
+          "tokens": 32,
+          "tokens_per_char": 0.2443,
+          "tokens_per_word": 2.9091,
+          "bytes_per_token": 4.0938,
+          "compression_ratio": 4.0938
+        },
+        "linux_paths": {
+          "item_count": 11,
+          "bytes": 405,
+          "chars": 405,
+          "words": 11,
+          "tokens": 130,
+          "tokens_per_char": 0.321,
+          "tokens_per_word": 11.8182,
+          "bytes_per_token": 3.1154,
+          "compression_ratio": 3.1154
+        },
+        "math": {
+          "item_count": 42,
+          "bytes": 2602,
+          "chars": 2552,
+          "words": 382,
+          "tokens": 837,
+          "tokens_per_char": 0.328,
+          "tokens_per_word": 2.1911,
+          "bytes_per_token": 3.1087,
+          "compression_ratio": 3.1087
+        },
+        "mathematics": {
+          "item_count": 12,
+          "bytes": 616,
+          "chars": 616,
+          "words": 148,
+          "tokens": 185,
+          "tokens_per_char": 0.3003,
+          "tokens_per_word": 1.25,
+          "bytes_per_token": 3.3297,
+          "compression_ratio": 3.3297
+        },
+        "mixed": {
+          "item_count": 37,
+          "bytes": 3420,
+          "chars": 3110,
+          "words": 502,
+          "tokens": 703,
+          "tokens_per_char": 0.226,
+          "tokens_per_word": 1.4004,
+          "bytes_per_token": 4.8649,
+          "compression_ratio": 4.8649
+        },
+        "mixed_unicode": {
+          "item_count": 8,
+          "bytes": 690,
+          "chars": 578,
+          "words": 111,
+          "tokens": 221,
+          "tokens_per_char": 0.3824,
+          "tokens_per_word": 1.991,
+          "bytes_per_token": 3.1222,
+          "compression_ratio": 3.1222
+        },
+        "numbers": {
+          "item_count": 60,
+          "bytes": 2425,
+          "chars": 2412,
+          "words": 406,
+          "tokens": 942,
+          "tokens_per_char": 0.3905,
+          "tokens_per_word": 2.3202,
+          "bytes_per_token": 2.5743,
+          "compression_ratio": 2.5743
+        },
+        "python_code": {
+          "item_count": 20,
+          "bytes": 803,
+          "chars": 803,
+          "words": 108,
+          "tokens": 171,
+          "tokens_per_char": 0.213,
+          "tokens_per_word": 1.5833,
+          "bytes_per_token": 4.6959,
+          "compression_ratio": 4.6959
+        },
+        "raw_bytes": {
+          "item_count": 9,
+          "bytes": 669,
+          "chars": 669,
+          "words": 108,
+          "tokens": 145,
+          "tokens_per_char": 0.2167,
+          "tokens_per_word": 1.3426,
+          "bytes_per_token": 4.6138,
+          "compression_ratio": 4.6138
+        },
+        "sanskrit": {
+          "item_count": 10,
+          "bytes": 2275,
+          "chars": 833,
+          "words": 122,
+          "tokens": 375,
+          "tokens_per_char": 0.4502,
+          "tokens_per_word": 3.0738,
+          "bytes_per_token": 6.0667,
+          "compression_ratio": 6.0667
+        },
+        "scientific_notation": {
+          "item_count": 5,
+          "bytes": 195,
+          "chars": 195,
+          "words": 18,
+          "tokens": 91,
+          "tokens_per_char": 0.4667,
+          "tokens_per_word": 5.0556,
+          "bytes_per_token": 2.1429,
+          "compression_ratio": 2.1429
+        },
+        "technical": {
+          "item_count": 10,
+          "bytes": 1139,
+          "chars": 1139,
+          "words": 142,
+          "tokens": 258,
+          "tokens_per_char": 0.2265,
+          "tokens_per_word": 1.8169,
+          "bytes_per_token": 4.4147,
+          "compression_ratio": 4.4147
+        },
+        "unicode": {
+          "item_count": 58,
+          "bytes": 4405,
+          "chars": 2626,
+          "words": 605,
+          "tokens": 1572,
+          "tokens_per_char": 0.5986,
+          "tokens_per_word": 2.5983,
+          "bytes_per_token": 2.8022,
+          "compression_ratio": 2.8022
+        },
+        "urls": {
+          "item_count": 10,
+          "bytes": 510,
+          "chars": 474,
+          "words": 10,
+          "tokens": 141,
+          "tokens_per_char": 0.2975,
+          "tokens_per_word": 14.1,
+          "bytes_per_token": 3.617,
+          "compression_ratio": 3.617
+        },
+        "whitespace": {
+          "item_count": 12,
+          "bytes": 359,
+          "chars": 359,
+          "words": 46,
+          "tokens": 94,
+          "tokens_per_char": 0.2618,
+          "tokens_per_word": 2.0435,
+          "bytes_per_token": 3.8191,
+          "compression_ratio": 3.8191
+        },
+        "windows_paths": {
+          "item_count": 10,
+          "bytes": 516,
+          "chars": 516,
+          "words": 12,
+          "tokens": 162,
+          "tokens_per_char": 0.314,
+          "tokens_per_word": 13.5,
+          "bytes_per_token": 3.1852,
+          "compression_ratio": 3.1852
+        },
+        "zwj_zwnj": {
+          "item_count": 8,
+          "bytes": 401,
+          "chars": 279,
+          "words": 54,
+          "tokens": 101,
+          "tokens_per_char": 0.362,
+          "tokens_per_word": 1.8704,
+          "bytes_per_token": 3.9703,
+          "compression_ratio": 3.9703
+        }
+      }
+    },
+    "v8192": {
+      "candidate_name": "v8192",
+      "1_total_token_count": 8907,
+      "2_total_utf8_byte_count": 61644,
+      "3_tokens_per_character": 0.1985,
+      "4_tokens_per_word": 1.3135,
+      "5_bytes_per_token": 6.9208,
+      "6_compression_ratio": 6.9208,
+      "7_hindi_efficiency": {
+        "tokens_per_word": 1.197,
+        "bytes_per_token": 12.301
+      },
+      "8_english_efficiency": {
+        "tokens_per_word": 1.294,
+        "bytes_per_token": 6.089
+      },
+      "9_hinglish_efficiency": {
+        "tokens_per_word": 0.975,
+        "bytes_per_token": 6.081
+      },
+      "10_sanskrit_efficiency": {
+        "tokens_per_word": 2.008,
+        "bytes_per_token": 9.286
+      },
+      "11_code_efficiency": {
+        "tokens_per_word": 1.194,
+        "bytes_per_token": 6.195
+      },
+      "12_math_efficiency": {
+        "tokens_per_word": 1.157,
+        "bytes_per_token": 4.717
+      },
+      "13_numeric_efficiency": {
+        "tokens_per_word": 1.562,
+        "bytes_per_token": 3.825
+      },
+      "14_unicode_efficiency": {
+        "tokens_per_word": 1.294,
+        "bytes_per_token": 5.257
+      },
+      "15_emoji_efficiency": {
+        "tokens_per_word": 1.385,
+        "bytes_per_token": 4.767
+      },
+      "16_encode_latency_us_per_item": 857.56,
+      "17_decode_latency_us_per_item": 2.03,
+      "18_process_memory_kb": 1832.22,
+      "19_tokenizer_merge_table_bytes": 1876193,
+      "20_number_of_learned_merges": 7933,
+      "actual_vocab_size": 8192,
+      "failed_reconstructions": 0,
+      "is_lossless": true,
+      "category_breakdown": {
+        "code": {
+          "item_count": 109,
+          "bytes": 3692,
+          "chars": 3692,
+          "words": 454,
+          "tokens": 530,
+          "tokens_per_char": 0.1436,
+          "tokens_per_word": 1.1674,
+          "bytes_per_token": 6.966,
+          "compression_ratio": 6.966
+        },
+        "currencies": {
+          "item_count": 8,
+          "bytes": 393,
+          "chars": 360,
+          "words": 50,
+          "tokens": 88,
+          "tokens_per_char": 0.2444,
+          "tokens_per_word": 1.76,
+          "bytes_per_token": 4.4659,
+          "compression_ratio": 4.4659
+        },
+        "dates": {
+          "item_count": 8,
+          "bytes": 324,
+          "chars": 324,
+          "words": 42,
+          "tokens": 70,
+          "tokens_per_char": 0.216,
+          "tokens_per_word": 1.6667,
+          "bytes_per_token": 4.6286,
+          "compression_ratio": 4.6286
+        },
+        "devanagari_conjuncts": {
+          "item_count": 7,
+          "bytes": 829,
+          "chars": 297,
+          "words": 38,
+          "tokens": 61,
+          "tokens_per_char": 0.2054,
+          "tokens_per_word": 1.6053,
+          "bytes_per_token": 13.5902,
+          "compression_ratio": 13.5902
+        },
+        "emojis": {
+          "item_count": 9,
+          "bytes": 429,
+          "chars": 321,
+          "words": 65,
+          "tokens": 90,
+          "tokens_per_char": 0.2804,
+          "tokens_per_word": 1.3846,
+          "bytes_per_token": 4.7667,
+          "compression_ratio": 4.7667
+        },
+        "english": {
+          "item_count": 88,
+          "bytes": 9402,
+          "chars": 9402,
+          "words": 1193,
+          "tokens": 1544,
+          "tokens_per_char": 0.1642,
+          "tokens_per_word": 1.2942,
+          "bytes_per_token": 6.0894,
+          "compression_ratio": 6.0894
+        },
+        "hindi": {
+          "item_count": 86,
+          "bytes": 18562,
+          "chars": 7022,
+          "words": 1261,
+          "tokens": 1509,
+          "tokens_per_char": 0.2149,
+          "tokens_per_word": 1.1967,
+          "bytes_per_token": 12.3009,
+          "compression_ratio": 12.3009
+        },
+        "hinglish": {
+          "item_count": 58,
+          "bytes": 4293,
+          "chars": 4293,
+          "words": 724,
+          "tokens": 706,
+          "tokens_per_char": 0.1645,
+          "tokens_per_word": 0.9751,
+          "bytes_per_token": 6.0807,
+          "compression_ratio": 6.0807
+        },
+        "indian_names": {
+          "item_count": 10,
+          "bytes": 1607,
+          "chars": 911,
+          "words": 104,
+          "tokens": 248,
+          "tokens_per_char": 0.2722,
+          "tokens_per_word": 2.3846,
+          "bytes_per_token": 6.4798,
+          "compression_ratio": 6.4798
+        },
+        "json_data": {
+          "item_count": 32,
+          "bytes": 552,
+          "chars": 552,
+          "words": 54,
+          "tokens": 126,
+          "tokens_per_char": 0.2283,
+          "tokens_per_word": 2.3333,
+          "bytes_per_token": 4.381,
+          "compression_ratio": 4.381
+        },
+        "line_endings": {
+          "item_count": 11,
+          "bytes": 131,
+          "chars": 131,
+          "words": 11,
+          "tokens": 28,
+          "tokens_per_char": 0.2137,
+          "tokens_per_word": 2.5455,
+          "bytes_per_token": 4.6786,
+          "compression_ratio": 4.6786
+        },
+        "linux_paths": {
+          "item_count": 11,
+          "bytes": 405,
+          "chars": 405,
+          "words": 11,
+          "tokens": 81,
+          "tokens_per_char": 0.2,
+          "tokens_per_word": 7.3636,
+          "bytes_per_token": 5.0,
+          "compression_ratio": 5.0
+        },
+        "math": {
+          "item_count": 42,
+          "bytes": 2602,
+          "chars": 2552,
+          "words": 382,
+          "tokens": 538,
+          "tokens_per_char": 0.2108,
+          "tokens_per_word": 1.4084,
+          "bytes_per_token": 4.8364,
+          "compression_ratio": 4.8364
+        },
+        "mathematics": {
+          "item_count": 12,
+          "bytes": 616,
+          "chars": 616,
+          "words": 148,
+          "tokens": 134,
+          "tokens_per_char": 0.2175,
+          "tokens_per_word": 0.9054,
+          "bytes_per_token": 4.597,
+          "compression_ratio": 4.597
+        },
+        "mixed": {
+          "item_count": 37,
+          "bytes": 3420,
+          "chars": 3110,
+          "words": 502,
+          "tokens": 497,
+          "tokens_per_char": 0.1598,
+          "tokens_per_word": 0.99,
+          "bytes_per_token": 6.8813,
+          "compression_ratio": 6.8813
+        },
+        "mixed_unicode": {
+          "item_count": 8,
+          "bytes": 690,
+          "chars": 578,
+          "words": 111,
+          "tokens": 124,
+          "tokens_per_char": 0.2145,
+          "tokens_per_word": 1.1171,
+          "bytes_per_token": 5.5645,
+          "compression_ratio": 5.5645
+        },
+        "numbers": {
+          "item_count": 60,
+          "bytes": 2425,
+          "chars": 2412,
+          "words": 406,
+          "tokens": 634,
+          "tokens_per_char": 0.2629,
+          "tokens_per_word": 1.5616,
+          "bytes_per_token": 3.8249,
+          "compression_ratio": 3.8249
+        },
+        "python_code": {
+          "item_count": 20,
+          "bytes": 803,
+          "chars": 803,
+          "words": 108,
+          "tokens": 110,
+          "tokens_per_char": 0.137,
+          "tokens_per_word": 1.0185,
+          "bytes_per_token": 7.3,
+          "compression_ratio": 7.3
+        },
+        "raw_bytes": {
+          "item_count": 9,
+          "bytes": 669,
+          "chars": 669,
+          "words": 108,
+          "tokens": 94,
+          "tokens_per_char": 0.1405,
+          "tokens_per_word": 0.8704,
+          "bytes_per_token": 7.117,
+          "compression_ratio": 7.117
+        },
+        "sanskrit": {
+          "item_count": 10,
+          "bytes": 2275,
+          "chars": 833,
+          "words": 122,
+          "tokens": 245,
+          "tokens_per_char": 0.2941,
+          "tokens_per_word": 2.0082,
+          "bytes_per_token": 9.2857,
+          "compression_ratio": 9.2857
+        },
+        "scientific_notation": {
+          "item_count": 5,
+          "bytes": 195,
+          "chars": 195,
+          "words": 18,
+          "tokens": 67,
+          "tokens_per_char": 0.3436,
+          "tokens_per_word": 3.7222,
+          "bytes_per_token": 2.9104,
+          "compression_ratio": 2.9104
+        },
+        "technical": {
+          "item_count": 10,
+          "bytes": 1139,
+          "chars": 1139,
+          "words": 142,
+          "tokens": 180,
+          "tokens_per_char": 0.158,
+          "tokens_per_word": 1.2676,
+          "bytes_per_token": 6.3278,
+          "compression_ratio": 6.3278
+        },
+        "unicode": {
+          "item_count": 58,
+          "bytes": 4405,
+          "chars": 2626,
+          "words": 605,
+          "tokens": 890,
+          "tokens_per_char": 0.3389,
+          "tokens_per_word": 1.4711,
+          "bytes_per_token": 4.9494,
+          "compression_ratio": 4.9494
+        },
+        "urls": {
+          "item_count": 10,
+          "bytes": 510,
+          "chars": 474,
+          "words": 10,
+          "tokens": 91,
+          "tokens_per_char": 0.192,
+          "tokens_per_word": 9.1,
+          "bytes_per_token": 5.6044,
+          "compression_ratio": 5.6044
+        },
+        "whitespace": {
+          "item_count": 12,
+          "bytes": 359,
+          "chars": 359,
+          "words": 46,
+          "tokens": 53,
+          "tokens_per_char": 0.1476,
+          "tokens_per_word": 1.1522,
+          "bytes_per_token": 6.7736,
+          "compression_ratio": 6.7736
+        },
+        "windows_paths": {
+          "item_count": 10,
+          "bytes": 516,
+          "chars": 516,
+          "words": 12,
+          "tokens": 102,
+          "tokens_per_char": 0.1977,
+          "tokens_per_word": 8.5,
+          "bytes_per_token": 5.0588,
+          "compression_ratio": 5.0588
+        },
+        "zwj_zwnj": {
+          "item_count": 8,
+          "bytes": 401,
+          "chars": 279,
+          "words": 54,
+          "tokens": 67,
+          "tokens_per_char": 0.2401,
+          "tokens_per_word": 1.2407,
+          "bytes_per_token": 5.9851,
+          "compression_ratio": 5.9851
+        }
+      }
+    },
+    "v16384": {
+      "candidate_name": "v16384",
+      "1_total_token_count": 748,
+      "2_total_utf8_byte_count": 61644,
+      "3_tokens_per_character": 0.0167,
+      "4_tokens_per_word": 0.1103,
+      "5_bytes_per_token": 82.4118,
+      "6_compression_ratio": 82.4118,
+      "7_hindi_efficiency": {
+        "tokens_per_word": 0.068,
+        "bytes_per_token": 215.837
+      },
+      "8_english_efficiency": {
+        "tokens_per_word": 0.074,
+        "bytes_per_token": 106.841
+      },
+      "9_hinglish_efficiency": {
+        "tokens_per_word": 0.08,
+        "bytes_per_token": 74.017
+      },
+      "10_sanskrit_efficiency": {
+        "tokens_per_word": 0.082,
+        "bytes_per_token": 227.5
+      },
+      "11_code_efficiency": {
+        "tokens_per_word": 0.148,
+        "bytes_per_token": 59.055
+      },
+      "12_math_efficiency": {
+        "tokens_per_word": 0.096,
+        "bytes_per_token": 56.643
+      },
+      "13_numeric_efficiency": {
+        "tokens_per_word": 0.148,
+        "bytes_per_token": 40.417
+      },
+      "14_unicode_efficiency": {
+        "tokens_per_word": 0.084,
+        "bytes_per_token": 81.099
+      },
+      "15_emoji_efficiency": {
+        "tokens_per_word": 0.139,
+        "bytes_per_token": 47.667
+      },
+      "16_encode_latency_us_per_item": 1391.55,
+      "17_decode_latency_us_per_item": 0.5,
+      "18_process_memory_kb": 3875.76,
+      "19_tokenizer_merge_table_bytes": 3968777,
+      "20_number_of_learned_merges": 16092,
+      "actual_vocab_size": 16351,
+      "failed_reconstructions": 0,
+      "is_lossless": true,
+      "category_breakdown": {
+        "code": {
+          "item_count": 109,
+          "bytes": 3692,
+          "chars": 3692,
+          "words": 454,
+          "tokens": 109,
+          "tokens_per_char": 0.0295,
+          "tokens_per_word": 0.2401,
+          "bytes_per_token": 33.8716,
+          "compression_ratio": 33.8716
+        },
+        "currencies": {
+          "item_count": 8,
+          "bytes": 393,
+          "chars": 360,
+          "words": 50,
+          "tokens": 8,
+          "tokens_per_char": 0.0222,
+          "tokens_per_word": 0.16,
+          "bytes_per_token": 49.125,
+          "compression_ratio": 49.125
+        },
+        "dates": {
+          "item_count": 8,
+          "bytes": 324,
+          "chars": 324,
+          "words": 42,
+          "tokens": 8,
+          "tokens_per_char": 0.0247,
+          "tokens_per_word": 0.1905,
+          "bytes_per_token": 40.5,
+          "compression_ratio": 40.5
+        },
+        "devanagari_conjuncts": {
+          "item_count": 7,
+          "bytes": 829,
+          "chars": 297,
+          "words": 38,
+          "tokens": 7,
+          "tokens_per_char": 0.0236,
+          "tokens_per_word": 0.1842,
+          "bytes_per_token": 118.4286,
+          "compression_ratio": 118.4286
+        },
+        "emojis": {
+          "item_count": 9,
+          "bytes": 429,
+          "chars": 321,
+          "words": 65,
+          "tokens": 9,
+          "tokens_per_char": 0.028,
+          "tokens_per_word": 0.1385,
+          "bytes_per_token": 47.6667,
+          "compression_ratio": 47.6667
+        },
+        "english": {
+          "item_count": 88,
+          "bytes": 9402,
+          "chars": 9402,
+          "words": 1193,
+          "tokens": 88,
+          "tokens_per_char": 0.0094,
+          "tokens_per_word": 0.0738,
+          "bytes_per_token": 106.8409,
+          "compression_ratio": 106.8409
+        },
+        "hindi": {
+          "item_count": 86,
+          "bytes": 18562,
+          "chars": 7022,
+          "words": 1261,
+          "tokens": 86,
+          "tokens_per_char": 0.0122,
+          "tokens_per_word": 0.0682,
+          "bytes_per_token": 215.8372,
+          "compression_ratio": 215.8372
+        },
+        "hinglish": {
+          "item_count": 58,
+          "bytes": 4293,
+          "chars": 4293,
+          "words": 724,
+          "tokens": 58,
+          "tokens_per_char": 0.0135,
+          "tokens_per_word": 0.0801,
+          "bytes_per_token": 74.0172,
+          "compression_ratio": 74.0172
+        },
+        "indian_names": {
+          "item_count": 10,
+          "bytes": 1607,
+          "chars": 911,
+          "words": 104,
+          "tokens": 10,
+          "tokens_per_char": 0.011,
+          "tokens_per_word": 0.0962,
+          "bytes_per_token": 160.7,
+          "compression_ratio": 160.7
+        },
+        "json_data": {
+          "item_count": 32,
+          "bytes": 552,
+          "chars": 552,
+          "words": 54,
+          "tokens": 32,
+          "tokens_per_char": 0.058,
+          "tokens_per_word": 0.5926,
+          "bytes_per_token": 17.25,
+          "compression_ratio": 17.25
+        },
+        "line_endings": {
+          "item_count": 11,
+          "bytes": 131,
+          "chars": 131,
+          "words": 11,
+          "tokens": 11,
+          "tokens_per_char": 0.084,
+          "tokens_per_word": 1.0,
+          "bytes_per_token": 11.9091,
+          "compression_ratio": 11.9091
+        },
+        "linux_paths": {
+          "item_count": 11,
+          "bytes": 405,
+          "chars": 405,
+          "words": 11,
+          "tokens": 11,
+          "tokens_per_char": 0.0272,
+          "tokens_per_word": 1.0,
+          "bytes_per_token": 36.8182,
+          "compression_ratio": 36.8182
+        },
+        "math": {
+          "item_count": 42,
+          "bytes": 2602,
+          "chars": 2552,
+          "words": 382,
+          "tokens": 42,
+          "tokens_per_char": 0.0165,
+          "tokens_per_word": 0.1099,
+          "bytes_per_token": 61.9524,
+          "compression_ratio": 61.9524
+        },
+        "mathematics": {
+          "item_count": 12,
+          "bytes": 616,
+          "chars": 616,
+          "words": 148,
+          "tokens": 12,
+          "tokens_per_char": 0.0195,
+          "tokens_per_word": 0.0811,
+          "bytes_per_token": 51.3333,
+          "compression_ratio": 51.3333
+        },
+        "mixed": {
+          "item_count": 37,
+          "bytes": 3420,
+          "chars": 3110,
+          "words": 502,
+          "tokens": 37,
+          "tokens_per_char": 0.0119,
+          "tokens_per_word": 0.0737,
+          "bytes_per_token": 92.4324,
+          "compression_ratio": 92.4324
+        },
+        "mixed_unicode": {
+          "item_count": 8,
+          "bytes": 690,
+          "chars": 578,
+          "words": 111,
+          "tokens": 8,
+          "tokens_per_char": 0.0138,
+          "tokens_per_word": 0.0721,
+          "bytes_per_token": 86.25,
+          "compression_ratio": 86.25
+        },
+        "numbers": {
+          "item_count": 60,
+          "bytes": 2425,
+          "chars": 2412,
+          "words": 406,
+          "tokens": 60,
+          "tokens_per_char": 0.0249,
+          "tokens_per_word": 0.1478,
+          "bytes_per_token": 40.4167,
+          "compression_ratio": 40.4167
+        },
+        "python_code": {
+          "item_count": 20,
+          "bytes": 803,
+          "chars": 803,
+          "words": 108,
+          "tokens": 20,
+          "tokens_per_char": 0.0249,
+          "tokens_per_word": 0.1852,
+          "bytes_per_token": 40.15,
+          "compression_ratio": 40.15
+        },
+        "raw_bytes": {
+          "item_count": 9,
+          "bytes": 669,
+          "chars": 669,
+          "words": 108,
+          "tokens": 9,
+          "tokens_per_char": 0.0135,
+          "tokens_per_word": 0.0833,
+          "bytes_per_token": 74.3333,
+          "compression_ratio": 74.3333
+        },
+        "sanskrit": {
+          "item_count": 10,
+          "bytes": 2275,
+          "chars": 833,
+          "words": 122,
+          "tokens": 10,
+          "tokens_per_char": 0.012,
+          "tokens_per_word": 0.082,
+          "bytes_per_token": 227.5,
+          "compression_ratio": 227.5
+        },
+        "scientific_notation": {
+          "item_count": 5,
+          "bytes": 195,
+          "chars": 195,
+          "words": 18,
+          "tokens": 5,
+          "tokens_per_char": 0.0256,
+          "tokens_per_word": 0.2778,
+          "bytes_per_token": 39.0,
+          "compression_ratio": 39.0
+        },
+        "technical": {
+          "item_count": 10,
+          "bytes": 1139,
+          "chars": 1139,
+          "words": 142,
+          "tokens": 10,
+          "tokens_per_char": 0.0088,
+          "tokens_per_word": 0.0704,
+          "bytes_per_token": 113.9,
+          "compression_ratio": 113.9
+        },
+        "unicode": {
+          "item_count": 58,
+          "bytes": 4405,
+          "chars": 2626,
+          "words": 605,
+          "tokens": 58,
+          "tokens_per_char": 0.0221,
+          "tokens_per_word": 0.0959,
+          "bytes_per_token": 75.9483,
+          "compression_ratio": 75.9483
+        },
+        "urls": {
+          "item_count": 10,
+          "bytes": 510,
+          "chars": 474,
+          "words": 10,
+          "tokens": 10,
+          "tokens_per_char": 0.0211,
+          "tokens_per_word": 1.0,
+          "bytes_per_token": 51.0,
+          "compression_ratio": 51.0
+        },
+        "whitespace": {
+          "item_count": 12,
+          "bytes": 359,
+          "chars": 359,
+          "words": 46,
+          "tokens": 12,
+          "tokens_per_char": 0.0334,
+          "tokens_per_word": 0.2609,
+          "bytes_per_token": 29.9167,
+          "compression_ratio": 29.9167
+        },
+        "windows_paths": {
+          "item_count": 10,
+          "bytes": 516,
+          "chars": 516,
+          "words": 12,
+          "tokens": 10,
+          "tokens_per_char": 0.0194,
+          "tokens_per_word": 0.8333,
+          "bytes_per_token": 51.6,
+          "compression_ratio": 51.6
+        },
+        "zwj_zwnj": {
+          "item_count": 8,
+          "bytes": 401,
+          "chars": 279,
+          "words": 54,
+          "tokens": 8,
+          "tokens_per_char": 0.0287,
+          "tokens_per_word": 0.1481,
+          "bytes_per_token": 50.125,
+          "compression_ratio": 50.125
+        }
+      }
+    }
+  },
+  "phase_3_6_numeric_tokenization": {
+    "benchmark_name": "Phase_3_6_Numeric_Tokenization_Experiment",
+    "total_test_items": 25,
+    "total_bytes": 165,
+    "aggregates": {
+      "strategy_A_single_digit": {
+        "total_tokens": 154,
+        "avg_tokens_per_item": 6.16,
+        "expansion_ratio_vs_normal_bpe": 2.11,
+        "all_lossless": true
+      },
+      "strategy_B_two_digit": {
+        "total_tokens": 107,
+        "avg_tokens_per_item": 4.28,
+        "expansion_ratio_vs_normal_bpe": 1.466,
+        "all_lossless": true
+      },
+      "strategy_C_normal_bpe": {
+        "total_tokens": 73,
+        "avg_tokens_per_item": 2.92,
+        "expansion_ratio_vs_normal_bpe": 1.0,
+        "all_lossless": true
+      }
+    },
+    "item_breakdown": [
+      {
+        "text": "0",
+        "utf8_bytes": 1,
+        "strategy_A_single_digit": {
+          "token_count": 1,
+          "tokens": [
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            51
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "1",
+        "utf8_bytes": 1,
+        "strategy_A_single_digit": {
+          "token_count": 1,
+          "tokens": [
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            52
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "9",
+        "utf8_bytes": 1,
+        "strategy_A_single_digit": {
+          "token_count": 1,
+          "tokens": [
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            60
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "10",
+        "utf8_bytes": 2,
+        "strategy_A_single_digit": {
+          "token_count": 2,
+          "tokens": [
+            52,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            516
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            516
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "11",
+        "utf8_bytes": 2,
+        "strategy_A_single_digit": {
+          "token_count": 2,
+          "tokens": [
+            52,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            52,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            52,
+            52
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "12",
+        "utf8_bytes": 2,
+        "strategy_A_single_digit": {
+          "token_count": 2,
+          "tokens": [
+            52,
+            53
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            529
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            529
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "99",
+        "utf8_bytes": 2,
+        "strategy_A_single_digit": {
+          "token_count": 2,
+          "tokens": [
+            60,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 1,
+          "tokens": [
+            596
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            596
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "100",
+        "utf8_bytes": 3,
+        "strategy_A_single_digit": {
+          "token_count": 3,
+          "tokens": [
+            52,
+            51,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            516,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            675
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "101",
+        "utf8_bytes": 3,
+        "strategy_A_single_digit": {
+          "token_count": 3,
+          "tokens": [
+            52,
+            51,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            516,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            516,
+            52
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "999",
+        "utf8_bytes": 3,
+        "strategy_A_single_digit": {
+          "token_count": 3,
+          "tokens": [
+            60,
+            60,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            596,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            596,
+            60
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "1000",
+        "utf8_bytes": 4,
+        "strategy_A_single_digit": {
+          "token_count": 4,
+          "tokens": [
+            52,
+            51,
+            51,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            516,
+            306
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            675,
+            51
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "2026",
+        "utf8_bytes": 4,
+        "strategy_A_single_digit": {
+          "token_count": 4,
+          "tokens": [
+            53,
+            51,
+            53,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 2,
+          "tokens": [
+            423,
+            401
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            561
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "123456789",
+        "utf8_bytes": 9,
+        "strategy_A_single_digit": {
+          "token_count": 9,
+          "tokens": [
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 5,
+          "tokens": [
+            529,
+            990,
+            2069,
+            2792,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            3627,
+            3926
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "3.1415926",
+        "utf8_bytes": 9,
+        "strategy_A_single_digit": {
+          "token_count": 9,
+          "tokens": [
+            54,
+            49,
+            52,
+            55,
+            52,
+            56,
+            60,
+            53,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 7,
+          "tokens": [
+            54,
+            49,
+            651,
+            542,
+            60,
+            53,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 2,
+          "tokens": [
+            2535,
+            401
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "0.000001",
+        "utf8_bytes": 8,
+        "strategy_A_single_digit": {
+          "token_count": 8,
+          "tokens": [
+            51,
+            49,
+            51,
+            51,
+            51,
+            51,
+            51,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 6,
+          "tokens": [
+            51,
+            49,
+            306,
+            306,
+            51,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 3,
+          "tokens": [
+            3561,
+            51,
+            52
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "1.23e-10",
+        "utf8_bytes": 8,
+        "strategy_A_single_digit": {
+          "token_count": 7,
+          "tokens": [
+            52,
+            49,
+            53,
+            54,
+            655,
+            52,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 5,
+          "tokens": [
+            52,
+            49,
+            1377,
+            655,
+            516
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 4,
+          "tokens": [
+            595,
+            1377,
+            655,
+            516
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "₹50000",
+        "utf8_bytes": 8,
+        "strategy_A_single_digit": {
+          "token_count": 6,
+          "tokens": [
+            1089,
+            56,
+            51,
+            51,
+            51,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 4,
+          "tokens": [
+            1089,
+            991,
+            306,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 3,
+          "tokens": [
+            1089,
+            56,
+            962
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "$1000",
+        "utf8_bytes": 5,
+        "strategy_A_single_digit": {
+          "token_count": 5,
+          "tokens": [
+            39,
+            52,
+            51,
+            51,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 3,
+          "tokens": [
+            39,
+            516,
+            306
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 3,
+          "tokens": [
+            39,
+            675,
+            51
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "+91-9876543210",
+        "utf8_bytes": 14,
+        "strategy_A_single_digit": {
+          "token_count": 14,
+          "tokens": [
+            46,
+            60,
+            52,
+            48,
+            60,
+            59,
+            58,
+            57,
+            56,
+            55,
+            54,
+            53,
+            52,
+            51
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 10,
+          "tokens": [
+            46,
+            60,
+            52,
+            48,
+            1384,
+            992,
+            56,
+            55,
+            811,
+            516
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 5,
+          "tokens": [
+            2736,
+            2060,
+            2602,
+            2782,
+            516
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "2026-09-26",
+        "utf8_bytes": 10,
+        "strategy_A_single_digit": {
+          "token_count": 10,
+          "tokens": [
+            53,
+            51,
+            53,
+            57,
+            48,
+            51,
+            60,
+            48,
+            53,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 6,
+          "tokens": [
+            423,
+            401,
+            48,
+            462,
+            48,
+            401
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 1,
+          "tokens": [
+            1368
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "12:45:59",
+        "utf8_bytes": 8,
+        "strategy_A_single_digit": {
+          "token_count": 8,
+          "tokens": [
+            52,
+            53,
+            61,
+            55,
+            56,
+            61,
+            56,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 6,
+          "tokens": [
+            529,
+            61,
+            767,
+            61,
+            56,
+            60
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 4,
+          "tokens": [
+            2453,
+            767,
+            1385,
+            60
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "123 + 456",
+        "utf8_bytes": 9,
+        "strategy_A_single_digit": {
+          "token_count": 7,
+          "tokens": [
+            52,
+            53,
+            54,
+            499,
+            55,
+            56,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 5,
+          "tokens": [
+            529,
+            54,
+            499,
+            767,
+            57
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 5,
+          "tokens": [
+            529,
+            54,
+            499,
+            767,
+            57
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "9999 × 8888",
+        "utf8_bytes": 12,
+        "strategy_A_single_digit": {
+          "token_count": 11,
+          "tokens": [
+            60,
+            60,
+            60,
+            60,
+            35,
+            3142,
+            35,
+            59,
+            59,
+            59,
+            59
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 9,
+          "tokens": [
+            596,
+            596,
+            35,
+            3142,
+            35,
+            59,
+            59,
+            59,
+            59
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 8,
+          "tokens": [
+            596,
+            3674,
+            3142,
+            35,
+            59,
+            59,
+            59,
+            59
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "123456789 × 987654321",
+        "utf8_bytes": 22,
+        "strategy_A_single_digit": {
+          "token_count": 21,
+          "tokens": [
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            35,
+            3142,
+            35,
+            60,
+            59,
+            58,
+            57,
+            56,
+            55,
+            54,
+            53,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 14,
+          "tokens": [
+            529,
+            990,
+            2069,
+            2792,
+            60,
+            35,
+            3142,
+            35,
+            1384,
+            992,
+            56,
+            55,
+            811,
+            52
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 8,
+          "tokens": [
+            3627,
+            3926,
+            35,
+            3142,
+            35,
+            2602,
+            2782,
+            52
+          ],
+          "lossless": true
+        }
+      },
+      {
+        "text": "(123 + 456) / 7",
+        "utf8_bytes": 15,
+        "strategy_A_single_digit": {
+          "token_count": 11,
+          "tokens": [
+            43,
+            52,
+            53,
+            54,
+            499,
+            55,
+            56,
+            57,
+            337,
+            650,
+            58
+          ],
+          "lossless": true
+        },
+        "strategy_B_two_digit": {
+          "token_count": 9,
+          "tokens": [
+            43,
+            529,
+            54,
+            499,
+            767,
+            57,
+            337,
+            650,
+            58
+          ],
+          "lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "token_count": 9,
+          "tokens": [
+            43,
+            529,
+            54,
+            499,
+            767,
+            57,
+            337,
+            650,
+            58
+          ],
+          "lossless": true
+        }
+      }
+    ]
+  },
+  "phase_3_7_unicode_indic_stress": {
+    "benchmark_name": "Phase_3_7_Unicode_Indic_Stress_Test",
+    "categories": {
+      "hindi": {
+        "item_count": 7,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "कौशाम्बी",
+            "utf8_bytes": 24,
+            "token_count": 4,
+            "token_ids": [
+              296,
+              3741,
+              1772,
+              286
+            ],
+            "lossless": true
+          },
+          {
+            "text": "त्र्यंबकेश्वर",
+            "utf8_bytes": 39,
+            "token_count": 3,
+            "token_ids": [
+              639,
+              1049,
+              3697
+            ],
+            "lossless": true
+          },
+          {
+            "text": "कुंडलियाँ",
+            "utf8_bytes": 27,
+            "token_count": 3,
+            "token_ids": [
+              3260,
+              3223,
+              1550
+            ],
+            "lossless": true
+          },
+          {
+            "text": "पूँछ",
+            "utf8_bytes": 12,
+            "token_count": 3,
+            "token_ids": [
+              411,
+              3473,
+              2236
+            ],
+            "lossless": true
+          },
+          {
+            "text": "अँधेरा",
+            "utf8_bytes": 18,
+            "token_count": 3,
+            "token_ids": [
+              747,
+              3810,
+              264
+            ],
+            "lossless": true
+          },
+          {
+            "text": "ऋग्वेद",
+            "utf8_bytes": 18,
+            "token_count": 3,
+            "token_ids": [
+              259,
+              3068,
+              3425
+            ],
+            "lossless": true
+          },
+          {
+            "text": "ॐ",
+            "utf8_bytes": 3,
+            "token_count": 1,
+            "token_ids": [
+              1764
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "sanskrit": {
+        "item_count": 6,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "सत्त्व",
+            "utf8_bytes": 18,
+            "token_count": 2,
+            "token_ids": [
+              3338,
+              360
+            ],
+            "lossless": true
+          },
+          {
+            "text": "दग्ध",
+            "utf8_bytes": 12,
+            "token_count": 2,
+            "token_ids": [
+              341,
+              3438
+            ],
+            "lossless": true
+          },
+          {
+            "text": "बुद्ध",
+            "utf8_bytes": 15,
+            "token_count": 2,
+            "token_ids": [
+              633,
+              1309
+            ],
+            "lossless": true
+          },
+          {
+            "text": "उष्ट्र",
+            "utf8_bytes": 18,
+            "token_count": 3,
+            "token_ids": [
+              259,
+              140,
+              3661
+            ],
+            "lossless": true
+          },
+          {
+            "text": "कार्त्तिकेय",
+            "utf8_bytes": 33,
+            "token_count": 4,
+            "token_ids": [
+              296,
+              3402,
+              3470,
+              1790
+            ],
+            "lossless": true
+          },
+          {
+            "text": "वाग्देवी",
+            "utf8_bytes": 24,
+            "token_count": 3,
+            "token_ids": [
+              351,
+              3988,
+              286
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "zwj_zwnj": {
+        "item_count": 5,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "‍",
+            "utf8_bytes": 3,
+            "token_count": 1,
+            "token_ids": [
+              671
+            ],
+            "lossless": true
+          },
+          {
+            "text": "‌",
+            "utf8_bytes": 3,
+            "token_count": 1,
+            "token_ids": [
+              977
+            ],
+            "lossless": true
+          },
+          {
+            "text": "क्‍ष",
+            "utf8_bytes": 12,
+            "token_count": 2,
+            "token_ids": [
+              4079,
+              567
+            ],
+            "lossless": true
+          },
+          {
+            "text": "क्‌ष",
+            "utf8_bytes": 12,
+            "token_count": 2,
+            "token_ids": [
+              4080,
+              567
+            ],
+            "lossless": true
+          },
+          {
+            "text": "श्री‍मान्",
+            "utf8_bytes": 27,
+            "token_count": 3,
+            "token_ids": [
+              402,
+              3997,
+              263
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "emojis": {
+        "item_count": 6,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "👨👩👧👦",
+            "utf8_bytes": 16,
+            "token_count": 6,
+            "token_ids": [
+              3788,
+              1948,
+              798,
+              170,
+              798,
+              169
+            ],
+            "lossless": true
+          },
+          {
+            "text": "👩💻",
+            "utf8_bytes": 8,
+            "token_count": 2,
+            "token_ids": [
+              1948,
+              3375
+            ],
+            "lossless": true
+          },
+          {
+            "text": "👍🏽",
+            "utf8_bytes": 8,
+            "token_count": 2,
+            "token_ids": [
+              3789,
+              192
+            ],
+            "lossless": true
+          },
+          {
+            "text": "🇮🇳",
+            "utf8_bytes": 8,
+            "token_count": 2,
+            "token_ids": [
+              1842,
+              2689
+            ],
+            "lossless": true
+          },
+          {
+            "text": "🚀❤️🔥",
+            "utf8_bytes": 14,
+            "token_count": 8,
+            "token_ids": [
+              339,
+              3080,
+              229,
+              160,
+              2226,
+              339,
+              151,
+              168
+            ],
+            "lossless": true
+          },
+          {
+            "text": "🏳️‍🌈",
+            "utf8_bytes": 14,
+            "token_count": 7,
+            "token_ids": [
+              1167,
+              182,
+              985,
+              671,
+              339,
+              143,
+              139
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "combining_and_special": {
+        "item_count": 7,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "é",
+            "utf8_bytes": 3,
+            "token_count": 3,
+            "token_ids": [
+              104,
+              207,
+              132
+            ],
+            "lossless": true
+          },
+          {
+            "text": "ǟ",
+            "utf8_bytes": 5,
+            "token_count": 5,
+            "token_ids": [
+              100,
+              207,
+              139,
+              207,
+              135
+            ],
+            "lossless": true
+          },
+          {
+            "text": "❤️",
+            "utf8_bytes": 6,
+            "token_count": 3,
+            "token_ids": [
+              229,
+              160,
+              2226
+            ],
+            "lossless": true
+          },
+          {
+            "text": "☀︎",
+            "utf8_bytes": 6,
+            "token_count": 4,
+            "token_ids": [
+              229,
+              3079,
+              871,
+              145
+            ],
+            "lossless": true
+          },
+          {
+            "text": "​",
+            "utf8_bytes": 3,
+            "token_count": 2,
+            "token_ids": [
+              497,
+              142
+            ],
+            "lossless": true
+          },
+          {
+            "text": "﻿",
+            "utf8_bytes": 3,
+            "token_count": 3,
+            "token_ids": [
+              242,
+              190,
+              194
+            ],
+            "lossless": true
+          },
+          {
+            "text": "⁠",
+            "utf8_bytes": 3,
+            "token_count": 3,
+            "token_ids": [
+              229,
+              132,
+              163
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "uncommon_scripts": {
+        "item_count": 6,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "வணக்கம்",
+            "utf8_bytes": 21,
+            "token_count": 7,
+            "token_ids": [
+              532,
+              184,
+              532,
+              166,
+              3945,
+              177,
+              1088
+            ],
+            "lossless": true
+          },
+          {
+            "text": "নমস্কার",
+            "utf8_bytes": 21,
+            "token_count": 7,
+            "token_ids": [
+              1983,
+              3121,
+              3137,
+              3071,
+              3577,
+              484,
+              179
+            ],
+            "lossless": true
+          },
+          {
+            "text": "నమస్కారం",
+            "utf8_bytes": 24,
+            "token_count": 13,
+            "token_ids": [
+              2486,
+              659,
+              177,
+              659,
+              1136,
+              180,
+              144,
+              659,
+              152,
+              2488,
+              2487,
+              659,
+              133
+            ],
+            "lossless": true
+          },
+          {
+            "text": "مرحبا",
+            "utf8_bytes": 10,
+            "token_count": 10,
+            "token_ids": [
+              220,
+              136,
+              219,
+              180,
+              219,
+              176,
+              219,
+              171,
+              219,
+              170
+            ],
+            "lossless": true
+          },
+          {
+            "text": "Привет",
+            "utf8_bytes": 12,
+            "token_count": 12,
+            "token_ids": [
+              211,
+              162,
+              212,
+              131,
+              211,
+              187,
+              211,
+              181,
+              211,
+              184,
+              212,
+              133
+            ],
+            "lossless": true
+          },
+          {
+            "text": "こんにちは",
+            "utf8_bytes": 15,
+            "token_count": 11,
+            "token_ids": [
+              1762,
+              150,
+              230,
+              133,
+              150,
+              1762,
+              174,
+              1762,
+              164,
+              1762,
+              178
+            ],
+            "lossless": true
+          }
+        ]
+      },
+      "mixed_script": {
+        "item_count": 4,
+        "all_lossless": true,
+        "items": [
+          {
+            "text": "ChakrView चक्रव्यूह v0.1: Indigenous AI model ₹50,000 🚀",
+            "utf8_bytes": 78,
+            "token_count": 14,
+            "token_ids": [
+              622,
+              3864,
+              35,
+              3038,
+              52,
+              304,
+              2475,
+              1388,
+              892,
+              1081,
+              991,
+              893,
+              384,
+              3080
+            ],
+            "lossless": true
+          },
+          {
+            "text": "def नमस्ते_world(): return 'सत्त्व' + 123",
+            "utf8_bytes": 65,
+            "token_count": 21,
+            "token_ids": [
+              305,
+              105,
+              582,
+              315,
+              796,
+              279,
+              98,
+              713,
+              111,
+              103,
+              43,
+              44,
+              304,
+              897,
+              42,
+              3338,
+              360,
+              42,
+              499,
+              529,
+              54
+            ],
+            "lossless": true
+          },
+          {
+            "text": "संस्कृतम् (Sanskrit) & हिंदी (Hindi) benchmarks in 2026.",
+            "utf8_bytes": 84,
+            "token_count": 22,
+            "token_ids": [
+              885,
+              4005,
+              1505,
+              370,
+              2867,
+              2196,
+              359,
+              119,
+              337,
+              41,
+              3669,
+              286,
+              370,
+              75,
+              268,
+              363,
+              337,
+              1986,
+              270,
+              354,
+              561,
+              49
+            ],
+            "lossless": true
+          },
+          {
+            "text": "Query: ' त्र्यंबकेश्वर मंदिर ' at 12:45:59 on 2026-09-26",
+            "utf8_bytes": 92,
+            "token_count": 24,
+            "token_ids": [
+              2862,
+              277,
+              124,
+              304,
+              42,
+              748,
+              3275,
+              633,
+              296,
+              636,
+              360,
+              334,
+              177,
+              2279,
+              3188,
+              35,
+              42,
+              35,
+              789,
+              2453,
+              767,
+              3955,
+              320,
+              1368
+            ],
+            "lossless": true
+          }
+        ]
+      }
+    },
+    "all_lossless": true,
+    "total_items_tested": 41
+  },
+  "phase_3_8_raw_byte_stress": {
+    "benchmark_name": "Phase_3_8_Raw_Byte_Stress_Test",
+    "random_seed": 42,
+    "total_cases_tested": 11,
+    "all_lossless": true,
+    "cases": [
+      {
+        "name": "single_zero_byte",
+        "byte_length": 1,
+        "token_count": 1,
+        "lossless": true
+      },
+      {
+        "name": "single_ff_byte",
+        "byte_length": 1,
+        "token_count": 1,
+        "lossless": true
+      },
+      {
+        "name": "alternating_00_ff_00",
+        "byte_length": 3,
+        "token_count": 3,
+        "lossless": true
+      },
+      {
+        "name": "all_256_bytes_ascending",
+        "byte_length": 256,
+        "token_count": 243,
+        "lossless": true
+      },
+      {
+        "name": "all_256_bytes_descending",
+        "byte_length": 256,
+        "token_count": 243,
+        "lossless": true
+      },
+      {
+        "name": "random_256_bytes",
+        "byte_length": 256,
+        "token_count": 253,
+        "lossless": true
+      },
+      {
+        "name": "random_1024_bytes",
+        "byte_length": 1024,
+        "token_count": 1016,
+        "lossless": true
+      },
+      {
+        "name": "invalid_utf8_isolated_high_bytes",
+        "byte_length": 7,
+        "token_count": 7,
+        "lossless": true
+      },
+      {
+        "name": "truncated_utf8_hindi_prefix",
+        "byte_length": 2,
+        "token_count": 1,
+        "lossless": true
+      },
+      {
+        "name": "truncated_utf8_emoji_prefix",
+        "byte_length": 3,
+        "token_count": 2,
+        "lossless": true
+      },
+      {
+        "name": "mixed_valid_and_invalid_bytes",
+        "byte_length": 21,
+        "token_count": 10,
+        "lossless": true
+      }
+    ]
+  },
+  "phase_3_9_performance": {
+    "benchmark_name": "Phase_3_9_Performance_Benchmark",
+    "iterations_per_size": 15,
+    "results_by_size": {
+      "32_bytes": {
+        "target_bytes": 32,
+        "actual_bytes": 32,
+        "token_count": 6,
+        "bytes_per_token": 5.333,
+        "cold_encode_us": 324.8,
+        "cold_decode_us": 11.7,
+        "warm_encode": {
+          "min_us": 258.3,
+          "median_us": 270.2,
+          "p95_us": 287.3,
+          "max_us": 292.4,
+          "min_ms": 0.258,
+          "median_ms": 0.27,
+          "p95_ms": 0.287,
+          "max_ms": 0.292
+        },
+        "warm_decode": {
+          "min_us": 1.0,
+          "median_us": 1.2,
+          "p95_us": 2.4,
+          "max_us": 2.6,
+          "min_ms": 0.001,
+          "median_ms": 0.001,
+          "p95_ms": 0.002,
+          "max_ms": 0.003
+        },
+        "encode_throughput": {
+          "tokens_per_second": 23094.69,
+          "mb_per_second": 0.12
+        },
+        "decode_throughput": {
+          "tokens_per_second": 5454648.24,
+          "mb_per_second": 27.74
+        }
+      },
+      "128_bytes": {
+        "target_bytes": 128,
+        "actual_bytes": 128,
+        "token_count": 17,
+        "bytes_per_token": 7.529,
+        "cold_encode_us": 1004.0,
+        "cold_decode_us": 15.4,
+        "warm_encode": {
+          "min_us": 934.6,
+          "median_us": 1018.4,
+          "p95_us": 1079.6,
+          "max_us": 1095.2,
+          "min_ms": 0.935,
+          "median_ms": 1.018,
+          "p95_ms": 1.08,
+          "max_ms": 1.095
+        },
+        "warm_decode": {
+          "min_us": 2.3,
+          "median_us": 2.4,
+          "p95_us": 2.8,
+          "max_us": 4.4,
+          "min_ms": 0.002,
+          "median_ms": 0.002,
+          "p95_ms": 0.003,
+          "max_ms": 0.004
+        },
+        "encode_throughput": {
+          "tokens_per_second": 15925.06,
+          "mb_per_second": 0.11
+        },
+        "decode_throughput": {
+          "tokens_per_second": 7391248.07,
+          "mb_per_second": 53.07
+        }
+      },
+      "512_bytes": {
+        "target_bytes": 512,
+        "actual_bytes": 510,
+        "token_count": 120,
+        "bytes_per_token": 4.25,
+        "cold_encode_us": 8592.7,
+        "cold_decode_us": 36.5,
+        "warm_encode": {
+          "min_us": 8853.1,
+          "median_us": 9056.9,
+          "p95_us": 9492.7,
+          "max_us": 9657.2,
+          "min_ms": 8.853,
+          "median_ms": 9.057,
+          "p95_ms": 9.493,
+          "max_ms": 9.657
+        },
+        "warm_decode": {
+          "min_us": 13.0,
+          "median_us": 13.5,
+          "p95_us": 14.2,
+          "max_us": 25.1,
+          "min_ms": 0.013,
+          "median_ms": 0.013,
+          "p95_ms": 0.014,
+          "max_ms": 0.025
+        },
+        "encode_throughput": {
+          "tokens_per_second": 13249.57,
+          "mb_per_second": 0.05
+        },
+        "decode_throughput": {
+          "tokens_per_second": 9090920.04,
+          "mb_per_second": 36.85
+        }
+      },
+      "2_KB": {
+        "target_bytes": 2048,
+        "actual_bytes": 2048,
+        "token_count": 538,
+        "bytes_per_token": 3.807,
+        "cold_encode_us": 39992.5,
+        "cold_decode_us": 85.4,
+        "warm_encode": {
+          "min_us": 33250.4,
+          "median_us": 35509.5,
+          "p95_us": 36090.7,
+          "max_us": 36551.7,
+          "min_ms": 33.25,
+          "median_ms": 35.51,
+          "p95_ms": 36.091,
+          "max_ms": 36.552
+        },
+        "warm_decode": {
+          "min_us": 56.8,
+          "median_us": 59.4,
+          "p95_us": 62.0,
+          "max_us": 64.1,
+          "min_ms": 0.057,
+          "median_ms": 0.059,
+          "p95_ms": 0.062,
+          "max_ms": 0.064
+        },
+        "encode_throughput": {
+          "tokens_per_second": 15233.85,
+          "mb_per_second": 0.06
+        },
+        "decode_throughput": {
+          "tokens_per_second": 9057241.09,
+          "mb_per_second": 32.88
+        }
+      },
+      "8_KB": {
+        "target_bytes": 8192,
+        "actual_bytes": 8192,
+        "token_count": 2221,
+        "bytes_per_token": 3.688,
+        "cold_encode_us": 144168.1,
+        "cold_decode_us": 256.8,
+        "warm_encode": {
+          "min_us": 134175.0,
+          "median_us": 140044.7,
+          "p95_us": 146206.3,
+          "max_us": 148845.3,
+          "min_ms": 134.175,
+          "median_ms": 140.045,
+          "p95_ms": 146.206,
+          "max_ms": 148.845
+        },
+        "warm_decode": {
+          "min_us": 215.3,
+          "median_us": 228.4,
+          "p95_us": 249.7,
+          "max_us": 275.2,
+          "min_ms": 0.215,
+          "median_ms": 0.228,
+          "p95_ms": 0.25,
+          "max_ms": 0.275
+        },
+        "encode_throughput": {
+          "tokens_per_second": 14921.53,
+          "mb_per_second": 0.05
+        },
+        "decode_throughput": {
+          "tokens_per_second": 10081707.25,
+          "mb_per_second": 35.46
+        }
+      },
+      "32_KB": {
+        "target_bytes": 32768,
+        "actual_bytes": 32768,
+        "token_count": 8883,
+        "bytes_per_token": 3.689,
+        "cold_encode_us": 550605.6,
+        "cold_decode_us": 865.4,
+        "warm_encode": {
+          "min_us": 533162.8,
+          "median_us": 548415.6,
+          "p95_us": 556606.6,
+          "max_us": 557036.7,
+          "min_ms": 533.163,
+          "median_ms": 548.416,
+          "p95_ms": 556.607,
+          "max_ms": 557.037
+        },
+        "warm_decode": {
+          "min_us": 759.3,
+          "median_us": 781.8,
+          "p95_us": 991.5,
+          "max_us": 1020.4,
+          "min_ms": 0.759,
+          "median_ms": 0.782,
+          "p95_ms": 0.991,
+          "max_ms": 1.02
+        },
+        "encode_throughput": {
+          "tokens_per_second": 16643.82,
+          "mb_per_second": 0.06
+        },
+        "decode_throughput": {
+          "tokens_per_second": 11194707.16,
+          "mb_per_second": 39.38
+        }
+      },
+      "128_KB": {
+        "target_bytes": 131072,
+        "actual_bytes": 131072,
+        "token_count": 35547,
+        "bytes_per_token": 3.687,
+        "cold_encode_us": 2185364.8,
+        "cold_decode_us": 3785.8,
+        "warm_encode": {
+          "min_us": 2138778.0,
+          "median_us": 2186984.2,
+          "p95_us": 2251743.2,
+          "max_us": 2274197.1,
+          "min_ms": 2138.778,
+          "median_ms": 2186.984,
+          "p95_ms": 2251.743,
+          "max_ms": 2274.197
+        },
+        "warm_decode": {
+          "min_us": 2990.9,
+          "median_us": 3628.8,
+          "p95_us": 3834.6,
+          "max_us": 3853.4,
+          "min_ms": 2.991,
+          "median_ms": 3.629,
+          "p95_ms": 3.835,
+          "max_ms": 3.853
+        },
+        "encode_throughput": {
+          "tokens_per_second": 15786.44,
+          "mb_per_second": 0.06
+        },
+        "decode_throughput": {
+          "tokens_per_second": 11403869.03,
+          "mb_per_second": 40.1
+        }
+      }
+    }
+  },
+  "phase_3_10_memory": {
+    "v2048": {
+      "benchmark_name": "Phase_3_10_Memory_Benchmark",
+      "vocab_size": 2048,
+      "num_merges": 1789,
+      "static_tokenizer_data": {
+        "vocab_table_bytes": 207763,
+        "vocab_table_kb": 202.89,
+        "merge_table_bytes": 238396,
+        "merge_table_kb": 232.81,
+        "total_static_bytes": 446159,
+        "total_static_kb": 435.7,
+        "total_static_mb": 0.425
+      },
+      "classification": "STATIC_TOKENIZER_DATA_ONLY",
+      "runtime_notes": "Excludes Python interpreter runtime slab overhead, process virtual memory, and garbage collector tables."
+    },
+    "v4096": {
+      "benchmark_name": "Phase_3_10_Memory_Benchmark",
+      "vocab_size": 4096,
+      "num_merges": 3837,
+      "static_tokenizer_data": {
+        "vocab_table_bytes": 421396,
+        "vocab_table_kb": 411.52,
+        "merge_table_bytes": 500548,
+        "merge_table_kb": 488.82,
+        "total_static_bytes": 921944,
+        "total_static_kb": 900.34,
+        "total_static_mb": 0.879
+      },
+      "classification": "STATIC_TOKENIZER_DATA_ONLY",
+      "runtime_notes": "Excludes Python interpreter runtime slab overhead, process virtual memory, and garbage collector tables."
+    },
+    "v8192": {
+      "benchmark_name": "Phase_3_10_Memory_Benchmark",
+      "vocab_size": 8192,
+      "num_merges": 7933,
+      "static_tokenizer_data": {
+        "vocab_table_bytes": 851365,
+        "vocab_table_kb": 831.41,
+        "merge_table_bytes": 1024828,
+        "merge_table_kb": 1000.81,
+        "total_static_bytes": 1876193,
+        "total_static_kb": 1832.22,
+        "total_static_mb": 1.789
+      },
+      "classification": "STATIC_TOKENIZER_DATA_ONLY",
+      "runtime_notes": "Excludes Python interpreter runtime slab overhead, process virtual memory, and garbage collector tables."
+    },
+    "v16384": {
+      "benchmark_name": "Phase_3_10_Memory_Benchmark",
+      "vocab_size": 16351,
+      "num_merges": 16092,
+      "static_tokenizer_data": {
+        "vocab_table_bytes": 1898401,
+        "vocab_table_kb": 1853.91,
+        "merge_table_bytes": 2070376,
+        "merge_table_kb": 2021.85,
+        "total_static_bytes": 3968777,
+        "total_static_kb": 3875.76,
+        "total_static_mb": 3.785
+      },
+      "classification": "STATIC_TOKENIZER_DATA_ONLY",
+      "runtime_notes": "Excludes Python interpreter runtime slab overhead, process virtual memory, and garbage collector tables."
+    }
+  },
+  "phase_3_11_determinism": {
+    "benchmark_name": "Phase_3_11_Determinism_Benchmark",
+    "repetitions_tested": 5,
+    "texts_tested": 30,
+    "is_deterministic": true,
+    "total_discrepancies": 0,
+    "discrepancies": []
+  }
+}

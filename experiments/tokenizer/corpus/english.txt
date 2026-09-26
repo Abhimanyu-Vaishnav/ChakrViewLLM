@@ -1,0 +1,15 @@
+ChakrView is an indigenous artificial intelligence research initiative created to build a lightweight, efficient neural architecture.
+The goal of this foundational project is to explore whether useful cognitive abilities can be realized on constrained hardware architectures.
+Modern computing systems frequently suffer from memory bandwidth bottlenecks during autoregressive sequence decoding.
+When a transformer model evaluates next-token probabilities, every weight tensor must be retrieved from system memory into register caches.
+Therefore, reducing the precision of model weights from 32-bit floating point to 8-bit or 4-bit integers directly improves throughput.
+Vectorized single-instruction multiple-data (SIMD) instruction sets such as AVX2, AVX-512, and ARM NEON allow parallel arithmetic.
+By aligning head dimensions to multiples of vector register widths, inner dot product loops avoid remainder padding overhead.
+Language tokenization is the fundamental bridge connecting raw digital text with continuous dimensional vector representations.
+A byte-level byte-pair encoding tokenizer guarantees that any sequence of raw octets can be processed without out-of-vocabulary tokens.
+Theoretical computer science demonstrates that deterministic algorithms provide reproducible results across different hardware environments.
+The balance between vocabulary size, token fertility, and embedding parameter footprint is a critical trade-off in micro-model design.
+We seek mathematical clarity, disciplined empirical measurement, and transparent verification before advancing to neural network training.
+Knowledge is structured through hierarchical layers of abstraction, from discrete byte tokens to deep relational semantic manifolds.
+The CPU cache hierarchy consists of fast L1 instruction and data caches, intermediate L2 caches, and larger shared L3 caches.
+Designing architectures that respect memory locality is essential when deploying neural systems on older, edge, or low-cost microprocessors.
