@@ -11,6 +11,10 @@
 > **No tokenizer implementation should begin until this specification has been formally reviewed and approved.**  
 > *Do not implement code, do not install new packages, do not download external datasets, and do not train any model during Step 2.*
 
+> ### CRITICAL ARCHITECTURAL INVARIANT
+> **"Tokenizer correctness takes precedence over compression."**  
+> *The tokenizer must never trade away exact reconstruction merely to reduce token count. Preprocessing and pre-tokenization must remain strictly lossless.*
+
 ---
 
 ## 1. Goals & Strategic Vision
@@ -73,7 +77,7 @@ Seven candidate tokenization paradigms were evaluated against ChakrView's requir
 | **Tokenizer Memory (Runtime)** | Very Low (< 5 MB trie/hash) | Negligible (< 100 KB) | Low (< 5 MB) | Moderate (Viterbi arrays) | Low | Low (< 5 MB) | Low (< 6 MB) |
 | **Implementation Complexity** | Low to Moderate | **Trivial** | Low | High (DP Viterbi search) | Moderate | Moderate | Moderate |
 | **Training Complexity** | Moderate ($O(N \log V)$) | Negligible | Moderate | High (EM pruning iterations) | Moderate | Moderate | Moderate |
-| **Inference Speed (CPU)** | **Very Fast** (Greedy trie match) | Fast | Very Fast | Slower (Viterbi search) | Fast | Very Fast | Fast |
+| **Inference Speed (CPU)** | Fast [Literature expectation; unverified by ChakrView benchmark] | Fast | Fast | Slower (Viterbi search) [Hypothesis] | Fast | Fast | Fast |
 | **Edge / Embedded Suitability** | **Exceptional** (bare-metal C friendly) | High | High | Low (complex dependencies) | Moderate | High | High |
 | **Reversibility (Lossless)** | **100% Bit-Exact** | Lossy on unseen chars | Lossy on `<UNK>` | Lossy unless byte-fallback | Lossy on `<UNK>` | **100% Bit-Exact** | **100% Bit-Exact** |
 | **Extensibility** | High | Low | Low | Moderate | Low | High | High |
@@ -96,7 +100,7 @@ Seven candidate tokenization paradigms were evaluated against ChakrView's requir
 
 3. **Unigram Language Model (Approach D)**:
    - *[KNOWN FACT]*: SentencePiece Unigram provides mathematically optimal compression and supports subword regularization during training.
-   - *[KNOWN FACT]*: However, Unigram tokenization requires dynamic programming (Viterbi search) at inference time, which introduces non-trivial runtime overhead on low-power CPUs and high implementation complexity if built natively without third-party C++ libraries.
+   - *[ENGINEERING HYPOTHESIS / LITERATURE-DERIVED EXPECTATION]*: Unigram tokenization requires dynamic programming (Viterbi search) at inference time, which introduces runtime overhead on low-power CPUs compared to greedy matching. This represents an unverified expectation until measured on a ChakrView benchmark.
    - *Conclusion*: **Deferred to future research steps**; suboptimal for a lightweight indigenous v0.1 core.
 
 4. **Byte-Level BPE with Grapheme-Aware Pre-Tokenization (Approaches A, F & G)**:
@@ -105,7 +109,8 @@ Seven candidate tokenization paradigms were evaluated against ChakrView's requir
    - *[ENGINEERING HYPOTHESIS]*: Enhancing Byte-Level BPE with an **Indigenous Grapheme-Aware Pre-Tokenizer** prevents unnatural script splitting, ensures clean whitespace and code indentation handling, and guarantees 100% lossless byte-level fallback for unseen Unicode.
 
 ### Formal Recommendation for ChakrView v0.1
-**Adopt: Chakr-BPETokenizer v0.1 (Indigenous Byte-Level BPE with Grapheme-Aware Pre-Tokenization and Single-Digit Splitting).**
+**Adopt: Chakr-BPETokenizer v0.1 (Indigenous Byte-Level BPE with Grapheme-Aware Pre-Tokenization)**.  
+> **STATUS**: **BBPE is provisionally recommended and requires empirical validation before implementation is frozen.**
 
 ---
 
@@ -117,9 +122,16 @@ Seven candidate tokenization paradigms were evaluated against ChakrView's requir
    $$\text{Token ID } b = b, \quad \forall b \in \{0x00, 0x01, \dots, 0xFF\}$$
 2. **Zero Out-of-Vocabulary (`<UNK>`) Guarantee**:
    *[KNOWN FACT]*: Every valid or invalid Unicode string is representable as a sequence of UTF-8 bytes. Because all 256 byte values exist in the base vocabulary, **the tokenizer can encode any sequence of bytes without exception**.
-3. **Lossless Round-Trip Reversibility**:
-   $$\text{Decode}(\text{Encode}(S)) = S, \quad \forall S \in \text{Unicode Strings}$$
-   No characters are discarded, normalized away, or replaced with `<UNK>`. Unicode normalization (e.g., NFC vs NFD) is applied conservatively in pre-processing, but the byte-level decoder guarantees exact reconstruction of whatever byte sequence was submitted.
+3. **Lossless Preprocessing & Round-Trip Reversibility**:
+   $$\text{Decode}(\text{Encode}(S)) \equiv S, \quad \forall S \in \text{Unicode Strings}$$
+   **Strict Invariant**: Preprocessing must be completely lossless. Do NOT perform irreversible Unicode transformations merely for normalization convenience (e.g., stripping accents, lossy NFKD decompositions without exact reversibility).
+   Explicit test cases must include:
+   - Combining marks
+   - Virama/halant
+   - Zero-Width Joiner (ZWJ, `U+200D`)
+   - Zero-Width Non-Joiner (ZWNJ, `U+200C`)
+   - Indic conjuncts (complex ligatures)
+   - Variation selectors (emoji and script selectors `U+FE00`–`U+FE0F`).
 
 ### 6.2 Hindi & Devanagari Strategy
 Devanagari characters (`U+0900` to `U+097F`) represent orthographic syllables (*akshara*). In UTF-8, each Devanagari codepoint requires exactly 3 bytes (e.g., `क` = `0xE0 0xA4 0x95`).
@@ -131,7 +143,7 @@ Devanagari characters (`U+0900` to `U+097F`) represent orthographic syllables (*
 2. **Corpus Merge Allocation**:
    - The tokenizer merge table must be trained on a corpus containing substantial high-quality Hindi text.
    - Frequent Devanagari characters (3 bytes) and high-frequency full syllables (6 to 9 bytes, e.g., `का`, `की`, `के`, `में`, `है`, `कर`) must be learned as single subword tokens.
-   - *Target Metric*: Hindi Devanagari compression ratio must achieve $< 1.8$ tokens per word on standard Hindi text (compared to $> 4.5$ tokens/word on naive English-centric tokenizers).
+   - *Planning Target Metric [Hypothesis; not a measured ChakrView result]*: Hindi Devanagari compression ratio is targeted at $\le 1.8$ tokens per word on standard Hindi text. This value is an engineering target to be validated on the trained tokenizer, not an established measurement.
 
 ### 6.3 Hinglish (Romanized Hindi) Strategy
 Hinglish is characterized by phonetic spellings of Hindi grammar and vocabulary using the Latin alphabet (e.g., *"mera naam abhimanyu hai"*, *"mujhe coding seekhni hai"*).
@@ -184,22 +196,26 @@ def calculate_sum(a, b):
      - `PascalCase`: `CalculateSum` $\to$ `[Calculate]`, `[Sum]`
    - This allows code vocabulary to share subword representations with standard natural language tokens.
 
-### 6.6 Numbers & Arithmetic Strategy
+### 6.6 Numbers & Arithmetic Strategy (UNFROZEN)
 Examples: `123456`, `₹50000`, `3.14159`, `2026-09-26`, `13th`, `13900H`
 
-1. **Single-Digit Splitting Rule**:
-   - *[KNOWN FACT]*: When language models tokenize multi-digit numbers into arbitrary multi-digit chunks (e.g., `123` + `456` vs `12` + `34` + `56`), arithmetic generalization, addition, multiplication, and numeric comparison degrade severely because the model sees distinct, unaligned token IDs for identical digits.
-   - *Rule*: In Chakr-Tokenizer v0.1, **numbers are split into individual digits** during pre-tokenization:
-     $$123456 \longrightarrow [1], [2], [3], [4], [5], [6]$$
-2. **Punctuation & Currency Decoupling**:
-   - Currency symbols (e.g., `₹`, `$`) and decimal points (`.`) are isolated from digits:
-     `₹50000` $\to$ `[₹]`, `[5]`, `[0]`, `[0]`, `[0]`, `[0]`
-     `3.14159` $\to$ `[3]`, `[.]`, `[1]`, `[4]`, `[1]`, `[5]`, `[9]`
-     `2026-09-26` $\to$ `[2]`, `[0]`, `[2]`, `[6]`, `[-]`, `[0]`, `[9]`, `[-]`, `[2]`, `[6]`
-3. **Alphanumeric Identifiers**:
-   - Suffixes like `th` in `13th` or `H` in `13900H` are separated:
-     `13th` $\to$ `[1]`, `[3]`, `[th]`
-     `13900H` $\to$ `[1]`, `[3]`, `[9]`, `[0]`, `[0]`, `[H]`
+> **DECISION STATUS: UNFROZEN**. Numeric tokenization strategy is NOT frozen and must be decided based on empirical benchmark results in Step 3.
+
+#### Proposed Numeric Tokenization Experiment:
+An empirical experiment will be conducted during tokenizer training to evaluate three candidate strategies:
+- **Candidate A: Individual Digits (`\d`)**: Strict single-digit splitting. Maximizes arithmetic generalization and positional alignment; sequence length increases linearly with digit count.
+- **Candidate B: Common Two-Digit Chunks (`\d{1,2}`)**: Allows 2-digit pairs (e.g., `00`–`99`). Reduces sequence length for timestamps, years, and large numbers while bounding subword explosion.
+- **Candidate C: Normal BPE Handling**: Digits are merged according to frequency statistics in the corpus without special digit-splitting constraints.
+
+The final decision must be strictly benchmark-driven, evaluating arithmetic accuracy vs sequence length trade-off.
+
+#### General Punctuation Decoupling:
+- Currency symbols (e.g., `₹`, `$`) and decimal points (`.`) are isolated from digits:
+  `₹50000` $\to$ `[₹]`, followed by segmented digits
+  `3.14159` $\to$ `[3]`, `[.]`, followed by fractional digits
+- Suffixes like `th` in `13th` or `H` in `13900H` are separated:
+  `13th` $\to$ digits + `[th]`
+  `13900H` $\to$ digits + `[H]`
 
 ### 6.7 URLs, Web Addresses & System Paths Strategy
 Examples:
@@ -245,6 +261,8 @@ In Chakr-Micro (Step 1 Specification):
 
 ### 7.2 Quantitative Trade-Off Matrix
 
+> **Note on Estimates**: All fertility values (tokens/word) and context capacities listed below are **[Planning Hypotheses / Pre-Benchmark Estimates]**. They do NOT represent measured ChakrView results and must be validated on an actual corpus in Step 3.
+
 | Candidate Vocab Size ($V$) | Embedding Params ($V \times 192$) | Total Micro Params | Embedding % of Model | FP16 Weight RAM | INT8 Weight RAM | Output Logits FLOPs ($T=512$) | Estimated Hindi Tokens/Word | Context Capacity (Hindi Words in $T=512$) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **$V = 2,048$** | $393,216$ (~0.39M) | **$3.05\text{ M}$** | **$12.9\%$** | $6.10\text{ MB}$ | $3.05\text{ MB}$ | $0.40\text{ GFLOPs}$ | $\approx 2.4 - 2.8$ | $\approx 180 - 210$ words |
@@ -252,19 +270,31 @@ In Chakr-Micro (Step 1 Specification):
 | **$V = 8,192$** | $1,572,864$ (~1.57M) | **$4.23\text{ M}$** | **$37.2\%$** | $8.46\text{ MB}$ | $4.23\text{ MB}$ | $1.61\text{ GFLOPs}$ | $\approx 1.2 - 1.4$ | $\approx 360 - 420$ words |
 | **$V = 16,384$** | $3,145,728$ (~3.15M) | **$5.80\text{ M}$** | **$54.2\%$** | $11.60\text{ MB}$ | $5.80\text{ MB}$ | $3.22\text{ GFLOPs}$ | $\approx 1.1 - 1.2$ | $\approx 420 - 460$ words |
 
-### 7.3 Trade-Off Deductions
+### 7.3 Trade-Off Deductions & Vocabulary Planning Hypotheses
 1. **$V = 2,048$**:
-   - *Advantage*: Very small parameter count ($3.05\text{M}$); ultra-fast final projection.
-   - *Defect*: High sequence fragmentation on Hindi and code. Hindi words split into $2.5\times$ more tokens, effectively shrinking the 512 context to only ~190 words.
+   - Small parameter count ($3.05\text{M}$); fast final projection.
+   - High sequence fragmentation on Hindi and code under theoretical subword distributions.
 2. **$V = 4,096$**:
-   - *Balance*: **The Optimal Pareto Frontier for Chakr-Micro**.
-   - Embeddings occupy $22.8\%$ of parameter budget (healthy ratio for small LMs).
-   - Sufficient capacity to allocate $\approx 1,200$ Devanagari subwords, $\approx 1,800$ English/Hinglish subwords, $\approx 400$ code/syntax tokens, and all 256 byte primitives.
-   - Yields an estimated compression ratio of $1.5\text{--}1.8$ tokens/word for Hindi, providing a usable context of $\approx 300$ words.
+   - *Current Planning Hypothesis*: Embeddings occupy $22.8\%$ of parameter budget.
+   - *Hypothesized Subword Capacity*: May provide room for $\approx 1,200$ Devanagari subwords, $\approx 1,800$ English/Hinglish subwords, and $\approx 400$ code/syntax tokens alongside the 256 byte primitives. **Notice**: This breakdown is a planning hypothesis only; the actual merge vocabulary will be learned empirically from the corpus and audited post-hoc.
 3. **$V = 8,192$**:
-   - Better compression, but embedding table inflates to $37.2\%$ of the entire network. On edge CPUs, computing logits over 8,192 classes doubles final projection latency.
+   - Retained as an unfrozen candidate for empirical testing.
 4. **$V = 16,384$**:
-   - *Severe Pathological Imbalance*: Embedding weights ($3.15\text{M}$) exceed the entire rest of the neural network ($2.66\text{M}$). Parameter capacity is wasted on memorizing surface lexical tokens instead of learning deep relational reasoning.
+   - Disproportionate parameter allocation ($54.2\%$ in embeddings) for a 3.44M parameter model.
+
+### 7.4 Final Vocabulary Selection Protocol
+The final selection among candidate sizes (2048, 4096, 8192, 16384) will be determined strictly by measured empirical metrics on the actual ChakrView tokenizer and corpus:
+- **tokens/character**
+- **tokens/word**
+- **bytes/token**
+- **corpus compression ratio**
+- **Hindi efficiency**
+- **English efficiency**
+- **Hinglish efficiency**
+- **code efficiency**
+- **number efficiency**
+- **vocabulary memory overhead**
+- **tokenizer encode/decode latency on CPU**
 
 ---
 
@@ -362,6 +392,23 @@ int main() {
 - `TC-UNI-02`: `"Math: ∀x ∈ ℝ, ∑_{i=1}^n x_i ≤ √n ‖x‖_2"`
 - `TC-UNI-03`: `"Tamil: வணக்கம், Bengali: নমস্কার, Gujarati: નમસ્તે"`
 
+#### Category I: Explicit Adversarial & Stress Testing Suite
+- `TC-ADV-01 (Hindi Combining Marks)`: `"कौशाम्बी, त्र्यंबकेश्वर, कुंडलियाँ, पूँछ, अँधेरा, ऋग्वेद, ॐ"`
+- `TC-ADV-02 (Sanskrit Conjuncts)`: `"सत्त्व, दग्ध, बुद्ध, उष्ट्र, स्त्रोत, कार्त्तिकेय, वाग्देवी"`
+- `TC-ADV-03 (ZWJ & ZWNJ)`: `"क्‍ + य = क्‍य (ZWJ: U+200D), क + ् + ‌ + य = क्‌य (ZWNJ: U+200C)"`
+- `TC-ADV-04 (Complex Emojis & ZWJ Sequences)`: `"Family: 👨‍👩‍👧‍👦, Flag: 🇮🇳, Modifiers: 👍🏽, 👩‍💻"`
+- `TC-ADV-05 (Uncommon Unicode)`: `"Runes: ᚠᚢᚦᚨᚱᚲ, Tibetan: ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ, Coptic: ⲁⲃⲅⲇ"`
+- `TC-ADV-06 (Mixed Scripts Intertwined)`: `"ChakrView-चक्रव्यूह_core-v0.1"`
+- `TC-ADV-07 (Hindi + English + Numbers Intertwined)`: `"model-2026 mein ₹50000 ka 13th version, latency < 15.4ms"`
+- `TC-ADV-08 (Code Indentation Stress)`: `"    def f():\n        if True:\n            return 1"`
+- `TC-ADV-09 (Tabs & Mixed Whitespace)`: `"\tdef foo():\n\t    x = 10\n  \t  y = 20"`
+- `TC-ADV-10 (CRLF and LF Alternation)`: `"Line1\r\nLine2\nLine3\r\nLine4"`
+- `TC-ADV-11 (Complex URLs & Query Strings)`: `"https://api.chakrview.ai/v1/search?q=%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4&limit=10&auth=true#top"`
+- `TC-ADV-12 (Windows Paths)`: `"d:\\Project\\ChakrView\\brain\\..\\data\\raw\\corpus.jsonl"`
+- `TC-ADV-13 (Linux Paths)`: `"/var/log/syslog.1.gz; rm -rf /tmp/test*"`
+- `TC-ADV-14 (Mathematical Symbols)`: `"∀x ∈ A: ∃y s.t. x ⊕ y = ∅ ∧ x ≢ y"`
+- `TC-ADV-15 (Malformed / Truncated UTF-8 Byte Sequences)`: Raw invalid UTF-8 byte sequences (e.g. orphan continuation byte `0x80` or truncated 3-byte prefix `0xE0 0xA4`) safely representable as raw byte tokens without throwing runtime exceptions.
+
 ---
 
 ## 10. Quantitative Tokenizer Metrics
@@ -424,19 +471,21 @@ A tokenizer design satisfies Step 2 if and only if it complies with the followin
 
 ## 13. Step 2 Frozen vs Unfrozen Decisions
 
-### Frozen for Step 2:
-- **Paradigm**: Byte-Level Byte Pair Encoding (BBPE) with 256 fundamental byte tokens.
-- **Zero `<UNK>` Rule**: Complete elimination of the `<UNK>` token; all unmerged characters decompose into raw UTF-8 bytes.
-- **Numeric Tokenization**: Single-digit segmentation for numbers.
-- **Special Token Set**: Exactly three tokens: `<BOS>` (0), `<EOS>` (1), `<PAD>` (2).
-- **Whitespace Contract**: Lossless whitespace preservation with dedicated indentation tokens.
-- **Reversibility Standard**: 100% bit-exact round-trip requirement.
+### FROZEN:
+- **byte-level fallback** (all 256 fundamental byte primitives present)
+- **no `<UNK>`** (elimination of out-of-vocabulary fallback; raw byte representation)
+- **lossless round-trip requirement** ($\text{Decode}(\text{Encode}(S)) \equiv S$)
+- **causal tokenizer output** (strict deterministic integer token stream for causal LM)
+- **special-token IDs** (`<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2)
 
-### Unfrozen (Awaiting Empirical Validation in Step 3):
-- **Final Vocabulary Size $V$**: Candidate sizes $V = 4096$ vs $V = 8192$ to be decided empirically based on merge entropy and fertility benchmarks on the training corpus.
-- **Exact Pre-Tokenization Regex**: Fine-tuning of regex lookahead/lookbehind patterns for specific Indic conjunct clusters.
-- **Exact Corpus Manifest**: Selection of specific raw text repositories and filtering pipelines.
-- **Merge Table Ordering**: Specific merge order generated by training on the corpus.
+### UNFROZEN:
+- **final vocabulary size** (candidate sizes 2048, 4096, 8192, 16384 evaluated via empirical benchmark)
+- **numeric strategy** (Candidate A: individual digits vs Candidate B: two-digit chunks vs Candidate C: normal BPE)
+- **exact grapheme pre-tokenization rules** (fine-tuned lookahead/lookbehind patterns for complex Indic conjuncts and variation selectors)
+- **corpus composition** (manifest of raw datasets and domain balance)
+- **merge ranking** (specific merge hierarchy produced during offline training)
+- **tokenizer implementation strategy** (custom lightweight trie vs native C wrapper)
+- **optimization/trie implementation** (memory-mapped lookup vs flat array vs hash table)
 
 ---
 *End of Tokenizer Specification — ChakrView Research Team*
