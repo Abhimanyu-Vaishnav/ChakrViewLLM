@@ -2,17 +2,30 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 4 — Neural Core Architecture Specification & Tensor Contract
-- **Status**: Step 4 Complete & Ratified (151/151 tests passing; Zero Failures; Ready for Review)
+- **Current phase**: Step 4 — Neural Core Prototype Implementation & Verification
+- **Status**: Step 4 Complete & Verified (171/171 tests passing; Zero Failures; Ready for Step 5)
 
 ---
 
 ## Status Summary
 
 ### Implementation Notice
-> **IMPORTANT**: No neural model class, transformer layer weights, or training loops have been implemented, and no pretrained weights or external framework models have been introduced. ChakrView is being developed strictly incrementally from first principles as an indigenous AI research initiative. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the initial corpus pipeline and BPE experiment. Step 2.4 froze the tokenizer-to-neural-core interface contract. Step 3 executed the complete empirical tokenizer research, corpus engineering pipeline, multi-candidate benchmarking, vocabulary bias analysis, and empirical selection phase. Step 4 has now formally designed, calculated, and frozen the neural core architecture specification, parameter accounting, memory budget, FLOP breakdown, and forward-pass tensor contracts for Chakr-Micro v0.1 with 151/151 unit tests passing.
+> **IMPORTANT**: Step 4 Neural Core Prototype has been successfully implemented and verified from scratch with zero external model weights, zero pretrained models, and zero wrapper frameworks. The indigenous neural brain package `chakrview/brain/` is completely operational on CPU. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the initial corpus pipeline and BPE experiment. Step 2.4 froze the tokenizer-to-neural-core interface contract. Step 3 executed empirical tokenizer research, corpus engineering, multi-candidate benchmarking, and vocabulary selection. Step 4 has now implemented the complete neural core prototype `ChakrMicro v0.1` ($3,443,136$ parameters) with exact parameter accounting, strict causal masking verification, RoPE positional encoding, SwiGLU feedforward, tied LM head, gradient flow learnability verification, and CPU forward-pass benchmarking with 171/171 unit tests passing.
 
 ### Progress by Module
+- `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1)**
+  - `config.py`: `ModelConfig` dataclass with dimension divisibility and parity validation
+  - `embeddings.py`: `TokenEmbedding` with parameter matrix $E \in \mathbb{R}^{4096 \times 192}$ and out-of-bounds error handling
+  - `normalization.py`: `RMSNorm` (Pre-RMSNorm, bias-free, float32 rsqrt stability)
+  - `rotary.py`: `RotaryEmbedding` (pairwise 2D Givens rotation, precomputed frequency caches, sequence bounds check)
+  - `masking.py`: `CausalMask` (upper-triangular mask, $-1e9$ additive safe float32)
+  - `attention.py`: `MultiHeadAttention` (Simple MHA, bias-free QKV/OutProj, RoPE on Q/K, scaled dot product)
+  - `feedforward.py`: `SwiGLU` (bias-free gate, up, down projections with SiLU activation)
+  - `block.py`: `TransformerBlock` (Pre-RMSNorm $\to$ MHA $\to$ Residual $\to$ Pre-RMSNorm $\to$ SwiGLU $\to$ Residual)
+  - `output.py`: `LMHead` (Tied output head sharing `embedding.weight` memory pointer)
+  - `initialization.py`: `initialize_weights` ($\mathcal{N}(0, 0.02)$ for base, depth-scaled $\frac{0.02}{\sqrt{12}}$ for residual projections $W_O, W_{\text{down}}$, ones for RMSNorm)
+  - `model.py`: `ChakrMicro` (End-to-end causal language model and programmatic `count_parameters()` reporting)
+  - `__init__.py`: Clean public exports of all brain primitives
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
   - `ChakrConfig`: Frozen hyperparameter dataclass with automatic divisibility, parity, and bounds validation
   - `calculate_parameter_breakdown()`: Analytical parameter formulas for all subcomponents (3,443,136 total parameters)
@@ -48,16 +61,19 @@
   - `manifests/`: `corpus_manifest.json` with file hashes
   - `statistics/`: `corpus_statistics.json` and `step3_tokenizer_benchmark.json`
   - `experiments/`: Trained candidate artifacts for `vocab_2048/`, `vocab_4096/`, `vocab_8192/`, `vocab_16384/`
-- `tests/`: **151/151 Tests Passing** across 14 test modules (100% green, 0 failures)
-- `docs/`: **Comprehensive Step 4 Documentation Ratified**
+- `tests/`: **171/171 Tests Passing** across 19 test modules (100% green, 0 failures)
+  - 151 Tokenizer and Corpus pipeline tests
+  - 20 Neural Core prototype tests (Config, Primitives, Model, Causality, Gradients)
+- `docs/`: **Comprehensive Step 4 Documentation & Empirical Baselines Ratified**
+  - `docs/STEP_04_NEURAL_CORE_IMPLEMENTATION_PLAN.md` (Formal mathematical and engineering plan)
+  - `docs/STEP_04_PARAMETER_ACCOUNTING.md` (Analytical vs code parameter reconciliation: 3,443,136 parameters)
+  - `docs/STEP_04_CPU_BASELINE.md` (Empirical CPU forward-pass latency and throughput benchmarks)
+  - `docs/STEP_04_NEURAL_CORE_REPORT.md` (Complete Step 4 Engineering Report)
   - `docs/STEP_04_NEURAL_CORE_SPEC.md` (Formal architectural specification, parameter budget, memory, FLOPs, tensor contracts)
   - `docs/NEURAL_CORE_DECISIONS.md` (Architectural Decision Records ADR 17–ADR 23)
   - `docs/ARCHITECTURE_DECISIONS.md` (Complete repository ADR index updated with Step 4 frozen decisions)
-  - `docs/STEP_03_TOKENIZER_BENCHMARK_REPORT.md` (Step 3 empirical tokenizer benchmark report)
-  - `docs/STEP_03_DECISIONS.md` (Step 3 decisions)
-  - `docs/TOKENIZER_FINAL_DECISION.md` (Final ratified tokenizer architecture decision)
 
-### Step 4 Ratified Architecture: Chakr-Micro v0.1
+### Step 4 Ratified Architecture & Prototype: Chakr-Micro v0.1
 - **Architecture**: Decoder-only causal autoregressive transformer
 - **Layers ($N$)**: 6 stacked transformer blocks
 - **Model Dimension ($d_{\text{model}}$)**: 192
@@ -68,13 +84,13 @@
 - **Vocabulary Size ($V$)**: 4096 (ratified from Step 3 empirical benchmark)
 - **Normalization**: Pre-RMSNorm with $\epsilon = 10^{-5}$ and scale $\boldsymbol{\gamma}$ (bias-free)
 - **Positional Mechanism**: RoPE ($\Theta = 10000.0, d_{\text{rot}} = 32$) applied to $Q$ and $K$
-- **Weight Tying**: Enabled ($W_{\text{out}} = E^T$)
+- **Weight Tying**: Enabled and hardware-verified ($W_{\text{out}} = E^T$, data_ptr identical)
 - **Projections Bias**: Strictly bias-free ($b = 0$) across all linear projections
 - **Total Parameters**: **$3,443,136$** ($786,432$ embedding, $2,656,512$ transformer layers, $192$ final norm)
 - **Static Weight Memory**: FP32: $13.13\text{ MiB}$ ($13.77\text{ MB}$), FP16: $6.57\text{ MiB}$ ($6.89\text{ MB}$), INT8: $3.28\text{ MiB}$ ($3.44\text{ MB}$), INT4: $1.64\text{ MiB}$ ($1.72\text{ MB}$)
-- **KV Cache Memory ($B=1$)**: $T=128$: $1.125\text{ MiB}$ (FP32), $T=256$: $2.25\text{ MiB}$ (FP32), $T=512$: $4.50\text{ MiB}$ (FP32) / $2.25\text{ MiB}$ (FP16)
-- **Computational Cost ($T=512$)**: $4,773.05\text{ MFLOPs}$ sequence FLOPs ($9.32\text{ MFLOPs/token}$)
-- **Tensor Contract**: `input_ids [B, T]` $\to$ `logits [B, T, 4096]`
+- **Causality Verification**: Verified (zero future-token leakage to prefix tokens)
+- **Gradient Flow**: Verified (15-step learnability smoke test with loss reduction)
+- **CPU Forward Benchmark**: $T=1$: $1.31\text{ ms}$, $T=512$: $21.72\text{ ms}$ ($23,569.6\text{ tok/s}$) on Intel i9-13900H (PyTorch 2.14.0+cpu)
 
 ### Next Phase
-- Step 5: Neural Core Implementation & Training Pipeline (Awaiting User Instructions).
+- Step 5: Pre-Training Infrastructure & Data Loader Pipeline (Awaiting User Instructions).
