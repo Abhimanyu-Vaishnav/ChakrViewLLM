@@ -1,0 +1,1330 @@
+{
+  "execution_metadata": {
+    "title": "ChakrView Step 3 Tokenizer & Corpus Empirical Benchmark",
+    "timestamp_utc": "2026-09-26T08:58:52Z",
+    "python_version": "3.14.7",
+    "os": "Windows 11",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "seed": 42
+  },
+  "corpus_statistics": {
+    "summary": {
+      "total_documents": 600,
+      "total_characters": 41630,
+      "total_bytes": 60199,
+      "bytes_per_char": 1.446,
+      "duplicate_rate_percentage": 1.32
+    },
+    "unicode_codepoint_statistics": {
+      "unique_codepoints_count": 227,
+      "min_codepoint": 32,
+      "max_codepoint": 128187,
+      "min_codepoint_hex": "0x20",
+      "max_codepoint_hex": "0x1f4bb"
+    },
+    "script_distribution": {
+      "counts": {
+        "Latin_ASCII": 21716,
+        "Devanagari": 9211,
+        "Whitespace": 6484,
+        "Punctuation": 2363,
+        "ASCII_Digit": 1428,
+        "Symbol_Math": 396,
+        "Other_Unicode": 27,
+        "Combining_Mark": 3,
+        "Zero_Width": 2
+      },
+      "percentages": {
+        "Latin_ASCII": 52.16,
+        "Devanagari": 22.13,
+        "Whitespace": 15.58,
+        "Punctuation": 5.68,
+        "ASCII_Digit": 3.43,
+        "Symbol_Math": 0.95,
+        "Other_Unicode": 0.06,
+        "Combining_Mark": 0.01,
+        "Zero_Width": 0.0
+      }
+    },
+    "whitespace_distribution": {
+      "crlf": 0,
+      "lf": 0,
+      "tabs": 0,
+      "spaces": 6484
+    },
+    "digit_frequency": {
+      "0": 314,
+      "1": 263,
+      "2": 207,
+      "5": 114,
+      "9": 110,
+      "4": 100,
+      "3": 89,
+      "8": 87,
+      "6": 86,
+      "7": 58
+    },
+    "top_punctuation_frequency": {
+      ",": 406,
+      ".": 368,
+      "-": 210,
+      "_": 204,
+      "(": 166,
+      ")": 166,
+      "\\": 164,
+      "।": 152,
+      ":": 147,
+      "{": 111,
+      "}": 109,
+      "\"": 82,
+      "*": 46,
+      "[": 37,
+      "]": 37,
+      "/": 31,
+      "%": 25,
+      ";": 16,
+      "?": 11,
+      "'": 10
+    },
+    "category_distribution": {
+      "document_counts": {
+        "code": 144,
+        "english": 100,
+        "hindi": 114,
+        "hinglish": 61,
+        "mathematics": 56,
+        "mixed": 49,
+        "numbers": 64,
+        "sanskrit": 12
+      },
+      "byte_counts": {
+        "code": 4928,
+        "english": 10906,
+        "hindi": 25666,
+        "hinglish": 4824,
+        "mathematics": 3289,
+        "mixed": 4851,
+        "numbers": 2723,
+        "sanskrit": 3012
+      },
+      "byte_percentages": {
+        "code": 8.19,
+        "english": 18.12,
+        "hindi": 42.64,
+        "hinglish": 8.01,
+        "mathematics": 5.46,
+        "mixed": 8.06,
+        "numbers": 4.52,
+        "sanskrit": 5.0
+      }
+    }
+  },
+  "corpus_validation": {
+    "total_documents": 609,
+    "valid_documents": 600,
+    "discarded_documents": 1,
+    "duplicate_documents": 8,
+    "splits": {
+      "train_lines": 477,
+      "val_lines": 68,
+      "test_lines": 55
+    }
+  },
+  "vocabulary_experiments": {
+    "V2048": {
+      "requested_vocab_size": 2048,
+      "actual_vocab_size": 2048,
+      "merges_performed": 1789,
+      "exhausted_merges": false,
+      "training_time_seconds": 6.5688,
+      "sample_top_merges": [
+        "b'\\xe0' + b'\\xa4' -> ID 259 (b'\\xe0\\xa4')",
+        "b'\\xe0' + b'\\xa5' -> ID 260 (b'\\xe0\\xa5')",
+        "' ' + b'\\xe0\\xa4' -> ID 261 (b' \\xe0\\xa4')",
+        "b'\\xe0\\xa4' + b'\\xbe' -> ID 262 ('ा')",
+        "b'\\xe0\\xa5' + b'\\x8d' -> ID 263 ('्')"
+      ],
+      "sample_bottom_merges": [
+        "b'\\xb9\\xe0\\xa5\\x8b' + 'ती है।' -> ID 2043 (b'\\xb9\\xe0\\xa5\\x8b\\xe0\\xa4\\xa4\\xe0\\xa5\\x80 \\xe0\\xa4\\xb9\\xe0\\xa5\\x88\\xe0\\xa5\\xa4')",
+        "b'\\xb9\\xe0\\xa5\\x88 \\xe0\\xa4\\x9c' + 'िस' -> ID 2044 (b'\\xb9\\xe0\\xa5\\x88 \\xe0\\xa4\\x9c\\xe0\\xa4\\xbf\\xe0\\xa4\\xb8')",
+        "'₹' + '5' -> ID 2045 ('₹5')",
+        "'node.' + 'chil' -> ID 2046 ('node.chil')",
+        "'-1}' + ' ' -> ID 2047 ('-1} ')"
+      ],
+      "validation_metrics": {
+        "total_val_items": 68,
+        "total_bytes": 7621,
+        "total_chars": 5036,
+        "total_words": 761,
+        "total_tokens": 2149,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.4267,
+        "tokens_per_word": 2.8239,
+        "bytes_per_token": 3.5463,
+        "compression_ratio": 3.5463,
+        "encode_latency_us_per_doc": 549.43,
+        "decode_latency_us_per_doc": 3.59,
+        "vocab_memory_bytes": 446937,
+        "vocab_memory_kb": 436.46,
+        "category_metrics": {
+          "code": {
+            "tokens": 174,
+            "bytes": 445,
+            "tokens_per_char": 0.391,
+            "tokens_per_word": 2.9492,
+            "bytes_per_token": 2.5575,
+            "compression_ratio": 2.5575
+          },
+          "english": {
+            "tokens": 599,
+            "bytes": 1642,
+            "tokens_per_char": 0.3648,
+            "tokens_per_word": 2.8389,
+            "bytes_per_token": 2.7412,
+            "compression_ratio": 2.7412
+          },
+          "hindi": {
+            "tokens": 528,
+            "bytes": 3145,
+            "tokens_per_char": 0.4418,
+            "tokens_per_word": 2.4,
+            "bytes_per_token": 5.9564,
+            "compression_ratio": 5.9564
+          },
+          "hinglish": {
+            "tokens": 149,
+            "bytes": 437,
+            "tokens_per_char": 0.341,
+            "tokens_per_word": 2.0411,
+            "bytes_per_token": 2.9329,
+            "compression_ratio": 2.9329
+          },
+          "mathematics": {
+            "tokens": 151,
+            "bytes": 293,
+            "tokens_per_char": 0.5154,
+            "tokens_per_word": 3.5116,
+            "bytes_per_token": 1.9404,
+            "compression_ratio": 1.9404
+          },
+          "mixed": {
+            "tokens": 145,
+            "bytes": 393,
+            "tokens_per_char": 0.3756,
+            "tokens_per_word": 2.3016,
+            "bytes_per_token": 2.7103,
+            "compression_ratio": 2.7103
+          },
+          "numbers": {
+            "tokens": 179,
+            "bytes": 288,
+            "tokens_per_char": 0.6303,
+            "tokens_per_word": 3.8913,
+            "bytes_per_token": 1.6089,
+            "compression_ratio": 1.6089
+          },
+          "sanskrit": {
+            "tokens": 224,
+            "bytes": 978,
+            "tokens_per_char": 0.6328,
+            "tokens_per_word": 4.8696,
+            "bytes_per_token": 4.3661,
+            "compression_ratio": 4.3661
+          }
+        }
+      },
+      "test_metrics": {
+        "total_val_items": 55,
+        "total_bytes": 4468,
+        "total_chars": 3277,
+        "total_words": 510,
+        "total_tokens": 1396,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.426,
+        "tokens_per_word": 2.7373,
+        "bytes_per_token": 3.2006,
+        "compression_ratio": 3.2006,
+        "encode_latency_us_per_doc": 408.18,
+        "decode_latency_us_per_doc": 3.05,
+        "vocab_memory_bytes": 446937,
+        "vocab_memory_kb": 436.46,
+        "category_metrics": {
+          "code": {
+            "tokens": 181,
+            "bytes": 535,
+            "tokens_per_char": 0.3383,
+            "tokens_per_word": 2.5857,
+            "bytes_per_token": 2.9558,
+            "compression_ratio": 2.9558
+          },
+          "english": {
+            "tokens": 206,
+            "bytes": 561,
+            "tokens_per_char": 0.3672,
+            "tokens_per_word": 2.9429,
+            "bytes_per_token": 2.7233,
+            "compression_ratio": 2.7233
+          },
+          "hindi": {
+            "tokens": 305,
+            "bytes": 1721,
+            "tokens_per_char": 0.4743,
+            "tokens_per_word": 2.7982,
+            "bytes_per_token": 5.6426,
+            "compression_ratio": 5.6426
+          },
+          "hinglish": {
+            "tokens": 218,
+            "bytes": 605,
+            "tokens_per_char": 0.3603,
+            "tokens_per_word": 2.0566,
+            "bytes_per_token": 2.7752,
+            "compression_ratio": 2.7752
+          },
+          "mathematics": {
+            "tokens": 153,
+            "bytes": 291,
+            "tokens_per_char": 0.5276,
+            "tokens_per_word": 2.7321,
+            "bytes_per_token": 1.902,
+            "compression_ratio": 1.902
+          },
+          "mixed": {
+            "tokens": 134,
+            "bytes": 427,
+            "tokens_per_char": 0.4254,
+            "tokens_per_word": 2.5769,
+            "bytes_per_token": 3.1866,
+            "compression_ratio": 3.1866
+          },
+          "numbers": {
+            "tokens": 199,
+            "bytes": 328,
+            "tokens_per_char": 0.6067,
+            "tokens_per_word": 4.234,
+            "bytes_per_token": 1.6482,
+            "compression_ratio": 1.6482
+          }
+        }
+      },
+      "latency": {
+        "encode_mean_us": 564.52,
+        "encode_median_us": 569.64,
+        "encode_p95_us": 588.81,
+        "encode_min_us": 528.75,
+        "encode_max_us": 588.81,
+        "decode_mean_us": 3.78,
+        "decode_median_us": 3.56,
+        "decode_p95_us": 6.33,
+        "decode_min_us": 3.37,
+        "decode_max_us": 6.33
+      },
+      "memory": {
+        "vocab_memory_bytes": 208541,
+        "merge_table_bytes": 238396,
+        "total_static_memory_kb": 436.46,
+        "embedding_params": 393216,
+        "embedding_bytes_fp16": 786432,
+        "embedding_param_percentage": 11.42
+      },
+      "vocabulary_bias": {
+        "total_tokens_analyzed": 2045,
+        "category_counts": {
+          "English_Latin": 1082,
+          "Devanagari": 394,
+          "Base_Byte_Primitive": 256,
+          "Non_UTF8_Byte_Sequence": 149,
+          "Numeric": 99,
+          "Punctuation_Syntax": 54,
+          "Mixed_Other": 9,
+          "Code_Alphanumeric": 2
+        },
+        "category_percentages": {
+          "English_Latin": 52.91,
+          "Devanagari": 19.27,
+          "Base_Byte_Primitive": 12.52,
+          "Non_UTF8_Byte_Sequence": 7.29,
+          "Numeric": 4.84,
+          "Punctuation_Syntax": 2.64,
+          "Mixed_Other": 0.44,
+          "Code_Alphanumeric": 0.1
+        },
+        "avg_token_byte_length": 4.88,
+        "max_token_byte_length": 31,
+        "min_token_byte_length": 1
+      }
+    },
+    "V4096": {
+      "requested_vocab_size": 4096,
+      "actual_vocab_size": 4096,
+      "merges_performed": 3837,
+      "exhausted_merges": false,
+      "training_time_seconds": 10.4909,
+      "sample_top_merges": [
+        "b'\\xe0' + b'\\xa4' -> ID 259 (b'\\xe0\\xa4')",
+        "b'\\xe0' + b'\\xa5' -> ID 260 (b'\\xe0\\xa5')",
+        "' ' + b'\\xe0\\xa4' -> ID 261 (b' \\xe0\\xa4')",
+        "b'\\xe0\\xa4' + b'\\xbe' -> ID 262 ('ा')",
+        "b'\\xe0\\xa5' + b'\\x8d' -> ID 263 ('्')"
+      ],
+      "sample_bottom_merges": [
+        "'e' + '23' -> ID 4091 ('e23')",
+        "'e' + 'kh' -> ID 4092 ('ekh')",
+        "'e' + 'very ' -> ID 4093 ('every ')",
+        "'e' + 'fully ' -> ID 4094 ('efully ')",
+        "'e' + '_entropy' -> ID 4095 ('e_entropy')"
+      ],
+      "validation_metrics": {
+        "total_val_items": 68,
+        "total_bytes": 7621,
+        "total_chars": 5036,
+        "total_words": 761,
+        "total_tokens": 1869,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.3711,
+        "tokens_per_word": 2.456,
+        "bytes_per_token": 4.0776,
+        "compression_ratio": 4.0776,
+        "encode_latency_us_per_doc": 706.8,
+        "decode_latency_us_per_doc": 3.34,
+        "vocab_memory_bytes": 923930,
+        "vocab_memory_kb": 902.28,
+        "category_metrics": {
+          "code": {
+            "tokens": 140,
+            "bytes": 445,
+            "tokens_per_char": 0.3146,
+            "tokens_per_word": 2.3729,
+            "bytes_per_token": 3.1786,
+            "compression_ratio": 3.1786
+          },
+          "english": {
+            "tokens": 530,
+            "bytes": 1642,
+            "tokens_per_char": 0.3228,
+            "tokens_per_word": 2.5118,
+            "bytes_per_token": 3.0981,
+            "compression_ratio": 3.0981
+          },
+          "hindi": {
+            "tokens": 477,
+            "bytes": 3145,
+            "tokens_per_char": 0.3992,
+            "tokens_per_word": 2.1682,
+            "bytes_per_token": 6.5933,
+            "compression_ratio": 6.5933
+          },
+          "hinglish": {
+            "tokens": 117,
+            "bytes": 437,
+            "tokens_per_char": 0.2677,
+            "tokens_per_word": 1.6027,
+            "bytes_per_token": 3.735,
+            "compression_ratio": 3.735
+          },
+          "mathematics": {
+            "tokens": 127,
+            "bytes": 293,
+            "tokens_per_char": 0.4334,
+            "tokens_per_word": 2.9535,
+            "bytes_per_token": 2.3071,
+            "compression_ratio": 2.3071
+          },
+          "mixed": {
+            "tokens": 126,
+            "bytes": 393,
+            "tokens_per_char": 0.3264,
+            "tokens_per_word": 2.0,
+            "bytes_per_token": 3.119,
+            "compression_ratio": 3.119
+          },
+          "numbers": {
+            "tokens": 148,
+            "bytes": 288,
+            "tokens_per_char": 0.5211,
+            "tokens_per_word": 3.2174,
+            "bytes_per_token": 1.9459,
+            "compression_ratio": 1.9459
+          },
+          "sanskrit": {
+            "tokens": 204,
+            "bytes": 978,
+            "tokens_per_char": 0.5763,
+            "tokens_per_word": 4.4348,
+            "bytes_per_token": 4.7941,
+            "compression_ratio": 4.7941
+          }
+        }
+      },
+      "test_metrics": {
+        "total_val_items": 55,
+        "total_bytes": 4468,
+        "total_chars": 3277,
+        "total_words": 510,
+        "total_tokens": 1206,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.368,
+        "tokens_per_word": 2.3647,
+        "bytes_per_token": 3.7048,
+        "compression_ratio": 3.7048,
+        "encode_latency_us_per_doc": 571.28,
+        "decode_latency_us_per_doc": 2.45,
+        "vocab_memory_bytes": 923930,
+        "vocab_memory_kb": 902.28,
+        "category_metrics": {
+          "code": {
+            "tokens": 145,
+            "bytes": 535,
+            "tokens_per_char": 0.271,
+            "tokens_per_word": 2.0714,
+            "bytes_per_token": 3.6897,
+            "compression_ratio": 3.6897
+          },
+          "english": {
+            "tokens": 183,
+            "bytes": 561,
+            "tokens_per_char": 0.3262,
+            "tokens_per_word": 2.6143,
+            "bytes_per_token": 3.0656,
+            "compression_ratio": 3.0656
+          },
+          "hindi": {
+            "tokens": 282,
+            "bytes": 1721,
+            "tokens_per_char": 0.4386,
+            "tokens_per_word": 2.5872,
+            "bytes_per_token": 6.1028,
+            "compression_ratio": 6.1028
+          },
+          "hinglish": {
+            "tokens": 187,
+            "bytes": 605,
+            "tokens_per_char": 0.3091,
+            "tokens_per_word": 1.7642,
+            "bytes_per_token": 3.2353,
+            "compression_ratio": 3.2353
+          },
+          "mathematics": {
+            "tokens": 129,
+            "bytes": 291,
+            "tokens_per_char": 0.4448,
+            "tokens_per_word": 2.3036,
+            "bytes_per_token": 2.2558,
+            "compression_ratio": 2.2558
+          },
+          "mixed": {
+            "tokens": 111,
+            "bytes": 427,
+            "tokens_per_char": 0.3524,
+            "tokens_per_word": 2.1346,
+            "bytes_per_token": 3.8468,
+            "compression_ratio": 3.8468
+          },
+          "numbers": {
+            "tokens": 169,
+            "bytes": 328,
+            "tokens_per_char": 0.5152,
+            "tokens_per_word": 3.5957,
+            "bytes_per_token": 1.9408,
+            "compression_ratio": 1.9408
+          }
+        }
+      },
+      "latency": {
+        "encode_mean_us": 724.05,
+        "encode_median_us": 733.15,
+        "encode_p95_us": 759.51,
+        "encode_min_us": 669.63,
+        "encode_max_us": 759.51,
+        "decode_mean_us": 3.84,
+        "decode_median_us": 3.51,
+        "decode_p95_us": 6.44,
+        "decode_min_us": 3.37,
+        "decode_max_us": 6.44
+      },
+      "memory": {
+        "vocab_memory_bytes": 423382,
+        "merge_table_bytes": 500548,
+        "total_static_memory_kb": 902.28,
+        "embedding_params": 786432,
+        "embedding_bytes_fp16": 1572864,
+        "embedding_param_percentage": 22.84
+      },
+      "vocabulary_bias": {
+        "total_tokens_analyzed": 4093,
+        "category_counts": {
+          "English_Latin": 2309,
+          "Devanagari": 719,
+          "Numeric": 336,
+          "Non_UTF8_Byte_Sequence": 294,
+          "Base_Byte_Primitive": 256,
+          "Punctuation_Syntax": 96,
+          "Code_Alphanumeric": 64,
+          "Mixed_Other": 14,
+          "Mixed_Indic_Latin": 5
+        },
+        "category_percentages": {
+          "English_Latin": 56.41,
+          "Devanagari": 17.57,
+          "Numeric": 8.21,
+          "Non_UTF8_Byte_Sequence": 7.18,
+          "Base_Byte_Primitive": 6.25,
+          "Punctuation_Syntax": 2.35,
+          "Code_Alphanumeric": 1.56,
+          "Mixed_Other": 0.34,
+          "Mixed_Indic_Latin": 0.12
+        },
+        "avg_token_byte_length": 6.39,
+        "max_token_byte_length": 82,
+        "min_token_byte_length": 1
+      }
+    },
+    "V8192": {
+      "requested_vocab_size": 8192,
+      "actual_vocab_size": 8192,
+      "merges_performed": 7933,
+      "exhausted_merges": false,
+      "training_time_seconds": 16.9261,
+      "sample_top_merges": [
+        "b'\\xe0' + b'\\xa4' -> ID 259 (b'\\xe0\\xa4')",
+        "b'\\xe0' + b'\\xa5' -> ID 260 (b'\\xe0\\xa5')",
+        "' ' + b'\\xe0\\xa4' -> ID 261 (b' \\xe0\\xa4')",
+        "b'\\xe0\\xa4' + b'\\xbe' -> ID 262 ('ा')",
+        "b'\\xe0\\xa5' + b'\\x8d' -> ID 263 ('्')"
+      ],
+      "sample_bottom_merges": [
+        "b'\\xac\\xe0\\xa5\\x80\\xe0\\xa4\\x9c' + 'गणित और' -> ID 8187 (b'\\xac\\xe0\\xa5\\x80\\xe0\\xa4\\x9c\\xe0\\xa4\\x97\\xe0\\xa4\\xa3\\xe0\\xa4\\xbf\\xe0\\xa4\\xa4 \\xe0\\xa4\\x94\\xe0\\xa4\\xb0')",
+        "'error ' + 'de toh ' -> ID 8188 ('error de toh ')",
+        "'नमस्त' + 'े दुन' -> ID 8189 ('नमस्ते दुन')",
+        "'chalo ' + 'ab ' -> ID 8190 ('chalo ab ')",
+        "'chalo ' + 'ab re' -> ID 8191 ('chalo ab re')"
+      ],
+      "validation_metrics": {
+        "total_val_items": 68,
+        "total_bytes": 7621,
+        "total_chars": 5036,
+        "total_words": 761,
+        "total_tokens": 1688,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.3352,
+        "tokens_per_word": 2.2181,
+        "bytes_per_token": 4.5148,
+        "compression_ratio": 4.5148,
+        "encode_latency_us_per_doc": 988.21,
+        "decode_latency_us_per_doc": 2.86,
+        "vocab_memory_bytes": 1893938,
+        "vocab_memory_kb": 1849.55,
+        "category_metrics": {
+          "code": {
+            "tokens": 128,
+            "bytes": 445,
+            "tokens_per_char": 0.2876,
+            "tokens_per_word": 2.1695,
+            "bytes_per_token": 3.4766,
+            "compression_ratio": 3.4766
+          },
+          "english": {
+            "tokens": 489,
+            "bytes": 1642,
+            "tokens_per_char": 0.2978,
+            "tokens_per_word": 2.3175,
+            "bytes_per_token": 3.3579,
+            "compression_ratio": 3.3579
+          },
+          "hindi": {
+            "tokens": 415,
+            "bytes": 3145,
+            "tokens_per_char": 0.3473,
+            "tokens_per_word": 1.8864,
+            "bytes_per_token": 7.5783,
+            "compression_ratio": 7.5783
+          },
+          "hinglish": {
+            "tokens": 101,
+            "bytes": 437,
+            "tokens_per_char": 0.2311,
+            "tokens_per_word": 1.3836,
+            "bytes_per_token": 4.3267,
+            "compression_ratio": 4.3267
+          },
+          "mathematics": {
+            "tokens": 115,
+            "bytes": 293,
+            "tokens_per_char": 0.3925,
+            "tokens_per_word": 2.6744,
+            "bytes_per_token": 2.5478,
+            "compression_ratio": 2.5478
+          },
+          "mixed": {
+            "tokens": 105,
+            "bytes": 393,
+            "tokens_per_char": 0.272,
+            "tokens_per_word": 1.6667,
+            "bytes_per_token": 3.7429,
+            "compression_ratio": 3.7429
+          },
+          "numbers": {
+            "tokens": 146,
+            "bytes": 288,
+            "tokens_per_char": 0.5141,
+            "tokens_per_word": 3.1739,
+            "bytes_per_token": 1.9726,
+            "compression_ratio": 1.9726
+          },
+          "sanskrit": {
+            "tokens": 189,
+            "bytes": 978,
+            "tokens_per_char": 0.5339,
+            "tokens_per_word": 4.1087,
+            "bytes_per_token": 5.1746,
+            "compression_ratio": 5.1746
+          }
+        }
+      },
+      "test_metrics": {
+        "total_val_items": 55,
+        "total_bytes": 4468,
+        "total_chars": 3277,
+        "total_words": 510,
+        "total_tokens": 1078,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.329,
+        "tokens_per_word": 2.1137,
+        "bytes_per_token": 4.1447,
+        "compression_ratio": 4.1447,
+        "encode_latency_us_per_doc": 838.42,
+        "decode_latency_us_per_doc": 2.83,
+        "vocab_memory_bytes": 1893938,
+        "vocab_memory_kb": 1849.55,
+        "category_metrics": {
+          "code": {
+            "tokens": 136,
+            "bytes": 535,
+            "tokens_per_char": 0.2542,
+            "tokens_per_word": 1.9429,
+            "bytes_per_token": 3.9338,
+            "compression_ratio": 3.9338
+          },
+          "english": {
+            "tokens": 157,
+            "bytes": 561,
+            "tokens_per_char": 0.2799,
+            "tokens_per_word": 2.2429,
+            "bytes_per_token": 3.5732,
+            "compression_ratio": 3.5732
+          },
+          "hindi": {
+            "tokens": 248,
+            "bytes": 1721,
+            "tokens_per_char": 0.3857,
+            "tokens_per_word": 2.2752,
+            "bytes_per_token": 6.9395,
+            "compression_ratio": 6.9395
+          },
+          "hinglish": {
+            "tokens": 163,
+            "bytes": 605,
+            "tokens_per_char": 0.2694,
+            "tokens_per_word": 1.5377,
+            "bytes_per_token": 3.7117,
+            "compression_ratio": 3.7117
+          },
+          "mathematics": {
+            "tokens": 125,
+            "bytes": 291,
+            "tokens_per_char": 0.431,
+            "tokens_per_word": 2.2321,
+            "bytes_per_token": 2.328,
+            "compression_ratio": 2.328
+          },
+          "mixed": {
+            "tokens": 89,
+            "bytes": 427,
+            "tokens_per_char": 0.2825,
+            "tokens_per_word": 1.7115,
+            "bytes_per_token": 4.7978,
+            "compression_ratio": 4.7978
+          },
+          "numbers": {
+            "tokens": 160,
+            "bytes": 328,
+            "tokens_per_char": 0.4878,
+            "tokens_per_word": 3.4043,
+            "bytes_per_token": 2.05,
+            "compression_ratio": 2.05
+          }
+        }
+      },
+      "latency": {
+        "encode_mean_us": 1012.17,
+        "encode_median_us": 1015.31,
+        "encode_p95_us": 1060.25,
+        "encode_min_us": 959.46,
+        "encode_max_us": 1060.25,
+        "decode_mean_us": 2.82,
+        "decode_median_us": 2.68,
+        "decode_p95_us": 4.72,
+        "decode_min_us": 2.6,
+        "decode_max_us": 4.72
+      },
+      "memory": {
+        "vocab_memory_bytes": 869110,
+        "merge_table_bytes": 1024828,
+        "total_static_memory_kb": 1849.55,
+        "embedding_params": 1572864,
+        "embedding_bytes_fp16": 3145728,
+        "embedding_param_percentage": 45.67
+      },
+      "vocabulary_bias": {
+        "total_tokens_analyzed": 8189,
+        "category_counts": {
+          "English_Latin": 4561,
+          "Devanagari": 1711,
+          "Non_UTF8_Byte_Sequence": 811,
+          "Numeric": 488,
+          "Base_Byte_Primitive": 256,
+          "Code_Alphanumeric": 207,
+          "Punctuation_Syntax": 109,
+          "Mixed_Indic_Latin": 31,
+          "Mixed_Other": 15
+        },
+        "category_percentages": {
+          "English_Latin": 55.7,
+          "Devanagari": 20.89,
+          "Non_UTF8_Byte_Sequence": 9.9,
+          "Numeric": 5.96,
+          "Base_Byte_Primitive": 3.13,
+          "Code_Alphanumeric": 2.53,
+          "Punctuation_Syntax": 1.33,
+          "Mixed_Indic_Latin": 0.38,
+          "Mixed_Other": 0.18
+        },
+        "avg_token_byte_length": 9.11,
+        "max_token_byte_length": 109,
+        "min_token_byte_length": 1
+      }
+    },
+    "V16384": {
+      "requested_vocab_size": 16384,
+      "actual_vocab_size": 12077,
+      "merges_performed": 11818,
+      "exhausted_merges": true,
+      "training_time_seconds": 27.6278,
+      "sample_top_merges": [
+        "b'\\xe0' + b'\\xa4' -> ID 259 (b'\\xe0\\xa4')",
+        "b'\\xe0' + b'\\xa5' -> ID 260 (b'\\xe0\\xa5')",
+        "' ' + b'\\xe0\\xa4' -> ID 261 (b' \\xe0\\xa4')",
+        "b'\\xe0\\xa4' + b'\\xbe' -> ID 262 ('ा')",
+        "b'\\xe0\\xa5' + b'\\x8d' -> ID 263 ('्')"
+      ],
+      "sample_bottom_merges": [
+        "'समानांतर कंप्यूटिंग के लिए सीपीयू के एसआईएमडी रजिस्टरों का कुशल उपयोग मेमोरी बैंडविड्थ' + ' की खपत को कम करता है।' -> ID 12072 ('समानांतर कंप्यूटिंग के लिए सीपीयू के एसआईएमडी रजिस्टरों का कुशल उपयोग मेमोरी बैंडविड्थ की खपत को कम करता है।')",
+        "b'\\xe0\\xa4\\xa6\\xe0\\xa4\\x97\\xe0\\xa5\\x8d\\xe0\\xa4\\xa7\\xe0\\xa4\\x82 \\xe0\\xa4\\xac\\xe0\\xa5\\x80\\xe0\\xa4\\x9c\\xe0\\xa4\\x82 \\xe0\\xa4\\xa8 \\xe0\\xa4\\xb0\\xe0\\xa5\\x8b\\xe0\\xa4\\xb9\\xe0\\xa4\\xa4\\xe0\\xa4\\xbf\\xe0\\xa5\\xa4 \\xe0\\xa4\\xac\\xe0\\xa5\\x81\\xe0\\xa4\\xa6\\xe0\\xa5\\x8d\\xe0\\xa4\\xa7\\xe0\\xa4\\xb8\\xe0\\xa5\\x8d\\xe0\\xa4\\xaf \\xe0\\xa4\\xb5\\xe0\\xa4\\x9a\\xe0\\xa4\\xa8\\xe0\\xa4\\x82 \\xe0\\xa4\\x95\\xe0\\xa4\\xb2\\xe0\\xa5\\x8d\\xe0\\xa4\\xaf\\xe0\\xa4\\xbe\\xe0\\xa4\\xa3\\xe0\\xa4\\x95\\xe0\\xa4\\xbe\\xe0\\xa4\\xb0\\xe0\\xa5\\x80\\xe0\\xa5\\xa4 \\xe0\\xa4\\x89\\xe0\\xa4\\xb7\\xe0\\xa5\\x8d\\xe0\\xa4\\x9f\\xe0\\xa5\\x8d\\xe0\\xa4\\xb0\\xe0\\xa4\\x83 \\xe0\\xa4\\xae\\xe0\\xa4\\xb0\\xe0\\xa5\\x81\\xe0\\xa4\\xad\\xe0\\xa5\\x82\\xe0\\xa4\\xae\\xe0\\xa5\\x8c \\xe0\\xa4\\xad\\xe0\\xa5\\x8d\\xe0\\xa4\\xb0\\xe0\\xa4\\xae\\xe0\\xa4\\xa4\\xe0\\xa4\\xbf\\xe0\\xa5\\xa4 \\xe0\\xa4\\x95\\xe0\\xa4\\xbe\\xe0\\xa4\\xb0\\xe0\\xa5\\x8d\\xe0\\xa4\\xa4\\xe0\\xa5\\x8d\\xe0\\xa4\\xa4\\xe0\\xa4\\xbf\\xe0\\xa4\\x95\\xe0\\xa5\\x87\\xe0\\xa4\\xaf\\xe0\\xa4\\x83 \\xe0\\xa4\\xb8\\xe0\\xa5\\x87\\xe0\\xa4\\xa8\\xe0\\xa4\\xbe\\xe0\\xa4' + b'\\xaa\\xe0\\xa4\\xa4\\xe0\\xa4\\xbf\\xe0\\xa4\\x83\\xe0\\xa5\\xa4 \\xe0\\xa4\\xb5\\xe0\\xa4\\xbe\\xe0\\xa4\\x97\\xe0\\xa5\\x8d\\xe0\\xa4\\xa6\\xe0\\xa5\\x87\\xe0\\xa4\\xb5\\xe0\\xa5\\x80 \\xe0\\xa4\\xad\\xe0\\xa4\\xbe\\xe0\\xa4\\xb0\\xe0\\xa4\\xa4\\xe0\\xa5\\x80 \\xe0\\xa4\\xa8\\xe0\\xa4\\xae\\xe0\\xa4\\xb8\\xe0\\xa5\\x8d\\xe0\\xa4\\x95\\xe0\\xa5\\x83\\xe0\\xa4\\xa4\\xe0\\xa5\\x8d\\xe0\\xa4\\xaf\\xe0\\xa5\\xa4' -> ID 12073 ('दग्धं बीजं न रोहति। बुद्धस्य वचनं कल्याणकारी। उष्ट्रः मरुभूमौ भ्रमति। कार्त्तिकेयः सेनापतिः। वाग्देवी भारती नमस्कृत्य।')",
+        "'गंगा, यमुना, ब्रह्मपुत्र, नर्मदा, गोदावरी और कावेरी भारत की जीवनदायिनी न' + 'दियाँ हैं।' -> ID 12074 ('गंगा, यमुना, ब्रह्मपुत्र, नर्मदा, गोदावरी और कावेरी भारत की जीवनदायिनी नदियाँ हैं।')",
+        "b'\\xe0\\xa4\\x85 \\xe0\\xa4\\x87 \\xe0\\xa4\\x89 \\xe0\\xa4\\xa3\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x8b \\xe0\\xa4\\x8c \\xe0\\xa4\\x95\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x8f \\xe0\\xa4\\x93 \\xe0\\xa4\\x99\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x90 \\xe0\\xa4\\x94 \\xe0\\xa4\\x9a\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\xb9 \\xe0\\xa4\\xaf \\xe0\\xa4\\xb5 \\xe0\\xa4\\xb0 \\xe0\\xa4\\x9f\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\xb2\\xe0\\xa4\\x81 \\xe0\\xa4\\xa3\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x9e \\xe0\\xa4\\xae \\xe0\\xa4\\x99 \\xe0\\xa4\\xa3 \\xe0\\xa4\\xa8 \\xe0\\xa4\\xae\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x9d \\xe0\\xa4\\xad \\xe0\\xa4\\x9e\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x98 \\xe0\\xa4\\xa2 \\xe0\\xa4\\xa7 \\xe0\\xa4\\xb7\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x9c \\xe0\\xa4\\xac \\xe0\\xa4\\x97 \\xe0\\xa4\\xa1 \\xe0\\xa4\\xa6 \\xe0\\xa4\\xb6\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x96 \\xe0\\xa4' + b'\\xab \\xe0\\xa4\\x9b \\xe0\\xa4\\xa0 \\xe0\\xa4\\xa5 \\xe0\\xa4\\x9a \\xe0\\xa4\\x9f \\xe0\\xa4\\xa4 \\xe0\\xa4\\xb5\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\x95 \\xe0\\xa4\\xaa \\xe0\\xa4\\xaf\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\xb6 \\xe0\\xa4\\xb7 \\xe0\\xa4\\xb8 \\xe0\\xa4\\xb0\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4 \\xe0\\xa4\\xb9 \\xe0\\xa4\\xb2\\xe0\\xa5\\x8d\\xe0\\xa5\\xa4' -> ID 12075 ('अ इ उ ण्। ऋ ऌ क्। ए ओ ङ्। ऐ औ च्। ह य व र ट्। लँ ण्। ञ म ङ ण न म्। झ भ ञ्। घ ढ ध ष्। ज ब ग ड द श्। ख फ छ ठ थ च ट त व्। क प य्। श ष स र्। ह ल्।')",
+        "'देवनागरी वर्णमाला में क, ख, ग, घ, ङ, च, छ, ज, झ, ञ, ट, ठ, ड, ढ, ण श' + 'ामिल हैं।' -> ID 12076 ('देवनागरी वर्णमाला में क, ख, ग, घ, ङ, च, छ, ज, झ, ञ, ट, ठ, ड, ढ, ण शामिल हैं।')"
+      ],
+      "validation_metrics": {
+        "total_val_items": 68,
+        "total_bytes": 7621,
+        "total_chars": 5036,
+        "total_words": 761,
+        "total_tokens": 1676,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.3328,
+        "tokens_per_word": 2.2024,
+        "bytes_per_token": 4.5471,
+        "compression_ratio": 4.5471,
+        "encode_latency_us_per_doc": 1351.89,
+        "decode_latency_us_per_doc": 3.36,
+        "vocab_memory_bytes": 3255027,
+        "vocab_memory_kb": 3178.74,
+        "category_metrics": {
+          "code": {
+            "tokens": 127,
+            "bytes": 445,
+            "tokens_per_char": 0.2854,
+            "tokens_per_word": 2.1525,
+            "bytes_per_token": 3.5039,
+            "compression_ratio": 3.5039
+          },
+          "english": {
+            "tokens": 488,
+            "bytes": 1642,
+            "tokens_per_char": 0.2972,
+            "tokens_per_word": 2.3128,
+            "bytes_per_token": 3.3648,
+            "compression_ratio": 3.3648
+          },
+          "hindi": {
+            "tokens": 413,
+            "bytes": 3145,
+            "tokens_per_char": 0.3456,
+            "tokens_per_word": 1.8773,
+            "bytes_per_token": 7.615,
+            "compression_ratio": 7.615
+          },
+          "hinglish": {
+            "tokens": 100,
+            "bytes": 437,
+            "tokens_per_char": 0.2288,
+            "tokens_per_word": 1.3699,
+            "bytes_per_token": 4.37,
+            "compression_ratio": 4.37
+          },
+          "mathematics": {
+            "tokens": 114,
+            "bytes": 293,
+            "tokens_per_char": 0.3891,
+            "tokens_per_word": 2.6512,
+            "bytes_per_token": 2.5702,
+            "compression_ratio": 2.5702
+          },
+          "mixed": {
+            "tokens": 103,
+            "bytes": 393,
+            "tokens_per_char": 0.2668,
+            "tokens_per_word": 1.6349,
+            "bytes_per_token": 3.8155,
+            "compression_ratio": 3.8155
+          },
+          "numbers": {
+            "tokens": 142,
+            "bytes": 288,
+            "tokens_per_char": 0.5,
+            "tokens_per_word": 3.087,
+            "bytes_per_token": 2.0282,
+            "compression_ratio": 2.0282
+          },
+          "sanskrit": {
+            "tokens": 189,
+            "bytes": 978,
+            "tokens_per_char": 0.5339,
+            "tokens_per_word": 4.1087,
+            "bytes_per_token": 5.1746,
+            "compression_ratio": 5.1746
+          }
+        }
+      },
+      "test_metrics": {
+        "total_val_items": 55,
+        "total_bytes": 4468,
+        "total_chars": 3277,
+        "total_words": 510,
+        "total_tokens": 1064,
+        "failed_reconstructions": 0,
+        "reconstruction_lossless": true,
+        "tokens_per_char": 0.3247,
+        "tokens_per_word": 2.0863,
+        "bytes_per_token": 4.1992,
+        "compression_ratio": 4.1992,
+        "encode_latency_us_per_doc": 1094.09,
+        "decode_latency_us_per_doc": 2.64,
+        "vocab_memory_bytes": 3255027,
+        "vocab_memory_kb": 3178.74,
+        "category_metrics": {
+          "code": {
+            "tokens": 135,
+            "bytes": 535,
+            "tokens_per_char": 0.2523,
+            "tokens_per_word": 1.9286,
+            "bytes_per_token": 3.963,
+            "compression_ratio": 3.963
+          },
+          "english": {
+            "tokens": 157,
+            "bytes": 561,
+            "tokens_per_char": 0.2799,
+            "tokens_per_word": 2.2429,
+            "bytes_per_token": 3.5732,
+            "compression_ratio": 3.5732
+          },
+          "hindi": {
+            "tokens": 248,
+            "bytes": 1721,
+            "tokens_per_char": 0.3857,
+            "tokens_per_word": 2.2752,
+            "bytes_per_token": 6.9395,
+            "compression_ratio": 6.9395
+          },
+          "hinglish": {
+            "tokens": 163,
+            "bytes": 605,
+            "tokens_per_char": 0.2694,
+            "tokens_per_word": 1.5377,
+            "bytes_per_token": 3.7117,
+            "compression_ratio": 3.7117
+          },
+          "mathematics": {
+            "tokens": 124,
+            "bytes": 291,
+            "tokens_per_char": 0.4276,
+            "tokens_per_word": 2.2143,
+            "bytes_per_token": 2.3468,
+            "compression_ratio": 2.3468
+          },
+          "mixed": {
+            "tokens": 80,
+            "bytes": 427,
+            "tokens_per_char": 0.254,
+            "tokens_per_word": 1.5385,
+            "bytes_per_token": 5.3375,
+            "compression_ratio": 5.3375
+          },
+          "numbers": {
+            "tokens": 157,
+            "bytes": 328,
+            "tokens_per_char": 0.4787,
+            "tokens_per_word": 3.3404,
+            "bytes_per_token": 2.0892,
+            "compression_ratio": 2.0892
+          }
+        }
+      },
+      "latency": {
+        "encode_mean_us": 1263.49,
+        "encode_median_us": 1257.78,
+        "encode_p95_us": 1311.8,
+        "encode_min_us": 1234.02,
+        "encode_max_us": 1311.8,
+        "decode_mean_us": 3.18,
+        "decode_median_us": 3.09,
+        "decode_p95_us": 5.03,
+        "decode_min_us": 2.96,
+        "decode_max_us": 5.03
+      },
+      "memory": {
+        "vocab_memory_bytes": 1577859,
+        "merge_table_bytes": 1677168,
+        "total_static_memory_kb": 3178.74,
+        "embedding_params": 2318784,
+        "embedding_bytes_fp16": 4637568,
+        "embedding_param_percentage": 67.33
+      },
+      "vocabulary_bias": {
+        "total_tokens_analyzed": 12074,
+        "category_counts": {
+          "English_Latin": 6483,
+          "Devanagari": 2632,
+          "Non_UTF8_Byte_Sequence": 1126,
+          "Code_Alphanumeric": 711,
+          "Numeric": 631,
+          "Base_Byte_Primitive": 256,
+          "Punctuation_Syntax": 112,
+          "Mixed_Indic_Latin": 104,
+          "Mixed_Other": 19
+        },
+        "category_percentages": {
+          "English_Latin": 53.69,
+          "Devanagari": 21.8,
+          "Non_UTF8_Byte_Sequence": 9.33,
+          "Code_Alphanumeric": 5.89,
+          "Numeric": 5.23,
+          "Base_Byte_Primitive": 2.12,
+          "Punctuation_Syntax": 0.93,
+          "Mixed_Indic_Latin": 0.86,
+          "Mixed_Other": 0.16
+        },
+        "avg_token_byte_length": 20.82,
+        "max_token_byte_length": 411,
+        "min_token_byte_length": 1
+      }
+    }
+  },
+  "numeric_experiment": {
+    "candidate_sums": {
+      "tokens_A": 119,
+      "tokens_B": 84,
+      "tokens_C": 45
+    },
+    "expansion_ratios": {
+      "A_vs_C": 2.64,
+      "B_vs_C": 1.87
+    },
+    "items": {
+      "123456789": {
+        "bytes": 9,
+        "strategy_A_individual_digits": {
+          "tokens": 9,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        }
+      },
+      "2026": {
+        "bytes": 4,
+        "strategy_A_individual_digits": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 2,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 1,
+          "reconstruction_lossless": true
+        }
+      },
+      "13.56": {
+        "bytes": 5,
+        "strategy_A_individual_digits": {
+          "tokens": 5,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 3,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 3,
+          "reconstruction_lossless": true
+        }
+      },
+      "₹50000": {
+        "bytes": 8,
+        "strategy_A_individual_digits": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 5,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 1,
+          "reconstruction_lossless": true
+        }
+      },
+      "99.99%": {
+        "bytes": 6,
+        "strategy_A_individual_digits": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 3,
+          "reconstruction_lossless": true
+        }
+      },
+      "10:45:32": {
+        "bytes": 8,
+        "strategy_A_individual_digits": {
+          "tokens": 8,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 5,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 5,
+          "reconstruction_lossless": true
+        }
+      },
+      "192.168.1.1": {
+        "bytes": 11,
+        "strategy_A_individual_digits": {
+          "tokens": 11,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 9,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 2,
+          "reconstruction_lossless": true
+        }
+      },
+      "v0.1.4": {
+        "bytes": 6,
+        "strategy_A_individual_digits": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 2,
+          "reconstruction_lossless": true
+        }
+      },
+      "3.1415926535": {
+        "bytes": 12,
+        "strategy_A_individual_digits": {
+          "tokens": 12,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 9,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        }
+      },
+      "123 + 456 = 579": {
+        "bytes": 15,
+        "strategy_A_individual_digits": {
+          "tokens": 11,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 9,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 3,
+          "reconstruction_lossless": true
+        }
+      },
+      "9999 * 8888 = 88871112": {
+        "bytes": 22,
+        "strategy_A_individual_digits": {
+          "tokens": 18,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 11,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 9,
+          "reconstruction_lossless": true
+        }
+      },
+      "-98765": {
+        "bytes": 6,
+        "strategy_A_individual_digits": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 3,
+          "reconstruction_lossless": true
+        }
+      },
+      "1.23e-10": {
+        "bytes": 8,
+        "strategy_A_individual_digits": {
+          "tokens": 7,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 5,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 4,
+          "reconstruction_lossless": true
+        }
+      },
+      "2026-09-26": {
+        "bytes": 10,
+        "strategy_A_individual_digits": {
+          "tokens": 10,
+          "reconstruction_lossless": true
+        },
+        "strategy_B_two_digit_chunks": {
+          "tokens": 6,
+          "reconstruction_lossless": true
+        },
+        "strategy_C_normal_bpe": {
+          "tokens": 1,
+          "reconstruction_lossless": true
+        }
+      }
+    }
+  },
+  "indic_validation": {
+    "hindi": {
+      "items_tested": 7,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 4.14
+    },
+    "sanskrit": {
+      "items_tested": 6,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 2.5
+    },
+    "zwj_zwnj": {
+      "items_tested": 5,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 3.8
+    },
+    "emojis": {
+      "items_tested": 6,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 7.5
+    },
+    "combining_and_special": {
+      "items_tested": 7,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 4.0
+    },
+    "uncommon_scripts": {
+      "items_tested": 6,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 16.5
+    },
+    "mixed_script": {
+      "items_tested": 4,
+      "lossless_verified": true,
+      "avg_tokens_per_item": 20.25
+    }
+  },
+  "raw_byte_validation": {
+    "cases_tested": 11,
+    "lossless": true
+  },
+  "grapheme_experiment": {
+    "variant_A_raw_byte_bpe": {
+      "tokens": 2149,
+      "bytes": 7621,
+      "chars": 5036,
+      "tokens_per_char": 0.4267,
+      "tokens_per_word": 2.8239,
+      "bytes_per_token": 3.5463,
+      "failed_reconstructions": 0,
+      "lossless": true,
+      "encode_latency_us": 616.65
+    },
+    "variant_B_grapheme_aware_bpe": {
+      "tokens": 2656,
+      "bytes": 7621,
+      "chars": 5036,
+      "tokens_per_char": 0.5274,
+      "tokens_per_word": 3.4901,
+      "bytes_per_token": 2.8694,
+      "failed_reconstructions": 0,
+      "lossless": true,
+      "encode_latency_us": 1168.26
+    }
+  }
+}
