@@ -173,34 +173,64 @@ Enforce the following non-negotiable boundaries:
 
 ---
 
-## Step 1 Frozen vs Unfrozen Decisions
+## ADR 10: Provisional Adoption of Vocabulary Size V = 4096 and Tokenizer Interface Contract
 
-### Frozen for v0.1:
+### Context
+Step 2.3 conducted an empirical benchmark across four candidate vocabulary sizes: $V = 2048$, $V = 4096$, $V = 8192$, and $V = 16384$ on an 8-category research corpus (Devanagari Hindi, English, Hinglish, Code, Numbers, Math, Unicode, and Mixed).
+
+### Decision
+Adopt **$V = 4096$ as the provisional tokenizer vocabulary configuration** for the Chakr-Micro neural core, and freeze the tokenizer-to-neural-core handoff interface:
+- **Valid token IDs**: $[0, 4095]$
+- **Special tokens**: $\langle\text{BOS}\rangle=0, \langle\text{EOS}\rangle=1, \langle\text{PAD}\rangle=2$
+- **Foundational byte primitives**: $3 \dots 258$ (256 bytes)
+- **Learned merges**: $259 \dots 4095$ (3,837 merges)
+- **Input embedding shape**: $[4096, 192]$
+- **Tied output projection shape**: $[192, 4096]$
+
+> **PROVISIONAL STATUS NOTICE**:  
+> **"V=4096 is the current provisional tokenizer configuration selected from the Step 2.3 benchmark corpus. It remains replaceable if later neural-core experiments demonstrate that another vocabulary size provides a better system-level tradeoff."**
+
+### Reasoning & Trade-offs
+- **Pareto Efficiency on Benchmark**: $V = 4096$ reduced validation tokens by $9.1\%$ compared to $V = 2048$, achieving $2.43\text{ tokens/word}$ for Hindi and $1.77$ for Hinglish on the research corpus.
+- **Healthy Parameter Ratio**: In Chakr-Micro ($d=192$), an embedding table of 4096 tokens consumes $786,432$ parameters ($22.8\%$ of total model parameters), leaving $77.2\%$ for relational reasoning blocks.
+- **Diminishing Returns on Larger Vocabularies**: $V = 16384$ exhausted corpus merge combinations and provided only a $0.1\%$ token improvement over $V = 8192$ while doubling encoding latency and inflating vocabulary RAM.
+- **Decoupled Architecture**: All transformer layers take pure tensors of shape $[\text{batch}, \text{sequence}, 192]$ and emit $[\text{batch}, \text{sequence}, 192]$. Replacing $V = 4096$ with $V = 8192$ later requires zero structural changes to attention blocks, MLP blocks, normalization layers, or RoPE.
+
+---
+
+## Step 1 & 2 Frozen vs Unfrozen Decisions
+
+### Frozen:
 - decoder-only causal architecture
 - pre-RMSNorm
-- RoPE
-- SwiGLU
-- bias-free projections
-- weight tying
-- MHA
-- maximum context of 512 tokens for Micro
+- RoPE positional embedding
+- SwiGLU feed-forward activation
+- bias-free linear projections
+- weight tying ($W_{\text{out}} = E^T$)
+- Simple Multi-Head Attention (MHA) for v0.1
+- maximum context of 512 tokens for Chakr-Micro
 - no pretrained weights
+- byte-level fallback (256 base bytes, zero `<UNK>`)
+- special token IDs: `<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2
+- lossless round-trip invariant: $\text{Decode}(\text{Encode}(S)) \equiv S$
+- tokenizer-to-neural-core handoff contract: token IDs $\in [0, V-1] \to [B, T, d]$
 
-### Unfrozen:
-- exact tokenizer/vocabulary
+### Unfrozen (Provisional / Experimental):
+- final vocabulary size ($V=4096$ provisional; replaceable by $V=8192$ if larger corpus justifies)
+- numeric tokenization strategy (Candidate A vs Candidate B vs Candidate C)
 - optimizer hyperparameters
 - initialization details
 - exact dropout policy
-- quantization implementation
-- future GQA
-- future dynamic depth
-- future sparse computation
+- quantization implementation (INT8/INT4)
+- future GQA (extension point)
+- future dynamic depth / sparse computation
 
 ---
 
 ## Implementation Prerequisite Rule
 
-> **MANDATORY RULE**: No implementation should begin until the tokenizer specification and the final v0.1 tensor contracts have been reviewed.
+> **MANDATORY RULE**: No neural model implementation should begin until Step 3 planning and approval are officially provided.
 
 ---
 *End of Architecture Decision Records*
+
