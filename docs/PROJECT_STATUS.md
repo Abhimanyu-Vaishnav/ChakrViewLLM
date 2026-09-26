@@ -2,17 +2,24 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 2 — Tokenizer Research & Specification
-- **Status**: Tokenizer Specification Completed & Audited (Strict Technical Audit Applied; Awaiting Step 3 Approval)
+- **Current phase**: Step 2.2 — Tokenizer Research Prototype
+- **Status**: Research Prototype Completed & Verified (85/85 tests passing; Awaiting Step 3 Instructions)
 
 ---
 
 ## Status Summary
 
 ### Implementation Notice
-> **IMPORTANT**: No model architecture code or tokenizer code has been written, and no neural weights, tokenizers, or pretrained components (such as Llama, Qwen, Mistral, Gemma, GPT, etc.) have been implemented or downloaded. ChakrView is being developed strictly incrementally from the ground up as an indigenous AI research initiative. Step 1 delivered the foundational neural core specification, and Step 2 has delivered the comprehensive tokenizer research and specification (with strict technical audit applied).
+> **IMPORTANT**: No neural core architecture code or Transformer layers have been written, and no neural weights, pretrained tokenizers, or pretrained components (such as Llama, Qwen, Mistral, Gemma, GPT, etc.) have been implemented or downloaded. ChakrView is being developed strictly incrementally from the ground up as an indigenous AI research initiative. Step 1 delivered the foundational neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered an isolated, minimal Byte-Level BPE research prototype using only the Python standard library to prove core invariants (`Decode(Encode(text)) == text`, lossless byte fallback, special token isolation, and deterministic tie-breaking).
 
 ### Progress by Module
+- `chakrview/tokenizer/`: **Implemented (Research Prototype)**
+  - `special_tokens.py`: Minimal special-token set (`<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2) with literal string isolation
+  - `bytes.py`: Bijective mapping for 256 fundamental byte primitives (IDs 3..258)
+  - `bpe.py`: Deterministic BPE engine with triple-key tie-breaking (`-freq`, `pair[0]`, `pair[1]`)
+  - `encoder.py`: Lossless UTF-8 and raw byte encoding
+  - `decoder.py`: Bit-exact byte and text reconstruction
+  - `tokenizer.py`: Unified `BPETokenizer` prototype interface
 - `brain/`: Empty / Skeleton initialized (neural core specification complete; no code implemented yet)
 - `data/`: Directory structure created (`raw`, `processed`, `validation`)
 - `training/`: Directory structure created (optimization strategy specified; no code implemented yet)
@@ -23,7 +30,7 @@
 - `runtime/`: Directory structure created (no runtime implemented)
 - `evaluation/`: Directory structure created (evaluation criteria and test suites specified)
 - `configs/`: Directory structure created (configurations defined in specifications)
-- `tests/`: Directory structure created (test suite specifications defined, including adversarial tokenizer test cases)
+- `tests/`: Active test suite (85 tests passing across 7 modules covering bytes, lossless UTF-8, BPE engine, determinism, special tokens, adversarial cases, and performance baselines)
 - `checkpoints/`: Directory structure created (empty, no weights stored)
 - `scripts/`: Directory structure created (no operational scripts yet)
 - `docs/`: Active documentation initialized & audited
@@ -32,18 +39,16 @@
   - `docs/ARCHITECTURE_DECISIONS.md` (Step 1 Architecture Decision Records)
   - `docs/STEP_02_TOKENIZER_SPEC.md` (Step 2 Tokenizer Specification — Audited)
   - `docs/TOKENIZER_DECISIONS.md` (Step 2 Tokenizer Architecture Decision Records — Audited)
+  - `docs/STEP_02_2_TOKENIZER_PROTOTYPE.md` (Step 2.2 Research Prototype Report)
 
-### Step 2 Technical Audit Summary
+### Step 2 Technical Invariants Verified in Code
 - **Core Invariant**: *"Tokenizer correctness takes precedence over compression."*
-- **Paradigm**: BBPE is provisionally recommended; requires empirical validation before freezing implementation.
-- **Claims Qualified**: Speed and fertility figures labeled strictly as hypotheses/planning targets, not measured ChakrView results.
-- **Lossless Invariant**: `decode(encode(text)) == text` strictly required for all supported inputs; no irreversible normalization.
-- **Unfrozen Numeric Strategy**: 3-way benchmark experiment specified (individual digits vs two-digit chunks vs normal BPE).
-- **Candidate Vocabularies**: 2048, 4096, 8192, 16384 retained; final selection driven by 11 measured empirical metrics.
-- **Adversarial Suite**: 15 explicit stress tests defined (Indic conjuncts, ZWJ/ZWNJ, emojis, mixed scripts, code indentation, paths, malformed sequences).
-- **Frozen Decisions**: Byte-level fallback (256 primitives), no `<UNK>`, lossless round-trip requirement, causal tokenizer output, special-token IDs (`<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2).
-- **Unfrozen Decisions**: Final vocabulary size, numeric strategy, exact grapheme pre-tokenization rules, corpus composition, merge ranking, tokenizer implementation strategy, optimization/trie implementation.
+- **Reconstruction Standard**: $\text{Decode}(\text{Encode}(S)) \equiv S$ verified across 16 linguistic domains and 15 adversarial test cases.
+- **Raw Byte Handling**: All 256 bytes and arbitrary invalid UTF-8 sequences round-trip losslessly.
+- **Special Token Safety**: Literal user text containing `"<BOS>"`, `"<EOS>"`, or `"<PAD>"` never emits special token IDs.
+- **Determinism**: 100% deterministic encoding, decoding, and merge tie-breaking.
 
 ### Next Phase
-- Awaiting Step 3 instructions from research leadership.
+- Step 3: Tokenizer Training Corpus Preparation & Empirical Benchmark.
+
 
