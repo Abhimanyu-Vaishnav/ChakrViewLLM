@@ -53,9 +53,9 @@
   - `serialization.py`: Transparent JSON serialization (`vocab.json`, `merges.json`, `config.json`) with SHA-256 checksum integrity verification
   - `benchmark.py`: Comprehensive benchmarking suite across vocabulary sizes, numerics, grapheme variants, latency, and memory
   - `interface.py`: Token ID bounds validator, sequence truncation/chunking runtime policies, batch tensor preparation, neural handoff simulation (`[seq_len, 192]`), and static memory accounting
-- `tests/`: **200/200 Tests Passing** across 24 test modules (100% green, 0 failures)
+- `tests/`: **214/214 Tests Passing** across 25 test modules (100% green, 0 failures)
   - 136 Tokenizer and Corpus pipeline tests
-  - 64 Neural Core tests (Config, Primitives, Model, Shapes Contract, Strict Causality, Strict Gradients, Initialization, Synthetic Learnability)
+  - 78 Neural Core tests (Config, Primitives, Model, Shapes Contract, Strict Causality, Strict Gradients, Initialization, Synthetic Learnability, Mathematical Validation)
 - `docs/`: **Comprehensive Step 4 & 4.1 Documentation & Empirical Baselines Ratified**
   - `docs/STEP_04_VERIFICATION_REPORT.md` (Comprehensive 15-section audit report; decision: VERIFIED — READY FOR TRAINING)
   - `docs/STEP_04_ENVIRONMENT.md` (Detailed environment and runtime hardware verification)

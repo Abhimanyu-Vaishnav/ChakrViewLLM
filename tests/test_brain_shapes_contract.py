@@ -29,7 +29,7 @@ def test_head_dim_num_heads_product_invariant():
 
 
 @pytest.mark.parametrize("batch_size", [1, 2, 4])
-@pytest.mark.parametrize("seq_len", [1, 16, 128, 512])
+@pytest.mark.parametrize("seq_len", [1, 8, 32, 128, 512])
 def test_all_major_tensor_transitions_shapes(batch_size: int, seq_len: int):
     """
     Verify shapes at every individual layer and intermediate projection:
