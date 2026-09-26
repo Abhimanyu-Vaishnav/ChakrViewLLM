@@ -1,0 +1,124 @@
+def compute_cross_entropy(logits: list[float], target: int) -> float:
+    """Compute cross entropy loss for a single target index."""
+    import math
+    max_logit = max(logits)
+    sum_exp = sum(math.exp(x - max_logit) for x in logits)
+    log_sum_exp = max_logit + math.log(sum_exp)
+    return log_sum_exp - logits[target]
+
+class LinearProjection:
+    def __init__(self, in_features: int, out_features: int, bias: bool = False):
+        self.in_features = in_features
+        self.out_features = out_features
+        self.has_bias = bias
+        self.weight = [[0.0] * in_features for _ in range(out_features)]
+        self.bias = [0.0] * out_features if bias else None
+
+    def forward(self, x: list[float]) -> list[float]:
+        out = []
+        for i in range(self.out_features):
+            val = sum(x[j] * self.weight[i][j] for j in range(self.in_features))
+            if self.has_bias and self.bias:
+                val += self.bias[i]
+            out.append(val)
+        return out
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    int id;
+    char token_name[64];
+    size_t length;
+} TokenEntry;
+
+int compare_tokens(const void* a, const void* b) {
+    const TokenEntry* entry_a = (const TokenEntry*)a;
+    const TokenEntry* entry_b = (const TokenEntry*)b;
+    return (entry_a->id - entry_b->id);
+}
+
+#!/bin/bash
+set -euo pipefail
+echo "Starting ChakrView validation pipeline..."
+python -m pytest tests/ --verbose
+echo "Pipeline finished successfully with exit code 0."
+
+SELECT u.user_id, u.username, COUNT(m.id) AS total_messages
+FROM users u
+LEFT JOIN messages m ON u.user_id = m.sender_id
+WHERE u.is_active = 1 AND m.created_at >= '2026-01-01'
+GROUP BY u.user_id, u.username
+ORDER BY total_messages DESC
+LIMIT 50;
+
+def binary_search(arr: list[int], target: int) -> int:
+    """Standard logarithmic binary search algorithm."""
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+def quicksort(arr: list[float]) -> list[float]:
+    """In-place quicksort algorithm with median-of-three pivot."""
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+
+class BPETrieNode:
+    def __init__(self):
+        self.children = {}
+        self.token_id = None
+        self.is_terminal = False
+
+class BPETrie:
+    def __init__(self):
+        self.root = BPETrieNode()
+
+    def insert(self, byte_sequence: bytes, token_id: int):
+        node = self.root
+        for b in byte_sequence:
+            if b not in node.children:
+                node.children[b] = BPETrieNode()
+            node = node.children[b]
+        node.token_id = token_id
+        node.is_terminal = True
+
+    def find_longest_match(self, data: bytes, start_pos: int) -> tuple[int, int]:
+        node = self.root
+        best_id = None
+        best_len = 0
+        curr_len = 0
+        for i in range(start_pos, len(data)):
+            b = data[i]
+            if b not in node.children:
+                break
+            node = node.children[b]
+            curr_len += 1
+            if node.is_terminal:
+                best_id = node.token_id
+                best_len = curr_len
+        return (best_id, best_len)
+
+struct TensorShape {
+    int batch_size;
+    int seq_len;
+    int hidden_dim;
+    int num_heads;
+};
+
+void print_tensor_info(const struct TensorShape* shape) {
+    printf("Tensor: [%d, %d, %d] (Heads: %d)\n",
+           shape->batch_size, shape->seq_len, shape->hidden_dim, shape->num_heads);
+}

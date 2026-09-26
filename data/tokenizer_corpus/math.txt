@@ -1,0 +1,42 @@
+∀x ∈ ℝ: x² ≥ 0
+∃y ∈ ℕ s.t. y > x + 10
+A ∩ B = ∅ ⟹ A ⊆ B^c
+f(x) = ∫_{0}^{∞} e^{-t} t^{x-1} dt = Γ(x)
+∇ × E = -∂B/∂t
+∇ · D = ρ
+∇ × H = J + ∂D/∂t
+∇ · B = 0
+σ(z)_i = \frac{e^{z_i}}{\sum_{j=1}^K e^{z_j}}
+RMSNorm(x) = \frac{x}{\sqrt{\frac{1}{d} \sum_{i=1}^d x_i^2 + \epsilon}} \odot \gamma
+SwiGLU(x) = (x W_g) \odot \text{SiLU}(x W_1) W_2
+RoPE(x_m, m) = R_{\Theta, m}^d x_m
+Attention(Q, K, V) = \text{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V
+\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \pi, \rho, \sigma, \tau, \upsilon, \phi, \chi, \psi, \omega
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+A = U \Sigma V^T
+\det(A - \lambda I) = 0
+\mathbb{E}_{x \sim P}[-\log Q(x)] = H(P) + D_{KL}(P \parallel Q)
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+a^2 + b^2 = c^2
+e^{i\pi} + 1 = 0
+Bayes Theorem: P(A|B) = \frac{P(B|A) P(A)}{P(B)}
+Matrix Multiplication: C_{ij} = \sum_{k=1}^K A_{ik} B_{kj}
+Cosine Similarity: \text{sim}(u, v) = \frac{u \cdot v}{\|u\|_2 \|v\|_2}
+Cauchy-Schwarz Inequality: |\langle u, v \rangle|^2 \le \langle u, u \rangle \cdot \langle v, v \rangle
+Triangle Inequality: \|x + y\| \le \|x\| + \|y\|
+Entropy definition: H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
+Mutual Information: I(X; Y) = H(X) - H(X|Y) = \sum_{x,y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)}
+Taylor Series Expansion: f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n
+Stochastic Gradient Descent update: \theta_{t+1} = \theta_t - \eta \nabla_\theta \mathcal{L}(\theta_t)
+Adam Optimizer first moment: m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t
+Adam Optimizer second moment: v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
+Bias-corrected estimates: \hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+Parameter update: \theta_t = \theta_{t-1} - \frac{\alpha}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t
+Gaussian Distribution: \mathcal{N}(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+Central Limit Theorem: \sqrt{n} \left(\bar{X}_n - \mu\right) \xrightarrow{d} \mathcal{N}(0, \sigma^2)
+Singular Value Decomposition theorem: Every matrix A \in \mathbb{R}^{m \times n} has factorization U \Sigma V^T.
+Frobenius norm: \|A\|_F = \sqrt{\sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2} = \sqrt{\text{Tr}(A^T A)}
+Eigenvalue equation: A v = \lambda v, \quad v \ne 0
+Gram-Schmidt orthogonalization: u_k = v_k - \sum_{j=1}^{k-1} \frac{\langle v_k, u_j \rangle}{\langle u_j, u_j \rangle} u_j
+Discrete Fourier Transform: X_k = \sum_{n=0}^{N-1} x_n \cdot e^{-i 2\pi k n / N}
