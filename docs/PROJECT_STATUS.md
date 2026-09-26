@@ -2,15 +2,15 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 2.4 — Tokenizer-to-Neural-Core Interface Contract
-- **Status**: Interface Contract Frozen & Verified (107/107 tests passing; Awaiting Step 3 Instructions)
+- **Current phase**: Step 3.1 — Neural Core Architecture & Mathematical Specification
+- **Status**: Step 3.1 Specification Completed (107/107 tests passing; Awaiting Step 3.2 Instructions)
 
 ---
 
 ## Status Summary
 
 ### Implementation Notice
-> **IMPORTANT**: No neural core architecture code or Transformer layers have been written, and no neural weights, pretrained tokenizers, or pretrained components (such as Llama, Qwen, Mistral, Gemma, GPT, etc.) have been implemented or downloaded. ChakrView is being developed strictly incrementally from the ground up as an indigenous AI research initiative. Step 1 delivered the neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the corpus engineering pipeline and BPE empirical benchmark. Step 2.4 froze the complete tokenizer-to-neural-core interface contract, batching format, and static memory accounting with 107/107 unit tests passing.
+> **IMPORTANT**: No neural core architecture code or Transformer layers have been written, and no neural weights, pretrained tokenizers, or pretrained components (such as Llama, Qwen, Mistral, Gemma, GPT, etc.) have been implemented or downloaded. ChakrView is being developed strictly incrementally from the ground up as an indigenous AI research initiative. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the corpus engineering pipeline and BPE empirical benchmark. Step 2.4 froze the complete tokenizer-to-neural-core interface contract. Step 3.1 has now completed the rigorous mathematical and architectural specification of Chakr-Micro v0.1 with exact parameter, memory, FLOPs, and KV-cache accounting with 107/107 unit tests passing.
 
 ### Progress by Module
 - `chakrview/tokenizer/`: **Interface Frozen & Tested**
@@ -43,18 +43,21 @@
   - `docs/STEP_02_3_CORPUS_AND_BPE_EXPERIMENT.md` (Step 2.3 Experiment Report)
   - `docs/TOKENIZER_BENCHMARK_RESULTS.md` (Step 2.3 Consolidated Benchmark Results)
   - `docs/STEP_02_4_TOKENIZER_INTERFACE.md` (Step 2.4 Tokenizer Interface Contract)
+  - `docs/STEP_03_1_NEURAL_CORE_SPEC.md` (Step 3.1 Neural Core Mathematical Specification)
+  - `docs/NEURAL_CORE_DECISIONS.md` (Step 3.1 Neural Core Decision Records ADR 11–ADR 15)
 
-### Step 2.4 Interface Contract Summary
-- **Provisional Vocabulary**: $V = 4096$ experimentally selected from Step 2.3 benchmark corpus (separable and replaceable by $V = 8192$ without altering neural layers).
-- **Special Token Contract**: $\langle\text{BOS}\rangle=0, \langle\text{EOS}\rangle=1, \langle\text{PAD}\rangle=2$. Raw bytes: $3 \dots 258$. Merges: $259 \dots 4095$. Valid range strictly $[0, 4095]$.
-- **Context Contract**: $\text{MAX\_CONTEXT} = 512$ is a neural model context window, not a tokenizer limit. Tokenizer supports arbitrary sequence length with explicit truncation/chunking policies.
-- **Batch Contract**: `input_ids` shape $[B, T]$, `attention_mask` shape $[B, T]$ ($1$ for valid token, $0$ for padding).
-- **Embedding & Weight Tying**: $E \in \mathbb{R}^{4096 \times 192}$, $W_{\text{out}} = E^T \in \mathbb{R}^{192 \times 4096}$ adds 0 additional unique parameters.
-- **Static Parameter Storage**: 786,432 parameters ($\text{FP32} = 3.00\text{ MB}, \text{FP16} = 1.50\text{ MB}, \text{INT8} = 0.75\text{ MB}, \text{INT4} = 0.375\text{ MB}$). Excludes dynamic activations, allocator overhead, temporary tensors, and KV cache.
-- **Neural Handoff**: Token IDs $\to [B, T, 192]$ validated by simulation unit test.
+### Step 3.1 Specification Summary (Chakr-Micro v0.1)
+- **Architecture**: Decoder-only autoregressive causal language model
+- **Frozen Hyperparameters**: $L = 6, d_{\text{model}} = 192, H = 6, H_{kv} = 6, d_{\text{head}} = 32, d_{\text{ff}} = 512, T_{\text{max}} = 512, V = 4096$
+- **Total Parameters**: $3,443,136$ exact ($786,432$ embeddings + $2,656,512$ transformer blocks + $192$ final norm + $0$ tied head)
+- **Static Parameter Memory**: $\text{FP32} = 13.13\text{ MiB}, \text{FP16} = 6.57\text{ MiB}, \text{INT8} = 3.28\text{ MiB}, \text{INT4} = 1.64\text{ MiB}$ (strictly excludes runtime buffers)
+- **KV-Cache Footprint ($B=1$)**: $T=128 \to 0.56\text{ MB (FP16)}, T=256 \to 1.13\text{ MB (FP16)}, T=512 \to 2.25\text{ MB (FP16)}$
+- **Forward Pass FLOPs**: $\mathbf{FLOPs}(T) = 6,912,768 \cdot T + 4,788 \cdot T^2$ ($4.794\text{ GFLOPs}$ at $T=512$, $9.36\text{ MFLOPs/token}$)
+- **Invariants Verified**: $d_{\text{head}} = 192 / 6 = 32$ exact integer; $d_{\text{ff}} = \frac{8}{3} \times 192 = 512$ exact integer; weight tying $W_{\text{out}} = E^T$; Pre-RMSNorm $\epsilon=10^{-5}$; RoPE $\Theta=10000.0$; bias-free linear projections.
 
 ### Next Phase
-- Step 3: Neural Core Implementation & Training Pipeline.
+- Step 3.2: Neural Core Implementation & Diagnostic Learnability Tests (Awaiting User Instructions).
+
 
 
 
