@@ -17,7 +17,7 @@ import json
 import time
 from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, Iterator, List, Optional, Tuple, Union
 
 from chakrview.tokenizer.bpe import create_base_vocab
 from chakrview.tokenizer.bytes import (
@@ -28,40 +28,48 @@ from chakrview.tokenizer.bytes import (
 from chakrview.tokenizer.special_tokens import NUM_SPECIAL_TOKENS
 from chakrview.tokenizer.tokenizer import BPETokenizer
 
+import re
+
 BASE_VOCAB_SIZE: int = BYTE_OFFSET + NUM_BYTE_TOKENS  # 259
+
+GRAPHEME_REGEX = re.compile(r"[\u0900-\u097F]+|[a-zA-Z]+|[0-9]+|\s+|[\s\S]")
 
 
 class BPETrainer:
     """
     Deterministic BPE Trainer for research vocabulary experimentation.
+
+    Supports:
+    - Raw byte-level BPE (Variant A)
+    - Grapheme-aware pre-tokenization + byte-level BPE (Variant B)
+    - Memory-conscious streaming / chunked training without full-file RAM loading
     """
 
     def __init__(
         self,
         min_frequency: int = 1,
         tie_breaking_rule: str = "(-frequency, pair[0], pair[1])",
+        pretokenization: str = "byte",
     ) -> None:
         self.min_frequency = min_frequency
         self.tie_breaking_rule = tie_breaking_rule
+        self.pretokenization = pretokenization
 
-    def train(
+    def split_segments(self, text: str) -> List[str]:
+        """Split text into segments according to pre-tokenization strategy."""
+        if self.pretokenization == "grapheme":
+            segments = GRAPHEME_REGEX.findall(text)
+            return segments if segments else [text]
+        return [text]
+
+    def train_stream(
         self,
-        corpus_data: List[Union[str, bytes]],
+        chunk_iterator: Iterator[List[Union[str, bytes]]],
         target_vocab_size: int,
         verbose: bool = False,
     ) -> Tuple[Dict[Tuple[int, int], int], Dict[int, bytes], Dict[str, Any]]:
         """
-        Train BPE merges up to target_vocab_size.
-
-        Args:
-            corpus_data: List of strings or bytes lines/documents.
-            target_vocab_size: Desired total vocabulary size (including special tokens and bytes).
-            verbose: If True, prints periodic training progress.
-
-        Returns:
-            merges: Mapping from (p0, p1) to new_token_id.
-            vocab: Mapping from token_id to bytes.
-            train_stats: Diagnostic metrics of the training run.
+        Train BPE merges from a chunked stream of lines/documents.
         """
         if target_vocab_size <= BASE_VOCAB_SIZE:
             raise ValueError(
@@ -70,17 +78,29 @@ class BPETrainer:
 
         max_merges = target_vocab_size - BASE_VOCAB_SIZE
 
-        # Convert corpus lines to token tuples
+        # Accumulate token frequency across chunks
         line_counts: Dict[Tuple[int, ...], int] = Counter()
         total_initial_bytes = 0
 
-        for item in corpus_data:
-            raw_bytes = item.encode("utf-8") if isinstance(item, str) else bytes(item)
-            if not raw_bytes:
-                continue
-            total_initial_bytes += len(raw_bytes)
-            token_tuple = tuple(byte_seq_to_token_ids(raw_bytes))
-            line_counts[token_tuple] += 1
+        for chunk in chunk_iterator:
+            for item in chunk:
+                if isinstance(item, bytes):
+                    if not item:
+                        continue
+                    total_initial_bytes += len(item)
+                    token_tuple = tuple(byte_seq_to_token_ids(item))
+                    line_counts[token_tuple] += 1
+                else:
+                    if not item:
+                        continue
+                    segments = self.split_segments(item)
+                    for seg in segments:
+                        raw_bytes = seg.encode("utf-8")
+                        if not raw_bytes:
+                            continue
+                        total_initial_bytes += len(raw_bytes)
+                        token_tuple = tuple(byte_seq_to_token_ids(raw_bytes))
+                        line_counts[token_tuple] += 1
 
         vocab = create_base_vocab()
         merges: Dict[Tuple[int, int], int] = {}
@@ -148,7 +168,6 @@ class BPETrainer:
         training_time = time.perf_counter() - t0
         actual_vocab_size = BASE_VOCAB_SIZE + len(merges)
 
-        # Count final token count in compressed training sequences
         final_tokens = sum(len(seq) * count for seq, count in line_counts.items())
 
         train_stats: Dict[str, Any] = {
@@ -162,9 +181,21 @@ class BPETrainer:
             "compression_ratio": round(total_initial_bytes / final_tokens, 4) if final_tokens > 0 else 0.0,
             "last_pair_frequency": last_pair_freq,
             "tie_breaking_rule": self.tie_breaking_rule,
+            "pretokenization": self.pretokenization,
         }
 
         return merges, vocab, train_stats
+
+    def train(
+        self,
+        corpus_data: List[Union[str, bytes]],
+        target_vocab_size: int,
+        verbose: bool = False,
+    ) -> Tuple[Dict[Tuple[int, int], int], Dict[int, bytes], Dict[str, Any]]:
+        """
+        Train BPE merges on in-memory list of items.
+        """
+        return self.train_stream(iter([corpus_data]), target_vocab_size, verbose=verbose)
 
 
 def save_experiment_artifacts(

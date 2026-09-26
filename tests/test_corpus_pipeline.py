@@ -124,3 +124,52 @@ def test_corpus_statistics(corpus_dir: Path):
     assert "english" in stats["category_stats"]
     assert "Devanagari" in stats["script_distribution"]
     assert "ASCII Latin" in stats["script_distribution"]
+
+
+def test_step3_tokenizer_corpus_pipeline():
+    """Verify chakrview.tokenizer.corpus module validation, split, and streaming."""
+    import tempfile
+    from chakrview.tokenizer.corpus import (
+        validate_corpus_file,
+        deduplicate_lines as dedup3,
+        partition_lines,
+        execute_corpus_pipeline,
+        stream_corpus_lines,
+        load_corpus_split,
+    )
+
+    # 1. Deduplication
+    lines = ["Namaste", "Hello", "Namaste", "World", "Hello"]
+    unique, dups = dedup3(lines)
+    assert unique == ["Namaste", "Hello", "World"]
+    assert dups == 2
+
+    # 2. Partitioning determinism and disjointness
+    tr1, v1, te1 = partition_lines(unique, category="test", seed=42)
+    tr2, v2, te2 = partition_lines(unique, category="test", seed=42)
+    assert tr1 == tr2
+    assert v1 == v2
+    assert te1 == te2
+    # Disjointness
+    s_tr, s_v, s_te = set(tr1), set(v1), set(te1)
+    assert s_tr.isdisjoint(s_v)
+    assert s_tr.isdisjoint(s_te)
+    assert s_v.isdisjoint(s_te)
+
+    # 3. Execution of full pipeline in tempdir
+    with tempfile.TemporaryDirectory() as tmpdir:
+        raw_dir = Path(tmpdir) / "raw"
+        proc_dir = Path(tmpdir) / "processed"
+        val_dir = Path(tmpdir) / "validation"
+
+        hindi_dir = raw_dir / "hindi"
+        hindi_dir.mkdir(parents=True)
+        (hindi_dir / "sample.txt").write_text("नमस्ते दुनिया\nचक्रव्यूह प्रोजेक्ट\nनमस्ते दुनिया\n", encoding="utf-8")
+
+        manifest = execute_corpus_pipeline(raw_dir, proc_dir, val_dir, seed=42)
+        assert manifest["totals"]["raw_files_validated"] == 1
+        assert manifest["totals"]["dedup_lines"] == 2
+
+        # Check streaming
+        batches = list(stream_corpus_lines([hindi_dir / "sample.txt"], chunk_size=2))
+        assert len(batches) >= 1

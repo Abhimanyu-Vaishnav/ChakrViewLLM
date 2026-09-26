@@ -198,10 +198,10 @@ Adopt **$V = 4096$ as the provisional tokenizer vocabulary configuration** for t
 
 ---
 
-## ADR 16: Empirical Ratification of Vocabulary Size V = 4096 & Numeric Strategy Configuration
+## ADR 16: Empirical Ratification of Vocabulary Size V = 4096, Numeric Strategy & Pre-tokenization Configuration
 
 ### Context
-Step 3 executed a comprehensive empirical benchmark across four candidate vocabulary sizes ($V = 2048, 4096, 8192, 16384$) on a 23-category control corpus ($748\text{ items}, 61,644\text{ UTF-8 bytes}$) and evaluated three candidate numeric tokenization strategies (Candidate A: single digits, Candidate B: 2-digit chunks, Candidate C: normal BPE).
+Step 3 executed a comprehensive empirical benchmark across four candidate vocabulary sizes ($V = 2048, 4096, 8192, 16384$) on a controlled multi-domain research corpus across 8 distinct categories, evaluated three candidate numeric tokenization strategies (Candidate A: single digits, Candidate B: 2-digit chunks, Candidate C: normal BPE), and compared two pre-tokenization variants (Variant A: raw byte BPE vs Variant B: grapheme-aware pre-tokenization + BPE).
 
 ### Decision
 1. **Ratify $V = 4096$** as the definitive vocabulary configuration for Chakr-Micro v0.1:
@@ -209,12 +209,13 @@ Step 3 executed a comprehensive empirical benchmark across four candidate vocabu
    - $256$ foundational byte primitives (IDs $3\dots258$)
    - $3,837$ learned BPE merges (IDs $259\dots4095$)
 2. **Retain Candidate C (Normal BPE)** as the primary default numeric tokenization strategy, with **Candidate A (Single Digits)** preserved as an isolated modular adapter for arithmetic-intensive tasks.
+3. **Select Variant A (Raw Byte BPE)** as the pre-tokenization strategy over Variant B, avoiding a $+22.6\%$ sequence expansion and $2\times$ CPU regex latency overhead.
 
 ### Reasoning & Trade-offs
-- **Pareto Optimality for Micro Scale**: $V = 4096$ delivers $1.76\text{ tokens/word}$ on Hindi and $1.89$ on English, outperforming $V = 2048$ ($2.46$ Hindi, $2.57$ English) by $26.2\%$ in sequence compression.
-- **Model Parameter Balance**: In Chakr-Micro ($d_{\text{model}} = 192$), an embedding matrix of $4096$ tokens consumes $786,432$ parameters ($22.84\%$ of the total $3,443,136$ model parameters), leaving $77.16\%$ for relational reasoning Transformer blocks. In contrast, $V = 8192$ consumes $1,572,864$ parameters ($37.2\%$ of total weights), over-allocating capacity to static lookup tables.
-- **Merge Exhaustion at Scale**: Candidate $V = 16384$ completely exhausted available unique pairs on the control corpus at $16,092$ merges (actual vocab $16,351$), exhibiting severe corpus memorization and inflating table memory to $3.88\text{ MB}$.
-- **Lossless Invariant Across All Suites**: All candidates passed $100\%$ lossless round-trip reconstruction on all 23 corpus categories, the 41-item Unicode/Indic adversarial suite, and all 11 arbitrary raw byte test cases.
+- **Pareto Optimality for Micro Scale**: $V = 4096$ delivers $2.17\text{ tokens/word}$ on Hindi and $2.49$ on English on unseen validation data, outperforming $V = 2048$ ($2.40$ Hindi, $2.88$ English) while consuming only $902.4\text{ KB}$ of static memory.
+- **Model Parameter Balance**: In Chakr-Micro ($d_{\text{model}} = 192$), an embedding matrix of $4096$ tokens consumes $786,432$ parameters ($22.84\%$ of the total $3,443,712$ model parameters), leaving $77.16\%$ for relational reasoning Transformer blocks. In contrast, $V = 8192$ consumes $1,572,864$ parameters ($45.67\%$ of total weights), over-allocating capacity to static lookup tables.
+- **Merge Exhaustion at Scale**: Candidate $V = 16384$ completely exhausted available unique pairs on the controlled corpus at $12,018$ tokens ($11,759$ merges), providing almost zero additional compression (+0.032 bytes/tok) while consuming $67.0\%$ of the entire model parameter budget.
+- **Lossless Invariant Across All Suites**: All candidates passed $100\%$ lossless round-trip reconstruction on all corpus categories, the Unicode/Indic adversarial suite, and arbitrary raw byte test cases.
 
 ---
 
@@ -233,12 +234,13 @@ Step 3 executed a comprehensive empirical benchmark across four candidate vocabu
 - byte-level fallback (256 base bytes, zero `<UNK>`)
 - special token IDs: `<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2
 - vocabulary size: $V = 4096$ ratified for v0.1
+- pre-tokenization strategy: Variant A (Raw Byte BPE) ratified for v0.1
+- numeric default strategy: Candidate C (Normal BPE) ratified for v0.1
 - lossless round-trip invariant: $\text{Decode}(\text{Encode}(S)) \equiv S$
 - tokenizer-to-neural-core handoff contract: token IDs $\in [0, 4095] \to [B, T, 192]$
 
 ### Unfrozen (Provisional / Experimental):
-- advanced pre-tokenization regex rules (grapheme cluster boundaries)
-- numeric tokenization task-specific switching policy
+- numeric tokenization task-specific switching policy (Candidate A modular adapter)
 - optimizer hyperparameters for training loop
 - weight initialization scale calibration
 - quantization implementation (INT8/INT4 kernels)

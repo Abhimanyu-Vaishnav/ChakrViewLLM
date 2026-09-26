@@ -53,6 +53,27 @@ from chakrview.tokenizer.interface import (
     truncate_tokens,
     validate_token_ids,
 )
+from chakrview.tokenizer.corpus import (
+    CorpusItem,
+    deduplicate_lines,
+    execute_corpus_pipeline,
+    load_corpus_split,
+    stream_corpus_lines,
+    validate_corpus_file,
+)
+from chakrview.tokenizer.metrics import (
+    LatencyStats,
+    MemoryBreakdown,
+    TokenMetrics,
+    compute_sequence_metrics,
+    evaluate_split_metrics,
+    measure_tokenizer_latency,
+    measure_tokenizer_memory,
+)
+from chakrview.tokenizer.serialization import (
+    load_tokenizer_artifacts,
+    save_tokenizer_artifacts,
+)
 
 __all__ = [
     # Special Tokens
@@ -92,6 +113,24 @@ __all__ = [
     "BPETrainer",
     "save_experiment_artifacts",
     "load_experiment_artifacts",
+    # Corpus Pipeline
+    "CorpusItem",
+    "validate_corpus_file",
+    "deduplicate_lines",
+    "execute_corpus_pipeline",
+    "stream_corpus_lines",
+    "load_corpus_split",
+    # Metrics
+    "TokenMetrics",
+    "LatencyStats",
+    "MemoryBreakdown",
+    "compute_sequence_metrics",
+    "measure_tokenizer_latency",
+    "measure_tokenizer_memory",
+    "evaluate_split_metrics",
+    # Serialization
+    "save_tokenizer_artifacts",
+    "load_tokenizer_artifacts",
     # Interface Contract & Handoff
     "PROVISIONAL_VOCAB_SIZE",
     "MAX_CONTEXT",
