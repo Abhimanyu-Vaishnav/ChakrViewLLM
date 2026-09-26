@@ -134,3 +134,34 @@ def test_numeric_experiment_lossless():
         assert dec_c == s
         # Individual digits length must equal digit count
         assert len(tok_a) >= len(tok_b)
+
+
+def test_streaming_bpe_trainer_matches_in_memory():
+    """Verify that train_stream produces bit-exact identical merges and vocab as train()."""
+    trainer1 = BPETrainer(min_frequency=1)
+    merges1, vocab1, stats1 = trainer1.train(SAMPLE_CORPUS, target_vocab_size=300)
+
+    # Chunk the corpus into 2-item slices
+    chunk_iter = iter([SAMPLE_CORPUS[:2], SAMPLE_CORPUS[2:4], SAMPLE_CORPUS[4:]])
+    trainer2 = BPETrainer(min_frequency=1)
+    merges2, vocab2, stats2 = trainer2.train_stream(chunk_iter, target_vocab_size=300)
+
+    assert merges1 == merges2
+    assert vocab1 == vocab2
+    assert stats1["actual_vocab_size"] == stats2["actual_vocab_size"]
+
+
+def test_grapheme_aware_bpe_training():
+    """Verify grapheme-aware pretokenization trains and guarantees lossless reconstruction."""
+    trainer = BPETrainer(min_frequency=1, pretokenization="grapheme")
+    merges, vocab, stats = trainer.train(SAMPLE_CORPUS, target_vocab_size=320)
+    tok = BPETokenizer(merges=merges, vocab=vocab)
+
+    for item in SAMPLE_CORPUS:
+        # Encode via grapheme segments
+        segments = trainer.split_segments(item)
+        tokens = []
+        for s in segments:
+            tokens.extend(tok.encode(s))
+        decoded = tok.decode(tokens)
+        assert decoded == item
