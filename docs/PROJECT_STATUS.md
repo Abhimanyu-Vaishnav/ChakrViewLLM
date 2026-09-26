@@ -3,14 +3,14 @@
 ## Project Overview
 - **Project**: ChakrView
 - **Current phase**: Step 4 — Neural Core Prototype Implementation & Verification
-- **Status**: Step 4 Complete & Verified (171/171 tests passing; Zero Failures; Ready for Step 5)
+- **Status**: Step 4 Complete & Verified (174/174 tests passing; Zero Failures; Ready for Step 5)
 
 ---
 
 ## Status Summary
 
 ### Implementation Notice
-> **IMPORTANT**: Step 4 Neural Core Prototype has been successfully implemented and verified from scratch with zero external model weights, zero pretrained models, and zero wrapper frameworks. The indigenous neural brain package `chakrview/brain/` is completely operational on CPU. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the initial corpus pipeline and BPE experiment. Step 2.4 froze the tokenizer-to-neural-core interface contract. Step 3 executed empirical tokenizer research, corpus engineering, multi-candidate benchmarking, and vocabulary selection. Step 4 has now implemented the complete neural core prototype `ChakrMicro v0.1` ($3,443,136$ parameters) with exact parameter accounting, strict causal masking verification, RoPE positional encoding, SwiGLU feedforward, tied LM head, gradient flow learnability verification, and CPU forward-pass benchmarking with 171/171 unit tests passing.
+> **IMPORTANT**: Step 4 Neural Core Prototype has been successfully implemented and verified from scratch with zero external model weights, zero pretrained models, and zero wrapper frameworks. The indigenous neural brain package `chakrview/brain/` is completely operational on CPU. Step 1 delivered the initial neural core specification. Step 2 delivered the tokenizer specification and audit. Step 2.2 delivered the minimal BPE prototype. Step 2.3 delivered the initial corpus pipeline and BPE experiment. Step 2.4 froze the tokenizer-to-neural-core interface contract. Step 3 executed empirical tokenizer research, corpus engineering, multi-candidate benchmarking, and vocabulary selection. Step 4 has now implemented the complete neural core prototype `ChakrMicro v0.1` ($3,443,136$ parameters) with exact parameter accounting, strict causal masking verification, RoPE positional encoding, SwiGLU feedforward, tied LM head, model serialization, gradient flow learnability verification, and CPU forward-pass benchmarking with 174/174 unit tests passing.
 
 ### Progress by Module
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1)**
@@ -61,9 +61,9 @@
   - `manifests/`: `corpus_manifest.json` with file hashes
   - `statistics/`: `corpus_statistics.json` and `step3_tokenizer_benchmark.json`
   - `experiments/`: Trained candidate artifacts for `vocab_2048/`, `vocab_4096/`, `vocab_8192/`, `vocab_16384/`
-- `tests/`: **171/171 Tests Passing** across 19 test modules (100% green, 0 failures)
+- `tests/`: **174/174 Tests Passing** across 19 test modules (100% green, 0 failures)
   - 151 Tokenizer and Corpus pipeline tests
-  - 20 Neural Core prototype tests (Config, Primitives, Model, Causality, Gradients)
+  - 23 Neural Core prototype tests (Config, Primitives, Model, Causality, Gradients, Serialization)
 - `docs/`: **Comprehensive Step 4 Documentation & Empirical Baselines Ratified**
   - `docs/STEP_04_NEURAL_CORE_IMPLEMENTATION_PLAN.md` (Formal mathematical and engineering plan)
   - `docs/STEP_04_PARAMETER_ACCOUNTING.md` (Analytical vs code parameter reconciliation: 3,443,136 parameters)

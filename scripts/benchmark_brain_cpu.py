@@ -49,21 +49,26 @@ def benchmark_cpu(warmup_runs: int = 5, measured_runs: int = 20) -> dict:
     param_counts = model.count_parameters()
     post_init_ram_mb = get_ram_mb()
     
+    # Static parameter weight memory (FP32 = 4 bytes per param)
+    param_mem_mb = (param_counts["total_parameters"] * 4) / (1024 ** 2)
+    
     results = {
         "device": "cpu",
         "cpu_threads": torch.get_num_threads(),
         "initialization_time_ms": round(init_time_ms, 2),
         "base_ram_mb": round(base_ram_mb, 2),
         "post_init_ram_mb": round(post_init_ram_mb, 2),
+        "parameter_memory_mb": round(param_mem_mb, 3),
         "parameters": param_counts,
         "sequence_benchmarks": {}
     }
     
-    # 2. Sequence Lengths: 1, 16, 64, 128, 256, 512
-    test_lengths = [1, 16, 64, 128, 256, 512]
+    # 2. Sequence Lengths: 1, 8, 16, 32, 64, 128, 256, 512
+    test_lengths = [1, 8, 16, 32, 64, 128, 256, 512]
     
     for seq_len in test_lengths:
         input_ids = torch.randint(0, cfg.vocab_size, (1, seq_len), dtype=torch.long)
+        logits_mem_mb = (1 * seq_len * cfg.vocab_size * 4) / (1024 ** 2)
         
         # Warmup
         with torch.no_grad():
@@ -83,6 +88,7 @@ def benchmark_cpu(warmup_runs: int = 5, measured_runs: int = 20) -> dict:
         p95_ms = latencies[int(len(latencies) * 0.95)]
         min_ms = min(latencies)
         max_ms = max(latencies)
+        latency_per_token_ms = median_ms / seq_len
         tokens_per_sec = (seq_len / (median_ms / 1000.0))
         
         current_ram_mb = get_ram_mb()
@@ -93,12 +99,15 @@ def benchmark_cpu(warmup_runs: int = 5, measured_runs: int = 20) -> dict:
             "p95_ms": round(p95_ms, 3),
             "min_ms": round(min_ms, 3),
             "max_ms": round(max_ms, 3),
+            "latency_per_token_ms": round(latency_per_token_ms, 4),
             "tokens_per_sec": round(tokens_per_sec, 1),
+            "logits_memory_mb": round(logits_mem_mb, 3),
             "ram_mb": round(current_ram_mb, 2)
         }
         print(
             f"T={seq_len:3d}: median={median_ms:.3f}ms | p95={p95_ms:.3f}ms | "
-            f"throughput={tokens_per_sec:.1f} tok/s | RAM={current_ram_mb:.1f}MB"
+            f"per_token={latency_per_token_ms:.4f}ms | throughput={tokens_per_sec:.1f} tok/s | "
+            f"logits_mem={logits_mem_mb:.2f}MB | RAM={current_ram_mb:.1f}MB"
         )
         
     return results

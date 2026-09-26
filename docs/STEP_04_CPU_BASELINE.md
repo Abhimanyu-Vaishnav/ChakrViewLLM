@@ -29,22 +29,24 @@ All measurements in this report are performed directly on the local development 
 - **Measurement Phase**: 20 recorded iterations per sequence length.
 - **Statistical Aggregation**: Reports Median, p95 (95th percentile), Minimum, and Maximum latency.
 - **Throughput Metric**: $\text{Throughput} = \frac{T}{\text{Median Latency (seconds)}}$ tokens/second.
-- **Tested Sequence Contexts**: $T \in \{1, 16, 64, 128, 256, 512\}$.
+- **Tested Sequence Contexts**: $T \in \{1, 8, 16, 32, 64, 128, 256, 512\}$.
 
 ---
 
 ## 3. Forward-Pass Latency & Throughput Baseline (Measured)
 
-**Execution Configuration**: PyTorch 2.14.0+cpu, 4 CPU threads, Model initialization: 26.6 ms, Base Process RSS: 206.9 MB.
+**Execution Configuration**: PyTorch 2.14.0+cpu, 4 CPU threads, Model initialization: 26.6 ms, Base Process RSS: 206.9 MB, Static Parameter Memory: 13.134 MiB.
 
-| Context ($T$) | Median Latency (ms) | p95 Latency (ms) | Min Latency (ms) | Max Latency (ms) | Throughput (tok/s) | Process RSS (MB) |
+| Context ($T$) | Median Latency (ms) | p95 Latency (ms) | Per-Token Latency (ms) | Throughput (tok/s) | Logits RAM (MB) | Process RSS (MB) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **$T = 1$** | $1.31\text{ ms}$ | $1.67\text{ ms}$ | $1.21\text{ ms}$ | $1.67\text{ ms}$ | $766.5\text{ tok/s}$ | $233.9\text{ MB}$ |
-| **$T = 16$** | $2.11\text{ ms}$ | $3.34\text{ ms}$ | $1.81\text{ ms}$ | $3.34\text{ ms}$ | $7,586.7\text{ tok/s}$ | $234.6\text{ MB}$ |
-| **$T = 64$** | $3.69\text{ ms}$ | $4.18\text{ ms}$ | $3.30\text{ ms}$ | $4.18\text{ ms}$ | $17,347.0\text{ tok/s}$ | $235.9\text{ MB}$ |
-| **$T = 128$** | $5.64\text{ ms}$ | $6.79\text{ ms}$ | $5.22\text{ ms}$ | $6.79\text{ ms}$ | $22,680.2\text{ tok/s}$ | $238.8\text{ MB}$ |
-| **$T = 256$** | $10.25\text{ ms}$ | $11.99\text{ ms}$ | $9.25\text{ ms}$ | $11.99\text{ ms}$ | $24,975.1\text{ tok/s}$ | $246.3\text{ MB}$ |
-| **$T = 512$** | $21.72\text{ ms}$ | $32.81\text{ ms}$ | $20.08\text{ ms}$ | $32.81\text{ ms}$ | $23,569.6\text{ tok/s}$ | $256.1\text{ MB}$ |
+| **$T = 1$** | $1.72\text{ ms}$ | $2.13\text{ ms}$ | $1.719\text{ ms}$ | $581.7\text{ tok/s}$ | $0.02\text{ MB}$ | $233.9\text{ MB}$ |
+| **$T = 8$** | $1.85\text{ ms}$ | $2.48\text{ ms}$ | $0.231\text{ ms}$ | $4,325.0\text{ tok/s}$ | $0.12\text{ MB}$ | $234.5\text{ MB}$ |
+| **$T = 16$** | $2.04\text{ ms}$ | $2.59\text{ ms}$ | $0.128\text{ ms}$ | $7,843.9\text{ tok/s}$ | $0.25\text{ MB}$ | $234.8\text{ MB}$ |
+| **$T = 32$** | $2.65\text{ ms}$ | $3.96\text{ ms}$ | $0.083\text{ ms}$ | $12,084.6\text{ tok/s}$ | $0.50\text{ MB}$ | $235.3\text{ MB}$ |
+| **$T = 64$** | $3.58\text{ ms}$ | $5.82\text{ ms}$ | $0.056\text{ ms}$ | $17,875.3\text{ tok/s}$ | $1.00\text{ MB}$ | $236.6\text{ MB}$ |
+| **$T = 128$** | $5.75\text{ ms}$ | $7.50\text{ ms}$ | $0.045\text{ ms}$ | $22,244.2\text{ tok/s}$ | $2.00\text{ MB}$ | $239.9\text{ MB}$ |
+| **$T = 256$** | $9.87\text{ ms}$ | $14.95\text{ ms}$ | $0.039\text{ ms}$ | $25,948.0\text{ tok/s}$ | $4.00\text{ MB}$ | $242.7\text{ MB}$ |
+| **$T = 512$** | $20.52\text{ ms}$ | $22.89\text{ ms}$ | $0.040\text{ ms}$ | $24,950.3\text{ tok/s}$ | $8.00\text{ MB}$ | $256.2\text{ MB}$ |
 
 *(Empirical measurements executed via `scripts/benchmark_brain_cpu.py` on Intel i9-13900H Windows 11 development machine; results saved in `docs/step_04_cpu_benchmark_results.json`).*
 
