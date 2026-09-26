@@ -42,6 +42,17 @@ from chakrview.tokenizer.trainer import (
     load_experiment_artifacts,
     save_experiment_artifacts,
 )
+from chakrview.tokenizer.interface import (
+    D_MODEL,
+    MAX_CONTEXT,
+    PROVISIONAL_VOCAB_SIZE,
+    calculate_static_parameter_memory,
+    chunk_tokens,
+    fake_embedding_lookup,
+    prepare_batch,
+    truncate_tokens,
+    validate_token_ids,
+)
 
 __all__ = [
     # Special Tokens
@@ -81,5 +92,16 @@ __all__ = [
     "BPETrainer",
     "save_experiment_artifacts",
     "load_experiment_artifacts",
+    # Interface Contract & Handoff
+    "PROVISIONAL_VOCAB_SIZE",
+    "MAX_CONTEXT",
+    "D_MODEL",
+    "validate_token_ids",
+    "truncate_tokens",
+    "chunk_tokens",
+    "prepare_batch",
+    "fake_embedding_lookup",
+    "calculate_static_parameter_memory",
 ]
+
 
