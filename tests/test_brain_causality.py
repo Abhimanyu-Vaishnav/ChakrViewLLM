@@ -71,3 +71,32 @@ def test_single_token_future_perturbation_causality():
         assert max_prefix_diff < 1e-6, (
             f"Future token leakage at length {length}! Preceding logits differed by {max_prefix_diff}"
         )
+
+
+def test_four_token_explicit_causality_abcd():
+    """
+    Explicit test for sequence [A, B, C, D]:
+    Changing token D to D' must NOT change the logits for positions A, B, C.
+    Verifies isolation across attention mask, residual paths, normalization, and RoPE.
+    """
+    torch.manual_seed(42)
+    cfg = ModelConfig()
+    model = ChakrMicro(cfg)
+    model.eval()
+    
+    # [A, B, C, D]
+    seq1 = torch.tensor([[10, 20, 30, 40]], dtype=torch.long)
+    # [A, B, C, D']
+    seq2 = torch.tensor([[10, 20, 30, 999]], dtype=torch.long)
+    
+    with torch.no_grad():
+        out1 = model(seq1)
+        out2 = model(seq2)
+        
+    # Positions 0 (A), 1 (B), 2 (C) must be identical
+    max_diff_abc = torch.max(torch.abs(out1[:, :3, :] - out2[:, :3, :])).item()
+    assert max_diff_abc < 1e-6, f"Leakage detected! Logits for A, B, C changed by {max_diff_abc}"
+    
+    # Position 3 (D vs D') must differ
+    diff_d = torch.max(torch.abs(out1[:, 3, :] - out2[:, 3, :])).item()
+    assert diff_d > 1e-2, f"Expected position D to differ, but got diff {diff_d}"
