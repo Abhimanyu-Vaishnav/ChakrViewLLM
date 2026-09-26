@@ -1,0 +1,66 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python environments
+.venv/
+venv/
+ENV/
+env/
+
+# ML Model weights, checkpoints, and artifacts
+checkpoints/*
+!checkpoints/.gitkeep
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.ckpt
+*.pkl
+*.joblib
+*.h5
+
+# Datasets and large data stores
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/validation/*
+!data/validation/.gitkeep
+*.arrow
+*.parquet
+*.tar
+*.tar.gz
+*.zip
+
+# Logs, monitoring, and profiling
+*.log
+logs/
+runs/
+wandb/
+.tensorboard/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
