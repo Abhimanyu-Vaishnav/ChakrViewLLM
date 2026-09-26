@@ -1,45 +1,57 @@
-# Neural Core Decision Records (ADR) — ChakrView Step 3.1
+# Neural Core Decision Records (ADR) — ChakrView Step 4
 
 **Project**: ChakrView  
-**Phase**: Step 3.1 — Neural Core Architecture & Mathematical Specification  
-**Status**: ACTIVE & RATIFIED  
+**Phase**: Step 4 — Neural Core Architecture Specification & Tensor Contract  
+**Status**: ACTIVE, RATIFIED & FROZEN  
 
 ---
 
 ## Overview
 
-This document records the architectural decisions ratified during **Step 3.1** for the **ChakrView Neural Core (Chakr-Micro v0.1)**. These records build upon ADR 01–ADR 10 from previous steps and freeze the exact mathematical, structural, and dimensional contracts required before neural implementation.
+This document formally records the architectural decisions ratified during **Step 4** for the **ChakrView Neural Core (Chakr-Micro v0.1)**. These records build upon the preceding architecture and tokenizer decisions and freeze the exact mathematical, structural, and dimensional contracts required before neural implementation.
 
 ---
 
-## ADR 11: Freezing Chakr-Micro Core Hyperparameters over Structural Alternatives
+## ADR 17: Ratification of Chakr-Micro v0.1 Sizing ($N=6, d_{\text{model}}=192$)
 
 ### Context
-A concrete, non-ambiguous sizing was required for the first trainable indigenous neural core of ChakrView. Three candidate configurations were evaluated based on parameter count, FLOPs, memory footprint, cache alignment, and implementation complexity:
-- Candidate A (Deeper / Narrower): $L=8, d_{\text{model}}=160, H=5, d_{\text{head}}=32, d_{\text{ff}}=416$ ($3.07\text{M}$ params)
-- Candidate B (Chakr-Micro — Balanced): $L=6, d_{\text{model}}=192, H=6, d_{\text{head}}=32, d_{\text{ff}}=512$ ($3.44\text{M}$ params)
-- Candidate C (Shallower / Wider): $L=4, d_{\text{model}}=256, H=8, d_{\text{head}}=32, d_{\text{ff}}=672$ ($4.16\text{M}$ params)
+A concrete, unambiguous model sizing is required for the first trainable indigenous neural core of ChakrView. Candidate depths $N \in \{4, 6, 8, 10, 12\}$ and head counts $H \in \{3, 4, 6, 8\}$ were evaluated on parameter count, FLOPs, memory footprint, cache alignment, and implementation complexity on low-resource CPU targets.
 
 ### Decision
-Ratify and freeze **Candidate B (Chakr-Micro)** as the definitive architectural configuration for v0.1:
-- $L = 6$ layers
+Ratify and freeze **Chakr-Micro v0.1**:
+- $N = 6$ stacked transformer layers
 - $d_{\text{model}} = 192$
-- $H = 6$ query heads, $H_{kv} = 6$ key-value heads (Simple MHA)
+- $H = 6$ query heads, $H_{kv} = 6$ key-value heads
 - $d_{\text{head}} = 32$
 - $d_{\text{ff}} = 512$
 - $T_{\text{max}} = 512$
-- Provisional $V = 4,096$
+- $V = 4096$
 - Weight tying enabled ($W_{\text{out}} = E^T$)
 - Total parameters: **$3,443,136$**
 
 ### Reasoning & Trade-offs
-- **Symmetric Subspace Partitioning**: Candidate A has $H = 5$, an odd number of attention heads that cannot be divided evenly into SIMD pairs, complicates future GQA experiments, and prevents balanced multi-core threading. Candidate B ($H = 6$) permits clean grouping by 1, 2, 3, or 6.
-- **Exact Integer Cache Alignment**: In Candidate B, $d_{\text{ff}} = \frac{8}{3} \times 192 = 512$ is an exact integer and a pure power of 2 ($2^9$), aligning with CPU cache line boundaries ($512 \times 4\text{ bytes} = 2,048\text{ bytes} = 32$ cache lines). Candidates A and C required fractional rounding.
-- **Hierarchical Representational Depth**: Candidate C ($L = 4$) restricts compositional feature depth, while Candidate A ($L = 8$) increases forward-pass memory latency on memory-bandwidth-bound CPUs. Candidate B provides an optimal balance for low-spec CPU research.
+- **Exact Integer Cache Alignment**: In Chakr-Micro, $d_{\text{ff}} = \frac{8}{3} \times 192 = 512$ is an exact integer and a pure power of 2 ($2^9$), aligning with CPU cache line boundaries ($512 \times 4\text{ bytes} = 2,048\text{ bytes} = 32$ cache lines).
+- **SIMD Register Mapping**: Head dimension $d_{\text{head}} = 32$ maps cleanly to four 256-bit AVX2 registers, two 512-bit AVX-512 registers, or eight 128-bit ARM NEON registers with zero unaligned loads.
+- **Hierarchical Representational Depth**: $N = 6$ provides sufficient depth for compositional feature extraction while bounding backward-pass memory ($114.75\text{ MiB}$ at FP32 for $T=512$) on low-spec CPUs.
 
 ---
 
-## ADR 12: Pre-RMSNorm Formulation & Numerical Epsilon Standard
+## ADR 18: Retention of Simple Multi-Head Attention (MHA) for v0.1
+
+### Context
+Grouped-Query Attention (GQA) reduces KV cache memory in autoregressive generation by sharing key/value heads across query head groups. We evaluated whether GQA should be introduced in v0.1 or deferred.
+
+### Decision
+Retain **Simple Multi-Head Attention (MHA)** with $H_{kv} = H = 6$ for v0.1. Document GQA strictly as an architectural extension point for larger future models ($d_{\text{model}} \ge 512, T \ge 2048$).
+
+### Reasoning & Trade-offs
+- **Trivial KV Cache Footprint**: For Chakr-Micro ($T_{\text{max}} = 512, B = 1$), the FP16 KV cache across all 6 layers is only $2.25\text{ MiB}$ ($2.36\text{ MB}$).
+- **Negligible Parameter Savings**: GQA with $H_{kv} = 2$ would only save $147,456$ parameters ($4.2\%$ of model weights).
+- **CPU Kernel Simplicity**: On low-spec CPUs and edge devices, standard MHA uses simple contiguous matrix multiplications without head-broadcasting or strided index remapping.
+
+---
+
+## ADR 19: Pre-RMSNorm Formulation and Numerical Epsilon Policy
 
 ### Context
 Normalization must provide numerical stability across deep residual networks while minimizing CPU compute overhead.
@@ -49,13 +61,13 @@ Adopt **Pre-RMSNorm** across all transformer blocks with $\epsilon = 10^{-5}$ an
 $$\text{RMSNorm}(\mathbf{u}) = \frac{\mathbf{u}}{\sqrt{\frac{1}{d_{\text{model}}} \sum_{i=1}^{d_{\text{model}}} u_i^2 + \epsilon}} \odot \boldsymbol{\gamma}$$
 
 ### Reasoning & Trade-offs
-- **Compute Efficiency**: By eliminating mean computation ($\mu = \frac{1}{d} \sum x_i$), RMSNorm saves $7\text{--}12\%$ of normalization runtime on CPU architectures compared to standard LayerNorm.
-- **Epsilon Selection**: $\epsilon = 10^{-5}$ provides robust headroom against floating-point underflow/overflow across both FP32 and FP16/BF16 without distorting feature variance.
-- **Identity Gradient Highway**: Applying normalization strictly before sub-layer operations (pre-norm) ensures an unattenuated identity path along the residual stream, preventing vanishing or exploding gradients.
+- **Compute Efficiency**: Dispensing with mean-centering saves $7\text{--}12\%$ of normalizer runtime on CPU architectures compared to standard LayerNorm.
+- **Epsilon Selection**: $\epsilon = 10^{-5}$ provides robust headroom against floating-point underflow/overflow across FP32, FP16, and BF16.
+- **Residual Highway**: Pre-normalization ensures an unattenuated identity path along the residual stream, preventing vanishing or exploding gradients.
 
 ---
 
-## ADR 13: Rotary Position Embedding (RoPE) Integration Standard
+## ADR 20: Rotary Position Embedding (RoPE) Integration Standard
 
 ### Context
 Autoregressive attention requires position information. The mechanism must support relative distance awareness without adding trainable parameters or introducing non-standard kernel dependencies.
@@ -71,7 +83,7 @@ $$\begin{pmatrix} \tilde{v}_{2k} \\ \tilde{v}_{2k+1} \end{pmatrix} = \begin{pmat
 
 ---
 
-## ADR 14: SwiGLU Activation & Feed-Forward Dimensional Sizing
+## ADR 21: SwiGLU Activation & Feed-Forward Dimensional Sizing
 
 ### Context
 The feed-forward sub-layer provides non-linear expressive capacity. Traditional transformers utilize 2-matrix MLPs with ReLU or GELU.
@@ -88,7 +100,23 @@ where $W_{\text{gate}}, W_{\text{up}} \in \mathbb{R}^{192 \times 512}$ and $W_{\
 
 ---
 
-## ADR 15: Memory & FLOP Accounting Boundary Policy
+## ADR 22: Bias-Free Linear Projections and Weight Tying
+
+### Context
+Dense projections may include additive biases, and output heads may use independent matrices.
+
+### Decision
+1. **Omit additive biases** ($b = 0$) across all projections ($W_Q, W_K, W_V, W_O, W_{\text{gate}}, W_{\text{up}}, W_{\text{down}}$).
+2. **Enable Weight Tying**: $W_{\text{out}} = E^T$.
+
+### Reasoning & Trade-offs
+- **Parameter Savings**: Weight tying saves $786,432$ parameters ($22.84\%$ of the total parameter budget).
+- **Cache Locality**: Reusing the embedding matrix in memory reduces working set size during inference.
+- **Simplified GEMMs**: Bias-free linear layers eliminate trailing vector additions and simplify quantization kernels.
+
+---
+
+## ADR 23: Hardware-Centric Memory and FLOP Accounting Policy
 
 ### Context
 Claims regarding model size, cache fitting, and memory consumption must adhere to strict scientific boundaries.
@@ -102,9 +130,8 @@ Enforce rigorous boundaries between static weight storage, dynamic runtime buffe
    - INT8: $3.28\text{ MiB}$ ($3.44\text{ MB}$)
    - INT4: $1.64\text{ MiB}$ ($1.72\text{ MB}$)
 2. **Explicit Exclusions from Static Figures**:
-   - Dynamic activations ($45\text{--}80\text{ MB}$ during training)
-   - Optimizer state ($27.55\text{ MB}$ for AdamW moments)
-   - KV cache ($1.125\text{ MB}$ to $4.50\text{ MB}$ depending on context length and precision)
+   - Dynamic activations ($15.19\text{ MiB}$ to $114.75\text{ MiB}$ during training)
+   - KV cache ($1.125\text{ MiB}$ to $4.50\text{ MiB}$ depending on context length and precision)
    - Runtime allocator and engine overhead
 3. **CPU Cache Claim Rule**:
    - The assertion that Chakr-Micro fits in CPU L3 cache is strictly classified as an **empirical engineering hypothesis** to be benchmarked on target hardware, not an architectural guarantee.

@@ -219,18 +219,23 @@ Step 3 executed a comprehensive empirical benchmark across four candidate vocabu
 
 ---
 
-## Step 1, 2 & 3 Frozen vs Unfrozen Decisions
+## Step 4 Frozen vs Unfrozen Decisions
 
 ### Frozen:
 - decoder-only causal architecture
+- model dimension: $d_{\text{model}} = 192$
+- number of layers: $N = 6$
+- attention heads: $H = 6, H_{kv} = 6$ (Simple MHA)
+- head dimension: $d_{\text{head}} = 32$
+- FFN intermediate dimension: $d_{\text{ff}} = 512$ (exact $\frac{8}{3} d_{\text{model}}$ power-of-2 cache alignment)
 - pre-RMSNorm ($\epsilon = 10^{-5}$)
 - RoPE positional embedding ($\Theta = 10000.0, d_{\text{rot}} = 32$)
-- SwiGLU feed-forward activation ($d_{\text{ff}} = 512$)
+- SwiGLU feed-forward activation
 - bias-free linear projections ($b = 0$)
 - weight tying ($W_{\text{out}} = E^T$)
-- Simple Multi-Head Attention (MHA) for v0.1 ($H=6, H_{kv}=6$)
-- maximum context of 512 tokens for Chakr-Micro
-- no pretrained weights
+- maximum context of 512 tokens for Chakr-Micro ($T_{\text{max}} = 512$)
+- total parameter count: $3,443,136$
+- no pretrained weights (100% indigenous architecture)
 - byte-level fallback (256 base bytes, zero `<UNK>`)
 - special token IDs: `<BOS>`: 0, `<EOS>`: 1, `<PAD>`: 2
 - vocabulary size: $V = 4096$ ratified for v0.1
@@ -238,20 +243,22 @@ Step 3 executed a comprehensive empirical benchmark across four candidate vocabu
 - numeric default strategy: Candidate C (Normal BPE) ratified for v0.1
 - lossless round-trip invariant: $\text{Decode}(\text{Encode}(S)) \equiv S$
 - tokenizer-to-neural-core handoff contract: token IDs $\in [0, 4095] \to [B, T, 192]$
+- neural core output logits contract: $[B, T, 4096]$
 
 ### Unfrozen (Provisional / Experimental):
-- numeric tokenization task-specific switching policy (Candidate A modular adapter)
-- optimizer hyperparameters for training loop
-- weight initialization scale calibration
-- quantization implementation (INT8/INT4 kernels)
-- future GQA (extension point for larger models)
+- learning rate schedule (cosine vs linear warmup decay)
+- optimizer selection (AdamW vs Lion vs Sophia)
+- weight initialization scale tuning
+- post-training quantization (INT8/INT4 kernels)
+- future GQA (extension point for larger models $d \ge 512$)
 - future dynamic depth / sparse computation
+- inference execution engines (pure C++, GGML, ONNX, WASM)
 
 ---
 
 ## Implementation Prerequisite Rule
 
-> **MANDATORY RULE**: Step 3 empirical benchmarking is complete and ratified. Implementation of the neural core and training pipeline shall strictly commence upon official approval of Step 4 instructions.
+> **MANDATORY RULE**: Step 4 Neural Core Architecture Specification and Tensor Contracts are complete and frozen. Implementation of the neural core model class, transformer layers, and training pipeline shall strictly commence upon official approval of Step 5 instructions.
 
 ---
 *End of Architecture Decision Records*
