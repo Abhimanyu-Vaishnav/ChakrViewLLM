@@ -1,0 +1,140 @@
+{
+  "total_documents_checked": 609,
+  "valid_documents": 600,
+  "duplicate_documents": 8,
+  "discarded_documents": 1,
+  "total_issues_found": 14,
+  "issue_breakdown": {
+    "EXTREMELY_SHORT": 1,
+    "EXACT_DUPLICATE": 8,
+    "EXCESSIVE_REPEATED_CHARS": 5
+  },
+  "issues": [
+    {
+      "line_index": 1,
+      "source_file": "code_configs.txt",
+      "category": "code",
+      "issue_type": "EXTREMELY_SHORT",
+      "reason": "Document length (1 chars) is below threshold of 2",
+      "snippet": "{",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 23,
+      "source_file": "code_configs.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "}",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 22,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXCESSIVE_REPEATED_CHARS",
+      "reason": "Repeated character ' ' appears >15 consecutive times",
+      "snippet": "                ...",
+      "action": "FLAG"
+    },
+    {
+      "line_index": 40,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "}",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 86,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "    def __init__(self):",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 93,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXCESSIVE_REPEATED_CHARS",
+      "reason": "Repeated character ' ' appears >15 consecutive times",
+      "snippet": "                ...",
+      "action": "FLAG"
+    },
+    {
+      "line_index": 99,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "        node = self.root",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 105,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "            if b not in node.children:",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 106,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXCESSIVE_REPEATED_CHARS",
+      "reason": "Repeated character ' ' appears >15 consecutive times",
+      "snippet": "                ...",
+      "action": "FLAG"
+    },
+    {
+      "line_index": 107,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "            node = node.children[b]",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 110,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXCESSIVE_REPEATED_CHARS",
+      "reason": "Repeated character ' ' appears >15 consecutive times",
+      "snippet": "                ...",
+      "action": "FLAG"
+    },
+    {
+      "line_index": 111,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXCESSIVE_REPEATED_CHARS",
+      "reason": "Repeated character ' ' appears >15 consecutive times",
+      "snippet": "                ...",
+      "action": "FLAG"
+    },
+    {
+      "line_index": 124,
+      "source_file": "code_foundation.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "}",
+      "action": "DISCARD"
+    },
+    {
+      "line_index": 1,
+      "source_file": "code_python.txt",
+      "category": "code",
+      "issue_type": "EXACT_DUPLICATE",
+      "reason": "Exact duplicate of an earlier line in the corpus",
+      "snippet": "import math",
+      "action": "DISCARD"
+    }
+  ]
+}
