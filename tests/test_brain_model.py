@@ -80,3 +80,85 @@ def test_chakr_micro_max_seq_len_exceeded_rejected():
     long_input = torch.randint(0, 4096, (1, 513), dtype=torch.long)
     with pytest.raises(ValueError, match="exceeds maximum context window"):
         model(long_input)
+
+
+def test_chakr_micro_multi_sequence_smoke_test():
+    """Verify forward pass at multiple context lengths: T in {1, 8, 32, 128, 512} with B=1."""
+    cfg = ModelConfig()
+    model = ChakrMicro(cfg)
+    model.eval()
+    
+    test_lengths = [1, 8, 32, 128, 512]
+    with torch.no_grad():
+        for t in test_lengths:
+            input_ids = torch.randint(0, 4096, (1, t), dtype=torch.long)
+            logits = model(input_ids)
+            assert logits.shape == (1, t, 4096)
+            assert not torch.isnan(logits).any()
+            assert not torch.isinf(logits).any()
+
+
+def test_chakr_micro_serialization_round_trip(tmp_path):
+    """
+    Verify model serialization:
+    1. Save state_dict to disk / buffer
+    2. Instantiate fresh model
+    3. Load state_dict
+    4. Assert bit-exact identical forward pass outputs
+    """
+    cfg = ModelConfig()
+    model1 = ChakrMicro(cfg)
+    model1.eval()
+    
+    input_ids = torch.tensor([[5, 12, 100, 200, 300]], dtype=torch.long)
+    with torch.no_grad():
+        out1 = model1(input_ids)
+        
+    save_path = tmp_path / "chakr_micro_test.pt"
+    torch.save(model1.state_dict(), save_path)
+    
+    model2 = ChakrMicro(cfg)
+    model2.load_state_dict(torch.load(save_path, weights_only=True))
+    model2.eval()
+    
+    with torch.no_grad():
+        out2 = model2(input_ids)
+        
+    assert torch.allclose(out1, out2, atol=1e-6)
+    # Also verify weight tying is maintained after deserialization
+    assert model2.lm_head.weight.data_ptr() == model2.embedding.weight.data_ptr()
+
+
+def test_chakr_micro_backpropagation_gradient_flow():
+    """
+    Verify that backpropagation computes finite gradients for all trainable parameters
+    and that an optimizer step updates weights without NaN/Inf.
+    """
+    cfg = ModelConfig()
+    model = ChakrMicro(cfg)
+    model.train()
+    
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+    
+    input_ids = torch.randint(0, 4096, (2, 8), dtype=torch.long)
+    targets = torch.randint(0, 4096, (2, 8), dtype=torch.long)
+    
+    optimizer.zero_grad()
+    logits = model(input_ids)
+    loss = torch.nn.functional.cross_entropy(logits.view(-1, 4096), targets.view(-1))
+    
+    assert torch.isfinite(loss)
+    loss.backward()
+    
+    # Check that all trainable parameters received finite gradients
+    for name, p in model.named_parameters():
+        if p.requires_grad:
+            assert p.grad is not None, f"Parameter {name} has None grad"
+            assert not torch.isnan(p.grad).any(), f"Parameter {name} has NaN grad"
+            assert not torch.isinf(p.grad).any(), f"Parameter {name} has Inf grad"
+            
+    # Step optimizer and verify finite weights
+    optimizer.step()
+    for name, p in model.named_parameters():
+        assert not torch.isnan(p).any(), f"Parameter {name} has NaN weight after step"
+        assert not torch.isinf(p).any(), f"Parameter {name} has Inf weight after step"

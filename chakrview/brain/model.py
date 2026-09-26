@@ -108,6 +108,8 @@ class ChakrMicro(nn.Module):
             self.final_norm.weight.numel()
         )
         
+        layer_block_params = (attn_params + ffn_params + sum(layer.norm_1.weight.numel() + layer.norm_2.weight.numel() for layer in self.layers)) // self.config.n_layers
+        
         # Collect unique parameter tensors in memory to respect weight tying
         unique_params = set(self.parameters())
         total_unique = sum(p.numel() for p in unique_params)
@@ -115,11 +117,14 @@ class ChakrMicro(nn.Module):
         
         return {
             "embedding": emb_params,
+            "transformer_block_per_layer": layer_block_params,
+            "transformer_blocks_total": layer_block_params * self.config.n_layers,
             "attention_per_layer": attn_params // self.config.n_layers,
             "attention_total": attn_params,
             "ffn_per_layer": ffn_params // self.config.n_layers,
             "ffn_total": ffn_params,
             "normalization_total": norm_params,
+            "output_head_unique": 0,
             "total_parameters": total_unique,
             "trainable_parameters": total_trainable,
         }
