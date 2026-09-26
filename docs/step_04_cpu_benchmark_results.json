@@ -1,0 +1,73 @@
+{
+  "device": "cpu",
+  "cpu_threads": 4,
+  "initialization_time_ms": 26.6,
+  "base_ram_mb": 206.89,
+  "post_init_ram_mb": 232.29,
+  "parameters": {
+    "embedding": 786432,
+    "attention_per_layer": 147456,
+    "attention_total": 884736,
+    "ffn_per_layer": 294912,
+    "ffn_total": 1769472,
+    "normalization_total": 2496,
+    "total_parameters": 3443136,
+    "trainable_parameters": 3443136
+  },
+  "sequence_benchmarks": {
+    "1": {
+      "seq_len": 1,
+      "median_ms": 1.305,
+      "p95_ms": 1.667,
+      "min_ms": 1.209,
+      "max_ms": 1.667,
+      "tokens_per_sec": 766.5,
+      "ram_mb": 233.88
+    },
+    "16": {
+      "seq_len": 16,
+      "median_ms": 2.109,
+      "p95_ms": 3.343,
+      "min_ms": 1.807,
+      "max_ms": 3.343,
+      "tokens_per_sec": 7586.7,
+      "ram_mb": 234.58
+    },
+    "64": {
+      "seq_len": 64,
+      "median_ms": 3.689,
+      "p95_ms": 4.184,
+      "min_ms": 3.301,
+      "max_ms": 4.184,
+      "tokens_per_sec": 17347.0,
+      "ram_mb": 235.87
+    },
+    "128": {
+      "seq_len": 128,
+      "median_ms": 5.644,
+      "p95_ms": 6.79,
+      "min_ms": 5.223,
+      "max_ms": 6.79,
+      "tokens_per_sec": 22680.2,
+      "ram_mb": 238.75
+    },
+    "256": {
+      "seq_len": 256,
+      "median_ms": 10.25,
+      "p95_ms": 11.993,
+      "min_ms": 9.248,
+      "max_ms": 11.993,
+      "tokens_per_sec": 24975.1,
+      "ram_mb": 246.32
+    },
+    "512": {
+      "seq_len": 512,
+      "median_ms": 21.723,
+      "p95_ms": 32.809,
+      "min_ms": 20.079,
+      "max_ms": 32.809,
+      "tokens_per_sec": 23569.6,
+      "ram_mb": 256.1
+    }
+  }
+}
