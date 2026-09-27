@@ -2,17 +2,20 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 6.4 — Stage C Corpus Engineering Plan & Design Gate
-- **Status**: Complete, Audited & Ratified (247/247 tests passing; Stage C Corpus Engineering Plan frozen in STEP_06_4_STAGE_C_CORPUS_PLAN.md; Target set to 10M tokens for Stage C.1 baseline; Ready for Step 6.5 Stage C Source Acquisition Automation)
+- **Current phase**: Step 6.5 — Stage C Source Acquisition, License Verification & Ingestion
+- **Status**: Partial (7.71M authentic verified tokens acquired, validated, and sharded into 32 binary shards; 254/254 tests passing; strict legal provenance and quality prioritized over artificial token padding; ready for Wave 2 expansion or baseline pre-training)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 6.4 Stage C Corpus Engineering Plan and Design Gate has been formally ratified. The specification establishes the 8-domain balance (Hindi 25%, English 30%, Code 15%, Math 10%, Hinglish 10%, Sanskrit 4%, Reasoning 4%, Data 2%), an audited catalog of 12 open-licensed candidate sources (Wikipedia, Project Gutenberg, CPython, TheAlgorithms, SQLite, OpenStax, GRETIL, OGD India), tiered filtering and SimHash deduplication policies, and an empirical feasibility analysis recommending 10M tokens (40 shards, ~1.1 hours/epoch at 2,500 tok/s on CPU) for the initial Stage C.1 production baseline. All 247 unit and regression tests pass with zero failures.
+> **IMPORTANT**: Step 6.5 has acquired, cleaned, deduplicated, and sharded 7,708,601 authentic pre-training tokens across 8 domains from verified open sources (Simple English Wikipedia, Hindi Wikipedia, Sanskrit Wikipedia, CPython 3.12, TheAlgorithms, GSM8k, OpenStax Math, OGD India). 12 candidate sources were audited; 8 approved, 1 conditional, and 3 rejected (IIT Bombay CC-BY-NC-SA, Common Crawl, Books3). 12,099 duplicate documents were filtered. 32 binary `uint16` shards were generated with complete `metadata.json` SHA-256 cryptographic verification. Split disjointness (86.3% train, 6.0% val, 7.7% test) strictly confirmed. All 254 unit and regression tests pass with zero failures.
 
 ### Progress by Module
+- `scripts/stage_c/`: **Stage C Acquisition & Data Governance Engine**
+  - `sources.json`: Authoritative acquisition registry tracking licenses, evidence, checksums, and statuses
+  - `acquire_and_ingest_stage_c.py`: Streaming acquisition, markup cleaning, secret/PII scanning, exact deduplication, 18-attribute manifest generation, deterministic partitioning, and binary sharding
 - `chakrview/training/`: **Pre-Training Infrastructure Engine**
   - `config.py`: Authoritative dataclasses (`TrainingHyperparameters`, `DataConfig`, `CheckpointConfig`, `EvaluationConfig`, `PretrainingConfig`) with JSON serialization
   - `seed.py`: Deterministic seed coordination across `random`, `numpy`, and `torch` with full RNG state capture and restore
@@ -32,11 +35,12 @@
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **247/247 Tests Passing** across 31 test modules (100% green, 0 failures, 0 errors)
-  - 142 Tokenizer and Corpus pipeline tests
+- `tests/`: **254/254 Tests Passing** across 32 test modules (100% green, 0 failures, 0 errors)
+  - 149 Tokenizer and Corpus pipeline tests (including 7 new Stage C tests)
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_06_5_STAGE_C_ACQUISITION_REPORT.md` (Step 6.5 Stage C Acquisition, License Verification & Ingestion Report)
   - `docs/STEP_06_4_STAGE_C_CORPUS_PLAN.md` (Step 6.4 Stage C Corpus Engineering Plan & Design Gate)
   - `docs/STEP_06_3_LEARNING_VALIDATION_REPORT.md` (Step 6.3 Controlled Pre-Training Learning Validation Report)
   - `docs/STEP_06_2_STAGE_B_INGESTION_REPORT.md` (Step 6.2 Stage B Multi-Domain Ingestion, Validation & Sharding Report)
