@@ -2,15 +2,15 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 6.2 — Pre-Training Data Curation, Cleaning & Ingestion for Stage B
-- **Status**: Complete, Audited & Frozen (241/241 tests passing; 501,653 sharded Stage B tokens compiled and verified; Ready for Step 6.3 Stage B Pre-Training Execution)
+- **Current phase**: Step 6.3 — Controlled Pre-Training Learning Validation
+- **Status**: Complete, Audited & Verified (247/247 tests passing; 500-step pre-training learning validation on Stage B shards completed on CPU; Clear learning signal confirmed: 35.6% train loss drop, 33.7% val loss drop, 100% deterministic resumption; Ready for Step 6.4 Pre-Training Scaling & Stage C Corpus Engineering)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 5 Pre-Training Infrastructure has been completed from scratch with zero external model weights, zero pretrained models, zero HuggingFace wrappers, and complete preservation of the frozen $3,443,136$ parameter neural core. The system provides an end-to-end deterministic training engine on local CPU: authoritative dataclass configuration, multi-library seed control, contiguous uint16 binary shard writer with SHA-256 integrity verification, memory-conscious streaming dataset reader, bounded causal batch collation, PAD-masked next-token cross entropy, weight-decay segregated AdamW optimizer with cosine warmup scheduling, atomic failure-safe checkpointing with history pruning, throughput/perplexity metrics tracking, CPU/RAM monitoring, and a deterministic validation evaluator. Synthetic micro-pattern training ($8.32 \to 6.91$) and a real data smoke test on Hindi and English validated the complete pipeline. All 235 unit and regression tests pass with zero failures.
+> **IMPORTANT**: Step 6.3 Controlled Pre-Training Learning Validation has been successfully executed from scratch on local CPU using the Stage B binary shards and frozen ChakrMicro v0.1 core (3,443,136 parameters). Theoretical initial loss alignment ($\ln 4096 = 8.318$), finite non-zero gradients across all 56 parameter tensors, mathematical parameter-update proof ($\|\Delta\theta\|_2 > 0$), continuous loss reduction ($8.35 \to 5.37$ train, $8.33 \to 5.52$ val), atomic 100-step checkpointing, bit-for-bit deterministic checkpoint resumption ($0.0000000000$ diff), and bit-for-bit deterministic reproducibility ($0.0000000000$ diff) have been rigorously verified. All 247 unit and regression tests pass with zero failures.
 
 ### Progress by Module
 - `chakrview/training/`: **Pre-Training Infrastructure Engine**
@@ -32,11 +32,12 @@
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **241/241 Tests Passing** across 30 test modules (100% green, 0 failures, 0 errors)
+- `tests/`: **247/247 Tests Passing** across 31 test modules (100% green, 0 failures, 0 errors)
   - 142 Tokenizer and Corpus pipeline tests
   - 78 Neural Core tests
-  - 21 Pre-Training Infrastructure tests
+  - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_06_3_LEARNING_VALIDATION_REPORT.md` (Step 6.3 Controlled Pre-Training Learning Validation Report)
   - `docs/STEP_06_2_STAGE_B_INGESTION_REPORT.md` (Step 6.2 Stage B Multi-Domain Ingestion, Validation & Sharding Report)
   - `docs/STEP_06_1_CORPUS_SPEC.md` (Step 6.1 Corpus Engineering Specification and Data Governance)
   - `docs/CHAKRVIEW_CORPUS_DATA_CARD.md` (ChakrView Multi-Domain Corpus Data Card)
