@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 5 — Pre-Training Infrastructure
-- **Status**: Complete, Audited & Architecture Frozen (235/235 tests passing; Zero Failures; Ready for Pre-Training Data Curation & Scaling)
+- **Current phase**: Step 6.1 — Pre-Training Corpus Engineering & Data Governance
+- **Status**: Complete, Audited & Architecture Frozen (235/235 tests passing; Step 6.1 Specification, Data Card & Governance Ratified; Ready for Stage B Data Curation)
 
 ---
 
@@ -37,6 +37,8 @@
   - 78 Neural Core tests
   - 21 Pre-Training Infrastructure tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_06_1_CORPUS_SPEC.md` (Step 6.1 Corpus Engineering Specification and Data Governance)
+  - `docs/CHAKRVIEW_CORPUS_DATA_CARD.md` (ChakrView Multi-Domain Corpus Data Card)
   - `docs/STEP_05_PRETRAINING_INFRASTRUCTURE.md` (Comprehensive Step 5 verification and overhead benchmark report)
   - `docs/STEP_04_VERIFICATION_REPORT.md` (Comprehensive 15-section audit report; decision: VERIFIED — READY FOR TRAINING)
   - `docs/STEP_04_ENVIRONMENT.md` (Detailed environment and runtime hardware verification)
@@ -86,5 +88,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **VERIFIED — READY FOR TRAINING**
-- **Next Allowed Step**: Step 5 — Pre-Training Infrastructure & Data Loader Pipeline (awaiting user explicit command; DO NOT START STEP 5 AUTOMATICALLY).
+- **Decision**: **STEP 6.1 RATIFIED — CORPUS SPECIFICATION & DATA GOVERNANCE FROZEN**
+- **Next Allowed Step**: Step 6.2 — Pre-Training Data Curation, Cleaning & Ingestion for Stage B Learning Validation (awaiting user explicit command; DO NOT START STEP 6.2 AUTOMATICALLY).
