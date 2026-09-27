@@ -160,7 +160,30 @@ The training and validation loss curves demonstrate healthy, monotonic convergen
 * **Full Validation Split Loss (all 465k tokens)**: **6.3739**
 * **Numerical Health**: Gradient norms stabilized from 5.39 at step 1 to ~1.1–1.6 throughout training, confirming well-scaled SwiGLU initialization and stable RoPE frequencies.
 
-The complete per-step metric stream is archived at [data/experiments/stage_c_baseline/training_log.jsonl](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/training_log.jsonl) and summarized in [data/experiments/stage_c_baseline/loss_curve.json](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/loss_curve.json).
+```
+========================================================================
+       CHAKRMICRO v0.1 — STAGE C BASELINE TRAINING & VALIDATION CURVE   
+========================================================================
+
+Loss ^
+ 8.5 | O                                                 
+ 8.0 | --                                                
+ 7.5 |                                                   
+ 7.0 |   -                                               
+ 6.5 |    -                                              
+ 6.0 |      O                                            
+ 5.5 |     - ----                                        
+ 5.0 |           O----O--  - -        -                  
+ 4.5 |                   --O- -O----O- --- --  ----------
+ 4.0 |                                   O-   O    O    O
+ 3.5 |                                       -           
+     +--------------------------------------------------
+Step:  0         100       200       300       400       500
+
+Legend: '-' = Train Loss (smoothed), 'O' = Validation Loss (periodic batches)
+```
+
+The complete per-step metric stream is archived at [training_log.jsonl](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/training_log.jsonl), summarized in [loss_curve.json](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/loss_curve.json), with visual artifacts rendered in [loss_curve.svg](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/loss_curve.svg) and [loss_curve.txt](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/loss_curve.txt).
 
 ---
 
