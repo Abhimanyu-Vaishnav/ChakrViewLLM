@@ -2,15 +2,15 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 6.3 — Controlled Pre-Training Learning Validation
-- **Status**: Complete, Audited & Verified (247/247 tests passing; 500-step pre-training learning validation on Stage B shards completed on CPU; Clear learning signal confirmed: 35.6% train loss drop, 33.7% val loss drop, 100% deterministic resumption; Ready for Step 6.4 Pre-Training Scaling & Stage C Corpus Engineering)
+- **Current phase**: Step 6.4 — Stage C Corpus Engineering Plan & Design Gate
+- **Status**: Complete, Audited & Ratified (247/247 tests passing; Stage C Corpus Engineering Plan frozen in STEP_06_4_STAGE_C_CORPUS_PLAN.md; Target set to 10M tokens for Stage C.1 baseline; Ready for Step 6.5 Stage C Source Acquisition Automation)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 6.3 Controlled Pre-Training Learning Validation has been successfully executed from scratch on local CPU using the Stage B binary shards and frozen ChakrMicro v0.1 core (3,443,136 parameters). Theoretical initial loss alignment ($\ln 4096 = 8.318$), finite non-zero gradients across all 56 parameter tensors, mathematical parameter-update proof ($\|\Delta\theta\|_2 > 0$), continuous loss reduction ($8.35 \to 5.37$ train, $8.33 \to 5.52$ val), atomic 100-step checkpointing, bit-for-bit deterministic checkpoint resumption ($0.0000000000$ diff), and bit-for-bit deterministic reproducibility ($0.0000000000$ diff) have been rigorously verified. All 247 unit and regression tests pass with zero failures.
+> **IMPORTANT**: Step 6.4 Stage C Corpus Engineering Plan and Design Gate has been formally ratified. The specification establishes the 8-domain balance (Hindi 25%, English 30%, Code 15%, Math 10%, Hinglish 10%, Sanskrit 4%, Reasoning 4%, Data 2%), an audited catalog of 12 open-licensed candidate sources (Wikipedia, Project Gutenberg, CPython, TheAlgorithms, SQLite, OpenStax, GRETIL, OGD India), tiered filtering and SimHash deduplication policies, and an empirical feasibility analysis recommending 10M tokens (40 shards, ~1.1 hours/epoch at 2,500 tok/s on CPU) for the initial Stage C.1 production baseline. All 247 unit and regression tests pass with zero failures.
 
 ### Progress by Module
 - `chakrview/training/`: **Pre-Training Infrastructure Engine**
@@ -37,6 +37,7 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_06_4_STAGE_C_CORPUS_PLAN.md` (Step 6.4 Stage C Corpus Engineering Plan & Design Gate)
   - `docs/STEP_06_3_LEARNING_VALIDATION_REPORT.md` (Step 6.3 Controlled Pre-Training Learning Validation Report)
   - `docs/STEP_06_2_STAGE_B_INGESTION_REPORT.md` (Step 6.2 Stage B Multi-Domain Ingestion, Validation & Sharding Report)
   - `docs/STEP_06_1_CORPUS_SPEC.md` (Step 6.1 Corpus Engineering Specification and Data Governance)
