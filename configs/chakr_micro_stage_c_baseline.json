@@ -1,0 +1,82 @@
+{
+  "experiment_name": "chakr_micro_stage_c_baseline",
+  "description": "First controlled pre-training baseline on authentic Stage C multi-domain corpus",
+  "git_commit_base": "3fa697c",
+  "milestone": "Step 7 — Real-Corpus Baseline Pre-Training & Evaluation",
+  "model": {
+    "model_name": "ChakrMicro v0.1",
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "max_seq_len": 512,
+    "hidden_dim": 512,
+    "rms_norm_eps": 1e-05,
+    "rope_theta": 10000.0,
+    "dropout": 0.0,
+    "use_bias": false,
+    "tie_embeddings": true,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2,
+    "parameter_count": 3443136
+  },
+  "tokenizer": {
+    "type": "Byte-Level BPE",
+    "vocab_size": 4096,
+    "merges_count": 3837,
+    "path": "data/experiments/vocab_4096",
+    "checksum": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f"
+  },
+  "dataset": {
+    "manifest_path": "data/manifests/stage_c_manifest.json",
+    "manifest_hash": "7fb98181aedffdba93ea07203acb0b21c79477bd62c9691485860ef3d209e3d0",
+    "train_shards_dir": "data/tokenized/stage_c/train",
+    "validation_shards_dir": "data/tokenized/stage_c/validation",
+    "test_shards_dir": "data/tokenized/stage_c/test",
+    "total_documents": 5534,
+    "total_sharded_tokens": 7708601,
+    "train_tokens": 6651093,
+    "validation_tokens": 465954,
+    "test_tokens": 591554,
+    "total_shards": 32
+  },
+  "training": {
+    "seed": 42,
+    "batch_size": 2,
+    "sequence_length": 512,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0005,
+    "min_learning_rate": 5e-05,
+    "weight_decay": 0.01,
+    "optimizer": "adamw",
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.95,
+    "adam_eps": 1e-08,
+    "max_steps": 500,
+    "warmup_steps": 25,
+    "gradient_clipping": 1.0,
+    "lr_decay_style": "cosine",
+    "mixed_precision": "fp32",
+    "device": "cpu",
+    "num_workers": 0
+  },
+  "budget": {
+    "tokens_per_step": 1024,
+    "total_tokens_budgeted": 512000,
+    "estimated_runtime_seconds": 240,
+    "runtime_note": "Estimated at ~2,100 - 2,500 tokens/sec on 14-core Intel CPU"
+  },
+  "checkpoint": {
+    "directory": "checkpoints/stage_c_baseline",
+    "save_interval": 100,
+    "keep_last_n": 5,
+    "save_optimizer": true
+  },
+  "evaluation": {
+    "eval_interval": 50,
+    "eval_batches": 10,
+    "eval_on_start": true,
+    "tokens_per_validation_eval": 10240
+  }
+}
