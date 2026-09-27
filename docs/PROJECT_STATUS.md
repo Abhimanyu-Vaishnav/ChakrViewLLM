@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 6.1 — Pre-Training Corpus Engineering & Data Governance
-- **Status**: Complete, Audited & Architecture Frozen (235/235 tests passing; Step 6.1 Specification, Data Card & Governance Ratified; Ready for Stage B Data Curation)
+- **Current phase**: Step 6.2 — Pre-Training Data Curation, Cleaning & Ingestion for Stage B
+- **Status**: Complete, Audited & Frozen (241/241 tests passing; 501,653 sharded Stage B tokens compiled and verified; Ready for Step 6.3 Stage B Pre-Training Execution)
 
 ---
 
@@ -32,11 +32,12 @@
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **235/235 Tests Passing** across 29 test modules (100% green, 0 failures)
-  - 136 Tokenizer and Corpus pipeline tests
+- `tests/`: **241/241 Tests Passing** across 30 test modules (100% green, 0 failures, 0 errors)
+  - 142 Tokenizer and Corpus pipeline tests
   - 78 Neural Core tests
   - 21 Pre-Training Infrastructure tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_06_2_STAGE_B_INGESTION_REPORT.md` (Step 6.2 Stage B Multi-Domain Ingestion, Validation & Sharding Report)
   - `docs/STEP_06_1_CORPUS_SPEC.md` (Step 6.1 Corpus Engineering Specification and Data Governance)
   - `docs/CHAKRVIEW_CORPUS_DATA_CARD.md` (ChakrView Multi-Domain Corpus Data Card)
   - `docs/STEP_05_PRETRAINING_INFRASTRUCTURE.md` (Comprehensive Step 5 verification and overhead benchmark report)
@@ -88,5 +89,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 6.1 RATIFIED — CORPUS SPECIFICATION & DATA GOVERNANCE FROZEN**
-- **Next Allowed Step**: Step 6.2 — Pre-Training Data Curation, Cleaning & Ingestion for Stage B Learning Validation (awaiting user explicit command; DO NOT START STEP 6.2 AUTOMATICALLY).
+- **Decision**: **STEP 6.2 RATIFIED — STAGE B INGESTION & SHARDING VERIFIED**
+- **Next Allowed Step**: Step 6.3 — Stage B Learning-Validation Pre-Training Execution (awaiting user explicit command; DO NOT START STEP 6.3 AUTOMATICALLY).

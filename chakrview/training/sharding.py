@@ -75,15 +75,17 @@ class ShardWriter:
             self.current_buffer = self.current_buffer[self.max_tokens_per_shard:]
 
     def _flush_tokens(self, tokens: List[int]) -> None:
-        """Write token list to binary shard on disk."""
+        """Write token list to binary shard on disk atomically."""
         if not tokens:
             return
 
         shard_name = f"shard_{self.current_shard_idx:05d}.bin"
         shard_path = self.output_dir / shard_name
+        tmp_path = self.output_dir / f"{shard_name}.tmp"
 
         token_array = np.array(tokens, dtype=np.uint16)
-        token_array.tofile(shard_path)
+        token_array.tofile(tmp_path)
+        os.replace(tmp_path, shard_path)
 
         file_hash = compute_file_sha256(shard_path)
         self.shards_metadata.append({
@@ -96,7 +98,7 @@ class ShardWriter:
         self.current_shard_idx += 1
 
     def close(self) -> Dict[str, Any]:
-        """Flush remaining buffer and write metadata.json."""
+        """Flush remaining buffer and write metadata.json atomically."""
         if self.current_buffer:
             self._flush_tokens(self.current_buffer)
             self.current_buffer = []
@@ -115,8 +117,10 @@ class ShardWriter:
         }
 
         meta_path = self.output_dir / "metadata.json"
-        with open(meta_path, "w", encoding="utf-8") as f:
+        tmp_meta_path = self.output_dir / "metadata.json.tmp"
+        with open(tmp_meta_path, "w", encoding="utf-8") as f:
             json.dump(metadata, f, indent=2)
+        os.replace(tmp_meta_path, meta_path)
 
         return metadata
 
