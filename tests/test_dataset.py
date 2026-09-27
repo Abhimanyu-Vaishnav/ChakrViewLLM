@@ -83,3 +83,25 @@ def test_streaming_token_dataset_next_token_pairs(tmp_path: Path):
     assert inp.tolist() == list(range(0, 16))
     assert tgt.tolist() == list(range(1, 17))
     assert (tgt == inp + 1).all()
+
+
+def test_shard_writer_atomic_write(tmp_path: Path):
+    """Verify that ShardWriter writes atomically and leaves zero temporary files."""
+    writer = ShardWriter(
+        output_dir=tmp_path,
+        split_name="train",
+        vocab_size=4096,
+        max_tokens_per_shard=50,
+    )
+    writer.add_document(list(range(60)))
+    writer.close()
+
+    train_dir = tmp_path / "train"
+    assert (train_dir / "shard_00000.bin").is_file()
+    assert (train_dir / "shard_00001.bin").is_file()
+    assert (train_dir / "metadata.json").is_file()
+
+    # Verify no .tmp files remain
+    tmp_files = list(train_dir.glob("*.tmp"))
+    assert len(tmp_files) == 0
+    assert verify_shard_integrity(train_dir) is True
