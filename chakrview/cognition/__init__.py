@@ -67,7 +67,7 @@ from chakrview.cognition.controller import (
     CognitiveExecutionResult,
     MemoryCandidate,
 )
-from chakrview.cognition import critical, adaptation, diagnostics
+from chakrview.cognition import critical, adaptation, diagnostics, unified
 from chakrview.cognition.critical import (
     Hypothesis as CriticalHypothesis,
     Evidence as CriticalEvidence,
@@ -93,6 +93,14 @@ from chakrview.cognition.diagnostics import (
     SafeSelfHealingManager,
     DiagnosticStatus,
     DiagnosticReport,
+)
+from chakrview.cognition.unified import (
+    UnifiedCognitiveEngine,
+    UnifiedCognitiveState,
+    CognitiveTaskType,
+    DecisionState,
+    UnifiedCognitivePolicy,
+    SafePublicCognitiveTrace,
 )
 
 __all__ = [
@@ -157,5 +165,12 @@ __all__ = [
     "SafeSelfHealingManager",
     "DiagnosticStatus",
     "DiagnosticReport",
+    "unified",
+    "UnifiedCognitiveEngine",
+    "UnifiedCognitiveState",
+    "CognitiveTaskType",
+    "DecisionState",
+    "UnifiedCognitivePolicy",
+    "SafePublicCognitiveTrace",
 ]
 
