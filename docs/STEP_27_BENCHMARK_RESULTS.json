@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-09-28T18:11:09Z",
+  "step": 27,
+  "benchmark_title": "Distributed Federated Cognition & Secure Agent Transport Benchmark",
+  "frozen_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2,
+    "runtime_weights_modified": false,
+    "initial_fingerprint": "f8c46cc81cb782d8935986808bd60dcec9d5ac346dc9a23e55e2ab33d6ff8272",
+    "final_fingerprint": "f8c46cc81cb782d8935986808bd60dcec9d5ac346dc9a23e55e2ab33d6ff8272",
+    "fingerprints_identical": true
+  },
+  "micro_benchmarks": {
+    "node_registration_latency_ms": 0.033,
+    "envelope_creation_latency_ms": 0.194,
+    "envelope_validation_latency_ms": 0.071,
+    "replay_rejection_cost_ms": 0.01,
+    "loopback_transport_latency_ms": 0.123,
+    "task_routing_latency_ms": 0.039,
+    "canonical_serialization_latency_ms": 0.068,
+    "evidence_aggregation_latency_ms": 0.01,
+    "distributed_synthesis_latency_ms": 0.05,
+    "full_distributed_cycle_latency_ms": 26.88
+  },
+  "hardware_adaptation": {
+    "LOW_RESOURCE": {
+      "max_nodes": 4,
+      "max_remote_tasks": 8,
+      "max_retries": 1,
+      "timeout_ms": 500.0,
+      "actual_remote_tasks": 3,
+      "messages_exchanged": 3,
+      "decision_state": "ANSWER",
+      "latency_ms": 25.57
+    },
+    "STANDARD": {
+      "max_nodes": 8,
+      "max_remote_tasks": 16,
+      "max_retries": 2,
+      "timeout_ms": 1000.0,
+      "actual_remote_tasks": 3,
+      "messages_exchanged": 3,
+      "decision_state": "ANSWER",
+      "latency_ms": 26.88
+    },
+    "HIGH_RESOURCE": {
+      "max_nodes": 16,
+      "max_remote_tasks": 32,
+      "max_retries": 3,
+      "timeout_ms": 2000.0,
+      "actual_remote_tasks": 3,
+      "messages_exchanged": 3,
+      "decision_state": "ANSWER",
+      "latency_ms": 22.67
+    }
+  },
+  "cluster_scaling": {
+    "2_nodes": {
+      "remote_tasks": 3,
+      "messages": 3,
+      "latency_ms": 22.91
+    },
+    "4_nodes": {
+      "remote_tasks": 3,
+      "messages": 3,
+      "latency_ms": 22.29
+    }
+  },
+  "performance_metrics": {
+    "peak_memory_bytes": 4672780,
+    "peak_memory_mb": 4.46,
+    "total_benchmark_elapsed_seconds": 0.33
+  }
+}
