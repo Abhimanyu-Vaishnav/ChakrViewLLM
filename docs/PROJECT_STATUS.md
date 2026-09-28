@@ -2,70 +2,86 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 29 — Cross-Zone Peering & Trust Negotiation
-- **Status**: Complete & Verified (Cross-zone peering and trust negotiation subsystem established under `chakrview/cognition/peering/` coordinating autonomous cognitive zones with deterministic peer identity and canonical fingerprinting, unverified-by-default discovery [DISCOVERY != TRUST], structured architectural attestation claims, bounded expiring trust grants [PEER_TRUST != PEER_AUTHORITY], default-deny federation policies with non-negotiable prohibited boundaries, deterministic scope negotiation, fail-closed revocation and epoch-based expiration, strict cross-tenant and sensitive payload isolation, CapabilityGate mediation, bounded audit telemetry, and zero-weight-mutation verification; 833/833 tests passing across 74 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
+- **Current phase**: Step 30 — Secure Physical Transport & Cryptographic Peer Identity
+- **Status**: Complete & Verified (Secure physical transport and cryptographic peer identity subsystem established under `chakrview/cognition/transport/` and `chakrview/cognition/peering/`, coordinating wire-capable federated cognitive zones with asymmetric Ed25519 cryptographic peer identity, detached signature verification, deterministic public identity fingerprinting, bounded challenge-response authentication [AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST], bounded secure peer sessions, strict length-prefixed framing and wire envelope serialization, replay attack protection, loopback and non-blocking TCP socket transports, explicit adapter boundaries for gRPC and HTTP/2, CapabilityGate mediation, tenant isolation, fail-closed security, bounded audit telemetry, and zero-weight-mutation verification; 862/862 tests passing across 75 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 29 establishes the **Cross-Zone Peering & Trust Negotiation** foundation without altering the frozen neural core:
+> **IMPORTANT**: Step 30 establishes the **Secure Physical Transport & Cryptographic Peer Identity** layer without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Cross-Zone Peering Cycle:} \quad &\text{Peer Declaration} \longrightarrow \text{Discovery (DISCOVER } \neq \text{ TRUST)} \longrightarrow \text{Attestation Verification} \\
-> &\longrightarrow \text{Deterministic Trust \& Scope Negotiation} \longrightarrow \text{Default-Deny Policy Gate} \\
-> &\longrightarrow \text{Bounded Expiring TrustGrant} \longrightarrow \text{Tenant Isolation \& Payload Sanitization} \\
-> &\longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \longrightarrow \text{Execution} \\
-> &\longrightarrow \text{Bounded Audit Telemetry} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{Authority Principle:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{PEER\_TRUST} \neq \text{PEER\_AUTHORITY} \\
-> \textbf{Federation Axiom:} \quad &\text{CROSS\_ZONE\_FEDERATION} \neq \text{AUTHORITY\_TRANSFER}, \quad \text{FEDERATION\_ENGINE} \neq \text{AUTHORITY} \\
-> \textbf{Identity Axiom:} \quad &\text{IDENTITY} \neq \text{CRYPTOGRAPHIC\_AUTHENTICATION} \quad (\text{Deterministic local representation; PKI deferred}) \\
-> \textbf{Immutability Axiom:} \quad &\text{Cross-Zone Peering} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Secure Wire Cycle:} \quad &\text{Wire Framing (4-byte length prefix)} \longrightarrow \text{Canonical Serialization \& Digest} \longrightarrow \text{Ed25519 Signature Verification} \\
+> &\longrightarrow \text{Deterministic Peer Identity \& Fingerprint} \longrightarrow \text{Challenge-Response Authentication} \\
+> &\longrightarrow \text{Secure Session Binding \& Replay Defense} \longrightarrow \text{Tenant Isolation \& Trust Model Scope} \\
+> &\longrightarrow \text{Default-Deny Policy Gate} \longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \\
+> &\longrightarrow \text{Execution} \longrightarrow \text{Signed Wire Response} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{Transport Axiom:} \quad &\text{TRANSPORT} \neq \text{AUTHORITY}, \quad \text{TRANSPORT} \neq \text{TRUST} \\
+> \textbf{Identity Axiom:} \quad &\text{CRYPTOGRAPHIC\_IDENTITY} \neq \text{AUTHORITY}, \quad \text{AUTHENTICATION} \neq \text{AUTHORIZATION} \\
+> \textbf{Trust Axiom:} \quad &\text{AUTHENTICATION} \neq \text{TRUST}, \quad \text{SIGNATURE\_VALIDITY} \neq \text{CAPABILITY\_PERMISSION} \\
+> \textbf{Immutability Axiom:} \quad &\text{Secure Wire Transport} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Cross-Zone Federation != Authority Transfer:** Trusted peers can provide evidence, verification, or compute, but never gain local authority, capability authority, or tenant authority.
-> 2. **Discovery != Trust:** Newly discovered peers enter `DISCOVERED` standing with `trust_grant = None`. Trust requires explicit negotiation.
-> 3. **Trust is Bounded & Expiring:** Trust is never a boolean; it is a scoped, revocable capability grant bounded by logical epoch TTL.
-> 4. **CapabilityGate Mediation:** Remote peers can never invoke capabilities directly; execution passes through local `CapabilityGate` under local authority.
-> 5. **Default Deny & Prohibitions:** All unlisted scopes are denied. Prohibited scopes (weight access, private memory, tenant crossover, authority transfer) are unconditionally blocked.
-> 6. **Strict Tenant & Payload Isolation:** Cross-tenant crossover is rejected; model weights, raw activations, hidden states, private thoughts, and secrets are barred from transfer.
-> All 833 unit, integration, invariant, capability gate, and regression tests pass with zero failures and zero warnings.
+> 1. **Transport != Authority & Transport != Trust:** The transport layer is purely an untrusted physical conduit. Establishing a connection or framing a packet conveys zero authority or trust.
+> 2. **Authentication != Authorization & Authentication != Trust:** Cryptographic proof of private key possession proves identity, but never grants trust or capability authorization.
+> 3. **Signature Validity != Capability Permission:** A cryptographically valid signature on a wire envelope does not grant permission to execute capabilities. Capability execution requires explicit trust grants, policy compliance, and `CapabilityGate` mediation.
+> 4. **Zero Custom Confidentiality Cryptography:** Standard PyCA `cryptography` Ed25519 is used exclusively for identity and signing. Transport encryption is bounded to standard TLS boundaries; custom encryption algorithms are strictly forbidden.
+> 5. **Fail-Closed Security & Replay Defense:** Replayed nonces, replayed message IDs, expired challenges, malformed envelopes, oversized frames (>1 MB), invalid signatures, and cross-tenant crossover unconditionally fail closed.
+> 6. **Zero Private Key Exposure:** Private keys are isolated in memory, never serialized in envelopes, never emitted in audit logs, never visible in telemetry or public traces.
+> All 862 unit, integration, invariant, capability gate, transport, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 29)
-* Comprehensive architectural documentation in [docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_29_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_29_BENCHMARK_RESULTS.json) via `scripts/benchmark_cross_zone_peering.py`.
-* **Cross-Zone Peering & Trust Negotiation Subsystem** (`chakrview/cognition/peering/`):
-  - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant`, `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord`, `SafePublicPeeringTrace`, and hard ceiling constants.
-  - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting (`IDENTITY != CRYPTOGRAPHIC_AUTHENTICATION`).
-  - `attestation.py`: `PeerAttestationVerifier` checking structural architectural claims against frozen ChakrMicro constants (3,443,136 params, 4096 vocab, 512 context).
-  - `policy.py`: `CrossZoneFederationPolicy` enforcing default-deny semantics and non-negotiable prohibited boundaries.
-  - `trust.py`: `TrustModel` managing bounded `TrustGrant` lifecycle, hierarchy (`NONE` to `FEDERATED`), and epoch expiration.
-  - `discovery.py`: `PeerDiscoveryManager` enforcing `DISCOVERY != TRUST`.
-  - `negotiation.py`: `TrustNegotiator` computing deterministic `NegotiationAgreement` based on local policy and peer claims.
-  - `registry.py`: `PeerRegistry` enforcing unique identity, tenant-scoped storage, and hard ceilings ($\le 32$ total, $\le 16$/zone, $\le 8$ active).
-  - `revocation.py`: `RevocationManager` executing fail-closed revocation and active grant invalidation.
-  - `isolation.py`: `CrossZoneIsolationGuard` blocking cross-tenant crossover and sanitizing sensitive artifacts (weights, activations, scratchpads, secrets).
-  - `audit.py`: `BoundedAuditLogger` recording structured telemetry with FIFO capping ($\le 1000$ entries).
-  - `engine.py`: `CrossZoneFederationEngine` central coordinator enforcing `CapabilityGate` mediation, pre/post SHA-256 weight hash invariance, and trace emission.
-  - `__init__.py`: Clean public exports of peering components.
-* 37 new unit, invariant, capability gate, discovery, negotiation, revocation, and lifecycle tests in `tests/test_cross_zone_peering.py`, expanding verified test suite to 833 tests across 74 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `dd004c4f0a1f7f50ec20b118379926b61f131835cdc6c101712b3f60149b58f6`).
+#### 1. Implemented Now (Verified in Step 30)
+* Comprehensive architectural documentation in [docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_30_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_30_BENCHMARK_RESULTS.json) via `scripts/benchmark_secure_transport.py`.
+* **Transport Abstraction Subsystem** (`chakrview/cognition/transport/`):
+  - `base.py`: Abstract `Transport` interface (`connect`, `listen`, `accept`, `send`, `receive`, `close`, `health`, `capabilities`).
+  - `models.py`: Strongly typed `MessageType`, `WireEnvelope` (protocol version 30.0, SHA-256 payload digest, detached Ed25519 signature, size limits), `TransportHealth`, `TransportStatus`.
+  - `errors.py`: Robust hierarchy (`TransportError`, `TransportTimeoutError`, `TransportUnavailableError`, `TransportProtocolError`, `FrameError`, `OversizedPayloadError`, `ReplayAttackError`, `WireSecurityError`).
+  - `serialization.py`: `DeterministicWireSerializer` (canonical JSON with sorted keys, compact separators, UTF-8, zero pickle).
+  - `framing.py`: `LengthPrefixedFramer` (4-byte big-endian header + payload, 1 MB ceiling, buffer reassembly).
+  - `loopback.py`: `LoopbackWireTransport` (in-process thread-safe queues, zero OS sockets, deterministic CPU tests).
+  - `tcp.py`: `TCPWireTransport` (IPv4 loopback `127.0.0.1`, length-prefixed binary framing, timeouts, clean shutdown).
+  - `http2.py` & `grpc.py`: Adapter boundaries checking `h2`/`httpx` and `grpc`; returns `is_available=False` and raises `TransportUnavailableError` without faking.
+  - `registry.py`: `TransportRegistry` mapping schemes (`loopback`, `tcp`, `http2`, `grpc`).
+  - `__init__.py`: Clean public exports of transport components.
+* **Cryptographic Identity & Authentication Extensions** (`chakrview/cognition/peering/`):
+  - `crypto.py`: `Ed25519PublicKeyWrapper`, `Ed25519PrivateKeyWrapper` (strict zero leakage; `to_dict()` forbidden, `repr` redacted), `KeyLifecycleState` (`ACTIVE`, `ROTATING`, `REVOKED`, `EXPIRED`), `CryptographicPeerIdentity`, `KeyRevocationRecord`, key rotation protocol.
+  - `authentication.py`: `AuthChallenge`, `AuthChallengeResponse`, `ChallengeResponseAuthenticator` (256-bit cryptographically secure random nonces, session binding, one-time consumption, FIFO replay cache).
+  - `session.py`: `SecurePeerSession` (`INITIATED`, `AUTHENTICATING`, `ACTIVE`, `EXPIRED`, `TERMINATED`, `REVOKED`), bounded message replay cache, deterministic epoch expiration.
+  - `engine.py`: Enhanced `CrossZoneFederationEngine` with asymmetric keypair management, cryptographic peer registration, challenge issuance/verification, secure session lifecycle, and wire envelope execution mediation.
+* 29 new unit, cryptographic, authentication, wire protocol, transport, and security tests in `tests/test_secure_transport.py`, expanding verified test suite to 862 tests across 75 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `16f7453ac207444d0626944216b81aacaa7619c417672397ecd1b0f3c1b626c4`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Physical Multi-Machine Socket/Network Transport:** Concrete TCP/IP, gRPC, or HTTP/2 transport drivers (deferred to future deployment steps).
-* **Asymmetric Public Key Infrastructure:** Asymmetric Ed25519 PKI identity management and HSM integration.
-* **Byzantine Fault Tolerance Protocols:** BFT consensus across untrusted external nodes.
+* **Autonomous Internet-Wide Peer Discovery:** Autonomous scanning or unsolicited peer ingestion (deferred to future discovery steps).
+* **Hardware Security Module (HSM) Integration:** Hardware-backed cryptographic key storage and PKCS#11 integration.
+* **Autonomous Authority Delegation & Remote Training:** Sharing model weights, online training across federations, or authority delegation.
 
 ---
 
 ### Progress by Module
-- `chakrview/cognition/peering/`: **Cross-Zone Peering & Trust Negotiation (New in Step 29)**
+- `chakrview/cognition/transport/`: **Secure Physical Transport & Wire Protocol Subsystem (New in Step 30)**
+  - `models.py`: Strongly typed `MessageType` (HANDSHAKE, CHALLENGE, RESPONSE, HEARTBEAT, DATA, CAPABILITY_REQUEST, CAPABILITY_RESPONSE, ERROR, TERMINATE), `WireEnvelope` (protocol version 30.0, SHA-256 payload digest, detached Ed25519 signature, size validation), `TransportHealth`, `TransportStatus`
+  - `errors.py`: Robust exception hierarchy (`TransportError`, `TransportTimeoutError`, `TransportUnavailableError`, `TransportProtocolError`, `FrameError`, `OversizedPayloadError`, `ReplayAttackError`, `WireSecurityError`)
+  - `serialization.py`: `DeterministicWireSerializer` (canonical JSON with sorted keys, compact separators, UTF-8, zero pickle)
+  - `framing.py`: `LengthPrefixedFramer` (4-byte big-endian header + payload, 1 MB ceiling, stream buffer reassembly)
+  - `base.py`: Abstract `Transport` interface (`connect`, `listen`, `accept`, `send`, `receive`, `close`, `health`, `capabilities`)
+  - `loopback.py`: `LoopbackWireTransport` (in-process thread-safe queues, zero OS sockets, deterministic CPU tests)
+  - `tcp.py`: `TCPWireTransport` (IPv4 loopback `127.0.0.1`, length-prefixed binary framing, non-blocking select timeouts, clean shutdown)
+  - `http2.py` & `grpc.py`: Adapter boundaries checking optional `h2`/`httpx` and `grpc`; returns `is_available=False` and raises `TransportUnavailableError` without faking
+  - `registry.py`: `TransportRegistry` mapping schemes (`loopback`, `tcp`, `http2`, `grpc`)
+  - `__init__.py`: Clean public exports of transport components
+- `chakrview/cognition/peering/`: **Cross-Zone Peering, Cryptographic Identity & Trust Negotiation (Updated in Step 30)**
+  - `crypto.py`: `Ed25519PublicKeyWrapper`, `Ed25519PrivateKeyWrapper` (strict zero leakage; `to_dict()` forbidden, `repr` redacted), `KeyLifecycleState` (`ACTIVE`, `ROTATING`, `REVOKED`, `EXPIRED`), `CryptographicPeerIdentity`, `KeyRevocationRecord`, key rotation protocol
+  - `authentication.py`: `AuthChallenge`, `AuthChallengeResponse`, `ChallengeResponseAuthenticator` (256-bit cryptographically secure random nonces, session binding, one-time consumption, FIFO replay cache)
+  - `session.py`: `SecurePeerSession` (`INITIATED`, `AUTHENTICATING`, `ACTIVE`, `EXPIRED`, `TERMINATED`, `REVOKED`), bounded message replay cache, deterministic epoch expiration
   - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant`, `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord`, `SafePublicPeeringTrace`, and hard ceiling constants
-  - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting (`IDENTITY != CRYPTOGRAPHIC_AUTHENTICATION`)
+  - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting
   - `attestation.py`: `PeerAttestationVerifier` checking structural architectural claims against frozen ChakrMicro constants
   - `policy.py`: `CrossZoneFederationPolicy` enforcing default-deny semantics and non-negotiable prohibited boundaries
   - `trust.py`: `TrustModel` managing bounded `TrustGrant` lifecycle, hierarchy (`NONE` to `FEDERATED`), and epoch expiration
@@ -75,7 +91,7 @@
   - `revocation.py`: `RevocationManager` executing fail-closed revocation and active grant invalidation
   - `isolation.py`: `CrossZoneIsolationGuard` blocking cross-tenant crossover and sanitizing sensitive artifacts (weights, activations, scratchpads, secrets)
   - `audit.py`: `BoundedAuditLogger` recording structured telemetry with FIFO capping ($\le 1000$ entries)
-  - `engine.py`: `CrossZoneFederationEngine` central coordinator enforcing `CapabilityGate` mediation, pre/post SHA-256 weight hash invariance, and trace emission
+  - `engine.py`: Enhanced `CrossZoneFederationEngine` central coordinator managing asymmetric keypairs, cryptographic peer registration, challenge issuance/verification, secure sessions, wire envelope execution mediation, and pre/post SHA-256 weight hash invariance
   - `__init__.py`: Clean public exports of peering components
 - `chakrview/cognition/orchestration/`: **Adaptive Cognitive Orchestration & Resource-Aware Federation (Ratified in Step 28)**
   - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants
@@ -175,6 +191,7 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_secure_transport.py`: Step 30 empirical secure physical transport & cryptographic peer identity benchmark
   - `benchmark_cross_zone_peering.py`: Step 29 empirical cross-zone peering & trust negotiation benchmark
   - `benchmark_adaptive_cognitive_orchestration.py`: Step 28 empirical adaptive cognitive orchestration benchmark
   - `benchmark_distributed_federated_cognition.py`: Step 27 empirical distributed federated cognition benchmark
@@ -188,7 +205,8 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **833/833 Tests Passing** across 74 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **862/862 Tests Passing** across 75 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 29 Secure Physical Transport & Cryptographic Peer Identity tests (`test_secure_transport.py`)
   - 37 Cross-Zone Peering & Trust Negotiation tests (`test_cross_zone_peering.py`)
   - 40 Adaptive Cognitive Orchestration & Resource-Aware Federation tests (`test_adaptive_cognitive_orchestration.py`)
   - 38 Distributed Federated Cognition & Secure Agent Transport tests (`test_distributed_federated_cognition.py`)
@@ -214,6 +232,9 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md` (Step 30 Architecture Specification)
+  - `docs/STEP_30_BENCHMARK_RESULTS.json` (Step 30 Empirical Benchmark Data)
+  - `docs/STEP_30_RATIFICATION_REPORT.md` (Step 30 Formal Ratification Report)
   - `docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md` (Step 29 Architecture Specification)
   - `docs/STEP_29_BENCHMARK_RESULTS.json` (Step 29 Empirical Benchmark Data)
   - `docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md` (Step 28 Architecture Specification)
@@ -282,17 +303,17 @@
 ---
 
 ## Known Limitations
-1. **Network Deployment**: Physical multi-machine socket, TCP/IP, or gRPC transport drivers are deferred; Step 27 implements and ratifies the complete transport abstraction and deterministic in-process `LoopbackTransport`.
+1. **gRPC & HTTP/2 Production Transports**: Abstract adapter interfaces and capability checks exist, but concrete network deployments for gRPC and HTTP/2 depend on external protocol runtimes (`grpcio`, `h2`); Step 30 ratifies concrete loopback and TCP socket wire transport.
 2. **Syntactic Proposition Extraction**: Automatic pattern extraction during consolidation relies on deterministic grammatical heuristics; complex multi-clause open-domain relations rely on structured reasoning passes.
 3. **Single-Node Memory Scaling**: Memory stores currently optimize for single-machine CPU/workstation architectures; distributed multi-node replication is deferred.
 4. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
 5. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
 6. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
-7. **Cross-Zone Peering & Transport Deployment**: Step 29 implements the complete cross-zone discovery, attestation, bounded trust negotiation, default-deny policy, and CapabilityGate mediation foundation; physical multi-machine TCP/IP, gRPC, and asymmetric Ed25519 PKI identity schemes remain deferred to future deployment steps.
+7. **Autonomous Global Discovery & HSM Integration**: Step 30 establishes asymmetric Ed25519 cryptographic identity and challenge-response authentication across physical wire transport; autonomous internet-wide peer discovery and hardware security module (HSM / PKCS#11) integration remain deferred to future deployment steps.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 29 RATIFIED — CROSS-ZONE PEERING & TRUST NEGOTIATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 30 (Awaiting user explicit command; DO NOT START STEP 30 AUTOMATICALLY).
+- **Decision**: **STEP 30 RATIFIED — SECURE PHYSICAL TRANSPORT & CRYPTOGRAPHIC PEER IDENTITY COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 31 (Awaiting user explicit command; DO NOT START STEP 31 AUTOMATICALLY).
