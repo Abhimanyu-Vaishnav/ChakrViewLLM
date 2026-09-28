@@ -117,6 +117,7 @@ class CapabilityGate:
             "state_knowledge_assertion", "state_knowledge", "knowledge_state",
             "hypothesis", "reasoning_hypothesis", "inference", "reasoning_inference",
             "reasoning_trace", "decision_candidate", "user_assertion",
+            "critical_thinking", "critical_hypothesis", "critical_trace",
         ):
             raise CapabilityAuthorizationError(
                 f"Authority denial: Retrieved content, state assertions, or reasoning ('{provenance}') "

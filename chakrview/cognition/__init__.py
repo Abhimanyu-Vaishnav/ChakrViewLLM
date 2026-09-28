@@ -67,6 +67,33 @@ from chakrview.cognition.controller import (
     CognitiveExecutionResult,
     MemoryCandidate,
 )
+from chakrview.cognition import critical, adaptation, diagnostics
+from chakrview.cognition.critical import (
+    Hypothesis as CriticalHypothesis,
+    Evidence as CriticalEvidence,
+    Assumption,
+    CounterEvidence,
+    AlternativeExplanation,
+    Contradiction as CriticalContradiction,
+    VerificationResult as CriticalVerificationResult,
+    CriticalThinkingTrace,
+    CriticalThinkingEngine,
+    CriticalThinkingConfig,
+)
+from chakrview.cognition.adaptation import (
+    ResourceProfile,
+    HardwareProfileSnapshot,
+    HardwareProfiler,
+    AdaptiveExecutionPolicy,
+)
+from chakrview.cognition.diagnostics import (
+    CoreIntegrityGuard,
+    IntegrityCheckResult,
+    SystemDiagnosticsEngine,
+    SafeSelfHealingManager,
+    DiagnosticStatus,
+    DiagnosticReport,
+)
 
 __all__ = [
     "CognitiveTask",
@@ -107,4 +134,28 @@ __all__ = [
     "CognitiveController",
     "CognitiveExecutionResult",
     "MemoryCandidate",
+    "critical",
+    "adaptation",
+    "diagnostics",
+    "CriticalHypothesis",
+    "CriticalEvidence",
+    "Assumption",
+    "CounterEvidence",
+    "AlternativeExplanation",
+    "CriticalContradiction",
+    "CriticalVerificationResult",
+    "CriticalThinkingTrace",
+    "CriticalThinkingEngine",
+    "CriticalThinkingConfig",
+    "ResourceProfile",
+    "HardwareProfileSnapshot",
+    "HardwareProfiler",
+    "AdaptiveExecutionPolicy",
+    "CoreIntegrityGuard",
+    "IntegrityCheckResult",
+    "SystemDiagnosticsEngine",
+    "SafeSelfHealingManager",
+    "DiagnosticStatus",
+    "DiagnosticReport",
 ]
+

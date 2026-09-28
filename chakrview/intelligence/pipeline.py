@@ -92,6 +92,7 @@ class IntelligenceLoopOutcome:
     success: bool
     execution_time_ms: float
     weights_modified: bool = False  # Hard invariant: permanently False
+    critical_thinking_trace: Optional[Any] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -104,6 +105,7 @@ class IntelligenceLoopOutcome:
             "success": self.success,
             "execution_time_ms": self.execution_time_ms,
             "weights_modified": self.weights_modified,
+            "critical_thinking_trace": self.critical_thinking_trace.to_dict() if self.critical_thinking_trace and hasattr(self.critical_thinking_trace, "to_dict") else None,
         }
 
 
@@ -127,6 +129,9 @@ class NeuralIntelligenceLoop:
         learning_pipeline: Optional[LearningPipeline] = None,
         model_update_manager: Optional[ModelUpdateManager] = None,
         thinking_engine: Optional[Any] = None,
+        critical_engine: Optional[Any] = None,
+        execution_policy: Optional[Any] = None,
+        diagnostics_engine: Optional[Any] = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
@@ -136,6 +141,9 @@ class NeuralIntelligenceLoop:
         self.capability_registry = capability_registry
         self.personal_memory = personal_memory
         self.thinking_engine = thinking_engine
+        self.critical_engine = critical_engine
+        self.execution_policy = execution_policy
+        self.diagnostics_engine = diagnostics_engine
 
         self.context_builder = context_builder or IntelligenceContextBuilder()
         self.inference_engine = inference_engine or NeuralInferenceEngine(
@@ -156,12 +164,102 @@ class NeuralIntelligenceLoop:
         compute_uncertainty: bool = False,
         use_thinking: bool = False,
         thinking_policy: Optional[Any] = None,
+        use_critical_thinking: bool = False,
+        critical_thinking_config: Optional[Any] = None,
+        execution_policy: Optional[Any] = None,
     ) -> IntelligenceLoopOutcome:
         """
         Execute a full run of the Neural Intelligence Loop.
         """
         t0 = time.perf_counter()
         clean_prompt = user_prompt.strip()
+
+        # Resolve active execution policy
+        eff_policy = execution_policy or self.execution_policy
+        if eff_policy is not None:
+            max_new_tokens = min(max_new_tokens, eff_policy.max_generation_tokens)
+
+        # Critical Thinking Path (Step 23)
+        if use_critical_thinking:
+            if self.critical_engine is None:
+                from chakrview.cognition.critical.engine import CriticalThinkingEngine, CriticalThinkingConfig
+                cfg = critical_thinking_config or CriticalThinkingConfig()
+                if eff_policy is not None:
+                    cfg.max_hypotheses = eff_policy.max_hypotheses
+                    cfg.max_evidence_items = eff_policy.max_evidence_items
+                    cfg.max_revision_cycles = eff_policy.max_revision_cycles
+                self.critical_engine = CriticalThinkingEngine(
+                    config=cfg,
+                    capability_gate=self.capability_gate,
+                )
+
+            crit_trace = self.critical_engine.execute(
+                question=clean_prompt,
+                owner_id=owner_id,
+                session_id=session_id,
+            )
+
+            assembled_ctx = self.context_builder.build_context(
+                task_objective=clean_prompt,
+                system_identity="ChakrMicro Sovereign Critical Examination Substrate",
+                tokenizer=self.tokenizer,
+            )
+            req = NeuralInferenceRequest(
+                prompt_text=assembled_ctx.full_prompt,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                compute_uncertainty=compute_uncertainty,
+                owner_id=owner_id,
+                session_id=session_id,
+            )
+            neural_res = self.inference_engine.infer(req)
+
+            response_text = crit_trace.decision or crit_trace.safe_summary
+            obs = RuntimeObservation(
+                raw_output=response_text,
+                task_id=crit_trace.trace_id,
+                source_type="critical_thinking_loop",
+                execution_time_ms=(time.perf_counter() - t0) * 1000.0,
+            )
+            eval_record = RuntimeEvaluation(
+                is_passed=not crit_trace.uncertainty_acknowledged,
+                quality_score=0.95 if not crit_trace.uncertainty_acknowledged else 0.5,
+                verification_notes=f"Critical thinking verified: {len(crit_trace.hypotheses)} hypotheses evaluated",
+                evaluator_id="critical_thinking_evaluator",
+            )
+            learning_rec = self.feedback_collector.process_feedback(
+                input_context=assembled_ctx.full_prompt,
+                observation=obs,
+                evaluation=eval_record,
+                category=FeedbackCategory.VERIFIED_REASONING,
+                owner_id=owner_id,
+                session_id=session_id,
+                target_override=response_text,
+            )
+            self.learning_pipeline.add_record(learning_rec)
+
+            if self.state_manager is not None:
+                self.state_manager.assert_knowledge(
+                    subject=f"crit_{obs.task_id[:6]}",
+                    predicate="critical_decision",
+                    value=response_text[:120],
+                    confidence=0.9 if not crit_trace.uncertainty_acknowledged else 0.5,
+                    source="critical_thinking",
+                )
+
+            return IntelligenceLoopOutcome(
+                response_text=response_text,
+                neural_result=neural_res,
+                assembled_context=assembled_ctx,
+                reasoning_trace=None,
+                learning_record=learning_rec,
+                state_version=self.state_manager.state_version if self.state_manager else 1,
+                success=not crit_trace.uncertainty_acknowledged,
+                execution_time_ms=(time.perf_counter() - t0) * 1000.0,
+                weights_modified=False,
+                critical_thinking_trace=crit_trace,
+            )
+
 
         # If deliberation / thinking requested, execute via DeliberationEngine
         if use_thinking:

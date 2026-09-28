@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-09-28T16:55:06Z",
+  "step": 23,
+  "benchmark_title": "Critical Thinking, Hardware Adaptation, Self-Diagnostics & Safe Self-Healing Benchmark",
+  "environment": {
+    "device": "CPU",
+    "threads": 14,
+    "logical_cores": 20,
+    "physical_cores": 14,
+    "architecture": "AMD64",
+    "active_resource_profile": "HIGH_RESOURCE"
+  },
+  "model_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2,
+    "weights_modified": false
+  },
+  "micro_benchmarks": {
+    "hardware_profiling_latency_ms": 0.436,
+    "hypothesis_processing_latency_ms": 0.008,
+    "evidence_evaluation_latency_ms": 0.0,
+    "contradiction_detection_latency_ms": 0.002,
+    "critical_thinking_protocol_latency_ms": 0.045,
+    "full_diagnostics_latency_ms": 28.452,
+    "context_rebuild_recovery_latency_ms": 0.001
+  },
+  "adaptive_profiles": {
+    "LOW_RESOURCE": {
+      "mean_latency_ms": 204.57,
+      "median_latency_ms": 196.65,
+      "max_thinking_steps": 4,
+      "max_hypotheses": 2,
+      "max_tokens": 64,
+      "memory_budget_mb": 256
+    },
+    "STANDARD": {
+      "mean_latency_ms": 165.02,
+      "median_latency_ms": 200.4,
+      "max_thinking_steps": 8,
+      "max_hypotheses": 4,
+      "max_tokens": 128,
+      "memory_budget_mb": 512
+    },
+    "HIGH_RESOURCE": {
+      "mean_latency_ms": 197.31,
+      "median_latency_ms": 196.43,
+      "max_thinking_steps": 16,
+      "max_hypotheses": 8,
+      "max_tokens": 256,
+      "memory_budget_mb": 1024
+    }
+  },
+  "disaggregated_cost_breakdown": {
+    "raw_neural_inference_ms": 297.07,
+    "deliberation_thinking_ms": 960.65,
+    "critical_thinking_total_ms": 202.93,
+    "critical_orchestration_overhead_ms": 0.0,
+    "diagnostics_evaluation_ms": 28.45
+  },
+  "integrity_verification": {
+    "invariants_passed": true,
+    "weight_fingerprint_verified": true,
+    "tokenizer_verified": true
+  }
+}
