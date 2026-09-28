@@ -2,58 +2,58 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 28 — Adaptive Cognitive Orchestration & Resource-Aware Federation
-- **Status**: Complete & Verified (Adaptive cognitive orchestration subsystem established under `chakrview/cognition/orchestration/` implementing minimum-sufficient bounded cognition, deterministic workload classification, adaptive role planning, resource-aware node/agent allocation, bounded multi-round deliberation, evidence-aware conflict escalation, non-majority consensus synthesis, capability gate enforcement, governed experience capture with zero weight mutation, and pre/post fail-closed SHA-256 weight hash validation; 796/796 tests passing across 73 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, REMOTE_AGENT != AUTHORITY, MESSAGE != AUTHORITY, CONSENSUS != AUTHORITY).
+- **Current phase**: Step 29 — Cross-Zone Peering & Trust Negotiation
+- **Status**: Complete & Verified (Cross-zone peering and trust negotiation subsystem established under `chakrview/cognition/peering/` coordinating autonomous cognitive zones with deterministic peer identity and canonical fingerprinting, unverified-by-default discovery [DISCOVERY != TRUST], structured architectural attestation claims, bounded expiring trust grants [PEER_TRUST != PEER_AUTHORITY], default-deny federation policies with non-negotiable prohibited boundaries, deterministic scope negotiation, fail-closed revocation and epoch-based expiration, strict cross-tenant and sensitive payload isolation, CapabilityGate mediation, bounded audit telemetry, and zero-weight-mutation verification; 833/833 tests passing across 74 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 28 establishes the **Adaptive Cognitive Orchestration & Resource-Aware Federation** layer without altering the frozen neural core:
+> **IMPORTANT**: Step 29 establishes the **Cross-Zone Peering & Trust Negotiation** foundation without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Adaptive Orchestration Cycle:} \quad &\text{Task} \longrightarrow \text{Deterministic Workload Classification} \longrightarrow \text{Adaptive Task Planning} \\
-> &\longrightarrow \text{Resource-Aware Allocation} \longrightarrow \text{Role Dependency Scheduling} \\
-> &\longrightarrow \text{Bounded Adaptive Deliberation Loop} \longrightarrow \text{Evidence Sufficiency / Conflict Escalation} \\
-> &\longrightarrow \text{Non-Majority Synthesis Candidate} \longrightarrow \text{Cognitive Decision Layer} \\
-> &\longrightarrow \text{Capability Gate} \longrightarrow \text{Governed Experience Capture} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{Authority Principle:} \quad &\text{ORCHESTRATOR} \neq \text{AUTHORITY}, \text{NODE} \neq \text{AUTHORITY}, \text{AGENT} \neq \text{AUTHORITY}, \text{CONSENSUS} \neq \text{AUTHORITY} \\
-> \textbf{Minimum Sufficient Cognition:} \quad &\text{Simple Tasks} \longrightarrow \text{Minimal Resources (1 agent, 1 round)}, \quad \text{Complex/Conflicted} \longrightarrow \text{Bounded Escalation} \\
-> \textbf{Immutability Axiom:} \quad &\text{Adaptive Orchestration} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Cross-Zone Peering Cycle:} \quad &\text{Peer Declaration} \longrightarrow \text{Discovery (DISCOVER } \neq \text{ TRUST)} \longrightarrow \text{Attestation Verification} \\
+> &\longrightarrow \text{Deterministic Trust \& Scope Negotiation} \longrightarrow \text{Default-Deny Policy Gate} \\
+> &\longrightarrow \text{Bounded Expiring TrustGrant} \longrightarrow \text{Tenant Isolation \& Payload Sanitization} \\
+> &\longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \longrightarrow \text{Execution} \\
+> &\longrightarrow \text{Bounded Audit Telemetry} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{Authority Principle:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{PEER\_TRUST} \neq \text{PEER\_AUTHORITY} \\
+> \textbf{Federation Axiom:} \quad &\text{CROSS\_ZONE\_FEDERATION} \neq \text{AUTHORITY\_TRANSFER}, \quad \text{FEDERATION\_ENGINE} \neq \text{AUTHORITY} \\
+> \textbf{Identity Axiom:} \quad &\text{IDENTITY} \neq \text{CRYPTOGRAPHIC\_AUTHENTICATION} \quad (\text{Deterministic local representation; PKI deferred}) \\
+> \textbf{Immutability Axiom:} \quad &\text{Cross-Zone Peering} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Orchestrator != Authority:** The orchestrator coordinates, classifies, plans, and schedules; it cannot independently authorize external capabilities, mutate neural weights, bypass session boundaries, or promote arbitrary memories.
-> 2. **Minimum-Sufficient Cognition:** Simple tasks execute with minimal agent sets and zero deliberation loops, saving 75% agent overhead and 50% round overhead compared to fixed federation.
-> 3. **Non-Majority Truth & Conflict Escalation:** Evidence aggregation preserves minority claims; contradictory evidence triggers verification rather than majority consensus fabrication. Unresolved conflicts terminate in `ANSWER_WITH_UNCERTAINTY` or `INSUFFICIENT_INFORMATION`.
-> 4. **Deterministic Resource Allocation:** Classification, role assignment, node routing, and retry policies are strictly deterministic based on task features and hardware profiles (`LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE`).
-> 5. **Hard Ceilings:** Agents $\le 8$, nodes $\le 8$, deliberation rounds $\le 3$, retries $\le 2$, subtasks $\le 16$, telemetry history $\le 1000$.
-> 6. **Governed Memory & Trace Sanitization:** Only sanitized public metadata and outcome summaries enter episodic memory; raw activations, logits, and internal scratchpads are never promoted or leaked.
-> All 796 unit, integration, invariant, capability gate, and regression tests pass with zero failures and zero warnings.
+> 1. **Cross-Zone Federation != Authority Transfer:** Trusted peers can provide evidence, verification, or compute, but never gain local authority, capability authority, or tenant authority.
+> 2. **Discovery != Trust:** Newly discovered peers enter `DISCOVERED` standing with `trust_grant = None`. Trust requires explicit negotiation.
+> 3. **Trust is Bounded & Expiring:** Trust is never a boolean; it is a scoped, revocable capability grant bounded by logical epoch TTL.
+> 4. **CapabilityGate Mediation:** Remote peers can never invoke capabilities directly; execution passes through local `CapabilityGate` under local authority.
+> 5. **Default Deny & Prohibitions:** All unlisted scopes are denied. Prohibited scopes (weight access, private memory, tenant crossover, authority transfer) are unconditionally blocked.
+> 6. **Strict Tenant & Payload Isolation:** Cross-tenant crossover is rejected; model weights, raw activations, hidden states, private thoughts, and secrets are barred from transfer.
+> All 833 unit, integration, invariant, capability gate, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 28)
-* Comprehensive architectural documentation in [docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_28_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_28_BENCHMARK_RESULTS.json) via `scripts/benchmark_adaptive_cognitive_orchestration.py`.
-* **Adaptive Cognitive Orchestration Subsystem** (`chakrview/cognition/orchestration/`):
-  - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants.
-  - `workload.py`: Deterministic lexical/structural feature extractor (`extract_workload_features`).
-  - `classifier.py`: `DeterministicWorkloadClassifier` mapping tasks into `WorkloadClass` with public metadata.
-  - `planner.py`: `AdaptiveTaskPlanner` deriving bounded, role-driven `TaskPlan` based on minimum-sufficient cognition.
-  - `allocator.py`: `ResourceAwareAllocator` deterministically selecting nodes, agent counts, role distributions, and execution budgets based on hardware profile and node health.
-  - `scheduler.py`: `DeterministicTaskScheduler` computing topological dependency order of agent roles.
-  - `adaptive.py`: `AdaptiveStrategySelector` mapping workload class and resources to `OrchestrationStrategy`.
-  - `deliberation.py`: `AdaptiveDeliberationController` managing round-by-round sufficiency evaluation, early termination, and conflict escalation.
-  - `memory.py`: `GovernedOrchestrationMemoryBridge` sanitizing orchestration outcomes into `ContinualCognitionEngine.record_experience()` with zero weight modification.
-  - `observability.py`: `OrchestrationObservabilityMetrics` tracking bounded telemetry counters and rolling histories ($\le 1000$).
-  - `policy.py`: `AdaptiveOrchestrationPolicy` with configurable thresholds validated against hard ceilings.
-  - `engine.py`: `AdaptiveCognitiveOrchestrator` central orchestrator with pre/post SHA-256 weight hash validation, tenant/session boundary enforcement, deliberation loop, capability gate validation, and trace emission.
-  - `__init__.py`: Clean public exports of orchestration components.
-* **Distributed Federated Cognition Subsystem** (`chakrview/cognition/distributed/`): Ratified in Step 27.
-* 40 new unit, invariant, capability gate, workload classification, planning, allocation, deliberation, and full cycle tests in `tests/test_adaptive_cognitive_orchestration.py`, expanding the verified test suite to 796 tests across 73 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `f8c46cc81cb782d8935986808bd60dcec9d5ac346dc9a23e55e2ab33d6ff8272`).
+#### 1. Implemented Now (Verified in Step 29)
+* Comprehensive architectural documentation in [docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_29_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_29_BENCHMARK_RESULTS.json) via `scripts/benchmark_cross_zone_peering.py`.
+* **Cross-Zone Peering & Trust Negotiation Subsystem** (`chakrview/cognition/peering/`):
+  - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant`, `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord`, `SafePublicPeeringTrace`, and hard ceiling constants.
+  - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting (`IDENTITY != CRYPTOGRAPHIC_AUTHENTICATION`).
+  - `attestation.py`: `PeerAttestationVerifier` checking structural architectural claims against frozen ChakrMicro constants (3,443,136 params, 4096 vocab, 512 context).
+  - `policy.py`: `CrossZoneFederationPolicy` enforcing default-deny semantics and non-negotiable prohibited boundaries.
+  - `trust.py`: `TrustModel` managing bounded `TrustGrant` lifecycle, hierarchy (`NONE` to `FEDERATED`), and epoch expiration.
+  - `discovery.py`: `PeerDiscoveryManager` enforcing `DISCOVERY != TRUST`.
+  - `negotiation.py`: `TrustNegotiator` computing deterministic `NegotiationAgreement` based on local policy and peer claims.
+  - `registry.py`: `PeerRegistry` enforcing unique identity, tenant-scoped storage, and hard ceilings ($\le 32$ total, $\le 16$/zone, $\le 8$ active).
+  - `revocation.py`: `RevocationManager` executing fail-closed revocation and active grant invalidation.
+  - `isolation.py`: `CrossZoneIsolationGuard` blocking cross-tenant crossover and sanitizing sensitive artifacts (weights, activations, scratchpads, secrets).
+  - `audit.py`: `BoundedAuditLogger` recording structured telemetry with FIFO capping ($\le 1000$ entries).
+  - `engine.py`: `CrossZoneFederationEngine` central coordinator enforcing `CapabilityGate` mediation, pre/post SHA-256 weight hash invariance, and trace emission.
+  - `__init__.py`: Clean public exports of peering components.
+* 37 new unit, invariant, capability gate, discovery, negotiation, revocation, and lifecycle tests in `tests/test_cross_zone_peering.py`, expanding verified test suite to 833 tests across 74 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `dd004c4f0a1f7f50ec20b118379926b61f131835cdc6c101712b3f60149b58f6`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
 * **Physical Multi-Machine Socket/Network Transport:** Concrete TCP/IP, gRPC, or HTTP/2 transport drivers (deferred to future deployment steps).
@@ -63,7 +63,21 @@
 ---
 
 ### Progress by Module
-- `chakrview/cognition/orchestration/`: **Adaptive Cognitive Orchestration & Resource-Aware Federation (New in Step 28)**
+- `chakrview/cognition/peering/`: **Cross-Zone Peering & Trust Negotiation (New in Step 29)**
+  - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant`, `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord`, `SafePublicPeeringTrace`, and hard ceiling constants
+  - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting (`IDENTITY != CRYPTOGRAPHIC_AUTHENTICATION`)
+  - `attestation.py`: `PeerAttestationVerifier` checking structural architectural claims against frozen ChakrMicro constants
+  - `policy.py`: `CrossZoneFederationPolicy` enforcing default-deny semantics and non-negotiable prohibited boundaries
+  - `trust.py`: `TrustModel` managing bounded `TrustGrant` lifecycle, hierarchy (`NONE` to `FEDERATED`), and epoch expiration
+  - `discovery.py`: `PeerDiscoveryManager` enforcing `DISCOVERY != TRUST`
+  - `negotiation.py`: `TrustNegotiator` computing deterministic `NegotiationAgreement` based on local policy and peer claims
+  - `registry.py`: `PeerRegistry` enforcing unique identity, tenant-scoped storage, and hard ceilings ($\le 32$ total, $\le 16$/zone, $\le 8$ active)
+  - `revocation.py`: `RevocationManager` executing fail-closed revocation and active grant invalidation
+  - `isolation.py`: `CrossZoneIsolationGuard` blocking cross-tenant crossover and sanitizing sensitive artifacts (weights, activations, scratchpads, secrets)
+  - `audit.py`: `BoundedAuditLogger` recording structured telemetry with FIFO capping ($\le 1000$ entries)
+  - `engine.py`: `CrossZoneFederationEngine` central coordinator enforcing `CapabilityGate` mediation, pre/post SHA-256 weight hash invariance, and trace emission
+  - `__init__.py`: Clean public exports of peering components
+- `chakrview/cognition/orchestration/`: **Adaptive Cognitive Orchestration & Resource-Aware Federation (Ratified in Step 28)**
   - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants
   - `workload.py`: Deterministic lexical/structural feature extractor (`extract_workload_features`)
   - `classifier.py`: `DeterministicWorkloadClassifier` mapping tasks into `WorkloadClass` with public metadata
@@ -151,8 +165,8 @@
   - `storage.py`: ContinualMemoryStorage with schema version "24.1" and integrity validation
   - `engine.py`: ContinualCognitionEngine orchestrating all continual memory operations
   - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py` (Step 16 Persistent Memory Foundation fully preserved)
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23, 26, 27 & 28)**
-  - Updated `__init__.py` exposing critical, adaptation, diagnostics, unified, federated, distributed, and orchestration subpackages
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23, 26, 27, 28 & 29)**
+  - Updated `__init__.py` exposing critical, adaptation, diagnostics, unified, federated, distributed, orchestration, and peering subpackages
   - `controller.py`, `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
@@ -161,6 +175,7 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_cross_zone_peering.py`: Step 29 empirical cross-zone peering & trust negotiation benchmark
   - `benchmark_adaptive_cognitive_orchestration.py`: Step 28 empirical adaptive cognitive orchestration benchmark
   - `benchmark_distributed_federated_cognition.py`: Step 27 empirical distributed federated cognition benchmark
   - `benchmark_federated_cognition.py`: Step 26 empirical federated cognition benchmark
@@ -173,7 +188,8 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **796/796 Tests Passing** across 73 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **833/833 Tests Passing** across 74 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 37 Cross-Zone Peering & Trust Negotiation tests (`test_cross_zone_peering.py`)
   - 40 Adaptive Cognitive Orchestration & Resource-Aware Federation tests (`test_adaptive_cognitive_orchestration.py`)
   - 38 Distributed Federated Cognition & Secure Agent Transport tests (`test_distributed_federated_cognition.py`)
   - 38 Multi-Agent Federated Cognition & Cooperative Intelligence tests (`test_federated_cognition.py`)
@@ -198,6 +214,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md` (Step 29 Architecture Specification)
+  - `docs/STEP_29_BENCHMARK_RESULTS.json` (Step 29 Empirical Benchmark Data)
   - `docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md` (Step 28 Architecture Specification)
   - `docs/STEP_28_BENCHMARK_RESULTS.json` (Step 28 Empirical Benchmark Data)
   - `docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 27 Architecture Specification)
@@ -270,11 +288,11 @@
 4. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
 5. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
 6. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
-7. **Dynamic Multi-Cluster Orchestration**: Step 28 implements single-cluster deterministic node selection and adaptive cognitive planning; inter-cluster federation across autonomous external administrative zones is deferred to Step 29.
+7. **Cross-Zone Peering & Transport Deployment**: Step 29 implements the complete cross-zone discovery, attestation, bounded trust negotiation, default-deny policy, and CapabilityGate mediation foundation; physical multi-machine TCP/IP, gRPC, and asymmetric Ed25519 PKI identity schemes remain deferred to future deployment steps.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 28 RATIFIED — ADAPTIVE COGNITIVE ORCHESTRATION & RESOURCE-AWARE FEDERATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 29 (Awaiting user explicit command; DO NOT START STEP 29 AUTOMATICALLY).
+- **Decision**: **STEP 29 RATIFIED — CROSS-ZONE PEERING & TRUST NEGOTIATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 30 (Awaiting user explicit command; DO NOT START STEP 30 AUTOMATICALLY).
