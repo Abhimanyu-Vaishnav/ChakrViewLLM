@@ -2,62 +2,74 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 26 — Multi-Agent Federated Cognition & Cooperative Intelligence Foundation
-- **Status**: Complete & Verified (Multi-Agent Federated Cognition established under `chakrview/cognition/federated/` coordinating bounded cognitive roles [Analyst, Researcher, Critic, Planner, Synthesizer, Verifier, Observer] around the single frozen ChakrMicro v0.1 neural core; 718/718 tests passing across 71 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; model SHA-256 weight hash verified before and after cycle; runtime coordination permanently preserves weights_modified=False; AGENT != AUTHORITY, DATA != AUTHORITY, MEMORY != AUTHORITY, REASONING != AUTHORITY, CRITICAL THINKING != AUTHORITY).
+- **Current phase**: Step 27 — Distributed Federated Cognition & Secure Agent Transport Foundation
+- **Status**: Complete & Verified (Distributed Federated Cognition established under `chakrview/cognition/distributed/` coordinating bounded cognitive nodes and roles with deterministic `LoopbackTransport`, cryptographic tamper-evident message envelopes with SHA-256 and HMAC signatures, bounded replay protection, deterministic task routing, circuit breakers and failure isolation, evidence aggregation preserving minority opinions, capability gate enforcement, and fail-closed SHA-256 weight hash invariant verification; 756/756 tests passing across 72 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; NODE != AUTHORITY, AGENT != AUTHORITY, REMOTE_AGENT != AUTHORITY, MESSAGE != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 26 establishes the **Multi-Agent Federated Cognition & Cooperative Intelligence Foundation** without altering the frozen neural core:
+> **IMPORTANT**: Step 27 establishes the **Distributed Federated Cognition & Secure Agent Transport Foundation** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Federated Multi-Agent Cycle:} \quad &\text{Unified Task} \longrightarrow \text{Decomposition} \longrightarrow \text{Dispatch to Specialized Roles} \\
-> &\longrightarrow \text{Message Protocol Validation (SHA-256 Envelope)} \longrightarrow \text{Evidence Aggregation} \\
-> &\longrightarrow \text{Conflict Detection \& Minority Preservation} \longrightarrow \text{Consensus Synthesis Candidate} \\
-> &\longrightarrow \text{Cognitive Decision Layer} \longrightarrow \text{Capability Gate} \longrightarrow \text{Safe Response \& Governed Trace} \\
-> \textbf{Authority Principle:} \quad &\text{AGENT} \neq \text{AUTHORITY}, \text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{REASONING} \neq \text{AUTHORITY} \\
-> \textbf{Immutability Axiom:} \quad &\text{Multi-Agent Coordination} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Distributed Federated Cycle:} \quad &\text{Task} \longrightarrow \text{Decomposition} \longrightarrow \text{Deterministic Node/Task Routing} \\
+> &\longrightarrow \text{Secure Message Envelope (SHA-256 + HMAC)} \longrightarrow \text{Loopback Transport} \\
+> &\longrightarrow \text{Replay/TTL/Hop Verification} \longrightarrow \text{Evidence Aggregation (Minority Preserved)} \\
+> &\longrightarrow \text{Consensus Synthesis Candidate} \longrightarrow \text{Cognitive Decision Layer} \\
+> &\longrightarrow \text{Capability Gate} \longrightarrow \text{Governed Trace \& Zero-Weight-Mutation Verification} \\
+> \textbf{Authority Principle:} \quad &\text{NODE} \neq \text{AUTHORITY}, \text{AGENT} \neq \text{AUTHORITY}, \text{REMOTE\_AGENT} \neq \text{AUTHORITY}, \text{CONSENSUS} \neq \text{AUTHORITY} \\
+> \textbf{Immutability Axiom:} \quad &\text{Distributed Coordination} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Agent != Authority:** No agent can directly authorize capabilities, mutate weights, promote memories, or breach tenant isolation.
-> 2. **Single Frozen Brain:** All logical cognitive agents share the identical, frozen ChakrMicro v0.1 neural core ($3,443,136$ parameters).
-> 3. **Typed Message Protocol & Tamper-Evidence:** Envelopes are validated with canonical SHA-256 digests and optional message chaining.
-> 4. **Minority Evidence Preservation:** Conflicts do NOT reduce to simple majority voting; minority counter-evidence is cataloged and preserved in synthesis candidates.
-> 5. **Fault Isolation & Graceful Degradation:** Crashing or contract-violating agents are isolated; execution continues with reduced federation.
-> All 718 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> 1. **Node & Agent != Authority:** Nodes host agents; neither nodes nor remote agents can authorize capabilities, mutate weights, promote memories, or breach tenant isolation.
+> 2. **Transport Abstraction:** Transport is decoupled from concrete physical networks; Step 27 implements deterministic in-process `LoopbackTransport` with fault injection.
+> 3. **Tamper-Evident Envelopes & Bounded Replay Protection:** Envelopes feature canonical SHA-256 hashing and HMAC signing; bounded tracking rejects duplicate IDs, nonces, expired TTLs, or excessive hops.
+> 4. **Deterministic Resource-Aware Routing:** Locality, capability matching, and health eligibility drive deterministic routing without stochastic bias.
+> 5. **Fault Isolation & Circuit Breakers:** Exponential backoff retries and circuit breakers isolate node failures without halting the cognitive cycle.
+> 6. **Evidence Aggregation Without Majority Truth:** Contradictions and minority counter-evidence are preserved; consensus is not fabricated.
+> All 756 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 26)
-* Comprehensive architectural documentation in [docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_26_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_26_BENCHMARK_RESULTS.json) via `scripts/benchmark_federated_cognition.py`.
-* **Federated Cognition Subsystem** (`chakrview/cognition/federated/`):
-  - `models.py`: Strongly typed `AgentIdentity`, `AgentRole`, `AgentCapability`, `AgentStatus`, `AgentContract`, `AgentMessage`, `MessageEnvelope`, `AgentTask`, `ConflictState`, `FederatedConflictRecord`, `FederatedSynthesisCandidate`, and `SafePublicFederatedTrace`.
-  - `protocol.py`: `FederatedProtocolValidator` with message routing checks, tenant isolation, and cryptographic hashing/chain verification.
-  - `registry.py`: `AgentRegistry` with tenant-scoped isolation, duplicate identity detection, and hard capacity ceiling ($\le 8$ agents).
-  - `policy.py`: `FederatedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to cognitive budgets with hard ceilings ($\le 8$ agents, $\le 8$ rounds, $\le 128$ messages, $\le 4$ delegation depth).
-  - `decomposition.py`: `FederatedTaskDecomposer` mapping factual, analytical, decision, capability, and general objectives to role-bounded `AgentTask`s.
-  - `agents.py`: `FederatedAgent` base class + `AnalystAgent`, `ResearcherAgent`, `CriticAgent`, `PlannerAgent`, `SynthesizerAgent`, `VerifierAgent`.
-  - `evidence.py`: `FederatedEvidenceAggregator` strictly categorizing claims, ground evidence, interpretations, assumptions, and counter-evidence.
-  - `conflict.py`: `FederatedConflictResolver` detecting contradictions and preserving minority opinions/evidence.
-  - `synthesis.py`: `FederatedSynthesizer` assembling multi-agent consensus, minority opinions, and decision states.
-  - `engine.py`: `FederatedCognitionEngine` coordinating the cooperative multi-agent lifecycle, fault isolation/retries, capability gate routing, fail-closed SHA-256 weight hash invariant verification, and episodic memory experience recording.
-  - `__init__.py`: Clean public exports of federated cognition components.
-* 38 new unit, invariant, capability gate, conflict resolution, tenant isolation, and full cycle tests in `tests/test_federated_cognition.py`, expanding the verified test suite to 718 tests across 71 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution).
+#### 1. Implemented Now (Verified in Step 27)
+* Comprehensive architectural documentation in [docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_27_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_27_BENCHMARK_RESULTS.json) via `scripts/benchmark_distributed_federated_cognition.py`.
+* **Distributed Federated Cognition Subsystem** (`chakrview/cognition/distributed/`):
+  - `models.py`: Strongly typed `NodeIdentity`, `NodeRole`, `NodeStatus`, `NodeCapabilities`, `NodeResourceProfile`, `NodeEndpoint`, `NodeHealth`, `NodeRegistration`, `MessageHeader`, `MessageRoute`, `MessageIntegrity`, `DistributedMessageEnvelope`, `DistributedRouteDecision`, and `SafePublicDistributedTrace`.
+  - `transport.py`: Abstract `Transport` interface and deterministic `LoopbackTransport` with FIFO queues and fault injection (latency, drops, timeouts, protocol errors).
+  - `security.py`: `ReplayProtectionTracker` (bounded memory, TTL, nonce, hop limit, tenant isolation), `DeterministicHmacMessageSigner`, `DeterministicHmacMessageVerifier`, `NodeIdentityProvider`, `AttestationProvider`.
+  - `registry.py`: `DistributedNodeRegistry` with tenant-scoped isolation, duplicate node rejection, health state transitions, and hard capacity ceiling ($\le 16$ nodes).
+  - `resilience.py`: `TimeoutPolicy`, `RetryPolicy` with deterministic exponential backoff, `CircuitBreaker` (CLOSED, OPEN, HALF_OPEN), `FailureRecord`.
+  - `router.py`: `DistributedTaskRouter` performing deterministic technical resource and locality routing.
+  - `policy.py`: `DistributedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to hard ceilings ($\le 16$ nodes, $\le 8$ agents/node, $\le 32$ tasks/cycle, $\le 4$ hops).
+  - `observability.py`: `DistributedObservabilityMetrics` with bounded telemetry counters and latency histories.
+  - `engine.py`: `DistributedFederatedCognitionEngine` coordinating task decomposition, distributed routing, transport, response integrity/replay validation, evidence aggregation, conflict resolution (minority preserved), consensus synthesis, capability gate checks, fail-closed pre/post SHA-256 weight hash validation, and sanitized trace emission.
+  - `__init__.py`: Clean public exports of distributed cognition components.
+* 38 new unit, invariant, capability gate, loopback transport, circuit breaker, tenant isolation, and full cycle tests in `tests/test_distributed_federated_cognition.py`, expanding the verified test suite to 756 tests across 72 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `f8c46cc81cb782d8935986808bd60dcec9d5ac346dc9a23e55e2ab33d6ff8272`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Cross-Network Multi-Node Swarms:** Cross-network multi-agent clustering via distributed network transport is deferred to Step 27+.
-* **Asymmetric Keypair Attestation:** Ed25519 PKI signatures for remote distributed agents.
-* **Autonomous Profile Tuning:** Dynamic auto-tuning of resource profiles based on hardware thermal telemetry.
+* **Physical Multi-Machine Socket/Network Transport:** Concrete TCP/IP, gRPC, or HTTP/2 transport drivers (deferred to future deployment steps).
+* **Asymmetric Public Key Infrastructure:** Asymmetric Ed25519 PKI identity management and HSM integration.
+* **Byzantine Fault Tolerance Protocols:** BFT consensus across untrusted external nodes.
 
 ---
 
 ### Progress by Module
-- `chakrview/cognition/federated/`: **Multi-Agent Federated Cognition & Cooperative Intelligence Foundation (New in Step 26)**
+- `chakrview/cognition/distributed/`: **Distributed Federated Cognition & Secure Agent Transport (New in Step 27)**
+  - `models.py`: Strongly typed `NodeIdentity`, `NodeRole`, `NodeStatus`, `NodeCapabilities`, `NodeResourceProfile`, `NodeEndpoint`, `NodeHealth`, `NodeRegistration`, `MessageHeader`, `MessageRoute`, `MessageIntegrity`, `DistributedMessageEnvelope`, `DistributedRouteDecision`, and `SafePublicDistributedTrace`
+  - `transport.py`: Abstract `Transport` interface and deterministic `LoopbackTransport` with fault injection (latency, drops, timeouts, protocol errors)
+  - `security.py`: `ReplayProtectionTracker` (bounded memory, TTL, nonce, hop limit, tenant isolation), HMAC signing/verification, `NodeIdentityProvider`, `AttestationProvider`
+  - `registry.py`: `DistributedNodeRegistry` with tenant-scoped isolation, duplicate node rejection, health state transitions, and hard capacity ceiling ($\le 16$ nodes)
+  - `resilience.py`: `TimeoutPolicy`, `RetryPolicy` with deterministic exponential backoff, `CircuitBreaker` (CLOSED, OPEN, HALF_OPEN), `FailureRecord`
+  - `router.py`: `DistributedTaskRouter` performing deterministic technical resource and locality routing
+  - `policy.py`: `DistributedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to hard ceilings ($\le 16$ nodes, $\le 8$ agents/node, $\le 32$ tasks/cycle, $\le 4$ hops)
+  - `observability.py`: `DistributedObservabilityMetrics` with bounded telemetry counters and latency histories
+  - `engine.py`: `DistributedFederatedCognitionEngine` coordinating task decomposition, distributed routing, loopback transport, response integrity/replay validation, evidence aggregation, conflict resolution (minority preserved), consensus synthesis, capability gate checks, fail-closed pre/post SHA-256 weight hash validation, and sanitized trace emission
+  - `__init__.py`: Clean public exports of distributed cognition components
+- `chakrview/cognition/federated/`: **Multi-Agent Federated Cognition & Cooperative Intelligence Foundation (Ratified in Step 26)**
   - `models.py`: Strongly typed `AgentIdentity`, `AgentRole`, `AgentCapability`, `AgentStatus`, `AgentContract`, `AgentMessage`, `MessageEnvelope`, `AgentTask`, `ConflictState`, `FederatedConflictRecord`, `FederatedSynthesisCandidate`, and `SafePublicFederatedTrace`
   - `protocol.py`: `FederatedProtocolValidator` with message routing checks, tenant isolation, and cryptographic hashing/chain verification
   - `registry.py`: `AgentRegistry` with tenant-scoped isolation, duplicate identity detection, and hard capacity ceiling ($\le 8$ agents)
@@ -163,6 +175,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 27 Architecture Specification)
+  - `docs/STEP_27_BENCHMARK_RESULTS.json` (Step 27 Empirical Benchmark Data)
   - `docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 26 Architecture Report)
   - `docs/STEP_26_BENCHMARK_RESULTS.json` (Step 26 Empirical Benchmark Data)
   - `docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md` (Step 25 Architecture Report)
@@ -225,7 +239,7 @@
 ---
 
 ## Known Limitations
-1. **In-Process Coordination**: Multi-agent coordination is currently bounded to local, in-process single-host execution; network transport is deferred to Step 27+.
+1. **Network Deployment**: Physical multi-machine socket, TCP/IP, or gRPC transport drivers are deferred; Step 27 implements and ratifies the complete transport abstraction and deterministic in-process `LoopbackTransport`.
 2. **Syntactic Proposition Extraction**: Automatic pattern extraction during consolidation relies on deterministic grammatical heuristics; complex multi-clause open-domain relations rely on structured reasoning passes.
 3. **Single-Node Memory Scaling**: Memory stores currently optimize for single-machine CPU/workstation architectures; distributed multi-node replication is deferred.
 4. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
@@ -236,5 +250,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 26 RATIFIED — MULTI-AGENT FEDERATED COGNITION & COOPERATIVE INTELLIGENCE COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 27 (Awaiting user explicit command; DO NOT START STEP 27 AUTOMATICALLY).
+- **Decision**: **STEP 27 RATIFIED — DISTRIBUTED FEDERATED COGNITION & SECURE AGENT TRANSPORT FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 28 (Awaiting user explicit command; DO NOT START STEP 28 AUTOMATICALLY).
