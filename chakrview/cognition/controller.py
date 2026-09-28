@@ -80,6 +80,7 @@ class CognitiveExecutionResult:
     trace: ExecutionTrace
     response_text: str
     success: bool
+    reasoning_trace: Optional[Any] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -91,6 +92,7 @@ class CognitiveExecutionResult:
             "trace": self.trace.to_dict(),
             "response_text": self.response_text,
             "success": self.success,
+            "reasoning_trace": self.reasoning_trace.to_dict() if self.reasoning_trace and hasattr(self.reasoning_trace, "to_dict") else None,
         }
 
 
@@ -111,6 +113,8 @@ class CognitiveController:
         profile: Optional[DeploymentProfile] = None,
         capability_gate: Optional[Any] = None,
         environment: Optional[Any] = None,
+        reasoning_engine: Optional[Any] = None,
+        reasoning_policy: Optional[Any] = None,
     ) -> None:
         self.profile = profile or get_desktop_profile()
         self.planner = planner or DeterministicRulePlanner(self.profile.to_constraints())
@@ -122,6 +126,8 @@ class CognitiveController:
         self.context_builder = context_builder or PromptContextBuilder()
         self.capability_gate = capability_gate
         self.environment = environment
+        self.reasoning_engine = reasoning_engine
+        self.reasoning_policy = reasoning_policy
 
     def execute_task(
         self,
@@ -134,6 +140,8 @@ class CognitiveController:
         personal_memory: Optional[Any] = None,
         capability_gate: Optional[Any] = None,
         environment: Optional[Any] = None,
+        reasoning_engine: Optional[Any] = None,
+        use_reasoning: bool = False,
     ) -> CognitiveExecutionResult:
         """
         Execute a complete governed cognitive workflow for the given task.
@@ -364,7 +372,22 @@ class CognitiveController:
                 except Exception:
                     pass
 
-        # 11. Synthesize Response Text
+        # 11. Optional Governed Reasoning Pass
+        active_reasoning = reasoning_engine or self.reasoning_engine
+        reasoning_trace = None
+        if use_reasoning and active_reasoning is not None:
+            try:
+                r_ans, reasoning_trace = active_reasoning.reason(
+                    task_or_objective=task.user_request,
+                    personal_memory=personal_memory,
+                    capability_gate=active_cap_gate,
+                )
+                trace.record_event("REASONING_EXECUTED", details={"trace_id": reasoning_trace.trace_id, "outcome": r_ans})
+                task.execution_state["reasoning_outcome"] = r_ans
+            except Exception as r_err:
+                trace.record_event("REASONING_ERROR", details={"error": str(r_err)})
+
+        # 12. Synthesize Response Text
         response_text = self._synthesize_response(
             task=task,
             plan=plan,
@@ -383,6 +406,7 @@ class CognitiveController:
             trace=trace,
             response_text=response_text,
             success=True,
+            reasoning_trace=reasoning_trace,
         )
 
     def _execute_step(
@@ -541,6 +565,10 @@ class CognitiveController:
         Assemble bounded context and format final response.
         Enforces strict <= 512 token ceiling.
         """
+        # If reasoning was performed, provide reasoning outcome
+        if "reasoning_outcome" in task.execution_state:
+            return f"Reasoning Result: {task.execution_state['reasoning_outcome']}"
+
         # If calculation was performed, provide explicit answer
         if "calc_result" in task.execution_state:
             return f"Result: {task.execution_state['calc_result']}"
