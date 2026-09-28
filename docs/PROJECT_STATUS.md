@@ -2,58 +2,74 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 25 — Unified Cognitive Architecture & End-to-End Cognitive Cycle
-- **Status**: Complete & Verified (Unified Cognitive Architecture established under `chakrview/cognition/unified/` orchestrating a bounded 14-stage end-to-end cognitive cycle: Task Understanding -> Working Memory & Continual Recall -> Bounded Context Compression -> Read-Only Neural Proposal -> Structured Reasoning -> Anti-Confirmation-Bias Critical Challenge -> Multi-Step Deliberation & Revision -> Evidence & Contradiction Audit -> Cognitive Decision Layer -> Sovereign Capability Gate -> Sanitized Response & Audit Tracing -> Experience Capture -> Episodic Consolidation -> Governed Offline Learning Candidate Bridge; 680/680 tests passing across 70 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; model SHA-256 weight hash verified before and after cycle; runtime inference and memory operations permanently preserve weights_modified=False; DATA != AUTHORITY, MEMORY != AUTHORITY, REASONING != AUTHORITY, THINKING != AUTHORITY, CRITICAL THINKING != AUTHORITY, EXPERIENCE != AUTHORITY).
+- **Current phase**: Step 26 — Multi-Agent Federated Cognition & Cooperative Intelligence Foundation
+- **Status**: Complete & Verified (Multi-Agent Federated Cognition established under `chakrview/cognition/federated/` coordinating bounded cognitive roles [Analyst, Researcher, Critic, Planner, Synthesizer, Verifier, Observer] around the single frozen ChakrMicro v0.1 neural core; 718/718 tests passing across 71 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; model SHA-256 weight hash verified before and after cycle; runtime coordination permanently preserves weights_modified=False; AGENT != AUTHORITY, DATA != AUTHORITY, MEMORY != AUTHORITY, REASONING != AUTHORITY, CRITICAL THINKING != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 25 establishes the **Unified Cognitive Architecture & End-to-End Cognitive Cycle** without altering the frozen neural core:
+> **IMPORTANT**: Step 26 establishes the **Multi-Agent Federated Cognition & Cooperative Intelligence Foundation** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Unified Cognitive Cycle:} \quad &\text{Input} \longrightarrow \text{Perception} \longrightarrow \text{Memory Recall} \longrightarrow \text{Neural Proposal} \longrightarrow \text{Reasoning} \longrightarrow \text{Critical Challenge} \\
-> &\longrightarrow \text{Deliberation} \longrightarrow \text{Contradiction Check} \longrightarrow \text{Decision Layer} \longrightarrow \text{Capability Gate} \longrightarrow \text{Safe Response} \\
-> &\longrightarrow \text{Experience Capture} \longrightarrow \text{Consolidation} \longrightarrow \text{Governed Learning Candidate} \\
-> \textbf{Authority Principle:} \quad &\text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{REASONING} \neq \text{AUTHORITY}, \text{EXPERIENCE} \neq \text{AUTHORITY} \\
-> \textbf{Immutability Axiom:} \quad &\text{Runtime Experience} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Federated Multi-Agent Cycle:} \quad &\text{Unified Task} \longrightarrow \text{Decomposition} \longrightarrow \text{Dispatch to Specialized Roles} \\
+> &\longrightarrow \text{Message Protocol Validation (SHA-256 Envelope)} \longrightarrow \text{Evidence Aggregation} \\
+> &\longrightarrow \text{Conflict Detection \& Minority Preservation} \longrightarrow \text{Consensus Synthesis Candidate} \\
+> &\longrightarrow \text{Cognitive Decision Layer} \longrightarrow \text{Capability Gate} \longrightarrow \text{Safe Response \& Governed Trace} \\
+> \textbf{Authority Principle:} \quad &\text{AGENT} \neq \text{AUTHORITY}, \text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{REASONING} \neq \text{AUTHORITY} \\
+> \textbf{Immutability Axiom:} \quad &\text{Multi-Agent Coordination} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Authority Gate Sovereignty:** Memory, reasoning, critical thinking, and experience provide evidence and deliberation context; they can NEVER bypass `CapabilityGate`.
-> 2. **Hardware Budget Adaptation:** Identical ChakrMicro core runs on low-resource, standard, and high-resource hardware; adaptation scales execution budgets (context tokens, thinking cycles, hypothesis counts), never model parameters or vocabulary.
-> 3. **Deterministic Context Prioritization:** Hard 512-token ceiling enforced via transparent 9-tier priority ordering with truncation audit metadata.
-> 4. **Anti-Fabrication Decision Layer:** Eight bounded decision states (`ANSWER`, `ANSWER_WITH_UNCERTAINTY`, `NEED_CLARIFICATION`, `INSUFFICIENT_INFORMATION`, `REQUIRE_VERIFICATION`, `REVISION_REQUIRED`, `CAPABILITY_REQUIRED`, `SAFE_STOP`). Uncorroborated queries declare epistemic uncertainty rather than fabricating answers.
-> 5. **Fail-Closed Diagnostics & Safe Self-Healing:** Pre-flight and post-flight SHA-256 weight fingerprint checks; synthetic weight mutation immediately halts execution (`WeightMutationError`). Transient state healing restores corrupted non-authoritative memory without touching weights.
-> All 680 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> 1. **Agent != Authority:** No agent can directly authorize capabilities, mutate weights, promote memories, or breach tenant isolation.
+> 2. **Single Frozen Brain:** All logical cognitive agents share the identical, frozen ChakrMicro v0.1 neural core ($3,443,136$ parameters).
+> 3. **Typed Message Protocol & Tamper-Evidence:** Envelopes are validated with canonical SHA-256 digests and optional message chaining.
+> 4. **Minority Evidence Preservation:** Conflicts do NOT reduce to simple majority voting; minority counter-evidence is cataloged and preserved in synthesis candidates.
+> 5. **Fault Isolation & Graceful Degradation:** Crashing or contract-violating agents are isolated; execution continues with reduced federation.
+> All 718 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 25)
-* Comprehensive architectural documentation in [docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_25_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_25_BENCHMARK_RESULTS.json) via `scripts/benchmark_unified_cognition.py` verifying Experiments A–I.
-* **Unified Cognition Subsystem** (`chakrview/cognition/unified/`):
-  - `models.py`: Strongly typed `CognitiveTaskType`, `DecisionState` (8 states), `UnifiedCognitiveState`, and `SafePublicCognitiveTrace`.
-  - `policy.py`: `UnifiedCognitivePolicy` mapping `LOW_RESOURCE`, `STANDARD`, and `HIGH_RESOURCE` profiles to cognitive budgets with hard architectural ceilings ($\le 512$ tokens, $\le 32$ thinking steps, $\le 6$ revisions).
-  - `context.py`: `CognitiveContextCompressor` enforcing transparent 9-tier priority ordering within the hard 512-token limit and recording truncation metadata.
-  - `decision.py`: `CognitiveDecisionLayer` mapping evidence, contradiction state, confidence, and critique verdicts to bounded decision states without fabricating certainty.
-  - `experience.py`: `GovernedExperienceCapture` persisting cycle metadata to `EpisodicMemoryStore` with `weights_modified = False`.
-  - `trace.py`: `PublicTraceBuilder` producing sanitized high-level audit traces without private scratchpad leakage.
-  - `engine.py`: `UnifiedCognitiveEngine` coordinating the complete 14-stage end-to-end cycle, pre/post-flight SHA-256 weight hash invariant verification (fail-closed), capability gate checks, recoverable state healing, and continual memory consolidation.
-  - `__init__.py`: Clean public exports of unified cognition components.
-* 30 new unit, invariant, capability gate, contradiction, hardware adaptation, and full cycle tests in `tests/test_unified_cognition.py`, expanding the verified test suite to 680 tests across 70 test files.
+#### 1. Implemented Now (Verified in Step 26)
+* Comprehensive architectural documentation in [docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_26_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_26_BENCHMARK_RESULTS.json) via `scripts/benchmark_federated_cognition.py`.
+* **Federated Cognition Subsystem** (`chakrview/cognition/federated/`):
+  - `models.py`: Strongly typed `AgentIdentity`, `AgentRole`, `AgentCapability`, `AgentStatus`, `AgentContract`, `AgentMessage`, `MessageEnvelope`, `AgentTask`, `ConflictState`, `FederatedConflictRecord`, `FederatedSynthesisCandidate`, and `SafePublicFederatedTrace`.
+  - `protocol.py`: `FederatedProtocolValidator` with message routing checks, tenant isolation, and cryptographic hashing/chain verification.
+  - `registry.py`: `AgentRegistry` with tenant-scoped isolation, duplicate identity detection, and hard capacity ceiling ($\le 8$ agents).
+  - `policy.py`: `FederatedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to cognitive budgets with hard ceilings ($\le 8$ agents, $\le 8$ rounds, $\le 128$ messages, $\le 4$ delegation depth).
+  - `decomposition.py`: `FederatedTaskDecomposer` mapping factual, analytical, decision, capability, and general objectives to role-bounded `AgentTask`s.
+  - `agents.py`: `FederatedAgent` base class + `AnalystAgent`, `ResearcherAgent`, `CriticAgent`, `PlannerAgent`, `SynthesizerAgent`, `VerifierAgent`.
+  - `evidence.py`: `FederatedEvidenceAggregator` strictly categorizing claims, ground evidence, interpretations, assumptions, and counter-evidence.
+  - `conflict.py`: `FederatedConflictResolver` detecting contradictions and preserving minority opinions/evidence.
+  - `synthesis.py`: `FederatedSynthesizer` assembling multi-agent consensus, minority opinions, and decision states.
+  - `engine.py`: `FederatedCognitionEngine` coordinating the cooperative multi-agent lifecycle, fault isolation/retries, capability gate routing, fail-closed SHA-256 weight hash invariant verification, and episodic memory experience recording.
+  - `__init__.py`: Clean public exports of federated cognition components.
+* 38 new unit, invariant, capability gate, conflict resolution, tenant isolation, and full cycle tests in `tests/test_federated_cognition.py`, expanding the verified test suite to 718 tests across 71 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Federated Multi-Node Swarms:** Cross-network multi-agent orchestration is deferred to Step 26+.
-* **Autonomous Profile Tuning:** Dynamic auto-tuning of resource profiles based on thermal telemetry.
-* **Online/Continual Parameter Updates:** Runtime weight mutation remains permanently forbidden by design.
+* **Cross-Network Multi-Node Swarms:** Cross-network multi-agent clustering via distributed network transport is deferred to Step 27+.
+* **Asymmetric Keypair Attestation:** Ed25519 PKI signatures for remote distributed agents.
+* **Autonomous Profile Tuning:** Dynamic auto-tuning of resource profiles based on hardware thermal telemetry.
 
 ---
 
 ### Progress by Module
-- `chakrview/cognition/unified/`: **Unified Cognitive Architecture (New in Step 25)**
+- `chakrview/cognition/federated/`: **Multi-Agent Federated Cognition & Cooperative Intelligence Foundation (New in Step 26)**
+  - `models.py`: Strongly typed `AgentIdentity`, `AgentRole`, `AgentCapability`, `AgentStatus`, `AgentContract`, `AgentMessage`, `MessageEnvelope`, `AgentTask`, `ConflictState`, `FederatedConflictRecord`, `FederatedSynthesisCandidate`, and `SafePublicFederatedTrace`
+  - `protocol.py`: `FederatedProtocolValidator` with message routing checks, tenant isolation, and cryptographic hashing/chain verification
+  - `registry.py`: `AgentRegistry` with tenant-scoped isolation, duplicate identity detection, and hard capacity ceiling ($\le 8$ agents)
+  - `policy.py`: `FederatedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to cognitive budgets with hard ceilings ($\le 8$ agents, $\le 8$ rounds, $\le 128$ messages, $\le 4$ delegation depth)
+  - `decomposition.py`: `FederatedTaskDecomposer` mapping factual, analytical, decision, capability, and general objectives to role-bounded `AgentTask`s
+  - `agents.py`: `FederatedAgent` base class + `AnalystAgent`, `ResearcherAgent`, `CriticAgent`, `PlannerAgent`, `SynthesizerAgent`, `VerifierAgent`
+  - `evidence.py`: `FederatedEvidenceAggregator` strictly categorizing claims, ground evidence, interpretations, assumptions, and counter-evidence
+  - `conflict.py`: `FederatedConflictResolver` detecting contradictions and preserving minority opinions/evidence
+  - `synthesis.py`: `FederatedSynthesizer` assembling multi-agent consensus, minority opinions, and decision states
+  - `engine.py`: `FederatedCognitionEngine` coordinating the cooperative multi-agent lifecycle, fault isolation/retries, capability gate routing, fail-closed SHA-256 weight hash invariant verification, and episodic memory experience recording
+  - `__init__.py`: Clean public exports of federated cognition components
+- `chakrview/cognition/unified/`: **Unified Cognitive Architecture (Ratified in Step 25)**
   - `models.py`: Strongly typed `CognitiveTaskType`, `DecisionState` (8 bounded states), `UnifiedCognitiveState`, and `SafePublicCognitiveTrace`
   - `policy.py`: `UnifiedCognitivePolicy` mapping resource profiles to cognitive budgets with hard architectural ceilings
   - `context.py`: `CognitiveContextCompressor` with deterministic 9-tier priority ordering within 512-token limit
@@ -104,8 +120,8 @@
   - `storage.py`: ContinualMemoryStorage with schema version "24.1" and integrity validation
   - `engine.py`: ContinualCognitionEngine orchestrating all continual memory operations
   - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py` (Step 16 Persistent Memory Foundation fully preserved)
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23)**
-  - Updated `__init__.py` exposing critical, adaptation, and diagnostics subpackages
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23 & 26)**
+  - Updated `__init__.py` exposing critical, adaptation, diagnostics, unified, and federated subpackages
   - `controller.py`, `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
@@ -114,6 +130,8 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_federated_cognition.py`: Step 26 empirical federated cognition benchmark
+  - `benchmark_unified_cognition.py`: Step 25 empirical unified cognition benchmark
   - `benchmark_memory.py`: Step 24 empirical memory & continual cognition benchmark
   - `benchmark_critical_thinking.py`: Step 23 empirical critical thinking & adaptation benchmark
   - `benchmark_training.py`: Step 22 empirical neural learning benchmark
@@ -122,7 +140,9 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **650/650 Tests Passing** across 69 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **718/718 Tests Passing** across 71 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 38 Multi-Agent Federated Cognition & Cooperative Intelligence tests (`test_federated_cognition.py`)
+  - 30 Unified Cognitive Architecture & End-to-End Cycle tests (`test_unified_cognition.py`)
   - 32 Memory, Experience & Continual Cognition tests (`test_continual_memory.py`)
   - 30 Critical Thinking, Adaptation, Diagnostics & Recovery tests (`test_critical_thinking.py`)
   - 25 Neural Learning & CPU Training tests (`test_neural_learning.py`)
@@ -143,6 +163,10 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 26 Architecture Report)
+  - `docs/STEP_26_BENCHMARK_RESULTS.json` (Step 26 Empirical Benchmark Data)
+  - `docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md` (Step 25 Architecture Report)
+  - `docs/STEP_25_BENCHMARK_RESULTS.json` (Step 25 Empirical Benchmark Data)
   - `docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md` (Step 24 Architecture Report)
   - `docs/STEP_24_BENCHMARK_RESULTS.json` (Step 24 Empirical Benchmark Data)
   - `docs/STEP_23_CRITICAL_THINKING_ADAPTIVE_ARCHITECTURE.md` (Step 23 Architecture Report)
@@ -201,15 +225,16 @@
 ---
 
 ## Known Limitations
-1. **Syntactic Proposition Extraction**: Automatic pattern extraction during consolidation relies on deterministic grammatical heuristics; complex multi-clause open-domain relations rely on structured reasoning passes.
-2. **Single-Node Memory Scaling**: Memory stores currently optimize for single-machine CPU/workstation architectures; distributed multi-node replication is deferred.
-3. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
-4. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
-5. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
+1. **In-Process Coordination**: Multi-agent coordination is currently bounded to local, in-process single-host execution; network transport is deferred to Step 27+.
+2. **Syntactic Proposition Extraction**: Automatic pattern extraction during consolidation relies on deterministic grammatical heuristics; complex multi-clause open-domain relations rely on structured reasoning passes.
+3. **Single-Node Memory Scaling**: Memory stores currently optimize for single-machine CPU/workstation architectures; distributed multi-node replication is deferred.
+4. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
+5. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
+6. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 25 RATIFIED — UNIFIED COGNITIVE ARCHITECTURE & END-TO-END COGNITIVE CYCLE COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 26 (Awaiting user explicit command; DO NOT START STEP 26 AUTOMATICALLY).
+- **Decision**: **STEP 26 RATIFIED — MULTI-AGENT FEDERATED COGNITION & COOPERATIVE INTELLIGENCE COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 27 (Awaiting user explicit command; DO NOT START STEP 27 AUTOMATICALLY).
