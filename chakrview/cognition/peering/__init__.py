@@ -70,6 +70,29 @@ from chakrview.cognition.peering.engine import (
     CrossZoneAuthorizationError,
     WeightMutationDetectedError,
 )
+from chakrview.cognition.peering.crypto import (
+    KeyLifecycleState,
+    CryptoError,
+    SignatureVerificationError,
+    KeyStateError,
+    Ed25519PublicKeyWrapper,
+    Ed25519PrivateKeyWrapper,
+    KeyRevocationRecord,
+    CryptographicPeerIdentity,
+)
+from chakrview.cognition.peering.authentication import (
+    PeerAuthenticationState,
+    AuthenticationError,
+    ReplayedChallengeError,
+    ChallengeExpiredError,
+    AuthChallenge,
+    AuthChallengeResponse,
+    ChallengeResponseAuthenticator,
+)
+from chakrview.cognition.peering.session import (
+    SessionStatus,
+    SecurePeerSession,
+)
 
 __all__ = [
     # Models & Ceilings
@@ -126,4 +149,22 @@ __all__ = [
     "CrossZoneFederationEngine",
     "CrossZoneAuthorizationError",
     "WeightMutationDetectedError",
+    # Step 30 Cryptographic Identity & Auth
+    "KeyLifecycleState",
+    "CryptoError",
+    "SignatureVerificationError",
+    "KeyStateError",
+    "Ed25519PublicKeyWrapper",
+    "Ed25519PrivateKeyWrapper",
+    "KeyRevocationRecord",
+    "CryptographicPeerIdentity",
+    "PeerAuthenticationState",
+    "AuthenticationError",
+    "ReplayedChallengeError",
+    "ChallengeExpiredError",
+    "AuthChallenge",
+    "AuthChallengeResponse",
+    "ChallengeResponseAuthenticator",
+    "SessionStatus",
+    "SecurePeerSession",
 ]

@@ -1,0 +1,37 @@
+{
+  "step": "Step 30 \u2014 Secure Physical Transport & Cryptographic Peer Identity",
+  "iterations": 50,
+  "latencies_ms": {
+    "key_generation_ms": 0.058,
+    "signing_ms": 0.037,
+    "verification_ms": 0.07,
+    "challenge_creation_ms": 0.007,
+    "challenge_verification_ms": 0.127,
+    "envelope_serialization_ms": 0.07,
+    "envelope_validation_ms": 0.217,
+    "loopback_round_trip_ms": 0.003,
+    "tcp_round_trip_ms": 0.125,
+    "authentication_lifecycle_ms": 0.364,
+    "complete_wire_lifecycle_ms": 0.895
+  },
+  "throughput_ops_sec": {
+    "key_generation_ops_sec": 17178.0,
+    "signing_ops_sec": 27285.1,
+    "verification_ops_sec": 14339.8,
+    "wire_serialization_ops_sec": 14189.6,
+    "loopback_round_trip_ops_sec": 338295.0,
+    "tcp_round_trip_ops_sec": 8002.4
+  },
+  "memory": {
+    "peak_memory_mb": 3.26
+  },
+  "invariants": {
+    "chakrmicro_parameters": 3443136,
+    "vocabulary_size": 4096,
+    "context_window": 512,
+    "model_pre_hash": "16f7453ac207444d0626944216b81aacaa7619c417672397ecd1b0f3c1b626c4",
+    "model_post_hash": "16f7453ac207444d0626944216b81aacaa7619c417672397ecd1b0f3c1b626c4",
+    "weight_mutation_detected": false,
+    "weight_delta": 0
+  }
+}

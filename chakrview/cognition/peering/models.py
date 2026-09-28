@@ -121,6 +121,14 @@ class AuditEventType(str, Enum):
     FEDERATION_EXPIRED = "FEDERATION_EXPIRED"
     REQUEST_DENIED = "REQUEST_DENIED"
     ISOLATION_VIOLATION = "ISOLATION_VIOLATION"
+    PEER_AUTHENTICATED = "PEER_AUTHENTICATED"
+    AUTHENTICATION_FAILED = "AUTHENTICATION_FAILED"
+    SESSION_CREATED = "SESSION_CREATED"
+    SESSION_EXPIRED = "SESSION_EXPIRED"
+    SESSION_TERMINATED = "SESSION_TERMINATED"
+    KEY_ROTATED = "KEY_ROTATED"
+    KEY_REVOKED = "KEY_REVOKED"
+    REPLAY_ATTACK_DETECTED = "REPLAY_ATTACK_DETECTED"
 
 
 # ============================================================================
@@ -369,6 +377,7 @@ class PeerRegistration:
     registered_epoch: int = 1
     last_seen_epoch: int = 1
     revocation_record: Optional[RevocationRecord] = None
+    cryptographic_identity: Optional[Any] = None
 
     def is_active(self, current_epoch: int) -> bool:
         if self.discovery_status in (DiscoveryStatus.REJECTED, DiscoveryStatus.REVOKED, DiscoveryStatus.EXPIRED):
@@ -386,6 +395,7 @@ class PeerRegistration:
             "registered_epoch": self.registered_epoch,
             "last_seen_epoch": self.last_seen_epoch,
             "revocation_record": self.revocation_record.to_dict() if self.revocation_record else None,
+            "has_cryptographic_identity": self.cryptographic_identity is not None,
         }
 
 
