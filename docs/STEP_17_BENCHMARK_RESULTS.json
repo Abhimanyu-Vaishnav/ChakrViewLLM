@@ -1,0 +1,102 @@
+{
+  "timestamp": 1790587663.752026,
+  "platform": {
+    "system": "Windows",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "python_version": "3.14.7"
+  },
+  "registration_benchmark": {
+    "latency_us": 0.14,
+    "ops_per_sec": 7172572
+  },
+  "lookup_benchmark": {
+    "latency_us": 0.04,
+    "lookups_per_sec": 24978144
+  },
+  "validation_benchmark": {
+    "latency_us": 0.39
+  },
+  "authorization_benchmark": {
+    "latency_us": 0.7,
+    "checks_per_sec": 1436286
+  },
+  "execution_benchmarks": {
+    "compute_calculator": {
+      "latency_us": 8.95,
+      "latency_ms": 0.009,
+      "ops_per_sec": 111708,
+      "success": true
+    },
+    "compute_text_transform": {
+      "latency_us": 1.72,
+      "latency_ms": 0.0017,
+      "ops_per_sec": 582295,
+      "success": true
+    },
+    "utility_clock": {
+      "latency_us": 2.17,
+      "latency_ms": 0.0022,
+      "ops_per_sec": 460990,
+      "success": true
+    },
+    "sensor_reading": {
+      "latency_us": 0.87,
+      "latency_ms": 0.0009,
+      "ops_per_sec": 1153695,
+      "success": true
+    },
+    "actuator_control": {
+      "latency_us": 1.63,
+      "latency_ms": 0.0016,
+      "ops_per_sec": 612835,
+      "success": true
+    }
+  },
+  "governed_pipeline_benchmarks": {
+    "compute_calculator": {
+      "latency_us": 13.18,
+      "latency_ms": 0.0132,
+      "ops_per_sec": 75884
+    },
+    "compute_text_transform": {
+      "latency_us": 8.92,
+      "latency_ms": 0.0089,
+      "ops_per_sec": 112129
+    },
+    "utility_clock": {
+      "latency_us": 10.58,
+      "latency_ms": 0.0106,
+      "ops_per_sec": 94488
+    },
+    "sensor_reading": {
+      "latency_us": 1.97,
+      "latency_ms": 0.002,
+      "ops_per_sec": 508104
+    },
+    "actuator_control": {
+      "latency_us": 1.84,
+      "latency_ms": 0.0018,
+      "ops_per_sec": 542676
+    }
+  },
+  "scale_benchmarks": {
+    "scale_10_caps": {
+      "count": 11,
+      "lookup_latency_us": 0.16,
+      "filter_list_latency_us": 1.14,
+      "lookup_qps": 6267234
+    },
+    "scale_100_caps": {
+      "count": 101,
+      "lookup_latency_us": 0.15,
+      "filter_list_latency_us": 7.88,
+      "lookup_qps": 6761325
+    },
+    "scale_1000_caps": {
+      "count": 1001,
+      "lookup_latency_us": 0.14,
+      "filter_list_latency_us": 80.07,
+      "lookup_qps": 6977880
+    }
+  }
+}

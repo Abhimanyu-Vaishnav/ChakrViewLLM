@@ -109,6 +109,8 @@ class CognitiveController:
         artifact_manager: Optional[ArtifactManager] = None,
         context_builder: Optional[PromptContextBuilder] = None,
         profile: Optional[DeploymentProfile] = None,
+        capability_gate: Optional[Any] = None,
+        environment: Optional[Any] = None,
     ) -> None:
         self.profile = profile or get_desktop_profile()
         self.planner = planner or DeterministicRulePlanner(self.profile.to_constraints())
@@ -118,6 +120,8 @@ class CognitiveController:
         self.recovery_manager = recovery_manager or RecoveryManager()
         self.artifact_manager = artifact_manager or ArtifactManager()
         self.context_builder = context_builder or PromptContextBuilder()
+        self.capability_gate = capability_gate
+        self.environment = environment
 
     def execute_task(
         self,
@@ -128,6 +132,8 @@ class CognitiveController:
         memory_store: Optional[Any] = None,
         preferred_domain: Optional[Any] = None,
         personal_memory: Optional[Any] = None,
+        capability_gate: Optional[Any] = None,
+        environment: Optional[Any] = None,
     ) -> CognitiveExecutionResult:
         """
         Execute a complete governed cognitive workflow for the given task.
@@ -216,6 +222,16 @@ class CognitiveController:
         task.transition_to(TaskStatus.RUNNING, reason="Starting step execution loop.")
         trace.record_event("TASK_STATUS_CHANGE", details={"status": TaskStatus.RUNNING.value})
 
+        active_cap_gate = capability_gate or self.capability_gate
+        active_env = environment or self.environment
+        if active_cap_gate is None:
+            try:
+                from chakrview.capability.gate import CapabilityGate
+                from chakrview.capability.bridge import get_standard_capability_registry
+                active_cap_gate = CapabilityGate(get_standard_capability_registry())
+            except Exception:
+                active_cap_gate = None
+
         # 7. Execution Loop
         while not graph.is_finished():
             ready_steps = graph.get_ready_steps()
@@ -229,6 +245,7 @@ class CognitiveController:
                 trace.record_event("STEP_START", step_id=step.step_id, details={
                     "description": step.description,
                     "required_tool": step.required_tool,
+                    "required_capability": getattr(step, "required_capability", None),
                 })
 
                 # Execute Step logic
@@ -240,6 +257,8 @@ class CognitiveController:
                     memory_store=memory_store,
                     artifacts=artifacts,
                     personal_memory=personal_memory,
+                    capability_gate=active_cap_gate,
+                    environment=active_env,
                 )
                 observations[step.step_id] = observation
 
@@ -375,13 +394,58 @@ class CognitiveController:
         memory_store: Optional[Any],
         artifacts: List[CognitiveArtifact],
         personal_memory: Optional[Any] = None,
+        capability_gate: Optional[Any] = None,
+        environment: Optional[Any] = None,
     ) -> StepObservation:
         """
         Internal executor for a single cognitive step.
         """
         t0 = time.perf_counter()
 
-        # 1. Governed Tool Execution
+        # 1. Governed Capability Execution (Step 17)
+        req_cap = getattr(step, "required_capability", None)
+        if req_cap:
+            args = dict(getattr(step, "capability_arguments", {}))
+            for ref_k, state_k in step.input_references.items():
+                if state_k in task.execution_state:
+                    args[ref_k] = task.execution_state[state_k]
+
+            from chakrview.capability.contract import CapabilityRequest, CapabilityContext
+            from chakrview.capability.bridge import capability_result_to_observation
+
+            req = CapabilityRequest(
+                capability_id=req_cap,
+                parameters=args,
+                caller_id=getattr(task, "owner_id", "agent"),
+                task_id=task.task_id,
+            )
+            granted = set(getattr(resolved_skill.policy, "allowed_permissions", [])) if resolved_skill and hasattr(resolved_skill, "policy") else set()
+            if not granted:
+                granted = {
+                    "capability.compute.math",
+                    "capability.compute.text",
+                    "capability.read.clock",
+                    "capability.sensor.read",
+                    "capability.actuator.control",
+                }
+
+            ctx = CapabilityContext(
+                user_id=getattr(task, "owner_id", "default_user"),
+                task_id=task.task_id,
+                environment_id=environment.environment_id if environment else "default_env",
+                granted_permissions=granted,
+            )
+            gate = capability_gate or self.capability_gate
+            active_pol = environment or (resolved_skill.policy if resolved_skill and hasattr(resolved_skill, "policy") else None)
+            cap_res = gate.execute_governed(
+                request=req,
+                context=ctx,
+                active_policy=active_pol,
+            )
+            desc = gate.registry.get_descriptor(req_cap) if gate and gate.registry.has(req_cap) else None
+            return capability_result_to_observation(step.step_id, cap_res, descriptor=desc)
+
+        # 2. Governed Tool Execution (Step 11/15)
         if step.required_tool:
             # Resolve tool arguments from task.execution_state if referenced
             args = dict(step.tool_arguments)
