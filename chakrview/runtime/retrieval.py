@@ -731,3 +731,7 @@ class UnifiedRetriever:
                 "memory_priority_boost": self.memory_priority_boost,
             },
         )
+
+
+# Step 14 Neural Semantic Provider Re-export
+from chakrview.semantic.provider import NeuralSemanticEmbeddingProvider

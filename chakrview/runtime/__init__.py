@@ -115,6 +115,7 @@ from chakrview.runtime.retrieval import (
     InMemoryVectorIndex,
     HybridRetriever,
     UnifiedRetriever,
+    NeuralSemanticEmbeddingProvider,
 )
 
 __all__ = [
@@ -217,6 +218,7 @@ __all__ = [
     "InMemoryVectorIndex",
     "HybridRetriever",
     "UnifiedRetriever",
+    "NeuralSemanticEmbeddingProvider",
 ]
 
 
