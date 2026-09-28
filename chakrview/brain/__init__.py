@@ -12,6 +12,14 @@ from chakrview.brain.feedforward import SwiGLU
 from chakrview.brain.block import TransformerBlock
 from chakrview.brain.output import LMHead
 from chakrview.brain.initialization import initialize_weights
+from chakrview.brain.cache import (
+    KVCache,
+    LayerKVCache,
+    KVCacheError,
+    KVCacheOverflowError,
+    KVCacheDeviceMismatchError,
+    KVCacheDtypeMismatchError,
+)
 from chakrview.brain.model import ChakrMicro
 
 __all__ = [
@@ -26,4 +34,11 @@ __all__ = [
     "LMHead",
     "initialize_weights",
     "ChakrMicro",
+    "KVCache",
+    "LayerKVCache",
+    "KVCacheError",
+    "KVCacheOverflowError",
+    "KVCacheDeviceMismatchError",
+    "KVCacheDtypeMismatchError",
 ]
+

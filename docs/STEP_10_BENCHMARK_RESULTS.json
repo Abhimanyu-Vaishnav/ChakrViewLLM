@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-09-28 11:36:33",
+  "device": "cpu",
+  "threads": 4,
+  "model_parameters": 3443136,
+  "scenarios": [
+    {
+      "prompt_length": 16,
+      "generation_length": 16,
+      "full_forward_latency_ms": 44.90540000551846,
+      "kv_cache_latency_ms": 31.74569999828236,
+      "speedup": 1.414534882139884,
+      "kv_cache_throughput_tok_sec": 504.00526688230843,
+      "cache_memory_bytes": 285696,
+      "max_logit_discrepancy": 1.4781951904296875e-05,
+      "tokens_identical": true
+    },
+    {
+      "prompt_length": 32,
+      "generation_length": 32,
+      "full_forward_latency_ms": 135.8955000032438,
+      "kv_cache_latency_ms": 62.94069999421481,
+      "speedup": 2.159103728044566,
+      "kv_cache_throughput_tok_sec": 508.41506374954963,
+      "cache_memory_bytes": 580608,
+      "max_logit_discrepancy": 1.049041748046875e-05,
+      "tokens_identical": true
+    },
+    {
+      "prompt_length": 64,
+      "generation_length": 64,
+      "full_forward_latency_ms": 332.40520000254037,
+      "kv_cache_latency_ms": 128.70639999891864,
+      "speedup": 2.582662556060407,
+      "kv_cache_throughput_tok_sec": 497.25576972503086,
+      "cache_memory_bytes": 1170432,
+      "max_logit_discrepancy": 1.239776611328125e-05,
+      "tokens_identical": true
+    },
+    {
+      "prompt_length": 128,
+      "generation_length": 64,
+      "full_forward_latency_ms": 483.7344999978086,
+      "kv_cache_latency_ms": 133.42140000168,
+      "speedup": 3.6256140318698313,
+      "kv_cache_throughput_tok_sec": 479.68316926065927,
+      "cache_memory_bytes": 1760256,
+      "max_logit_discrepancy": 1.33514404296875e-05,
+      "tokens_identical": true
+    },
+    {
+      "prompt_length": 256,
+      "generation_length": 64,
+      "full_forward_latency_ms": 898.0445999986841,
+      "kv_cache_latency_ms": 178.4332000024733,
+      "speedup": 5.032945662501351,
+      "kv_cache_throughput_tok_sec": 358.6776451866182,
+      "cache_memory_bytes": 2939904,
+      "max_logit_discrepancy": 1.239776611328125e-05,
+      "tokens_identical": true
+    },
+    {
+      "prompt_length": 256,
+      "generation_length": 128,
+      "full_forward_latency_ms": 2491.172699999879,
+      "kv_cache_latency_ms": 361.295999995491,
+      "speedup": 6.895101800271714,
+      "kv_cache_throughput_tok_sec": 354.28014703068243,
+      "cache_memory_bytes": 3529728,
+      "max_logit_discrepancy": 1.33514404296875e-05,
+      "tokens_identical": true
+    }
+  ],
+  "summary": {
+    "average_speedup": 3.618327110147959,
+    "max_logit_discrepancy": 1.4781951904296875e-05,
+    "all_tokens_identical": true
+  }
+}

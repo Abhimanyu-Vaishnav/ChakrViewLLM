@@ -2,8 +2,9 @@
 ChakrMicro: The foundational indigenous decoder-only causal language model brain.
 """
 
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Tuple
 import torch
+
 import torch.nn as nn
 from chakrview.brain.config import ModelConfig
 from chakrview.brain.embeddings import TokenEmbedding
@@ -53,6 +54,7 @@ class ChakrMicro(nn.Module):
         self,
         input_ids: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
+        kv_cache: Optional[Any] = None,
     ) -> torch.Tensor:
         """
         Forward pass from token IDs to next-token logits.
@@ -60,22 +62,25 @@ class ChakrMicro(nn.Module):
         Args:
             input_ids: Integer tensor of shape [B, T] where values are in [0, V-1].
             attention_mask: Optional mask tensor of shape [B, T] (1 for valid, 0 for padding).
+            kv_cache: Optional KVCache instance for caching keys and values across steps.
             
         Returns:
             Logits tensor of shape [B, T, vocab_size].
         """
         B, T = input_ids.shape
-        if T > self.config.max_seq_len:
+        past_len = kv_cache.sequence_length if kv_cache is not None else 0
+        
+        if past_len + T > self.config.max_seq_len:
             raise ValueError(
-                f"Sequence length {T} exceeds maximum context window {self.config.max_seq_len}."
+                f"Total sequence length {past_len + T} exceeds maximum context window {self.config.max_seq_len}."
             )
             
         # 1. Token embeddings: [B, T, d_model]
         x = self.embedding(input_ids)
         
         # 2. Sequential transformer blocks: [B, T, d_model]
-        for layer in self.layers:
-            x = layer(x, attention_mask=attention_mask)
+        for i, layer in enumerate(self.layers):
+            x = layer(x, attention_mask=attention_mask, kv_cache=kv_cache, layer_idx=i)
             
         # 3. Final Pre-RMSNorm: [B, T, d_model]
         x = self.final_norm(x)
@@ -83,6 +88,58 @@ class ChakrMicro(nn.Module):
         # 4. Tied projection to vocabulary logits: [B, T, vocab_size]
         logits = self.lm_head(x)
         return logits
+
+    def prefill(
+        self,
+        prompt_tokens: torch.Tensor,
+        kv_cache: Optional[Any] = None,
+        attention_mask: Optional[torch.Tensor] = None,
+    ) -> Tuple[torch.Tensor, Any]:
+        """
+        Process the entire prompt, initializing and populating the KV cache.
+        
+        Args:
+            prompt_tokens: Tensor of shape [B, T_prompt]
+            kv_cache: Optional existing KVCache (created automatically if None)
+            attention_mask: Optional mask
+            
+        Returns:
+            Tuple of (logits [B, T_prompt, vocab_size], populated_kv_cache)
+        """
+        if kv_cache is None:
+            from chakrview.brain.cache import KVCache
+            kv_cache = KVCache(
+                num_layers=self.config.n_layers,
+                max_seq_len=self.config.max_seq_len,
+                device=prompt_tokens.device,
+                dtype=self.embedding.weight.dtype,
+            )
+        
+        logits = self.forward(prompt_tokens, attention_mask=attention_mask, kv_cache=kv_cache)
+        return logits, kv_cache
+
+    def decode_next(
+        self,
+        token: torch.Tensor,
+        kv_cache: Any,
+    ) -> torch.Tensor:
+        """
+        Decode a single token using existing KV cache.
+        
+        Args:
+            token: Tensor of shape [B, 1] containing next token ID
+            kv_cache: Populated KVCache instance
+            
+        Returns:
+            Logits tensor of shape [B, 1, vocab_size]
+        """
+        if token.dim() != 2 or token.shape[1] != 1:
+            raise ValueError(f"decode_next expects token shape [B, 1], got {token.shape}")
+        if kv_cache is None:
+            raise ValueError("decode_next requires an active kv_cache instance.")
+            
+        return self.forward(token, kv_cache=kv_cache)
+
 
     def count_parameters(self) -> Dict[str, int]:
         """
