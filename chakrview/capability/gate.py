@@ -118,9 +118,11 @@ class CapabilityGate:
             "hypothesis", "reasoning_hypothesis", "inference", "reasoning_inference",
             "reasoning_trace", "decision_candidate", "user_assertion",
             "critical_thinking", "critical_hypothesis", "critical_trace",
+            "continual_memory", "episodic_memory", "semantic_memory",
+            "memory_consolidation", "experience",
         ):
             raise CapabilityAuthorizationError(
-                f"Authority denial: Retrieved content, state assertions, or reasoning ('{provenance}') "
+                f"Authority denial: Retrieved content, state assertions, reasoning, or memory ('{provenance}') "
                 f"cannot authorize execution of capability '{cap_id}'."
             )
 

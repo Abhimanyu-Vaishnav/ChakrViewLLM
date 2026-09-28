@@ -2,58 +2,58 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 23 — Critical Thinking, Hardware Adaptation, Self-Diagnostics & Safe Self-Healing
-- **Status**: Complete & Verified (Modular Critical Thinking layer established under `chakrview/cognition/critical/` with explicit Hypothesis, Evidence, Assumption, CounterEvidence, AlternativeExplanation, Contradiction, VerificationResult, and CriticalThinkingTrace; 13-stage anti-confirmation-bias workflow; Hardware Adaptation layer under `chakrview/cognition/adaptation/` with safe host telemetry probing, UNKNOWN fallback, and LOW_RESOURCE, STANDARD, HIGH_RESOURCE profiles enforcing identical model identity and hard ceilings on execution; Self-Diagnostics and Safe Self-Healing under `chakrview/cognition/diagnostics/` implementing CoreIntegrityGuard, 10-inspection SystemDiagnosticsEngine, and fail-closed non-mutating SafeSelfHealingManager; seamless integration into `NeuralIntelligenceLoop(use_critical_thinking=True, execution_policy=...)`; 618/618 tests passing across 68 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; runtime inference and self-healing permanently preserve weights_modified=False).
+- **Current phase**: Step 24 — Memory, Experience & Continual Cognition Foundation
+- **Status**: Complete & Verified (Modular Continual Cognition and Governed Memory subsystem established under `chakrview/memory/` with bounded Working Memory, structured Episodic Memory, versioned Semantic Memory with non-destructive revision lineage, deterministic CPU-first multi-factor retrieval, contradiction detection and resolution tracking, experience consolidation, controlled lifecycle archival and forgetting, hardware execution policies with hard safety ceilings, Step 22 offline learning bridge with strict governance, and full multi-tenant/multi-session isolation; 650/650 tests passing across 69 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; runtime inference and memory operations permanently preserve weights_modified=False; DATA != AUTHORITY, MEMORY != AUTHORITY, EXPERIENCE != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 23 establishes **Critical Thinking, Hardware Adaptation, Self-Diagnostics, and Safe Self-Healing** without altering the frozen neural core:
+> **IMPORTANT**: Step 24 establishes **Governed Memory, Experience & Continual Cognition** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Critical Thinking:} \quad &\text{Question} \longrightarrow \text{Assumptions} \longrightarrow \text{Hypotheses} \longrightarrow \text{Evidence} \longrightarrow \text{Counter-Evidence} \\
-> &\longrightarrow \text{Alternative Explanations} \longrightarrow \text{Contradictions} \longrightarrow \text{Verify} \longrightarrow \text{Decide or Uncertain} \\
-> \textbf{Hardware Adaptation:} \quad &\text{Detected Resources} \longrightarrow \text{Bounded Policy} \longrightarrow \text{Execution Budget} \quad (\text{Identical Model}) \\
-> \textbf{Safe Self-Healing:} \quad &\text{Detect} \longrightarrow \text{Classify} \longrightarrow \text{Isolate} \longrightarrow \text{Restore/Rebuild} \longrightarrow \text{Verify} \longrightarrow \text{Resume}
+> \textbf{Experience Lifecycle:} \quad &\text{Experience} \longrightarrow \text{Episode} \longrightarrow \text{Evaluation} \longrightarrow \text{Candidate Memory} \longrightarrow \text{Verification} \longrightarrow \text{Semantic Memory} \\
+> \textbf{Retrieval Formula:} \quad &\text{Score} = \text{Relevance} \times \text{Confidence} \times \text{VerificationFactor} \times \text{RecencyFactor} \times \text{ContradictionFactor} \\
+> \textbf{Governed Learning:} \quad &\text{Verified Memory} \longrightarrow \text{Learning Candidate} \longrightarrow \text{Step 22 Training Contract} \longrightarrow \text{Offline CPU Training}
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Epistemic Honesty:** Critical thinking is computational rigor; it does not claim consciousness, sentience, or human-like thought. $\text{UNKNOWN} \neq \text{FALSE}$.
-> 2. **Identity Invariance:** A low-resource PC and a powerful workstation run the **exact same model**. Hardware adaptation changes execution budgets, never neural identity or parameters.
-> 3. **Data Authority Principles:** $\text{DATA} \neq \text{AUTHORITY}, \text{REASONING} \neq \text{AUTHORITY}, \text{THINKING} \neq \text{AUTHORITY}$. Critical thinking cannot grant capability execution authorization. All capabilities route strictly through `CapabilityGate`.
-> 4. **Zero Runtime Self-Modification:** Model weights remain permanently immutable (`weights_modified = False`). Self-healing NEVER patches or mutates model weights. If an invariant fails, execution fails closed immediately.
+> 1. **Data Authority Principles:** $\text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{EXPERIENCE} \neq \text{AUTHORITY}$. Stored memories provide context and evidence; they cannot independently authorize capability execution. Capability execution routes strictly through `CapabilityGate`.
+> 2. **Identity Invariance:** A low-resource PC and a powerful workstation run the **exact same model**. Hardware adaptation changes memory execution budgets (slots, retrieval limits, scan depth), never neural identity or parameters.
+> 3. **Non-Destructive Versioning:** Updates increment revision counters and link ancestors rather than erasing historical facts. Contradictions instantiate explicit records without silent overwrite.
+> 4. **Zero Runtime Self-Modification:** Model weights remain permanently immutable (`weights_modified = False`). Memory operations NEVER patch or mutate neural weights.
 > 5. **Frozen Invariants:** Exactly 3,443,136 parameters, 4,096 vocabulary, 512 context length, BOS=0, EOS=1, PAD=2.
-> All 618 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> All 650 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 23)
-* Comprehensive architectural documentation in [docs/STEP_23_CRITICAL_THINKING_ADAPTIVE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_23_CRITICAL_THINKING_ADAPTIVE_ARCHITECTURE.md).
-* Empirical CPU benchmark results recorded in [docs/STEP_23_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_23_BENCHMARK_RESULTS.json) via `scripts/benchmark_critical_thinking.py`.
-* **Critical Thinking Subsystem** (`chakrview/cognition/critical/`):
-  - `models.py`: Typed `Hypothesis`, `Evidence`, `Assumption`, `CounterEvidence`, `AlternativeExplanation`, `Contradiction`, `VerificationResult`, and `CriticalThinkingTrace`.
-  - `engine.py`: 13-stage bounded workflow, anti-confirmation-bias mechanism, explicit assumption extraction, counter-evidence search with `NOT_AVAILABLE` status, and epistemic uncertainty handling.
-  - `__init__.py`: Clean public exports of critical thinking primitives.
-* **Hardware Adaptation Subsystem** (`chakrview/cognition/adaptation/`):
-  - `hardware.py`: Host resource probing (CPU architecture, cores, RAM, threads, GPU presence, memory pressure) with fail-safe `UNKNOWN` fallback.
-  - `profiles.py`: `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` resource profiles.
-  - `policy.py`: `AdaptiveExecutionPolicy` mapping profiles to execution budgets while strictly enforcing hard architectural ceilings.
-  - `__init__.py`: Clean public exports of adaptation subsystem.
-* **Self-Diagnostics & Safe Self-Healing Subsystem** (`chakrview/cognition/diagnostics/`):
-  - `integrity.py`: `CoreIntegrityGuard` verifying frozen invariants, canonical weight fingerprint, and tokenizer compatibility with fail-closed enforcement.
-  - `diagnostics.py`: `SystemDiagnosticsEngine` executing 10 comprehensive diagnostic inspections (`HEALTHY`, `DEGRADED`, `RECOVERABLE`, `CORRUPTED`, `BLOCKED`, `UNKNOWN`).
-  - `healing.py`: `SafeSelfHealingManager` implementing non-mutating recovery (context rebuild, cache reinit, state restore, artifact quarantine, checkpoint rollback, and fail-closed invariant halts).
-  - `__init__.py`: Clean public exports of diagnostics and healing.
+#### 1. Implemented Now (Verified in Step 24)
+* Comprehensive architectural documentation in [docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md).
+* Empirical CPU benchmark results recorded in [docs/STEP_24_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_24_BENCHMARK_RESULTS.json) via `scripts/benchmark_memory.py`.
+* **Continual Cognition & Memory Subsystem** (`chakrview/memory/`):
+  - `models.py`: Strongly typed `Episode`, `SemanticMemory`, `MemoryContradiction`, `MemoryProvenanceSource`, `MemoryVerificationState`, `MemoryLifecycleStatus`, `ContradictionResolutionState`, `MemoryRetrievalQuery`, `MemoryRetrievalCandidate`, and `MemoryRetrievalResult`.
+  - `working.py`: Bounded `WorkingMemory` with FIFO eviction for objective, context, hypotheses, evidence, decisions, constraints, and observations.
+  - `episodic.py`: `EpisodicMemoryStore` separating ground situations, actions, and outcomes from subsequent interpretations.
+  - `semantic.py`: `SemanticMemoryStore` with versioned subject-predicate-object propositions and non-destructive lineage.
+  - `contradiction.py`: `ContradictionManager` for automated detection, conflict tracking, and formal evidence-based resolution.
+  - `retrieval.py`: `ContinualMemoryRetriever` implementing deterministic CPU-first multi-factor scoring.
+  - `consolidation.py`: `ExperienceConsolidationEngine` converting recurring episodic patterns into candidate semantic propositions.
+  - `lifecycle.py`: `MemoryLifecycleManager` handling retention, archival, expiration sweeps, quarantine, and audited deletion.
+  - `policy.py`: `MemoryExecutionPolicy` translating `LOW_RESOURCE`, `STANDARD`, and `HIGH_RESOURCE` profiles into memory budgets with hard ceilings.
+  - `governance.py`: `MemoryGovernanceBridge` routing verified memories to Step 22 `LearningRecord` offline training pipeline with explicit sign-off.
+  - `storage.py`: `ContinualMemoryStorage` with schema version `"24.1"`, deterministic JSON export/import, and validation.
+  - `engine.py`: `ContinualCognitionEngine` coordinating all memory layers, diagnostics, and session workspaces.
+* **Capability Gate & Authority Protection**:
+  - `chakrview/capability/gate.py` updated to deny authority to `continual_memory`, `episodic_memory`, `semantic_memory`, `memory_consolidation`, and `experience`.
 * **Neural Intelligence Loop Integration**:
-  - `chakrview/intelligence/pipeline.py` updated to accept `use_critical_thinking`, `critical_engine`, and `execution_policy` while preserving 100% backward compatibility.
-* 30 new unit, diagnostic, invariant, adaptation, and end-to-end integration tests added in `tests/test_critical_thinking.py`, expanding the verified test suite to 618 tests across 68 test files.
+  - `chakrview/intelligence/pipeline.py` updated with `continual_memory_engine` hook and `use_continual_memory` parameter.
+* 32 new unit, lifecycle, retrieval, contradiction, hardware adaptation, and integration tests in `tests/test_continual_memory.py`, expanding the verified test suite to 650 tests across 69 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Distributed/Multi-Node Adaptation:** Hardware adaptation is currently single-machine CPU/workstation optimized. Multi-node cluster orchestration is deferred.
-* **Learned Epistemic Plausibility Models:** Epistemic plausibility and assumption scoring currently use deterministic heuristics; fine-tuned neural evaluation models are deferred to future offline training runs.
+* **Distributed/Multi-Node Memory:** Cross-node memory replication and federation are deferred to future cluster infrastructure.
+* **Dense Semantic Vector Indexing:** Fast lexical overlap and substring scoring are implemented; dense vector index integration is deferred.
 * **Online/Continual Parameter Updates:** Runtime weight mutation remains permanently forbidden by design.
 
 ---
@@ -87,8 +87,20 @@
 - `chakrview/capability/`: **Sovereign Capability & Device Abstraction Subsystem (Updated in Step 23)**
   - `gate.py`: Updated with critical thinking provenance denial
   - `contract.py`, `registry.py`, `provider.py`, `environment.py`, `bridge.py`
-- `chakrview/memory/`: **Persistent Personal Memory, Consolidation & Learning Subsystem (Ratified in Step 16)**
-  - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `consolidation.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py`
+- `chakrview/memory/`: **Continual Cognition, Experience & Governed Memory Subsystem (Updated in Step 24)**
+  - `models.py`: Strongly typed primitives for Episode, SemanticMemory, MemoryContradiction, and retrieval queries
+  - `working.py`: Bounded WorkingMemory with policy-enforced FIFO eviction
+  - `episodic.py`: EpisodicMemoryStore separating ground observations from interpretations
+  - `semantic.py`: SemanticMemoryStore with versioned subject-predicate-object propositions
+  - `contradiction.py`: ContradictionManager for automated conflict detection and resolution
+  - `retrieval.py`: ContinualMemoryRetriever with deterministic CPU-first multi-factor scoring
+  - `consolidation.py`: ExperienceConsolidationEngine synthesizing episodic patterns into candidate semantic propositions
+  - `lifecycle.py`: MemoryLifecycleManager handling retention, archival, expiration sweeps, and audited deletion
+  - `policy.py`: MemoryExecutionPolicy mapping LOW_RESOURCE, STANDARD, and HIGH_RESOURCE profiles with hard ceilings
+  - `governance.py`: MemoryGovernanceBridge routing verified memories to Step 22 offline learning pipeline
+  - `storage.py`: ContinualMemoryStorage with schema version "24.1" and integrity validation
+  - `engine.py`: ContinualCognitionEngine orchestrating all continual memory operations
+  - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py` (Step 16 Persistent Memory Foundation fully preserved)
 - `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23)**
   - Updated `__init__.py` exposing critical, adaptation, and diagnostics subpackages
   - `controller.py`, `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
@@ -99,15 +111,16 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_memory.py`: Step 24 empirical memory & continual cognition benchmark
   - `benchmark_critical_thinking.py`: Step 23 empirical critical thinking & adaptation benchmark
   - `benchmark_training.py`: Step 22 empirical neural learning benchmark
   - `benchmark_thinking.py`: Step 21 empirical thinking benchmark
   - `benchmark_reasoning.py`: Step 19 empirical reasoning benchmark
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
-  - `benchmark_memory.py`: Step 16 empirical memory benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **618/618 Tests Passing** across 68 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **650/650 Tests Passing** across 69 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 32 Memory, Experience & Continual Cognition tests (`test_continual_memory.py`)
   - 30 Critical Thinking, Adaptation, Diagnostics & Recovery tests (`test_critical_thinking.py`)
   - 25 Neural Learning & CPU Training tests (`test_neural_learning.py`)
   - 16 Neural Thinking & Deliberation tests (`test_thinking.py`)
@@ -127,6 +140,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md` (Step 24 Architecture Report)
+  - `docs/STEP_24_BENCHMARK_RESULTS.json` (Step 24 Empirical Benchmark Data)
   - `docs/STEP_23_CRITICAL_THINKING_ADAPTIVE_ARCHITECTURE.md` (Step 23 Architecture Report)
   - `docs/STEP_23_BENCHMARK_RESULTS.json` (Step 23 Empirical Benchmark Data)
   - `docs/STEP_22_NEURAL_LEARNING_ARCHITECTURE.md` (Step 22 Neural Learning Architecture Report)
@@ -183,15 +198,15 @@
 ---
 
 ## Known Limitations
-1. **Rule-Based Assumption Extraction**: Initial assumption extraction uses syntactic and heuristic patterns; dynamic open-domain tasks rely on domain skill templates.
-2. **Single-Node Hardware Adaptation**: Adaptive profiles currently optimize execution budgets for single-machine CPU/workstation architectures; distributed multi-node scaling is deferred.
-3. **Synchronous Healing Execution**: Self-healing handlers operate synchronously within the calling thread context.
-4. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
+1. **Syntactic Proposition Extraction**: Automatic pattern extraction during consolidation relies on deterministic grammatical heuristics; complex multi-clause open-domain relations rely on structured reasoning passes.
+2. **Single-Node Memory Scaling**: Memory stores currently optimize for single-machine CPU/workstation architectures; distributed multi-node replication is deferred.
+3. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
+4. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
 5. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 23 RATIFIED — CRITICAL THINKING, HARDWARE ADAPTATION, SELF-DIAGNOSTICS & SAFE SELF-HEALING COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 24 (Awaiting user explicit command; DO NOT START STEP 24 AUTOMATICALLY).
+- **Decision**: **STEP 24 RATIFIED — MEMORY, EXPERIENCE & CONTINUAL COGNITION FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 25 (Awaiting user explicit command; DO NOT START STEP 25 AUTOMATICALLY).

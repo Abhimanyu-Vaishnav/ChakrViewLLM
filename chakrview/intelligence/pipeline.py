@@ -132,6 +132,7 @@ class NeuralIntelligenceLoop:
         critical_engine: Optional[Any] = None,
         execution_policy: Optional[Any] = None,
         diagnostics_engine: Optional[Any] = None,
+        continual_memory_engine: Optional[Any] = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
@@ -144,6 +145,7 @@ class NeuralIntelligenceLoop:
         self.critical_engine = critical_engine
         self.execution_policy = execution_policy
         self.diagnostics_engine = diagnostics_engine
+        self.continual_memory_engine = continual_memory_engine
 
         self.context_builder = context_builder or IntelligenceContextBuilder()
         self.inference_engine = inference_engine or NeuralInferenceEngine(
@@ -167,6 +169,8 @@ class NeuralIntelligenceLoop:
         use_critical_thinking: bool = False,
         critical_thinking_config: Optional[Any] = None,
         execution_policy: Optional[Any] = None,
+        use_continual_memory: bool = False,
+        continual_memory_engine: Optional[Any] = None,
     ) -> IntelligenceLoopOutcome:
         """
         Execute a full run of the Neural Intelligence Loop.
@@ -469,6 +473,22 @@ class NeuralIntelligenceLoop:
                 confidence=quality_score,
                 source="intelligence_loop",
             )
+
+        # 7. Continual Cognition Memory Hook (Step 24)
+        eff_mem = continual_memory_engine or self.continual_memory_engine
+        if eff_mem is not None and use_continual_memory:
+            try:
+                eff_mem.record_experience(
+                    tenant_id=owner_id,
+                    session_id=session_id,
+                    situation=clean_prompt,
+                    action_or_response=response_text,
+                    outcome="COMPLETED" if verification_passed else "DEGRADED",
+                    task_id=obs.task_id,
+                    confidence=quality_score,
+                )
+            except Exception:
+                pass  # Memory recording failure must never break core inference
 
         elapsed_ms = (time.perf_counter() - t0) * 1000.0
 
