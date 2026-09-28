@@ -36,28 +36,29 @@ class RotaryEmbedding(nn.Module):
         self.register_buffer("cos_cache", cos, persistent=False)
         self.register_buffer("sin_cache", sin, persistent=False)
 
-    def forward(self, x: torch.Tensor, seq_len: int) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, seq_len: int, offset: int = 0) -> torch.Tensor:
         """
         Apply RoPE to head tensor.
         
         Args:
             x: Tensor of shape [B, H, T, d_head]
             seq_len: Current sequence length (T)
+            offset: Starting sequence position offset (0 for full sequence, pos for cached decode)
             
         Returns:
             Rotated tensor of shape [B, H, T, d_head]
         """
-        if seq_len > self.max_seq_len:
+        if offset + seq_len > self.max_seq_len:
             raise ValueError(
-                f"seq_len ({seq_len}) exceeds configured max_seq_len ({self.max_seq_len})"
+                f"offset + seq_len ({offset + seq_len}) exceeds configured max_seq_len ({self.max_seq_len})"
             )
         B, H, T, D = x.shape
         x_paired = x.view(B, H, T, D // 2, 2)
         x0 = x_paired[..., 0]
         x1 = x_paired[..., 1]
         
-        cos = self.cos_cache[:seq_len].unsqueeze(0).unsqueeze(0)  # [1, 1, T, D//2]
-        sin = self.sin_cache[:seq_len].unsqueeze(0).unsqueeze(0)  # [1, 1, T, D//2]
+        cos = self.cos_cache[offset : offset + seq_len].unsqueeze(0).unsqueeze(0)  # [1, 1, T, D//2]
+        sin = self.sin_cache[offset : offset + seq_len].unsqueeze(0).unsqueeze(0)  # [1, 1, T, D//2]
         
         # Pairwise 2D rotation:
         # [x0 * cos - x1 * sin, x0 * sin + x1 * cos]
@@ -65,3 +66,4 @@ class RotaryEmbedding(nn.Module):
         rot_x1 = x0 * sin + x1 * cos
         
         return torch.stack((rot_x0, rot_x1), dim=-1).flatten(-2)
+

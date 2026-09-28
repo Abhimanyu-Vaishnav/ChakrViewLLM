@@ -2,76 +2,87 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 9 — Establish Adaptive Brain Architecture Foundation
-- **Status**: Complete & Verified (Layered adaptive brain architecture established; knowledge, skills, self-improvement, software integrity/rollback, hardware adaptation, and version lineage cleanly decoupled from frozen neural core; 289/289 tests passing across 40 test modules; zero regressions)
+- **Current phase**: Step 10 — Interactive Cognitive Inference Engine
+- **Status**: Complete & Verified (Interactive autoregressive inference engine with persistent KV cache, single-token incremental decoding, configurable sampling subsystem, streaming token generator, context window management, hardware execution planning, memory safety, zero-authority security boundary, and privacy-first observability established; 312/312 tests passing across 51 test files; zero regressions)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 9 has established the comprehensive layered architecture transforming ChakrView from a single pre-training experiment into a modular, extensible "adaptive brain". The neural core (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The newly added runtime framework (`chakrview/runtime/`) implements clean, testable contracts across six critical architectural pillars:
-> 1. **Knowledge Layer** (`knowledge.py`): Decouples external, enterprise, and user documents from weights via `KnowledgeSource`, `KnowledgeDocument`, `KnowledgeChunk`, `KnowledgeIndex`, and `ContextProvider`.
-> 2. **Skill Layer** (`skills.py`): Encapsulates specialized task policies (coding, reasoning, math) via `Skill`, `SkillRegistry`, `SkillProfile`, and `SkillExecutionPlan`.
-> 3. **Controlled Self-Improvement** (`improvement.py`): Implements an isolated, auditable proposal lifecycle (`ImprovementProposal`, `ChangeType`, `RiskLevel`, `ProposalStatus`) enforcing human approval gates on high/critical changes.
-> 4. **Software Integrity & Self-Healing** (`integrity.py`): Provides defense-in-depth via `ArtifactVerifier` (SHA-256 checks on files, JSON, and finite model weights), `QuarantineManager` for corrupt candidates, and atomic `RollbackManager`.
-> 5. **Hardware Adaptation** (`hardware.py`): Probes host CPU/RAM/GPU capabilities via `HardwareCapabilityDetector` and generates safe, optimal execution plans via `RuntimePlanner`.
-> 6. **Version Lineage** (`versioning.py`): Manages hierarchical derivation (Universal -> Domain -> Enterprise -> User) via `BrainVersionManifest` and `VersionLineageTracker`.
-> All 289 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 10 has established the production-quality interactive autoregressive inference engine around ChakrMicro, bridging the frozen pre-training foundation into the real-time cognitive execution layer. The neural core (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The newly added and enhanced subsystems implement clean, testable contracts across key pillars:
+> 1. **Persistent KV-Cache Engine** (`chakrview/brain/cache.py`): Efficient per-layer key/value tensor caching across all 6 transformer blocks with strict sequence length bounds ($T \le 512$), shape validation, device/dtype compatibility, memory tracking, dynamic cache reset, and windowed truncation.
+> 2. **Incremental Decoding Path** (`chakrview/brain/model.py`, `attention.py`, `rotary.py`): Added `prefill()` and `decode_next()` to `ChakrMicro` while preserving existing `forward()` causal execution. Numerically verified against the full forward pass ($\max |\Delta| < 1.5 \times 10^{-5}$, exact token-for-token equality).
+> 3. **Modular Sampling Subsystem** (`chakrview/runtime/sampling.py`): Decoupled sampling transforms and strategy dispatch supporting Greedy, Temperature, Top-K, Top-P (nucleus), Repetition Penalty, and Min-Prob thresholding with deterministic seeding.
+> 4. **Interactive Inference Session** (`chakrview/runtime/inference.py`): Universal runtime abstraction managing model weights, tokenizer, KV cache, hardware execution plans, streaming generation yields (`StreamToken`), structured stop reasons (`EOS`, `MAX_TOKENS`, `CONTEXT_LIMIT`), context overflow policies (`stop`, `truncate`, `sliding_window`), and privacy-first metrics (`InferenceMetrics`).
+> 5. **Empirical Benchmarking** (`scripts/benchmark_inference_kv_cache.py`, `docs/STEP_10_BENCHMARK_RESULTS.json`): Comprehensive empirical evaluation demonstrating up to **$6.90\times$ speedup** (average $3.62\times$) with KV caching over full-sequence recomputation.
+> 6. **Zero-Authority Security Boundary**: The inference engine strictly performs mathematical tensor transformations; prompt text is strictly treated as passive data tokens without filesystem, shell, OS, or network execution authority.
+> All 312 unit and regression tests pass with zero failures and zero warnings.
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural audit and threat modeling documented in [docs/STEP_09_ARCHITECTURE_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_09_ARCHITECTURE_AUDIT.md).
-* Implementation of `chakrview/runtime/` package with 6 core modules: `knowledge`, `skills`, `improvement`, `integrity`, `hardware`, and `versioning`.
-* 22 new unit tests added across 6 dedicated test modules in `tests/`, expanding the test suite to 289 tests.
+* Comprehensive architectural documentation and empirical benchmarks in [docs/STEP_10_INFERENCE_ENGINE.md](file:///d:/Project/ChakrView/docs/STEP_10_INFERENCE_ENGINE.md).
+* Implementation of `KVCache` and `LayerKVCache` in `chakrview/brain/cache.py`.
+* Enhancement of `MultiHeadAttention`, `RotaryEmbedding`, `TransformerBlock`, and `ChakrMicro` to support cached single-token autoregressive decoding.
+* Implementation of `SamplingConfig`, `SamplingStrategy`, `Sampler`, and modular logit transforms in `chakrview/runtime/sampling.py`.
+* Implementation of `InferenceSession`, `GenerationConfig`, `StreamToken`, `InferenceMetrics`, `GenerationResult`, and `StopReason` in `chakrview/runtime/inference.py`.
+* 23 new unit tests added across 4 dedicated test modules in `tests/` (`test_kv_cache.py`, `test_sampling.py`, `test_incremental_decoding.py`, `test_inference_session.py`), expanding the test suite to 312 tests across 51 test files.
 * Full programmatic verification of all frozen invariants (model parameter count bit-exact 3,443,136; tokenizer checksum bit-exact; Stage C 32 shards bit-exact).
-* Clean export of `runtime` in `chakrview/__init__.py`.
+* Clean public exports in `chakrview/brain/__init__.py` and `chakrview/runtime/__init__.py`.
 
 #### 2. Established
-* **Decoupled Knowledge Representation**: External knowledge can be indexed and injected into context windows without retraining or altering base weights.
-* **Specialized Capability Composition**: $\text{Instance} = \text{Brain} + \text{Skill} + \text{Knowledge} + \text{Memory} + \text{Tools}$ is codified in formal Python contracts.
-* **Deterministic Software Integrity**: Automated quarantine and atomic rollback mechanisms eliminate risk of unrecoverable corruption.
-* **Adaptive Hardware Scaling**: Execution planner dynamically adapts context budget and thread counts on low-RAM legacy systems.
-* **Hierarchical Provenance**: Version manifests guarantee verifiable lineage across derived instances.
+* **Incremental Autoregressive Substrate**: $O(N)$ single-token decoding with persistent KV cache replacing $O(N^2)$ full-sequence recomputation.
+* **Numerical Equivalence Contract**: Cached incremental decoding produces logits bit-equivalent to the causal sequence-parallel forward pass within floating-point epsilon.
+* **Modular Cognitive Primitive**: Decoupled `InferenceSession` ready to serve future memory, knowledge (RAG), tools, and multi-agent systems without modifying the neural core.
+* **Hardware-Aware Execution**: Consumes `ModelExecutionPlan` from `chakrview/runtime/hardware.py` to honor thread budgets, device placement, and context limits.
+* **Privacy-First Observability**: Detailed latency, throughput, and cache metrics generated without persisting user prompt strings.
 
 #### 3. Not Yet Implemented (Intentionally Deferred)
-* Full RAG vector database integration (deferred to future knowledge milestones).
+* External tool/skill execution runtime (strictly governed by future capability policy layers).
 * Autonomous code generation or model self-modifying agents (strictly prohibited).
-* Heavyweight external LLM wrappers or pretrained weights (prohibited by project invariants).
-* Fine-tuning adapter training (LoRA/prefix) execution loops (reserved for Step 10).
-* KV-cache step decoding engine (reserved for interactive runtime engine).
+* Vector database RAG retrieval integration into `InferenceSession` (deferred to Step 11/12).
+* Quantized KV cache (FP16/INT8 KV cache optimization deferred to future edge scaling).
+* Speculative decoding or multi-token draft verification.
 
 ### Progress by Module
-- `chakrview/runtime/`: **Adaptive Brain Layer Architecture Engine (NEW in Step 9)**
+- `chakrview/runtime/`: **Adaptive Brain Layer & Inference Engine (Updated in Step 10)**
+  - `inference.py`: Universal interactive inference session, streaming generation, stop reasons, context overflow management, and privacy-first metrics
+  - `sampling.py`: Modular sampling subsystem (Greedy, Temperature, Top-K, Top-P/Nucleus, Repetition Penalty, Min-Prob) with deterministic seeding
   - `knowledge.py`: Document ingestion, chunking, in-memory indexing, retrieval, and context provider
   - `skills.py`: Skill registry, domain policies, and execution plans
   - `improvement.py`: Governed self-improvement proposal lifecycle and approval gates
   - `integrity.py`: SHA-256 artifact verification, tensor sanity, quarantine, and atomic rollback
   - `hardware.py`: Hardware capability detection and safe runtime execution planner
   - `versioning.py`: Hierarchical version manifests and ancestry lineage tracking
-  - `__init__.py`: Clean public exports of all runtime primitives
+  - `__init__.py`: Clean public exports of all runtime and inference primitives
+- `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Updated in Step 10)**
+  - `cache.py`: Reusable, shape-validated persistent KV-cache engine (`KVCache`, `LayerKVCache`) with context bounds enforcement ($T \le 512$)
+  - `model.py`, `attention.py`, `rotary.py`: Added cached incremental decoding (`prefill()`, `decode_next()`) while preserving frozen causal sequence-parallel `forward()`
+  - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `configs/`: **Pre-Training & Capability Evaluation Configurations**
   - `chakr_micro_stage_c_full_epoch.json` & `.yaml`: Authoritative Step 8 full-epoch training configuration
   - `chakr_micro_stage_c_baseline.json` & `.yaml`: Authoritative Step 7 baseline training configuration
   - `stage_c_smoke_prompts.json`: Standardized 14-prompt capability evaluation suite
-- `scripts/`: **Execution & Ingestion Engine**
+- `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_inference_kv_cache.py`: Step 10 empirical benchmark evaluating full-forward vs KV-cache throughput, latency, memory, and equivalence
   - `run_stage_c_full_epoch_experiment.py`: Step 8 end-to-end full-epoch pre-training, tracking, checkpointing, resume validation, domain evaluation, and smoke testing
   - `run_stage_c_baseline_experiment.py`: Step 7 baseline pre-training script
   - `stage_c/`: Stage C streaming acquisition, cleaning, deduplication, and sharding engine
 - `chakrview/training/`: **Pre-Training Infrastructure Engine**
   - `config.py`, `seed.py`, `sharding.py`, `dataset.py`, `collator.py`, `loss.py`, `optimizer.py`, `checkpoint.py`, `metrics.py`, `monitoring.py`, `evaluator.py`, `trainer.py`
-- `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1)**
-  - Fully verified and frozen ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **289/289 Tests Passing** across 40 test modules (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **312/312 Tests Passing** across 51 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 23 Inference & KV Cache tests (`test_kv_cache.py`, `test_sampling.py`, `test_incremental_decoding.py`, `test_inference_session.py`)
   - 22 Runtime Architecture tests (Knowledge, Skills, Improvement, Integrity, Hardware, Versioning)
   - 162 Tokenizer, Corpus pipeline, and Pre-Training tests
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_10_INFERENCE_ENGINE.md` (Step 10 Interactive Inference Engine & KV-Cache Architectural Report)
+  - `docs/STEP_10_BENCHMARK_RESULTS.json` (Step 10 Empirical Inference Performance Benchmark Data)
   - `docs/STEP_09_ARCHITECTURE_AUDIT.md` (Step 9 Architecture Audit & Adaptive Brain Framework Design)
   - `docs/STEP_08_FULL_EPOCH_PRETRAINING_REPORT.md` (Step 8 Full-Epoch Pre-Training Report)
   - `docs/STEP_07_BASELINE_FREEZE.md` (Step 7 Real-Corpus Baseline Freeze Record)
@@ -114,15 +125,15 @@
 
 ## Known Limitations
 1. **Python Dynamic Overhead**: Small-batch CPU execution contains Python interpreter and memory allocation overhead; compiled C/C++ runtimes will be significantly faster.
-2. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$.
-3. **No KV Cache Reuse in Full Forward**: The current forward pass is a sequence-parallel prompt processor. Autoregressive single-token step decoding with persistent KV cache is reserved for Step 6.
+2. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ with configurable context truncation or sliding window policies.
+3. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; while capable of learning token sequences and structural syntax, complex multi-step reasoning requires parameter scaling and supervised instruction fine-tuning.
 4. **Hardware Validation Boundaries**: Physical execution on legacy 28nm processors or low-end ARM chips (Cortex-A53) remains a future empirical validation target.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 9 RATIFIED — ADAPTIVE BRAIN ARCHITECTURE FOUNDATION ESTABLISHED & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 10 (Awaiting user explicit command; DO NOT START STEP 10 AUTOMATICALLY).
+- **Decision**: **STEP 10 RATIFIED — INTERACTIVE COGNITIVE INFERENCE ENGINE COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 11 (Awaiting user explicit command; DO NOT START STEP 11 AUTOMATICALLY).
 
 

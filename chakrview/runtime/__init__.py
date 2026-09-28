@@ -53,6 +53,23 @@ from chakrview.runtime.versioning import (
     BrainVersionManifest,
     VersionLineageTracker,
 )
+from chakrview.runtime.sampling import (
+    SamplingStrategy,
+    SamplingConfig,
+    Sampler,
+    apply_repetition_penalty,
+    apply_top_k,
+    apply_top_p,
+    apply_min_prob,
+)
+from chakrview.runtime.inference import (
+    StopReason,
+    StreamToken,
+    GenerationConfig,
+    InferenceMetrics,
+    GenerationResult,
+    InferenceSession,
+)
 
 __all__ = [
     # Knowledge
@@ -97,4 +114,20 @@ __all__ = [
     "BrainProfileType",
     "BrainVersionManifest",
     "VersionLineageTracker",
+    # Sampling
+    "SamplingStrategy",
+    "SamplingConfig",
+    "Sampler",
+    "apply_repetition_penalty",
+    "apply_top_k",
+    "apply_top_p",
+    "apply_min_prob",
+    # Inference
+    "StopReason",
+    "StreamToken",
+    "GenerationConfig",
+    "InferenceMetrics",
+    "GenerationResult",
+    "InferenceSession",
 ]
+

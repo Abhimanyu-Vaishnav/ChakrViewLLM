@@ -26,17 +26,31 @@ class TransformerBlock(nn.Module):
         self.norm_2 = RMSNorm(config.d_model, eps=config.rms_norm_eps)
         self.ffn = SwiGLU(config)
 
-    def forward(self, x: torch.Tensor, attention_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+    def forward(
+        self,
+        x: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+        kv_cache: Optional[Any] = None,
+        layer_idx: Optional[int] = None,
+    ) -> torch.Tensor:
         """
         Args:
             x: Residual state tensor of shape [B, T, d_model].
             attention_mask: Optional mask tensor of shape [B, T].
+            kv_cache: Optional KVCache instance.
+            layer_idx: Optional index of this transformer block.
             
         Returns:
             Updated state tensor of shape [B, T, d_model].
         """
         # Pre-norm attention residual
-        x = x + self.attn(self.norm_1(x), attention_mask=attention_mask)
+        x = x + self.attn(
+            self.norm_1(x),
+            attention_mask=attention_mask,
+            kv_cache=kv_cache,
+            layer_idx=layer_idx,
+        )
         # Pre-norm FFN residual
         x = x + self.ffn(self.norm_2(x))
         return x
+
