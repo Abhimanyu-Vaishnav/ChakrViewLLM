@@ -567,6 +567,7 @@ class InferenceSession:
         tool_registry: Optional[ToolRegistry] = None,
         tool_executor: Optional[ToolExecutor] = None,
         context_builder: Optional[PromptContextBuilder] = None,
+        hybrid_retriever: Optional[Any] = None,
     ) -> RAGResponse:
         """
         Execute full RAG + Skill governed cognitive inference cycle.
@@ -619,13 +620,14 @@ class InferenceSession:
                 )
                 tool_calls.append(calc_res.to_dict())
 
-        # 3. Knowledge Retrieval
+        # 3. Knowledge Retrieval (Lexical / BM25 or Hybrid)
         retrieved_chunks: List[Tuple[KnowledgeChunk, float]] = []
-        if knowledge is not None:
-            if isinstance(knowledge, Retriever):
-                retriever = knowledge
+        eff_knowledge = hybrid_retriever or knowledge
+        if eff_knowledge is not None:
+            if isinstance(eff_knowledge, Retriever):
+                retriever = eff_knowledge
             else:
-                retriever = LexicalRetriever(knowledge)
+                retriever = LexicalRetriever(eff_knowledge)
             retrieved_chunks = retriever.retrieve(query, top_k=top_k)
 
         # 4. Context Assembly
@@ -688,6 +690,8 @@ class InferenceSession:
         auto_resolve_skill: bool = True,
         auto_extract_memory: bool = True,
         auto_summarize: bool = True,
+        hybrid_retriever: Optional[Any] = None,
+        unified_retriever: Optional[Any] = None,
     ) -> ChatResponse:
         """
         Execute a multi-turn conversation turn with short-term working memory (Step 12).
@@ -803,14 +807,26 @@ class InferenceSession:
             active_domain=state.active_domain,
         )
 
-        # 7. Knowledge Retrieval (RAG)
+        # 7. Knowledge Retrieval (RAG / Hybrid)
         retrieved_chunks: List[Tuple[KnowledgeChunk, float]] = []
-        if knowledge is not None:
-            if isinstance(knowledge, Retriever):
-                retriever = knowledge
+        eff_knowledge = hybrid_retriever or knowledge
+        if eff_knowledge is not None:
+            if isinstance(eff_knowledge, Retriever):
+                retriever = eff_knowledge
             else:
-                retriever = LexicalRetriever(knowledge)
+                retriever = LexicalRetriever(eff_knowledge)
             retrieved_chunks = retriever.retrieve(user_clean, top_k=top_k_knowledge)
+
+        # Unified Orchestration if provided (Step 13)
+        unified_candidates = None
+        if unified_retriever is not None:
+            u_res = unified_retriever.retrieve(
+                query=user_clean,
+                top_k_knowledge=top_k_knowledge,
+                top_k_memory=top_k_memory,
+                active_domain=state.active_domain,
+            )
+            unified_candidates = u_res.candidates
 
         # 8. Context Assembly (Guarantees <= 512 tokens)
         prior_turns = [
@@ -834,6 +850,7 @@ class InferenceSession:
             conversation_turns=prior_turns,
             budget=budget,
             tokenizer=self.tokenizer,
+            unified_candidates=unified_candidates,
         )
 
         # 9. Autoregressive Inference

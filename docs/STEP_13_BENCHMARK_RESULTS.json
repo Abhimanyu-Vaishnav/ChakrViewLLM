@@ -1,0 +1,97 @@
+{
+  "step": "Step 13 - Hybrid Memory & Semantic Retrieval Foundation",
+  "timestamp_utc": "2026-09-28 07:17:20",
+  "model_parameters": 3443136,
+  "tokenizer_vocab_size": 4096,
+  "max_context_length": 512,
+  "embedding_metrics": {
+    "dimension": 64,
+    "provider_id": "deterministic_hash_v1_d64",
+    "single_text_latency_us": 95.15,
+    "batch_50_latency_ms": 4.42,
+    "throughput_embeddings_per_sec": 10509
+  },
+  "corpus_scaling_metrics": {
+    "10": {
+      "num_documents": 10,
+      "vector_insertion_total_ms": 2.49,
+      "vector_insertion_per_doc_us": 249.37,
+      "bm25_insertion_total_ms": 0.11,
+      "vector_search_latency_us": 43.5,
+      "bm25_search_latency_us": 7.87,
+      "hybrid_search_latency_us": 98.73,
+      "hybrid_search_latency_ms": 0.099
+    },
+    "100": {
+      "num_documents": 100,
+      "vector_insertion_total_ms": 21.17,
+      "vector_insertion_per_doc_us": 211.75,
+      "bm25_insertion_total_ms": 0.78,
+      "vector_search_latency_us": 443.85,
+      "bm25_search_latency_us": 71.66,
+      "hybrid_search_latency_us": 582.93,
+      "hybrid_search_latency_ms": 0.583
+    },
+    "1000": {
+      "num_documents": 1000,
+      "vector_insertion_total_ms": 201.09,
+      "vector_insertion_per_doc_us": 201.09,
+      "bm25_insertion_total_ms": 8.18,
+      "vector_search_latency_us": 4869.98,
+      "bm25_search_latency_us": 746.58,
+      "hybrid_search_latency_us": 6024.52,
+      "hybrid_search_latency_ms": 6.025
+    }
+  },
+  "memory_retrieval_metrics": {
+    "10": {
+      "pool_size": 10,
+      "retrieval_latency_us": 23.34
+    },
+    "50": {
+      "pool_size": 50,
+      "retrieval_latency_us": 25.68
+    },
+    "100": {
+      "pool_size": 100,
+      "retrieval_latency_us": 24.25
+    }
+  },
+  "context_assembly_metrics": {
+    "assembly_latency_us": 10.64,
+    "assembly_latency_ms": 0.0106
+  },
+  "end_to_end_modes_latency": {
+    "mode_1_base_generation": {
+      "description": "Direct ChakrMicro inference (no RAG/retrieval)",
+      "latency_ms": 63.6,
+      "tokens_generated": 16,
+      "knowledge_used": false
+    },
+    "mode_2_bm25_lexical_rag": {
+      "description": "Inference with BM25 lexical retrieval",
+      "latency_ms": 111.99,
+      "tokens_generated": 16,
+      "knowledge_used": true
+    },
+    "mode_3_semantic_vector_rag": {
+      "description": "Inference with semantic vector retrieval (hash reference)",
+      "latency_ms": 122.88,
+      "tokens_generated": 16,
+      "knowledge_used": true
+    },
+    "mode_4_hybrid_rag": {
+      "description": "Inference with normalized hybrid score fusion (BM25 + Semantic)",
+      "latency_ms": 125.91,
+      "tokens_generated": 16,
+      "knowledge_used": true
+    },
+    "mode_5_unified_memory_knowledge": {
+      "description": "Multi-turn chat with unified working memory + hybrid knowledge",
+      "latency_ms": 143.71,
+      "tokens_generated": 16,
+      "memories_used": 1,
+      "turns_in_context": 0
+    }
+  }
+}

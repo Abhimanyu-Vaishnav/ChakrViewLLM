@@ -28,7 +28,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional, Tuple, Any, Union
 
 from chakrview.runtime.knowledge import KnowledgeChunk, KnowledgeProvenance
-from chakrview.runtime.memory import MemoryItem, ConversationTurn
+from chakrview.runtime.memory import MemoryItem, MemoryType, ConversationTurn
 
 
 @dataclass
@@ -156,6 +156,7 @@ class PromptContextBuilder:
         conversation_turns: Optional[List[ConversationTurn]] = None,
         budget: Optional[ContextBudget] = None,
         tokenizer: Optional[Any] = None,
+        unified_candidates: Optional[List[Any]] = None,
     ) -> AssembledContext:
         """
         Assemble a bounded prompt string within the configured token budget.
@@ -171,6 +172,43 @@ class PromptContextBuilder:
         """
         b = budget or self.default_budget
         truncated = False
+
+        # Partition unified retrieval candidates if provided (Step 13)
+        effective_chunks = list(retrieved_chunks or [])
+        effective_memories = list(working_memories or [])
+
+        if unified_candidates:
+            for cand in unified_candidates:
+                cand_type = getattr(cand, "source_type", None)
+                src_val = cand_type.value if hasattr(cand_type, "value") else str(cand_type)
+                if src_val in ("knowledge", "document"):
+                    chunk = KnowledgeChunk(
+                        chunk_id=cand.candidate_id,
+                        doc_id=cand.source_id,
+                        chunk_index=cand.metadata.get("chunk_index", 0),
+                        text=cand.text,
+                        token_count=cand.token_count,
+                        metadata=dict(cand.metadata),
+                        chunk_hash=cand.metadata.get("chunk_hash", ""),
+                    )
+                    effective_chunks.append((chunk, cand.score))
+                elif src_val in ("memory", "conversation_summary"):
+                    mem_type_str = cand.metadata.get("memory_type", "fact")
+                    try:
+                        m_type = MemoryType(mem_type_str)
+                    except Exception:
+                        m_type = MemoryType.FACT
+                    mem_item = MemoryItem(
+                        memory_id=cand.candidate_id,
+                        content=cand.text,
+                        memory_type=m_type,
+                        importance=cand.metadata.get("importance", 0.7),
+                        token_estimate=cand.token_count,
+                        source_turn_id=cand.metadata.get("source_turn_id"),
+                        created_sequence=cand.metadata.get("created_sequence", 0),
+                        metadata=dict(cand.metadata),
+                    )
+                    effective_memories.append((mem_item, cand.score))
 
         # 1. Budget System Prompt
         sys_clean = system_prompt.strip()
@@ -215,7 +253,7 @@ class PromptContextBuilder:
         memory_str = ""
         mem_tokens_accum = 0
 
-        if working_memories and avail_aux > 10:
+        if effective_memories and avail_aux > 10:
             avail_for_mem = min(avail_aux, b.max_memory_tokens)
             mem_delim_overhead = self.estimate_tokens(
                 f"{self.MEMORY_START}\n{self.MEMORY_END}\n\n", tokenizer
@@ -223,7 +261,7 @@ class PromptContextBuilder:
             avail_for_mem_items = max(0, avail_for_mem - mem_delim_overhead)
 
             mem_lines: List[str] = []
-            for mem_entry in working_memories:
+            for mem_entry in effective_memories:
                 mem_item = mem_entry[0] if isinstance(mem_entry, tuple) else mem_entry
                 line = f"[{mem_item.memory_type.value.upper()}] {mem_item.content.strip()}"
                 line_tokens = self.estimate_tokens(line, tokenizer)
@@ -252,14 +290,14 @@ class PromptContextBuilder:
         knowledge_str = ""
         know_tokens_accum = 0
 
-        if retrieved_chunks and avail_aux > 15:
+        if effective_chunks and avail_aux > 15:
             avail_for_know = min(avail_aux, b.max_knowledge_tokens)
             know_delim_overhead = self.estimate_tokens(
                 f"{self.KNOWLEDGE_START}\n{self.KNOWLEDGE_END}\n\n", tokenizer
             )
             avail_for_know_items = max(0, avail_for_know - know_delim_overhead)
 
-            for chunk, score in retrieved_chunks:
+            for chunk, score in effective_chunks:
                 chunk_header = f"[Source: {chunk.doc_id} | Chunk: {chunk.chunk_id} | Score: {score:.3f}]"
                 chunk_block = f"{chunk_header}\n{chunk.text.strip()}"
                 block_tokens = self.estimate_tokens(chunk_block, tokenizer)

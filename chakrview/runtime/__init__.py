@@ -104,6 +104,18 @@ from chakrview.runtime.memory import (
     MemoryExtractor,
     ConversationSummarizer,
 )
+from chakrview.runtime.retrieval import (
+    RetrievalSourceType,
+    RetrievalCandidate,
+    RetrievalQuery,
+    RetrievalResult,
+    EmbeddingProvider,
+    DeterministicHashEmbeddingProvider,
+    VectorIndex,
+    InMemoryVectorIndex,
+    HybridRetriever,
+    UnifiedRetriever,
+)
 
 __all__ = [
     # Knowledge
@@ -194,6 +206,17 @@ __all__ = [
     "ConversationStore",
     "MemoryExtractor",
     "ConversationSummarizer",
+    # Hybrid Retrieval & Semantic Foundations (Step 13)
+    "RetrievalSourceType",
+    "RetrievalCandidate",
+    "RetrievalQuery",
+    "RetrievalResult",
+    "EmbeddingProvider",
+    "DeterministicHashEmbeddingProvider",
+    "VectorIndex",
+    "InMemoryVectorIndex",
+    "HybridRetriever",
+    "UnifiedRetriever",
 ]
 
 
