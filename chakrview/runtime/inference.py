@@ -14,6 +14,7 @@ Provides production-grade autoregressive generation substrate:
 
 from dataclasses import dataclass, field, asdict
 from enum import Enum
+import re
 import time
 from typing import Dict, Iterator, List, Optional, Set, Tuple, Union, Any
 import torch
@@ -49,6 +50,16 @@ from chakrview.runtime.tools import (
     ToolRegistry,
     ToolResult,
     get_standard_tool_registry,
+)
+from chakrview.runtime.memory import (
+    ConversationStore,
+    ConversationState,
+    ConversationTurn,
+    MemoryType,
+    MemoryItem,
+    WorkingMemory,
+    MemoryExtractor,
+    ConversationSummarizer,
 )
 
 
@@ -215,6 +226,64 @@ class RAGResponse:
         }
 
 
+@dataclass
+class ChatResponse:
+    """
+    Structured outcome of a multi-turn conversation turn in ChakrView (Step 12).
+    
+    Attributes:
+        text: Final generated completion text for this turn.
+        session_id: Conversation session identifier.
+        turn_id: Unique identifier for this assistant turn.
+        token_ids: Discrete integer tokens generated.
+        stop_reason: Generation termination reason (EOS, MAX_TOKENS, CONTEXT_LIMIT).
+        metrics: Latency, throughput, and hardware accounting.
+        skill_id: Active capability skill identifier used.
+        skill_domain: Active capability domain.
+        working_memories_used: Working memory items surfaced into context.
+        knowledge_used: Whether external knowledge was retrieved and injected.
+        sources: Citations for knowledge chunks used.
+        tool_calls: Structured outcomes of any governed tools invoked.
+        turns_in_context: Number of previous conversation turns included in context.
+        prompt_tokens_count: Number of prompt tokens fed to the model.
+        prompt_context: Bounded prompt string used for inference.
+    """
+    text: str
+    session_id: str
+    turn_id: str
+    token_ids: List[int]
+    stop_reason: StopReason
+    metrics: InferenceMetrics
+    skill_id: Optional[str] = None
+    skill_domain: Optional[str] = None
+    working_memories_used: List[Dict[str, Any]] = field(default_factory=list)
+    knowledge_used: bool = False
+    sources: List[Dict[str, Any]] = field(default_factory=list)
+    tool_calls: List[Dict[str, Any]] = field(default_factory=list)
+    turns_in_context: int = 0
+    prompt_tokens_count: int = 0
+    prompt_context: str = ""
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "text": self.text,
+            "session_id": self.session_id,
+            "turn_id": self.turn_id,
+            "token_ids": self.token_ids,
+            "stop_reason": self.stop_reason.value,
+            "metrics": self.metrics.to_dict(),
+            "skill_id": self.skill_id,
+            "skill_domain": self.skill_domain,
+            "working_memories_used": self.working_memories_used,
+            "knowledge_used": self.knowledge_used,
+            "sources": self.sources,
+            "tool_calls": self.tool_calls,
+            "turns_in_context": self.turns_in_context,
+            "prompt_tokens_count": self.prompt_tokens_count,
+            "prompt_context": self.prompt_context,
+        }
+
+
 class InferenceSession:
     """
     Interactive, stateful inference session coordinating model, tokenizer, and KV cache.
@@ -233,6 +302,7 @@ class InferenceSession:
         sampler: Optional[Sampler] = None,
         model_version: str = "chakrmicro-v0.1",
         tokenizer_checksum: str = "7498d92adeef7c6db98d89a444a7f0e303dd5e7ea4b679a95781a95e6347c617",
+        conversation_store: Optional[ConversationStore] = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
@@ -263,6 +333,7 @@ class InferenceSession:
         self._active_prompt_ids: List[int] = []
         self._generated_token_ids: List[int] = []
         self._latest_logits: Optional[torch.Tensor] = None
+        self.conversation_store: ConversationStore = conversation_store or ConversationStore()
 
     def reset(self) -> None:
         """Reset KV cache and session state for next generation."""
@@ -270,6 +341,18 @@ class InferenceSession:
         self._active_prompt_ids.clear()
         self._generated_token_ids.clear()
         self._latest_logits = None
+
+    def get_conversation(self, session_id: str) -> Optional[ConversationState]:
+        """Retrieve conversation state for a session."""
+        return self.conversation_store.get_session(session_id)
+
+    def clear_conversation(self, session_id: str) -> bool:
+        """Clear conversation turns and working memory for a session."""
+        return self.conversation_store.clear_session(session_id)
+
+    def delete_conversation(self, session_id: str) -> bool:
+        """Delete an entire conversation session."""
+        return self.conversation_store.delete_session(session_id)
 
     def prefill(self, prompt: str, add_bos: bool = True) -> Tuple[List[int], float]:
         """
@@ -517,7 +600,10 @@ class InferenceSession:
         if "calculator" in active_skill.policy.allowed_tools:
             q_strip = query.strip()
             expr_to_calc = None
-            if q_strip.lower().startswith("calculate "):
+            calc_match = re.search(r"calculate\s+([0-9\s\+\-\*\/\%\^\(\)\.]+)", q_strip, re.IGNORECASE)
+            if calc_match:
+                expr_to_calc = calc_match.group(1).strip()
+            elif q_strip.lower().startswith("calculate "):
                 expr_to_calc = q_strip[10:].strip()
             elif any(c in q_strip for c in "+-*/%^") and not any(
                 w in q_strip.lower()
@@ -581,6 +667,210 @@ class InferenceSession:
             knowledge_used=assembled_ctx.knowledge_used,
             sources=sources_provenance,
             tool_calls=tool_calls,
+            prompt_tokens_count=assembled_ctx.estimated_prompt_tokens,
+            prompt_context=assembled_ctx.full_prompt,
+        )
+
+    def chat(
+        self,
+        session_id: str,
+        user_text: str,
+        config: Optional[GenerationConfig] = None,
+        skill: Optional[Union[Skill, str]] = None,
+        knowledge: Optional[Union[KnowledgeIndex, Retriever]] = None,
+        skill_registry: Optional[SkillRegistry] = None,
+        skill_resolver: Optional[SkillResolver] = None,
+        tool_registry: Optional[ToolRegistry] = None,
+        tool_executor: Optional[ToolExecutor] = None,
+        context_builder: Optional[PromptContextBuilder] = None,
+        top_k_knowledge: int = 2,
+        top_k_memory: int = 3,
+        auto_resolve_skill: bool = True,
+        auto_extract_memory: bool = True,
+        auto_summarize: bool = True,
+    ) -> ChatResponse:
+        """
+        Execute a multi-turn conversation turn with short-term working memory (Step 12).
+        
+        The model itself remains strictly stateless; the runtime manages conversation
+        state, working memory scoring, and context budget allocation.
+        
+        Lifecycle Pipeline:
+        1. ConversationStore: Appends user turn to active session.
+        2. Skill Resolution: Resolves skill policy and domain for current utterance.
+        3. Working Memory Extraction: Identifies constraints, preferences, or task state.
+        4. Governed Tools: If skill authorizes tools and query requires it, executes tool safely.
+        5. Rolling Summarization: Compresses older dialogue if threshold is exceeded.
+        6. Working Memory Selection: Ranks and retrieves relevant working memories.
+        7. Knowledge Retrieval: Queries lexical/BM25 index for external knowledge.
+        8. Context Assembly: Combines System + Memory + RAG + History + Query <= 512 tokens.
+        9. Autoregressive Inference: Generates response via KV cache.
+        10. ConversationStore Update: Appends assistant turn to session.
+        11. Output Packaging: Returns structured ChatResponse with full telemetry.
+        """
+        if not user_text or not user_text.strip():
+            raise ValueError("user_text cannot be empty.")
+
+        # 1. ConversationStore Session Management & User Turn
+        state = self.conversation_store.get_session(session_id)
+        if state is None:
+            state = self.conversation_store.create_session(session_id=session_id)
+
+        user_clean = user_text.strip()
+        builder = context_builder or PromptContextBuilder()
+        user_tokens = builder.estimate_tokens(user_clean, self.tokenizer)
+
+        user_turn = self.conversation_store.append_turn(
+            session_id=session_id,
+            role="user",
+            text=user_clean,
+            token_estimate=user_tokens,
+        )
+
+        # 2. Skill Resolution
+        s_registry = skill_registry or get_standard_skill_registry()
+        if isinstance(skill, Skill):
+            active_skill = skill
+        elif isinstance(skill, str):
+            active_skill = s_registry.get(skill)
+            if active_skill is None:
+                raise ValueError(f"Skill '{skill}' not found in registry.")
+        elif auto_resolve_skill:
+            s_resolver = skill_resolver or RuleBasedSkillResolver()
+            active_skill = s_resolver.resolve(user_clean, s_registry)
+        else:
+            active_skill = s_registry.get("skill_general_v1") or s_registry.list_skills()[0]
+
+        state.active_skill_id = active_skill.skill_id
+        state.active_domain = active_skill.domain.value
+
+        # 3. Rule-Based Memory Extraction (Deterministic, non-LLM)
+        if auto_extract_memory:
+            extracted_items = MemoryExtractor.extract_from_text(
+                text=user_clean,
+                source_turn_id=user_turn.turn_id,
+                sequence_num=state.sequence_counter,
+            )
+            for item in extracted_items:
+                state.working_memory.add(item)
+
+        # 4. Governed Tool Execution
+        tool_calls: List[Dict[str, Any]] = []
+        t_exec = tool_executor or ToolExecutor(tool_registry or get_standard_tool_registry())
+
+        if "calculator" in active_skill.policy.allowed_tools:
+            expr_to_calc = None
+            calc_match = re.search(r"calculate\s+([0-9\s\+\-\*\/\%\^\(\)\.]+)", user_clean, re.IGNORECASE)
+            if calc_match:
+                expr_to_calc = calc_match.group(1).strip()
+            elif user_clean.lower().startswith("calculate "):
+                expr_to_calc = user_clean[10:].strip()
+            elif any(c in user_clean for c in "+-*/%^") and not any(
+                w in user_clean.lower()
+                for w in ["what", "who", "why", "how", "when", "where", "explain"]
+            ):
+                expr_to_calc = user_clean
+
+            if expr_to_calc:
+                calc_res = t_exec.execute(
+                    "calculator",
+                    {"expression": expr_to_calc},
+                    active_skill.policy,
+                )
+                tool_calls.append(calc_res.to_dict())
+                if calc_res.success:
+                    tool_toks = builder.estimate_tokens(str(calc_res.output), self.tokenizer)
+                    self.conversation_store.append_turn(
+                        session_id=session_id,
+                        role="tool",
+                        text=f"Calculator result: {calc_res.output}",
+                        token_estimate=tool_toks,
+                        metadata=calc_res.to_dict(),
+                    )
+
+        # 5. Rolling Summarization (Deterministic)
+        if auto_summarize:
+            ConversationSummarizer.maybe_summarize(
+                state=state,
+                max_turns_threshold=8,
+                keep_recent=4,
+            )
+
+        # 6. Working Memory Selection
+        retrieved_memories = state.working_memory.retrieve_relevant(
+            query=user_clean,
+            top_k=top_k_memory,
+            active_domain=state.active_domain,
+        )
+
+        # 7. Knowledge Retrieval (RAG)
+        retrieved_chunks: List[Tuple[KnowledgeChunk, float]] = []
+        if knowledge is not None:
+            if isinstance(knowledge, Retriever):
+                retriever = knowledge
+            else:
+                retriever = LexicalRetriever(knowledge)
+            retrieved_chunks = retriever.retrieve(user_clean, top_k=top_k_knowledge)
+
+        # 8. Context Assembly (Guarantees <= 512 tokens)
+        prior_turns = [
+            t for t in state.turns
+            if t.turn_id != user_turn.turn_id and t.role in ("user", "assistant", "system")
+        ]
+        gen_tokens = config.max_new_tokens if config else 64
+        budget = ContextBudget(
+            max_context=self.max_context,
+            generation_budget=gen_tokens,
+            max_system_tokens=active_skill.policy.max_context_tokens // 4
+            if active_skill.policy.max_context_tokens
+            else 64,
+        )
+
+        assembled_ctx = builder.build_prompt(
+            user_query=user_clean,
+            system_prompt=active_skill.system_prompt_template,
+            retrieved_chunks=retrieved_chunks,
+            working_memories=retrieved_memories,
+            conversation_turns=prior_turns,
+            budget=budget,
+            tokenizer=self.tokenizer,
+        )
+
+        # 9. Autoregressive Inference
+        cfg = config or GenerationConfig()
+        if config is None or config.sampling.temperature == 0.0:
+            cfg.sampling.temperature = active_skill.policy.temperature
+
+        gen_result = self.generate(assembled_ctx.full_prompt, config=cfg, add_bos=True)
+
+        # 10. ConversationStore Update (Store Assistant Turn)
+        asst_tokens = len(gen_result.token_ids)
+        asst_turn = self.conversation_store.append_turn(
+            session_id=session_id,
+            role="assistant",
+            text=gen_result.text,
+            token_estimate=asst_tokens,
+            metadata={"stop_reason": gen_result.stop_reason.value},
+        )
+
+        # 11. Return Structured ChatResponse
+        sources_provenance = [p.to_dict() for p in assembled_ctx.provenance]
+        memories_used_dicts = [m.to_dict() for m in assembled_ctx.memories_used]
+
+        return ChatResponse(
+            text=gen_result.text,
+            session_id=session_id,
+            turn_id=asst_turn.turn_id,
+            token_ids=gen_result.token_ids,
+            stop_reason=gen_result.stop_reason,
+            metrics=gen_result.metrics,
+            skill_id=active_skill.skill_id,
+            skill_domain=active_skill.domain.value,
+            working_memories_used=memories_used_dicts,
+            knowledge_used=assembled_ctx.knowledge_used,
+            sources=sources_provenance,
+            tool_calls=tool_calls,
+            turns_in_context=len(assembled_ctx.turns_included),
             prompt_tokens_count=assembled_ctx.estimated_prompt_tokens,
             prompt_context=assembled_ctx.full_prompt,
         )
