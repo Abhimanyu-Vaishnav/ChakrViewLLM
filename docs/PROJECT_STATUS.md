@@ -2,64 +2,67 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 24 — Memory, Experience & Continual Cognition Foundation
-- **Status**: Complete & Verified (Modular Continual Cognition and Governed Memory subsystem established under `chakrview/memory/` with bounded Working Memory, structured Episodic Memory, versioned Semantic Memory with non-destructive revision lineage, deterministic CPU-first multi-factor retrieval, contradiction detection and resolution tracking, experience consolidation, controlled lifecycle archival and forgetting, hardware execution policies with hard safety ceilings, Step 22 offline learning bridge with strict governance, and full multi-tenant/multi-session isolation; 650/650 tests passing across 69 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; runtime inference and memory operations permanently preserve weights_modified=False; DATA != AUTHORITY, MEMORY != AUTHORITY, EXPERIENCE != AUTHORITY).
+- **Current phase**: Step 25 — Unified Cognitive Architecture & End-to-End Cognitive Cycle
+- **Status**: Complete & Verified (Unified Cognitive Architecture established under `chakrview/cognition/unified/` orchestrating a bounded 14-stage end-to-end cognitive cycle: Task Understanding -> Working Memory & Continual Recall -> Bounded Context Compression -> Read-Only Neural Proposal -> Structured Reasoning -> Anti-Confirmation-Bias Critical Challenge -> Multi-Step Deliberation & Revision -> Evidence & Contradiction Audit -> Cognitive Decision Layer -> Sovereign Capability Gate -> Sanitized Response & Audit Tracing -> Experience Capture -> Episodic Consolidation -> Governed Offline Learning Candidate Bridge; 680/680 tests passing across 70 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; model SHA-256 weight hash verified before and after cycle; runtime inference and memory operations permanently preserve weights_modified=False; DATA != AUTHORITY, MEMORY != AUTHORITY, REASONING != AUTHORITY, THINKING != AUTHORITY, CRITICAL THINKING != AUTHORITY, EXPERIENCE != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 24 establishes **Governed Memory, Experience & Continual Cognition** without altering the frozen neural core:
+> **IMPORTANT**: Step 25 establishes the **Unified Cognitive Architecture & End-to-End Cognitive Cycle** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Experience Lifecycle:} \quad &\text{Experience} \longrightarrow \text{Episode} \longrightarrow \text{Evaluation} \longrightarrow \text{Candidate Memory} \longrightarrow \text{Verification} \longrightarrow \text{Semantic Memory} \\
-> \textbf{Retrieval Formula:} \quad &\text{Score} = \text{Relevance} \times \text{Confidence} \times \text{VerificationFactor} \times \text{RecencyFactor} \times \text{ContradictionFactor} \\
-> \textbf{Governed Learning:} \quad &\text{Verified Memory} \longrightarrow \text{Learning Candidate} \longrightarrow \text{Step 22 Training Contract} \longrightarrow \text{Offline CPU Training}
+> \textbf{Unified Cognitive Cycle:} \quad &\text{Input} \longrightarrow \text{Perception} \longrightarrow \text{Memory Recall} \longrightarrow \text{Neural Proposal} \longrightarrow \text{Reasoning} \longrightarrow \text{Critical Challenge} \\
+> &\longrightarrow \text{Deliberation} \longrightarrow \text{Contradiction Check} \longrightarrow \text{Decision Layer} \longrightarrow \text{Capability Gate} \longrightarrow \text{Safe Response} \\
+> &\longrightarrow \text{Experience Capture} \longrightarrow \text{Consolidation} \longrightarrow \text{Governed Learning Candidate} \\
+> \textbf{Authority Principle:} \quad &\text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{REASONING} \neq \text{AUTHORITY}, \text{EXPERIENCE} \neq \text{AUTHORITY} \\
+> \textbf{Immutability Axiom:} \quad &\text{Runtime Experience} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Data Authority Principles:** $\text{DATA} \neq \text{AUTHORITY}, \text{MEMORY} \neq \text{AUTHORITY}, \text{EXPERIENCE} \neq \text{AUTHORITY}$. Stored memories provide context and evidence; they cannot independently authorize capability execution. Capability execution routes strictly through `CapabilityGate`.
-> 2. **Identity Invariance:** A low-resource PC and a powerful workstation run the **exact same model**. Hardware adaptation changes memory execution budgets (slots, retrieval limits, scan depth), never neural identity or parameters.
-> 3. **Non-Destructive Versioning:** Updates increment revision counters and link ancestors rather than erasing historical facts. Contradictions instantiate explicit records without silent overwrite.
-> 4. **Zero Runtime Self-Modification:** Model weights remain permanently immutable (`weights_modified = False`). Memory operations NEVER patch or mutate neural weights.
-> 5. **Frozen Invariants:** Exactly 3,443,136 parameters, 4,096 vocabulary, 512 context length, BOS=0, EOS=1, PAD=2.
-> All 650 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> 1. **Authority Gate Sovereignty:** Memory, reasoning, critical thinking, and experience provide evidence and deliberation context; they can NEVER bypass `CapabilityGate`.
+> 2. **Hardware Budget Adaptation:** Identical ChakrMicro core runs on low-resource, standard, and high-resource hardware; adaptation scales execution budgets (context tokens, thinking cycles, hypothesis counts), never model parameters or vocabulary.
+> 3. **Deterministic Context Prioritization:** Hard 512-token ceiling enforced via transparent 9-tier priority ordering with truncation audit metadata.
+> 4. **Anti-Fabrication Decision Layer:** Eight bounded decision states (`ANSWER`, `ANSWER_WITH_UNCERTAINTY`, `NEED_CLARIFICATION`, `INSUFFICIENT_INFORMATION`, `REQUIRE_VERIFICATION`, `REVISION_REQUIRED`, `CAPABILITY_REQUIRED`, `SAFE_STOP`). Uncorroborated queries declare epistemic uncertainty rather than fabricating answers.
+> 5. **Fail-Closed Diagnostics & Safe Self-Healing:** Pre-flight and post-flight SHA-256 weight fingerprint checks; synthetic weight mutation immediately halts execution (`WeightMutationError`). Transient state healing restores corrupted non-authoritative memory without touching weights.
+> All 680 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 24)
-* Comprehensive architectural documentation in [docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md).
-* Empirical CPU benchmark results recorded in [docs/STEP_24_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_24_BENCHMARK_RESULTS.json) via `scripts/benchmark_memory.py`.
-* **Continual Cognition & Memory Subsystem** (`chakrview/memory/`):
-  - `models.py`: Strongly typed `Episode`, `SemanticMemory`, `MemoryContradiction`, `MemoryProvenanceSource`, `MemoryVerificationState`, `MemoryLifecycleStatus`, `ContradictionResolutionState`, `MemoryRetrievalQuery`, `MemoryRetrievalCandidate`, and `MemoryRetrievalResult`.
-  - `working.py`: Bounded `WorkingMemory` with FIFO eviction for objective, context, hypotheses, evidence, decisions, constraints, and observations.
-  - `episodic.py`: `EpisodicMemoryStore` separating ground situations, actions, and outcomes from subsequent interpretations.
-  - `semantic.py`: `SemanticMemoryStore` with versioned subject-predicate-object propositions and non-destructive lineage.
-  - `contradiction.py`: `ContradictionManager` for automated detection, conflict tracking, and formal evidence-based resolution.
-  - `retrieval.py`: `ContinualMemoryRetriever` implementing deterministic CPU-first multi-factor scoring.
-  - `consolidation.py`: `ExperienceConsolidationEngine` converting recurring episodic patterns into candidate semantic propositions.
-  - `lifecycle.py`: `MemoryLifecycleManager` handling retention, archival, expiration sweeps, quarantine, and audited deletion.
-  - `policy.py`: `MemoryExecutionPolicy` translating `LOW_RESOURCE`, `STANDARD`, and `HIGH_RESOURCE` profiles into memory budgets with hard ceilings.
-  - `governance.py`: `MemoryGovernanceBridge` routing verified memories to Step 22 `LearningRecord` offline training pipeline with explicit sign-off.
-  - `storage.py`: `ContinualMemoryStorage` with schema version `"24.1"`, deterministic JSON export/import, and validation.
-  - `engine.py`: `ContinualCognitionEngine` coordinating all memory layers, diagnostics, and session workspaces.
-* **Capability Gate & Authority Protection**:
-  - `chakrview/capability/gate.py` updated to deny authority to `continual_memory`, `episodic_memory`, `semantic_memory`, `memory_consolidation`, and `experience`.
-* **Neural Intelligence Loop Integration**:
-  - `chakrview/intelligence/pipeline.py` updated with `continual_memory_engine` hook and `use_continual_memory` parameter.
-* 32 new unit, lifecycle, retrieval, contradiction, hardware adaptation, and integration tests in `tests/test_continual_memory.py`, expanding the verified test suite to 650 tests across 69 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False).
+#### 1. Implemented Now (Verified in Step 25)
+* Comprehensive architectural documentation in [docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_25_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_25_BENCHMARK_RESULTS.json) via `scripts/benchmark_unified_cognition.py` verifying Experiments A–I.
+* **Unified Cognition Subsystem** (`chakrview/cognition/unified/`):
+  - `models.py`: Strongly typed `CognitiveTaskType`, `DecisionState` (8 states), `UnifiedCognitiveState`, and `SafePublicCognitiveTrace`.
+  - `policy.py`: `UnifiedCognitivePolicy` mapping `LOW_RESOURCE`, `STANDARD`, and `HIGH_RESOURCE` profiles to cognitive budgets with hard architectural ceilings ($\le 512$ tokens, $\le 32$ thinking steps, $\le 6$ revisions).
+  - `context.py`: `CognitiveContextCompressor` enforcing transparent 9-tier priority ordering within the hard 512-token limit and recording truncation metadata.
+  - `decision.py`: `CognitiveDecisionLayer` mapping evidence, contradiction state, confidence, and critique verdicts to bounded decision states without fabricating certainty.
+  - `experience.py`: `GovernedExperienceCapture` persisting cycle metadata to `EpisodicMemoryStore` with `weights_modified = False`.
+  - `trace.py`: `PublicTraceBuilder` producing sanitized high-level audit traces without private scratchpad leakage.
+  - `engine.py`: `UnifiedCognitiveEngine` coordinating the complete 14-stage end-to-end cycle, pre/post-flight SHA-256 weight hash invariant verification (fail-closed), capability gate checks, recoverable state healing, and continual memory consolidation.
+  - `__init__.py`: Clean public exports of unified cognition components.
+* 30 new unit, invariant, capability gate, contradiction, hardware adaptation, and full cycle tests in `tests/test_unified_cognition.py`, expanding the verified test suite to 680 tests across 70 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Distributed/Multi-Node Memory:** Cross-node memory replication and federation are deferred to future cluster infrastructure.
-* **Dense Semantic Vector Indexing:** Fast lexical overlap and substring scoring are implemented; dense vector index integration is deferred.
+* **Federated Multi-Node Swarms:** Cross-network multi-agent orchestration is deferred to Step 26+.
+* **Autonomous Profile Tuning:** Dynamic auto-tuning of resource profiles based on thermal telemetry.
 * **Online/Continual Parameter Updates:** Runtime weight mutation remains permanently forbidden by design.
 
 ---
 
 ### Progress by Module
-- `chakrview/cognition/critical/`: **Critical Thinking Foundation (New in Step 23)**
+- `chakrview/cognition/unified/`: **Unified Cognitive Architecture (New in Step 25)**
+  - `models.py`: Strongly typed `CognitiveTaskType`, `DecisionState` (8 bounded states), `UnifiedCognitiveState`, and `SafePublicCognitiveTrace`
+  - `policy.py`: `UnifiedCognitivePolicy` mapping resource profiles to cognitive budgets with hard architectural ceilings
+  - `context.py`: `CognitiveContextCompressor` with deterministic 9-tier priority ordering within 512-token limit
+  - `decision.py`: `CognitiveDecisionLayer` mapping evidence, contradiction, and critique states to bounded decisions
+  - `experience.py`: `GovernedExperienceCapture` persisting cycle metadata with zero weight modification
+  - `trace.py`: `PublicTraceBuilder` for sanitized public audit trails without private scratchpad leakage
+  - `engine.py`: `UnifiedCognitiveEngine` coordinating 14-stage cognitive cycle, pre/post SHA-256 weight hash invariant verification, and fail-closed security
+  - `__init__.py`: Clean public exports of unified cognition components
+- `chakrview/cognition/critical/`: **Critical Thinking Foundation (Ratified in Step 23)**
   - `models.py`: Strongly typed primitives for hypotheses, evidence, assumptions, counter-evidence, alternatives, and contradictions
   - `engine.py`: 13-stage anti-confirmation-bias workflow with epistemic uncertainty acknowledgment
   - `__init__.py`: Clean public exports of critical thinking subsystem
@@ -208,5 +211,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 24 RATIFIED — MEMORY, EXPERIENCE & CONTINUAL COGNITION FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 25 (Awaiting user explicit command; DO NOT START STEP 25 AUTOMATICALLY).
+- **Decision**: **STEP 25 RATIFIED — UNIFIED COGNITIVE ARCHITECTURE & END-TO-END COGNITIVE CYCLE COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 26 (Awaiting user explicit command; DO NOT START STEP 26 AUTOMATICALLY).
