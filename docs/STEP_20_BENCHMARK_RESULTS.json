@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-09-28T16:01:02.094175+00:00",
+  "step": 20,
+  "environment": {
+    "device": "CPU",
+    "threads": 14,
+    "torch_version": "2.14.0+cpu"
+  },
+  "model_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2
+  },
+  "context_construction_benchmark": {
+    "iterations": 50,
+    "mean_latency_ms": 15.7989,
+    "median_latency_ms": 15.5294,
+    "min_latency_ms": 13.149,
+    "max_latency_ms": 19.7232,
+    "p95_latency_ms": 19.4663,
+    "mean_prompt_tokens": 364.0,
+    "items_dropped_mean": 9.0
+  },
+  "neural_inference_benchmark": {
+    "iterations": 10,
+    "max_new_tokens": 16,
+    "mean_latency_ms": 48.42,
+    "median_latency_ms": 48.49,
+    "min_latency_ms": 45.5,
+    "max_latency_ms": 53.11,
+    "mean_throughput_tok_per_sec": 331.24,
+    "median_throughput_tok_per_sec": 335.25
+  },
+  "feedback_and_learning_benchmark": {
+    "iterations": 100,
+    "mean_latency_ms": 0.0118,
+    "median_latency_ms": 0.0109,
+    "p95_latency_ms": 0.0133,
+    "records_created": 100
+  },
+  "end_to_end_intelligence_loop_benchmark": {
+    "iterations": 10,
+    "mean_total_latency_ms": 99.91,
+    "median_total_latency_ms": 104.0,
+    "min_latency_ms": 84.91,
+    "max_latency_ms": 106.48,
+    "mean_context_tokens": 292.5,
+    "mean_generated_tokens": 16.0
+  }
+}

@@ -1,7 +1,7 @@
 """
 ChakrView: Indigenous AI Research Framework.
 """
-from chakrview import corpus, tokenizer, runtime, cognition, memory, capability, state, reasoning
+from chakrview import corpus, tokenizer, runtime, cognition, memory, capability, state, reasoning, intelligence
 from chakrview.config import (
     ChakrConfig,
     calculate_parameter_breakdown,
@@ -22,6 +22,7 @@ __all__ = [
     "capability",
     "state",
     "reasoning",
+    "intelligence",
     "ChakrConfig",
     "calculate_parameter_breakdown",
     "calculate_memory_budget",
