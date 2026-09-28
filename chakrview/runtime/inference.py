@@ -891,3 +891,31 @@ class InferenceSession:
             prompt_tokens_count=assembled_ctx.estimated_prompt_tokens,
             prompt_context=assembled_ctx.full_prompt,
         )
+
+    def execute_cognitive_task(
+        self,
+        task_or_prompt: Union[str, Any],
+        controller: Optional[Any] = None,
+        active_skill: Optional[Any] = None,
+        retriever: Optional[Any] = None,
+        preferred_domain: Optional[Any] = None,
+    ) -> Any:
+        """
+        Execute a multi-step governed cognitive agent workflow (Step 15).
+        
+        Pipeline:
+        Understand -> Retrieve -> Plan -> Execute -> Observe -> Verify -> Recover -> Respond
+        
+        Maintains backward compatibility with all direct inference and ask() APIs.
+        """
+        from chakrview.cognition.controller import CognitiveController
+        ctrl = controller or CognitiveController()
+        return ctrl.execute_task(
+            task_or_prompt=task_or_prompt,
+            active_skill=active_skill,
+            session=self,
+            retriever=retriever or getattr(self, "retriever", None),
+            memory_store=self.conversation_store,
+            preferred_domain=preferred_domain,
+        )
+
