@@ -2,84 +2,92 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 18 — Cognitive Identity, Self-Model & System State Foundation
-- **Status**: Complete & Verified (Explicit machine-readable system state and bounded self-model subsystem established under `chakrview/state/`; strongly typed `SystemIdentity`, `EnvironmentState`, `CapabilityState`, `TaskState`, `KnowledgeState`, `UncertaintyState`, `ConstraintState`, and `CognitiveStateSnapshot`; strict epistemic separation enforcing $\text{UNKNOWN} \neq \text{FALSE}$, $\text{UNAVAILABLE} \neq \text{UNKNOWN}$, and $\text{DISABLED} \neq \text{UNAVAILABLE}$; explicit uncertainty tracking with provenance and calibration indicators; non-destructive snapshot/rollback engine with strict audit trail preservation; multi-tenant isolation by owner, session, and environment; security guardrails enforcing $\text{DATA} \neq \text{AUTHORITY}$ across state assertions; 506/506 tests passing across 63 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; sub-millisecond snapshotting and serialization; safe JSON serialization without pickle).
+- **Current phase**: Step 19 — Governed Cognitive Reasoning Foundation
+- **Status**: Complete & Verified (Structured, inspectable, machine-readable computational reasoning subsystem established under `chakrview/reasoning/`; strongly typed `ReasoningTask`, `Subproblem`, `EvidenceItem`, `Hypothesis`, `Inference`, `Contradiction`, `DecisionCandidate`, `Decision`, `VerificationCriteria`, `VerificationResult`, `ReasoningTrace`, and `GovernedReasoningEngine`; 13-phase inspectable reasoning lifecycle; strict epistemic discipline enforcing $\text{UNKNOWN} \neq \text{FALSE}$; security guardrails enforcing $\text{DATA} \neq \text{AUTHORITY}$, $\text{REASONING} \neq \text{AUTHORITY}$, and $\text{CAPABILITY EXISTENCE} \neq \text{AUTHORIZATION}$; persistent uncertainty preservation in `UncertaintyState`; bounded problem decomposition and revision loops; safe JSON serialization without pickle; seamless integration with Step 18 `CognitiveStateManager`, Step 17 `CapabilityGate`, Step 16 `PersistentMemoryManager`, and Step 15 `CognitiveController`; 530/530 tests passing across 64 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; sub-millisecond reasoning phases [0.4–3.7 µs] and 0.15 ms full governed reasoning cycle).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 18 establishes the **Cognitive State Layer** (`chakrview/state/`), providing ChakrView with an explicit, strongly typed, inspectable, deterministic software architecture between the frozen core brain (`ChakrMicro v0.1`, 3,443,136 parameters) and the outside world:
-> $$\text{Core Brain (Frozen)} \longrightarrow \text{Cognitive Controller} \longrightarrow \text{Cognitive State Layer} \longrightarrow [\text{Memory} \mid \text{Capabilities} \mid \text{Knowledge}] \longrightarrow \text{External World}$$
-> The generative neural model architecture, weights, and tokenizer remain strictly untouched. The state system is **NOT** a second hidden neural model and introduces **NO** anthropomorphic or consciousness claims. It provides:
-> 1. **System Identity Model** (`chakrview/state/identity.py`): Immutable `SystemIdentity` capturing software version, architecture, frozen model invariants (parameter count, vocabulary, context length), deployment environment, and policy profiles.
-> 2. **Epistemic Knowledge Representation** (`chakrview/state/epistemic.py`): Strongly typed `KnowledgeAssertion` and `KnowledgeState` enforcing 6 formal epistemic states (`KNOWN`, `UNKNOWN`, `UNCERTAIN`, `CONFLICTING`, `STALE`, `UNAVAILABLE`) and maintaining cryptographic provenance. Enforces $\text{UNKNOWN} \neq \text{FALSE}$.
-> 3. **Explicit Uncertainty Representation** (`chakrview/state/uncertainty.py`): Typed `Uncertainty` and `UncertaintyState` capturing calibrated confidence, justifications, sources, and evidence references without fabricating confidence.
-> 4. **Task State Lifecycle** (`chakrview/state/task_state.py`): Tracks active cognitive tasks through 8 discrete execution phases (`IDLE`, `PLANNING`, `EXECUTING`, `OBSERVING`, `VERIFYING`, `RECOVERING`, `COMPLETED`, `FAILED`) with observation, decision, failure, and completion logs.
-> 5. **Environment State Observation** (`chakrview/state/environment_state.py`): Interoperable with Step 17 `EnvironmentProfile`, observing host platform, resources, network connectivity, operational mode, and hardware device connection statuses without granting execution authority. Enforces $\text{UNAVAILABLE} \neq \text{UNKNOWN}$.
-> 6. **Capability State Observation** (`chakrview/state/capability_state.py`): Observes capability availability, disabled status, and faults from Step 17 `CapabilityRegistry`. Enforces $\text{DISABLED} \neq \text{UNAVAILABLE}$ and strictly maintains that capability state observation does not bypass `CapabilityGate`.
-> 7. **Constraint & Policy State** (`chakrview/state/constraints.py`): Inspectable policy rules and resource limits evaluating candidate capability actions.
-> 8. **Snapshot & Differential Engine** (`chakrview/state/snapshot.py`): Pure JSON serializable `CognitiveStateSnapshot` and structural `compare_snapshots()` diff calculator. Prohibits `pickle` to guarantee corruption safety.
-> 9. **State Manager & Non-Destructive Rollback** (`chakrview/state/manager.py`): Multi-tenant `CognitiveStateManager` segregated by `(owner_id, session_id, environment_id)`. Rollback restores prior state without erasing audit history, recording forward `ROLLBACK_TRANSITION` audit events and incrementing monotonic version numbers.
-> 10. **Security & Authority Verification** (`chakrview/capability/gate.py`): Enforces $\text{DATA} \neq \text{AUTHORITY}$. Capability gate rejects execution contexts claiming authority via knowledge assertions or state observations.
-> All 506 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 19 establishes the **Governed Cognitive Reasoning Subsystem** (`chakrview/reasoning/`), providing ChakrView with an inspectable, structured computational reasoning state machine over the frozen generative core brain (`ChakrMicro v0.1`, 3,443,136 parameters):
+> $$\text{Core Brain (Frozen)} \longrightarrow \text{Cognitive Controller} \longrightarrow \text{Reasoning Engine} \longleftrightarrow \text{Cognitive State} \longleftrightarrow [\text{Memory} \mid \text{CapabilityGate} \mid \text{Knowledge}]$$
+> The generative neural model architecture, weights, and tokenizer remain strictly untouched. The reasoning system is **NOT** uncontrolled free-form text generation or an anthropomorphic "consciousness" simulation. It provides:
+> 1. **Reasoning Task Model** (`chakrview/reasoning/task.py`): Strongly typed `ReasoningTask` tracking 7 task types (`ANALYTIC`, `DEDUCTIVE`, `MATHEMATICAL`, `EXPLORATORY`, `DECISION_MAKING`, `HYPOTHESIS_TESTING`, `GENERAL`), multi-tenant ownership, and a 13-phase lifecycle (`UNDERSTAND` through `COMPLETE`).
+> 2. **Problem Decomposition** (`chakrview/reasoning/decomposition.py`): Hierarchical subproblem decomposition with topological dependency ordering and bounded recursion (`max_depth`, `max_subproblems`).
+> 3. **Formal Evidence Model** (`chakrview/reasoning/evidence.py`): Typed `EvidenceItem` distinguishing 9 sources (`FACT`, `OBSERVATION`, `MEMORY`, `RETRIEVED_KNOWLEDGE`, `CAPABILITY_RESULT`, `USER_ASSERTION`, `HYPOTHESIS`, `INFERENCE`, `ASSUMPTION`) with weighted reliability and provenance. Reuses Step 18 `KnowledgeAssertion`.
+> 4. **Hypothesis Engine** (`chakrview/reasoning/hypothesis.py`): Tracks competing candidate explanations with supporting and refuting evidence. Strictly preserves $\text{UNKNOWN} \neq \text{FALSE}$.
+> 5. **Structured Inference Engine** (`chakrview/reasoning/inference.py`): Formal deductions, comparisons, and constraint boundary reasoning with tracked premise lineages and composite confidence.
+> 6. **Contradiction Detection** (`chakrview/reasoning/contradiction.py`): Pairwise semantic conflict detection across evidence items. Evaluates provenance, recency, and weights; marks balanced discrepancies as `PERSISTENT_UNCERTAINTY` and registers them in Step 18 `UncertaintyState` without silently discarding them.
+> 7. **Structured Decision Layer** (`chakrview/reasoning/decision.py`): Evaluates candidate actions with net utility scoring, penalizing risks and uncertainty under $\text{REASONING} \neq \text{AUTHORITY}$.
+> 8. **Verification Loop & Self-Correction** (`chakrview/reasoning/verification.py`): Compares expected results against actual observations across typed criteria (`numerical_tolerance`, `exact_match`, `contains`, `truthy`). Triggers controlled hypothesis revisions upon failure within configured bounds.
+> 9. **Auditable Reasoning Trace** (`chakrview/reasoning/trace.py`): Full JSON-serializable execution trace with safe structured summary generation (`get_safe_summary()`), free of private chain-of-thought dumps.
+> 10. **Governed Reasoning Engine** (`chakrview/reasoning/engine.py`): Orchestrates the 13-phase loop with multi-tenant isolation, Step 18 state synchronization, and Step 17 `CapabilityGate` governance.
+> 11. **Configurable Policies** (`chakrview/reasoning/policies.py`): Strict, standard, and fast policies bounding recursion, iterations, revisions, and execution timeouts.
+> All 530 unit and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural documentation in [docs/STEP_18_COGNITIVE_STATE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_18_COGNITIVE_STATE_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_18_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_18_BENCHMARK_RESULTS.json) via `scripts/benchmark_state.py`.
-* Creation of `chakrview/state/` package implementing `SystemIdentity`, `EpistemicStatus`, `KnowledgeAssertion`, `KnowledgeState`, `Uncertainty`, `UncertaintyState`, `TaskPhase`, `TaskState`, `OperationalMode`, `DeviceConnectionStatus`, `EnvironmentState`, `ObservedCapabilityStatus`, `CapabilityObservation`, `CapabilityState`, `PolicyRestriction`, `ConstraintState`, `CognitiveStateSnapshot`, `SnapshotMetadata`, `SnapshotDiff`, `compare_snapshots`, and `CognitiveStateManager`.
-* Integration into `chakrview/capability/gate.py` enforcing provenance denial for knowledge assertions, and export via `chakrview/__init__.py`.
-* 22 new unit and integration tests added in `tests/test_cognitive_state.py`, expanding the verified test suite to 506 tests across 63 test files.
+* Comprehensive architectural documentation in [docs/STEP_19_REASONING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_19_REASONING_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_19_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_19_BENCHMARK_RESULTS.json) via `scripts/benchmark_reasoning.py`.
+* Creation of `chakrview/reasoning/` package implementing `ReasoningTask`, `ReasoningPhase`, `ReasoningStatus`, `ReasoningTaskType`, `Subproblem`, `SubproblemStatus`, `DecompositionTree`, `ProblemDecomposer`, `EvidenceType`, `EvidenceItem`, `EvidenceStore`, `HypothesisStatus`, `Hypothesis`, `HypothesisEngine`, `InferenceType`, `Inference`, `InferenceEngine`, `ContradictionSeverity`, `ContradictionStatus`, `Contradiction`, `ContradictionDetector`, `DecisionCandidate`, `Decision`, `DecisionEngine`, `VerificationStatus`, `VerificationCriteria`, `VerificationResult`, `VerificationEngine`, `ReasoningTrace`, `ReasoningPolicy`, and `GovernedReasoningEngine`.
+* Integration into `chakrview/cognition/controller.py` (`reasoning_engine`, `reasoning_trace`), `chakrview/capability/gate.py` (authority denial on reasoning provenance), and export via `chakrview/__init__.py`.
+* 24 new unit, integration, security, and end-to-end scenario tests added in `tests/test_reasoning.py`, expanding the verified test suite to 530 tests across 64 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2).
 
 #### 2. Established
-* **Explicit Machine-Readable Self-Model**: Strongly typed internal state tracking identity, capabilities, constraints, and environment without hidden neural states.
-* **Epistemic Discipline**: Explicit distinction between unknown, false, unavailable, disabled, conflicting, and stale assertions.
-* **Safe Snapshotting & Rollback**: Monotonic state versioning, differential comparison, and non-destructive rollbacks preserving full audit history.
-* **Strict Security Boundaries**: Memory and state observations cannot authorize capability actions; multi-tenant isolation prevents cross-owner leaks.
+* **Structured Computational Reasoning**: Explicit machine-readable reasoning steps, hypotheses, deductions, decisions, and verifications without uncontrolled chain-of-thought text.
+* **Governed Authority Boundaries**: $\text{Data} \neq \text{Authority}$, $\text{Reasoning} \neq \text{Authority}$, $\text{Capability Existence} \neq \text{Authorization}$. Hypotheses and inferences cannot bypass `CapabilityGate`.
+* **Epistemic Discipline**: Absence of evidence leaves status `UNCERTAIN` or `PLAUSIBLE`; unresolvable contradictions produce explicit uncertainty rather than fabricated certainty.
+* **Controlled Self-Correction**: Verification loop diagnoses failures and revises hypotheses under strict iteration and recursion bounds.
 
 #### 3. Not Yet Implemented (Intentionally Deferred)
-* Epistemic belief revision via formal Bayesian evidence fusion (deferred to future steps).
-* SQLite/DuckDB embedded persistent disk adapter for state preservation across reboots (deferred to future steps).
+* Bayesian / Dempster-Shafer continuous evidence fusion over streaming sensor telemetry (deferred to future steps).
+* Asynchronous background distributed reasoning workers (deferred to future steps).
 * Physical device drivers (GPIO, CAN bus, ROS nodes deferred to future hardware integration steps).
 
 ---
 
 ### Progress by Module
-- `chakrview/state/`: **Cognitive Identity, Self-Model & System State Subsystem (New in Step 18)**
-  - `identity.py`: Immutable runtime system identity with invariant validation
-  - `epistemic.py`: Epistemic knowledge assertions, 6-state taxonomy, provenance, conflict/stale detection
-  - `uncertainty.py`: Explicit calibrated/uncalibrated uncertainty representation and justifications
-  - `task_state.py`: Active cognitive task lifecycle across 8 execution phases
-  - `environment_state.py`: Operational mode, device connectivity, resource telemetry
-  - `capability_state.py`: Observed capability status decoupled from execution authority
-  - `constraints.py`: Active policy restrictions and rule-based constraint evaluation
-  - `snapshot.py`: Pure JSON serializable immutable snapshot and deep differential engine
-  - `manager.py`: Multi-tenant state manager, non-destructive rollback, audit logging
-  - `__init__.py`: Clean public exports of state subsystem primitives
+- `chakrview/reasoning/`: **Governed Cognitive Reasoning Subsystem (New in Step 19)**
+  - `task.py`: Typed reasoning tasks and 13-phase lifecycle state machine
+  - `decomposition.py`: Subproblems, trees, and bounded deterministic decomposer
+  - `evidence.py`: 9-tier evidence model with weighted reliability and provenance
+  - `hypothesis.py`: Candidate hypotheses, support/contradiction tracking, revision lineage
+  - `inference.py`: Deductions, comparisons, and constraint reasoning
+  - `contradiction.py`: Pairwise conflict detection and persistent uncertainty evaluation
+  - `decision.py`: Action candidate generation, risk-penalized utility scoring
+  - `verification.py`: Multi-criteria verification and revision recommendations
+  - `trace.py`: Auditable, JSON-serializable trace and safe summary generator
+  - `policies.py`: Configurable recursion, iteration, and revision bounds
+  - `engine.py`: Central governed reasoning loop orchestrator
+  - `__init__.py`: Clean public exports of all reasoning subsystem primitives
+- `chakrview/state/`: **Cognitive Identity, Self-Model & System State Subsystem (Ratified in Step 18)**
+  - `identity.py`, `epistemic.py`, `uncertainty.py`, `task_state.py`, `environment_state.py`, `capability_state.py`, `constraints.py`, `snapshot.py`, `manager.py`
 - `chakrview/capability/`: **Sovereign Capability & Device Abstraction Subsystem (Ratified in Step 17)**
-  - `contract.py`, `registry.py`, `provider.py`, `gate.py` (updated with state provenance defense), `environment.py`, `bridge.py`
+  - `contract.py`, `registry.py`, `provider.py`, `gate.py` (updated with reasoning authority denial), `environment.py`, `bridge.py`
 - `chakrview/memory/`: **Persistent Personal Memory, Consolidation & Learning Subsystem (Ratified in Step 16)**
   - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `consolidation.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py`
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Ratified in Step 15)**
-  - `planner.py`, `controller.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 19)**
+  - `controller.py`: Integrated with `GovernedReasoningEngine` and `reasoning_trace`
+  - `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
-- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory, Capability & Cognitive Integration (Ratified in Step 10-17)**
+- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory, Capability & Cognitive Integration (Ratified in Step 10-18)**
   - `inference.py`, `retrieval.py`, `memory.py`, `context.py`, `knowledge.py`, `skills.py`, `tools.py`, `sampling.py`, `integrity.py`, `hardware.py`, `versioning.py`
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
-  - `benchmark_state.py`: Step 18 empirical state and snapshot benchmark
+  - `benchmark_reasoning.py`: Step 19 empirical reasoning benchmark
+  - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_memory.py`: Step 16 empirical memory benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **506/506 Tests Passing** across 63 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **530/530 Tests Passing** across 64 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 24 Governed Cognitive Reasoning tests (`test_reasoning.py`)
   - 22 Cognitive Identity, Self-Model & System State tests (`test_cognitive_state.py`)
   - 20 Sovereign Capability & Device Abstraction tests (`test_capability.py`)
   - 24 Persistent Personal Memory & Learning Foundation tests (`test_persistent_memory.py`)
@@ -94,6 +102,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_19_REASONING_ARCHITECTURE.md` (Step 19 Governed Cognitive Reasoning Architecture Report)
+  - `docs/STEP_19_BENCHMARK_RESULTS.json` (Step 19 Empirical Reasoning Benchmark Data)
   - `docs/STEP_18_COGNITIVE_STATE_ARCHITECTURE.md` (Step 18 Cognitive Identity & System State Architecture Report)
   - `docs/STEP_18_BENCHMARK_RESULTS.json` (Step 18 Empirical State Benchmark Data)
   - `docs/STEP_17_CAPABILITY_ARCHITECTURE.md` (Step 17 Sovereign Capability & Device Abstraction Architectural Report)
@@ -140,16 +150,14 @@
 ---
 
 ## Known Limitations
-1. **In-Memory State Manager Default**: The default `CognitiveStateManager` operates in memory; persistent state across application restarts is serialized to JSON snapshots.
-2. **Epistemic Belief Revision**: Conflicting assertions are flagged as `CONFLICTING` without automated Bayesian evidence fusion.
-3. **Hardware Driver Decoupling**: Physical hardware interfaces (GPIO, CAN bus, ROS, video capture) are decoupled from the core brain and deferred to downstream deployment packages.
-4. **Synchronous Execution Model**: Capability execution within cognitive step loops is currently synchronous.
-5. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
-6. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; complex reasoning tasks rely on runtime cognitive orchestration, tools, persistent memory, and capabilities.
+1. **Rule-Based Decomposition Heuristics**: Initial decomposition uses structural rules for mathematical, decision, and analytic tasks; dynamic open-domain tasks rely on domain skill templates.
+2. **Synchronous Execution Model**: Capability execution within cognitive and reasoning step loops is currently synchronous.
+3. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
+4. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; complex reasoning tasks rely on runtime cognitive orchestration, tools, persistent memory, and capabilities.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 18 RATIFIED — COGNITIVE IDENTITY, SELF-MODEL & SYSTEM STATE FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 19 (Awaiting user explicit command; DO NOT START STEP 19 AUTOMATICALLY).
+- **Decision**: **STEP 19 RATIFIED — GOVERNED COGNITIVE REASONING FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 20 (Awaiting user explicit command; DO NOT START STEP 20 AUTOMATICALLY).
