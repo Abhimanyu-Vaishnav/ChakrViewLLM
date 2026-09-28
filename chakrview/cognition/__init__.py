@@ -137,6 +137,21 @@ from chakrview.cognition.distributed import (
     DistributedTaskRouter,
     DistributedExecutionPolicy,
 )
+from chakrview.cognition.orchestration import (
+    AdaptiveCognitiveOrchestrator,
+    WorkloadClass,
+    TaskPlan,
+    ResourceAllocationDecision,
+    OrchestrationState,
+    SafePublicOrchestrationTrace,
+    DeterministicWorkloadClassifier,
+    AdaptiveTaskPlanner,
+    ResourceAwareAllocator,
+    DeterministicTaskScheduler,
+    AdaptiveDeliberationController,
+    AdaptiveOrchestrationPolicy,
+    OrchestrationStrategy,
+)
 
 __all__ = [
     "CognitiveTask",
@@ -240,5 +255,19 @@ __all__ = [
     "DistributedNodeRegistry",
     "DistributedTaskRouter",
     "DistributedExecutionPolicy",
+    "orchestration",
+    "AdaptiveCognitiveOrchestrator",
+    "WorkloadClass",
+    "TaskPlan",
+    "ResourceAllocationDecision",
+    "OrchestrationState",
+    "SafePublicOrchestrationTrace",
+    "DeterministicWorkloadClassifier",
+    "AdaptiveTaskPlanner",
+    "ResourceAwareAllocator",
+    "DeterministicTaskScheduler",
+    "AdaptiveDeliberationController",
+    "AdaptiveOrchestrationPolicy",
+    "OrchestrationStrategy",
 ]
 

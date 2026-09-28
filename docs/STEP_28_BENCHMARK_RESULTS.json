@@ -1,0 +1,40 @@
+{
+  "step": "Step 28 \u2014 Adaptive Cognitive Orchestration & Resource-Aware Federation",
+  "iterations": 20,
+  "latencies_ms": {
+    "workload_classification_ms": 0.031,
+    "task_planning_ms": 0.018,
+    "allocation_ms": 0.032,
+    "simple_task_cycle_ms": 22.176,
+    "complex_task_cycle_ms": 28.737,
+    "verification_cycle_ms": 22.198,
+    "failure_recovery_ms": 22.091,
+    "adaptive_orchestration_cycle_ms": 28.843
+  },
+  "profiles": {
+    "LOW_RESOURCE_latency_ms": 35.998,
+    "STANDARD_latency_ms": 36.013,
+    "HIGH_RESOURCE_latency_ms": 38.168
+  },
+  "adaptive_vs_fixed_savings": {
+    "simple_task_agents_adaptive": 1,
+    "simple_task_agents_fixed": 4,
+    "agent_reduction_percent": 75.0,
+    "simple_task_rounds_adaptive": 1,
+    "simple_task_rounds_fixed": 2,
+    "round_reduction_percent": 50.0,
+    "measured_simple_latency_ms": 22.176,
+    "measured_complex_latency_ms": 28.737
+  },
+  "memory": {
+    "peak_memory_mb": 4.74
+  },
+  "invariants": {
+    "chakrmicro_parameters": 3443136,
+    "vocabulary_size": 4096,
+    "context_window": 512,
+    "model_pre_hash": "fbf703f9c6f5f2e8a95630dee6e66466d294463eda7091696c5dd3925834054c",
+    "model_post_hash": "fbf703f9c6f5f2e8a95630dee6e66466d294463eda7091696c5dd3925834054c",
+    "weight_mutation_detected": false
+  }
+}

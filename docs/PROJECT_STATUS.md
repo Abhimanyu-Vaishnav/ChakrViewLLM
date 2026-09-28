@@ -2,52 +2,57 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 27 — Distributed Federated Cognition & Secure Agent Transport Foundation
-- **Status**: Complete & Verified (Distributed Federated Cognition established under `chakrview/cognition/distributed/` coordinating bounded cognitive nodes and roles with deterministic `LoopbackTransport`, cryptographic tamper-evident message envelopes with SHA-256 and HMAC signatures, bounded replay protection, deterministic task routing, circuit breakers and failure isolation, evidence aggregation preserving minority opinions, capability gate enforcement, and fail-closed SHA-256 weight hash invariant verification; 756/756 tests passing across 72 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; NODE != AUTHORITY, AGENT != AUTHORITY, REMOTE_AGENT != AUTHORITY, MESSAGE != AUTHORITY, CONSENSUS != AUTHORITY).
+- **Current phase**: Step 28 — Adaptive Cognitive Orchestration & Resource-Aware Federation
+- **Status**: Complete & Verified (Adaptive cognitive orchestration subsystem established under `chakrview/cognition/orchestration/` implementing minimum-sufficient bounded cognition, deterministic workload classification, adaptive role planning, resource-aware node/agent allocation, bounded multi-round deliberation, evidence-aware conflict escalation, non-majority consensus synthesis, capability gate enforcement, governed experience capture with zero weight mutation, and pre/post fail-closed SHA-256 weight hash validation; 796/796 tests passing across 73 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, REMOTE_AGENT != AUTHORITY, MESSAGE != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 27 establishes the **Distributed Federated Cognition & Secure Agent Transport Foundation** without altering the frozen neural core:
+> **IMPORTANT**: Step 28 establishes the **Adaptive Cognitive Orchestration & Resource-Aware Federation** layer without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Distributed Federated Cycle:} \quad &\text{Task} \longrightarrow \text{Decomposition} \longrightarrow \text{Deterministic Node/Task Routing} \\
-> &\longrightarrow \text{Secure Message Envelope (SHA-256 + HMAC)} \longrightarrow \text{Loopback Transport} \\
-> &\longrightarrow \text{Replay/TTL/Hop Verification} \longrightarrow \text{Evidence Aggregation (Minority Preserved)} \\
-> &\longrightarrow \text{Consensus Synthesis Candidate} \longrightarrow \text{Cognitive Decision Layer} \\
-> &\longrightarrow \text{Capability Gate} \longrightarrow \text{Governed Trace \& Zero-Weight-Mutation Verification} \\
-> \textbf{Authority Principle:} \quad &\text{NODE} \neq \text{AUTHORITY}, \text{AGENT} \neq \text{AUTHORITY}, \text{REMOTE\_AGENT} \neq \text{AUTHORITY}, \text{CONSENSUS} \neq \text{AUTHORITY} \\
-> \textbf{Immutability Axiom:} \quad &\text{Distributed Coordination} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Adaptive Orchestration Cycle:} \quad &\text{Task} \longrightarrow \text{Deterministic Workload Classification} \longrightarrow \text{Adaptive Task Planning} \\
+> &\longrightarrow \text{Resource-Aware Allocation} \longrightarrow \text{Role Dependency Scheduling} \\
+> &\longrightarrow \text{Bounded Adaptive Deliberation Loop} \longrightarrow \text{Evidence Sufficiency / Conflict Escalation} \\
+> &\longrightarrow \text{Non-Majority Synthesis Candidate} \longrightarrow \text{Cognitive Decision Layer} \\
+> &\longrightarrow \text{Capability Gate} \longrightarrow \text{Governed Experience Capture} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{Authority Principle:} \quad &\text{ORCHESTRATOR} \neq \text{AUTHORITY}, \text{NODE} \neq \text{AUTHORITY}, \text{AGENT} \neq \text{AUTHORITY}, \text{CONSENSUS} \neq \text{AUTHORITY} \\
+> \textbf{Minimum Sufficient Cognition:} \quad &\text{Simple Tasks} \longrightarrow \text{Minimal Resources (1 agent, 1 round)}, \quad \text{Complex/Conflicted} \longrightarrow \text{Bounded Escalation} \\
+> \textbf{Immutability Axiom:} \quad &\text{Adaptive Orchestration} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Node & Agent != Authority:** Nodes host agents; neither nodes nor remote agents can authorize capabilities, mutate weights, promote memories, or breach tenant isolation.
-> 2. **Transport Abstraction:** Transport is decoupled from concrete physical networks; Step 27 implements deterministic in-process `LoopbackTransport` with fault injection.
-> 3. **Tamper-Evident Envelopes & Bounded Replay Protection:** Envelopes feature canonical SHA-256 hashing and HMAC signing; bounded tracking rejects duplicate IDs, nonces, expired TTLs, or excessive hops.
-> 4. **Deterministic Resource-Aware Routing:** Locality, capability matching, and health eligibility drive deterministic routing without stochastic bias.
-> 5. **Fault Isolation & Circuit Breakers:** Exponential backoff retries and circuit breakers isolate node failures without halting the cognitive cycle.
-> 6. **Evidence Aggregation Without Majority Truth:** Contradictions and minority counter-evidence are preserved; consensus is not fabricated.
-> All 756 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> 1. **Orchestrator != Authority:** The orchestrator coordinates, classifies, plans, and schedules; it cannot independently authorize external capabilities, mutate neural weights, bypass session boundaries, or promote arbitrary memories.
+> 2. **Minimum-Sufficient Cognition:** Simple tasks execute with minimal agent sets and zero deliberation loops, saving 75% agent overhead and 50% round overhead compared to fixed federation.
+> 3. **Non-Majority Truth & Conflict Escalation:** Evidence aggregation preserves minority claims; contradictory evidence triggers verification rather than majority consensus fabrication. Unresolved conflicts terminate in `ANSWER_WITH_UNCERTAINTY` or `INSUFFICIENT_INFORMATION`.
+> 4. **Deterministic Resource Allocation:** Classification, role assignment, node routing, and retry policies are strictly deterministic based on task features and hardware profiles (`LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE`).
+> 5. **Hard Ceilings:** Agents $\le 8$, nodes $\le 8$, deliberation rounds $\le 3$, retries $\le 2$, subtasks $\le 16$, telemetry history $\le 1000$.
+> 6. **Governed Memory & Trace Sanitization:** Only sanitized public metadata and outcome summaries enter episodic memory; raw activations, logits, and internal scratchpads are never promoted or leaked.
+> All 796 unit, integration, invariant, capability gate, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 27)
-* Comprehensive architectural documentation in [docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_27_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_27_BENCHMARK_RESULTS.json) via `scripts/benchmark_distributed_federated_cognition.py`.
-* **Distributed Federated Cognition Subsystem** (`chakrview/cognition/distributed/`):
-  - `models.py`: Strongly typed `NodeIdentity`, `NodeRole`, `NodeStatus`, `NodeCapabilities`, `NodeResourceProfile`, `NodeEndpoint`, `NodeHealth`, `NodeRegistration`, `MessageHeader`, `MessageRoute`, `MessageIntegrity`, `DistributedMessageEnvelope`, `DistributedRouteDecision`, and `SafePublicDistributedTrace`.
-  - `transport.py`: Abstract `Transport` interface and deterministic `LoopbackTransport` with FIFO queues and fault injection (latency, drops, timeouts, protocol errors).
-  - `security.py`: `ReplayProtectionTracker` (bounded memory, TTL, nonce, hop limit, tenant isolation), `DeterministicHmacMessageSigner`, `DeterministicHmacMessageVerifier`, `NodeIdentityProvider`, `AttestationProvider`.
-  - `registry.py`: `DistributedNodeRegistry` with tenant-scoped isolation, duplicate node rejection, health state transitions, and hard capacity ceiling ($\le 16$ nodes).
-  - `resilience.py`: `TimeoutPolicy`, `RetryPolicy` with deterministic exponential backoff, `CircuitBreaker` (CLOSED, OPEN, HALF_OPEN), `FailureRecord`.
-  - `router.py`: `DistributedTaskRouter` performing deterministic technical resource and locality routing.
-  - `policy.py`: `DistributedExecutionPolicy` mapping `LOW_RESOURCE`, `STANDARD`, `HIGH_RESOURCE` profiles to hard ceilings ($\le 16$ nodes, $\le 8$ agents/node, $\le 32$ tasks/cycle, $\le 4$ hops).
-  - `observability.py`: `DistributedObservabilityMetrics` with bounded telemetry counters and latency histories.
-  - `engine.py`: `DistributedFederatedCognitionEngine` coordinating task decomposition, distributed routing, transport, response integrity/replay validation, evidence aggregation, conflict resolution (minority preserved), consensus synthesis, capability gate checks, fail-closed pre/post SHA-256 weight hash validation, and sanitized trace emission.
-  - `__init__.py`: Clean public exports of distributed cognition components.
-* 38 new unit, invariant, capability gate, loopback transport, circuit breaker, tenant isolation, and full cycle tests in `tests/test_distributed_federated_cognition.py`, expanding the verified test suite to 756 tests across 72 test files.
+#### 1. Implemented Now (Verified in Step 28)
+* Comprehensive architectural documentation in [docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_28_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_28_BENCHMARK_RESULTS.json) via `scripts/benchmark_adaptive_cognitive_orchestration.py`.
+* **Adaptive Cognitive Orchestration Subsystem** (`chakrview/cognition/orchestration/`):
+  - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants.
+  - `workload.py`: Deterministic lexical/structural feature extractor (`extract_workload_features`).
+  - `classifier.py`: `DeterministicWorkloadClassifier` mapping tasks into `WorkloadClass` with public metadata.
+  - `planner.py`: `AdaptiveTaskPlanner` deriving bounded, role-driven `TaskPlan` based on minimum-sufficient cognition.
+  - `allocator.py`: `ResourceAwareAllocator` deterministically selecting nodes, agent counts, role distributions, and execution budgets based on hardware profile and node health.
+  - `scheduler.py`: `DeterministicTaskScheduler` computing topological dependency order of agent roles.
+  - `adaptive.py`: `AdaptiveStrategySelector` mapping workload class and resources to `OrchestrationStrategy`.
+  - `deliberation.py`: `AdaptiveDeliberationController` managing round-by-round sufficiency evaluation, early termination, and conflict escalation.
+  - `memory.py`: `GovernedOrchestrationMemoryBridge` sanitizing orchestration outcomes into `ContinualCognitionEngine.record_experience()` with zero weight modification.
+  - `observability.py`: `OrchestrationObservabilityMetrics` tracking bounded telemetry counters and rolling histories ($\le 1000$).
+  - `policy.py`: `AdaptiveOrchestrationPolicy` with configurable thresholds validated against hard ceilings.
+  - `engine.py`: `AdaptiveCognitiveOrchestrator` central orchestrator with pre/post SHA-256 weight hash validation, tenant/session boundary enforcement, deliberation loop, capability gate validation, and trace emission.
+  - `__init__.py`: Clean public exports of orchestration components.
+* **Distributed Federated Cognition Subsystem** (`chakrview/cognition/distributed/`): Ratified in Step 27.
+* 40 new unit, invariant, capability gate, workload classification, planning, allocation, deliberation, and full cycle tests in `tests/test_adaptive_cognitive_orchestration.py`, expanding the verified test suite to 796 tests across 73 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `f8c46cc81cb782d8935986808bd60dcec9d5ac346dc9a23e55e2ab33d6ff8272`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
@@ -58,7 +63,21 @@
 ---
 
 ### Progress by Module
-- `chakrview/cognition/distributed/`: **Distributed Federated Cognition & Secure Agent Transport (New in Step 27)**
+- `chakrview/cognition/orchestration/`: **Adaptive Cognitive Orchestration & Resource-Aware Federation (New in Step 28)**
+  - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants
+  - `workload.py`: Deterministic lexical/structural feature extractor (`extract_workload_features`)
+  - `classifier.py`: `DeterministicWorkloadClassifier` mapping tasks into `WorkloadClass` with public metadata
+  - `planner.py`: `AdaptiveTaskPlanner` deriving bounded, role-driven `TaskPlan` based on minimum-sufficient cognition
+  - `allocator.py`: `ResourceAwareAllocator` deterministically selecting nodes, agent counts, role distributions, and execution budgets based on hardware profile and node health
+  - `scheduler.py`: `DeterministicTaskScheduler` computing topological dependency order of agent roles
+  - `adaptive.py`: `AdaptiveStrategySelector` mapping workload class and resources to `OrchestrationStrategy`
+  - `deliberation.py`: `AdaptiveDeliberationController` managing round-by-round sufficiency evaluation, early termination, and conflict escalation
+  - `memory.py`: `GovernedOrchestrationMemoryBridge` sanitizing orchestration outcomes into `ContinualCognitionEngine.record_experience()` with zero weight modification
+  - `observability.py`: `OrchestrationObservabilityMetrics` tracking bounded telemetry counters and rolling histories ($\le 1000$)
+  - `policy.py`: `AdaptiveOrchestrationPolicy` with configurable thresholds validated against hard ceilings
+  - `engine.py`: `AdaptiveCognitiveOrchestrator` central orchestrator with pre/post SHA-256 weight hash validation, tenant/session boundary enforcement, deliberation loop, capability gate validation, and trace emission
+  - `__init__.py`: Clean public exports of orchestration components
+- `chakrview/cognition/distributed/`: **Distributed Federated Cognition & Secure Agent Transport (Ratified in Step 27)**
   - `models.py`: Strongly typed `NodeIdentity`, `NodeRole`, `NodeStatus`, `NodeCapabilities`, `NodeResourceProfile`, `NodeEndpoint`, `NodeHealth`, `NodeRegistration`, `MessageHeader`, `MessageRoute`, `MessageIntegrity`, `DistributedMessageEnvelope`, `DistributedRouteDecision`, and `SafePublicDistributedTrace`
   - `transport.py`: Abstract `Transport` interface and deterministic `LoopbackTransport` with fault injection (latency, drops, timeouts, protocol errors)
   - `security.py`: `ReplayProtectionTracker` (bounded memory, TTL, nonce, hop limit, tenant isolation), HMAC signing/verification, `NodeIdentityProvider`, `AttestationProvider`
@@ -132,8 +151,8 @@
   - `storage.py`: ContinualMemoryStorage with schema version "24.1" and integrity validation
   - `engine.py`: ContinualCognitionEngine orchestrating all continual memory operations
   - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py` (Step 16 Persistent Memory Foundation fully preserved)
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23 & 26)**
-  - Updated `__init__.py` exposing critical, adaptation, diagnostics, unified, and federated subpackages
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 23, 26, 27 & 28)**
+  - Updated `__init__.py` exposing critical, adaptation, diagnostics, unified, federated, distributed, and orchestration subpackages
   - `controller.py`, `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
@@ -142,6 +161,8 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_adaptive_cognitive_orchestration.py`: Step 28 empirical adaptive cognitive orchestration benchmark
+  - `benchmark_distributed_federated_cognition.py`: Step 27 empirical distributed federated cognition benchmark
   - `benchmark_federated_cognition.py`: Step 26 empirical federated cognition benchmark
   - `benchmark_unified_cognition.py`: Step 25 empirical unified cognition benchmark
   - `benchmark_memory.py`: Step 24 empirical memory & continual cognition benchmark
@@ -152,7 +173,9 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **718/718 Tests Passing** across 71 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **796/796 Tests Passing** across 73 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 40 Adaptive Cognitive Orchestration & Resource-Aware Federation tests (`test_adaptive_cognitive_orchestration.py`)
+  - 38 Distributed Federated Cognition & Secure Agent Transport tests (`test_distributed_federated_cognition.py`)
   - 38 Multi-Agent Federated Cognition & Cooperative Intelligence tests (`test_federated_cognition.py`)
   - 30 Unified Cognitive Architecture & End-to-End Cycle tests (`test_unified_cognition.py`)
   - 32 Memory, Experience & Continual Cognition tests (`test_continual_memory.py`)
@@ -175,6 +198,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md` (Step 28 Architecture Specification)
+  - `docs/STEP_28_BENCHMARK_RESULTS.json` (Step 28 Empirical Benchmark Data)
   - `docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 27 Architecture Specification)
   - `docs/STEP_27_BENCHMARK_RESULTS.json` (Step 27 Empirical Benchmark Data)
   - `docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 26 Architecture Report)
@@ -245,10 +270,11 @@
 4. **Synchronous Consolidation Execution**: Experience consolidation sweeps execute synchronously within the calling thread context.
 5. **Fixed Maximum Sequence Length**: Hard upper bound remains at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
 6. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
+7. **Dynamic Multi-Cluster Orchestration**: Step 28 implements single-cluster deterministic node selection and adaptive cognitive planning; inter-cluster federation across autonomous external administrative zones is deferred to Step 29.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 27 RATIFIED — DISTRIBUTED FEDERATED COGNITION & SECURE AGENT TRANSPORT FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 28 (Awaiting user explicit command; DO NOT START STEP 28 AUTOMATICALLY).
+- **Decision**: **STEP 28 RATIFIED — ADAPTIVE COGNITIVE ORCHESTRATION & RESOURCE-AWARE FEDERATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 29 (Awaiting user explicit command; DO NOT START STEP 29 AUTOMATICALLY).
