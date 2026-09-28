@@ -126,6 +126,7 @@ class NeuralIntelligenceLoop:
         feedback_collector: Optional[FeedbackCollector] = None,
         learning_pipeline: Optional[LearningPipeline] = None,
         model_update_manager: Optional[ModelUpdateManager] = None,
+        thinking_engine: Optional[Any] = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
@@ -134,6 +135,7 @@ class NeuralIntelligenceLoop:
         self.capability_gate = capability_gate
         self.capability_registry = capability_registry
         self.personal_memory = personal_memory
+        self.thinking_engine = thinking_engine
 
         self.context_builder = context_builder or IntelligenceContextBuilder()
         self.inference_engine = inference_engine or NeuralInferenceEngine(
@@ -152,12 +154,96 @@ class NeuralIntelligenceLoop:
         max_new_tokens: int = 64,
         temperature: float = 0.7,
         compute_uncertainty: bool = False,
+        use_thinking: bool = False,
+        thinking_policy: Optional[Any] = None,
     ) -> IntelligenceLoopOutcome:
         """
         Execute a full run of the Neural Intelligence Loop.
         """
         t0 = time.perf_counter()
         clean_prompt = user_prompt.strip()
+
+        # If deliberation / thinking requested, execute via DeliberationEngine
+        if use_thinking:
+            if self.thinking_engine is None:
+                from chakrview.thinking.deliberation import DeliberationEngine
+                self.thinking_engine = DeliberationEngine(
+                    model=self.model,
+                    tokenizer=self.tokenizer,
+                    inference_engine=self.inference_engine,
+                    context_builder=self.context_builder,
+                    reasoning_engine=self.reasoning_engine,
+                    state_manager=self.state_manager,
+                    capability_gate=self.capability_gate,
+                    capability_registry=self.capability_registry,
+                    personal_memory=self.personal_memory,
+                )
+            delib_outcome = self.thinking_engine.deliberate(
+                objective=clean_prompt,
+                owner_id=owner_id,
+                session_id=session_id,
+                policy=thinking_policy,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+            )
+            assembled_ctx = self.context_builder.build_context(
+                task_objective=clean_prompt,
+                system_identity="ChakrMicro Sovereign Deliberation Substrate",
+                tokenizer=self.tokenizer,
+            )
+            req = NeuralInferenceRequest(
+                prompt_text=assembled_ctx.full_prompt,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                compute_uncertainty=compute_uncertainty,
+                owner_id=owner_id,
+                session_id=session_id,
+            )
+            neural_res = self.inference_engine.infer(req)
+
+            obs = RuntimeObservation(
+                raw_output=delib_outcome.response_text,
+                task_id=delib_outcome.workspace.task_id,
+                source_type="neural_deliberation_loop",
+                execution_time_ms=(time.perf_counter() - t0) * 1000.0,
+            )
+            eval_record = RuntimeEvaluation(
+                is_passed=delib_outcome.success,
+                quality_score=1.0 if delib_outcome.success else 0.4,
+                verification_notes=f"Deliberation condition: {delib_outcome.stopping_condition}",
+                evaluator_id="deliberation_stopping_evaluator",
+            )
+            learning_rec = self.feedback_collector.process_feedback(
+                input_context=assembled_ctx.full_prompt,
+                observation=obs,
+                evaluation=eval_record,
+                category=FeedbackCategory.VERIFIED_REASONING,
+                owner_id=owner_id,
+                session_id=session_id,
+                target_override=delib_outcome.response_text,
+            )
+            self.learning_pipeline.add_record(learning_rec)
+
+            if self.state_manager is not None:
+                self.state_manager.assert_knowledge(
+                    subject=f"delib_{obs.task_id[:6]}",
+                    predicate="resolved_outcome",
+                    value=delib_outcome.response_text[:120],
+                    confidence=1.0 if delib_outcome.success else 0.4,
+                    source="deliberation_loop",
+                )
+
+            return IntelligenceLoopOutcome(
+                response_text=delib_outcome.response_text,
+                neural_result=neural_res,
+                assembled_context=assembled_ctx,
+                reasoning_trace=None,
+                learning_record=learning_rec,
+                state_version=self.state_manager.state_version if self.state_manager else 1,
+                success=delib_outcome.success,
+                execution_time_ms=(time.perf_counter() - t0) * 1000.0,
+                weights_modified=False,
+            )
 
         # 1. State Alignment & Memory Search
         verified_facts: List[str] = []

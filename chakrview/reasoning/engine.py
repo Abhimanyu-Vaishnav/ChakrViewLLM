@@ -459,6 +459,11 @@ class GovernedReasoningEngine:
         decomp_tree: DecompositionTree,
     ) -> str:
         """Synthesize final human/machine answer from subproblem resolutions."""
+        # Check if an explicit capability or numeric computation result exists
+        for k, v in results.items():
+            if isinstance(v, dict) and "result" in v:
+                return f"Final Answer: {v['result']}"
+
         # Find the last resolved compute/verify subproblem result
         non_trivial_results = [
             str(v) for k, v in results.items() if not str(v).startswith("Verified") and not str(v).startswith("Valid")
