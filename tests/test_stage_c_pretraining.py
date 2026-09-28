@@ -163,3 +163,25 @@ def test_stage_c_smoke_results_if_present():
         assert len(r["prompt"]) > 0
         assert len(r["continuation"]) > len(r["prompt"])
         assert r["generated_length_chars"] > 0
+
+
+def test_stage_c_baseline_freeze_artifacts_contract():
+    """Verify that Step 7 baseline freeze record, report, and visual curve artifacts exist."""
+    freeze_doc = ROOT_DIR / "docs" / "STEP_07_BASELINE_FREEZE.md"
+    report_doc = ROOT_DIR / "docs" / "STEP_07_REAL_CORPUS_BASELINE_REPORT.md"
+    svg_curve = EXPERIMENT_DIR / "loss_curve.svg"
+    txt_curve = EXPERIMENT_DIR / "loss_curve.txt"
+
+    assert freeze_doc.is_file(), f"Missing {freeze_doc}"
+    assert report_doc.is_file(), f"Missing {report_doc}"
+    assert svg_curve.is_file(), f"Missing {svg_curve}"
+    assert txt_curve.is_file(), f"Missing {txt_curve}"
+
+    freeze_text = freeze_doc.read_text(encoding="utf-8")
+    assert "FROZEN & AUDITED" in freeze_text
+    assert "research baseline, not a production model" in freeze_text
+    assert "3,443,136" in freeze_text
+
+    assert svg_curve.stat().st_size > 500
+    assert txt_curve.stat().st_size > 200
+

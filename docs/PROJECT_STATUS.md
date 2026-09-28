@@ -3,14 +3,40 @@
 ## Project Overview
 - **Project**: ChakrView
 - **Current phase**: Step 7 — Real-Corpus Baseline Pre-Training & Evaluation
-- **Status**: Complete & Verified (First reproducible real-corpus pre-training baseline established on authentic Stage C corpus; 500 steps, 512,000 tokens, loss: 8.3306 -> 4.1041 on validation batches, full validation loss: 6.3739, test loss: 6.3830, test perplexity: 591.70; bit-exact resume verified; 260/260 tests passing; ready for Step 8 full-epoch training)
+- **Status**: Complete & Verified (First reproducible real-corpus pre-training baseline established on authentic Stage C corpus; 500 steps, 512,000 tokens, loss: 8.3306 -> 4.1041 on validation batches, full validation loss: 6.3739, test loss: 6.3830, test perplexity: 591.70; deterministic resume verified within numerical tolerance; 260/260 tests passing; ready for Step 8 full-epoch training)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 7 has executed the first controlled scientific pre-training experiment using the authentic Stage C multi-domain corpus. ChakrMicro v0.1 (3,443,136 parameters, frozen) trained for 500 steps on 512,000 tokens ($B=2, T=512$, AdamW $\text{lr}=5\times 10^{-4}$ with cosine decay, 25 warmup steps). Validation loss dropped monotonically from 8.3306 (theoretical $\ln(4096)=8.318$) to 4.1041 on periodic batches and 6.3739 on the full 465k-token validation split. Test loss was measured at 6.3830 (perplexity: 591.70) with a near-zero generalization gap (0.0091). Deterministic resume was mathematically verified across 30 steps with a max discrepancy of $4.96\times 10^{-5}$. 5 atomic checkpoints and 14 standardized capability smoke test outputs were archived. All 260 unit and regression tests pass with zero failures.
+> **IMPORTANT**: Step 7 has executed the first controlled scientific pre-training experiment using the authentic Stage C multi-domain corpus. ChakrMicro v0.1 (3,443,136 parameters, frozen) trained for 500 steps on 512,000 tokens ($B=2, T=512$, AdamW $\text{lr}=5\times 10^{-4}$ with cosine decay, 25 warmup steps). Validation loss dropped monotonically from 8.3306 (theoretical $\ln(4096)=8.318$) to 4.1041 on periodic batches and 6.3739 on the full 465k-token validation split. Test loss was measured at 6.3830 (perplexity: 591.70). Validation and test losses were closely aligned in this run, and no obvious validation/test divergence was observed. Deterministic resume was mathematically verified across 30 steps with a max discrepancy of $4.96\times 10^{-5}$ attributable to CPU FP32 accumulation order. 5 atomic checkpoints and 14 standardized capability smoke test outputs were archived. All 260 unit and regression tests pass with zero failures.
+
+### Scientific Scope & Boundary Accounting
+
+#### 1. Completed
+* Real-corpus baseline pre-training on 512,000 tokens of authentic Stage C data across 500 optimizer steps.
+* Full-split validation (465,954 tokens) and unseen test (591,554 tokens) cross-entropy loss and perplexity evaluation.
+* Atomic multi-phase checkpoint serialization (5 checkpoints) and state dictionary validation.
+* Checkpoint resumption verification across 30 continuation steps.
+* CPU hardware throughput and process RSS memory profiling.
+* Standardized 14-prompt capability smoke evaluation across 9 prompt categories.
+
+#### 2. Established
+* **Empirical Learnability**: ChakrMicro v0.1 learns measurable statistical structure from the real Stage C corpus (training loss dropped from 8.3096 to 4.1756; periodic validation loss dropped from 8.3306 to 4.1041).
+* **CPU Execution Viability**: Native CPU training operates stably at ~870 tokens/sec end-to-end within 468.8 MB peak process RSS RAM.
+* **Pipeline Integrity**: Multi-shard streaming dataset reader, causal loss with PAD exclusion, and multi-split evaluation pipeline operate reliably without data leakage or memory leaks.
+* **Resume Determinism**: The checkpoint and resume mechanism works within demonstrated numerical tolerance ($4.96 \times 10^{-5}$ max discrepancy over 30 steps).
+
+#### 3. Not Yet Established
+* **Strong Language Generation**: Greedy decoding collapses into repetitive n-grams (`the world the world...`).
+* **Multilingual Fluency**: Hindi and Sanskrit loss remains high (9.19 and 9.08) at 500 steps, with generation frequently falling back to Latin fragments.
+* **Reasoning Capability**: Step-by-step logical reasoning is not acquired at this early pre-training stage.
+* **Code Synthesis**: Algorithmic scoping and variable bindings remain incomplete.
+* **Factual Knowledge**: Factual recall fails, defaulting to high-frequency text patterns.
+* **Long-Context Behavior**: Context utilization beyond early token positions remains to be evaluated.
+* **Production Readiness**: Model is an early scientific research baseline, not a production chatbot.
+* **Universal Intelligence**: No claims of high-level intelligence or universal reasoning are supported.
 
 ### Progress by Module
 - `configs/`: **Pre-Training & Capability Evaluation Configurations**
@@ -38,11 +64,12 @@
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **260/260 Tests Passing** across 33 test modules (100% green, 0 failures, 0 errors)
-  - 155 Tokenizer and Corpus pipeline tests (including 6 new Step 7 pre-training tests)
+- `tests/`: **261/261 Tests Passing** across 33 test modules (100% green, 0 failures, 0 errors)
+  - 156 Tokenizer and Corpus pipeline tests (including 7 Step 7 pre-training & freeze tests)
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_07_BASELINE_FREEZE.md` (Step 7 Real-Corpus Baseline Freeze Record)
   - `docs/STEP_07_REAL_CORPUS_BASELINE_REPORT.md` (Step 7 Real-Corpus Baseline Pre-Training & Evaluation Report)
   - `docs/STEP_06_5_STAGE_C_ACQUISITION_REPORT.md` (Step 6.5 Stage C Acquisition, License Verification & Ingestion Report)
   - `docs/STEP_06_4_STAGE_C_CORPUS_PLAN.md` (Step 6.4 Stage C Corpus Engineering Plan & Design Gate)

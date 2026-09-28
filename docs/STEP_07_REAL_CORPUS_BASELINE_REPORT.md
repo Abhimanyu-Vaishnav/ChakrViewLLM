@@ -6,7 +6,7 @@
 **Date**: 2026-09-27  
 **Model**: ChakrMicro v0.1 (3,443,136 parameters, frozen)  
 **Tokenizer**: Byte-Level BPE ($V=4096$, frozen)  
-**Regression Test State**: **260 / 260 tests passed** (100% green, 0 failures, 0 errors, 0 warnings)
+**Regression Test State**: **261 / 261 tests passed** (100% green, 0 failures, 0 errors, 0 warnings)
 
 ---
 
@@ -28,8 +28,10 @@ Crucially, this experiment was **not** intended to produce a capable universal a
 ## 2. Repository Baseline
 
 Before executing the pre-training loop, the forensic baseline was verified:
-* **Starting Commit**: `3fa697c` (`Step 6.5: Stage C source acquisition, license verification, ingestion, and sharding`)
-* **Test Suite**: 254 baseline tests passing in 7.86s
+* **Starting Base Commit**: `3fa697c` (`Step 6.5: Stage C source acquisition, license verification, ingestion, and sharding`)
+* **Pre-Training Experiment Execution Commit**: `13412bc` (`Step 7: Real-corpus Stage C baseline pre-training and comprehensive evaluation`)
+* **Visual Loss Curve Commit**: `2a6a14a` (`Step 7: Add visual ASCII and SVG training curve artifacts to baseline experiment`)
+* **Test Suite**: 254 baseline tests passing in 7.86s prior to Step 7; 260 tests passing following Step 7 test suite additions
 * **Architecture Invariant**: Verified bit-exact at 3,443,136 parameters
 * **Tokenizer Invariant**: Verified bit-exact at $V=4096$, BOS=0, EOS=1, PAD=2, 3,837 merges
 * **Stage B Artifacts**: Untouched and verified in `data/tokenized/stage_b/`
@@ -204,7 +206,7 @@ The model was evaluated on the **unseen 591,554-token test split** (all 3 shards
 * **Test Perplexity**: **591.70** [calculated: $\exp(6.3830)$]
 * **Test Tokens Evaluated**: **589,824 tokens** [measured]
 * **Evaluation Duration**: **184.45 seconds** (throughput: **3,197.8 tokens/sec**)
-* **Generalization Gap**: The difference between validation loss (6.3739) and test loss (6.3830) is only **0.0091** ($0.14\%$). This near-zero generalization gap rigorously proves that the model did not overfit on validation data and learned genuinely generalizable token transition statistics.
+* **Generalization Alignment**: The difference between validation loss (6.3739) and test loss (6.3830) is **0.0091** ($0.14\%$). Validation and test losses were closely aligned in this run, and no obvious validation/test divergence was observed.
 
 ---
 
@@ -252,7 +254,7 @@ All 5 saved checkpoints in `checkpoints/stage_c_baseline/` were audited for stru
 * `checkpoint_0000500.pt`: 41,404,447 bytes | Step 500 | SHA-256 verified
 
 Every checkpoint contains the full required state dictionary:
-1. `model_state_dict`: All 38 parameter tensors ($3,443,136$ parameters)
+1. `model_state_dict`: All 56 parameter tensors (57 state dictionary entries accounting for $3,443,136$ weights, with output projection tied to input embedding)
 2. `optimizer_state_dict`: AdamW moments for all parameter groups
 3. `scheduler_state_dict`: Cosine decay step and learning rate
 4. `step`: Current integer optimizer step
@@ -269,70 +271,89 @@ To verify that real-corpus training maintains the deterministic resumption guara
 3. Training was resumed for 30 steps (steps 201–230).
 4. Loss values across all 30 resumed steps were compared against the uninterrupted reference run:
    $$\max_{s \in [201, 230]} |\text{Loss}_{\text{resumed}}(s) - \text{Loss}_{\text{reference}}(s)| = \mathbf{0.00004959}$$
-* **Resume Status**: **PASS — Bit-Exact Deterministic Continuation** (Max delta: $4.96 \times 10^{-5}$).
+* **Resume Status**: **PASS — Deterministic Continuation within Numerical Tolerance** (Max loss delta: $4.96 \times 10^{-5}$ across 30 steps, attributable to minor CPU FP32 reduction and floating-point accumulation ordering across separate process invocations; no qualitative or algorithmic divergence observed).
 
 ---
 
 ## 17. Domain Evaluation
 
-Validation loss was evaluated across representative passages from each of the 8 Stage C domains:
+Validation loss was evaluated across representative diagnostic evaluation passages from each of the 8 Stage C domains (this is a lightweight diagnostic check on small sample slices, not a statistically comprehensive benchmark):
 
-| Domain | Evaluated Tokens | Measured Loss | Perplexity ($\exp(\text{loss})$) | Analysis / Observation |
+| Domain | Evaluated Tokens | Measured Loss | Perplexity ($\exp(\text{loss})$) | Diagnostic Observation |
 | :--- | :---: | :---: | :---: | :--- |
-| **English** | 242 | **4.5098** | **90.90** | Lowest loss; strong syntactic and lexical grounding from Simplewiki |
-| **Structured Data** | 71 | **5.0519** | **156.32** | Strong tabular and numeric delimiter alignment |
-| **Mathematics** | 129 | **5.6725** | **290.77** | Solid grounding on mathematical vocabulary and formal notation |
-| **Reasoning** | 157 | **5.6838** | **294.07** | Step-by-step problem token structures captured cleanly |
-| **Hinglish** | 75 | **7.2085** | **1,350.92** | Moderate perplexity; code-switching transitions require more epochs |
-| **Code** | 71 | **8.5623** | **5,230.63** | High perplexity on unseen algorithmic logic; needs extended code exposure |
-| **Sanskrit** | 120 | **9.0794** | **8,772.48** | High loss due to Devanagari subword fragmentation and small domain share |
-| **Hindi** | 140 | **9.1858** | **9,757.61** | High loss; Devanagari byte-level combinations need longer training |
+| **English** | 242 | **4.5098** | **90.90** | Lowest loss on sample passages; strong syntactic and lexical alignment with simple English prose |
+| **Structured Data** | 71 | **5.0519** | **156.32** | Strong tabular and numeric delimiter alignment on sample passages |
+| **Mathematics** | 129 | **5.6725** | **290.77** | Grounding on mathematical vocabulary and formal notation in sample passages |
+| **Reasoning** | 157 | **5.6838** | **294.07** | Step-by-step problem token structures captured in sample passages |
+| **Hinglish** | 75 | **7.2085** | **1,350.92** | Code-switching transitions show moderate loss on sample passages |
+| **Code** | 71 | **8.5623** | **5,230.63** | High loss on unseen algorithmic logic; requires longer training to evaluate code transition learnability |
+| **Sanskrit** | 120 | **9.0794** | **8,772.48** | High loss on sample passages; Devanagari subwords fragmented across few tokens |
+| **Hindi** | 140 | **9.1858** | **9,757.61** | High loss on sample passages; longer training is required to determine whether multilingual loss improves materially with additional exposure |
 
 ---
 
 ## 18. Capability Smoke Tests
 
-Greedy decoding ($\text{temperature}=0.0$, max 32 tokens) was run on the 14 standardized prompts in [configs/stage_c_smoke_prompts.json](file:///d:/Project/ChakrView/configs/stage_c_smoke_prompts.json). Full outputs are saved to [data/experiments/stage_c_baseline/smoke_test_results.json](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/smoke_test_results.json):
+Greedy decoding ($\text{temperature}=0.0$, max 32 tokens) was run on the 14 standardized prompts in [configs/stage_c_smoke_prompts.json](file:///d:/Project/ChakrView/configs/stage_c_smoke_prompts.json). Full outputs are saved to [data/experiments/stage_c_baseline/smoke_test_results.json](file:///d:/Project/ChakrView/data/experiments/stage_c_baseline/smoke_test_results.json).
+
+Observations are classified conservatively:
+* **Repetition**: Greedy decoding quickly enters repetitive loops (`the world the world...`), characteristic of small models at early training steps.
+* **Partial syntax learning**: Punctuation, commas, and formatting delimiters are partially emitted in appropriate relative positions.
+* **Formatting preservation**: Indentation and structural formatting are preserved in structured data and code prompts.
+* **Token-level continuation**: Subword transitions occur smoothly without producing unmapped byte IDs or runtime errors.
+* **Multilingual degradation**: Devanagari prompts (Hindi, Sanskrit) frequently switch into Latin subword fragments and web formatting artifacts.
+* **Code continuation weakness**: Fails variable binding and logical block completion.
+* **Factual recall weakness**: Factual queries fail recall, defaulting to high-frequency n-grams.
+
+*(Note: These are qualitative observations of raw next-token sampling from an early 500-step checkpoint, not measurements of intelligence, reasoning, comprehension, or lack thereof.)*
+
+### Selected Smoke Test Outputs
 
 1. **English Sentence**:
    * *Prompt*: `"The Republic of India is a country in South Asia, bordered by"`
    * *Output*: `", the world the world the world the world the world the world the world the worl"`
-   * *Observation*: [qualitative] Captures English comma punctuation and high-frequency noun phrase repetition ("the world").
+   * *Observation*: [Repetition, partial syntax] Captures English comma punctuation and high-frequency noun phrase repetition ("the world").
 2. **English Factual**:
    * *Prompt*: `"The capital of France is Paris, and the capital of India is"`
    * *Output*: `"t of the world the world the world the world the wor"`
-   * *Observation*: [qualitative] Fails factual completion; defaults to high-frequency n-gram attractors.
+   * *Observation*: [Factual recall weakness, repetition] Fails factual completion; defaults to high-frequency n-gram attractors.
 3. **Hindi Sentence**:
    * *Prompt*: `"भारत दक्षिण एशिया में स्थित एक विशाल देश है, जिसकी राजधानी"`
    * *Output*: `" The Ar The And, the planttp:/re. The And, the planttt"`
-   * *Observation*: [qualitative] Switches into Latin characters and URL fragments (`tp:/re`), reflecting dominant English/Code token frequencies.
+   * *Observation*: [Multilingual degradation] Switches into Latin characters and URL fragments (`tp:/re`), reflecting dominant English/Code token frequencies.
 4. **Code Function**:
    * *Prompt*: `"def binary_search(arr: list[int], target: int) -> int:\n    \"\"\"Return the index of target in sorted arr, or -1.\"\"\"\n    low = 0\n    high ="`
    * *Output*: `"\" The Sp> The Sp> The Sp> The Sp>"`
-   * *Observation*: [qualitative] Generates quotes and punctuation tokens, but fails variable binding (`high = len(arr) - 1`).
+   * *Observation*: [Code continuation weakness] Generates quotes and punctuation tokens, but fails variable binding (`high = len(arr) - 1`).
 5. **Structured Data**:
    * *Prompt*: `"{\"id\": 1, \"name\": \"ChakrMicro\", \"parameters\": 3443136, \"vocab_size\": 4096, \"layers\":"`
    * *Output*: `"       ..."`
-   * *Observation*: [qualitative] Preserves indentation formatting without emitting illegal ASCII control characters.
+   * *Observation*: [Formatting preservation] Preserves indentation formatting without emitting illegal ASCII control characters.
 
 ---
 
 ## 19. Observed Limitations
 
-1. **Repetitive Degeneration**: Greedy generation quickly falls into repetitive loops (`the world the world...`), characteristic of small models with under-trained representations.
-2. **Linguistic Cross-Talk**: Under-represented Devanagari domains (Hindi, Sanskrit) frequently switch into English token fragments when generated.
-3. **Budget Constraint**: 500 steps (512k tokens) processed only $7.7\%$ of 1 epoch of Stage C data. While sufficient to validate learning, it is not sufficient to achieve language fluency.
-4. **Code Synthesis Immaturity**: Algorithmic syntax is recognized at token level, but logical scoping and variable definitions are not yet coherent.
+1. **Early Budget Constraint**: 500 steps (512,000 tokens) processed only $\sim 7.7\%$ of 1 epoch of Stage C training data. While sufficient to validate learning convergence and infrastructure stability, it does not provide sufficient exposure for language fluency.
+2. **Repetitive Degeneration**: Greedy generation at temperature 0.0 collapses into repetitive n-gram loops.
+3. **Multilingual Imbalance**: Devanagari domains (Hindi, Sanskrit) exhibit substantially higher cross-entropy loss than English and frequently switch into Latin token fragments during generation.
+4. **Absence of Semantic / Factual Capability**: Factual queries fail recall, and logical scoping in code remains unlearned.
 
 ---
 
 ## 20. Interpretation
 
 * **[MEASURED]**: Validation loss decreased from 8.3306 to 6.3739 on the full validation split and 4.1041 on periodic batches.
-* **[MEASURED]**: The generalization gap between validation loss (6.3739) and test loss (6.3830) was only 0.0091 ($0.14\%$).
+* **[MEASURED]**: Validation and test losses were closely aligned (6.3739 validation vs 6.3830 test; gap = 0.0091 or $0.14\%$), and no obvious validation/test divergence was observed.
 * **[MEASURED]**: Checkpoint resume determinism was verified with a maximum loss discrepancy of $4.96 \times 10^{-5}$ over 30 steps.
-* **[QUALITATIVE OBSERVATION]**: The model has learned broad statistical distributions (English prose structure, common articles, and punctuation syntax), but has not developed semantic reasoning or factual recall.
-* **[HYPOTHESIS]**: Training through 1 full epoch (~6.65M tokens, ~6,500 steps, ~1.5 hours on CPU) will significantly reduce the Devanagari loss gap and resolve repetitive degeneration.
+* **[MEASURED & CONTEXTUALIZED]**: Only 512,000 training tokens were processed out of the 6.65M token training split (~7.7% of 1 epoch). Therefore, this experiment establishes early learning dynamics and pre-training system stability on authentic multi-domain text.
+* **[CRITICAL DISTINCTION]**: This run establishes that ChakrMicro v0.1 learns measurable statistical structure on real-world text. It does **NOT** establish:
+  * final language capability
+  * universal reasoning capability
+  * multilingual competence
+  * production readiness
+* **[QUALITATIVE OBSERVATION]**: The model has acquired broad statistical transition patterns (English prose structure, common articles, and punctuation syntax), but has not developed semantic reasoning or factual recall.
+* **[HYPOTHESIS]**: Longer training across a full epoch (~6.65M tokens, ~6,500 steps) is required to determine whether multilingual loss and generation quality improve materially with additional exposure.
 
 ---
 
@@ -346,7 +367,9 @@ python -m pytest
 # 2. Execute Stage C baseline pre-training
 python scripts/run_stage_c_baseline_experiment.py
 ```
-* **Git Commit**: `3fa697c`
+* **Base Commit**: `3fa697c`
+* **Pre-Training Commit**: `13412bc`
+* **Artifacts Commit**: `2a6a14a`
 * **Random Seed**: 42
 * **Configuration**: `configs/chakr_micro_stage_c_baseline.json`
 * **Manifest**: `data/manifests/stage_c_manifest.json` (SHA-256: `7fb98181aedffdba93ea07203acb0b21c79477bd62c9691485860ef3d209e3d0`)
@@ -357,8 +380,9 @@ python scripts/run_stage_c_baseline_experiment.py
 ## 22. Next-Step Recommendation
 
 Based **strictly on the measured empirical results**:
-1. **Accept Step 7 as COMPLETE**: The first genuine pre-training baseline on real Stage C data has been established with full metrics, checkpoints, domain evaluations, and resume guarantees.
+1. **Accept Step 7 as COMPLETE**: The first genuine pre-training baseline on real Stage C data has been established with full metrics, checkpoints, diagnostic domain evaluations, and resume guarantees.
 2. **Next Milestone (Step 8 — Extended Pre-Training)**:
-   * Do NOT increase model parameters.
+   * The experiment does not provide evidence that model scaling is necessary at this stage; model capacity should be revisited only after longer training and broader evaluation.
    * Do NOT change the tokenizer vocabulary ($V=4096$).
-   * Execute a full 1-epoch pre-training run (~6,500 steps, ~6.65M tokens, estimated runtime ~1.5 hours on CPU) to assess how far ChakrMicro v0.1 can descend on its native token stream before loss plateaus.
+   * Maintain neural architecture and tokenizer freeze.
+   * Execute a full 1-epoch pre-training run (~6,500 steps, ~6.65M tokens, estimated runtime ~1.5 to 2.0 hours on CPU) to assess how far ChakrMicro v0.1 can descend on its native token stream before loss plateaus.
