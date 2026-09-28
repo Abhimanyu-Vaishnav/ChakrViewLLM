@@ -2,57 +2,64 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 19 — Governed Cognitive Reasoning Foundation
-- **Status**: Complete & Verified (Structured, inspectable, machine-readable computational reasoning subsystem established under `chakrview/reasoning/`; strongly typed `ReasoningTask`, `Subproblem`, `EvidenceItem`, `Hypothesis`, `Inference`, `Contradiction`, `DecisionCandidate`, `Decision`, `VerificationCriteria`, `VerificationResult`, `ReasoningTrace`, and `GovernedReasoningEngine`; 13-phase inspectable reasoning lifecycle; strict epistemic discipline enforcing $\text{UNKNOWN} \neq \text{FALSE}$; security guardrails enforcing $\text{DATA} \neq \text{AUTHORITY}$, $\text{REASONING} \neq \text{AUTHORITY}$, and $\text{CAPABILITY EXISTENCE} \neq \text{AUTHORIZATION}$; persistent uncertainty preservation in `UncertaintyState`; bounded problem decomposition and revision loops; safe JSON serialization without pickle; seamless integration with Step 18 `CognitiveStateManager`, Step 17 `CapabilityGate`, Step 16 `PersistentMemoryManager`, and Step 15 `CognitiveController`; 530/530 tests passing across 64 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; sub-millisecond reasoning phases [0.4–3.7 µs] and 0.15 ms full governed reasoning cycle).
+- **Current phase**: Step 20 — Neural Reasoning Integration & Intelligence Loop
+- **Status**: Complete & Verified (Formal integration boundary established under `chakrview/intelligence/`; contracts `NeuralInferenceRequest`, `NeuralInferenceResult`, `UncertaintyMetric`, `LearningRecordStatus`, `LearningRecord`; context builder `IntelligenceContextBuilder` enforcing 512-token ceiling and 384 prompt ceiling with deterministic priority ordering and explicit boundary tags; sovereign neural inference engine `NeuralInferenceEngine` on frozen ChakrMicro with zero runtime weight mutation and honest uncalibrated uncertainty handling; feedback collector `FeedbackCollector` distinguishing observations, evaluations, and training signals with prompt injection quarantine; learning pipeline `LearningPipeline` with multi-tenant isolation and JSONL dataset export; offline model update manager `ModelUpdateManager` enforcing frozen invariants [3,443,136 params, 4096 vocab, 512 context], regression suite gating, and instant version rollback; full `NeuralIntelligenceLoop` unifying neural inference, cognitive state, governed reasoning, and capability gate; 547/547 tests passing across 65 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; CPU throughput 331.24 tok/sec, 15.8 ms context building, 99.9 ms full roundtrip loop).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 19 establishes the **Governed Cognitive Reasoning Subsystem** (`chakrview/reasoning/`), providing ChakrView with an inspectable, structured computational reasoning state machine over the frozen generative core brain (`ChakrMicro v0.1`, 3,443,136 parameters):
-> $$\text{Core Brain (Frozen)} \longrightarrow \text{Cognitive Controller} \longrightarrow \text{Reasoning Engine} \longleftrightarrow \text{Cognitive State} \longleftrightarrow [\text{Memory} \mid \text{CapabilityGate} \mid \text{Knowledge}]$$
-> The generative neural model architecture, weights, and tokenizer remain strictly untouched. The reasoning system is **NOT** uncontrolled free-form text generation or an anthropomorphic "consciousness" simulation. It provides:
-> 1. **Reasoning Task Model** (`chakrview/reasoning/task.py`): Strongly typed `ReasoningTask` tracking 7 task types (`ANALYTIC`, `DEDUCTIVE`, `MATHEMATICAL`, `EXPLORATORY`, `DECISION_MAKING`, `HYPOTHESIS_TESTING`, `GENERAL`), multi-tenant ownership, and a 13-phase lifecycle (`UNDERSTAND` through `COMPLETE`).
-> 2. **Problem Decomposition** (`chakrview/reasoning/decomposition.py`): Hierarchical subproblem decomposition with topological dependency ordering and bounded recursion (`max_depth`, `max_subproblems`).
-> 3. **Formal Evidence Model** (`chakrview/reasoning/evidence.py`): Typed `EvidenceItem` distinguishing 9 sources (`FACT`, `OBSERVATION`, `MEMORY`, `RETRIEVED_KNOWLEDGE`, `CAPABILITY_RESULT`, `USER_ASSERTION`, `HYPOTHESIS`, `INFERENCE`, `ASSUMPTION`) with weighted reliability and provenance. Reuses Step 18 `KnowledgeAssertion`.
-> 4. **Hypothesis Engine** (`chakrview/reasoning/hypothesis.py`): Tracks competing candidate explanations with supporting and refuting evidence. Strictly preserves $\text{UNKNOWN} \neq \text{FALSE}$.
-> 5. **Structured Inference Engine** (`chakrview/reasoning/inference.py`): Formal deductions, comparisons, and constraint boundary reasoning with tracked premise lineages and composite confidence.
-> 6. **Contradiction Detection** (`chakrview/reasoning/contradiction.py`): Pairwise semantic conflict detection across evidence items. Evaluates provenance, recency, and weights; marks balanced discrepancies as `PERSISTENT_UNCERTAINTY` and registers them in Step 18 `UncertaintyState` without silently discarding them.
-> 7. **Structured Decision Layer** (`chakrview/reasoning/decision.py`): Evaluates candidate actions with net utility scoring, penalizing risks and uncertainty under $\text{REASONING} \neq \text{AUTHORITY}$.
-> 8. **Verification Loop & Self-Correction** (`chakrview/reasoning/verification.py`): Compares expected results against actual observations across typed criteria (`numerical_tolerance`, `exact_match`, `contains`, `truthy`). Triggers controlled hypothesis revisions upon failure within configured bounds.
-> 9. **Auditable Reasoning Trace** (`chakrview/reasoning/trace.py`): Full JSON-serializable execution trace with safe structured summary generation (`get_safe_summary()`), free of private chain-of-thought dumps.
-> 10. **Governed Reasoning Engine** (`chakrview/reasoning/engine.py`): Orchestrates the 13-phase loop with multi-tenant isolation, Step 18 state synchronization, and Step 17 `CapabilityGate` governance.
-> 11. **Configurable Policies** (`chakrview/reasoning/policies.py`): Strict, standard, and fast policies bounding recursion, iterations, revisions, and execution timeouts.
-> All 530 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 20 establishes the **Neural Reasoning Integration & Intelligence Loop** (`chakrview/intelligence/`), bridging the frozen generative core brain (`ChakrMicro v0.1`, 3,443,136 parameters), cognitive state (Step 18), governed reasoning (Step 19), capability gate (Step 17), personal memory (Step 16), and the offline training lifecycle:
+> $$\begin{aligned}
+> \text{User / Environment} &\longrightarrow \text{Cognitive State} \longrightarrow \text{Context Builder} \longrightarrow \text{ChakrMicro Inference} \\
+> &\longrightarrow \text{Governed Reasoning} \longrightarrow \text{Capability Gate} \longrightarrow \text{Observation} \\
+> &\longrightarrow \text{Memory / State} \longrightarrow \text{Learning Record} \longrightarrow \text{Training Pipeline (Offline)}
+> \end{aligned}$$
+> The architecture strictly enforces:
+> 1. **Zero Runtime Self-Modification:** Model weights are permanently immutable during inference (`weights_modified = False`).
+> 2. **RAW USER TEXT != VERIFIED TRAINING DATA:** Only verified, safety-audited examples (`TRAINING_APPROVED`) enter the training pipeline; prompt injections and unverified claims are quarantined or rejected.
+> 3. **DATA != AUTHORITY:** Retrieved facts and memory never confer capability execution authority.
+> 4. **No Fake Intelligence:** Real mathematical entropy/margin computed from logits or marked unavailable; zero synthetic confidence calibration.
+> 5. **Frozen Invariants:** 3,443,136 parameters, 4096 vocabulary, 512 context length, BOS=0, EOS=1, PAD=2.
+> All 547 unit and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural documentation in [docs/STEP_19_REASONING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_19_REASONING_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_19_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_19_BENCHMARK_RESULTS.json) via `scripts/benchmark_reasoning.py`.
-* Creation of `chakrview/reasoning/` package implementing `ReasoningTask`, `ReasoningPhase`, `ReasoningStatus`, `ReasoningTaskType`, `Subproblem`, `SubproblemStatus`, `DecompositionTree`, `ProblemDecomposer`, `EvidenceType`, `EvidenceItem`, `EvidenceStore`, `HypothesisStatus`, `Hypothesis`, `HypothesisEngine`, `InferenceType`, `Inference`, `InferenceEngine`, `ContradictionSeverity`, `ContradictionStatus`, `Contradiction`, `ContradictionDetector`, `DecisionCandidate`, `Decision`, `DecisionEngine`, `VerificationStatus`, `VerificationCriteria`, `VerificationResult`, `VerificationEngine`, `ReasoningTrace`, `ReasoningPolicy`, and `GovernedReasoningEngine`.
-* Integration into `chakrview/cognition/controller.py` (`reasoning_engine`, `reasoning_trace`), `chakrview/capability/gate.py` (authority denial on reasoning provenance), and export via `chakrview/__init__.py`.
-* 24 new unit, integration, security, and end-to-end scenario tests added in `tests/test_reasoning.py`, expanding the verified test suite to 530 tests across 64 test files.
+* Comprehensive architectural documentation in [docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md) and [docs/STEP_19_REASONING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_19_REASONING_ARCHITECTURE.md).
+* Empirical benchmark results recorded in [docs/STEP_20_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_20_BENCHMARK_RESULTS.json) via `scripts/benchmark_intelligence.py` and [docs/STEP_19_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_19_BENCHMARK_RESULTS.json).
+* Creation of `chakrview/intelligence/` package implementing `LearningRecordStatus`, `UncertaintyMetric`, `NeuralInferenceRequest`, `NeuralInferenceResult`, `LearningRecord`, `ContextBudget`, `ContextSourceType`, `ContextItem`, `IntelligenceContextBuilder`, `NeuralInferenceEngine`, `FeedbackCategory`, `RuntimeObservation`, `RuntimeEvaluation`, `FeedbackCollector`, `LearningPipeline`, `ModelUpdateManager`, `ModelVersionArtifact`, `TenantIsolationError`, `ModelUpdateSafetyError`, and `NeuralIntelligenceLoop`.
+* Export of `intelligence` via `chakrview/__init__.py`.
+* 17 new unit, integration, invariant, and security tests added in `tests/test_intelligence.py`, expanding the verified test suite to 547 tests across 65 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2).
 
 #### 2. Established
-* **Structured Computational Reasoning**: Explicit machine-readable reasoning steps, hypotheses, deductions, decisions, and verifications without uncontrolled chain-of-thought text.
-* **Governed Authority Boundaries**: $\text{Data} \neq \text{Authority}$, $\text{Reasoning} \neq \text{Authority}$, $\text{Capability Existence} \neq \text{Authorization}$. Hypotheses and inferences cannot bypass `CapabilityGate`.
-* **Epistemic Discipline**: Absence of evidence leaves status `UNCERTAIN` or `PLAUSIBLE`; unresolvable contradictions produce explicit uncertainty rather than fabricated certainty.
-* **Controlled Self-Correction**: Verification loop diagnoses failures and revises hypotheses under strict iteration and recursion bounds.
+* **Neural Reasoning Integration Loop**: Governed bidirectional integration: User -> Cognitive State -> Context Builder -> Neural Inference -> Governed Reasoning -> Capability Gate -> Observation -> Memory/State -> Feedback -> Offline Learning Record.
+* **Bounded Context Packaging**: Strict 512-token ceiling and 384 prompt ceiling with deterministic priority ordering and demarcated tags.
+* **Governed Authority Boundaries**: $\text{DATA} \neq \text{AUTHORITY}$, $\text{REASONING} \neq \text{AUTHORITY}$, $\text{RAW USER TEXT} \neq \text{VERIFIED TRAINING DATA}$.
+* **Adversarial & Injection Containment**: Prompt injection attacks automatically quarantined; prevented from polluting training datasets.
+* **Offline Model Update Safety**: Invariant verification, regression suite gating, and instant rollback support; zero in-place runtime weight mutation.
 
 #### 3. Not Yet Implemented (Intentionally Deferred)
-* Bayesian / Dempster-Shafer continuous evidence fusion over streaming sensor telemetry (deferred to future steps).
-* Asynchronous background distributed reasoning workers (deferred to future steps).
-* Physical device drivers (GPIO, CAN bus, ROS nodes deferred to future hardware integration steps).
+* Online continual gradient updates (strictly forbidden by architectural constraint).
+* GPU/CUDA distributed training clusters (CPU-first focus preserved).
+* Autonomous self-prompting loops without human/policy supervision.
 
 ---
 
 ### Progress by Module
-- `chakrview/reasoning/`: **Governed Cognitive Reasoning Subsystem (New in Step 19)**
+- `chakrview/intelligence/`: **Neural Reasoning Integration & Intelligence Loop (New in Step 20)**
+  - `contracts.py`: Inference request/result, honest uncertainty, learning record statuses
+  - `context.py`: Deterministic priority context builder with 512-token ceiling
+  - `inference.py`: Sovereign neural inference engine with frozen weight immutability check
+  - `feedback.py`: Feedback triage, evaluation separation, and prompt injection containment
+  - `learning.py`: Multi-tenant learning pipeline, dataset export, and ModelUpdateManager with rollback
+  - `pipeline.py`: Central NeuralIntelligenceLoop orchestrator
+  - `__init__.py`: Clean public exports of intelligence subsystem
+- `chakrview/reasoning/`: **Governed Cognitive Reasoning Subsystem (Ratified in Step 19)**
   - `task.py`: Typed reasoning tasks and 13-phase lifecycle state machine
   - `decomposition.py`: Subproblems, trees, and bounded deterministic decomposer
   - `evidence.py`: 9-tier evidence model with weighted reliability and provenance
@@ -86,7 +93,8 @@
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_memory.py`: Step 16 empirical memory benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **530/530 Tests Passing** across 64 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **547/547 Tests Passing** across 65 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 17 Neural Reasoning Integration & Intelligence Loop tests (`test_intelligence.py`)
   - 24 Governed Cognitive Reasoning tests (`test_reasoning.py`)
   - 22 Cognitive Identity, Self-Model & System State tests (`test_cognitive_state.py`)
   - 20 Sovereign Capability & Device Abstraction tests (`test_capability.py`)
@@ -102,6 +110,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md` (Step 20 Neural Reasoning Integration & Intelligence Loop Report)
+  - `docs/STEP_20_BENCHMARK_RESULTS.json` (Step 20 Empirical Intelligence Loop Benchmark Data)
   - `docs/STEP_19_REASONING_ARCHITECTURE.md` (Step 19 Governed Cognitive Reasoning Architecture Report)
   - `docs/STEP_19_BENCHMARK_RESULTS.json` (Step 19 Empirical Reasoning Benchmark Data)
   - `docs/STEP_18_COGNITIVE_STATE_ARCHITECTURE.md` (Step 18 Cognitive Identity & System State Architecture Report)
