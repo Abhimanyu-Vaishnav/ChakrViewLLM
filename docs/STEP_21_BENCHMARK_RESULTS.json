@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-09-28T16:18:19.819468+00:00",
+  "step": 21,
+  "benchmark_title": "Neural Thinking & Deliberation Foundation Benchmark",
+  "environment": {
+    "device": "CPU",
+    "threads": 14,
+    "torch_version": "2.14.0+cpu"
+  },
+  "model_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2,
+    "weights_modified": false
+  },
+  "workspace_lifecycle_benchmark": {
+    "iterations": 100,
+    "mean_creation_latency_ms": 0.0042,
+    "median_creation_latency_ms": 0.0036,
+    "mean_thought_step_addition_latency_ms": 0.0042,
+    "mean_serialization_latency_ms": 0.0498,
+    "mean_serialized_size_bytes": 2908,
+    "max_serialized_size_bytes": 2910
+  },
+  "attention_benchmark": {
+    "iterations": 100,
+    "mean_latency_ms": 0.0007,
+    "median_latency_ms": 0.0005,
+    "p95_latency_ms": 0.0009,
+    "sample_focus_type": "DETECTED_WEAKNESS",
+    "is_heuristic": true
+  },
+  "critique_benchmark": {
+    "iterations": 100,
+    "mean_latency_ms": 0.0097,
+    "median_latency_ms": 0.0092,
+    "p95_latency_ms": 0.0116,
+    "sample_verdict": "PASS",
+    "sample_score": 1.0
+  },
+  "revision_benchmark": {
+    "iterations": 100,
+    "mean_latency_ms": 0.0044,
+    "median_latency_ms": 0.0042,
+    "p95_latency_ms": 0.0049,
+    "focus_areas_count": 2
+  },
+  "stopping_policy_benchmark": {
+    "iterations": 100,
+    "mean_latency_ms": 0.0008,
+    "median_latency_ms": 0.0006,
+    "p95_latency_ms": 0.0009,
+    "sample_condition": "SOLVED",
+    "sample_should_stop": true
+  },
+  "end_to_end_deliberation_benchmark": {
+    "iterations_per_scenario": 5,
+    "scenarios_evaluated": 3,
+    "overall_mean_latency_ms": 90.05,
+    "overall_median_latency_ms": 65.82,
+    "overall_p95_latency_ms": 153.11,
+    "overall_min_latency_ms": 56.93,
+    "overall_max_latency_ms": 152.25,
+    "average_thinking_steps": 6.33,
+    "average_revisions": 0.33,
+    "average_workspace_bytes": 5645.7,
+    "max_workspace_bytes": 8389,
+    "scenarios": [
+      {
+        "scenario": "Direct Mathematical Query",
+        "objective": "Calculate 15 * 8",
+        "mean_latency_ms": 60.36,
+        "median_latency_ms": 59.88,
+        "avg_steps": 5,
+        "avg_revisions": 0,
+        "stopping_condition": "SOLVED",
+        "success": true
+      },
+      {
+        "scenario": "Multi-Step Analytical Query",
+        "objective": "Analyze aerodynamic boundary layer separation",
+        "mean_latency_ms": 144.17,
+        "median_latency_ms": 145.3,
+        "avg_steps": 9,
+        "avg_revisions": 1,
+        "stopping_condition": "MAX_REASONING_LIMIT",
+        "success": false
+      },
+      {
+        "scenario": "Constrained Decision Query",
+        "objective": "Evaluate power distribution options for auxiliary subsystem",
+        "mean_latency_ms": 65.62,
+        "median_latency_ms": 65.82,
+        "avg_steps": 5,
+        "avg_revisions": 0,
+        "stopping_condition": "SOLVED",
+        "success": true
+      }
+    ],
+    "weights_modified": false
+  }
+}
