@@ -1,0 +1,110 @@
+{
+  "experiment_name": "chakr_micro_stage_c_full_epoch",
+  "milestone": "Step 8 \u2014 Full-Epoch Pre-Training Experiment",
+  "git_commit_base": "1bba5ef",
+  "timestamp_utc": "2026-09-28T05:38:48Z",
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "physical_cores": 14,
+    "logical_cores": 20,
+    "total_ram_gb": 31.64,
+    "python_version": "3.14.7",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false
+  },
+  "model": {
+    "name": "ChakrMicro v0.1",
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "context_length": 512
+  },
+  "tokenizer": {
+    "type": "Byte-Level BPE",
+    "vocab_size": 4096,
+    "merges_count": 3837,
+    "path": "data/experiments/vocab_4096",
+    "checksum": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f"
+  },
+  "dataset": {
+    "manifest_path": "data/manifests/stage_c_manifest.json",
+    "manifest_hash": "7fb98181aedffdba93ea07203acb0b21c79477bd62c9691485860ef3d209e3d0",
+    "train_shards_dir": "data/tokenized/stage_c/train",
+    "validation_shards_dir": "data/tokenized/stage_c/validation",
+    "test_shards_dir": "data/tokenized/stage_c/test",
+    "total_documents": 5534,
+    "total_sharded_tokens": 7708601,
+    "train_tokens": 6651093,
+    "validation_tokens": 465954,
+    "test_tokens": 591554,
+    "total_shards": 32
+  },
+  "training": {
+    "max_steps": 6478,
+    "batch_size": 2,
+    "sequence_length": 512,
+    "tokens_processed": 6633472,
+    "total_wall_clock_seconds": 1223.9,
+    "average_throughput_tokens_per_sec": 5420.1,
+    "initial_train_loss": 8.3096,
+    "final_train_loss": 5.0307,
+    "train_loss_drop": 3.2789,
+    "train_loss_drop_pct": 39.46,
+    "initial_val_loss": 8.3306,
+    "final_periodic_val_loss": 4.1804,
+    "final_full_val_loss": 4.8062,
+    "val_loss_drop": 3.5244,
+    "val_loss_drop_pct": 42.31,
+    "initial_val_perplexity": 4148.91,
+    "final_val_perplexity": 122.27,
+    "test_loss": 4.7828,
+    "test_perplexity": 119.44,
+    "train_sample_loss": 4.2892,
+    "resume_status": "PASS \u2014 Deterministic Continuation (max loss delta: 0.00004938 over 30 steps)",
+    "resume_max_discrepancy": 4.9384307861721766e-05,
+    "checkpoints_count": 5
+  },
+  "domain_evaluation": {
+    "English": {
+      "loss": 4.2886,
+      "perplexity": 72.86,
+      "tokens_evaluated": 242
+    },
+    "Hindi": {
+      "loss": 6.3764,
+      "perplexity": 587.79,
+      "tokens_evaluated": 140
+    },
+    "Code": {
+      "loss": 7.9808,
+      "perplexity": 2924.36,
+      "tokens_evaluated": 71
+    },
+    "Sanskrit": {
+      "loss": 6.1666,
+      "perplexity": 476.55,
+      "tokens_evaluated": 120
+    },
+    "Mathematics": {
+      "loss": 5.348,
+      "perplexity": 210.18,
+      "tokens_evaluated": 129
+    },
+    "Reasoning": {
+      "loss": 3.5894,
+      "perplexity": 36.21,
+      "tokens_evaluated": 157
+    },
+    "Hinglish": {
+      "loss": 7.1084,
+      "perplexity": 1222.2,
+      "tokens_evaluated": 96
+    },
+    "Structured Data": {
+      "loss": 4.8434,
+      "perplexity": 126.91,
+      "tokens_evaluated": 192
+    }
+  },
+  "status": "COMPLETE"
+}
