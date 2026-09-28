@@ -102,6 +102,20 @@ from chakrview.cognition.unified import (
     UnifiedCognitivePolicy,
     SafePublicCognitiveTrace,
 )
+from chakrview.cognition.federated import (
+    FederatedCognitionEngine,
+    AgentRole,
+    AgentStatus,
+    AgentIdentity,
+    AgentContract,
+    AgentMessage,
+    AgentTask,
+    ConflictState,
+    FederatedConflictRecord,
+    FederatedSynthesisCandidate,
+    SafePublicFederatedTrace,
+    FederatedExecutionPolicy,
+)
 
 __all__ = [
     "CognitiveTask",
@@ -172,5 +186,18 @@ __all__ = [
     "DecisionState",
     "UnifiedCognitivePolicy",
     "SafePublicCognitiveTrace",
+    "federated",
+    "FederatedCognitionEngine",
+    "AgentRole",
+    "AgentStatus",
+    "AgentIdentity",
+    "AgentContract",
+    "AgentMessage",
+    "AgentTask",
+    "ConflictState",
+    "FederatedConflictRecord",
+    "FederatedSynthesisCandidate",
+    "SafePublicFederatedTrace",
+    "FederatedExecutionPolicy",
 ]
 
