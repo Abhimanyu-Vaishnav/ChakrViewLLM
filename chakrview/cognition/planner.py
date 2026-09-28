@@ -76,6 +76,8 @@ class PlanStep:
     required_skill: Optional[str] = None
     required_tool: Optional[str] = None
     tool_arguments: Dict[str, Any] = field(default_factory=dict)
+    required_capability: Optional[str] = None
+    capability_arguments: Dict[str, Any] = field(default_factory=dict)
     status: PlanStepStatus = PlanStepStatus.PENDING
     input_references: Dict[str, str] = field(default_factory=dict)
     output_references: Dict[str, str] = field(default_factory=dict)
