@@ -127,6 +127,7 @@ class CognitiveController:
         retriever: Optional[Any] = None,
         memory_store: Optional[Any] = None,
         preferred_domain: Optional[Any] = None,
+        personal_memory: Optional[Any] = None,
     ) -> CognitiveExecutionResult:
         """
         Execute a complete governed cognitive workflow for the given task.
@@ -238,6 +239,7 @@ class CognitiveController:
                     retriever=retriever,
                     memory_store=memory_store,
                     artifacts=artifacts,
+                    personal_memory=personal_memory,
                 )
                 observations[step.step_id] = observation
 
@@ -328,6 +330,21 @@ class CognitiveController:
                 confidence=0.9,
             ))
 
+        # Store memory candidates in personal_memory if provided
+        if personal_memory is not None and memory_candidates:
+            from chakrview.memory.record import MemoryType as PMType, MemoryProvenance as PMProv
+            owner = getattr(task, "owner_id", "default_user")
+            for mc in memory_candidates:
+                try:
+                    personal_memory.store_memory(
+                        content=f"{mc.key}: {mc.value}",
+                        memory_type=PMType.SEMANTIC,
+                        owner_id=owner,
+                        provenance=PMProv(source_type=mc.provenance, source_id=mc.task_id),
+                    )
+                except Exception:
+                    pass
+
         # 11. Synthesize Response Text
         response_text = self._synthesize_response(
             task=task,
@@ -357,6 +374,7 @@ class CognitiveController:
         retriever: Optional[Any],
         memory_store: Optional[Any],
         artifacts: List[CognitiveArtifact],
+        personal_memory: Optional[Any] = None,
     ) -> StepObservation:
         """
         Internal executor for a single cognitive step.
@@ -392,6 +410,17 @@ class CognitiveController:
                 memories = memory_store.get_working_memory()
                 if memories:
                     retrieved_text = "\n".join([f"- {m.key}: {m.value}" for m in memories[:3]])
+
+            # Check persistent personal memory if available
+            if personal_memory is not None:
+                try:
+                    owner = getattr(task, "owner_id", "default_user")
+                    mem_results = personal_memory.retrieve(task.user_request, owner_id=owner, top_k=2)
+                    if mem_results:
+                        mem_strings = [f"- [Personal Memory]: {m.content}" for m in mem_results]
+                        retrieved_text = f"{retrieved_text}\n" + "\n".join(mem_strings) if retrieved_text else "\n".join(mem_strings)
+                except Exception:
+                    pass
 
             if not retrieved_text:
                 retrieved_text = f"Context gathered for: {task.user_request}"

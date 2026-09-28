@@ -899,9 +899,10 @@ class InferenceSession:
         active_skill: Optional[Any] = None,
         retriever: Optional[Any] = None,
         preferred_domain: Optional[Any] = None,
+        personal_memory: Optional[Any] = None,
     ) -> Any:
         """
-        Execute a multi-step governed cognitive agent workflow (Step 15).
+        Execute a multi-step governed cognitive agent workflow (Step 15 & 16).
         
         Pipeline:
         Understand -> Retrieve -> Plan -> Execute -> Observe -> Verify -> Recover -> Respond
@@ -917,5 +918,7 @@ class InferenceSession:
             retriever=retriever or getattr(self, "retriever", None),
             memory_store=self.conversation_store,
             preferred_domain=preferred_domain,
+            personal_memory=personal_memory,
         )
+
 
