@@ -1,7 +1,7 @@
 """
 ChakrView: Indigenous AI Research Framework.
 """
-from chakrview import corpus, tokenizer
+from chakrview import corpus, tokenizer, runtime
 from chakrview.config import (
     ChakrConfig,
     calculate_parameter_breakdown,
@@ -16,9 +16,11 @@ __all__ = [
     "__version__",
     "tokenizer",
     "corpus",
+    "runtime",
     "ChakrConfig",
     "calculate_parameter_breakdown",
     "calculate_memory_budget",
     "calculate_flops_breakdown",
     "get_tensor_forward_contracts",
 ]
+
