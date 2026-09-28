@@ -2,97 +2,78 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 21 — Neural Thinking & Deliberation Foundation
-- **Status**: Complete & Verified (Formal inspectable computational deliberation layer established under `chakrview/thinking/`; typed immutable `ThoughtStep` sequence with 12 distinct cognitive purposes; bounded `ThinkingWorkspace` with tenant isolation and hard ceilings on steps, revisions, evidence, and time; transparent heuristic `ThinkingAttention` focus selection; multi-criteria `CritiqueEngine` detecting contradictions, ungrounded claims, and weak conclusions; non-destructive `RevisionEngine` formulating directive guidance; deterministic `ThinkingStoppingPolicy` distinguishing SOLVED, SOLVED_WITH_UNCERTAINTY, INSUFFICIENT_INFORMATION, and budget exhaustion; auditable `ThinkingTrace` with safe public summaries; full `DeliberationEngine` coordinating the neuro-symbolic loop with ChakrMicro; integration with `NeuralIntelligenceLoop(use_thinking=True)`; 563/563 tests passing across 66 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; CPU deliberation latency: 60.36 ms direct math, 90.05 ms overall mean, 6.33 avg steps, weights_modified=False).
+- **Current phase**: Step 22 — Neural Learning & CPU Training Foundation
+- **Status**: Complete & Verified (Foundational offline neural learning and CPU training layer established under `chakrview/training/`; strongly typed training data contract enforcing `RAW USER TEXT != VERIFIED TRAINING DATA` and accepting only `TRAINING_APPROVED` records with complete provenance; deterministic causal LM dataset builder enforcing 512-token ceiling, deterministic train/val splits, and SHA-256 fingerprinting; sovereign CPU training engine with AdamW, gradient accumulation, gradient clipping, periodic validation, and atomic checkpointing; fail-closed safety checker trapping NaN/Inf losses, exploding gradients, out-of-bounds token IDs, tokenizer mismatches, and architecture invariant breaches; mathematical validation engine measuring loss, token throughput, and non-finite perplexity protection; multi-stage regression gate enforcing `TRAINING` → `TRAINED` → `VALIDATED` → `REGRESSION_TESTED` → `PROMOTABLE` → `PROMOTED` with zero automatic promotion and instant rollback; reproducible run manifest capturing all hyperparameters, hardware, and seeds; 588/588 tests passing across 67 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; runtime inference remains strictly read-only with weights_modified=False).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 21 establishes the **Neural Thinking & Deliberation Foundation** (`chakrview/thinking/`), elevating ChakrView from single-pass inference into an inspectable, bounded, multi-cycle neuro-symbolic deliberation architecture:
+> **IMPORTANT**: Step 22 establishes the foundational **Neural Learning & CPU Training Foundation** (`chakrview/training/`), creating a clean architectural separation between runtime inference and offline learning:
 > $$\begin{aligned}
-> \text{User / Environment} &\longrightarrow \text{Cognitive State} \longrightarrow \text{Context Builder} \longrightarrow \text{ChakrMicro (Frozen)} \\
-> &\longrightarrow \text{Thinking Workspace} \longleftrightarrow \text{Governed Reasoning} \longleftrightarrow \text{Critique Engine} \\
-> &\longleftrightarrow \text{Revision Engine (Multi-Cycle)} \longrightarrow \text{Stopping Policy} \longrightarrow \text{Final Response}
+> \textbf{Runtime (Immutable):} \quad &\text{User} \longrightarrow \text{Intelligence} \longrightarrow \text{Thinking} \longrightarrow \text{Reasoning} \longrightarrow \text{Response} \\
+> \textbf{Offline (Governed):} \quad &\text{Approved Experience} \longrightarrow \text{Dataset Builder} \longrightarrow \text{CPU Training} \longrightarrow \text{Validation} \\
+> &\longrightarrow \text{Regression Gate} \longrightarrow \text{Candidate Checkpoint} \longrightarrow \text{Manual Promotion / Rollback}
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Epistemic Honesty:** Step 21 establishes a computational deliberation mechanism; it does not claim consciousness, sentience, or human-like thought.
-> 2. **Zero Runtime Self-Modification:** Model weights remain permanently immutable during deliberation (`weights_modified = False`).
-> 3. **DATA != AUTHORITY, REASONING != AUTHORITY, THINKING != AUTHORITY:** Deliberation cannot grant capability execution authorization; all capability calls route through `CapabilityGate`.
-> 4. **Safe Telemetry:** Private intermediate thought chains are shielded from verbatim public output; only safe summaries or verified final conclusions are surfaced.
-> 5. **Frozen Invariants:** 3,443,136 parameters, 4096 vocabulary, 512 context length, BOS=0, EOS=1, PAD=2.
-> All 563 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
+> 1. **Data Authority Principle:** $\text{RAW USER TEXT} \neq \text{VERIFIED TRAINING DATA}$. Only `TRAINING_APPROVED` records with cryptographic provenance may enter training sets.
+> 2. **Zero Runtime Self-Modification:** Runtime inference weights remain permanently immutable (`weights_modified = False`). Training occurs strictly offline on isolated model instances.
+> 3. **Frozen Invariants:** Exactly 3,443,136 parameters, 4,096 vocabulary, 512 context length, BOS=0, EOS=1, PAD=2.
+> 4. **Fail-Closed Safety:** NaN/Inf losses, diverging gradients, tokenizer mismatches, or invariant violations immediately abort training.
+> 5. **Governed Promotion:** No trained model can replace an active inference model automatically. Promotion requires passing validation, invariant auditing, regression testing, and explicit operator signoff.
+> All 588 unit, integration, invariant, and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Completed
-* Comprehensive architectural documentation in [docs/STEP_21_NEURAL_THINKING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_21_NEURAL_THINKING_ARCHITECTURE.md), [docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md), and [docs/STEP_19_REASONING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_19_REASONING_ARCHITECTURE.md).
-* Empirical CPU benchmark results recorded in [docs/STEP_21_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_21_BENCHMARK_RESULTS.json) via `scripts/benchmark_thinking.py`.
-* Creation of `chakrview/thinking/` package implementing `ThoughtStep`, `ThoughtPurpose`, `ThinkingPolicy`, `ThinkingWorkspace`, `WorkspaceBudgetExceededError`, `TenantIsolationError`, `ThinkingAttention`, `FocusType`, `AttentionFocus`, `CritiqueEngine`, `CritiqueVerdict`, `CritiqueResult`, `RevisionEngine`, `RevisionPlan`, `ThinkingStoppingPolicy`, `StoppingCondition`, `ThinkingTrace`, `DeliberationEngine`, and `DeliberationOutcome`.
-* Export of `thinking` via `chakrview/__init__.py`.
-* Integration into `NeuralIntelligenceLoop(use_thinking=True)` in `chakrview/intelligence/pipeline.py`.
-* 16 new unit, multi-cycle, revision, invariant, isolation, and security tests added in `tests/test_thinking.py`, expanding the verified test suite to 563 tests across 66 test files.
+#### 1. Implemented Now (Verified in Step 22)
+* Comprehensive architectural documentation in [docs/STEP_22_NEURAL_LEARNING_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_22_NEURAL_LEARNING_ARCHITECTURE.md).
+* Empirical CPU benchmark results recorded in [docs/STEP_22_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_22_BENCHMARK_RESULTS.json) via `scripts/benchmark_training.py`.
+* **Training Data Contract** (`chakrview/training/contract.py`): Typed `TrainingExample`, `TrainingDatasetManifest`, `TokenizerFingerprint`, lifecycle status validation, and strict provenance tracking.
+* **Deterministic Dataset Builder** (`chakrview/training/builder.py`): Offline dataset builder formatting causal LM pairs `(input_ids, target_ids)`, enforcing 512-token ceiling with truncation tracking, deterministic train/val splits, and SHA-256 fingerprinting.
+* **Sovereign CPU Training Engine** (`chakrview/training/engine.py`): CPU-first training loop with AdamW (parameter-specific weight decay), gradient accumulation, norm clipping, periodic evaluation, atomic checkpointing, and resume-from-step.
+* **Fail-Closed Safety Checker** (`chakrview/training/safety.py`): Numerical checks for NaN/Inf loss, NaN/Inf gradients, gradient explosion, token range bounds `[0, 4095]`, tokenizer fingerprint verification, and architecture invariant validation.
+* **Mathematical Validation Engine** (`chakrview/training/validation.py`): Loss evaluation, token throughput, and perplexity computation with mathematical overflow and non-finite protection.
+* **Multi-Stage Regression Gate** (`chakrview/training/regression.py`): Stage progression (`TRAINING` $\to$ `TRAINED` $\to$ `VALIDATED` $\to$ `REGRESSION_TESTED` $\to$ `PROMOTABLE` $\to$ `PROMOTED`), regression suite execution, atomic model promotion, and versioned rollback.
+* **Reproducible Run Manifest** (`chakrview/training/manifest.py`): Full cryptographic audit log tracking seeds, hyperparameters, platform specs, and validation outcomes.
+* 25 new unit, safety, checkpoint, validation, regression, and end-to-end training tests added in `tests/test_neural_learning.py`, expanding the verified test suite to 588 tests across 67 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2).
 
-#### 2. Established
-* **Iterative Neuro-Symbolic Deliberation Loop**: Bounded multi-cycle thinking: Objective -> Attention Focus -> Neural Candidate -> Structured Reasoning -> Multi-Criteria Critique -> Feedback Directive -> Controlled Revision -> Stopping Decision.
-* **Inspectable & Tamper-Resistant Thought Representation**: Immutable `ThoughtStep` instances with 12 distinct purposes and explicit provenance.
-* **Deterministic Resource Ceilings**: Strict bounds on thought steps, revision cycles, hypotheses, evidence, tokens, and execution time preventing infinite loops.
-* **Epistemic Boundaries**: Explicit recognition of `INSUFFICIENT_INFORMATION` and unresolved contradictions without fabricating false certainty.
-* **Multi-Tenant Isolation**: Cryptographic session/owner isolation preventing cross-tenant information leakage in deliberation workspaces.
-
-#### 3. Not Yet Implemented (Intentionally Deferred)
-* Online continual gradient updates (strictly forbidden by architectural constraint).
-* Learned attention heads for deliberation focus (heuristic rules provide baseline; learned policies deferred to future training steps).
-* Unbounded autonomous agent loops without capability gating.
+#### 2. Future Training Capability (Explicitly Not Implemented / Planned for Future Steps)
+* **Large-Scale Continuous Pre-Training:** Step 22 implements the *mechanics* and *safety gates* of CPU training. Actual multi-epoch pre-training on expansive multi-gigabyte corpora will occur in designated training runs.
+* **Instruction-Tuning on Synthesized Traces:** Fine-tuning on thousands of thinking/reasoning traces generated by DeliberationEngine is deferred until training pipelines are deployed at scale.
+* **Learned Attention Heads for Deliberation:** Neural policy replacing heuristic focus selection in DeliberationEngine.
+* **Distributed/Multi-Node Training:** Current engine is sovereign single-machine CPU-optimized; distributed DDP/FSDP is intentionally out of scope.
+* **Online/Continual Parameter Updates:** Weight updates during inference are permanently prohibited by design.
 
 ---
 
 ### Progress by Module
-- `chakrview/thinking/`: **Neural Thinking & Deliberation Foundation (New in Step 21)**
-  - `thought.py`: Strongly typed immutable ThoughtStep and 12-purpose ThoughtPurpose enum
-  - `policy.py`: Configurable ThinkingPolicy and standard/strict/fast presets
-  - `workspace.py`: Bounded, tenant-isolated, serializable ThinkingWorkspace
-  - `attention.py`: ThinkingAttention heuristic prioritization mechanism
-  - `critique.py`: Multi-criteria CritiqueEngine evaluating consistency, evidence, and constraints
-  - `revision.py`: RevisionEngine planning non-destructive corrective cycles
-  - `stopping.py`: Deterministic ThinkingStoppingPolicy distinguishing 7 terminal conditions
-  - `trace.py`: Auditable ThinkingTrace and safe summary generation
-  - `deliberation.py`: DeliberationEngine orchestrating the complete neuro-symbolic loop
-  - `__init__.py`: Clean public exports of the thinking subsystem
+- `chakrview/training/`: **Neural Learning & CPU Training Foundation (New in Step 22)**
+  - `contract.py`: Strongly typed training data contract and record eligibility validator
+  - `builder.py`: Deterministic causal LM dataset builder with SHA-256 fingerprinting
+  - `engine.py`: Sovereign CPU training engine with AdamW, accumulation, and checkpointing
+  - `safety.py`: Fail-closed safety checker detecting numerical and architectural anomalies
+  - `validation.py`: Mathematical validation engine with non-finite perplexity guardrails
+  - `regression.py`: Multi-stage regression gate governing promotion and rollback
+  - `manifest.py`: Reproducible training run manifest and audit logger
+  - `__init__.py`: Clean public exports of the neural learning subsystem
+- `chakrview/thinking/`: **Neural Thinking & Deliberation Foundation (Ratified in Step 21)**
+  - `thought.py`, `policy.py`, `workspace.py`, `attention.py`, `critique.py`, `revision.py`, `stopping.py`, `trace.py`, `deliberation.py`
 - `chakrview/intelligence/`: **Neural Reasoning Integration & Intelligence Loop (Ratified in Step 20)**
-  - `contracts.py`: Inference request/result, honest uncertainty, learning record statuses
-  - `context.py`: Deterministic priority context builder with 512-token ceiling
-  - `inference.py`: Sovereign neural inference engine with frozen weight immutability check
-  - `feedback.py`: Feedback triage, evaluation separation, and prompt injection containment
-  - `learning.py`: Multi-tenant learning pipeline, dataset export, and ModelUpdateManager with rollback
-  - `pipeline.py`: Central NeuralIntelligenceLoop orchestrator (updated with thinking_engine integration)
-  - `__init__.py`: Clean public exports of intelligence subsystem
+  - `contracts.py`, `context.py`, `inference.py`, `feedback.py`, `learning.py`, `pipeline.py`
 - `chakrview/reasoning/`: **Governed Cognitive Reasoning Subsystem (Ratified in Step 19)**
-  - `task.py`: Typed reasoning tasks and 13-phase lifecycle state machine
-  - `decomposition.py`: Subproblems, trees, and bounded deterministic decomposer
-  - `evidence.py`: 9-tier evidence model with weighted reliability and provenance
-  - `hypothesis.py`: Candidate hypotheses, support/contradiction tracking, revision lineage
-  - `inference.py`: Deductions, comparisons, and constraint reasoning
-  - `contradiction.py`: Pairwise conflict detection and persistent uncertainty evaluation
-  - `decision.py`: Action candidate generation, risk-penalized utility scoring
-  - `verification.py`: Multi-criteria verification and revision recommendations
-  - `trace.py`: Auditable, JSON-serializable trace and safe summary generator
-  - `policies.py`: Configurable recursion, iteration, and revision bounds
-  - `engine.py`: Central governed reasoning loop orchestrator
-  - `__init__.py`: Clean public exports of all reasoning subsystem primitives
+  - `task.py`, `decomposition.py`, `evidence.py`, `hypothesis.py`, `inference.py`, `contradiction.py`, `decision.py`, `verification.py`, `trace.py`, `policies.py`, `engine.py`
 - `chakrview/state/`: **Cognitive Identity, Self-Model & System State Subsystem (Ratified in Step 18)**
   - `identity.py`, `epistemic.py`, `uncertainty.py`, `task_state.py`, `environment_state.py`, `capability_state.py`, `constraints.py`, `snapshot.py`, `manager.py`
 - `chakrview/capability/`: **Sovereign Capability & Device Abstraction Subsystem (Ratified in Step 17)**
-  - `contract.py`, `registry.py`, `provider.py`, `gate.py` (updated with reasoning authority denial), `environment.py`, `bridge.py`
+  - `contract.py`, `registry.py`, `provider.py`, `gate.py`, `environment.py`, `bridge.py`
 - `chakrview/memory/`: **Persistent Personal Memory, Consolidation & Learning Subsystem (Ratified in Step 16)**
   - `record.py`, `store.py`, `scoring.py`, `deduplication.py`, `conflict.py`, `consolidation.py`, `temporal.py`, `retriever.py`, `comparison.py`, `learning.py`, `security.py`, `adapter.py`, `manager.py`
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Updated in Step 19)**
-  - `controller.py`: Integrated with `GovernedReasoningEngine` and `reasoning_trace`
-  - `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Ratified in Step 15-19)**
+  - `controller.py`, `planner.py`, `task.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
 - `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory, Capability & Cognitive Integration (Ratified in Step 10-18)**
@@ -100,12 +81,16 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_training.py`: Step 22 empirical neural learning benchmark
+  - `benchmark_thinking.py`: Step 21 empirical thinking benchmark
   - `benchmark_reasoning.py`: Step 19 empirical reasoning benchmark
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_memory.py`: Step 16 empirical memory benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **547/547 Tests Passing** across 65 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **588/588 Tests Passing** across 67 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 25 Neural Learning & CPU Training tests (`test_neural_learning.py`)
+  - 16 Neural Thinking & Deliberation tests (`test_thinking.py`)
   - 17 Neural Reasoning Integration & Intelligence Loop tests (`test_intelligence.py`)
   - 24 Governed Cognitive Reasoning tests (`test_reasoning.py`)
   - 22 Cognitive Identity, Self-Model & System State tests (`test_cognitive_state.py`)
@@ -122,6 +107,10 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_22_NEURAL_LEARNING_ARCHITECTURE.md` (Step 22 Neural Learning & CPU Training Architecture Report)
+  - `docs/STEP_22_BENCHMARK_RESULTS.json` (Step 22 Empirical Training Benchmark Data)
+  - `docs/STEP_21_NEURAL_THINKING_ARCHITECTURE.md` (Step 21 Neural Thinking & Deliberation Architecture Report)
+  - `docs/STEP_21_BENCHMARK_RESULTS.json` (Step 21 Empirical Thinking Benchmark Data)
   - `docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md` (Step 20 Neural Reasoning Integration & Intelligence Loop Report)
   - `docs/STEP_20_BENCHMARK_RESULTS.json` (Step 20 Empirical Intelligence Loop Benchmark Data)
   - `docs/STEP_19_REASONING_ARCHITECTURE.md` (Step 19 Governed Cognitive Reasoning Architecture Report)
@@ -172,14 +161,15 @@
 ---
 
 ## Known Limitations
-1. **Rule-Based Decomposition Heuristics**: Initial decomposition uses structural rules for mathematical, decision, and analytic tasks; dynamic open-domain tasks rely on domain skill templates.
-2. **Synchronous Execution Model**: Capability execution within cognitive and reasoning step loops is currently synchronous.
-3. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
-4. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; complex reasoning tasks rely on runtime cognitive orchestration, tools, persistent memory, and capabilities.
+1. **CPU Training Throughput**: On consumer CPU hardware, single-example forward+backward pass takes ~6.8 ms (146 ex/s) for short sequences ($L=32$) and ~80 ms for full context ($L=512$). Bulk training requires batched offline execution.
+2. **Rule-Based Decomposition Heuristics**: Initial reasoning decomposition uses structural rules for mathematical, decision, and analytic tasks; dynamic open-domain tasks rely on domain skill templates.
+3. **Synchronous Execution Model**: Capability execution within cognitive and reasoning step loops is currently synchronous.
+4. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1. Any training example exceeding this bound is explicitly truncated with metadata recording.
+5. **No Continual Parameter Modification**: Online runtime self-modification is strictly forbidden by design to guarantee weight immutability and predictability.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 19 RATIFIED — GOVERNED COGNITIVE REASONING FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 20 (Awaiting user explicit command; DO NOT START STEP 20 AUTOMATICALLY).
+- **Decision**: **STEP 22 RATIFIED — NEURAL LEARNING & CPU TRAINING FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 23 (Awaiting user explicit command; DO NOT START STEP 23 AUTOMATICALLY).

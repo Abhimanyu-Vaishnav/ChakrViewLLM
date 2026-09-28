@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-09-28T16:33:06.181159+00:00",
+  "step": 22,
+  "benchmark_title": "Neural Learning & CPU Training Foundation Benchmark",
+  "environment": {
+    "device": "CPU",
+    "threads": 14,
+    "torch_version": "2.14.0+cpu"
+  },
+  "model_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2,
+    "weights_modified": false
+  },
+  "dataset_construction_benchmark": {
+    "record_count": 50,
+    "mean_latency_ms": 52.06,
+    "median_latency_ms": 53.53,
+    "total_tokens_compiled": 3150,
+    "tokenization_throughput_tokens_per_sec": 60504.71,
+    "dataset_fingerprint": "e2c6c5c674938a6f",
+    "tokenizer_fingerprint": "eb3581cd40b696b4"
+  },
+  "dataloader_benchmark": {
+    "batch_size": 4,
+    "total_batches_loaded": 50,
+    "total_tokens_loaded": 13936,
+    "duration_ms": 6.23,
+    "batches_per_sec": 8026.84,
+    "tokens_per_sec": 2237241.34
+  },
+  "forward_backward_benchmark": {
+    "batch_size": 2,
+    "seq_len": 64,
+    "iterations": 15,
+    "mean_forward_latency_ms": 10.12,
+    "median_forward_latency_ms": 9.09,
+    "forward_tokens_per_sec": 12653.44,
+    "mean_backward_latency_ms": 14.14,
+    "median_backward_latency_ms": 13.18,
+    "backward_tokens_per_sec": 9052.3
+  },
+  "optimizer_step_benchmark": {
+    "parameters_updated": 3443136,
+    "iterations": 15,
+    "mean_step_latency_ms": 6.18,
+    "median_step_latency_ms": 5.57,
+    "p95_step_latency_ms": 13.78
+  },
+  "checkpoint_save_benchmark": {
+    "iterations": 3,
+    "mean_save_latency_ms": 11.63,
+    "median_save_latency_ms": 11.5,
+    "mean_checkpoint_size_mb": 13.16
+  },
+  "end_to_end_training_benchmark": {
+    "steps_completed": 5,
+    "total_tokens_trained": 620,
+    "final_loss": 7.8134,
+    "final_val_loss": 7.4761,
+    "final_val_perplexity": 1765.4103,
+    "total_training_duration_ms": 440.06,
+    "mean_step_time_ms": 88.01,
+    "training_throughput_tokens_per_sec": 1408.9,
+    "checkpoint_created": true
+  }
+}
