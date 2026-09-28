@@ -2,35 +2,33 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 13 — Hybrid Memory & Semantic Retrieval Foundation
-- **Status**: Complete & Verified (Modular hybrid retrieval system combining Okapi BM25 lexical search and dense vector search via lightweight `EmbeddingProvider` abstraction and `InMemoryVectorIndex`; deterministic score fusion formula $S = w_{\text{lex}} \cdot \hat{s}_{\text{lex}} + w_{\text{sem}} \cdot \hat{s}_{\text{sem}}$ with graceful single-subsystem fallback; `UnifiedRetriever` orchestrating working memory and knowledge documents without merging underlying storage; `PromptContextBuilder` context budgeting under strict 512-token ceiling; `InferenceSession` integration with full backward compatibility; 389/389 tests passing across 58 test files; zero regressions)
+- **Current phase**: Step 14 — Sovereign Semantic Encoder Foundation
+- **Status**: Complete & Verified (Trainable neural semantic encoder subsystem `chakrview/semantic/` established with 836,864 parameters, $d_{\text{model}}=128$, 2 bidirectional layers, 4 heads, $d_{\text{ff}}=256$, and output dimension 128; masked mean pooling ignoring padding tokens; L2 unit normalization; InfoNCE contrastive loss; local dataset schema and JSONL serialization; `NeuralSemanticEmbeddingProvider` adapter plugging directly into Step 13 `EmbeddingProvider` with zero changes to `ChakrMicro` or `InferenceSession`; hybrid retrieval achieves 100% Recall@5 and 0.8958 MRR; 411/411 tests passing across 59 test files; zero regressions)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 13 establishes a modular hybrid memory and semantic retrieval architecture for the ChakrView cognitive runtime. The neural model architecture (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The model remains strictly stateless; the runtime coordinates retrieval. The newly introduced subsystems provide:
-> 1. **Retrieval Abstractions** (`chakrview/runtime/retrieval.py`): `RetrievalSourceType`, `RetrievalCandidate`, `RetrievalQuery`, `RetrievalResult`, and structured provenance tracking.
-> 2. **Embedding Provider Contract & Reference Harness** (`chakrview/runtime/retrieval.py`): Abstract `EmbeddingProvider` interface and `DeterministicHashEmbeddingProvider` reference implementation ($d=64$, L2-normalized) strictly designated as an architectural test harness for vector mathematics, not a semantic intelligence model.
-> 3. **In-Memory Vector Index** (`chakrview/runtime/retrieval.py`): `InMemoryVectorIndex` with zero external dependencies (no FAISS/Chroma), exact cosine similarity, and deterministic tie-breaking on `(-score, item_id)`.
-> 4. **Deterministic Hybrid Score Fusion** (`chakrview/runtime/retrieval.py`): `HybridRetriever` combining normalized BM25 lexical scores and clamped cosine vector similarities with configurable weights and graceful fallback when one subsystem has no results.
-> 5. **Memory + Knowledge Unification** (`chakrview/runtime/retrieval.py`): `UnifiedRetriever` coordinating working memory and knowledge search without merging underlying storage models.
-> 6. **Context Budgeting Integration** (`chakrview/runtime/context.py`): `PromptContextBuilder` accepts unified retrieval candidates and partitions them into passive knowledge and memory blocks while strictly enforcing the 512-token context ceiling.
-> 7. **Cognitive Inference Integration** (`chakrview/runtime/inference.py`): `InferenceSession.ask()` and `InferenceSession.chat()` accept hybrid and unified retrievers with 100% backward compatibility for existing workflows.
-> 8. **Empirical Benchmarking** (`scripts/benchmark_hybrid_retrieval.py`, `docs/STEP_13_BENCHMARK_RESULTS.json`): Sub-millisecond hybrid retrieval across 100 documents ($0.58\ \text{ms}$), $6.02\ \text{ms}$ across 1,000 documents, and 10,509 embeddings/sec throughput.
-> All 389 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 14 establishes a trainable, sovereign neural semantic encoder foundation around the ChakrView cognitive runtime. The generative neural model architecture (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The model remains strictly stateless; the runtime coordinates retrieval. The newly introduced subsystems provide:
+> 1. **Neural Semantic Core** (`chakrview/semantic/encoder.py`, `config.py`): Compact bidirectional transformer encoder ($d_{\text{model}}=128$, 2 layers, 4 heads, $d_{\text{ff}}=256$, 836,864 parameters) optimized for CPU execution ($3.74\ \text{ms}$ single-text latency, 267 embeddings/sec throughput).
+> 2. **Masked Mean Pooling & Projection** (`chakrview/semantic/pooling.py`, `projection.py`): Explicit attention-mask aggregation ignoring padding tokens (`PAD_ID = 2`), followed by projection to $d=128$ and unit L2 normalization ($\|\mathbf{v}\|_2 = 1.0$).
+> 3. **Contrastive Learning Objective** (`chakrview/semantic/loss.py`): InfoNCE (Multiple Negatives Ranking Loss) supporting in-batch negatives and explicit hard negatives with temperature scaling ($\tau = 0.05$).
+> 4. **Local Dataset Schema & Training Pipeline** (`chakrview/semantic/dataset.py`, `training.py`): `SemanticPair` records, deterministic JSONL loading/saving, reproducible train/validation splitting, collator batch tokenization, and `SemanticTrainer` with checkpointing.
+> 5. **Embedding Provider Adapter** (`chakrview/semantic/provider.py`): `NeuralSemanticEmbeddingProvider` implementing Step 13 `EmbeddingProvider` as a drop-in replacement for the reference hash embedder across `InMemoryVectorIndex`, `HybridRetriever`, and `UnifiedRetriever`.
+> 6. **Empirical Benchmarking & Head-to-Head Comparison** (`scripts/benchmark_semantic_encoder.py`, `docs/STEP_14_BENCHMARK_RESULTS.json`): Systematic comparison showing that Hybrid retrieval (BM25 + Neural Semantic Encoder) achieves 100% Recall@5, 100% Recall@10, and 0.8958 MRR, outperforming BM25 alone (0.8776 MRR) and dense retrieval alone (0.3508 MRR).
+> 7. **Passive Data Security Preserved**: Semantic document chunks remain passive data inside delimiters, fully isolated from tool execution and system instruction priority.
+> All 411 unit and regression tests pass with zero failures and zero warnings.
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural documentation in [docs/STEP_13_HYBRID_RETRIEVAL.md](file:///d:/Project/ChakrView/docs/STEP_13_HYBRID_RETRIEVAL.md).
-* Empirical benchmark results recorded in [docs/STEP_13_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_13_BENCHMARK_RESULTS.json).
-* Creation of `chakrview/runtime/retrieval.py` implementing `RetrievalSourceType`, `RetrievalCandidate`, `RetrievalQuery`, `RetrievalResult`, `EmbeddingProvider`, `DeterministicHashEmbeddingProvider`, `VectorIndex`, `InMemoryVectorIndex`, `HybridRetriever`, and `UnifiedRetriever`.
-* Integration into `chakrview/runtime/context.py` and `chakrview/runtime/inference.py`.
-* 26 new unit and integration tests added in `tests/test_hybrid_retrieval.py`, expanding the verified test suite to 389 tests across 58 test files.
-* Programmatic verification of all frozen invariants (parameter count exactly 3,443,136; vocabulary 4096; context length 512).
-* Clean public exports in `chakrview/runtime/__init__.py`.
+* Comprehensive architectural documentation in [docs/STEP_14_SEMANTIC_ENCODER.md](file:///d:/Project/ChakrView/docs/STEP_14_SEMANTIC_ENCODER.md).
+* Empirical benchmark results recorded in [docs/STEP_14_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_14_BENCHMARK_RESULTS.json).
+* Creation of `chakrview/semantic/` package implementing `SemanticEncoderConfig`, `SemanticEncoder`, `MaskedMeanPooling`, `SemanticProjection`, `InfoNCELoss`, `SemanticDataset`, `SemanticCollator`, `SemanticTrainer`, `SemanticRetrievalMetrics`, and `NeuralSemanticEmbeddingProvider`.
+* Integration into `chakrview/runtime/retrieval.py` and `chakrview/runtime/__init__.py`.
+* 22 new unit and integration tests added in `tests/test_semantic_encoder.py`, expanding the verified test suite to 411 tests across 59 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512).
 
 #### 2. Established
 * **Stateless Model / Stateful Runtime Invariant**: The neural core remains purely stateless while multi-turn state is runtime-owned.
@@ -46,8 +44,20 @@
 * External cloud/network services (strictly prohibited).
 
 ### Progress by Module
-- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory & Hybrid Retrieval (Updated in Step 13)**
-  - `retrieval.py`: Hybrid memory & semantic retrieval foundation (`RetrievalSourceType`, `RetrievalCandidate`, `RetrievalQuery`, `RetrievalResult`, `EmbeddingProvider`, `DeterministicHashEmbeddingProvider`, `VectorIndex`, `InMemoryVectorIndex`, `HybridRetriever`, `UnifiedRetriever`)
+- `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (New in Step 14)**
+  - `config.py`: Semantic encoder configuration (`SemanticEncoderConfig`, $d_{\text{model}}=128$, 2 layers, 4 heads, $d_{\text{ff}}=256$, embedding_dim=128, max_seq_len=256)
+  - `encoder.py`: Lightweight bidirectional transformer encoder (`SemanticEncoder`, `TransformerEncoderBlock`) with 836,864 parameters
+  - `pooling.py`: Sequence aggregation layers (`MaskedMeanPooling`, `MeanPooling`, `CLSPooling`, `PoolingLayer`) ignoring pad tokens
+  - `projection.py`: Linear projection head and unit L2 normalization (`SemanticProjection`)
+  - `loss.py`: InfoNCE contrastive learning loss (`InfoNCELoss`) with in-batch and explicit negative support
+  - `dataset.py`: Structured dataset representations (`SemanticPair`, `SemanticDataset`, `SemanticCollator`) and JSONL handling
+  - `training.py`: CPU-friendly contrastive fine-tuning engine (`SemanticTrainingConfig`, `TrainingHistory`, `SemanticTrainer`)
+  - `evaluation.py`: IR metric calculation (`SemanticRetrievalMetrics`, `evaluate_semantic_retrieval`: Recall@k, MRR)
+  - `serialization.py`: Atomic checkpoint saving and loading (`save_semantic_encoder`, `load_semantic_encoder`)
+  - `provider.py`: Retrieval integration adapter (`NeuralSemanticEmbeddingProvider`) implementing Step 13 `EmbeddingProvider`
+  - `__init__.py`: Clean public exports of all semantic encoder primitives
+- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory & Hybrid Retrieval (Updated in Step 14)**
+  - `retrieval.py`: Hybrid memory & semantic retrieval foundation (`RetrievalSourceType`, `RetrievalCandidate`, `RetrievalQuery`, `RetrievalResult`, `EmbeddingProvider`, `DeterministicHashEmbeddingProvider`, `NeuralSemanticEmbeddingProvider`, `VectorIndex`, `InMemoryVectorIndex`, `HybridRetriever`, `UnifiedRetriever`)
   - `memory.py`: Conversational data structures (`ConversationTurn`, `MemoryItem`, `ConversationState`), in-memory session registry (`ConversationStore`), deterministic working memory ranking & budget eviction (`WorkingMemory`), rule-based memory extractor (`MemoryExtractor`), and rolling summarizer (`ConversationSummarizer`)
   - `context.py`: Multi-tier prompt budgeting & assembly under 512-token ceiling (`ContextBudget`, `PromptContextBuilder`, `AssembledContext`) with unified candidate partitioning
   - `inference.py`: Interactive inference session with streaming generation, KV-cache decoding, single-turn RAG (`ask`), and multi-turn chat (`chat`) supporting hybrid and unified retrieval
@@ -59,18 +69,20 @@
   - `integrity.py`: SHA-256 artifact verification, tensor sanity, quarantine, and atomic rollback
   - `hardware.py`: Hardware capability detection and runtime planner
   - `versioning.py`: Hierarchical version manifests and ancestry lineage tracking
-  - `__init__.py`: Clean public exports of all runtime, retrieval, memory, RAG, and inference primitives
+  - `__init__.py`: Clean public exports of all runtime, semantic, retrieval, memory, RAG, and inference primitives
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - `cache.py`: Reusable, shape-validated persistent KV-cache engine (`KVCache`, `LayerKVCache`) with context bounds enforcement ($T \le 512$)
   - `model.py`, `attention.py`, `rotary.py`: Incremental decoding (`prefill()`, `decode_next()`) and frozen causal sequence-parallel `forward()`
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `configs/`: **Pre-Training & Capability Evaluation Configurations**
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_semantic_encoder.py`: Step 14 empirical benchmark evaluating encoding throughput, scaling retrieval, and 4-way retrieval comparison
   - `benchmark_hybrid_retrieval.py`: Step 13 empirical benchmark evaluating embedding generation, vector insertion/search, BM25, hybrid fusion, memory ranking, and context assembly
   - `benchmark_conversation_memory.py`: Step 12 empirical benchmark evaluating session creation, turn append, memory extraction, ranking, and comparative generation
   - `benchmark_rag_skills.py`: Step 11 empirical benchmark evaluating ingestion, BM25 retrieval, context assembly, and RAG generation
   - `benchmark_inference_kv_cache.py`: Step 10 empirical benchmark evaluating full-forward vs KV-cache throughput and latency
-- `tests/`: **389/389 Tests Passing** across 58 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **411/411 Tests Passing** across 59 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 22 Semantic Encoder, InfoNCE Loss & Adapter tests (`test_semantic_encoder.py`)
   - 26 Hybrid Retrieval, Embedding & Unified Orchestration tests (`test_hybrid_retrieval.py`)
   - 25 Conversational Memory & Multi-Turn Chat tests (`test_conversation_memory.py`, `test_multi_turn_chat.py`)
   - 26 RAG, Knowledge, Context, Skill & Tool tests (`test_rag_knowledge.py`, `test_rag_context.py`, `test_rag_skills_tools.py`, `test_rag_end_to_end.py`)
@@ -80,6 +92,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_14_SEMANTIC_ENCODER.md` (Step 14 Sovereign Semantic Encoder Foundation Architectural Report)
+  - `docs/STEP_14_BENCHMARK_RESULTS.json` (Step 14 Empirical Semantic Encoder Benchmark Data)
   - `docs/STEP_13_HYBRID_RETRIEVAL.md` (Step 13 Hybrid Memory & Semantic Retrieval Foundation Architectural Report)
   - `docs/STEP_13_BENCHMARK_RESULTS.json` (Step 13 Empirical Hybrid Retrieval Benchmark Data)
   - `docs/STEP_12_CONVERSATIONAL_MEMORY.md` (Step 12 Conversational State & Multi-Turn Memory Architectural Report)

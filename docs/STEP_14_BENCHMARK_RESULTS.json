@@ -1,0 +1,97 @@
+{
+  "step": "Step 14 - Sovereign Semantic Encoder Foundation",
+  "timestamp_utc": "2026-09-28 07:40:47",
+  "semantic_encoder_architecture": {
+    "parameter_count": 836864,
+    "d_model": 128,
+    "n_layers": 2,
+    "n_heads": 4,
+    "d_ff": 256,
+    "embedding_dim": 128,
+    "vocab_size": 4096,
+    "max_seq_len": 256,
+    "pooling_mode": "masked_mean",
+    "normalization": "L2 Unit Normalization"
+  },
+  "chakrmicro_frozen_invariants": {
+    "parameter_count": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512
+  },
+  "training_history": {
+    "epochs": 6,
+    "final_train_loss": 0.0,
+    "training_time_s": 0.92
+  },
+  "encoding_performance": {
+    "dimension": 128,
+    "single_text_latency_us": 3736.34,
+    "single_text_latency_ms": 3.736,
+    "batch_10_latency_ms": 24.52,
+    "batch_50_latency_ms": 109.93,
+    "throughput_embeddings_per_sec": 267
+  },
+  "retrieval_quality_comparison": {
+    "A_bm25_lexical": {
+      "recall_at_1": 0.8333,
+      "recall_at_5": 0.9167,
+      "recall_at_10": 0.9167,
+      "mrr": 0.8776,
+      "num_queries": 12,
+      "corpus_size": 32
+    },
+    "B_hash_embedding": {
+      "recall_at_1": 0.3333,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.75,
+      "mrr": 0.4745,
+      "num_queries": 12,
+      "corpus_size": 32
+    },
+    "C_neural_semantic": {
+      "recall_at_1": 0.0833,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.8333,
+      "mrr": 0.3508,
+      "num_queries": 12,
+      "corpus_size": 32
+    },
+    "D_hybrid_bm25_neural": {
+      "recall_at_1": 0.8333,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.8958,
+      "num_queries": 12,
+      "corpus_size": 32
+    }
+  },
+  "retrieval_scaling_performance": {
+    "10": {
+      "num_documents": 10,
+      "vector_insertion_total_ms": 88.25,
+      "vector_insertion_per_doc_us": 8824.94,
+      "bm25_insertion_total_ms": 0.22,
+      "neural_vector_search_latency_us": 205.56,
+      "hybrid_neural_search_latency_us": 3043.18,
+      "hybrid_neural_search_latency_ms": 3.043
+    },
+    "100": {
+      "num_documents": 100,
+      "vector_insertion_total_ms": 847.13,
+      "vector_insertion_per_doc_us": 8471.29,
+      "bm25_insertion_total_ms": 1.91,
+      "neural_vector_search_latency_us": 2050.26,
+      "hybrid_neural_search_latency_us": 4593.22,
+      "hybrid_neural_search_latency_ms": 4.593
+    },
+    "1000": {
+      "num_documents": 1000,
+      "vector_insertion_total_ms": 7878.72,
+      "vector_insertion_per_doc_us": 7878.72,
+      "bm25_insertion_total_ms": 18.53,
+      "neural_vector_search_latency_us": 20235.54,
+      "hybrid_neural_search_latency_us": 22227.18,
+      "hybrid_neural_search_latency_ms": 22.227
+    }
+  }
+}
