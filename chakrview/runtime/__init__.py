@@ -91,7 +91,18 @@ from chakrview.runtime.inference import (
     InferenceMetrics,
     GenerationResult,
     RAGResponse,
+    ChatResponse,
     InferenceSession,
+)
+from chakrview.runtime.memory import (
+    MemoryType,
+    ConversationTurn,
+    MemoryItem,
+    WorkingMemory,
+    ConversationState,
+    ConversationStore,
+    MemoryExtractor,
+    ConversationSummarizer,
 )
 
 __all__ = [
@@ -172,7 +183,17 @@ __all__ = [
     "InferenceMetrics",
     "GenerationResult",
     "RAGResponse",
+    "ChatResponse",
     "InferenceSession",
+    # Conversational State & Memory (Step 12)
+    "MemoryType",
+    "ConversationTurn",
+    "MemoryItem",
+    "WorkingMemory",
+    "ConversationState",
+    "ConversationStore",
+    "MemoryExtractor",
+    "ConversationSummarizer",
 ]
 
 

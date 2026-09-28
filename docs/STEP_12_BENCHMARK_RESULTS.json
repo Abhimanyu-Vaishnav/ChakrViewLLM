@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2026-09-28T06:53:45Z",
+  "model_version": "chakrmicro-v0.1",
+  "parameters": 3443136,
+  "max_context": 512,
+  "tokenizer_vocab": 4096,
+  "latencies_microseconds": {
+    "session_creation_mean_us": 1.3,
+    "session_creation_p95_us": 2.1,
+    "turn_insertion_mean_us": 3.8,
+    "turn_insertion_p95_us": 4.9,
+    "memory_extraction_mean_us": 11.3,
+    "memory_retrieval_mean_us": 45.7,
+    "context_assembly_mean_us": 13064.69
+  },
+  "memory_overhead": {
+    "turn_structure_bytes": 48,
+    "session_state_bytes": 48,
+    "disk_persistence_bytes": 0,
+    "privacy_guarantee": "Zero automatic disk persistence; strict in-memory state"
+  },
+  "context_budget_ceiling": {
+    "max_context_limit": 512,
+    "deep_dialogue_turns_tested": 20,
+    "all_within_limit": true,
+    "max_observed_horizon": 306,
+    "history_eviction_verified": true
+  },
+  "comparative_generation": {
+    "mode_1_single_turn_ms": 92.53,
+    "mode_1_throughput_tok_per_sec": 191.6,
+    "mode_2_multiturn_no_memory_ms": 103.32,
+    "mode_2_throughput_tok_per_sec": 177.4,
+    "mode_3_multiturn_with_memory_ms": 123.79,
+    "mode_3_throughput_tok_per_sec": 154.0,
+    "mode_4_multiturn_rag_and_memory_ms": 169.05,
+    "mode_4_throughput_tok_per_sec": 163.4,
+    "tokens_generated": 16
+  }
+}
