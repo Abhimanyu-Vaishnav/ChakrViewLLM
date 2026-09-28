@@ -156,3 +156,128 @@ class MemoryConsolidator:
             tags=["consolidated"],
             metadata={"rationale": candidate.rationale},
         )
+
+
+# ============================================================================
+# Step 24 Continual Experience Consolidation Engine
+# ============================================================================
+
+from chakrview.memory.models import (
+    Episode,
+    SemanticMemory,
+    MemoryProvenanceSource,
+    MemoryVerificationState,
+    MemoryLifecycleStatus,
+)
+from chakrview.memory.episodic import EpisodicMemoryStore
+from chakrview.memory.semantic import SemanticMemoryStore
+from chakrview.memory.contradiction import ContradictionManager
+from chakrview.memory.policy import MemoryExecutionPolicy
+
+
+class ExperienceConsolidationEngine:
+    """
+    Step 24 Continual Consolidation Engine:
+    Experience -> Episode -> Evaluation -> Candidate Memory -> Verification/Governance -> Semantic Memory
+
+    ARCHITECTURAL BOUNDARY:
+    Consolidation creates structured CANDIDATE semantic memories.
+    It NEVER directly updates neural model weights or treats consolidation as model learning.
+    """
+
+    def __init__(
+        self,
+        episodic_store: EpisodicMemoryStore,
+        semantic_store: SemanticMemoryStore,
+        contradiction_mgr: Optional[ContradictionManager] = None,
+        policy: Optional[MemoryExecutionPolicy] = None,
+    ) -> None:
+        self.episodic_store = episodic_store
+        self.semantic_store = semantic_store
+        self.contradiction_mgr = contradiction_mgr
+        self.policy = policy or MemoryExecutionPolicy.standard()
+
+    def consolidate_tenant_episodes(
+        self,
+        tenant_id: str,
+        min_occurrences: int = 1,
+    ) -> List[SemanticMemory]:
+        """
+        Evaluate recent active episodes for a tenant and synthesize candidate semantic propositions.
+        """
+        episodes = self.episodic_store.list_episodes(
+            tenant_id=tenant_id,
+            limit=self.policy.storage_scan_limit,
+            lifecycle_filter=MemoryLifecycleStatus.ACTIVE,
+        )
+
+        batch_limit = self.policy.consolidation_batch_size
+        candidates: List[SemanticMemory] = []
+
+        # Simple deterministic pattern extractor:
+        # Looking for "X is Y" or "X has Y" or "X operates Y" in outcome or situation
+        fact_pattern = re.compile(
+            r"([a-zA-Z0-9\s]{2,30})\s+(is|has|operates|equals|=|contains)\s+([a-zA-Z0-9\s₹$%.,]+)",
+            re.IGNORECASE,
+        )
+
+        for ep in episodes:
+            if len(candidates) >= batch_limit:
+                break
+
+            text_sources = [ep.outcome, ep.situation, ep.action_or_response]
+            for text in text_sources:
+                if len(candidates) >= batch_limit:
+                    break
+                matches = fact_pattern.findall(text)
+                for subj, pred, obj in matches:
+                    s_clean = subj.strip()
+                    p_clean = pred.strip()
+                    o_clean = obj.strip()
+                    if len(s_clean) < 2 or len(o_clean) < 2:
+                        continue
+
+                    # Check for contradiction if manager is present
+                    if self.contradiction_mgr:
+                        conflicts = self.contradiction_mgr.detect_semantic_conflicts(
+                            tenant_id=tenant_id,
+                            candidate_subject=s_clean,
+                            candidate_predicate=p_clean,
+                            candidate_value=o_clean,
+                        )
+                        if conflicts:
+                            # Do not consolidate contradicted candidates into active semantic store
+                            continue
+
+                    # Check if already exists
+                    existing = self.semantic_store.find_by_triple(
+                        tenant_id=tenant_id,
+                        subject=s_clean,
+                        predicate=p_clean,
+                        active_only=True,
+                    )
+                    already_stored = any(
+                        m.object_value.strip().lower() == o_clean.lower()
+                        for m in existing
+                    )
+                    if already_stored:
+                        continue
+
+                    # Synthesize Candidate Semantic Memory
+                    cand_mem = self.semantic_store.add_memory(
+                        tenant_id=tenant_id,
+                        subject=s_clean,
+                        predicate=p_clean,
+                        object_value=o_clean,
+                        session_id=ep.session_id,
+                        provenance=MemoryProvenanceSource.REASONING_DERIVED,
+                        confidence=min(1.0, ep.confidence * 0.9),
+                        verification_status=MemoryVerificationState.CANDIDATE,
+                        tags=["consolidated", "episodic_derived"],
+                        metadata={"derived_from_episode": ep.episode_id},
+                    )
+                    candidates.append(cand_mem)
+                    if len(candidates) >= batch_limit:
+                        break
+
+        return candidates

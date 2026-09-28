@@ -1,0 +1,71 @@
+{
+  "benchmark_timestamp": 1790615555.6256635,
+  "step": 24,
+  "environment": {
+    "device": "cpu",
+    "pytorch_version": "2.14.0+cpu",
+    "platform": "win32"
+  },
+  "measurements": {
+    "working_memory_creation_latency_ms": {
+      "mean": 0.0011350002023391426,
+      "median": 0.0009999930625781417,
+      "min": 0.0008999923011288047,
+      "max": 0.009400013368576765
+    },
+    "episodic_insertion_latency_ms": {
+      "mean": 0.002494999935152009,
+      "median": 0.0021000014385208488,
+      "min": 0.0018999999156221747,
+      "max": 0.0219999928958714
+    },
+    "semantic_insertion_latency_ms": {
+      "mean": 0.002583999448688701,
+      "median": 0.0023000029614195228,
+      "min": 0.0022000021999701858,
+      "max": 0.009700001101009548
+    },
+    "retrieval_latency_ms": {
+      "mean": 0.7983600013540126,
+      "median": 0.7961500086821616,
+      "min": 0.6972999981371686,
+      "max": 1.6081000067060813
+    },
+    "contradiction_detection_latency_ms": {
+      "mean": 0.010117999627254903,
+      "median": 0.0092999980552122,
+      "min": 0.008999995770864189,
+      "max": 0.026900001103058457
+    },
+    "consolidation_latency_ms": {
+      "mean": 2.078915000311099,
+      "median": 2.058250000118278,
+      "min": 1.757800011546351,
+      "max": 2.4310999870067462
+    },
+    "serialization_export_ms": 1.0459249991981778,
+    "serialization_import_ms": 0.35633499865070917,
+    "low_resource_retrieval_ms": 0.1861733331073386,
+    "low_resource_candidates_returned": 3,
+    "standard_retrieval_ms": 0.8348266657170219,
+    "standard_candidates_returned": 8,
+    "high_resource_retrieval_ms": 0.8187866667867638,
+    "high_resource_candidates_returned": 15,
+    "memory_payload_bytes_200_records": 94415
+  },
+  "invariants_verification": {
+    "passed": true,
+    "parameter_count": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "special_tokens": {
+      "bos": 0,
+      "eos": 1,
+      "pad": 2
+    },
+    "initial_weight_fingerprint": "9cc525217d57da61a9e0f20a7eb1f51196adb747cb01eb3c240e4bd6076ae9b9",
+    "post_execution_weight_fingerprint": "9cc525217d57da61a9e0f20a7eb1f51196adb747cb01eb3c240e4bd6076ae9b9",
+    "weights_modified": false,
+    "fingerprints_match": true
+  }
+}
