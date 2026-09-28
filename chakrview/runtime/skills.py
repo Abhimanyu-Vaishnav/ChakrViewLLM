@@ -6,9 +6,11 @@ without modifying or duplicating base neural core weights:
 Base Brain + Skill + Knowledge + Memory + Tools = Specialized ChakrView Instance.
 """
 
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, field, asdict
 from enum import Enum
-from typing import Dict, List, Optional, Any, Set
+import re
+from typing import Dict, List, Optional, Any, Set, Tuple
 
 
 class SkillDomain(str, Enum):
@@ -197,3 +199,210 @@ class SkillProfile:
         data = dict(data)
         data["active_skill_ids"] = set(data.get("active_skill_ids", []))
         return cls(**data)
+
+
+class SkillResolver(ABC):
+    """
+    Abstract strategy for resolving an appropriate capability Skill for a user query.
+    """
+
+    @abstractmethod
+    def resolve(
+        self,
+        query: str,
+        registry: SkillRegistry,
+        metadata: Optional[Dict[str, Any]] = None,
+    ) -> Skill:
+        """Resolve a Skill given query text and registry."""
+        pass
+
+
+class RuleBasedSkillResolver(SkillResolver):
+    """
+    Deterministic rule-based skill router.
+    
+    Inspects queries for domain-specific keywords and patterns to dispatch to:
+    - MATHEMATICS
+    - CODING
+    - REASONING
+    - ENTERPRISE
+    - WRITING
+    - ANALYSIS
+    - SYSTEM
+    - GENERAL (fallback)
+    
+    Can be replaced in future steps by a learned / neural classifier without
+    altering runtime contracts.
+    """
+
+    DOMAIN_PATTERNS = {
+        SkillDomain.MATHEMATICS: [
+            r"\b(calculate|calc|math|arithmetic|solve|equation|formula|sum|multiply|divide|subtract|add|derivative|integral|modulo|sqrt|percentage)\b",
+            r"[\+\-\*\/\^=]\s*\d+",
+        ],
+        SkillDomain.CODING: [
+            r"\b(python|code|def\s+|class\s+|function|bug|syntax|algorithm|variable|refactor|compile|script|import\s+|lambda|return\s+|array|pointer|git|bash|sql|json|api|regex)\b",
+            r"```",
+        ],
+        SkillDomain.REASONING: [
+            r"\b(why|prove|reason|logic|deduce|deduction|imply|conclude|premise|fallacy|argument|syllogism|cause\s+of|inference)\b",
+        ],
+        SkillDomain.ENTERPRISE: [
+            r"\b(company|enterprise|policy|internal|org|report|compliance|chakrview|revenue|quarterly|contract|confidential|sop|guideline)\b",
+        ],
+        SkillDomain.WRITING: [
+            r"\b(write|draft|poem|essay|summary|summarize|rewrite|tone|creative|blog|letter|prose|story|paraphrase)\b",
+        ],
+        SkillDomain.ANALYSIS: [
+            r"\b(analyze|analysis|compare|contrast|metric|benchmark|trend|breakdown|evaluation|pros\s+and\s+cons|tradeoff)\b",
+        ],
+        SkillDomain.SYSTEM: [
+            r"\b(cpu|gpu|hardware|memory|ram|thread|cache|operating\s+system|runtime|config|disk|i\/o|throughput|latency)\b",
+        ],
+    }
+
+    def __init__(self, default_skill_id: str = "skill_general_v1") -> None:
+        self.default_skill_id = default_skill_id
+
+    def resolve(
+        self,
+        query: str,
+        registry: SkillRegistry,
+        metadata: Optional[Dict[str, Any]] = None,
+    ) -> Skill:
+        """
+        Deterministically match query against domain patterns and resolve skill.
+        """
+        q_lower = query.lower()
+
+        # Check domain patterns in priority order
+        resolved_domain = SkillDomain.GENERAL
+        for domain, patterns in self.DOMAIN_PATTERNS.items():
+            for pat in patterns:
+                if re.search(pat, q_lower):
+                    resolved_domain = domain
+                    break
+            if resolved_domain != SkillDomain.GENERAL:
+                break
+
+        # Look up skill in registry for resolved domain
+        matching_skills = registry.list_skills(domain=resolved_domain)
+        if matching_skills:
+            return matching_skills[0]
+
+        # Fallback to default skill
+        default_skill = registry.get(self.default_skill_id)
+        if default_skill is not None:
+            return default_skill
+
+        # If registry has any skills at all, return first
+        all_skills = registry.list_skills()
+        if all_skills:
+            return all_skills[0]
+
+        # Fallback: create ad-hoc generic skill
+        return Skill(
+            skill_id="skill_fallback_general",
+            name="General Capability",
+            version="1.0.0",
+            domain=SkillDomain.GENERAL,
+            description="Default generic cognitive policy",
+            system_prompt_template="You are ChakrView, an indigenous intelligent AI assistant.",
+            policy=SkillPolicy(),
+        )
+
+
+def get_standard_skill_registry() -> SkillRegistry:
+    """Factory returning standard pre-populated SkillRegistry covering all 8 domains."""
+    reg = SkillRegistry()
+
+    reg.register(
+        Skill(
+            skill_id="skill_general_v1",
+            name="Universal General Intelligence",
+            version="1.0.0",
+            domain=SkillDomain.GENERAL,
+            description="Broad conversational and instructional baseline.",
+            system_prompt_template="You are ChakrView, an indigenous intelligent AI assistant.",
+            policy=SkillPolicy(temperature=0.7),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_coding_v1",
+            name="Software Engineering & Coding",
+            version="1.0.0",
+            domain=SkillDomain.CODING,
+            description="Clean code generation, refactoring, and syntax analysis.",
+            system_prompt_template="You are an expert, precise software engineering assistant. Output clean, correct code.",
+            policy=SkillPolicy(temperature=0.1, stop_sequences=["```"]),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_mathematics_v1",
+            name="Structured Mathematics & Calculation",
+            version="1.0.0",
+            domain=SkillDomain.MATHEMATICS,
+            description="Rigorous numerical calculation and step-by-step problem solving.",
+            system_prompt_template="You are a precise mathematical assistant. Solve step by step.",
+            policy=SkillPolicy(temperature=0.0, allowed_tools=["calculator"]),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_reasoning_v1",
+            name="Rigorous Logical Reasoning",
+            version="1.0.0",
+            domain=SkillDomain.REASONING,
+            description="Premise analysis, causal inference, and deductive reasoning.",
+            system_prompt_template="You are a rigorous logical reasoning assistant. Analyze premises systematically.",
+            policy=SkillPolicy(temperature=0.2),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_enterprise_v1",
+            name="Enterprise Document Intelligence",
+            version="1.0.0",
+            domain=SkillDomain.ENTERPRISE,
+            description="Grounded document search and factual organizational QA.",
+            system_prompt_template="You are an enterprise knowledge assistant. Answer strictly based on verified documents.",
+            policy=SkillPolicy(temperature=0.1, requires_knowledge=True),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_writing_v1",
+            name="Articulate Creative Writing",
+            version="1.0.0",
+            domain=SkillDomain.WRITING,
+            description="Expressive composition, summarization, and prose styling.",
+            system_prompt_template="You are a creative and articulate writing assistant.",
+            policy=SkillPolicy(temperature=0.8),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_analysis_v1",
+            name="Objective Technical Analysis",
+            version="1.0.0",
+            domain=SkillDomain.ANALYSIS,
+            description="Comparative analysis, tradeoffs, and system evaluations.",
+            system_prompt_template="You are an objective analytical assistant. Examine data, metrics, and comparisons.",
+            policy=SkillPolicy(temperature=0.2),
+        )
+    )
+    reg.register(
+        Skill(
+            skill_id="skill_system_v1",
+            name="Systems & Hardware Awareness",
+            version="1.0.0",
+            domain=SkillDomain.SYSTEM,
+            description="Hardware-aware execution, throughput analysis, and runtime tuning.",
+            system_prompt_template="You are a hardware-aware systems and performance assistant.",
+            policy=SkillPolicy(temperature=0.0, allowed_tools=["text_utility"]),
+        )
+    )
+
+    return reg

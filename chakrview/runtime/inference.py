@@ -23,6 +23,33 @@ from chakrview.brain.model import ChakrMicro
 from chakrview.runtime.hardware import ModelExecutionPlan, PrecisionType
 from chakrview.runtime.sampling import SamplingConfig, Sampler
 from chakrview.tokenizer.tokenizer import BPETokenizer
+from chakrview.runtime.skills import (
+    Skill,
+    SkillPolicy,
+    SkillRegistry,
+    SkillDomain,
+    SkillResolver,
+    RuleBasedSkillResolver,
+    get_standard_skill_registry,
+)
+from chakrview.runtime.knowledge import (
+    KnowledgeIndex,
+    Retriever,
+    LexicalRetriever,
+    KnowledgeChunk,
+    KnowledgeProvenance,
+)
+from chakrview.runtime.context import (
+    PromptContextBuilder,
+    ContextBudget,
+    AssembledContext,
+)
+from chakrview.runtime.tools import (
+    ToolExecutor,
+    ToolRegistry,
+    ToolResult,
+    get_standard_tool_registry,
+)
 
 
 class StopReason(str, Enum):
@@ -139,6 +166,52 @@ class GenerationResult:
             "token_ids": self.token_ids,
             "metrics": self.metrics.to_dict(),
             "stop_reason": self.stop_reason.value,
+        }
+
+
+@dataclass
+class RAGResponse:
+    """
+    Structured outcome of a governed RAG + Skill execution.
+    
+    Attributes:
+        text: Final generated completion text.
+        token_ids: Discrete integer tokens generated.
+        stop_reason: Generation termination reason (EOS, MAX_TOKENS, CONTEXT_LIMIT).
+        metrics: Latency, throughput, and hardware accounting.
+        skill_id: Active capability skill identifier used.
+        skill_domain: Active capability domain (coding, mathematics, enterprise, etc.).
+        knowledge_used: Whether external knowledge chunks were retrieved and injected.
+        sources: Fine-grained provenance records for all cited knowledge chunks.
+        tool_calls: Structured outcomes of any governed tools invoked during resolution.
+        prompt_tokens_count: Number of prompt tokens fed to the model.
+        prompt_context: Bounded prompt string used for inference.
+    """
+    text: str
+    token_ids: List[int]
+    stop_reason: StopReason
+    metrics: InferenceMetrics
+    skill_id: Optional[str] = None
+    skill_domain: Optional[str] = None
+    knowledge_used: bool = False
+    sources: List[Dict[str, Any]] = field(default_factory=list)
+    tool_calls: List[Dict[str, Any]] = field(default_factory=list)
+    prompt_tokens_count: int = 0
+    prompt_context: str = ""
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "text": self.text,
+            "token_ids": self.token_ids,
+            "stop_reason": self.stop_reason.value,
+            "metrics": self.metrics.to_dict(),
+            "skill_id": self.skill_id,
+            "skill_domain": self.skill_domain,
+            "knowledge_used": self.knowledge_used,
+            "sources": self.sources,
+            "tool_calls": self.tool_calls,
+            "prompt_tokens_count": self.prompt_tokens_count,
+            "prompt_context": self.prompt_context,
         }
 
 
@@ -295,7 +368,7 @@ class InferenceSession:
             )
 
             # 3. Decode token to UTF-8 text fragment
-            text_fragment = self.tokenizer.decode([next_token_id])
+            text_fragment = self.tokenizer.decode([next_token_id], errors="replace")
             self._generated_token_ids.append(next_token_id)
             cumulative_count += 1
 
@@ -390,9 +463,124 @@ class InferenceSession:
             device=str(self.device),
         )
 
+        full_text = self.tokenizer.decode(tokens_generated, errors="replace")
         return GenerationResult(
-            text="".join(text_fragments),
+            text=full_text,
             token_ids=tokens_generated,
             metrics=metrics,
             stop_reason=stop_reason,
+        )
+
+    def ask(
+        self,
+        query: str,
+        skill: Optional[Union[str, Skill]] = None,
+        knowledge: Optional[Union[KnowledgeIndex, Retriever]] = None,
+        config: Optional[GenerationConfig] = None,
+        top_k: int = 3,
+        auto_resolve_skill: bool = True,
+        skill_registry: Optional[SkillRegistry] = None,
+        skill_resolver: Optional[SkillResolver] = None,
+        tool_registry: Optional[ToolRegistry] = None,
+        tool_executor: Optional[ToolExecutor] = None,
+        context_builder: Optional[PromptContextBuilder] = None,
+    ) -> RAGResponse:
+        """
+        Execute full RAG + Skill governed cognitive inference cycle.
+        
+        Pipeline:
+        1. Resolve Skill: Matches query to skill policy or uses provided skill.
+        2. Governed Tools: If skill authorizes tools and query requests calculation, executes safe tool.
+        3. Knowledge Retrieval: Queries lexical/BM25 index for relevant grounded chunks.
+        4. Context Assembly: Enforces 512-token ceiling and clear data/instruction boundaries.
+        5. Autoregressive Inference: Uses KV cache with skill policy temperature/stops.
+        6. Validated Output: Returns RAGResponse with provenance citations and execution metrics.
+        """
+        # 1. Skill Resolution
+        s_registry = skill_registry or get_standard_skill_registry()
+        if isinstance(skill, Skill):
+            active_skill = skill
+        elif isinstance(skill, str):
+            active_skill = s_registry.get(skill)
+            if active_skill is None:
+                raise ValueError(f"Skill '{skill}' not found in registry.")
+        elif auto_resolve_skill:
+            s_resolver = skill_resolver or RuleBasedSkillResolver()
+            active_skill = s_resolver.resolve(query, s_registry)
+        else:
+            active_skill = s_registry.get("skill_general_v1") or s_registry.list_skills()[0]
+
+        # 2. Governed Tool Execution
+        tool_calls: List[Dict[str, Any]] = []
+        t_exec = tool_executor or ToolExecutor(tool_registry or get_standard_tool_registry())
+
+        if "calculator" in active_skill.policy.allowed_tools:
+            q_strip = query.strip()
+            expr_to_calc = None
+            if q_strip.lower().startswith("calculate "):
+                expr_to_calc = q_strip[10:].strip()
+            elif any(c in q_strip for c in "+-*/%^") and not any(
+                w in q_strip.lower()
+                for w in ["what", "who", "why", "how", "when", "where", "explain"]
+            ):
+                expr_to_calc = q_strip
+
+            if expr_to_calc:
+                calc_res = t_exec.execute(
+                    "calculator",
+                    {"expression": expr_to_calc},
+                    active_skill.policy,
+                )
+                tool_calls.append(calc_res.to_dict())
+
+        # 3. Knowledge Retrieval
+        retrieved_chunks: List[Tuple[KnowledgeChunk, float]] = []
+        if knowledge is not None:
+            if isinstance(knowledge, Retriever):
+                retriever = knowledge
+            else:
+                retriever = LexicalRetriever(knowledge)
+            retrieved_chunks = retriever.retrieve(query, top_k=top_k)
+
+        # 4. Context Assembly
+        builder = context_builder or PromptContextBuilder()
+        gen_tokens = config.max_new_tokens if config else 64
+        budget = ContextBudget(
+            max_context=self.max_context,
+            generation_budget=gen_tokens,
+            max_system_tokens=active_skill.policy.max_context_tokens // 4
+            if active_skill.policy.max_context_tokens
+            else 64,
+        )
+
+        assembled_ctx = builder.build_prompt(
+            user_query=query,
+            system_prompt=active_skill.system_prompt_template,
+            retrieved_chunks=retrieved_chunks,
+            budget=budget,
+            tokenizer=self.tokenizer,
+        )
+
+        # 5. Build GenerationConfig respecting SkillPolicy
+        cfg = config or GenerationConfig()
+        if config is None or config.sampling.temperature == 0.0:
+            cfg.sampling.temperature = active_skill.policy.temperature
+
+        # 6. Execute Generation
+        gen_result = self.generate(assembled_ctx.full_prompt, config=cfg, add_bos=True)
+
+        # 7. Package RAGResponse
+        sources_provenance = [p.to_dict() for p in assembled_ctx.provenance]
+        return RAGResponse(
+            text=gen_result.text,
+            token_ids=gen_result.token_ids,
+            stop_reason=gen_result.stop_reason,
+            metrics=gen_result.metrics,
+            skill_id=active_skill.skill_id,
+            skill_domain=active_skill.domain.value,
+            knowledge_used=assembled_ctx.knowledge_used,
+            sources=sources_provenance,
+            tool_calls=tool_calls,
+            prompt_tokens_count=assembled_ctx.estimated_prompt_tokens,
+            prompt_context=assembled_ctx.full_prompt,
         )

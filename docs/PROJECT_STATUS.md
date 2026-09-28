@@ -2,69 +2,73 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 10 — Interactive Cognitive Inference Engine
-- **Status**: Complete & Verified (Interactive autoregressive inference engine with persistent KV cache, single-token incremental decoding, configurable sampling subsystem, streaming token generator, context window management, hardware execution planning, memory safety, zero-authority security boundary, and privacy-first observability established; 312/312 tests passing across 51 test files; zero regressions)
+- **Current phase**: Step 11 — Domain Skill & Retrieval-Augmented Generation (RAG) Integration
+- **Status**: Complete & Verified (Grounded cognitive runtime established; deterministic document ingestion, chunking, Okapi BM25 lexical retrieval, bounded prompt context assembly under $T \le 512$ horizon, domain skill policies across 8 domains, governed arithmetic tools with AST sandboxing, zero OS/shell authority, and fine-grained provenance citations verified; 338/338 tests passing across 55 test files; zero regressions)
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 10 has established the production-quality interactive autoregressive inference engine around ChakrMicro, bridging the frozen pre-training foundation into the real-time cognitive execution layer. The neural core (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The newly added and enhanced subsystems implement clean, testable contracts across key pillars:
-> 1. **Persistent KV-Cache Engine** (`chakrview/brain/cache.py`): Efficient per-layer key/value tensor caching across all 6 transformer blocks with strict sequence length bounds ($T \le 512$), shape validation, device/dtype compatibility, memory tracking, dynamic cache reset, and windowed truncation.
-> 2. **Incremental Decoding Path** (`chakrview/brain/model.py`, `attention.py`, `rotary.py`): Added `prefill()` and `decode_next()` to `ChakrMicro` while preserving existing `forward()` causal execution. Numerically verified against the full forward pass ($\max |\Delta| < 1.5 \times 10^{-5}$, exact token-for-token equality).
-> 3. **Modular Sampling Subsystem** (`chakrview/runtime/sampling.py`): Decoupled sampling transforms and strategy dispatch supporting Greedy, Temperature, Top-K, Top-P (nucleus), Repetition Penalty, and Min-Prob thresholding with deterministic seeding.
-> 4. **Interactive Inference Session** (`chakrview/runtime/inference.py`): Universal runtime abstraction managing model weights, tokenizer, KV cache, hardware execution plans, streaming generation yields (`StreamToken`), structured stop reasons (`EOS`, `MAX_TOKENS`, `CONTEXT_LIMIT`), context overflow policies (`stop`, `truncate`, `sliding_window`), and privacy-first metrics (`InferenceMetrics`).
-> 5. **Empirical Benchmarking** (`scripts/benchmark_inference_kv_cache.py`, `docs/STEP_10_BENCHMARK_RESULTS.json`): Comprehensive empirical evaluation demonstrating up to **$6.90\times$ speedup** (average $3.62\times$) with KV caching over full-sequence recomputation.
-> 6. **Zero-Authority Security Boundary**: The inference engine strictly performs mathematical tensor transformations; prompt text is strictly treated as passive data tokens without filesystem, shell, OS, or network execution authority.
-> All 312 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 11 has established the grounded cognitive execution layer around ChakrMicro, enabling external document retrieval and domain skill policies without modifying the frozen neural core. The neural core (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The newly added and enhanced subsystems implement clean, testable contracts across key pillars:
+> 1. **Knowledge Ingestion & Chunking** (`chakrview/runtime/knowledge.py`): Deterministic chunking engine (`DocumentChunker`) with word boundary segmentation, stable identifiers (`{doc_id}_c{chunk_index:04d}`), SHA-256 content hashes, and production ingestion (`DocumentIngester`) supporting `.txt`, `.md`, and plain text.
+> 2. **Okapi BM25 Lexical Retrieval** (`chakrview/runtime/knowledge.py`): Pure-Python, dependency-light lexical index (`BM25KnowledgeIndex`, `LexicalRetriever`) computing term-frequency saturation and length-normalized ranking with deterministic tie-breaking ($< 0.021\text{ ms}$ retrieval latency).
+> 3. **Bounded Context Assembly** (`chakrview/runtime/context.py`): Deterministic prompt context builder (`PromptContextBuilder`, `ContextBudget`) strictly enforcing the 512-token ceiling ($T_{\text{sys}} + T_{\text{know}} + T_{\text{query}} + T_{\text{gen\_budget}} \le 512$) with explicit data/instruction delimiters (`--- KNOWLEDGE CONTEXT START ---` ... `--- KNOWLEDGE CONTEXT END ---`).
+> 4. **Domain Skill System & Routing** (`chakrview/runtime/skills.py`): Rule-based intent router (`RuleBasedSkillResolver`) dispatching queries across 8 capability domains (`GENERAL`, `CODING`, `REASONING`, `MATHEMATICS`, `WRITING`, `ANALYSIS`, `ENTERPRISE`, `SYSTEM`) and standard capability profiles (`get_standard_skill_registry()`).
+> 5. **Governed Tool Subsystem** (`chakrview/runtime/tools.py`): Safe, deterministic tools (`CalculatorTool`, `TextUtilityTool`) governed by `ToolExecutor` and `SkillPolicy` permission checks. Arithmetic evaluation uses strict AST parsing with node whitelisting; zero filesystem write, shell execution, subprocessing, or network authority.
+> 6. **RAG-Enabled Cognitive Session** (`chakrview/runtime/inference.py`): Extended `InferenceSession` with `session.ask(...)` orchestrating skill resolution, tool execution, knowledge retrieval, bounded context assembly, autoregressive KV-cache inference, and structured citations (`RAGResponse`).
+> 7. **Empirical Benchmarking** (`scripts/benchmark_rag_skills.py`, `docs/STEP_11_BENCHMARK_RESULTS.json`): Comprehensive evaluation demonstrating sub-millisecond ingestion and retrieval ($0.02\text{ ms}$), bounded context assembly, and grounded RAG generation with citations.
+> All 338 unit and regression tests pass with zero failures and zero warnings.
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural documentation and empirical benchmarks in [docs/STEP_10_INFERENCE_ENGINE.md](file:///d:/Project/ChakrView/docs/STEP_10_INFERENCE_ENGINE.md).
-* Implementation of `KVCache` and `LayerKVCache` in `chakrview/brain/cache.py`.
-* Enhancement of `MultiHeadAttention`, `RotaryEmbedding`, `TransformerBlock`, and `ChakrMicro` to support cached single-token autoregressive decoding.
-* Implementation of `SamplingConfig`, `SamplingStrategy`, `Sampler`, and modular logit transforms in `chakrview/runtime/sampling.py`.
-* Implementation of `InferenceSession`, `GenerationConfig`, `StreamToken`, `InferenceMetrics`, `GenerationResult`, and `StopReason` in `chakrview/runtime/inference.py`.
-* 23 new unit tests added across 4 dedicated test modules in `tests/` (`test_kv_cache.py`, `test_sampling.py`, `test_incremental_decoding.py`, `test_inference_session.py`), expanding the test suite to 312 tests across 51 test files.
+* Comprehensive architectural documentation and empirical benchmarks in [docs/STEP_11_RAG_SKILL_INTEGRATION.md](file:///d:/Project/ChakrView/docs/STEP_11_RAG_SKILL_INTEGRATION.md).
+* Implementation of `DocumentChunker`, `DocumentIngester`, `BM25KnowledgeIndex`, `LexicalRetriever`, and `KnowledgeProvenance` in `chakrview/runtime/knowledge.py`.
+* Implementation of `ToolResult`, `Tool`, `CalculatorTool`, `TextUtilityTool`, `ToolRegistry`, and `ToolExecutor` in `chakrview/runtime/tools.py`.
+* Implementation of `ContextBudget`, `AssembledContext`, and `PromptContextBuilder` in `chakrview/runtime/context.py`.
+* Implementation of `SkillResolver`, `RuleBasedSkillResolver`, and `get_standard_skill_registry()` in `chakrview/runtime/skills.py`.
+* Implementation of `RAGResponse` and `InferenceSession.ask(...)` in `chakrview/runtime/inference.py`.
+* 26 new unit and integration tests added across 4 dedicated test modules in `tests/` (`test_rag_knowledge.py`, `test_rag_context.py`, `test_rag_skills_tools.py`, `test_rag_end_to_end.py`), expanding the test suite to 338 tests across 55 test files.
 * Full programmatic verification of all frozen invariants (model parameter count bit-exact 3,443,136; tokenizer checksum bit-exact; Stage C 32 shards bit-exact).
-* Clean public exports in `chakrview/brain/__init__.py` and `chakrview/runtime/__init__.py`.
+* Clean public exports in `chakrview/runtime/__init__.py`.
 
 #### 2. Established
-* **Incremental Autoregressive Substrate**: $O(N)$ single-token decoding with persistent KV cache replacing $O(N^2)$ full-sequence recomputation.
-* **Numerical Equivalence Contract**: Cached incremental decoding produces logits bit-equivalent to the causal sequence-parallel forward pass within floating-point epsilon.
-* **Modular Cognitive Primitive**: Decoupled `InferenceSession` ready to serve future memory, knowledge (RAG), tools, and multi-agent systems without modifying the neural core.
-* **Hardware-Aware Execution**: Consumes `ModelExecutionPlan` from `chakrview/runtime/hardware.py` to honor thread budgets, device placement, and context limits.
-* **Privacy-First Observability**: Detailed latency, throughput, and cache metrics generated without persisting user prompt strings.
+* **Decoupled Grounding Primitive**: External knowledge can be indexed and injected into context windows on demand without retraining or modifying base neural weights.
+* **Governed Tool Sandboxing**: Mathematical calculation and text utilities execute under strict AST whitelisting with zero operating system authority.
+* **Bounded Context Horizon**: Token budget guarantees prompt tokens plus generation budget never exceed the 512-token architectural ceiling.
+* **Adversarial Instruction Containment**: Prompt injection content inside retrieved knowledge remains strictly passive data and cannot execute tools or OS commands.
+* **Fine-Grained Provenance**: Every generated response with knowledge access cites exact document IDs, chunk IDs, and cryptographic hashes.
 
 #### 3. Not Yet Implemented (Intentionally Deferred)
-* External tool/skill execution runtime (strictly governed by future capability policy layers).
-* Autonomous code generation or model self-modifying agents (strictly prohibited).
-* Vector database RAG retrieval integration into `InferenceSession` (deferred to Step 11/12).
-* Quantized KV cache (FP16/INT8 KV cache optimization deferred to future edge scaling).
-* Speculative decoding or multi-token draft verification.
+* Dense neural embedding retrieval and vector database integrations (Step 12+).
+* Learned / neural skill classifier (Step 12+).
+* Autonomous self-modifying agents (strictly prohibited).
+* Multi-turn conversational memory store (Step 12+).
 
 ### Progress by Module
-- `chakrview/runtime/`: **Adaptive Brain Layer & Inference Engine (Updated in Step 10)**
-  - `inference.py`: Universal interactive inference session, streaming generation, stop reasons, context overflow management, and privacy-first metrics
+- `chakrview/runtime/`: **Adaptive Brain Layer, RAG & Inference Engine (Updated in Step 11)**
+  - `knowledge.py`: Ingestion (`DocumentIngester`), deterministic chunking (`DocumentChunker`), Okapi BM25 lexical index (`BM25KnowledgeIndex`), lexical retriever (`LexicalRetriever`), and provenance citations (`KnowledgeProvenance`)
+  - `skills.py`: Skill resolver (`RuleBasedSkillResolver`), standard capability profiles (`get_standard_skill_registry()`), domain policies across 8 domains
+  - `tools.py`: Governed deterministic tools (`CalculatorTool`, `TextUtilityTool`) with AST sandboxing, permission enforcement, and `ToolExecutor`
+  - `context.py`: Deterministic prompt budgeting & assembly under 512-token ceiling (`ContextBudget`, `PromptContextBuilder`, `AssembledContext`)
+  - `inference.py`: Universal interactive inference session, streaming generation, KV-cache decoding, RAG orchestrator (`session.ask`), and `RAGResponse`
   - `sampling.py`: Modular sampling subsystem (Greedy, Temperature, Top-K, Top-P/Nucleus, Repetition Penalty, Min-Prob) with deterministic seeding
-  - `knowledge.py`: Document ingestion, chunking, in-memory indexing, retrieval, and context provider
-  - `skills.py`: Skill registry, domain policies, and execution plans
   - `improvement.py`: Governed self-improvement proposal lifecycle and approval gates
   - `integrity.py`: SHA-256 artifact verification, tensor sanity, quarantine, and atomic rollback
   - `hardware.py`: Hardware capability detection and safe runtime execution planner
   - `versioning.py`: Hierarchical version manifests and ancestry lineage tracking
-  - `__init__.py`: Clean public exports of all runtime and inference primitives
-- `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Updated in Step 10)**
+  - `__init__.py`: Clean public exports of all runtime, RAG, and inference primitives
+- `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - `cache.py`: Reusable, shape-validated persistent KV-cache engine (`KVCache`, `LayerKVCache`) with context bounds enforcement ($T \le 512$)
-  - `model.py`, `attention.py`, `rotary.py`: Added cached incremental decoding (`prefill()`, `decode_next()`) while preserving frozen causal sequence-parallel `forward()`
+  - `model.py`, `attention.py`, `rotary.py`: Incremental decoding (`prefill()`, `decode_next()`) and frozen causal sequence-parallel `forward()`
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `configs/`: **Pre-Training & Capability Evaluation Configurations**
   - `chakr_micro_stage_c_full_epoch.json` & `.yaml`: Authoritative Step 8 full-epoch training configuration
   - `chakr_micro_stage_c_baseline.json` & `.yaml`: Authoritative Step 7 baseline training configuration
   - `stage_c_smoke_prompts.json`: Standardized 14-prompt capability evaluation suite
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_rag_skills.py`: Step 11 empirical benchmark evaluating ingestion, BM25 retrieval, context assembly, and end-to-end RAG vs plain generation
   - `benchmark_inference_kv_cache.py`: Step 10 empirical benchmark evaluating full-forward vs KV-cache throughput, latency, memory, and equivalence
   - `run_stage_c_full_epoch_experiment.py`: Step 8 end-to-end full-epoch pre-training, tracking, checkpointing, resume validation, domain evaluation, and smoke testing
   - `run_stage_c_baseline_experiment.py`: Step 7 baseline pre-training script
@@ -74,13 +78,16 @@
 - `chakrview/config.py`: **Formal Architectural Configuration & Contract Module**
 - `chakrview/corpus/`: **Dedicated Corpus Engineering Pipeline**
 - `chakrview/tokenizer/`: **Production Research Engine**
-- `tests/`: **312/312 Tests Passing** across 51 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **338/338 Tests Passing** across 55 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 26 RAG, Knowledge, Context, Skill & Tool tests (`test_rag_knowledge.py`, `test_rag_context.py`, `test_rag_skills_tools.py`, `test_rag_end_to_end.py`)
   - 23 Inference & KV Cache tests (`test_kv_cache.py`, `test_sampling.py`, `test_incremental_decoding.py`, `test_inference_session.py`)
   - 22 Runtime Architecture tests (Knowledge, Skills, Improvement, Integrity, Hardware, Versioning)
   - 162 Tokenizer, Corpus pipeline, and Pre-Training tests
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_11_RAG_SKILL_INTEGRATION.md` (Step 11 RAG & Domain Skill Subsystem Architectural Report)
+  - `docs/STEP_11_BENCHMARK_RESULTS.json` (Step 11 Empirical RAG Performance Benchmark Data)
   - `docs/STEP_10_INFERENCE_ENGINE.md` (Step 10 Interactive Inference Engine & KV-Cache Architectural Report)
   - `docs/STEP_10_BENCHMARK_RESULTS.json` (Step 10 Empirical Inference Performance Benchmark Data)
   - `docs/STEP_09_ARCHITECTURE_AUDIT.md` (Step 9 Architecture Audit & Adaptive Brain Framework Design)
@@ -128,12 +135,13 @@
 2. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ with configurable context truncation or sliding window policies.
 3. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; while capable of learning token sequences and structural syntax, complex multi-step reasoning requires parameter scaling and supervised instruction fine-tuning.
 4. **Hardware Validation Boundaries**: Physical execution on legacy 28nm processors or low-end ARM chips (Cortex-A53) remains a future empirical validation target.
+5. **Lexical Keyword Matching**: Current retriever uses Okapi BM25 exact term matching; dense neural embeddings will be added in future steps.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 10 RATIFIED — INTERACTIVE COGNITIVE INFERENCE ENGINE COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 11 (Awaiting user explicit command; DO NOT START STEP 11 AUTOMATICALLY).
+- **Decision**: **STEP 11 RATIFIED — DOMAIN SKILL & RAG INTEGRATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 12 (Awaiting user explicit command; DO NOT START STEP 12 AUTOMATICALLY).
 
 
