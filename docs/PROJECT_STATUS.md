@@ -2,84 +2,87 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 15 — Cognitive Agent Execution & Governed Workflow Foundation
-- **Status**: Complete & Verified (Governed cognitive agent execution layer established under `chakrview/cognition/`; typed `CognitiveTask` and 10-state validated lifecycle machine; bounded `DeterministicRulePlanner` enforcing step and depth ceilings; lightweight `ExecutionGraph` with Kahn DAG cycle check and cascading failure blocking; `CognitiveSkillSelector` for domain-agnostic capability discovery; `GovernedToolGate` enforcing strict `SkillPolicy` tool whitelists, AST/argument sanitization, and absolute prevention of retrieved document/memory tool authority; `StepVerifier` for independent type/range/schema validation; `RecoveryManager` for bounded retries and cognitive state rollback; `CognitiveArtifact` for generic document/code outputs; `ExecutionTrace` with microsecond timing and credential redaction; `DeploymentProfile` for edge/desktop/server resource boundaries; `CognitiveController` master coordinator with controlled `MemoryCandidate` generation for future learning; `InferenceSession.execute_cognitive_task(...)` backward compatible integration; 440/440 tests passing across 60 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; CPU pipeline benchmark 0.112 ms).
+- **Current phase**: Step 16 — Persistent Personal Memory, Memory Consolidation & Learning Foundation
+- **Status**: Complete & Verified (Persistent personal memory, consolidation, temporal tracking, and controlled learning subsystem established under `chakrview/memory/`; strongly typed `MemoryRecord` supporting episodic, semantic, user profile, working memory bridge, and knowledge memory reference; independent dual-metric importance and confidence scoring; storage abstraction `MemoryStore` and reference `InMemoryMemoryStore` enforcing strict multi-tenant isolation; multi-tier deduplication [exact, normalized, semantic cosine]; conflict detection, tracking, and supersession; memory consolidation engine [clustering + synthesis without destroying raw sources]; temporal validity management [created, updated, valid_from, valid_until, superseded_by, revision tracking, expiration sweep]; persistent memory retriever with multi-factor hybrid scoring [lexical, semantic, recency, importance, confidence]; generic case/document comparison infrastructure; controlled learning feedback foundation without model weight mutation; `DATA != AUTHORITY` security policy with prompt injection inertness, credential redaction, and zero cross-user leakage; 464/464 tests passing across 61 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512; CPU benchmark showing 3.92 ms hybrid search latency at 10,000 records).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 15 elevates ChakrView from single/multi-turn retrieval-augmented generation (Understand $\to$ Retrieve $\to$ Generate) to a governed multi-step cognitive agent pipeline:
-> $$\text{Understand} \longrightarrow \text{Retrieve} \longrightarrow \text{Plan} \longrightarrow \text{Execute} \longrightarrow \text{Observe} \longrightarrow \text{Verify} \longrightarrow \text{Recover} \longrightarrow \text{Respond}$$
-> The generative neural model architecture (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. The model remains strictly stateless; the runtime coordinates all execution state. The newly introduced subsystems provide:
-> 1. **Cognitive Task Model & Lifecycle Machine** (`chakrview/cognition/task.py`): Typed `CognitiveTask` with explicit transitions (`PENDING`, `PLANNING`, `READY`, `RUNNING`, `WAITING`, `VERIFYING`, `COMPLETED`, `FAILED`, `CANCELLED`, `ROLLED_BACK`), bounded `TaskConstraints`, and `InvalidStateTransitionError` protection.
-> 2. **Bounded Planner** (`chakrview/cognition/planner.py`): Deterministic planner producing `CognitivePlan` and `PlanStep` sequences with strict `max_steps` and dependency depth bounds without unbounded recursive loops.
-> 3. **Execution Graph (DAG)** (`chakrview/cognition/graph.py`): Dependency-aware DAG with Kahn's cycle detection (`CycleDetectedError`), topological sorting, and safe cascading failure propagation marking downstream steps as `BLOCKED`.
-> 4. **Skill Selection Interface** (`chakrview/cognition/skill_selector.py`): Domain-agnostic skill discovery from `SkillRegistry` inspecting capability descriptions and tool permissions.
-> 5. **Governed Tool Gate** (`chakrview/cognition/tool_gate.py`): Policy gate enforcing runtime `SkillPolicy.allowed_tools` whitelist, argument sanitization, and the foundational security rule: retrieved data or memory can NEVER authorize tool execution (`ToolAuthorizationError`).
-> 6. **Observation Model** (`chakrview/cognition/observation.py`): Structured empirical outcomes (`StepObservation`) tracking success, output, error, timing, and provenance.
-> 7. **Independent Verification Layer** (`chakrview/cognition/verifier.py`): Independent validation of step outputs checking types, schemas, non-empty assertions, numeric boundaries, and custom callbacks without assuming LLM text is correct.
-> 8. **Recovery & State Rollback** (`chakrview/cognition/recovery.py`): Bounded retries, isolation of broken dependency chains, and safe cognitive state rollback restoring task state without dangerous external mutations.
-> 9. **Generic Artifact Workflow** (`chakrview/cognition/artifacts.py`): Support for structured document and report generation (`CognitiveArtifact`, `ArtifactType`).
-> 10. **Machine-Readable Audit Trace** (`chakrview/cognition/trace.py`): Telemetry logging with microsecond event timestamps and automatic secret/credential redaction (`[REDACTED]`).
-> 11. **Hardware-Aware Deployment Profiles** (`chakrview/cognition/profile.py`): Configurable resource boundaries for Edge/ARM64, Desktop/x86_64, and Enterprise Server.
-> 12. **Cognitive Controller & InferenceSession Integration** (`chakrview/cognition/controller.py`, `chakrview/runtime/inference.py`): Orchestration pipeline and `InferenceSession.execute_cognitive_task(...)` backward compatible integration.
-> 13. **Controlled Memory Candidates**: Generates structured candidates for future learning policies without unrestricted automatic memory writes.
-> All 440 unit and regression tests pass with zero failures and zero warnings.
+> **IMPORTANT**: Step 16 evolves ChakrView from a stateless conversation + retrieval + cognitive execution runtime into a **persistent personal agent** that safely remembers, retrieves, updates, consolidates, compares, and learns from user-provided interactions and feedback without modifying neural core weights:
+> $$\text{Core Brain (Frozen)} + \text{Working Memory} + \text{Persistent Memory} + \text{Knowledge} + \text{Skills} + \text{Retrieval} + \text{Cognitive Agent}$$
+> The generative neural model architecture (ChakrMicro v0.1, 3,443,136 parameters, frozen) and tokenizer (Byte-Level BPE, $V=4096$, frozen) remain strictly untouched. Private user data remains isolated in external storage layers. The newly introduced subsystems provide:
+> 1. **Modular Memory Taxonomy & Typed Record** (`chakrview/memory/record.py`): Strongly typed `MemoryRecord` supporting Episodic, Semantic, User Profile, Working Memory, and Knowledge Memory types, with dual importance ($[0, 1]$) and confidence ($[0, 1]$) scoring, provenance, temporal metadata, revision tracking, and immutability tags.
+> 2. **Storage Abstraction & Multi-Tenant Isolation** (`chakrview/memory/store.py`): Storage engine interface `MemoryStore` and reference implementation `InMemoryMemoryStore` enforcing strict user isolation where User A can never read, list, update, or retrieve User B memories.
+> 3. **Deterministic Dual-Metric Scoring** (`chakrview/memory/scoring.py`): Separate calculation of utility (`importance`) and certainty (`confidence`) based on source reliability, verification status, and repetition signals.
+> 4. **Multi-Tier Deduplication** (`chakrview/memory/deduplication.py`): Exact match $\to$ normalized whitespace/case $\to$ semantic cosine similarity deduplication preventing memory store bloat.
+> 5. **Conflict Tracking & Supersession** (`chakrview/memory/conflict.py`): Divergent fact tracking without silent overwrites, supporting explicit supersession chains and revision tracking.
+> 6. **Memory Consolidation Engine** (`chakrview/memory/consolidation.py`): Clustering and synthesis of fragmented memories into higher-level consolidated knowledge while preserving pointers to raw sources.
+> 7. **Temporal Memory Management** (`chakrview/memory/temporal.py`): Point-in-time queries, TTL expiration sweeps, and revision lineage tracking (`valid_from`, `valid_until`, `superseded_by`).
+> 8. **Persistent Multi-Factor Retriever** (`chakrview/memory/retriever.py`): Hybrid retrieval incorporating lexical BM25-style scoring, semantic cosine similarity, recency decay, importance weighting, and confidence gating.
+> 9. **Cross-Conversation Recall & Comparison** (`chakrview/memory/comparison.py`, `chakrview/memory/manager.py`): Cross-session retrieval and generic case/document comparison infrastructure computing commonalities, differences, and temporal deltas.
+> 10. **Controlled Learning Feedback** (`chakrview/memory/learning.py`): Systematic bookkeeping of execution feedback and improvement candidates without modifying neural network weights.
+> 11. **Security & Boundary Enforcement** (`chakrview/memory/security.py`): Mandatory principle $\text{DATA} \neq \text{AUTHORITY}$ ensuring memories cannot authorize tools, modify system prompts, or bypass `ToolGate`; automatic credential redaction; prompt-injection marking.
+> 12. **Runtime & Cognition Integration** (`chakrview/memory/adapter.py`, `chakrview/runtime/inference.py`, `chakrview/cognition/controller.py`): Working memory bridging, `UnifiedRetriever` adaptation, and cognitive controller persistence hooks.
+> All 464 unit and regression tests pass with zero failures and zero warnings.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
 #### 1. Completed
-* Comprehensive architectural documentation in [docs/STEP_15_COGNITIVE_AGENT.md](file:///d:/Project/ChakrView/docs/STEP_15_COGNITIVE_AGENT.md).
-* Empirical benchmark results recorded in [docs/STEP_15_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_15_BENCHMARK_RESULTS.json).
-* Creation of `chakrview/cognition/` package implementing `CognitiveTask`, `TaskStatus`, `TaskConstraints`, `BoundedPlanner`, `DeterministicRulePlanner`, `ExecutionGraph`, `StepObservation`, `StepVerifier`, `GovernedToolGate`, `CognitiveSkillSelector`, `RecoveryManager`, `CognitiveArtifact`, `ArtifactManager`, `ExecutionTrace`, `DeploymentProfile`, `CognitiveController`, and `MemoryCandidate`.
-* Integration into `chakrview/runtime/inference.py` (`execute_cognitive_task`), `chakrview/runtime/__init__.py`, and `chakrview/__init__.py`.
-* 29 new unit and integration tests added in `tests/test_cognitive_agent.py`, expanding the verified test suite to 440 tests across 60 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512).
+* Comprehensive architectural documentation in [docs/STEP_16_PERSISTENT_MEMORY.md](file:///d:/Project/ChakrView/docs/STEP_16_PERSISTENT_MEMORY.md).
+* Empirical benchmark results recorded in [docs/STEP_16_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_16_BENCHMARK_RESULTS.json) via `scripts/benchmark_memory.py`.
+* Creation of `chakrview/memory/` package implementing `MemoryRecord`, `MemoryType`, `MemoryValidity`, `MemoryStore`, `InMemoryMemoryStore`, `MemoryScorer`, `MemoryDeduplicator`, `ConflictDetector`, `MemoryConsolidator`, `TemporalMemoryManager`, `PersistentMemoryRetriever`, `CaseComparator`, `LearningFeedbackManager`, `MemorySecurityPolicy`, `WorkingMemoryAdapter`, `KnowledgeMemoryAdapter`, and `PersonalMemoryManager`.
+* Integration into `chakrview/runtime/inference.py` (`execute_cognitive_task` with `personal_memory`), `chakrview/cognition/controller.py`, and `chakrview/__init__.py`.
+* 24 new unit and integration tests added in `tests/test_persistent_memory.py`, expanding the verified test suite to 464 tests across 61 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2).
 
 #### 2. Established
-* **Stateless Model / Stateful Runtime Invariant**: The neural core remains purely stateless while multi-turn state and cognitive execution graphs are runtime-owned.
-* **Governed Authority Boundary**: Data $\neq$ Instruction; Memory $\neq$ Authority; Knowledge $\neq$ Authority; Skill $\neq$ Unrestricted Authority.
-* **Bounded Resource Guarantees**: Max steps, max depth, max retries, timeout, and max 512-token context ceiling strictly enforced.
-* **Cascading Failure Isolation**: Failed steps immediately isolate and block dependent steps from executing broken chains.
-* **Zero Disk Persistence Privacy**: All cognitive state exists exclusively in volatile memory; audit traces automatically redact credentials.
+* **Stateless Model / External Memory Invariant**: The neural core weights remain untouched ($3,443,136$ parameters); all personal memory resides in external, privacy-isolated memory stores.
+* **Governed Authority Boundary**: $\text{Data} \neq \text{Authority}$; $\text{Memory} \neq \text{Authority}$; memory content cannot authorize tools, override skill policies, or modify prompt instructions.
+* **Strict Multi-Tenant Isolation**: Memories are isolated by `owner_id`; cross-user access attempts raise explicit access violations.
+* **Dual-Metric Evaluation**: `importance` (utility) and `confidence` (certainty) are strictly decoupled and never conflated into a single scalar.
+* **Bounded Resource Guarantees**: Memory operations are CPU-friendly and scale sub-linearly, with hybrid retrieval across 10,000 records completing in under 4 milliseconds on standard CPU.
 
 #### 3. Not Yet Implemented (Intentionally Deferred)
-* Unrestricted autonomous self-modifying code execution (strictly prohibited).
+* Uncontrolled autonomous model weight updates (strictly prohibited).
 * External un-sandboxed OS/shell execution (strictly prohibited).
-* Unrestricted automatic permanent memory writes (Step 16+ consolidation policies).
-* External cloud/network services (strictly prohibited).
+* Third-party cloud/network memory hosting (strictly local-first / sovereign).
 
 ---
 
 ### Progress by Module
-- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (New in Step 15)**
-  - `task.py`: Typed `CognitiveTask`, 10-state validated lifecycle machine, bounded constraints, transition audit records
-  - `planner.py`: `BoundedPlanner` base, `DeterministicRulePlanner`, `PlanStep`, `CognitivePlan` with depth/step limit enforcement
-  - `graph.py`: Dependency-aware DAG `ExecutionGraph` with Kahn's cycle check, topological sorting, cascading failure propagation
-  - `skill_selector.py`: `CognitiveSkillSelector` for domain-agnostic capability discovery and compatibility scoring
-  - `tool_gate.py`: `GovernedToolGate` enforcing runtime `SkillPolicy` authorization, argument sanitization, and prompt-injection denial
-  - `observation.py`: `StepObservation` structured empirical outcome model
-  - `verifier.py`: `StepVerifier` for independent type, range, required-key, and rule verification
-  - `recovery.py`: `RecoveryManager` managing bounded retries, failure isolation, and execution state rollback
-  - `artifacts.py`: `CognitiveArtifact` and `ArtifactManager` supporting text, markdown, json, report, and code artifacts
-  - `trace.py`: `ExecutionTrace` with microsecond telemetry and recursive credential sanitization
-  - `profile.py`: `DeploymentProfile` (`EdgeProfile`, `DesktopProfile`, `ServerProfile`)
-  - `controller.py`: `CognitiveController` master pipeline and controlled `MemoryCandidate` generation
-  - `__init__.py`: Clean public exports of all cognition primitives
+- `chakrview/memory/`: **Persistent Personal Memory, Consolidation & Learning Subsystem (New in Step 16)**
+  - `record.py`: Strongly typed `MemoryRecord`, `MemoryType`, `MemoryValidity`, `MemoryProvenance`, `TemporalMetadata`
+  - `store.py`: `MemoryStore` abstraction and `InMemoryMemoryStore` with strict multi-user privacy isolation
+  - `scoring.py`: `MemoryScorer` calculating independent utility (importance) and certainty (confidence)
+  - `deduplication.py`: `MemoryDeduplicator` supporting exact, normalized, and semantic cosine deduplication
+  - `conflict.py`: `ConflictDetector` and `MemoryConflict` tracking divergence without silent overwriting
+  - `consolidation.py`: `MemoryConsolidator` and `ConsolidationCandidate` clustering and synthesizing memories
+  - `temporal.py`: `TemporalMemoryManager` managing point-in-time validity, expiration sweeps, and revision chains
+  - `retriever.py`: `PersistentMemoryRetriever` multi-factor hybrid retrieval (lexical, semantic, recency, importance, confidence)
+  - `comparison.py`: `CaseComparator` and `CaseComparisonResult` computing commonality, difference, and temporal deltas
+  - `learning.py`: `LearningFeedbackManager` and `LearningCandidate` capturing feedback without weight mutation
+  - `security.py`: `MemorySecurityPolicy` enforcing $\text{DATA} \neq \text{AUTHORITY}$, redaction, and isolation
+  - `adapter.py`: `WorkingMemoryAdapter` and `KnowledgeMemoryAdapter` bridging runtime sessions and UnifiedRetriever
+  - `manager.py`: `PersonalMemoryManager` orchestrating memory lifecycle, retrieval, recall, and comparison
+  - `__init__.py`: Clean public exports of all memory subsystem primitives
+- `chakrview/cognition/`: **Governed Cognitive Agent Execution Subsystem (Ratified in Step 15)**
+  - `task.py`, `planner.py`, `graph.py`, `skill_selector.py`, `tool_gate.py`, `observation.py`, `verifier.py`, `recovery.py`, `artifacts.py`, `trace.py`, `profile.py`, `controller.py` (integrated with `personal_memory`)
 - `chakrview/semantic/`: **Sovereign Neural Semantic Encoder Foundation (Ratified in Step 14)**
   - 836,864 parameter bidirectional encoder, masked mean pooling, projection, InfoNCE loss, and `NeuralSemanticEmbeddingProvider`
-- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory & Cognitive Integration (Updated in Step 15)**
-  - `inference.py`: Extended with `execute_cognitive_task(...)` maintaining 100% backward compatibility with `ask()` and `generate()`
+- `chakrview/runtime/`: **Adaptive Brain Layer, RAG, Memory & Cognitive Integration (Updated in Step 16)**
+  - `inference.py`: Extended to forward `personal_memory` to `execute_cognitive_task` while maintaining 100% backward compatibility
   - `retrieval.py`, `memory.py`, `context.py`, `knowledge.py`, `skills.py`, `tools.py`, `sampling.py`, `integrity.py`, `hardware.py`, `versioning.py`
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
-  - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark measuring CPU latency across all cognitive layers
-- `tests/`: **440/440 Tests Passing** across 60 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - `benchmark_memory.py`: Step 16 empirical benchmark measuring memory insertion, retrieval, deduplication, consolidation, and scaling to 10,000 records
+  - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
+- `tests/`: **464/464 Tests Passing** across 61 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 24 Persistent Personal Memory & Learning Foundation tests (`test_persistent_memory.py`)
   - 29 Cognitive Agent Execution & Governed Workflow tests (`test_cognitive_agent.py`)
   - 22 Semantic Encoder, InfoNCE Loss & Adapter tests (`test_semantic_encoder.py`)
   - 26 Hybrid Retrieval, Embedding & Unified Orchestration tests (`test_hybrid_retrieval.py`)
@@ -91,6 +94,8 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_16_PERSISTENT_MEMORY.md` (Step 16 Persistent Personal Memory & Learning Foundation Ratification Report)
+  - `docs/STEP_16_BENCHMARK_RESULTS.json` (Step 16 Empirical Memory Benchmark Data)
   - `docs/STEP_15_COGNITIVE_AGENT.md` (Step 15 Cognitive Agent Execution & Governed Workflow Ratification Report)
   - `docs/STEP_15_BENCHMARK_RESULTS.json` (Step 15 Empirical Cognitive Agent Benchmark Data)
   - `docs/STEP_14_SEMANTIC_ENCODER.md` (Step 14 Sovereign Semantic Encoder Foundation Architectural Report)
@@ -131,14 +136,15 @@
 ---
 
 ## Known Limitations
-1. **Deterministic Rule Planner**: Multi-step plan generation currently relies on structured rule-based decomposition; learned neuro-symbolic decomposition is deferred to future steps.
-2. **Controlled Memory Policy**: Generates memory candidates; automated promotion into long-term vector memory requires future policy consolidation layers.
-3. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
-4. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; complex reasoning tasks rely on runtime cognitive orchestration and tool execution.
+1. **Local In-Memory Store Baseline**: Step 16 provides `InMemoryMemoryStore` with JSONL persistence; durable embedded DBs (SQLite/DuckDB) will be introduced in subsequent steps as optional storage engines.
+2. **Deterministic Rule Planner**: Multi-step plan generation currently relies on structured rule-based decomposition; learned neuro-symbolic decomposition is deferred to future steps.
+3. **Controlled Learning Bookkeeping**: Step 16 records learning signals and candidates without direct automated model weight mutation (preserving strict model weight freezing).
+4. **Fixed Maximum Sequence Length**: Hard upper bound at $T_{\text{max}} = 512$ tokens for ChakrMicro v0.1.
+5. **Pre-Trained Weight Scale**: ChakrMicro v0.1 has 3.4M parameters; complex reasoning tasks rely on runtime cognitive orchestration, tools, and persistent memory.
 
 ---
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 15 RATIFIED — COGNITIVE AGENT EXECUTION & GOVERNED WORKFLOW FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 16 (Awaiting user explicit command; DO NOT START STEP 16 AUTOMATICALLY).
+- **Decision**: **STEP 16 RATIFIED — PERSISTENT PERSONAL MEMORY, CONSOLIDATION & LEARNING FOUNDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 17 (Awaiting user explicit command; DO NOT START STEP 17 AUTOMATICALLY).
