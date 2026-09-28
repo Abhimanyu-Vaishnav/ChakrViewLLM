@@ -15,6 +15,11 @@ from chakrview.runtime.knowledge import (
     SimpleRetriever,
     ContextProvider,
     KnowledgeAdapter,
+    KnowledgeProvenance,
+    DocumentChunker,
+    DocumentIngester,
+    BM25KnowledgeIndex,
+    LexicalRetriever,
 )
 from chakrview.runtime.skills import (
     SkillDomain,
@@ -23,6 +28,9 @@ from chakrview.runtime.skills import (
     SkillExecutionPlan,
     SkillRegistry,
     SkillProfile,
+    SkillResolver,
+    RuleBasedSkillResolver,
+    get_standard_skill_registry,
 )
 from chakrview.runtime.improvement import (
     ChangeType,
@@ -62,12 +70,27 @@ from chakrview.runtime.sampling import (
     apply_top_p,
     apply_min_prob,
 )
+from chakrview.runtime.context import (
+    ContextBudget,
+    AssembledContext,
+    PromptContextBuilder,
+)
+from chakrview.runtime.tools import (
+    ToolResult,
+    Tool,
+    CalculatorTool,
+    TextUtilityTool,
+    ToolRegistry,
+    ToolExecutor,
+    get_standard_tool_registry,
+)
 from chakrview.runtime.inference import (
     StopReason,
     StreamToken,
     GenerationConfig,
     InferenceMetrics,
     GenerationResult,
+    RAGResponse,
     InferenceSession,
 )
 
@@ -82,6 +105,11 @@ __all__ = [
     "SimpleRetriever",
     "ContextProvider",
     "KnowledgeAdapter",
+    "KnowledgeProvenance",
+    "DocumentChunker",
+    "DocumentIngester",
+    "BM25KnowledgeIndex",
+    "LexicalRetriever",
     # Skills
     "SkillDomain",
     "SkillPolicy",
@@ -89,6 +117,21 @@ __all__ = [
     "SkillExecutionPlan",
     "SkillRegistry",
     "SkillProfile",
+    "SkillResolver",
+    "RuleBasedSkillResolver",
+    "get_standard_skill_registry",
+    # Context
+    "ContextBudget",
+    "AssembledContext",
+    "PromptContextBuilder",
+    # Governed Tools
+    "ToolResult",
+    "Tool",
+    "CalculatorTool",
+    "TextUtilityTool",
+    "ToolRegistry",
+    "ToolExecutor",
+    "get_standard_tool_registry",
     # Self-Improvement
     "ChangeType",
     "RiskLevel",
@@ -128,6 +171,8 @@ __all__ = [
     "GenerationConfig",
     "InferenceMetrics",
     "GenerationResult",
+    "RAGResponse",
     "InferenceSession",
 ]
+
 
