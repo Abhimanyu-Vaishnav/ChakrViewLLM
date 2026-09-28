@@ -112,7 +112,7 @@ class CapabilityGate:
         provenance = request.context.get("provenance_source") or (
             context.constraints.get("provenance_source") if context else None
         )
-        if provenance in ("retrieved_knowledge", "working_memory", "document", "persistent_memory"):
+        if provenance in ("retrieved_knowledge", "working_memory", "document", "persistent_memory", "state_knowledge_assertion", "state_knowledge", "knowledge_state"):
             raise CapabilityAuthorizationError(
                 f"Authority denial: Retrieved content or memory ('{provenance}') "
                 f"cannot authorize execution of capability '{cap_id}'."
