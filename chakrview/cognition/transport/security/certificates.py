@@ -256,6 +256,10 @@ class CertificateRevocationRegistry:
     def count(self) -> int:
         return len(self._revoked)
 
+    def list_revocations(self) -> List[str]:
+        """Return list of all revoked certificate fingerprints."""
+        return list(self._revoked.keys())
+
 
 # ============================================================================
 # Hermetic PKI Builder (For Tests and Isolated Deployments)

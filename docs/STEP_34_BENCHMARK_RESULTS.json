@@ -1,0 +1,104 @@
+{
+  "step": "Step 34",
+  "title": "Multi-Node Federation Runtime, Durable Security State & Failure Recovery",
+  "iterations": 50,
+  "measurements": {
+    "state_persistence": {
+      "mean_ms": 0.0071,
+      "p95_ms": 0.0124,
+      "min_ms": 0.0048,
+      "max_ms": 0.0202,
+      "throughput_ops_sec": 140845.07
+    },
+    "journal_append": {
+      "mean_ms": 0.1672,
+      "p95_ms": 0.2127,
+      "min_ms": 0.1321,
+      "max_ms": 0.3158,
+      "throughput_ops_sec": 5979.22
+    },
+    "journal_verification": {
+      "mean_ms": 2.6245,
+      "p95_ms": 3.1832,
+      "min_ms": 2.1165,
+      "max_ms": 3.2435,
+      "throughput_ops_sec": 381.02
+    },
+    "snapshot_creation": {
+      "mean_ms": 0.5113,
+      "p95_ms": 0.7364,
+      "min_ms": 0.4309,
+      "max_ms": 1.7169,
+      "throughput_ops_sec": 1955.88
+    },
+    "snapshot_loading": {
+      "mean_ms": 0.2177,
+      "p95_ms": 0.3076,
+      "min_ms": 0.2002,
+      "max_ms": 0.3693,
+      "throughput_ops_sec": 4593.52
+    },
+    "recovery": {
+      "mean_ms": 0.7075,
+      "p95_ms": 1.1351,
+      "min_ms": 0.6109,
+      "max_ms": 1.2106,
+      "throughput_ops_sec": 1413.34
+    },
+    "crash_recovery_simulation": {
+      "mean_ms": 0.6969,
+      "p95_ms": 1.0684,
+      "min_ms": 0.5961,
+      "max_ms": 1.2511,
+      "throughput_ops_sec": 1434.94
+    },
+    "engine_registration": {
+      "mean_ms": 0.0853,
+      "p95_ms": 0.1319,
+      "min_ms": 0.0624,
+      "max_ms": 0.1319,
+      "throughput_ops_sec": 11729.75
+    },
+    "engine_health_update": {
+      "mean_ms": 0.0171,
+      "p95_ms": 0.0221,
+      "min_ms": 0.0157,
+      "max_ms": 0.0301,
+      "throughput_ops_sec": 58343.06
+    },
+    "rejoin_handshake": {
+      "mean_ms": 0.9671,
+      "p95_ms": 1.5318,
+      "min_ms": 0.8095,
+      "max_ms": 1.7013,
+      "throughput_ops_sec": 1033.99
+    },
+    "state_synchronization": {
+      "mean_ms": 0.0505,
+      "p95_ms": 0.0585,
+      "min_ms": 0.0467,
+      "max_ms": 0.1077,
+      "throughput_ops_sec": 19792.57
+    },
+    "complete_restart_recovery_lifecycle": {
+      "mean_ms": 1.658,
+      "p95_ms": 2.1744,
+      "min_ms": 1.4956,
+      "max_ms": 2.9619,
+      "throughput_ops_sec": 603.12
+    }
+  },
+  "memory_overhead": {
+    "current_memory_kb": 1212.04,
+    "peak_memory_kb": 1248.2,
+    "peak_memory_mb": 1.2189
+  },
+  "neural_core_integrity": {
+    "total_parameters": 3443136,
+    "parameter_delta": 0,
+    "vocabulary_size": 4096,
+    "max_sequence_length": 512,
+    "delta_w": 0,
+    "frozen": true
+  }
+}

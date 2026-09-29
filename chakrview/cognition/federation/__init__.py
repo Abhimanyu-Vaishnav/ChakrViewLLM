@@ -62,6 +62,35 @@ from chakrview.cognition.federation.trust_sync import TrustStateSynchronizer
 from chakrview.cognition.federation.revocation_sync import RevocationStateSynchronizer
 from chakrview.cognition.federation.handshake import FederationHandshakeManager
 from chakrview.cognition.federation.coordinator import DistributedFederationCoordinator
+from chakrview.cognition.federation.persistence import (
+    SecurityStateStore,
+    InMemorySecurityStateStore,
+    SqliteSecurityStateStore,
+    SecurityStateJournal,
+    JournalEntry,
+    JournalEntryType,
+    DurableSecuritySnapshot,
+    RecoveryManifest,
+    PersistenceError,
+    DurableSchemaError,
+    JournalError,
+    JournalCorruptionError,
+    JournalSequenceError,
+    JournalTruncationError,
+    SnapshotError,
+    SnapshotCorruptionError,
+    RecoveryError,
+    RecoveryFailedClosedError,
+    RuntimeLifecycleError,
+    EngineHealthError,
+    RejoinProtocolError,
+)
+from chakrview.cognition.federation.recovery import FederationRecoveryManager
+from chakrview.cognition.federation.runtime import (
+    FederationRuntime,
+    EngineRuntimeStatus,
+    EngineHealthStatus,
+)
 
 __all__ = [
     # Models
@@ -106,4 +135,30 @@ __all__ = [
     "RevocationStateSynchronizer",
     "FederationHandshakeManager",
     "DistributedFederationCoordinator",
+    # Step 34 Durable State & Runtime Components
+    "FederationRecoveryManager",
+    "FederationRuntime",
+    "EngineRuntimeStatus",
+    "EngineHealthStatus",
+    "SecurityStateStore",
+    "InMemorySecurityStateStore",
+    "SqliteSecurityStateStore",
+    "SecurityStateJournal",
+    "JournalEntry",
+    "JournalEntryType",
+    "DurableSecuritySnapshot",
+    "RecoveryManifest",
+    "PersistenceError",
+    "DurableSchemaError",
+    "JournalError",
+    "JournalCorruptionError",
+    "JournalSequenceError",
+    "JournalTruncationError",
+    "SnapshotError",
+    "SnapshotCorruptionError",
+    "RecoveryError",
+    "RecoveryFailedClosedError",
+    "RuntimeLifecycleError",
+    "EngineHealthError",
+    "RejoinProtocolError",
 ]

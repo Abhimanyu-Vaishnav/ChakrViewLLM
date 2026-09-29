@@ -110,6 +110,7 @@ from chakrview.cognition.federation.models import (
     FederationHandshakeResponse,
     RevocationSyncRecord,
 )
+from chakrview.cognition.federation.persistence.models import JournalEntryType
 
 
 class CrossZoneAuthorizationError(PermissionError):
@@ -138,6 +139,7 @@ class CrossZoneFederationEngine:
         local_private_key: Optional[Ed25519PrivateKeyWrapper] = None,
         local_peer_id: Optional[str] = None,
         coordinator: Optional[DistributedFederationCoordinator] = None,
+        runtime: Optional[Any] = None,
     ) -> None:
         self.local_zone_id = local_zone_id
         self.policy = policy or CrossZoneFederationPolicy()
@@ -168,6 +170,17 @@ class CrossZoneFederationEngine:
             audit_logger=self.audit_logger,
         )
         self.coordinator.engine = self
+
+        # Step 34 Federation Runtime
+        self.runtime = runtime
+        if self.runtime and not hasattr(self.runtime, "engine"):
+            self.runtime.engine = self
+
+    def attach_runtime(self, runtime: Any) -> None:
+        """Attach a FederationRuntime to this engine for durable write-ahead journaling."""
+        self.runtime = runtime
+        if runtime and getattr(runtime, "engine", None) != self:
+            runtime.engine = self
 
     @property
     def engine_identity(self) -> FederationEngineIdentity:
@@ -224,6 +237,13 @@ class CrossZoneFederationEngine:
                 peer_id=peer_id,
                 zone_id=None,
                 details={"reason": f"Trust grant expired at epoch {self.current_epoch}."},
+            )
+
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.EPOCH_ADVANCED,
+                epoch=self.current_epoch,
+                payload={"new_epoch": self.current_epoch, "epochs_advanced": epochs},
             )
 
         return self.current_epoch
@@ -571,6 +591,13 @@ class CrossZoneFederationEngine:
                 engine=self,
             )
 
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.PEER_REVOKED,
+                epoch=self.current_epoch,
+                payload={"peer_id": peer_id, "reason": reason, "revoked_by": revoked_by},
+            )
+
         return record
 
     # ========================================================================
@@ -652,6 +679,17 @@ class CrossZoneFederationEngine:
                 "key_state": crypto_identity.key_state.value,
             },
         )
+
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.PEER_REGISTERED,
+                epoch=self.current_epoch,
+                payload={
+                    "peer_id": crypto_identity.peer_id,
+                    "zone_id": crypto_identity.zone_id,
+                    "public_hex": crypto_identity.public_key.public_hex,
+                },
+            )
 
         return reg
 
@@ -779,6 +817,18 @@ class CrossZoneFederationEngine:
             )
 
         self.sessions[sid] = session
+
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.SESSION_CREATED,
+                epoch=self.current_epoch,
+                payload={
+                    "session_id": sid,
+                    "remote_peer_id": remote_peer_id,
+                    "expires_at_epoch": session.expires_at_epoch,
+                },
+            )
+
         return session
 
     def get_session(self, session_id: str) -> Optional[SecurePeerSession]:
@@ -800,6 +850,13 @@ class CrossZoneFederationEngine:
             session_id=session.session_id,
             details={"reason": reason},
         )
+
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.SESSION_TERMINATED,
+                epoch=self.current_epoch,
+                payload={"session_id": session_id, "reason": reason},
+            )
 
     def renew_session(
         self,
@@ -983,6 +1040,13 @@ class CrossZoneFederationEngine:
             peer_id=peer_id,
             details={"active_fingerprint": new_public_key.fingerprint},
         )
+
+        if hasattr(self, "runtime") and self.runtime and getattr(self.runtime, "journal", None):
+            self.runtime.journal.append(
+                entry_type=JournalEntryType.KEY_ROTATED,
+                epoch=self.current_epoch,
+                payload={"peer_id": peer_id, "new_public_hex": new_public_key.public_hex},
+            )
 
     def rotate_peer_certificate(
         self,
