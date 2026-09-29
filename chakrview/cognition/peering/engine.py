@@ -257,6 +257,74 @@ class CrossZoneFederationEngine:
         self._resource_manager = mgr
 
     @property
+    def resource_registry(self) -> Any:
+        return self.resource_manager.registry
+
+    @property
+    def grant_manager(self) -> Any:
+        if not hasattr(self, "_grant_manager") or self._grant_manager is None:
+            from chakrview.cognition.federation.tasks.grant import ExecutionGrantManager
+            self._grant_manager = ExecutionGrantManager(local_node_id=self.local_peer_id)
+        return self._grant_manager
+
+    @grant_manager.setter
+    def grant_manager(self, mgr: Any) -> None:
+        self._grant_manager = mgr
+
+    @property
+    def task_scheduler(self) -> Any:
+        if not hasattr(self, "_task_scheduler") or self._task_scheduler is None:
+            from chakrview.cognition.federation.tasks.scheduler import DeterministicTaskScheduler
+            self._task_scheduler = DeterministicTaskScheduler(
+                local_node_id=self.local_peer_id,
+                resource_registry=self.resource_manager.registry,
+                membership_manager=self.membership_manager,
+                peering_engine=self,
+            )
+        return self._task_scheduler
+
+    @task_scheduler.setter
+    def task_scheduler(self, sched: Any) -> None:
+        self._task_scheduler = sched
+
+    @property
+    def task_executor(self) -> Any:
+        if not hasattr(self, "_task_executor") or self._task_executor is None:
+            from chakrview.cognition.federation.tasks.executor import FederationTaskExecutor
+            self._task_executor = FederationTaskExecutor(
+                local_node_id=self.local_peer_id,
+                grant_manager=self.grant_manager,
+                capability_gate=self.capability_gate,
+            )
+        return self._task_executor
+
+    @task_executor.setter
+    def task_executor(self, exec_: Any) -> None:
+        self._task_executor = exec_
+
+    @property
+    def task_coordinator(self) -> Any:
+        if not hasattr(self, "_task_coordinator") or self._task_coordinator is None:
+            from chakrview.cognition.federation.tasks.coordinator import FederationTaskCoordinator
+            from chakrview.cognition.federation.tasks.checkpoint import TaskCheckpointManager
+            journal = getattr(self.runtime, "journal", None) if hasattr(self, "runtime") and self.runtime else None
+            checkpoint_mgr = TaskCheckpointManager(journal=journal)
+            self._task_coordinator = FederationTaskCoordinator(
+                local_node_id=self.local_peer_id,
+                scheduler=self.task_scheduler,
+                checkpoint_manager=checkpoint_mgr,
+                local_executor=self.task_executor,
+                transport_client=self.transport_client,
+                journal=journal,
+                audit_logger=self.audit_logger,
+            )
+        return self._task_coordinator
+
+    @task_coordinator.setter
+    def task_coordinator(self, tc: Any) -> None:
+        self._task_coordinator = tc
+
+    @property
     def engine_identity(self) -> FederationEngineIdentity:
         return self.coordinator.engine_identity
 
