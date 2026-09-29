@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 39 — Federated Execution Continuity, Checkpointed Work Migration & Failure-Resilient Distributed Computation
-- **Status**: Complete & Verified (Production federated execution continuity, CheckpointManifest with canonical SHA-256 payload digests, durable CheckpointStore with atomic commit protocol [PENDING -> COMMITTED -> SUPERSEDED], bounded WorkerLease lifecycle [ACTIVE, HEARTBEAT_LATE, LEASE_EXPIRED, UNREACHABLE, RECOVERABLE, REVOKED], DeterministicFailureDetector, AttemptFenceManager monotonic generation fencing, duplicate commit protection via CommitIdentity, seamless mid-execution checkpoint resumption, tenant-isolated rescheduling, 1,121 / 1,121 tests passing across 85 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+- **Current phase**: Step 40 — Federated Consensus, Byzantine Fault Tolerance & Multi-Node State Agreement
+- **Status**: Complete & Verified (Production 3-phase BFT consensus [PROPOSE -> PREVOTE -> PRECOMMIT -> COMMIT], cryptographic Quorum Certificates [supermajority Q = floor(2N/3) + 1], deterministic round-robin leader schedule, view-change timeout progression, proposer equivocation detection and evidence logging, validator double-voting defense, deterministic Replicated State Machine [RSM] with tamper-evident parent hash chaining, non-negotiable sovereign defense [LOCAL_POLICY > CONSENSUS_DECISION, CONSENSUS != AUTHORITY] via CapabilityGate mediation, 1,138 / 1,138 tests passing across 86 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 ---
 
@@ -57,7 +57,7 @@
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Byzantine Fault-Tolerant Consensus:** Raft/Paxos/PBFT consensus across dynamic clusters (deferred to Step 37+).
+* **Byzantine Fault-Tolerant Consensus:** Raft/PBFT consensus across dynamic clusters (Ratified in Step 40).
 * **Autonomous Internet-Wide Peer Discovery:** Autonomous scanning or unsolicited peer ingestion.
 * **Encrypted State Sync Envelopes:** Wire-level payload encryption of coordination states using ephemeral session keys.
 
