@@ -367,6 +367,10 @@ class SecurePeerSession:
         self.last_seen_sequence_number = sequence_number
         return True
 
+    def validate_sequence_number(self, sequence_number: int) -> bool:
+        """Validate sequence number against replay floor without advancing it."""
+        return sequence_number > self.last_seen_sequence_number
+
     def terminate(self, reason: str = "Administrative termination") -> None:
         """Cleanly terminate the session and invalidate key material."""
         if self.status not in (SessionStatus.TERMINATED, SessionStatus.REVOKED):

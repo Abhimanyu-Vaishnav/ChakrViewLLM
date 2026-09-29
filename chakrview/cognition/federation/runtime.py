@@ -75,11 +75,25 @@ class FederationRuntime:
         engine: Any,
         store: Optional[SecurityStateStore] = None,
         auto_recover: bool = True,
+        membership_manager: Optional[Any] = None,
     ) -> None:
         self.engine = engine
         self.store = store
         self.recovery_manager = FederationRecoveryManager(store=self.store) if self.store else None
         self.journal = SecurityStateJournal()
+
+        # Step 35 Node Membership Manager
+        if membership_manager:
+            self.membership_manager = membership_manager
+        elif hasattr(self.engine, "_membership_manager") and self.engine._membership_manager:
+            self.membership_manager = self.engine._membership_manager
+            self.membership_manager.runtime = self
+        else:
+            from chakrview.cognition.federation.discovery.membership import FederationMembershipManager
+            self.membership_manager = FederationMembershipManager(engine=self.engine, runtime=self)
+
+        if hasattr(self.engine, "membership_manager"):
+            self.engine.membership_manager = self.membership_manager
 
         self._lock = threading.Lock()
         self._status = EngineRuntimeStatus.INITIALIZING
@@ -237,6 +251,20 @@ class FederationRuntime:
                 epoch=self.engine.current_epoch,
                 details={"engine_id": engine_id, "reason": reason or "Quarantined"},
             )
+
+    def record_heartbeat(
+        self,
+        engine_id: str,
+        is_healthy: bool = True,
+        reason: Optional[str] = None,
+    ) -> None:
+        """Record heartbeat observation for an engine, updating health status."""
+        status = EngineHealthStatus.HEALTHY if is_healthy else EngineHealthStatus.UNREACHABLE
+        self.set_engine_health(
+            engine_id,
+            status,
+            reason=reason or ("Heartbeat received" if is_healthy else "Heartbeat missed"),
+        )
 
     # ========================================================================
     # 4. Rejoin Protocol (Phase 7)
