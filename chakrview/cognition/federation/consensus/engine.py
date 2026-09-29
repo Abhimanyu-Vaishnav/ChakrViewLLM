@@ -346,9 +346,28 @@ class FederatedConsensusEngine:
             return self._current_round
 
     def _log_audit(self, event_type: str, details: Dict[str, Any]) -> None:
-        if self.audit_logger and hasattr(self.audit_logger, "log"):
-            self.audit_logger.log(event_type, details)
+        if self.audit_logger:
+            if hasattr(self.audit_logger, "log_event"):
+                try:
+                    self.audit_logger.log_event(event_type=event_type, details=details)
+                except Exception:
+                    pass
+            elif hasattr(self.audit_logger, "log"):
+                try:
+                    from chakrview.cognition.peering.models import AuditEventType
+                    ev = getattr(AuditEventType, "CONSENSUS_EVENT", AuditEventType.STATE_MUTATED)
+                    self.audit_logger.log(
+                        event_type=ev,
+                        epoch=self._epoch,
+                        peer_id=self.local_node_id,
+                        details={"consensus_event": event_type, **details},
+                    )
+                except Exception:
+                    pass
 
     def _wal_log(self, entry_type: str, payload: Dict[str, Any]) -> None:
         if self.journal and hasattr(self.journal, "append_entry"):
-            self.journal.append_entry(entry_type, payload)
+            try:
+                self.journal.append_entry(entry_type, payload)
+            except Exception:
+                pass

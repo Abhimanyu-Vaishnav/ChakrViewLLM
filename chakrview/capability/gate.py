@@ -312,3 +312,13 @@ class CapabilityGate:
 
         # 4. Output Sanitization
         return self.sanitize_output(result)
+
+    def execute(
+        self,
+        request: CapabilityRequest,
+        context: Optional[CapabilityContext] = None,
+        active_policy: Optional[Any] = None,
+    ) -> CapabilityResult:
+        """Execute a capability request through the governed policy gate."""
+        return self.execute_governed(request, context=context, active_policy=active_policy)
+
