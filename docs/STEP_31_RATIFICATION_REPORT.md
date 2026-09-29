@@ -324,6 +324,7 @@ The following capabilities remain explicitly deferred to future milestones:
 
 ## 28. Git Commit
 
+- **Commit SHA**: `9b68d41`
 - **Working Tree**: Clean (all files committed)
 - **Ratification Tag**: Step 31 Ratified
 
