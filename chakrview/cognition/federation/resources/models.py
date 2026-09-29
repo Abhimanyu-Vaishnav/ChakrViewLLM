@@ -265,6 +265,7 @@ class ExecutionType(str, Enum):
     DOCUMENT_PROCESSING = "DOCUMENT_PROCESSING"
     CRYPTOGRAPHIC_OPS = "CRYPTOGRAPHIC_OPS"
     GENERIC_COMPUTE = "GENERIC_COMPUTE"
+    CPU = "CPU"
 
 
 @dataclass
@@ -284,9 +285,16 @@ class AdvertisedCapability:
     is_exposed: bool = True
     description: str = ""
 
+    def __post_init__(self) -> None:
+        if isinstance(self.execution_type, str):
+            try:
+                self.execution_type = ExecutionType(self.execution_type)
+            except ValueError:
+                self.execution_type = ExecutionType.GENERIC_COMPUTE
+
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
-        d["execution_type"] = self.execution_type.value
+        d["execution_type"] = self.execution_type.value if hasattr(self.execution_type, "value") else str(self.execution_type)
         return d
 
     @classmethod

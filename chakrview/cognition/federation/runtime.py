@@ -138,6 +138,22 @@ class FederationRuntime:
     def resource_manager(self) -> Any:
         return getattr(self.engine, "resource_manager", None)
 
+    @property
+    def grant_manager(self) -> Any:
+        return getattr(self.engine, "grant_manager", None)
+
+    @property
+    def task_scheduler(self) -> Any:
+        return getattr(self.engine, "task_scheduler", None)
+
+    @property
+    def task_executor(self) -> Any:
+        return getattr(self.engine, "task_executor", None)
+
+    @property
+    def task_coordinator(self) -> Any:
+        return getattr(self.engine, "task_coordinator", None)
+
     # ========================================================================
     # 1. Runtime Lifecycle (Phase 5)
     # ========================================================================
