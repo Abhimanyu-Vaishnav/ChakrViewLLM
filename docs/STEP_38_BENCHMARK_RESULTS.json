@@ -1,0 +1,179 @@
+{
+  "step": "STEP_38",
+  "title": "Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity",
+  "benchmark_timestamp_utc": "2026-09-29 17:59:46Z",
+  "neural_integrity": {
+    "parameter_count": 3443136,
+    "vocabulary_size": 4096,
+    "max_context_length": 512,
+    "weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "delta_w": 0,
+    "status": "RATIFIED_IMMUTABLE"
+  },
+  "memory_metrics": {
+    "current_memory_mb": 2.53,
+    "peak_memory_mb": 3.42
+  },
+  "latency_and_throughput": {
+    "task_creation": {
+      "mean_ms": 0.0136,
+      "median_ms": 0.0132,
+      "min_ms": 0.0114,
+      "max_ms": 0.0611,
+      "p95_ms": 0.0148,
+      "p99_ms": 0.0257,
+      "samples": 200,
+      "throughput_ops_sec": 73472.69
+    },
+    "task_decomposition": {
+      "mean_ms": 0.0554,
+      "median_ms": 0.0525,
+      "min_ms": 0.0461,
+      "max_ms": 0.1747,
+      "p95_ms": 0.0757,
+      "p99_ms": 0.1562,
+      "samples": 200,
+      "throughput_ops_sec": 18040.94
+    },
+    "work_unit_state_transition": {
+      "mean_ms": 0.0011,
+      "median_ms": 0.001,
+      "min_ms": 0.001,
+      "max_ms": 0.0035,
+      "p95_ms": 0.0011,
+      "p99_ms": 0.0021,
+      "samples": 200,
+      "throughput_ops_sec": 952041.31
+    },
+    "execution_grant_authorization": {
+      "mean_ms": 0.0033,
+      "median_ms": 0.0031,
+      "min_ms": 0.003,
+      "max_ms": 0.014,
+      "p95_ms": 0.0034,
+      "p99_ms": 0.0095,
+      "samples": 200,
+      "throughput_ops_sec": 304599.51
+    },
+    "execution_grant_accounting": {
+      "mean_ms": 0.0037,
+      "median_ms": 0.0036,
+      "min_ms": 0.0034,
+      "max_ms": 0.0087,
+      "p95_ms": 0.004,
+      "p99_ms": 0.0083,
+      "samples": 200,
+      "throughput_ops_sec": 272553.78
+    },
+    "task_scheduling_single_candidate": {
+      "mean_ms": 0.0483,
+      "median_ms": 0.048,
+      "min_ms": 0.0377,
+      "max_ms": 0.1035,
+      "p95_ms": 0.0529,
+      "p99_ms": 0.0757,
+      "samples": 200,
+      "throughput_ops_sec": 20706.72
+    },
+    "task_scheduling_10_candidates": {
+      "mean_ms": 0.185,
+      "median_ms": 0.1971,
+      "min_ms": 0.1499,
+      "max_ms": 0.2538,
+      "p95_ms": 0.2146,
+      "p99_ms": 0.2461,
+      "samples": 200,
+      "throughput_ops_sec": 5405.67
+    },
+    "checkpoint_creation": {
+      "mean_ms": 0.0425,
+      "median_ms": 0.0416,
+      "min_ms": 0.0314,
+      "max_ms": 0.087,
+      "p95_ms": 0.0498,
+      "p99_ms": 0.0695,
+      "samples": 200,
+      "throughput_ops_sec": 23541.88
+    },
+    "checkpoint_verification": {
+      "mean_ms": 0.016,
+      "median_ms": 0.0158,
+      "min_ms": 0.0112,
+      "max_ms": 0.035,
+      "p95_ms": 0.0196,
+      "p99_ms": 0.0268,
+      "samples": 200,
+      "throughput_ops_sec": 62367.47
+    },
+    "checkpoint_corruption_rejection": {
+      "mean_ms": 0.018,
+      "median_ms": 0.0178,
+      "min_ms": 0.0125,
+      "max_ms": 0.0432,
+      "p95_ms": 0.0219,
+      "p99_ms": 0.0301,
+      "samples": 200,
+      "throughput_ops_sec": 55401.67
+    },
+    "result_validation": {
+      "mean_ms": 0.0245,
+      "median_ms": 0.024,
+      "min_ms": 0.0219,
+      "max_ms": 0.0395,
+      "p95_ms": 0.0272,
+      "p99_ms": 0.0382,
+      "samples": 200,
+      "throughput_ops_sec": 40863.86
+    },
+    "result_aggregation_concatenate": {
+      "mean_ms": 0.0099,
+      "median_ms": 0.0083,
+      "min_ms": 0.0065,
+      "max_ms": 0.254,
+      "p95_ms": 0.0129,
+      "p99_ms": 0.0209,
+      "samples": 200,
+      "throughput_ops_sec": 101276.09
+    },
+    "result_aggregation_reduce_sum": {
+      "mean_ms": 0.0085,
+      "median_ms": 0.0083,
+      "min_ms": 0.0065,
+      "max_ms": 0.0169,
+      "p95_ms": 0.0126,
+      "p99_ms": 0.0143,
+      "samples": 200,
+      "throughput_ops_sec": 116972.73
+    },
+    "result_aggregation_merge_dict": {
+      "mean_ms": 0.0056,
+      "median_ms": 0.0055,
+      "min_ms": 0.0042,
+      "max_ms": 0.013,
+      "p95_ms": 0.0083,
+      "p99_ms": 0.0102,
+      "samples": 200,
+      "throughput_ops_sec": 179710.65
+    },
+    "worker_failure_rescheduling": {
+      "mean_ms": 0.2124,
+      "median_ms": 0.2124,
+      "min_ms": 0.1596,
+      "max_ms": 0.4131,
+      "p95_ms": 0.3101,
+      "p99_ms": 0.3745,
+      "samples": 200,
+      "throughput_ops_sec": 4707.17
+    },
+    "end_to_end_distributed_task_lifecycle": {
+      "mean_ms": 2.5025,
+      "median_ms": 2.4693,
+      "min_ms": 2.0312,
+      "max_ms": 4.2354,
+      "p95_ms": 3.0793,
+      "p99_ms": 3.8939,
+      "samples": 200,
+      "throughput_ops_sec": 399.59
+    }
+  }
+}
