@@ -2,61 +2,63 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 33 — Distributed Federation Coordination, Replay Synchronization & Trust-State Consistency
-- **Status**: Complete & Verified (Deterministic, bounded multi-engine federation coordination layer; immutable FederationEngineIdentity; versioned distributed security state with monotonic SecurityStateVersion; advisory replay-state synchronization with local replay defense strictly authoritative; non-escalating trust-state consistency enforcing REMOTE_TRUST_CLAIM != LOCAL_TRUST_AUTHORIZATION; monotonic, idempotent cross-engine revocation propagation enforcing REVOKED -> NEVER ACTIVE AGAIN; deterministic canonical SHA-256 state digests with zero secret exposure; coordination handshake verifying protocol compatibility and digest equivalence without granting execution authority; bounded coordination memory with capacity fail-closed ceilings; 943/943 tests passing across 78 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2, ΔW = 0; LOCAL_AUTHORITY > PEER_AUTHORITY, FEDERATION != AUTHORITY_TRANSFER, TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, TLS != TRUST, mTLS != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, SESSION_RENEWAL != CAPABILITY_ESCALATION, KEY_ROTATION != TRUST_RENEWAL, CERTIFICATE_ROTATION != TRUST_RENEWAL, FEDERATION_COORDINATION != AUTHORITY, CONSENSUS != AUTHORITY, REMOTE_ENGINE != LOCAL_AUTHORITY).
+- **Current phase**: Step 34 — Multi-Node Federation Runtime, Durable Security State & Failure Recovery
+- **Status**: Complete & Verified (Multi-node federation runtime; durable security state with dedicated abstraction and zero secret leakage; write-ahead append-only security journal with SHA-256 hash chaining; crash recovery via FederationRecoveryManager restoring terminal revocations, replay floors, trust expirations, and failing closed; snapshot + journal architecture [S_N + J[N+1..M]]; multi-node lifecycle runtime FederationRuntime with bounded engine registration [MAX_FEDERATION_ENGINES=16]; failure detection with health tracking [UNKNOWN, HEALTHY, DEGRADED, UNREACHABLE, RECOVERING, QUARANTINED, TERMINATED] enforcing UNREACHABLE != REVOKED; 12-step secure rejoin protocol enforcing ENGINE_REJOIN != TRUST_GRANT; state conflict matrix Cases A--J verified; 966/966 tests passing across 79 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2, ΔW = 0; LOCAL_AUTHORITY > PEER_AUTHORITY, RUNTIME != AUTHORITY, PERSISTENCE != AUTHORITY, JOURNAL != AUTHORITY, RECOVERY != AUTHORITY, ENGINE_REJOIN != TRUST_GRANT, ENGINE_REJOIN != CAPABILITY_ESCALATION, NETWORK_FAILURE != AUTOMATIC_REVOCATION).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 33 establishes the **Distributed Federation Coordination, Replay Synchronization & Trust-State Consistency** layer without altering the frozen neural core:
+> **IMPORTANT**: Step 34 establishes the **Multi-Node Federation Runtime, Durable Security State & Failure Recovery** layer without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Coordination Lifecycle:} \quad &\text{Engine Identity Creation} \longrightarrow \text{Coordination Handshake} \longrightarrow \text{Digest Comparison} \\
-> &\longrightarrow \text{Advisory Replay Sync (Local Authority Preserved)} \longrightarrow \text{Trust State Consistency (No Self-Escalation)} \\
-> &\longrightarrow \text{Monotonic Revocation Propagation (REVOKED} \rightarrow \text{NEVER ACTIVE AGAIN)} \\
-> &\longrightarrow \text{Deterministic Conflict Evaluation (Cases A--E)} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{REMOTE\_ENGINE} \neq \text{LOCAL\_AUTHORITY} \\
-> \textbf{Coordination Axiom:} \quad &\text{FEDERATION\_COORDINATION} \neq \text{AUTHORITY}, \quad \text{FEDERATION\_HANDSHAKE} \neq \text{TRUST\_GRANT} \\
-> \textbf{Trust Axiom:} \quad &\text{REMOTE\_TRUST\_CLAIM} \neq \text{LOCAL\_TRUST\_AUTHORIZATION} \\
+> \textbf{Durable Runtime Lifecycle:} \quad &\text{Durable State Storage} \longrightarrow \text{Write-Ahead Journaling} \longrightarrow \text{Snapshot Creation} \\
+> &\longrightarrow \text{Fail-Closed Crash Recovery (RECOVERY\_FAILED\_CLOSED)} \longrightarrow \text{Multi-Engine Lifecycle Management} \\
+> &\longrightarrow \text{Failure Detection (UNREACHABLE} \neq \text{REVOKED)} \longrightarrow \text{12-Step Rejoin Protocol} \\
+> &\longrightarrow \text{Conflict Matrix Evaluation (Cases A--J)} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{RUNTIME} \neq \text{AUTHORITY}, \quad \text{PERSISTENCE} \neq \text{AUTHORITY} \\
+> \textbf{Recovery Axiom:} \quad &\text{JOURNAL} \neq \text{AUTHORITY}, \quad \text{RECOVERY} \neq \text{AUTHORITY}, \quad \text{RECOVERY\_FAILED\_CLOSED on corruption} \\
+> \textbf{Rejoin Axiom:} \quad &\text{ENGINE\_REJOIN} \neq \text{TRUST\_GRANT}, \quad \text{ENGINE\_REJOIN} \neq \text{CAPABILITY\_ESCALATION} \\
+> \textbf{Health Axiom:} \quad &\text{UNREACHABLE} \neq \text{REVOKED} \quad (\text{Network failure does not automatically revoke}) \\
 > \textbf{Revocation Axiom:} \quad &\text{REVOKED} \longrightarrow \text{NEVER ACTIVE AGAIN} \quad (\text{Local Revocation Always Wins}) \\
-> \textbf{Immutability Axiom:} \quad &\text{Federation Coordination} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Immutability Axiom:} \quad &\text{Federation Runtime} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Local Authority Over Remote Engines:** A remote engine must NEVER gain authority over local model weights, private memory, secrets, tenant data, or authorization decisions.
-> 2. **Coordination != Authority Transfer:** Coordination synchronizes bounded security state; it never synchronizes execution authority.
-> 3. **Handshake != Trust Grant:** Successful coordination handshake verifies protocol and identity compatibility; it confers zero capabilities and zero trust grants.
-> 4. **Authoritative Local Replay Defense:** Replay synchronization is advisory. Local sequence monotonicity and message cache checks remain unconditionally authoritative.
-> 5. **Monotonic, Idempotent Revocation:** Revocations cascade across peers, sessions, certificates, and keys; duplicate events are ignored idempotently, and revoked state cannot be reactivated.
-> 6. **Zero Secret Exposure:** State digests and audit logs strictly exclude secrets, private keys, memory pointers, and ephemeral Python states.
-> All 943 unit, integration, invariant, capability gate, transport, session, and federation coordination tests pass with zero failures and zero warnings across 78 test files.
+> 1. **Durable Security State Without Secrets:** Only verifiable security metadata is persisted. Private keys, session secrets, capability secrets, model weights, and scratchpads are NEVER persisted.
+> 2. **Write-Ahead Hash-Chained Integrity:** Monotonic, gapless journal entries chained via $E_N.\text{digest} = \text{SHA256}(E_N.\text{payload} \mathbin{\Vert} E_{N-1}.\text{digest})$ guarantee corruption, truncation, and tampering detection.
+> 3. **Fail-Closed Crash Recovery:** If snapshot or journal integrity cannot be verified, `RECOVERY_FAILED_CLOSED` is emitted and the engine refuses to start with degraded security.
+> 4. **Runtime and Persistence != Authority:** Runtime and persistence layers coordinate lifecycle and durable storage but hold zero capability execution rights.
+> 5. **Rejoin Protocol With Zero Capability Escalation:** Rejoining nodes exchange state versions and digests, re-validate local revocations, but never regain capabilities merely by reconnecting.
+> 6. **Zero Neural Core Mutation:** Neural weights are strictly untouched ($\Delta W = 0$, parameters = 3,443,136, hash intact).
+> All 966 unit, integration, invariant, capability gate, transport, session, persistence, recovery, and runtime tests pass with zero failures and zero warnings across 79 test files.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 33)
-* Comprehensive architectural documentation in [docs/STEP_33_DISTRIBUTED_FEDERATION_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_33_DISTRIBUTED_FEDERATION_ARCHITECTURE.md).
-* Step 33 Threat Model in [docs/STEP_33_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_33_THREAT_MODEL.md).
-* Repository audit findings in [docs/STEP_33_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_33_REPOSITORY_AUDIT.md).
-* Empirical benchmark results recorded in [docs/STEP_33_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_33_BENCHMARK_RESULTS.json) via `scripts/benchmark_distributed_federation.py`.
-* Step 33 Ratification Report in [docs/STEP_33_RATIFICATION_REPORT.md](file:///d:/Project/ChakrView/docs/STEP_33_RATIFICATION_REPORT.md).
-* **Distributed Federation Coordination Subsystem** (`chakrview/cognition/federation/`):
-  - `models.py`: Strongly typed `FederationEngineIdentity`, `SecurityStateVersion`, `ReplayStateDigest`, `TrustStateDigest`, `RevocationStateDigest`, `PeerStateDigest`, `FederationSecurityStateDigest`, `HandshakeStatus`, `FederationHandshakeRequest`, `FederationHandshakeResponse`, `ReplaySyncMessage`, `TrustSyncRecord`, `TrustSyncMessage`, `RevocationSyncRecord`, `RevocationSyncMessage`, `RevocationTargetType`.
-  - `errors.py`: Robust exception hierarchy (`FederationCoordinationError`, `EngineIdentityError`, `CoordinationProtocolError`, `StateVersionError`, `StateDigestConflictError`, `ReplaySyncError`, `TrustSyncError`, `RevocationPropagationError`, `CoordinationCapacityError`).
-  - `identity.py`: `FederationEngineIdentityProvider` providing canonical formatting and SHA-256 fingerprint verification.
-  - `state.py`: `FederationStateManager` computing deterministic digests, version comparisons, and Phase 9 conflict evaluations.
-  - `replay_sync.py`: `ReplayStateSynchronizer` enforcing advisory floor advancement and bounded message ID caching.
-  - `trust_sync.py`: `TrustStateSynchronizer` enforcing ceiling verification and blocking self-escalation.
-  - `revocation_sync.py`: `RevocationStateSynchronizer` handling idempotent, duplicate-safe revocation cascades.
-  - `handshake.py`: `FederationHandshakeManager` managing coordination handshake requests and responses.
-  - `coordinator.py`: `DistributedFederationCoordinator` integrating registration, handshakes, state synchronization, and audit logging.
-  - `__init__.py`: Clean exports of federation coordination symbols.
+#### 1. Implemented Now (Verified in Step 34)
+* Comprehensive architectural documentation in [docs/STEP_34_FEDERATION_RUNTIME_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_34_FEDERATION_RUNTIME_ARCHITECTURE.md).
+* Step 34 Threat Model in [docs/STEP_34_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_34_THREAT_MODEL.md).
+* Repository audit findings in [docs/STEP_34_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_34_REPOSITORY_AUDIT.md).
+* Empirical benchmark results recorded in [docs/STEP_34_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_34_BENCHMARK_RESULTS.json) via `scripts/benchmark_federation_runtime.py`.
+* **Persistence & Write-Ahead Journaling Subsystem** (`chakrview/cognition/federation/persistence/`):
+  - `models.py`: Strongly typed `JournalEntryType`, `JournalEntry`, `DurableSecuritySnapshot`, `RecoveryManifest`, `DURABLE_SCHEMA_VERSION`, `JOURNAL_GENESIS_DIGEST`.
+  - `errors.py`: Dedicated persistence and recovery error hierarchy (`PersistenceError`, `DurableSchemaError`, `JournalError`, `JournalCorruptionError`, `JournalSequenceError`, `JournalTruncationError`, `SnapshotCorruptionError`, `RecoveryFailedClosedError`, `RuntimeLifecycleError`, `EngineHealthError`, `RejoinProtocolError`).
+  - `journal.py`: `SecurityStateJournal` enforcing monotonic sequence numbering and SHA-256 hash chaining.
+  - `base.py`: `SecurityStateStore` abstract storage interface.
+  - `memory.py`: `InMemorySecurityStateStore` implementation.
+  - `sqlite.py`: `SqliteSecurityStateStore` disk storage using explicit relational tables and JSON schemas.
+* **Crash Recovery Subsystem** (`chakrview/cognition/federation/recovery.py`):
+  - `FederationRecoveryManager`: Snapshot extraction, 7-step fail-closed recovery, terminal revocation cascades, replay floor restoration.
+* **Multi-Node Federation Runtime Subsystem** (`chakrview/cognition/federation/runtime.py`):
+  - `FederationRuntime`: Multi-node engine registration (bounded by `MAX_FEDERATION_ENGINES`), lifecycle state machine, health status tracking, and 12-step secure rejoin protocol.
+  - `EngineRuntimeStatus`: `INITIALIZING`, `RUNNING`, `STOPPED`, `RECOVERING`, `FAILED`.
+  - `EngineHealthStatus`: `UNKNOWN`, `HEALTHY`, `DEGRADED`, `UNREACHABLE`, `RECOVERING`, `QUARANTINED`, `TERMINATED`.
 * **Engine Integration** (`chakrview/cognition/peering/engine.py`):
-  - Added `coordinator` property, engine identity access, epoch advancement synchronization, and cross-engine coordination helpers (`initiate_coordination_handshake`, `synchronize_replay_with_engine`, `synchronize_trust_with_engine`, `propagate_revocation_to_engines`, `compute_security_state_digest`).
+  - Added `runtime` property, `attach_runtime()`, and write-ahead journal logging across epoch advance, peer registration, peer revocation, session creation, session termination, and key rotation.
 * **Audit Events** (`chakrview/cognition/peering/models.py`):
-  - Added 17 Step 33 audit event types.
-* 27 new dedicated tests in `tests/test_distributed_federation.py`, expanding verified test suite to 943 tests across 78 test files.
+  - Added 15 Step 34 audit event types for snapshots, journals, recovery, engine health, and rejoin operations.
+* 23 new dedicated tests in `tests/test_federation_runtime.py`, expanding verified test suite to 966 tests across 79 test files.
 * Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical: `c5571c9c5cb773860bb4f10731671a53bbba381d6d4590c4c4d51b329437b67b`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)

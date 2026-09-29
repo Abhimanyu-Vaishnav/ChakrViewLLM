@@ -219,6 +219,18 @@ from chakrview.cognition.federation import (
     RevocationSyncRecord,
     RevocationSyncMessage,
     RevocationTargetType,
+    FederationRecoveryManager,
+    FederationRuntime,
+    EngineRuntimeStatus,
+    EngineHealthStatus,
+    SecurityStateStore,
+    InMemorySecurityStateStore,
+    SqliteSecurityStateStore,
+    SecurityStateJournal,
+    JournalEntry,
+    JournalEntryType,
+    DurableSecuritySnapshot,
+    RecoveryManifest,
 )
 
 
@@ -403,6 +415,19 @@ __all__ = [
     "RevocationSyncRecord",
     "RevocationSyncMessage",
     "RevocationTargetType",
+    # Step 34 Durable Federation Runtime
+    "FederationRecoveryManager",
+    "FederationRuntime",
+    "EngineRuntimeStatus",
+    "EngineHealthStatus",
+    "SecurityStateStore",
+    "InMemorySecurityStateStore",
+    "SqliteSecurityStateStore",
+    "SecurityStateJournal",
+    "JournalEntry",
+    "JournalEntryType",
+    "DurableSecuritySnapshot",
+    "RecoveryManifest",
 ]
 
 
