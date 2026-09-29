@@ -191,7 +191,17 @@ from chakrview.cognition.transport import (
     TransportRegistry,
     DeterministicWireSerializer,
     LengthPrefixedFramer,
+    SecureTransportPolicy,
+    TLSMode,
+    TLSProtocolVersion,
+    CertificateMetadata,
+    CertificateLifecycleState,
+    PeerCertificateBinding,
+    PeerCertificateBinder,
+    HermeticPKIBuilder,
+    CertificateRevocationRegistry,
 )
+
 
 __all__ = [
     "CognitiveTask",
@@ -345,5 +355,16 @@ __all__ = [
     "AuthChallenge",
     "AuthChallengeResponse",
     "ChallengeResponseAuthenticator",
+    # Step 31 Transport Security
+    "SecureTransportPolicy",
+    "TLSMode",
+    "TLSProtocolVersion",
+    "CertificateMetadata",
+    "CertificateLifecycleState",
+    "PeerCertificateBinding",
+    "PeerCertificateBinder",
+    "HermeticPKIBuilder",
+    "CertificateRevocationRegistry",
 ]
+
 
