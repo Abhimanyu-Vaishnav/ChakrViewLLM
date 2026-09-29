@@ -107,3 +107,42 @@ class TenantTaskIsolationError(FederationTaskError):
 class TaskCancelledError(FederationTaskError):
     """Raised when an operation is attempted on a task that has been cancelled."""
     pass
+
+
+# ============================================================================
+# Step 39 Federated Execution Continuity & Resilience Errors
+# ============================================================================
+
+class FencedAttemptError(FederationTaskError):
+    """Raised when a worker attempts an operation with an obsolete/fenced attempt token."""
+    pass
+
+
+class LeaseExpiredError(WorkerUnavailableError):
+    """Raised when a worker's execution lease has expired and can no longer execute work."""
+    pass
+
+
+class LeaseRevokedError(WorkerUnavailableError):
+    """Raised when a worker's execution lease was revoked due to membership or security state."""
+    pass
+
+
+class StaleCheckpointError(InvalidCheckpointError):
+    """Raised when an incoming checkpoint has a sequence number <= last committed sequence."""
+    pass
+
+
+class DuplicateCommitError(DuplicateResultError):
+    """Raised when a work unit attempts to commit a result that was already committed."""
+    pass
+
+
+class CheckpointCommitError(InvalidCheckpointError):
+    """Raised when committing a checkpoint fails atomic store validation."""
+    pass
+
+
+class HeartbeatTimeoutError(WorkerUnavailableError):
+    """Raised when worker heartbeat exceeds the maximum tolerable dead interval."""
+    pass

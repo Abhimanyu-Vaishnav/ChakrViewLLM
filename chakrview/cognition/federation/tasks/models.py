@@ -353,11 +353,228 @@ class TaskCheckpoint:
         return cls(**d)
 
 
+# ============================================================================
+# Step 39 Federated Execution Continuity Enums & Models
+# ============================================================================
+
+class CheckpointStatus(str, Enum):
+    """Authoritative lifecycle status of a task checkpoint in durable store."""
+    PENDING = "PENDING"
+    COMMITTED = "COMMITTED"
+    SUPERSEDED = "SUPERSEDED"
+    CORRUPTED = "CORRUPTED"
+    EXPIRED = "EXPIRED"
+
+
+class LeaseState(str, Enum):
+    """Lifecycle state of a bounded worker execution lease."""
+    ACTIVE = "ACTIVE"
+    HEARTBEAT_LATE = "HEARTBEAT_LATE"
+    LEASE_EXPIRED = "LEASE_EXPIRED"
+    UNREACHABLE = "UNREACHABLE"
+    RECOVERABLE = "RECOVERABLE"
+    REVOKED = "REVOKED"
+
+
+class ResumeAction(str, Enum):
+    """Deterministic recovery resolution action when a worker fails."""
+    RESUME_FROM_CHECKPOINT = "RESUME_FROM_CHECKPOINT"
+    RESTART_WORK_UNIT = "RESTART_WORK_UNIT"
+    RETRY_FAILED_ATTEMPT = "RETRY_FAILED_ATTEMPT"
+    ABORT_WORK_UNIT = "ABORT_WORK_UNIT"
+    ABORT_TASK = "ABORT_TASK"
+
+
+@dataclass
+class AttemptFenceToken:
+    """
+    Cryptographic and monotonic fencing token issued per work unit attempt.
+    Guarantees that stale or partitioned workers cannot execute late commits.
+    """
+    task_id: str
+    unit_id: str
+    attempt_number: int
+    generation: int
+    fencing_token: int
+    worker_id: str
+    issued_at: float = field(default_factory=time.time)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "AttemptFenceToken":
+        return cls(**data)
+
+
+@dataclass
+class CheckpointManifest:
+    """
+    Authoritative, tamper-evident manifest describing checkpointed work progress.
+    Binds completed logical work ranges, remaining work, sequence monotonicity,
+    and fencing token.
+    """
+    task_id: str
+    work_unit_id: str
+    attempt_id: int
+    checkpoint_id: str
+    checkpoint_sequence: int
+    worker_id: str
+    execution_state: WorkUnitState
+    completed_work_range: Dict[str, Any]
+    remaining_work: Dict[str, Any]
+    intermediate_payload: Any
+    checkpoint_payload_digest: str = ""
+    parent_checkpoint_id: Optional[str] = None
+    created_at: float = field(default_factory=time.time)
+    expires_at: Optional[float] = None
+    status: CheckpointStatus = CheckpointStatus.PENDING
+    fencing_token: int = 0
+    signature: str = ""
+
+    def __post_init__(self) -> None:
+        if isinstance(self.execution_state, str):
+            self.execution_state = WorkUnitState(self.execution_state)
+        if isinstance(self.status, str):
+            self.status = CheckpointStatus(self.status)
+        if not self.checkpoint_payload_digest:
+            self.checkpoint_payload_digest = self.compute_digest()
+
+    def compute_digest(self) -> str:
+        """Compute canonical SHA-256 digest of checkpoint state and progress."""
+        payload_repr = json.dumps(self.intermediate_payload, sort_keys=True, separators=(',', ':')) if self.intermediate_payload is not None else ""
+        range_repr = json.dumps(self.completed_work_range, sort_keys=True, separators=(',', ':'))
+        canonical_str = (
+            f"{self.task_id}:{self.work_unit_id}:{self.attempt_id}:{self.checkpoint_id}:"
+            f"{self.checkpoint_sequence}:{self.worker_id}:{self.execution_state.value}:"
+            f"{range_repr}:{self.fencing_token}:{self.parent_checkpoint_id or ''}:{payload_repr}"
+        )
+        return hashlib.sha256(canonical_str.encode("utf-8")).hexdigest()
+
+    def verify_integrity(self) -> bool:
+        """Verify state integrity against computed digest."""
+        return self.compute_digest() == self.checkpoint_payload_digest
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "task_id": self.task_id,
+            "work_unit_id": self.work_unit_id,
+            "attempt_id": self.attempt_id,
+            "checkpoint_id": self.checkpoint_id,
+            "checkpoint_sequence": self.checkpoint_sequence,
+            "worker_id": self.worker_id,
+            "execution_state": self.execution_state.value,
+            "completed_work_range": self.completed_work_range,
+            "remaining_work": self.remaining_work,
+            "intermediate_payload": self.intermediate_payload,
+            "checkpoint_payload_digest": self.checkpoint_payload_digest,
+            "parent_checkpoint_id": self.parent_checkpoint_id,
+            "created_at": self.created_at,
+            "expires_at": self.expires_at,
+            "status": self.status.value,
+            "fencing_token": self.fencing_token,
+            "signature": self.signature,
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "CheckpointManifest":
+        d = dict(data)
+        d["execution_state"] = WorkUnitState(d["execution_state"])
+        d["status"] = CheckpointStatus(d.get("status", CheckpointStatus.PENDING))
+        return cls(**d)
+
+
+@dataclass
+class WorkerLease:
+    """
+    Time-bounded execution lease granted to a worker node for a WorkUnit.
+    Guarantees authority expiry and prevents split-brain execution.
+    """
+    lease_id: str
+    worker_id: str
+    task_id: str
+    unit_id: str
+    attempt_number: int
+    fencing_token: int
+    state: LeaseState = LeaseState.ACTIVE
+    granted_at: float = field(default_factory=time.time)
+    duration_sec: float = 30.0
+    expires_at: float = 0.0
+    last_heartbeat_at: float = field(default_factory=time.time)
+    heartbeat_timeout_sec: float = 10.0
+    signature: str = ""
+
+    def __post_init__(self) -> None:
+        if isinstance(self.state, str):
+            self.state = LeaseState(self.state)
+        if self.expires_at <= 0.0:
+            self.expires_at = self.granted_at + self.duration_sec
+
+    def is_expired(self, current_time: Optional[float] = None) -> bool:
+        """Check if lease has passed its expiration deadline."""
+        now = current_time if current_time is not None else time.time()
+        return now >= self.expires_at
+
+    def is_heartbeat_overdue(self, current_time: Optional[float] = None) -> bool:
+        """Check if worker heartbeat has timed out."""
+        now = current_time if current_time is not None else time.time()
+        return (now - self.last_heartbeat_at) >= self.heartbeat_timeout_sec
+
+    def renew(self, current_time: Optional[float] = None, extension_sec: Optional[float] = None) -> None:
+        """Atomically renew the lease with fresh heartbeat timestamp."""
+        now = current_time if current_time is not None else time.time()
+        self.last_heartbeat_at = now
+        extension = extension_sec if extension_sec is not None else self.duration_sec
+        self.expires_at = now + extension
+        self.state = LeaseState.ACTIVE
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "lease_id": self.lease_id,
+            "worker_id": self.worker_id,
+            "task_id": self.task_id,
+            "unit_id": self.unit_id,
+            "attempt_number": self.attempt_number,
+            "fencing_token": self.fencing_token,
+            "state": self.state.value,
+            "granted_at": self.granted_at,
+            "duration_sec": self.duration_sec,
+            "expires_at": self.expires_at,
+            "last_heartbeat_at": self.last_heartbeat_at,
+            "heartbeat_timeout_sec": self.heartbeat_timeout_sec,
+            "signature": self.signature,
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "WorkerLease":
+        d = dict(data)
+        d["state"] = LeaseState(d["state"])
+        return cls(**d)
+
+
+@dataclass
+class CommitIdentity:
+    """
+    Deterministic identity for a committed work unit result.
+    Enforces exactly-once logical commitment even under duplicate executions.
+    """
+    task_id: str
+    unit_id: str
+    logical_range: str
+    commit_generation: int
+    result_digest: str
+    worker_id: str
+    committed_at: float = field(default_factory=time.time)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
 @dataclass
 class TaskResultEnvelope:
     """
     Validated worker result container carrying unit output, execution metadata,
-    and integrity proofs.
+    fencing tokens, and integrity proofs.
     """
     task_id: str
     unit_id: str
@@ -368,6 +585,8 @@ class TaskResultEnvelope:
     execution_time_ms: float
     error_message: Optional[str] = None
     result_digest: str = ""
+    fencing_token: int = 0
+    commit_id: str = ""
     timestamp: float = field(default_factory=time.time)
 
     def __post_init__(self) -> None:
@@ -377,7 +596,7 @@ class TaskResultEnvelope:
     def compute_digest(self) -> str:
         """Deterministic digest of the result content and provenance."""
         payload_repr = json.dumps(self.result_data, sort_keys=True, separators=(',', ':')) if self.result_data is not None else ""
-        canonical_str = f"{self.task_id}:{self.unit_id}:{self.attempt}:{self.worker_id}:{self.status}:{payload_repr}:{self.error_message or ''}"
+        canonical_str = f"{self.task_id}:{self.unit_id}:{self.attempt}:{self.worker_id}:{self.status}:{payload_repr}:{self.fencing_token}:{self.error_message or ''}"
         return hashlib.sha256(canonical_str.encode("utf-8")).hexdigest()
 
     def verify_integrity(self) -> bool:
@@ -394,6 +613,8 @@ class TaskResultEnvelope:
             "execution_time_ms": self.execution_time_ms,
             "error_message": self.error_message,
             "result_digest": self.result_digest,
+            "fencing_token": self.fencing_token,
+            "commit_id": self.commit_id,
             "timestamp": self.timestamp,
         }
 
@@ -424,7 +645,13 @@ class WorkUnit:
     checkpoint_reference: Optional[str] = None
     result_reference: Optional[str] = None
     latest_checkpoint: Optional[TaskCheckpoint] = None
+    latest_manifest: Optional[CheckpointManifest] = None
     result: Optional[TaskResultEnvelope] = None
+    lease: Optional[WorkerLease] = None
+    fencing_token: int = 0
+    failed_nodes: Set[str] = field(default_factory=set)
+    completed_work_range: Dict[str, Any] = field(default_factory=dict)
+    remaining_work: Dict[str, Any] = field(default_factory=dict)
     created_at: float = field(default_factory=time.time)
     updated_at: float = field(default_factory=time.time)
 
@@ -458,7 +685,12 @@ class WorkUnit:
             "checkpoint_reference": self.checkpoint_reference,
             "result_reference": self.result_reference,
             "latest_checkpoint": self.latest_checkpoint.to_dict() if self.latest_checkpoint else None,
+            "latest_manifest": self.latest_manifest.to_dict() if self.latest_manifest else None,
             "result": self.result.to_dict() if self.result else None,
+            "lease": self.lease.to_dict() if self.lease else None,
+            "fencing_token": self.fencing_token,
+            "completed_work_range": self.completed_work_range,
+            "remaining_work": self.remaining_work,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
         }
@@ -470,8 +702,12 @@ class WorkUnit:
         d["state"] = WorkUnitState(d["state"])
         if d.get("latest_checkpoint"):
             d["latest_checkpoint"] = TaskCheckpoint.from_dict(d["latest_checkpoint"])
+        if d.get("latest_manifest"):
+            d["latest_manifest"] = CheckpointManifest.from_dict(d["latest_manifest"])
         if d.get("result"):
             d["result"] = TaskResultEnvelope.from_dict(d["result"])
+        if d.get("lease"):
+            d["lease"] = WorkerLease.from_dict(d["lease"])
         return cls(**d)
 
 

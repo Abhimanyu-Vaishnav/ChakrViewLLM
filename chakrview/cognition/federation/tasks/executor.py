@@ -177,6 +177,10 @@ class FederationTaskExecutor:
                 self.checkpoint_callback(checkpoint_1)
 
             # Check cancellation before invocation
+            # 0. Check worker lease deadline if present
+            if unit.lease is not None and unit.lease.is_expired():
+                raise WorkerExecutionError(f"Worker lease {unit.lease.lease_id} expired prior to execution")
+
             if self.is_cancelled(unit.task_id):
                 raise TaskCancelledError(f"Task {unit.task_id} cancelled before capability invocation")
 
@@ -198,6 +202,7 @@ class FederationTaskExecutor:
                     result_data=output_val,
                     execution_time_ms=duration_ms,
                     error_message=None,
+                    fencing_token=unit.fencing_token,
                 )
             else:
                 result_envelope = TaskResultEnvelope(
@@ -209,6 +214,7 @@ class FederationTaskExecutor:
                     result_data=None,
                     execution_time_ms=duration_ms,
                     error_message=error_val or "Capability execution reported failure",
+                    fencing_token=unit.fencing_token,
                 )
 
             return result_envelope
@@ -227,6 +233,7 @@ class FederationTaskExecutor:
                 result_data=None,
                 execution_time_ms=duration_ms,
                 error_message=str(e),
+                fencing_token=unit.fencing_token,
             )
         finally:
             # Always release allocated resources

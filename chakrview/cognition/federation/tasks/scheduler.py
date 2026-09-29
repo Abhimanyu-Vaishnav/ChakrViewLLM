@@ -125,6 +125,10 @@ class DeterministicTaskScheduler:
             if not self._check_membership_and_trust(node_id):
                 continue
 
+            # Tenant isolation check
+            if adv.tenant_id != req.tenant_id and adv.tenant_id != "*" and req.tenant_id != "*":
+                continue
+
             eligible, reason_codes, score = self._evaluate_node(
                 node_id=node_id,
                 profile=adv.resource_profile,

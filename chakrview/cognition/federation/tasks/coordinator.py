@@ -1,11 +1,13 @@
 """
-Federation Task Coordinator & Fault-Tolerant Orchestration Engine (Step 38).
+Federation Task Coordinator & Fault-Tolerant Orchestration Engine (Steps 38 & 39).
 
 CRITICAL AXIOMS:
 - LOCAL_TASK_AUTHORITY > REMOTE_WORKER_STATE
 - TASK RESILIENCE: A task must survive the failure or disappearance of any single worker.
 - DURABLE CONTINUITY: Checkpoints preserve progress so unfinished work can resume on alternate nodes.
-- AT-LEAST-ONCE + DEDUPLICATION: Duplicate or racing results are strictly rejected.
+- ATTEMPT FENCING: Stale or partitioned worker writes are rejected immediately.
+- AT-LEAST-ONCE + DEDUPLICATION: Duplicate or racing results and duplicate commits are strictly rejected.
+- LEASE DEADLINE ENFORCEMENT: Workers only execute under time-bounded leases.
 - JOURNAL INTEGRITY: State mutations are recorded in the Step 34 security journal.
 - ΔW = 0: Zero neural weight mutation.
 """
@@ -28,17 +30,29 @@ from chakrview.cognition.federation.tasks.models import (
     TaskState,
     WorkUnitState,
     TaskCheckpoint,
+    CheckpointManifest,
+    CheckpointStatus,
     TaskResultEnvelope,
     SchedulingDecision,
     ResourceRequirements,
     AggregationStrategy,
     DistributedExecutionPlan,
+    WorkerLease,
+    LeaseState,
+    ResumeAction,
+    AttemptFenceToken,
 )
 from chakrview.cognition.federation.tasks.scheduler import (
     DeterministicTaskScheduler,
 )
 from chakrview.cognition.federation.tasks.checkpoint import (
     TaskCheckpointManager,
+    CheckpointStore,
+)
+from chakrview.cognition.federation.tasks.lease import (
+    WorkerLeaseManager,
+    AttemptFenceManager,
+    DeterministicFailureDetector,
 )
 from chakrview.cognition.federation.tasks.validator import (
     TaskResultValidator,
@@ -54,7 +68,10 @@ from chakrview.cognition.federation.tasks.errors import (
     InvalidTaskDefinitionError,
     NoEligibleWorkerError,
     DuplicateResultError,
+    DuplicateCommitError,
     StaleResultError,
+    FencedAttemptError,
+    LeaseExpiredError,
     TaskCancelledError,
     WorkerUnavailableError,
 )
@@ -65,7 +82,7 @@ logger = logging.getLogger(__name__)
 class FederationTaskCoordinator:
     """
     Coordinates end-to-end distributed task lifecycles, resource scheduling,
-    failure recovery, work continuity, and result aggregation across federation peers.
+    failure recovery, work continuity, lease heartbeats, and result aggregation.
     """
 
     def __init__(
@@ -77,16 +94,25 @@ class FederationTaskCoordinator:
         transport_client: Optional[Any] = None,
         journal: Optional[Any] = None,
         audit_logger: Optional[Any] = None,
+        lease_manager: Optional[WorkerLeaseManager] = None,
+        fence_manager: Optional[AttemptFenceManager] = None,
+        failure_detector: Optional[DeterministicFailureDetector] = None,
     ) -> None:
         self.local_node_id = local_node_id
         self.scheduler = scheduler
         self.checkpoint_manager = checkpoint_manager
+        self.checkpoint_store = getattr(checkpoint_manager, "checkpoint_store", CheckpointStore(journal=journal))
         self.local_executor = local_executor
         self.transport_client = transport_client
         self.journal = journal
         self.audit_logger = audit_logger
         self.aggregator = TaskResultAggregator()
         self.validator = TaskResultValidator()
+
+        # Step 39 Continuity & Resilience Managers
+        self.failure_detector = failure_detector or DeterministicFailureDetector()
+        self.lease_manager = lease_manager or WorkerLeaseManager(failure_detector=self.failure_detector)
+        self.fence_manager = fence_manager or AttemptFenceManager()
 
         self._lock = threading.RLock()
         self._tasks: Dict[str, DistributedTask] = {}
@@ -131,11 +157,12 @@ class FederationTaskCoordinator:
     def decompose_task(
         self,
         task_id: str,
-        units_spec: List[Dict[str, Any]],
+        units_spec: Optional[List[Any]] = None,
+        work_units: Optional[List[Any]] = None,
     ) -> List[WorkUnit]:
         """
-        Decompose a task into discrete WorkUnits.
-        Each spec item should contain: capability_id, input_payload, and optional requirements.
+        Decompose a task into discrete, idempotent, checkpointable WorkUnits.
+        Accepts either a list of spec dictionaries (units_spec) or instantiated WorkUnit objects.
         """
         with self._lock:
             task = self._get_task_or_raise(task_id)
@@ -147,43 +174,53 @@ class FederationTaskCoordinator:
             task.transition_to(TaskState.VALIDATING)
             task.transition_to(TaskState.PLANNING)
 
-            work_units: List[WorkUnit] = []
-            for i, spec in enumerate(units_spec):
-                unit_id = f"unit_{task_id}_{i}"
-                cap_id = spec["capability_id"]
-                payload = spec.get("input_payload", {})
-                req = spec.get("requirements")
-                if req is None:
-                    req = task.requirements or ResourceRequirements(
+            input_list = units_spec if units_spec is not None else (work_units or [])
+            built_units: List[WorkUnit] = []
+
+            for i, item in enumerate(input_list):
+                if isinstance(item, WorkUnit):
+                    unit = item
+                    unit.task_id = task_id
+                    unit.sequence = i
+                    if not unit.requirements:
+                        unit.requirements = task.requirements or ResourceRequirements()
+                else:
+                    spec = dict(item)
+                    unit_id = spec.get("unit_id", f"unit_{task_id}_{i}")
+                    cap_id = spec["capability_id"]
+                    payload = spec.get("input_payload", {})
+                    req = spec.get("requirements")
+                    if req is None:
+                        req = task.requirements or ResourceRequirements(
+                            capability_id=cap_id,
+                            tenant_id=task.tenant_id,
+                        )
+                    elif isinstance(req, dict):
+                        req = ResourceRequirements.from_dict(req)
+
+                    unit = WorkUnit(
+                        unit_id=unit_id,
+                        task_id=task_id,
+                        sequence=i,
                         capability_id=cap_id,
-                        tenant_id=task.tenant_id,
+                        input_payload=payload,
+                        requirements=req,
+                        state=WorkUnitState.PENDING,
                     )
-                elif isinstance(req, dict):
-                    req = ResourceRequirements.from_dict(req)
+                built_units.append(unit)
 
-                unit = WorkUnit(
-                    unit_id=unit_id,
-                    task_id=task_id,
-                    sequence=i,
-                    capability_id=cap_id,
-                    input_payload=payload,
-                    requirements=req,
-                    state=WorkUnitState.PENDING,
-                )
-                work_units.append(unit)
-
-            task.work_units = work_units
+            task.work_units = built_units
             task.transition_to(TaskState.QUEUED)
 
             self._log_audit(
                 AuditEventType.TASK_DECOMPOSED,
-                {"task_id": task_id, "unit_count": len(work_units)},
+                {"task_id": task_id, "unit_count": len(built_units)},
             )
             self._journal_append(
                 JournalEntryType.TASK_PLANNED,
-                {"task_id": task_id, "unit_count": len(work_units)},
+                {"task_id": task_id, "unit_count": len(built_units)},
             )
-            return work_units
+            return built_units
 
     # ========================================================================
     # Scheduling & Dispatch
@@ -213,28 +250,55 @@ class FederationTaskCoordinator:
         unit: WorkUnit,
         excluded_nodes: Optional[Set[str]] = None,
     ) -> None:
-        """Schedule a single work unit and dispatch it."""
+        """Schedule a single work unit and dispatch it under lease and fencing token."""
         try:
             decision = self.scheduler.schedule_unit(unit, excluded_nodes=excluded_nodes)
             task.scheduling_decisions.append(decision)
 
             unit.assigned_node_id = decision.selected_node
             unit.attempt += 1
+            worker = decision.selected_node
+
+            # Step 39: Issue monotonic attempt fencing token and worker execution lease
+            fence_token = self.fence_manager.issue_fence_token(
+                task_id=unit.task_id,
+                unit_id=unit.unit_id,
+                attempt_number=unit.attempt,
+                worker_id=worker,
+            )
+            unit.fencing_token = fence_token.fencing_token
+
+            lease = self.lease_manager.grant_lease(
+                worker_id=worker,
+                task_id=unit.task_id,
+                unit_id=unit.unit_id,
+                attempt_number=unit.attempt,
+                fencing_token=unit.fencing_token,
+            )
+            unit.lease = lease
+
             unit.transition_to(WorkUnitState.ASSIGNED)
 
             # Record worker assignment mapping
-            worker = decision.selected_node
             if worker not in self._worker_assignments:
                 self._worker_assignments[worker] = set()
             self._worker_assignments[worker].add((unit.task_id, unit.unit_id))
 
             self._log_audit(
                 AuditEventType.TASK_ASSIGNED,
-                {"task_id": unit.task_id, "unit_id": unit.unit_id, "worker_id": worker},
+                {"task_id": unit.task_id, "unit_id": unit.unit_id, "worker_id": worker, "attempt": unit.attempt},
+            )
+            self._log_audit(
+                AuditEventType.TASK_LEASE_GRANTED,
+                {"task_id": unit.task_id, "unit_id": unit.unit_id, "worker_id": worker, "lease_id": lease.lease_id},
             )
             self._journal_append(
                 JournalEntryType.TASK_ASSIGNED,
                 {"task_id": unit.task_id, "unit_id": unit.unit_id, "worker_id": worker, "attempt": unit.attempt},
+            )
+            self._journal_append(
+                JournalEntryType.TASK_LEASE_GRANTED,
+                {"task_id": unit.task_id, "unit_id": unit.unit_id, "worker_id": worker, "lease_id": lease.lease_id},
             )
 
             # Dispatch execution
@@ -276,11 +340,38 @@ class FederationTaskCoordinator:
                 unit.transition_to(WorkUnitState.RUNNING)
 
     # ========================================================================
-    # Checkpointing & Result Ingestion
+    # Heartbeat, Lease & Checkpoint Ingestion
     # ========================================================================
 
+    def record_heartbeat(
+        self,
+        task_id: str,
+        unit_id: str,
+        worker_id: str,
+        fencing_token: int,
+        current_time: Optional[float] = None,
+    ) -> WorkerLease:
+        """Process heartbeat from assigned worker and renew execution lease."""
+        with self._lock:
+            lease = self.lease_manager.renew_lease(
+                task_id=task_id,
+                unit_id=unit_id,
+                worker_id=worker_id,
+                fencing_token=fencing_token,
+                current_time=current_time,
+            )
+            self._journal_append(
+                JournalEntryType.TASK_LEASE_RENEWED,
+                {"task_id": task_id, "unit_id": unit_id, "worker_id": worker_id, "lease_id": lease.lease_id},
+            )
+            self._log_audit(
+                AuditEventType.TASK_LEASE_RENEWED,
+                {"task_id": task_id, "unit_id": unit_id, "worker_id": worker_id},
+            )
+            return lease
+
     def record_checkpoint(self, checkpoint: TaskCheckpoint) -> None:
-        """Ingest a checkpoint emitted by a worker."""
+        """Ingest a checkpoint emitted by a worker and durably commit it."""
         with self._lock:
             task = self._tasks.get(checkpoint.task_id)
             if not task:
@@ -290,10 +381,15 @@ class FederationTaskCoordinator:
             if not unit:
                 return
 
-            # Verify integrity & save
+            # Verify integrity & save into checkpoint manager
             self.checkpoint_manager.save_checkpoint(checkpoint)
             unit.latest_checkpoint = checkpoint
             unit.checkpoint_reference = checkpoint.checkpoint_id
+
+            # Also store authoritative committed manifest
+            manifest = self.checkpoint_store.get_committed_checkpoint(checkpoint.task_id, checkpoint.unit_id)
+            if manifest:
+                unit.latest_manifest = manifest
 
             if unit.state == WorkUnitState.RUNNING:
                 unit.transition_to(WorkUnitState.CHECKPOINTED)
@@ -309,10 +405,42 @@ class FederationTaskCoordinator:
                 },
             )
 
+    def record_checkpoint_manifest(self, manifest: CheckpointManifest) -> CheckpointManifest:
+        """Ingest and commit a full CheckpointManifest."""
+        with self._lock:
+            created = self.checkpoint_store.create_manifest(manifest)
+            committed = self.checkpoint_store.commit_checkpoint(
+                manifest.task_id, manifest.work_unit_id, manifest.checkpoint_id
+            )
+
+            task = self._tasks.get(manifest.task_id)
+            if task:
+                unit = task.get_unit(manifest.work_unit_id)
+                if unit:
+                    unit.latest_manifest = committed
+                    unit.checkpoint_reference = committed.checkpoint_id
+                    unit.completed_work_range = committed.completed_work_range
+                    unit.remaining_work = committed.remaining_work
+
+                    # Sync back to TaskCheckpoint for Step 38 compat
+                    progress_val = committed.completed_work_range.get("progress", 0.5)
+                    unit.latest_checkpoint = TaskCheckpoint(
+                        task_id=manifest.task_id,
+                        unit_id=manifest.work_unit_id,
+                        checkpoint_id=manifest.checkpoint_id,
+                        sequence=manifest.checkpoint_sequence,
+                        state=unit.state,
+                        progress=progress_val,
+                        partial_result=manifest.intermediate_payload,
+                        worker_id=manifest.worker_id,
+                        attempt=manifest.attempt_id,
+                    )
+            return committed
+
     def record_result(self, result: TaskResultEnvelope) -> None:
         """
         Validate and ingest a worker result envelope.
-        Deduplicates racing results and triggers aggregation when all units complete.
+        Enforces attempt fencing, duplicate commit protection, and triggers aggregation.
         """
         with self._lock:
             task = self._get_task_or_raise(result.task_id)
@@ -320,11 +448,12 @@ class FederationTaskCoordinator:
             if not unit:
                 raise FederationTaskError(f"Result refers to unknown unit {result.unit_id} in task {task.task_id}")
 
-            # Validate result (enforces deduplication, staleness, and integrity)
+            # Validate result (enforces deduplication, staleness, fencing, and integrity)
             self.validator.validate_result(unit, result)
 
             if result.status == "SUCCESS":
                 unit.result = result
+                unit.committed_result = result
                 unit.result_reference = result.result_digest
                 unit.transition_to(WorkUnitState.COMPLETED)
                 self.scheduler.release_assignment(result.worker_id)
@@ -356,6 +485,9 @@ class FederationTaskCoordinator:
             task.final_result = final_res
             task.transition_to(TaskState.COMPLETED)
 
+            # Prune active leases for completed task
+            self.lease_manager.prune_leases_for_task(task.task_id)
+
             self._log_audit(AuditEventType.TASK_COMPLETED, {"task_id": task.task_id})
             self._journal_append(JournalEntryType.TASK_COMPLETED, {"task_id": task.task_id})
         except Exception as e:
@@ -366,22 +498,29 @@ class FederationTaskCoordinator:
             self._journal_append(JournalEntryType.TASK_FAILED, {"task_id": task.task_id, "reason": task.error_message})
 
     # ========================================================================
-    # Failure Recovery & Work Continuity
+    # Failure Recovery & Work Continuity (Step 39)
     # ========================================================================
 
     def handle_worker_failure(self, failed_worker_node_id: str) -> List[WorkUnit]:
         """
-        Handle a worker node disconnect, crash, or quarantine.
-        Reassigns all unfinished work units from the failed worker to alternate nodes.
-        Preserves completed units and resumes from checkpoints where available.
+        Handle a worker node disconnect, crash, lease expiry, or quarantine.
+        Applies attempt fencing to prevent late writes, recovers from committed checkpoints,
+        and reassigns unfinished units to healthy alternate workers.
         """
         reassigned_units: List[WorkUnit] = []
         with self._lock:
             assigned_pairs = list(self._worker_assignments.get(failed_worker_node_id, set()))
             self._worker_assignments.pop(failed_worker_node_id, None)
 
+            # Expire worker leases
+            self.lease_manager.expire_worker_leases(failed_worker_node_id)
+
             self._log_audit(
                 AuditEventType.TASK_WORKER_FAILED,
+                {"worker_id": failed_worker_node_id, "affected_units": len(assigned_pairs)},
+            )
+            self._log_audit(
+                AuditEventType.TASK_RECOVERY_INITIATED,
                 {"worker_id": failed_worker_node_id, "affected_units": len(assigned_pairs)},
             )
 
@@ -399,6 +538,17 @@ class FederationTaskCoordinator:
                     unit_id, task_id, failed_worker_node_id,
                 )
 
+                # Step 39: Fence previous attempt to reject late writes or racing results
+                self.fence_manager.fence_work_unit(task_id, unit_id)
+                self._journal_append(
+                    JournalEntryType.TASK_ATTEMPT_FENCED,
+                    {"task_id": task_id, "unit_id": unit_id, "worker_id": failed_worker_node_id, "attempt": unit.attempt},
+                )
+                self._log_audit(
+                    AuditEventType.TASK_ATTEMPT_FENCED,
+                    {"task_id": task_id, "unit_id": unit_id, "worker_id": failed_worker_node_id},
+                )
+
                 # Release scheduler load for failed worker
                 self.scheduler.release_assignment(failed_worker_node_id)
 
@@ -411,29 +561,61 @@ class FederationTaskCoordinator:
                     unit.transition_to(WorkUnitState.RETRYABLE)
                 unit.transition_to(WorkUnitState.PENDING)
 
-                # Extract latest durable checkpoint if available to preserve progress
+                # Step 39 Resume Semantics: Extract latest committed checkpoint
+                committed_manifest = self.checkpoint_store.get_committed_checkpoint(task_id, unit_id)
                 latest_cp = self.checkpoint_manager.get_latest_checkpoint(task_id, unit_id)
-                if latest_cp:
+
+                resume_action = ResumeAction.RESTART_WORK_UNIT
+                if committed_manifest is not None and committed_manifest.intermediate_payload is not None:
+                    resume_action = ResumeAction.RESUME_FROM_CHECKPOINT
+                    unit.latest_manifest = committed_manifest
+                    unit.checkpoint_reference = committed_manifest.checkpoint_id
+                    unit.input_payload["resume_from_checkpoint"] = committed_manifest.intermediate_payload
+                    unit.completed_work_range = committed_manifest.completed_work_range
+                    unit.remaining_work = committed_manifest.remaining_work
+                elif latest_cp is not None and latest_cp.partial_result is not None:
+                    resume_action = ResumeAction.RESUME_FROM_CHECKPOINT
                     unit.latest_checkpoint = latest_cp
                     unit.checkpoint_reference = latest_cp.checkpoint_id
-                    # Merge partial results into payload for next worker
-                    if latest_cp.partial_result:
-                        unit.input_payload["resume_from_checkpoint"] = latest_cp.partial_result
+                    unit.input_payload["resume_from_checkpoint"] = latest_cp.partial_result
+                else:
+                    # Clean restart
+                    unit.input_payload.pop("resume_from_checkpoint", None)
 
                 # Reassign to an alternate node (excluding failed worker)
                 self._journal_append(
-                    JournalEntryType.TASK_REASSIGNED,
+                    JournalEntryType.TASK_WORK_MIGRATED,
                     {
                         "task_id": task_id,
                         "unit_id": unit_id,
                         "previous_worker": failed_worker_node_id,
-                        "resumed_checkpoint": latest_cp.checkpoint_id if latest_cp else None,
+                        "resume_action": resume_action.value,
+                        "checkpoint_id": unit.checkpoint_reference,
+                    },
+                )
+                self._log_audit(
+                    AuditEventType.TASK_WORK_MIGRATED,
+                    {
+                        "task_id": task_id,
+                        "unit_id": unit_id,
+                        "previous_worker": failed_worker_node_id,
+                        "resume_action": resume_action.value,
                     },
                 )
 
+                unit.failed_nodes.add(failed_worker_node_id)
                 task.transition_to(TaskState.RUNNING)
-                self._schedule_and_dispatch_unit(task, unit, excluded_nodes={failed_worker_node_id})
+                self._schedule_and_dispatch_unit(task, unit, excluded_nodes=set(unit.failed_nodes))
                 reassigned_units.append(unit)
+
+            self._log_audit(
+                AuditEventType.TASK_RECOVERY_COMPLETED,
+                {"worker_id": failed_worker_node_id, "reassigned_units": len(reassigned_units)},
+            )
+            self._journal_append(
+                JournalEntryType.TASK_RECOVERY_COMPLETED,
+                {"worker_id": failed_worker_node_id, "reassigned_units": len(reassigned_units)},
+            )
 
         return reassigned_units
 
@@ -447,6 +629,7 @@ class FederationTaskCoordinator:
 
             if unit.assigned_node_id:
                 self.scheduler.release_assignment(unit.assigned_node_id)
+                self.fence_manager.fence_work_unit(task_id, unit_id)
 
             if unit.attempt < unit.requirements.max_retries:
                 # Retry on alternate worker
@@ -477,7 +660,10 @@ class FederationTaskCoordinator:
                 if unit.state not in (WorkUnitState.COMPLETED, WorkUnitState.FAILED, WorkUnitState.ABANDONED):
                     if unit.assigned_node_id:
                         self.scheduler.release_assignment(unit.assigned_node_id)
+                    self.fence_manager.fence_work_unit(task_id, unit.unit_id)
                     unit.transition_to(WorkUnitState.ABANDONED)
+
+            self.lease_manager.prune_leases_for_task(task_id)
 
             if self.local_executor:
                 self.local_executor.cancel_task(task_id)
