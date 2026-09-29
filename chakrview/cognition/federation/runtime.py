@@ -154,6 +154,10 @@ class FederationRuntime:
     def task_coordinator(self) -> Any:
         return getattr(self.engine, "task_coordinator", None)
 
+    @property
+    def consensus_engine(self) -> Any:
+        return getattr(self.engine, "consensus_engine", None)
+
     # ========================================================================
     # 1. Runtime Lifecycle (Phase 5)
     # ========================================================================

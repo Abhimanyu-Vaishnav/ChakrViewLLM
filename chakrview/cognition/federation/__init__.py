@@ -291,6 +291,13 @@ from chakrview.cognition.federation.consensus import (
     ReplicatedStateMachine,
     FederatedConsensusEngine,
 )
+from chakrview.cognition.federation.integration import (
+    NodeLifecycleState,
+    FederatedNodeConfig,
+    FederatedNodeStatus,
+    FederationWireHandlerRegistry,
+    FederatedNode,
+)
 
 __all__ = [
     # Models
@@ -554,4 +561,10 @@ __all__ = [
     "ConsensusValidator",
     "ReplicatedStateMachine",
     "FederatedConsensusEngine",
+    # Step 41 End-to-End Federated Distributed Runtime Integration Components
+    "NodeLifecycleState",
+    "FederatedNodeConfig",
+    "FederatedNodeStatus",
+    "FederationWireHandlerRegistry",
+    "FederatedNode",
 ]

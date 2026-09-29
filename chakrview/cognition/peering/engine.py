@@ -325,6 +325,29 @@ class CrossZoneFederationEngine:
         self._task_coordinator = tc
 
     @property
+    def consensus_engine(self) -> Any:
+        if not hasattr(self, "_consensus_engine") or self._consensus_engine is None:
+            from chakrview.cognition.federation.consensus.engine import FederatedConsensusEngine
+            journal = getattr(self.runtime, "journal", None) if hasattr(self, "runtime") and self.runtime else None
+            validators = [self.local_peer_id]
+            if hasattr(self, "membership_manager") and self.membership_manager:
+                members = self.membership_manager.list_active_members()
+                if members:
+                    validators = [m.node_id for m in members]
+            self._consensus_engine = FederatedConsensusEngine(
+                local_node_id=self.local_peer_id,
+                validators=validators,
+                capability_gate=self.capability_gate,
+                journal=journal,
+                audit_logger=self.audit_logger,
+            )
+        return self._consensus_engine
+
+    @consensus_engine.setter
+    def consensus_engine(self, engine: Any) -> None:
+        self._consensus_engine = engine
+
+    @property
     def engine_identity(self) -> FederationEngineIdentity:
         return self.coordinator.engine_identity
 
