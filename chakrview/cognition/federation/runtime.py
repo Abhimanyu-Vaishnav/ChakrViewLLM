@@ -134,6 +134,10 @@ class FederationRuntime:
     def transport_server(self) -> Any:
         return getattr(self.engine, "transport_server", None)
 
+    @property
+    def resource_manager(self) -> Any:
+        return getattr(self.engine, "resource_manager", None)
+
     # ========================================================================
     # 1. Runtime Lifecycle (Phase 5)
     # ========================================================================

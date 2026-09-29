@@ -215,6 +215,8 @@ class CrossZoneFederationEngine:
         if not hasattr(self, "_dispatcher") or self._dispatcher is None:
             from chakrview.cognition.federation.transport.dispatcher import FederationMessageDispatcher
             self._dispatcher = FederationMessageDispatcher(engine=self)
+            if hasattr(self, "resource_manager"):
+                _ = self.resource_manager
         return self._dispatcher
 
     @dispatcher.setter
@@ -242,6 +244,17 @@ class CrossZoneFederationEngine:
     @transport_server.setter
     def transport_server(self, s: Any) -> None:
         self._transport_server = s
+
+    @property
+    def resource_manager(self) -> Any:
+        if not hasattr(self, "_resource_manager") or self._resource_manager is None:
+            from chakrview.cognition.federation.resources.manager import FederationResourceManager
+            self._resource_manager = FederationResourceManager(engine=self)
+        return self._resource_manager
+
+    @resource_manager.setter
+    def resource_manager(self, mgr: Any) -> None:
+        self._resource_manager = mgr
 
     @property
     def engine_identity(self) -> FederationEngineIdentity:

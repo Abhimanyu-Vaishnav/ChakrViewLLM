@@ -63,6 +63,10 @@ class JournalEntryType(str, Enum):
     CHANNEL_REVOKED = "CHANNEL_REVOKED"
     CHANNEL_QUARANTINED = "CHANNEL_QUARANTINED"
 
+    # Step 37 Distributed Resource & Capability Journal Entries
+    CAPABILITY_ADVERTISED = "CAPABILITY_ADVERTISED"
+    RESOURCE_POLICY_UPDATED = "RESOURCE_POLICY_UPDATED"
+
 
 
 @dataclass(frozen=True)
