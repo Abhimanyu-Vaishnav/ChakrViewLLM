@@ -1,0 +1,82 @@
+{
+  "benchmark_metadata": {
+    "step": "Step 33",
+    "title": "Distributed Federation Coordination, Replay Synchronization & Trust-State Consistency",
+    "iterations": 50,
+    "timestamp": "2026-09-29T11:17:51Z",
+    "status": "PASSED"
+  },
+  "latencies_ms": {
+    "engine_identity_creation": {
+      "mean_ms": 0.0849,
+      "p95_ms": 0.1148,
+      "min_ms": 0.0755,
+      "max_ms": 0.1655,
+      "throughput_ops_sec": 11784.95
+    },
+    "federation_handshake": {
+      "mean_ms": 1.1585,
+      "p95_ms": 1.4999,
+      "min_ms": 1.0152,
+      "max_ms": 1.5493,
+      "throughput_ops_sec": 863.16
+    },
+    "state_digest_calculation": {
+      "mean_ms": 0.2983,
+      "p95_ms": 0.3689,
+      "min_ms": 0.2593,
+      "max_ms": 1.0918,
+      "throughput_ops_sec": 3352.6
+    },
+    "replay_state_synchronization": {
+      "mean_ms": 0.1336,
+      "p95_ms": 0.1814,
+      "min_ms": 0.117,
+      "max_ms": 0.304,
+      "throughput_ops_sec": 7484.13
+    },
+    "trust_state_synchronization": {
+      "mean_ms": 0.0791,
+      "p95_ms": 0.1142,
+      "min_ms": 0.0661,
+      "max_ms": 0.1189,
+      "throughput_ops_sec": 12649.9
+    },
+    "revocation_propagation": {
+      "mean_ms": 0.367,
+      "p95_ms": 0.5825,
+      "min_ms": 0.2886,
+      "max_ms": 0.7947,
+      "throughput_ops_sec": 2724.5
+    },
+    "conflict_detection": {
+      "mean_ms": 0.0197,
+      "p95_ms": 0.0202,
+      "min_ms": 0.0178,
+      "max_ms": 0.0341,
+      "throughput_ops_sec": 50802.68
+    },
+    "complete_federation_lifecycle": {
+      "mean_ms": 1.6966,
+      "p95_ms": 2.4336,
+      "min_ms": 1.4746,
+      "max_ms": 3.0117,
+      "throughput_ops_sec": 589.42
+    }
+  },
+  "memory_overhead_bytes": {
+    "current_memory_bytes": 1068413,
+    "peak_memory_bytes": 3609837,
+    "peak_memory_mb": 3.443
+  },
+  "neural_core_invariants": {
+    "parameter_count": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "pre_weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "post_weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "delta_w": 0,
+    "weight_mutation_detected": false,
+    "invariants_satisfied": true
+  }
+}

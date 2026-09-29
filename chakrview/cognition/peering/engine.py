@@ -99,6 +99,17 @@ from chakrview.cognition.transport.security import (
     PeerBindingMismatchError,
 )
 
+# Step 33 Distributed Federation Coordination
+from chakrview.cognition.federation.coordinator import DistributedFederationCoordinator
+from chakrview.cognition.federation.models import (
+    FederationEngineIdentity,
+    SecurityStateVersion,
+    FederationSecurityStateDigest,
+    RevocationTargetType,
+    HandshakeStatus,
+    FederationHandshakeResponse,
+    RevocationSyncRecord,
+)
 
 
 class CrossZoneAuthorizationError(PermissionError):
@@ -126,6 +137,7 @@ class CrossZoneFederationEngine:
         initial_epoch: int = 1,
         local_private_key: Optional[Ed25519PrivateKeyWrapper] = None,
         local_peer_id: Optional[str] = None,
+        coordinator: Optional[DistributedFederationCoordinator] = None,
     ) -> None:
         self.local_zone_id = local_zone_id
         self.policy = policy or CrossZoneFederationPolicy()
@@ -146,6 +158,24 @@ class CrossZoneFederationEngine:
         self.sessions: Dict[str, SecurePeerSession] = {}
         self.certificate_binder = PeerCertificateBinder()
         self.certificate_revocation_registry = CertificateRevocationRegistry()
+
+        # Step 33 Distributed Federation Coordinator
+        self.coordinator = coordinator or DistributedFederationCoordinator(
+            engine_id=f"eng_{self.local_peer_id}",
+            zone_id=self.local_zone_id,
+            initial_epoch=initial_epoch,
+            public_key_fingerprint=self.local_public_key.fingerprint,
+            audit_logger=self.audit_logger,
+        )
+        self.coordinator.engine = self
+
+    @property
+    def engine_identity(self) -> FederationEngineIdentity:
+        return self.coordinator.engine_identity
+
+    @property
+    def state_version(self) -> SecurityStateVersion:
+        return self.coordinator.current_version
 
     # ========================================================================
 
@@ -183,6 +213,8 @@ class CrossZoneFederationEngine:
         if epochs < 1:
             raise ValueError("Epoch advancement must be >= 1.")
         self.current_epoch += epochs
+        if hasattr(self, "coordinator"):
+            self.coordinator.state_manager.advance_epoch(self.current_epoch)
 
         expired_peer_ids = self.registry.expire_peers(self.current_epoch)
         for peer_id in expired_peer_ids:
@@ -529,6 +561,15 @@ class CrossZoneFederationEngine:
             zone_id=record.zone_id,
             details={"reason": reason, "revoked_by": revoked_by},
         )
+
+        # Record revocation in coordinator
+        if hasattr(self, "coordinator"):
+            self.coordinator.record_and_propagate_revocation(
+                target_type=RevocationTargetType.PEER,
+                target_id=peer_id,
+                reason=reason,
+                engine=self,
+            )
 
         return record
 
@@ -1296,6 +1337,80 @@ class CrossZoneFederationEngine:
         except Exception:
             self._verify_weight_invariants(pre_hash)
             raise
+
+    # ========================================================================
+    # 13. Step 33 Distributed Federation Coordination Helpers
+    # ========================================================================
+
+    def initiate_coordination_handshake(
+        self,
+        remote_engine: "CrossZoneFederationEngine",
+    ) -> FederationHandshakeResponse:
+        """Initiate coordination handshake with another CrossZoneFederationEngine."""
+        revocations = list(self.revocation_manager._revocations.values()) if hasattr(self.revocation_manager, "_revocations") else []
+        return self.coordinator.initiate_handshake(
+            remote_coordinator=remote_engine.coordinator,
+            registry=self.registry,
+            revocations=revocations,
+        )
+
+    def synchronize_replay_with_engine(
+        self,
+        remote_engine: "CrossZoneFederationEngine",
+        session_id: str,
+    ) -> Dict[str, Any]:
+        """Synchronize replay state for a session with a remote engine."""
+        if session_id not in self.sessions:
+            raise KeyError(f"Session '{session_id}' not found locally.")
+        session = self.sessions[session_id]
+        remote_session = remote_engine.sessions.get(session_id)
+        return self.coordinator.synchronize_replay(
+            remote_coordinator=remote_engine.coordinator,
+            session=session,
+            remote_session=remote_session,
+        )
+
+    def synchronize_trust_with_engine(
+        self,
+        remote_engine: "CrossZoneFederationEngine",
+    ) -> Dict[str, Any]:
+        """Synchronize trust state claims with a remote engine."""
+        return self.coordinator.synchronize_trust(
+            remote_coordinator=remote_engine.coordinator,
+            local_registry=self.registry,
+            remote_registry=remote_engine.registry,
+            local_policy=remote_engine.policy,
+        )
+
+    def propagate_revocation_to_engines(
+        self,
+        target_type: RevocationTargetType,
+        target_id: str,
+        reason: str,
+        remote_engines: List["CrossZoneFederationEngine"],
+    ) -> RevocationSyncRecord:
+        """Propagate a revocation event to remote engines."""
+        remote_coords = [re.coordinator for re in remote_engines]
+        return self.coordinator.record_and_propagate_revocation(
+            target_type=target_type,
+            target_id=target_id,
+            reason=reason,
+            engine=self,
+            remote_coordinators=remote_coords,
+        )
+
+    def compute_security_state_digest(
+        self,
+        session_id: Optional[str] = None,
+    ) -> FederationSecurityStateDigest:
+        """Compute composite security state digest for this engine."""
+        session = self.sessions.get(session_id) if session_id else None
+        revocations = list(self.revocation_manager._revocations.values()) if hasattr(self.revocation_manager, "_revocations") else []
+        return self.coordinator.compute_state_digest(
+            session=session,
+            registry=self.registry,
+            revocations=revocations,
+        )
 
 
 FederationEngine = CrossZoneFederationEngine

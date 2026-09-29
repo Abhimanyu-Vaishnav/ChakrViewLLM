@@ -201,6 +201,25 @@ from chakrview.cognition.transport import (
     HermeticPKIBuilder,
     CertificateRevocationRegistry,
 )
+from chakrview.cognition.federation import (
+    DistributedFederationCoordinator,
+    FederationEngineIdentity,
+    SecurityStateVersion,
+    FederationSecurityStateDigest,
+    ReplayStateDigest,
+    TrustStateDigest,
+    RevocationStateDigest,
+    PeerStateDigest,
+    FederationHandshakeRequest,
+    FederationHandshakeResponse,
+    HandshakeStatus,
+    ReplaySyncMessage,
+    TrustSyncRecord,
+    TrustSyncMessage,
+    RevocationSyncRecord,
+    RevocationSyncMessage,
+    RevocationTargetType,
+)
 
 
 __all__ = [
@@ -365,6 +384,25 @@ __all__ = [
     "PeerCertificateBinder",
     "HermeticPKIBuilder",
     "CertificateRevocationRegistry",
+    # Step 33 Distributed Federation Coordination
+    "federation",
+    "DistributedFederationCoordinator",
+    "FederationEngineIdentity",
+    "SecurityStateVersion",
+    "FederationSecurityStateDigest",
+    "ReplayStateDigest",
+    "TrustStateDigest",
+    "RevocationStateDigest",
+    "PeerStateDigest",
+    "FederationHandshakeRequest",
+    "FederationHandshakeResponse",
+    "HandshakeStatus",
+    "ReplaySyncMessage",
+    "TrustSyncRecord",
+    "TrustSyncMessage",
+    "RevocationSyncRecord",
+    "RevocationSyncMessage",
+    "RevocationTargetType",
 ]
 
 
