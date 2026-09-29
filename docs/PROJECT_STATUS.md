@@ -2,35 +2,36 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 34 — Multi-Node Federation Runtime, Durable Security State & Failure Recovery
-- **Status**: Complete & Verified (Multi-node federation runtime; durable security state with dedicated abstraction and zero secret leakage; write-ahead append-only security journal with SHA-256 hash chaining; crash recovery via FederationRecoveryManager restoring terminal revocations, replay floors, trust expirations, and failing closed; snapshot + journal architecture [S_N + J[N+1..M]]; multi-node lifecycle runtime FederationRuntime with bounded engine registration [MAX_FEDERATION_ENGINES=16]; failure detection with health tracking [UNKNOWN, HEALTHY, DEGRADED, UNREACHABLE, RECOVERING, QUARANTINED, TERMINATED] enforcing UNREACHABLE != REVOKED; 12-step secure rejoin protocol enforcing ENGINE_REJOIN != TRUST_GRANT; state conflict matrix Cases A--J verified; 966/966 tests passing across 79 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2, ΔW = 0; LOCAL_AUTHORITY > PEER_AUTHORITY, RUNTIME != AUTHORITY, PERSISTENCE != AUTHORITY, JOURNAL != AUTHORITY, RECOVERY != AUTHORITY, ENGINE_REJOIN != TRUST_GRANT, ENGINE_REJOIN != CAPABILITY_ESCALATION, NETWORK_FAILURE != AUTOMATIC_REVOCATION).
+- **Current phase**: Step 35 — Production Federation Runtime Networking, Node Discovery & Secure Membership
+- **Status**: Complete & Verified (Production transport-connected federation runtime; explicit node endpoint modeling with syntax & protocol validation; deterministic candidate identification; controlled multi-source discovery providers including static, file, and in-process advertisement; bounded candidate registration and membership state machine with 8 explicit states [DISCOVERED, PENDING_AUTHENTICATION, AUTHENTICATED, MEMBER, SUSPENDED, QUARANTINED, REVOKED, TERMINATED]; capacity enforcement [MAX_MEMBERSHIP_NODES=16]; cryptographic authentication gate with TLS/mTLS certificate validation and Ed25519 peer identity binding; periodic heartbeats and heartbeat monitor failure detection; partition tolerance distinguishing UNREACHABLE != REVOKED; secure rejoin protocol with local revocation dominance and state reconciliation; quarantine architecture with forensic evidence preservation; full local revocation cascade; durable persistence snapshot and journal integration; fail-closed crash recovery; strict cross-tenant and cross-zone isolation; 1003/1003 tests passing across 80 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2, ΔW = 0; LOCAL_AUTHORITY > PEER_AUTHORITY, DISCOVERY != TRUST, DISCOVERY != AUTHORITY, MEMBERSHIP != TRUST, MEMBERSHIP != AUTHORIZATION, ENGINE_IDENTITY != AUTHORITY, NETWORK_REACHABILITY != TRUST, TLS_AUTHENTICATION != FEDERATION_AUTHORIZATION, mTLS != TRUST_GRANT, FEDERATION_HANDSHAKE != CAPABILITY_GRANT, LOCAL_REVOCATION > REMOTE_ACTIVE_STATE, LOCAL_REPLAY_PROTECTION > REMOTE_REPLAY_ADVISORY, NETWORK_FAILURE != AUTOMATIC_REVOCATION, UNREACHABLE != REVOKED, REJOIN != TRUST_GRANT, REJOIN != CAPABILITY_ESCALATION).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 34 establishes the **Multi-Node Federation Runtime, Durable Security State & Failure Recovery** layer without altering the frozen neural core:
+> **IMPORTANT**: Step 35 establishes **Production Federation Runtime Networking, Node Discovery & Secure Membership** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Durable Runtime Lifecycle:} \quad &\text{Durable State Storage} \longrightarrow \text{Write-Ahead Journaling} \longrightarrow \text{Snapshot Creation} \\
-> &\longrightarrow \text{Fail-Closed Crash Recovery (RECOVERY\_FAILED\_CLOSED)} \longrightarrow \text{Multi-Engine Lifecycle Management} \\
-> &\longrightarrow \text{Failure Detection (UNREACHABLE} \neq \text{REVOKED)} \longrightarrow \text{12-Step Rejoin Protocol} \\
-> &\longrightarrow \text{Conflict Matrix Evaluation (Cases A--J)} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{RUNTIME} \neq \text{AUTHORITY}, \quad \text{PERSISTENCE} \neq \text{AUTHORITY} \\
-> \textbf{Recovery Axiom:} \quad &\text{JOURNAL} \neq \text{AUTHORITY}, \quad \text{RECOVERY} \neq \text{AUTHORITY}, \quad \text{RECOVERY\_FAILED\_CLOSED on corruption} \\
-> \textbf{Rejoin Axiom:} \quad &\text{ENGINE\_REJOIN} \neq \text{TRUST\_GRANT}, \quad \text{ENGINE\_REJOIN} \neq \text{CAPABILITY\_ESCALATION} \\
-> \textbf{Health Axiom:} \quad &\text{UNREACHABLE} \neq \text{REVOKED} \quad (\text{Network failure does not automatically revoke}) \\
-> \textbf{Revocation Axiom:} \quad &\text{REVOKED} \longrightarrow \text{NEVER ACTIVE AGAIN} \quad (\text{Local Revocation Always Wins}) \\
-> \textbf{Immutability Axiom:} \quad &\text{Federation Runtime} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Secure Networking Lifecycle:} \quad &\text{Transport Endpoint Modeling} \longrightarrow \text{Controlled Multi-Source Discovery} \longrightarrow \text{Deterministic Candidate Registration} \\
+> &\longrightarrow \text{Cryptographic Transport Authentication (TLS/mTLS + Cert Binding)} \longrightarrow \text{Federation Handshake Agreement} \\
+> &\longrightarrow \text{Bounded Membership Promotion} \longrightarrow \text{Heartbeat Liveness Tracking} \longrightarrow \text{Partition Suspension (UNREACHABLE} \neq \text{REVOKED)} \\
+> &\longrightarrow \text{Forensic Quarantine} \longrightarrow \text{Absorbing Revocation Cascade} \longrightarrow \text{Durable Persistence \& Crash Recovery} \\
+> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{DISCOVERY} \neq \text{TRUST}, \quad \text{MEMBERSHIP} \neq \text{AUTHORIZATION} \\
+> \textbf{Identity Axiom:} \quad &\text{ENGINE\_IDENTITY} \neq \text{AUTHORITY}, \quad \text{NETWORK\_REACHABILITY} \neq \text{TRUST}, \quad \text{mTLS} \neq \text{TRUST\_GRANT} \\
+> \textbf{Handshake Axiom:} \quad &\text{FEDERATION\_HANDSHAKE} \neq \text{CAPABILITY\_GRANT} \\
+> \textbf{Revocation Axiom:} \quad &\text{LOCAL\_REVOCATION} > \text{REMOTE\_ACTIVE\_STATE}, \quad \text{REVOKED} \longrightarrow \text{ABSORBING TERMINAL STATE} \\
+> \textbf{Health Axiom:} \quad &\text{NETWORK\_FAILURE} \neq \text{AUTOMATIC\_REVOCATION}, \quad \text{UNREACHABLE} \neq \text{REVOKED} \\
+> \textbf{Rejoin Axiom:} \quad &\text{REJOIN} \neq \text{TRUST\_GRANT}, \quad \text{REJOIN} \neq \text{CAPABILITY\_ESCALATION} \\
+> \textbf{Immutability Axiom:} \quad &\text{Federation Networking} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Durable Security State Without Secrets:** Only verifiable security metadata is persisted. Private keys, session secrets, capability secrets, model weights, and scratchpads are NEVER persisted.
-> 2. **Write-Ahead Hash-Chained Integrity:** Monotonic, gapless journal entries chained via $E_N.\text{digest} = \text{SHA256}(E_N.\text{payload} \mathbin{\Vert} E_{N-1}.\text{digest})$ guarantee corruption, truncation, and tampering detection.
-> 3. **Fail-Closed Crash Recovery:** If snapshot or journal integrity cannot be verified, `RECOVERY_FAILED_CLOSED` is emitted and the engine refuses to start with degraded security.
-> 4. **Runtime and Persistence != Authority:** Runtime and persistence layers coordinate lifecycle and durable storage but hold zero capability execution rights.
-> 5. **Rejoin Protocol With Zero Capability Escalation:** Rejoining nodes exchange state versions and digests, re-validate local revocations, but never regain capabilities merely by reconnecting.
+> 1. **Discovery Decoupling:** Finding an endpoint grants zero trust and zero execution rights.
+> 2. **Membership Decoupling:** Enrolling in network topology grants zero ambient capability authority; all capabilities require explicit sovereign `CapabilityGate` authorization.
+> 3. **Cryptographic Identity Binding:** Transport encryption certificates are strictly bound to Ed25519 peer identities via `PeerCertificateBinder`. Impostor certificates fail closed.
+> 4. **Partition Tolerance:** Missing heartbeats trigger temporary suspension and mark engines `UNREACHABLE` while strictly preserving keys, bindings, and trust grants.
+> 5. **Local Revocation Dominance:** Local revocation strictly overrides any remote active or healthy claim.
 > 6. **Zero Neural Core Mutation:** Neural weights are strictly untouched ($\Delta W = 0$, parameters = 3,443,136, hash intact).
-> All 966 unit, integration, invariant, capability gate, transport, session, persistence, recovery, and runtime tests pass with zero failures and zero warnings across 79 test files.
+> All 1003 unit, integration, invariant, capability gate, transport, session, persistence, recovery, discovery, and membership tests pass with zero failures and zero warnings across 80 test files.
 
 ---
 
@@ -342,5 +343,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 32 RATIFIED — SECURE FEDERATION SESSION & KEY LIFECYCLE HARDENING COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 33 (Awaiting user explicit command; DO NOT START STEP 33 AUTOMATICALLY).
+- **Decision**: **STEP 35 RATIFIED — PRODUCTION FEDERATION RUNTIME NETWORKING, NODE DISCOVERY & SECURE MEMBERSHIP COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 36 (Awaiting user explicit command; DO NOT START STEP 36 AUTOMATICALLY).
