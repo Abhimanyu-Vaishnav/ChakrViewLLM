@@ -1,0 +1,143 @@
+{
+  "benchmark_metadata": {
+    "step": 37,
+    "title": "Production Federation Resource & Capability Advertisement",
+    "timestamp": 1790698707.508851,
+    "total_benchmark_time_seconds": 1.14,
+    "warmup_iterations": 15,
+    "measured_iterations": 80
+  },
+  "neural_invariants": {
+    "parameters": 3443136,
+    "vocabulary_size": 4096,
+    "max_context_length": 512,
+    "weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "delta_w": 0,
+    "status": "RATIFIED_IMMUTABLE"
+  },
+  "memory_metrics": {
+    "current_memory_mb": 0.94,
+    "peak_memory_mb": 3.42
+  },
+  "latency_and_throughput": {
+    "local_resource_discovery": {
+      "mean_ms": 0.2113,
+      "p95_ms": 0.2517,
+      "min_ms": 0.1482,
+      "max_ms": 0.3538,
+      "throughput_ops_sec": 4733.59
+    },
+    "cpu_inspection": {
+      "mean_ms": 0.0069,
+      "p95_ms": 0.0073,
+      "min_ms": 0.0064,
+      "max_ms": 0.0093,
+      "throughput_ops_sec": 145692.92
+    },
+    "memory_inspection": {
+      "mean_ms": 0.1259,
+      "p95_ms": 0.1405,
+      "min_ms": 0.1154,
+      "max_ms": 0.1528,
+      "throughput_ops_sec": 7945.97
+    },
+    "accelerator_discovery": {
+      "mean_ms": 0.0051,
+      "p95_ms": 0.0053,
+      "min_ms": 0.0048,
+      "max_ms": 0.0066,
+      "throughput_ops_sec": 196126.48
+    },
+    "capability_declaration": {
+      "mean_ms": 0.0172,
+      "p95_ms": 0.0175,
+      "min_ms": 0.0166,
+      "max_ms": 0.0221,
+      "throughput_ops_sec": 58228.4
+    },
+    "advertisement_creation_and_signing": {
+      "mean_ms": 1.5634,
+      "p95_ms": 1.8263,
+      "min_ms": 1.108,
+      "max_ms": 1.9366,
+      "throughput_ops_sec": 639.63
+    },
+    "advertisement_serialization": {
+      "mean_ms": 0.0731,
+      "p95_ms": 0.0772,
+      "min_ms": 0.071,
+      "max_ms": 0.0799,
+      "throughput_ops_sec": 13687.61
+    },
+    "advertisement_deserialization": {
+      "mean_ms": 0.022,
+      "p95_ms": 0.0225,
+      "min_ms": 0.021,
+      "max_ms": 0.0288,
+      "throughput_ops_sec": 45415.84
+    },
+    "payload_digest_computation": {
+      "mean_ms": 0.3981,
+      "p95_ms": 0.4116,
+      "min_ms": 0.3785,
+      "max_ms": 0.5579,
+      "throughput_ops_sec": 2511.66
+    },
+    "signature_generation": {
+      "mean_ms": 0.432,
+      "p95_ms": 0.5231,
+      "min_ms": 0.3506,
+      "max_ms": 0.71,
+      "throughput_ops_sec": 2314.85
+    },
+    "signature_verification": {
+      "mean_ms": 0.481,
+      "p95_ms": 0.6498,
+      "min_ms": 0.3811,
+      "max_ms": 0.7302,
+      "throughput_ops_sec": 2078.93
+    },
+    "advertisement_ingestion": {
+      "mean_ms": 0.8858,
+      "p95_ms": 1.2198,
+      "min_ms": 0.7006,
+      "max_ms": 1.4193,
+      "throughput_ops_sec": 1128.87
+    },
+    "replay_rejection": {
+      "mean_ms": 0.876,
+      "p95_ms": 1.1123,
+      "min_ms": 0.7417,
+      "max_ms": 1.209,
+      "throughput_ops_sec": 1141.54
+    },
+    "tampered_rejection": {
+      "mean_ms": 0.3998,
+      "p95_ms": 0.5178,
+      "min_ms": 0.316,
+      "max_ms": 0.8728,
+      "throughput_ops_sec": 2501.05
+    },
+    "capability_filtering_100_nodes": {
+      "mean_ms": 0.2428,
+      "p95_ms": 0.3245,
+      "min_ms": 0.2181,
+      "max_ms": 0.4214,
+      "throughput_ops_sec": 4118.87
+    },
+    "transport_query_roundtrip": {
+      "mean_ms": 1.432,
+      "p95_ms": 1.7519,
+      "min_ms": 1.1766,
+      "max_ms": 2.0678,
+      "throughput_ops_sec": 698.31
+    },
+    "transport_advertisement_roundtrip": {
+      "mean_ms": 0.5668,
+      "p95_ms": 0.6424,
+      "min_ms": 0.4418,
+      "max_ms": 0.8136,
+      "throughput_ops_sec": 1764.35
+    }
+  }
+}
