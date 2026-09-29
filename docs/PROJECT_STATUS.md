@@ -2,74 +2,78 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 35 — Production Federation Runtime Networking, Node Discovery & Secure Membership
-- **Status**: Complete & Verified (Production transport-connected federation runtime; explicit node endpoint modeling with syntax & protocol validation; deterministic candidate identification; controlled multi-source discovery providers including static, file, and in-process advertisement; bounded candidate registration and membership state machine with 8 explicit states [DISCOVERED, PENDING_AUTHENTICATION, AUTHENTICATED, MEMBER, SUSPENDED, QUARANTINED, REVOKED, TERMINATED]; capacity enforcement [MAX_MEMBERSHIP_NODES=16]; cryptographic authentication gate with TLS/mTLS certificate validation and Ed25519 peer identity binding; periodic heartbeats and heartbeat monitor failure detection; partition tolerance distinguishing UNREACHABLE != REVOKED; secure rejoin protocol with local revocation dominance and state reconciliation; quarantine architecture with forensic evidence preservation; full local revocation cascade; durable persistence snapshot and journal integration; fail-closed crash recovery; strict cross-tenant and cross-zone isolation; 1003/1003 tests passing across 80 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2, ΔW = 0; LOCAL_AUTHORITY > PEER_AUTHORITY, DISCOVERY != TRUST, DISCOVERY != AUTHORITY, MEMBERSHIP != TRUST, MEMBERSHIP != AUTHORIZATION, ENGINE_IDENTITY != AUTHORITY, NETWORK_REACHABILITY != TRUST, TLS_AUTHENTICATION != FEDERATION_AUTHORIZATION, mTLS != TRUST_GRANT, FEDERATION_HANDSHAKE != CAPABILITY_GRANT, LOCAL_REVOCATION > REMOTE_ACTIVE_STATE, LOCAL_REPLAY_PROTECTION > REMOTE_REPLAY_ADVISORY, NETWORK_FAILURE != AUTOMATIC_REVOCATION, UNREACHABLE != REVOKED, REJOIN != TRUST_GRANT, REJOIN != CAPABILITY_ESCALATION).
+- **Current phase**: Step 36 — Production Federation Message Transport & Secure Inter-Node Communication
+- **Status**: Complete & Verified (Production federation message transport, binary length-prefixed framing [1 MB ceiling, strict big-endian uint32, zero-length rejection], deterministic canonical UTF-8 JSON codec with recursive prohibited payload scanner blocking secrets, private keys, model weights, and tensors; strongly typed FederationMessageEnvelope with Ed25519 canonical signing and deterministic SHA-256 payload digest verification; FederationChannel with 9-state fail-closed lifecycle state machine [DISCONNECTED, CONNECTING, AUTHENTICATING, ESTABLISHED, DEGRADED, CLOSING, CLOSED, QUARANTINED, REVOKED]; session binding, strictly monotonic sequence enforcement [seq > last_seen], in-memory replay defense cache [message_id uniqueness]; sovereign local message dispatch via CapabilityGate; tenant boundary isolation; bounded exponential backoff reconnection via Step 35 secure rejoin; default-deny inbound server bounded by MAX_MEMBERSHIP_NODES=16; durable write-ahead journal and audit logging; 1,045 / 1,045 tests passing across 81 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 35 establishes **Production Federation Runtime Networking, Node Discovery & Secure Membership** without altering the frozen neural core:
+> **IMPORTANT**: Step 36 establishes **Production Federation Message Transport & Secure Inter-Node Communication** without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Secure Networking Lifecycle:} \quad &\text{Transport Endpoint Modeling} \longrightarrow \text{Controlled Multi-Source Discovery} \longrightarrow \text{Deterministic Candidate Registration} \\
-> &\longrightarrow \text{Cryptographic Transport Authentication (TLS/mTLS + Cert Binding)} \longrightarrow \text{Federation Handshake Agreement} \\
-> &\longrightarrow \text{Bounded Membership Promotion} \longrightarrow \text{Heartbeat Liveness Tracking} \longrightarrow \text{Partition Suspension (UNREACHABLE} \neq \text{REVOKED)} \\
-> &\longrightarrow \text{Forensic Quarantine} \longrightarrow \text{Absorbing Revocation Cascade} \longrightarrow \text{Durable Persistence \& Crash Recovery} \\
-> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{DISCOVERY} \neq \text{TRUST}, \quad \text{MEMBERSHIP} \neq \text{AUTHORIZATION} \\
-> \textbf{Identity Axiom:} \quad &\text{ENGINE\_IDENTITY} \neq \text{AUTHORITY}, \quad \text{NETWORK\_REACHABILITY} \neq \text{TRUST}, \quad \text{mTLS} \neq \text{TRUST\_GRANT} \\
+> \textbf{Secure Transport Pipeline:} \quad &\text{Discovery} \longrightarrow \text{Membership} \longrightarrow \text{mTLS Connection} \longrightarrow \text{Secure Federation Channel} \\
+> &\longrightarrow \text{Authenticated Message Envelope (Canonical JSON + Ed25519)} \longrightarrow \text{Replay / Monotonic Sequence Validation} \\
+> &\longrightarrow \text{Sovereign Local Authorization (CapabilityGate)} \longrightarrow \text{Message Dispatch (Bounded Queue \& Timeouts)} \\
+> &\longrightarrow \text{Audit Logging \& Durable Security Journal (Append-Only WAL)} \\
+> \textbf{Authority Axiom:} \quad &\text{LOCAL\_AUTHORITY} > \text{PEER\_AUTHORITY}, \quad \text{CONNECTION} \neq \text{TRUST}, \quad \text{mTLS} \neq \text{TRUST\_GRANT} \\
 > \textbf{Handshake Axiom:} \quad &\text{FEDERATION\_HANDSHAKE} \neq \text{CAPABILITY\_GRANT} \\
 > \textbf{Revocation Axiom:} \quad &\text{LOCAL\_REVOCATION} > \text{REMOTE\_ACTIVE\_STATE}, \quad \text{REVOKED} \longrightarrow \text{ABSORBING TERMINAL STATE} \\
 > \textbf{Health Axiom:} \quad &\text{NETWORK\_FAILURE} \neq \text{AUTOMATIC\_REVOCATION}, \quad \text{UNREACHABLE} \neq \text{REVOKED} \\
 > \textbf{Rejoin Axiom:} \quad &\text{REJOIN} \neq \text{TRUST\_GRANT}, \quad \text{REJOIN} \neq \text{CAPABILITY\_ESCALATION} \\
-> \textbf{Immutability Axiom:} \quad &\text{Federation Networking} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Immutability Axiom:} \quad &\text{Federation Transport} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Discovery Decoupling:** Finding an endpoint grants zero trust and zero execution rights.
-> 2. **Membership Decoupling:** Enrolling in network topology grants zero ambient capability authority; all capabilities require explicit sovereign `CapabilityGate` authorization.
-> 3. **Cryptographic Identity Binding:** Transport encryption certificates are strictly bound to Ed25519 peer identities via `PeerCertificateBinder`. Impostor certificates fail closed.
-> 4. **Partition Tolerance:** Missing heartbeats trigger temporary suspension and mark engines `UNREACHABLE` while strictly preserving keys, bindings, and trust grants.
-> 5. **Local Revocation Dominance:** Local revocation strictly overrides any remote active or healthy claim.
-> 6. **Zero Neural Core Mutation:** Neural weights are strictly untouched ($\Delta W = 0$, parameters = 3,443,136, hash intact).
-> All 1003 unit, integration, invariant, capability gate, transport, session, persistence, recovery, discovery, and membership tests pass with zero failures and zero warnings across 80 test files.
+> 1. **Transport Decoupling:** Establishing a channel or passing an mTLS handshake grants zero trust and zero ambient capability authority; all actions require sovereign local authorization via `CapabilityGate`.
+> 2. **Deterministic Canonical Codec:** UTF-8 JSON serialization with alphabetically sorted keys and prohibited keyword/type filtering (blocking private keys, session secrets, and weight tensors).
+> 3. **Cryptographic Integrity:** SHA-256 payload digest + Ed25519 canonical signature verification on every message envelope.
+> 4. **Monotonic Ordering & Replay Protection:** Enforces `sequence_number > last_seen_sequence_number` and in-memory message ID cache.
+> 5. **Fail-Closed State Machine:** 9-state channel lifecycle where `REVOKED` is an absorbing terminal state and quarantined channels halt traffic.
+> 6. **Zero Neural Core Mutation:** Neural weights are strictly untouched ($\Delta W = 0$, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+> All 1,045 unit, integration, invariant, capability gate, transport, session, persistence, recovery, discovery, membership, framing, codec, and dispatcher tests pass with zero failures across 81 test files.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 34)
-* Comprehensive architectural documentation in [docs/STEP_34_FEDERATION_RUNTIME_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_34_FEDERATION_RUNTIME_ARCHITECTURE.md).
-* Step 34 Threat Model in [docs/STEP_34_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_34_THREAT_MODEL.md).
-* Repository audit findings in [docs/STEP_34_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_34_REPOSITORY_AUDIT.md).
-* Empirical benchmark results recorded in [docs/STEP_34_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_34_BENCHMARK_RESULTS.json) via `scripts/benchmark_federation_runtime.py`.
-* **Persistence & Write-Ahead Journaling Subsystem** (`chakrview/cognition/federation/persistence/`):
-  - `models.py`: Strongly typed `JournalEntryType`, `JournalEntry`, `DurableSecuritySnapshot`, `RecoveryManifest`, `DURABLE_SCHEMA_VERSION`, `JOURNAL_GENESIS_DIGEST`.
-  - `errors.py`: Dedicated persistence and recovery error hierarchy (`PersistenceError`, `DurableSchemaError`, `JournalError`, `JournalCorruptionError`, `JournalSequenceError`, `JournalTruncationError`, `SnapshotCorruptionError`, `RecoveryFailedClosedError`, `RuntimeLifecycleError`, `EngineHealthError`, `RejoinProtocolError`).
-  - `journal.py`: `SecurityStateJournal` enforcing monotonic sequence numbering and SHA-256 hash chaining.
-  - `base.py`: `SecurityStateStore` abstract storage interface.
-  - `memory.py`: `InMemorySecurityStateStore` implementation.
-  - `sqlite.py`: `SqliteSecurityStateStore` disk storage using explicit relational tables and JSON schemas.
-* **Crash Recovery Subsystem** (`chakrview/cognition/federation/recovery.py`):
-  - `FederationRecoveryManager`: Snapshot extraction, 7-step fail-closed recovery, terminal revocation cascades, replay floor restoration.
-* **Multi-Node Federation Runtime Subsystem** (`chakrview/cognition/federation/runtime.py`):
-  - `FederationRuntime`: Multi-node engine registration (bounded by `MAX_FEDERATION_ENGINES`), lifecycle state machine, health status tracking, and 12-step secure rejoin protocol.
-  - `EngineRuntimeStatus`: `INITIALIZING`, `RUNNING`, `STOPPED`, `RECOVERING`, `FAILED`.
-  - `EngineHealthStatus`: `UNKNOWN`, `HEALTHY`, `DEGRADED`, `UNREACHABLE`, `RECOVERING`, `QUARANTINED`, `TERMINATED`.
-* **Engine Integration** (`chakrview/cognition/peering/engine.py`):
-  - Added `runtime` property, `attach_runtime()`, and write-ahead journal logging across epoch advance, peer registration, peer revocation, session creation, session termination, and key rotation.
-* **Audit Events** (`chakrview/cognition/peering/models.py`):
-  - Added 15 Step 34 audit event types for snapshots, journals, recovery, engine health, and rejoin operations.
-* 23 new dedicated tests in `tests/test_federation_runtime.py`, expanding verified test suite to 966 tests across 79 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical: `c5571c9c5cb773860bb4f10731671a53bbba381d6d4590c4c4d51b329437b67b`).
+#### 1. Implemented Now (Verified in Step 36)
+* Comprehensive architectural documentation in [docs/STEP_36_FEDERATION_TRANSPORT_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_36_FEDERATION_TRANSPORT_ARCHITECTURE.md).
+* Step 36 Threat Model in [docs/STEP_36_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_36_THREAT_MODEL.md).
+* Repository audit findings in [docs/STEP_36_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_36_REPOSITORY_AUDIT.md).
+* Empirical benchmark results recorded in [docs/STEP_36_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_36_BENCHMARK_RESULTS.json) via `scripts/benchmark_federation_transport.py`.
+* **Production Federation Message Transport Subsystem** (`chakrview/cognition/federation/transport/`):
+  - `errors.py`: Strongly typed error hierarchy (`FederationTransportError`, `FramingError`, `OversizedFrameError`, `MalformedFrameError`, `TruncatedFrameError`, `CodecError`, `ProhibitedPayloadError`, `UnknownMessageTypeError`, `EnvelopeIntegrityError`, `ChannelError`, `ChannelStateError`, `ChannelAuthenticationError`, `ChannelClosedError`, `ChannelTimeoutError`, `ChannelQuarantinedError`, `ChannelRevokedError`, `DispatcherError`, `HandlerNotFoundError`, `HandlerExecutionError`, `UnauthorizedMessageError`, `ReplayError`, `SequenceRegressionError`, `DuplicateMessageError`, `ReconnectError`, `MaxReconnectAttemptsExceededError`).
+  - `models.py`: `ChannelState` (9-state fail-closed enum: DISCONNECTED, CONNECTING, AUTHENTICATING, ESTABLISHED, DEGRADED, CLOSING, CLOSED, QUARANTINED, REVOKED), `VALID_CHANNEL_TRANSITIONS`, `FederationMessageType` (13 message types), `ChannelMetrics`, `ReconnectPolicy`, and `FederationMessageEnvelope` with canonical Ed25519 signing, verification, and deterministic SHA-256 payload digest checking.
+  - `framing.py`: `FederationMessageFramer` length-prefixed big-endian binary framing with strict ceiling enforcement (1 MB max frame size) before memory allocation and non-destructive partial frame handling.
+  - `codec.py`: `FederationMessageCodec` deterministic canonical UTF-8 JSON encoder and decoder with recursive prohibited payload scanning blocking private keys, secrets, model weights, and tensors.
+  - `channel.py`: `FederationChannel` managing connection state transitions, session binding, sequence numbers, replay detection, quarantine/revocation traffic blocks, and audit/journal logging.
+  - `dispatcher.py`: `FederationMessageDispatcher` enforcing sovereign `CapabilityGate` validation, tenant boundary isolation, trust scope verification, timeout control, and error containment.
+  - `client.py`: `FederationTransportClient` managing outbound channel creation and bounded exponential backoff reconnection via Step 35 rejoin protocol.
+  - `server.py`: `FederationTransportServer` accepting inbound connections under strict default-deny policies, enforcing `MAX_MEMBERSHIP_NODES = 16`.
+* **Audit & Journal Enums Extended**:
+  - Added 14 Step 36 audit event types (`CONNECTION_ATTEMPTED`, `CONNECTION_ESTABLISHED`, `CONNECTION_FAILED`, `FRAME_REJECTED`, `MESSAGE_RECEIVED`, `MESSAGE_REJECTED`, `REPLAY_REJECTED`, `SEQUENCE_REJECTED`, `MESSAGE_DISPATCHED`, `CONNECTION_DEGRADED`, `CONNECTION_CLOSED`, `RECONNECT_ATTEMPTED`, `RECONNECT_SUCCEEDED`, `RECONNECT_FAILED`).
+  - Added 8 Step 36 journal entry types (`CONNECTION_ESTABLISHED`, `CONNECTION_CLOSED`, `CONNECTION_FAILED`, `MESSAGE_DISPATCHED`, `MESSAGE_REJECTED`, `REPLAY_REJECTED`, `CHANNEL_REVOKED`, `CHANNEL_QUARANTINED`).
+* 42 new dedicated tests in `tests/test_federation_transport.py`, expanding verified test suite to 1,045 tests across 81 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
-* **Byzantine Fault-Tolerant Consensus:** Raft/Paxos/PBFT consensus across dynamic clusters (deferred to Step 34+).
+* **Byzantine Fault-Tolerant Consensus:** Raft/Paxos/PBFT consensus across dynamic clusters (deferred to Step 37+).
 * **Autonomous Internet-Wide Peer Discovery:** Autonomous scanning or unsolicited peer ingestion.
 * **Encrypted State Sync Envelopes:** Wire-level payload encryption of coordination states using ephemeral session keys.
 
 ---
 
 ### Progress by Module
+- `chakrview/cognition/federation/transport/`: **Production Federation Message Transport (New in Step 36)**
+  - `errors.py`: Complete typed transport error hierarchy.
+  - `models.py`: 9-state `ChannelState`, 13 `FederationMessageType`s, `FederationMessageEnvelope`, `ReconnectPolicy`, `ChannelMetrics`.
+  - `framing.py`: Binary length-prefixed `FederationMessageFramer` with pre-allocation ceiling checks.
+  - `codec.py`: Deterministic canonical UTF-8 JSON `FederationMessageCodec` with recursive prohibited content scanner.
+  - `channel.py`: `FederationChannel` with replay defense, monotonic sequencing, and audit/journal logging.
+  - `dispatcher.py`: `FederationMessageDispatcher` with sovereign `CapabilityGate` validation and tenant isolation.
+  - `client.py`: `FederationTransportClient` with bounded exponential backoff.
+  - `server.py`: `FederationTransportServer` with default-deny inbound acceptance and capacity ceilings.
+  - `__init__.py`: Clean public symbol export.
 - `chakrview/cognition/federation/`: **Distributed Federation Coordination Subsystem (New in Step 33)**
   - `models.py`: Strongly typed `FederationEngineIdentity`, `SecurityStateVersion`, `ReplayStateDigest`, `TrustStateDigest`, `RevocationStateDigest`, `PeerStateDigest`, `FederationSecurityStateDigest`, `HandshakeStatus`, `FederationHandshakeRequest`, `FederationHandshakeResponse`, `ReplaySyncMessage`, `TrustSyncRecord`, `TrustSyncMessage`, `RevocationSyncRecord`, `RevocationSyncMessage`, `RevocationTargetType`
   - `errors.py`: Robust exception hierarchy (`FederationCoordinationError`, `EngineIdentityError`, `CoordinationProtocolError`, `StateVersionError`, `StateDigestConflictError`, `ReplaySyncError`, `TrustSyncError`, `RevocationPropagationError`, `CoordinationCapacityError`)
