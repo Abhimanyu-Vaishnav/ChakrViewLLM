@@ -1,9 +1,9 @@
 """
-Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity (Step 38).
+Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity (Steps 38 & 39).
 
 Provides sovereign, decentralized task decomposition, deterministic resource scheduling,
-worker execution under CapabilityGate, tamper-evident checkpointing, failure recovery,
-and idempotent result aggregation.
+worker execution under CapabilityGate, tamper-evident checkpointing, lease heartbeats,
+attempt fencing, failure recovery, work continuity, and idempotent result aggregation.
 
 Axioms:
 - LOCAL_TASK_AUTHORITY > REMOTE_WORKER_STATE
@@ -11,6 +11,7 @@ Axioms:
 - ADVERTISEMENT != EXECUTION_AUTHORITY
 - RESOURCE_CLAIM != LOCAL_RESOURCE_FACT
 - UNREACHABLE != REVOKED
+- ATTEMPT FENCING & MONOTONIC CHECKPOINTS
 - ΔW = 0
 """
 
@@ -29,7 +30,14 @@ from chakrview.cognition.federation.tasks.errors import (
     CheckpointCorruptionError,
     InvalidResultError,
     DuplicateResultError,
+    DuplicateCommitError,
     StaleResultError,
+    FencedAttemptError,
+    LeaseExpiredError,
+    LeaseRevokedError,
+    StaleCheckpointError,
+    CheckpointCommitError,
+    HeartbeatTimeoutError,
     ResultAggregationError,
     TaskRecoveryError,
     TenantTaskIsolationError,
@@ -45,6 +53,13 @@ from chakrview.cognition.federation.tasks.models import (
     ResourceRequirements,
     ResourceExecutionGrant,
     TaskCheckpoint,
+    CheckpointManifest,
+    CheckpointStatus,
+    WorkerLease,
+    LeaseState,
+    ResumeAction,
+    AttemptFenceToken,
+    CommitIdentity,
     TaskResultEnvelope,
     WorkUnit,
     SchedulingDecision,
@@ -59,6 +74,12 @@ from chakrview.cognition.federation.tasks.scheduler import (
 )
 from chakrview.cognition.federation.tasks.checkpoint import (
     TaskCheckpointManager,
+    CheckpointStore,
+)
+from chakrview.cognition.federation.tasks.lease import (
+    WorkerLeaseManager,
+    AttemptFenceManager,
+    DeterministicFailureDetector,
 )
 from chakrview.cognition.federation.tasks.validator import (
     TaskResultValidator,
@@ -89,7 +110,14 @@ __all__ = [
     "CheckpointCorruptionError",
     "InvalidResultError",
     "DuplicateResultError",
+    "DuplicateCommitError",
     "StaleResultError",
+    "FencedAttemptError",
+    "LeaseExpiredError",
+    "LeaseRevokedError",
+    "StaleCheckpointError",
+    "CheckpointCommitError",
+    "HeartbeatTimeoutError",
     "ResultAggregationError",
     "TaskRecoveryError",
     "TenantTaskIsolationError",
@@ -104,15 +132,26 @@ __all__ = [
     "ResourceRequirements",
     "ResourceExecutionGrant",
     "TaskCheckpoint",
+    "CheckpointManifest",
+    "CheckpointStatus",
+    "WorkerLease",
+    "LeaseState",
+    "ResumeAction",
+    "AttemptFenceToken",
+    "CommitIdentity",
     "TaskResultEnvelope",
     "WorkUnit",
     "SchedulingDecision",
     "DistributedTask",
     "DistributedExecutionPlan",
-    # Core Subsystems
+    # Components
     "ExecutionGrantManager",
     "DeterministicTaskScheduler",
     "TaskCheckpointManager",
+    "CheckpointStore",
+    "WorkerLeaseManager",
+    "AttemptFenceManager",
+    "DeterministicFailureDetector",
     "TaskResultValidator",
     "TaskResultAggregator",
     "FederationTaskExecutor",

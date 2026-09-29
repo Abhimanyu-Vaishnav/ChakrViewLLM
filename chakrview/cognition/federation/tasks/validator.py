@@ -1,11 +1,12 @@
 """
-Result Envelope Validation & Idempotency Enforcement (Step 38).
+Result Envelope Validation, Attempt Fencing & Commit Idempotency Enforcement (Steps 38 & 39).
 
 CRITICAL AXIOMS:
 - LOCAL_TASK_AUTHORITY > REMOTE_WORKER_STATE
 - REMOTE RESULT IS NOT AUTOMATICALLY AUTHORITATIVE
-- IDEMPOTENT DEDUPLICATION: Duplicate results from racing or retried workers are rejected.
-- STALE RESULTS DROPPED: Late results from superseded worker attempts are discarded.
+- ATTEMPT FENCING: Results from obsolete, partitioned, or resurrected workers are rejected.
+- IDEMPOTENT DEDUPLICATION & COMMIT GUARDS: Duplicate results and duplicate commits are blocked.
+- LEASE DEADLINE ENFORCEMENT: A worker cannot commit results after its execution lease expires.
 - INTEGRITY VERIFIED: All result payloads are cryptographically validated against their digests.
 """
 
@@ -19,13 +20,17 @@ from chakrview.cognition.federation.tasks.models import (
 from chakrview.cognition.federation.tasks.errors import (
     InvalidResultError,
     DuplicateResultError,
+    DuplicateCommitError,
     StaleResultError,
+    FencedAttemptError,
+    LeaseExpiredError,
 )
 
 
 class TaskResultValidator:
     """
-    Validates incoming worker results against work unit state and security invariants.
+    Validates incoming worker results against work unit state, fencing tokens,
+    lease deadlines, and security invariants.
     """
 
     @staticmethod
@@ -36,7 +41,10 @@ class TaskResultValidator:
         Raises:
             InvalidResultError if envelope data or digest is invalid.
             DuplicateResultError if the unit is already COMPLETED.
+            DuplicateCommitError if the unit has already committed a result.
             StaleResultError if the result attempt is older than the current unit attempt.
+            FencedAttemptError if the result fencing token is superseded or invalid.
+            LeaseExpiredError if the worker lease deadline has expired.
         """
         # 1. Identity match
         if result.task_id != unit.task_id:
@@ -54,10 +62,14 @@ class TaskResultValidator:
                 f"Result from worker '{result.worker_id}' rejected; unit {unit.unit_id} is assigned to '{unit.assigned_node_id}'"
             )
 
-        # 3. Idempotency guard: Duplicate check
+        # 3. Idempotency & Duplicate commit guards
         if unit.state == WorkUnitState.COMPLETED:
             raise DuplicateResultError(
                 f"WorkUnit {unit.unit_id} has already completed. Duplicate result from {result.worker_id} rejected."
+            )
+        if getattr(unit, "committed_result", None) is not None:
+            raise DuplicateCommitError(
+                f"WorkUnit {unit.unit_id} has already committed a result. Duplicate commit blocked."
             )
 
         # 4. Attempt monotonicity: Stale attempt check
@@ -66,14 +78,29 @@ class TaskResultValidator:
                 f"Stale result attempt {result.attempt} for unit {unit.unit_id} rejected; current attempt is {unit.attempt}"
             )
 
-        # 5. Digest integrity verification
+        # 5. Attempt fencing token verification (Step 39)
+        if unit.fencing_token > 0 and result.fencing_token > 0:
+            if result.fencing_token != unit.fencing_token:
+                raise FencedAttemptError(
+                    f"Fenced attempt for unit {unit.unit_id}: result fencing token {result.fencing_token} "
+                    f"!= authoritative active token {unit.fencing_token}"
+                )
+
+        # 6. Worker lease deadline verification (Step 39)
+        if unit.lease is not None:
+            if unit.lease.is_expired():
+                raise LeaseExpiredError(
+                    f"Worker lease {unit.lease.lease_id} expired at {unit.lease.expires_at}. Result rejected."
+                )
+
+        # 7. Digest integrity verification
         if not result.verify_integrity():
             raise InvalidResultError(
                 f"Result envelope for unit {unit.unit_id} failed cryptographic integrity verification. "
                 f"Digest mismatch."
             )
 
-        # 6. Basic sanity checks
+        # 8. Basic sanity checks
         if result.execution_time_ms < 0:
             raise InvalidResultError(
                 f"Invalid execution_time_ms: {result.execution_time_ms} (must be non-negative)"
