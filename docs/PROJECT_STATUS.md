@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 36 — Production Federation Message Transport & Secure Inter-Node Communication
-- **Status**: Complete & Verified (Production federation message transport, binary length-prefixed framing [1 MB ceiling, strict big-endian uint32, zero-length rejection], deterministic canonical UTF-8 JSON codec with recursive prohibited payload scanner blocking secrets, private keys, model weights, and tensors; strongly typed FederationMessageEnvelope with Ed25519 canonical signing and deterministic SHA-256 payload digest verification; FederationChannel with 9-state fail-closed lifecycle state machine [DISCONNECTED, CONNECTING, AUTHENTICATING, ESTABLISHED, DEGRADED, CLOSING, CLOSED, QUARANTINED, REVOKED]; session binding, strictly monotonic sequence enforcement [seq > last_seen], in-memory replay defense cache [message_id uniqueness]; sovereign local message dispatch via CapabilityGate; tenant boundary isolation; bounded exponential backoff reconnection via Step 35 secure rejoin; default-deny inbound server bounded by MAX_MEMBERSHIP_NODES=16; durable write-ahead journal and audit logging; 1,045 / 1,045 tests passing across 81 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+- **Current phase**: Step 38 — Production Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity
+- **Status**: Complete & Verified (Production distributed task orchestration, idempotent work units, deterministic multi-dimensional scheduling, sovereign ResourceExecutionGrant authorization [LOCAL_ONLY, USER_APPROVED, TRUSTED_FEDERATION, TASK_SCOPED, TIME_LIMITED, RESOURCE_LIMITED], CapabilityGate execution mediation, cryptographically signed and SHA-256 digested TaskCheckpoint state continuity, monotonic checkpoint sequencing [seq > last_seen], worker failure detection and task reassignment, result envelope validation and deduplication, typed result aggregation [CONCATENATE, MERGE_DICT, REDUCE_SUM, CUSTOM_REGISTERED], 1,100 / 1,100 tests passing across 83 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 ---
 
@@ -227,7 +227,8 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **1,080/1,080 Tests Passing** across 82 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **1,100/1,100 Tests Passing** across 83 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 20 Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity tests (`test_federation_tasks.py`)
   - 35 Distributed Resource & Capability Advertisement tests (`test_federation_resources.py`)
   - 42 Production Federation Message Transport & Secure Inter-Node Communication tests (`test_federation_transport.py`)
   - 45 Federation Coordination, Security Journal & Crash Recovery tests (`test_federation_runtime.py`)
@@ -260,6 +261,11 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_38_FEDERATION_TASKS_ARCHITECTURE.md` (Step 38 Architecture Specification)
+  - `docs/STEP_38_THREAT_MODEL.md` (Step 38 Threat Model)
+  - `docs/STEP_38_BENCHMARK_RESULTS.json` (Step 38 Empirical Benchmark Data)
+  - `docs/STEP_38_RATIFICATION_REPORT.md` (Step 38 Formal Ratification Report)
+  - `docs/STEP_38_REPOSITORY_AUDIT.md` (Step 38 Repository Audit Findings)
   - `docs/STEP_37_FEDERATION_RESOURCES_ARCHITECTURE.md` (Step 37 Architecture Specification)
   - `docs/STEP_37_THREAT_MODEL.md` (Step 37 Threat Model)
   - `docs/STEP_37_BENCHMARK_RESULTS.json` (Step 37 Empirical Benchmark Data)
@@ -310,5 +316,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 37 RATIFIED — DISTRIBUTED RESOURCE & CAPABILITY ADVERTISEMENT COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 38 (Awaiting user explicit command; DO NOT START STEP 38 AUTOMATICALLY).
+- **Decision**: **STEP 38 RATIFIED — PRODUCTION DISTRIBUTED RESOURCE ORCHESTRATION, FAULT-TOLERANT TASK EXECUTION & WORK CONTINUITY COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 39 (Awaiting user explicit command; DO NOT START STEP 39 AUTOMATICALLY).
