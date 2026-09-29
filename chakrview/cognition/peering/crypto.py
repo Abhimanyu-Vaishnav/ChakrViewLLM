@@ -128,6 +128,10 @@ class Ed25519PrivateKeyWrapper:
         """Return the corresponding public key wrapper."""
         return self._public_wrapper
 
+    def get_public_key(self) -> Ed25519PublicKeyWrapper:
+        """Alias for public_key()."""
+        return self.public_key()
+
     def sign(self, message: bytes) -> bytes:
         """
         Compute detached 64-byte Ed25519 signature over arbitrary message bytes.
@@ -188,6 +192,8 @@ class CryptographicPeerIdentity:
     architecture_version: str = "0.1"
     revocation_record: Optional[KeyRevocationRecord] = None
     rotation_history: List[Dict[str, Any]] = field(default_factory=list)
+    retired_key_fingerprints: Set[str] = field(default_factory=set)
+    retired_keys: List[Ed25519PublicKeyWrapper] = field(default_factory=list)
 
     @classmethod
     def create(
@@ -227,6 +233,14 @@ class CryptographicPeerIdentity:
             return False, f"Cryptographic identity is EXPIRED at epoch {self.expires_epoch} (current {current_epoch})"
         return True, "Key is active and valid"
 
+    def is_key_retired(self, key_or_fingerprint: Any) -> bool:
+        """Check if a key or key fingerprint belonged to a previously retired key."""
+        if isinstance(key_or_fingerprint, str):
+            return key_or_fingerprint in self.retired_key_fingerprints
+        if hasattr(key_or_fingerprint, "fingerprint"):
+            return key_or_fingerprint.fingerprint in self.retired_key_fingerprints
+        return False
+
     def revoke(self, reason: str, revoked_epoch: int, revoked_by: str = "local_authority") -> KeyRevocationRecord:
         """Revoke key state immediately."""
         rec = KeyRevocationRecord(
@@ -246,15 +260,29 @@ class CryptographicPeerIdentity:
         signature_from_old_key: str,
     ) -> None:
         """
-        Record key rotation metadata.
+        Record key rotation metadata. Fails closed if identity is revoked or expired.
         """
+        if self.key_state == KeyLifecycleState.REVOKED:
+            raise KeyStateError("Cannot rotate key: identity has been explicitly REVOKED.")
+        if self.key_state == KeyLifecycleState.EXPIRED:
+            raise KeyStateError("Cannot rotate key: identity has EXPIRED.")
+
         # Verify signature from old key authorizing rotation to new key
         proof_payload = f"ROTATE_KEY:{self.public_key.fingerprint}:{new_public_key.fingerprint}:{rotation_epoch}".encode("utf-8")
-        if not self.public_key.verify(bytes.fromhex(signature_from_old_key), proof_payload):
+        try:
+            sig_bytes = bytes.fromhex(signature_from_old_key.strip())
+        except Exception as e:
+            raise SignatureVerificationError(f"Malformed key rotation proof signature: {e}")
+
+        if not self.public_key.verify(sig_bytes, proof_payload):
             raise SignatureVerificationError("Key rotation proof signature is invalid.")
 
+        old_fingerprint = self.public_key.fingerprint
+        self.retired_key_fingerprints.add(old_fingerprint)
+        self.retired_keys.append(self.public_key)
+
         self.rotation_history.append({
-            "previous_key_fingerprint": self.public_key.fingerprint,
+            "previous_key_fingerprint": old_fingerprint,
             "new_key_fingerprint": new_public_key.fingerprint,
             "rotation_epoch": rotation_epoch,
             "proof_signature": signature_from_old_key,
@@ -275,4 +303,5 @@ class CryptographicPeerIdentity:
             "architecture_version": self.architecture_version,
             "has_revocation": self.revocation_record is not None,
             "rotation_count": len(self.rotation_history),
+            "retired_keys_count": len(self.retired_key_fingerprints),
         }

@@ -1,0 +1,81 @@
+{
+  "step": 32,
+  "title": "Secure Federation Session & Key Lifecycle Hardening Benchmark",
+  "iterations": 200,
+  "session_creation": {
+    "mean_ms": 0.0257,
+    "p95_ms": 0.0346,
+    "min_ms": 0.021,
+    "max_ms": 0.0874,
+    "throughput_ops_sec": 38981.8
+  },
+  "authentication_activation": {
+    "mean_ms": 0.0255,
+    "p95_ms": 0.0328,
+    "min_ms": 0.0224,
+    "max_ms": 0.07,
+    "throughput_ops_sec": 39163.47
+  },
+  "session_renewal": {
+    "mean_ms": 0.0284,
+    "p95_ms": 0.0347,
+    "min_ms": 0.0223,
+    "max_ms": 0.2236,
+    "throughput_ops_sec": 35170.4
+  },
+  "session_termination": {
+    "mean_ms": 0.0225,
+    "p95_ms": 0.0264,
+    "min_ms": 0.0194,
+    "max_ms": 0.1015,
+    "throughput_ops_sec": 44514.68
+  },
+  "key_rotation": {
+    "mean_ms": 0.3164,
+    "p95_ms": 0.3667,
+    "min_ms": 0.2513,
+    "max_ms": 0.4882,
+    "throughput_ops_sec": 3161.01
+  },
+  "certificate_rotation": {
+    "mean_ms": 0.0485,
+    "p95_ms": 0.0652,
+    "min_ms": 0.0427,
+    "max_ms": 0.0785,
+    "throughput_ops_sec": 20610.06
+  },
+  "replay_sequence_verification": {
+    "mean_ms": 0.0204,
+    "p95_ms": 0.0248,
+    "min_ms": 0.0171,
+    "max_ms": 0.3696,
+    "throughput_ops_sec": 49031.63
+  },
+  "revocation_cascade": {
+    "mean_ms": 0.2713,
+    "p95_ms": 0.4815,
+    "min_ms": 0.246,
+    "max_ms": 0.4815,
+    "throughput_ops_sec": 3686.18
+  },
+  "complete_secure_lifecycle": {
+    "mean_ms": 108.2909,
+    "p95_ms": 115.6332,
+    "min_ms": 101.2524,
+    "max_ms": 142.3113,
+    "throughput_ops_sec": 9.23
+  },
+  "memory_overhead": {
+    "current_mem_mb": 1.785,
+    "peak_mem_mb": 4.79
+  },
+  "neural_core_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "pre_hash": "69979a5d77dec8ed2612c9d36b3d324fa47bd2259c17bf9d51cb57a16bac549e",
+    "post_hash": "69979a5d77dec8ed2612c9d36b3d324fa47bd2259c17bf9d51cb57a16bac549e",
+    "delta_w": 0,
+    "verified": true
+  }
+}

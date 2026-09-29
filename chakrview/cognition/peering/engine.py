@@ -59,6 +59,7 @@ from chakrview.cognition.peering.crypto import (
     CryptographicPeerIdentity,
     KeyLifecycleState,
     SignatureVerificationError,
+    KeyStateError,
 )
 from chakrview.cognition.peering.authentication import (
     AuthChallenge,
@@ -71,6 +72,8 @@ from chakrview.cognition.peering.authentication import (
 from chakrview.cognition.peering.session import (
     SecurePeerSession,
     SessionStatus,
+    SessionTransitionError,
+    SessionKeyState,
 )
 from chakrview.cognition.transport.models import (
     WireEnvelope,
@@ -86,7 +89,12 @@ from chakrview.cognition.transport.security import (
     CertificateMetadata,
     PeerCertificateBinding,
     PeerCertificateBinder,
+    CertificateRevocationRegistry,
     validate_certificate,
+    validate_certificate_or_raise,
+    parse_certificate_from_pem,
+    parse_certificate_from_der,
+    extract_certificate_metadata,
     CertificateValidationError,
     PeerBindingMismatchError,
 )
@@ -137,6 +145,7 @@ class CrossZoneFederationEngine:
         self.authenticator = ChallengeResponseAuthenticator()
         self.sessions: Dict[str, SecurePeerSession] = {}
         self.certificate_binder = PeerCertificateBinder()
+        self.certificate_revocation_registry = CertificateRevocationRegistry()
 
     # ========================================================================
 
@@ -464,13 +473,53 @@ class CrossZoneFederationEngine:
         revoked_by: str = "local_authority",
     ) -> RevocationRecord:
         """
-        Administratively revoke peer trust and invalidate active grants immediately.
+        Administratively revoke peer trust and trigger full revocation cascade (Step 32):
+        1. Log REVOCATION_CASCADE_TRIGGERED
+        2. Invalidate trust grant and peer registration in registry
+        3. Revoke peer's cryptographic identity
+        4. Invalidate and revoke all active sessions for this peer
+        5. Deactivate and unbind certificate bindings
+        6. Log REVOCATION_CASCADE_COMPLETED and FEDERATION_REVOKED
         """
+        self.audit_logger.log(
+            event_type=AuditEventType.REVOCATION_CASCADE_TRIGGERED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"reason": reason, "revoked_by": revoked_by},
+        )
+
         record = self.registry.revoke_peer(
             peer_id=peer_id,
             reason=reason,
             revoked_epoch=self.current_epoch,
             revoked_by=revoked_by,
+        )
+
+        # Invalidate cryptographic identity if present
+        reg = self.registry.get_peer(peer_id)
+        if reg and reg.cryptographic_identity:
+            reg.cryptographic_identity.revoke(
+                reason=reason,
+                revoked_epoch=self.current_epoch,
+                revoked_by=revoked_by,
+            )
+
+        # Invalidate all active sessions for this peer
+        revoked_session_count = 0
+        for sid, sess in list(self.sessions.items()):
+            if sess.remote_peer_id == peer_id:
+                sess.revoke(reason=f"Peer revoked: {reason}")
+                revoked_session_count += 1
+
+        # Deactivate certificate binding
+        self.certificate_binder.unbind_peer(peer_id)
+
+        self.audit_logger.log(
+            event_type=AuditEventType.REVOCATION_CASCADE_COMPLETED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            zone_id=record.zone_id,
+            details={"revoked_sessions": revoked_session_count, "reason": reason},
         )
 
         self.audit_logger.log(
@@ -695,6 +744,266 @@ class CrossZoneFederationEngine:
         """Retrieve active or cached secure peer session."""
         return self.sessions.get(session_id)
 
+    def terminate_session(self, session_id: str, reason: str = "Administrative termination") -> None:
+        """
+        Explicitly terminate a secure peer session, invalidating session keys and context.
+        """
+        session = self.sessions.get(session_id)
+        if not session:
+            raise CrossZoneAuthorizationError(f"Session '{session_id}' not found.")
+        session.terminate(reason=reason)
+        self.audit_logger.log(
+            event_type=AuditEventType.SESSION_TERMINATED,
+            epoch=self.current_epoch,
+            peer_id=session.remote_peer_id,
+            session_id=session.session_id,
+            details={"reason": reason},
+        )
+
+    def renew_session(
+        self,
+        session_id: str,
+        extension_epochs: int = 25,
+        renewal_proof_signature: Optional[str] = None,
+    ) -> SecurePeerSession:
+        """
+        Harden session freshness: renew an active session without authority or trust escalation.
+        Enforces:
+        - Session must exist and be in RENEWING / ACTIVE state.
+        - Peer identity must not be revoked or expired.
+        - Cryptographic key must be valid.
+        - Peer trust grant must be active and unexpired.
+        - Session renewal boundary cannot exceed peer trust grant expiry epoch.
+        - Bounded maximum renewals and bounded lifetime.
+        - Renewal proof signature verified if provided.
+        - Capability scope remains strictly immutable.
+        """
+        session = self.sessions.get(session_id)
+        if not session:
+            raise CrossZoneAuthorizationError(f"Session '{session_id}' not found.")
+
+        reg = self.registry.get_peer(session.remote_peer_id)
+        if not reg or reg.discovery_status == DiscoveryStatus.REVOKED or reg.revocation_record:
+            self.audit_logger.log(
+                event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                epoch=self.current_epoch,
+                peer_id=session.remote_peer_id,
+                session_id=session_id,
+                details={"reason": "Remote peer is revoked or unregistered."},
+            )
+            raise CrossZoneAuthorizationError("Cannot renew session: peer is revoked or unregistered.")
+
+        crypto_id = getattr(reg, "cryptographic_identity", None)
+        if not crypto_id:
+            raise CrossZoneAuthorizationError("Cannot renew session: peer has no cryptographic identity.")
+        key_valid, key_reason = crypto_id.is_valid(self.current_epoch)
+        if not key_valid:
+            self.audit_logger.log(
+                event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                epoch=self.current_epoch,
+                peer_id=session.remote_peer_id,
+                session_id=session_id,
+                details={"reason": f"Cryptographic key invalid: {key_reason}"},
+            )
+            raise CrossZoneAuthorizationError(f"Cannot renew session: peer key invalid: {key_reason}")
+
+        # Trust grant must be active and unexpired (SESSION_RENEWAL != TRUST_RENEWAL)
+        if not reg.trust_grant or reg.trust_grant.is_expired(self.current_epoch):
+            self.audit_logger.log(
+                event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                epoch=self.current_epoch,
+                peer_id=session.remote_peer_id,
+                session_id=session_id,
+                details={"reason": "Peer trust grant expired or missing."},
+            )
+            raise CrossZoneAuthorizationError("Cannot renew session: peer trust grant is expired or missing.")
+
+        # Session cannot be renewed beyond trust grant expiration epoch
+        if session.expires_at_epoch >= reg.trust_grant.expires_epoch:
+            self.audit_logger.log(
+                event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                epoch=self.current_epoch,
+                peer_id=session.remote_peer_id,
+                session_id=session_id,
+                details={"reason": "Session boundary already reached trust grant expiration epoch."},
+            )
+            raise CrossZoneAuthorizationError("Cannot renew session beyond trust grant expiration epoch.")
+
+        effective_extension = min(extension_epochs, reg.trust_grant.expires_epoch - session.expires_at_epoch)
+
+        # Optional renewal proof signature verification
+        if renewal_proof_signature:
+            proof_payload = f"RENEW_SESSION:{session.session_id}:{session.renewal_count + 1}:{self.current_epoch}".encode("utf-8")
+            try:
+                sig_bytes = bytes.fromhex(renewal_proof_signature.strip())
+                if not crypto_id.public_key.verify(sig_bytes, proof_payload):
+                    raise SignatureVerificationError("Renewal proof signature is invalid.")
+            except Exception as e:
+                self.audit_logger.log(
+                    event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                    epoch=self.current_epoch,
+                    peer_id=session.remote_peer_id,
+                    session_id=session_id,
+                    details={"reason": f"Invalid renewal signature: {e}"},
+                )
+                raise SignatureVerificationError(f"Session renewal proof signature verification failed: {e}")
+
+        # Transition through RENEWING to ACTIVE with bounded lifetime check
+        try:
+            session.renew(extension_epochs=effective_extension, current_epoch=self.current_epoch)
+        except Exception as e:
+            self.audit_logger.log(
+                event_type=AuditEventType.SESSION_RENEWAL_FAILED,
+                epoch=self.current_epoch,
+                peer_id=session.remote_peer_id,
+                session_id=session_id,
+                details={"reason": str(e)},
+            )
+            raise
+
+        self.audit_logger.log(
+            event_type=AuditEventType.SESSION_RENEWED,
+            epoch=self.current_epoch,
+            peer_id=session.remote_peer_id,
+            session_id=session.session_id,
+            details={
+                "new_expires_at_epoch": session.expires_at_epoch,
+                "renewal_count": session.renewal_count,
+            },
+        )
+        return session
+
+    def rotate_peer_key(
+        self,
+        peer_id: str,
+        new_public_key: Ed25519PublicKeyWrapper,
+        rotation_proof_signature: str,
+    ) -> None:
+        """
+        Harden Ed25519 peer identity key rotation.
+        Enforces:
+        - KEY_ROTATION != TRUST_GRANT
+        - KEY_ROTATION != CAPABILITY_ESCALATION
+        - Fails closed on revoked peer or invalid proof.
+        - Retires old key and updates active sessions.
+        """
+        self.audit_logger.log(
+            event_type=AuditEventType.KEY_ROTATION_STARTED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"new_fingerprint": new_public_key.fingerprint},
+        )
+        reg = self.registry.get_peer(peer_id)
+        if not reg or reg.discovery_status == DiscoveryStatus.REVOKED or reg.revocation_record:
+            self.audit_logger.log(
+                event_type=AuditEventType.KEY_ROTATION_FAILED,
+                epoch=self.current_epoch,
+                peer_id=peer_id,
+                details={"reason": "Cannot rotate key: peer is revoked or unregistered."},
+            )
+            raise KeyStateError("Cannot rotate key: peer is revoked or unregistered.")
+
+        crypto_id = getattr(reg, "cryptographic_identity", None)
+        if not crypto_id:
+            self.audit_logger.log(
+                event_type=AuditEventType.KEY_ROTATION_FAILED,
+                epoch=self.current_epoch,
+                peer_id=peer_id,
+                details={"reason": "Peer has no cryptographic identity."},
+            )
+            raise KeyStateError("Cannot rotate key: peer has no cryptographic identity.")
+
+        try:
+            crypto_id.rotate_key(
+                new_public_key=new_public_key,
+                rotation_epoch=self.current_epoch,
+                signature_from_old_key=rotation_proof_signature,
+            )
+        except Exception as e:
+            self.audit_logger.log(
+                event_type=AuditEventType.KEY_ROTATION_FAILED,
+                epoch=self.current_epoch,
+                peer_id=peer_id,
+                details={"reason": str(e)},
+            )
+            raise
+
+        # Update active sessions remote key binding
+        for sess in self.sessions.values():
+            if sess.remote_peer_id == peer_id:
+                sess.remote_public_key = new_public_key
+                if sess.session_key_metadata:
+                    sess.session_key_metadata.key_state = SessionKeyState.ROTATING
+                    sess.session_key_metadata.key_state = SessionKeyState.ACTIVE
+
+        self.audit_logger.log(
+            event_type=AuditEventType.KEY_ROTATION_COMPLETED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"active_fingerprint": new_public_key.fingerprint},
+        )
+
+    def rotate_peer_certificate(
+        self,
+        peer_id: str,
+        new_certificate_metadata: CertificateMetadata,
+        expected_common_name: Optional[str] = None,
+        expected_san: Optional[str] = None,
+    ) -> PeerCertificateBinding:
+        """
+        Harden TLS certificate rotation and peer identity binding.
+        Enforces:
+        - CERTIFICATE_ROTATION != AUTHORIZATION
+        - CERTIFICATE_ROTATION != TRUST_RENEWAL
+        - Replacement certificate must pass validity checks.
+        - Binds new certificate fingerprint to existing peer identity.
+        """
+        self.audit_logger.log(
+            event_type=AuditEventType.CERTIFICATE_ROTATION_STARTED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"new_fingerprint": new_certificate_metadata.fingerprint},
+        )
+        reg = self.registry.get_peer(peer_id)
+        if not reg or reg.discovery_status == DiscoveryStatus.REVOKED or reg.revocation_record:
+            self.audit_logger.log(
+                event_type=AuditEventType.CERTIFICATE_ROTATION_FAILED,
+                epoch=self.current_epoch,
+                peer_id=peer_id,
+                details={"reason": "Cannot rotate certificate: peer is revoked or unregistered."},
+            )
+            raise CertificateValidationError("Cannot rotate certificate: peer is revoked or unregistered.")
+
+        cert_valid, cert_reason = validate_certificate(
+            new_certificate_metadata,
+            revocation_registry=self.certificate_revocation_registry,
+            current_time=time.time(),
+        )
+        if not cert_valid:
+            self.audit_logger.log(
+                event_type=AuditEventType.CERTIFICATE_ROTATION_FAILED,
+                epoch=self.current_epoch,
+                peer_id=peer_id,
+                details={"reason": cert_reason, "fingerprint": new_certificate_metadata.fingerprint},
+            )
+            raise CertificateValidationError(f"Certificate rotation rejected: {cert_reason}")
+
+        binding = self.certificate_binder.bind_peer(
+            peer_id=peer_id,
+            certificate_fingerprint=new_certificate_metadata.fingerprint,
+            expected_common_name=expected_common_name,
+            expected_san=expected_san,
+            epoch=self.current_epoch,
+        )
+
+        self.audit_logger.log(
+            event_type=AuditEventType.CERTIFICATE_ROTATION_COMPLETED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"fingerprint": new_certificate_metadata.fingerprint},
+        )
+        return binding
+
     # ========================================================================
     # 11. Wire-Level Request Authorization & Execution (Steps 30 & 31)
     # ========================================================================
@@ -752,6 +1061,7 @@ class CrossZoneFederationEngine:
             if peer_certificate_metadata is not None:
                 cert_valid, cert_reason = validate_certificate(
                     peer_certificate_metadata,
+                    revocation_registry=self.certificate_revocation_registry,
                     current_time=time.time(),
                 )
                 if not cert_valid:
@@ -829,7 +1139,23 @@ class CrossZoneFederationEngine:
                 )
                 raise CrossZoneAuthorizationError(f"Peer cryptographic key invalid: {key_reason}")
 
-            # 4. Verify cryptographic signature
+            # Step 32: Check retired key signature rejection
+            is_retired_sig = False
+            if hasattr(crypto_id, "retired_keys"):
+                for old_k in crypto_id.retired_keys:
+                    if envelope.verify_signature(old_k):
+                        is_retired_sig = True
+                        break
+            if is_retired_sig or (hasattr(crypto_id, "is_key_retired") and envelope.payload.get("key_fingerprint") and crypto_id.is_key_retired(envelope.payload.get("key_fingerprint"))):
+                self.audit_logger.log(
+                    event_type=AuditEventType.AUTHENTICATION_FAILED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    details={"reason": "WireEnvelope signed by retired key rejected."},
+                )
+                raise SignatureVerificationError("WireEnvelope Ed25519 signature from retired key rejected.")
+
+            # 4. Verify cryptographic signature against current active key
             if not envelope.verify_signature(crypto_id.public_key):
                 self.audit_logger.log(
                     event_type=AuditEventType.AUTHENTICATION_FAILED,
@@ -842,14 +1168,39 @@ class CrossZoneFederationEngine:
             # 5. Verify session & replay protection
             session = self.sessions.get(envelope.session_id)
             if not session:
+                self.audit_logger.log(
+                    event_type=AuditEventType.STALE_AUTHORIZATION_DENIED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    details={"reason": f"Session '{envelope.session_id}' not found."},
+                )
                 raise CrossZoneAuthorizationError(f"Session '{envelope.session_id}' not found.")
 
             sess_valid, sess_reason = session.is_active(self.current_epoch)
             if not sess_valid:
+                self.audit_logger.log(
+                    event_type=AuditEventType.STALE_AUTHORIZATION_DENIED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    session_id=session.session_id,
+                    details={"reason": f"Session inactive: {sess_reason}"},
+                )
                 raise CrossZoneAuthorizationError(f"Session '{envelope.session_id}' inactive: {sess_reason}")
 
             if session.remote_peer_id != envelope.sender_peer_id or session.local_peer_id != envelope.receiver_peer_id:
                 raise CrossZoneAuthorizationError("Envelope peer bindings do not match session.")
+
+            # Sequence number monotonicity check if sequence_number present
+            seq_num = envelope.payload.get("sequence_number")
+            if seq_num is not None and not session.record_and_check_sequence(seq_num):
+                self.audit_logger.log(
+                    event_type=AuditEventType.REPLAY_ATTACK_DETECTED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    session_id=session.session_id,
+                    details={"out_of_order_sequence": seq_num, "expected_min": session.last_seen_sequence_number + 1},
+                )
+                raise ReplayAttackError(f"Out-of-order or duplicate sequence number: {seq_num}")
 
             # Replay protection check
             if not session.record_and_check_message_id(envelope.message_id):
@@ -945,3 +1296,6 @@ class CrossZoneFederationEngine:
         except Exception:
             self._verify_weight_invariants(pre_hash)
             raise
+
+
+FederationEngine = CrossZoneFederationEngine
