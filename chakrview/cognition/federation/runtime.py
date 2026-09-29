@@ -81,6 +81,7 @@ class FederationRuntime:
         self.store = store
         self.recovery_manager = FederationRecoveryManager(store=self.store) if self.store else None
         self.journal = SecurityStateJournal()
+        self.engine.runtime = self
 
         # Step 35 Node Membership Manager
         if membership_manager:
@@ -121,6 +122,18 @@ class FederationRuntime:
         with self._lock:
             return self._status == EngineRuntimeStatus.RUNNING
 
+    @property
+    def dispatcher(self) -> Any:
+        return getattr(self.engine, "dispatcher", None)
+
+    @property
+    def transport_client(self) -> Any:
+        return getattr(self.engine, "transport_client", None)
+
+    @property
+    def transport_server(self) -> Any:
+        return getattr(self.engine, "transport_server", None)
+
     # ========================================================================
     # 1. Runtime Lifecycle (Phase 5)
     # ========================================================================
@@ -141,6 +154,14 @@ class FederationRuntime:
                 raise RuntimeLifecycleError(
                     f"Runtime failed to start: recovery error: {manifest.failure_reason}"
                 )
+            self.last_recovery_manifest = manifest
+            if self.store:
+                entries = self.store.read_journal_entries()
+                if entries:
+                    try:
+                        self.journal.load_entries(entries)
+                    except Exception:
+                        pass
 
         with self._lock:
             self._status = EngineRuntimeStatus.RUNNING
@@ -181,6 +202,15 @@ class FederationRuntime:
             journal_offset=offset,
         )
         return snap
+
+    def flush_journal_to_store(self) -> None:
+        """Persist unwritten in-memory journal entries to durable store."""
+        if not self.store:
+            return
+        last_seq = self.store.get_last_journal_sequence()
+        for entry in self.journal.entries:
+            if entry.sequence_num > last_seq:
+                self.store.append_journal_entry(entry)
 
     # ========================================================================
     # 2. Engine Management & Registration
