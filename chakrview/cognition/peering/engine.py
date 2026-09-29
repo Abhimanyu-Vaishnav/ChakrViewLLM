@@ -200,6 +200,50 @@ class CrossZoneFederationEngine:
             self._membership_manager = runtime.membership_manager
 
     @property
+    def connection_manager(self) -> Any:
+        if not hasattr(self, "_connection_manager") or self._connection_manager is None:
+            from chakrview.cognition.federation.discovery.connection import FederationConnectionManager
+            self._connection_manager = FederationConnectionManager(engine=self)
+        return self._connection_manager
+
+    @connection_manager.setter
+    def connection_manager(self, mgr: Any) -> None:
+        self._connection_manager = mgr
+
+    @property
+    def dispatcher(self) -> Any:
+        if not hasattr(self, "_dispatcher") or self._dispatcher is None:
+            from chakrview.cognition.federation.transport.dispatcher import FederationMessageDispatcher
+            self._dispatcher = FederationMessageDispatcher(engine=self)
+        return self._dispatcher
+
+    @dispatcher.setter
+    def dispatcher(self, d: Any) -> None:
+        self._dispatcher = d
+
+    @property
+    def transport_client(self) -> Any:
+        if not hasattr(self, "_transport_client") or self._transport_client is None:
+            from chakrview.cognition.federation.transport.client import FederationTransportClient
+            self._transport_client = FederationTransportClient(engine=self)
+        return self._transport_client
+
+    @transport_client.setter
+    def transport_client(self, c: Any) -> None:
+        self._transport_client = c
+
+    @property
+    def transport_server(self) -> Any:
+        if not hasattr(self, "_transport_server") or self._transport_server is None:
+            from chakrview.cognition.federation.transport.server import FederationTransportServer
+            self._transport_server = FederationTransportServer(engine=self, dispatcher=self.dispatcher)
+        return self._transport_server
+
+    @transport_server.setter
+    def transport_server(self, s: Any) -> None:
+        self._transport_server = s
+
+    @property
     def engine_identity(self) -> FederationEngineIdentity:
         return self.coordinator.engine_identity
 
