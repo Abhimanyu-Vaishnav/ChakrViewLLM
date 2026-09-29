@@ -227,7 +227,11 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **916/916 Tests Passing** across 77 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **1,080/1,080 Tests Passing** across 82 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 35 Distributed Resource & Capability Advertisement tests (`test_federation_resources.py`)
+  - 42 Production Federation Message Transport & Secure Inter-Node Communication tests (`test_federation_transport.py`)
+  - 45 Federation Coordination, Security Journal & Crash Recovery tests (`test_federation_runtime.py`)
+  - 42 Secure Membership, Handshake, Heartbeat & Revocation Cascade tests (`test_federation_security.py`)
   - 27 Secure Federation Session & Key Lifecycle Hardening tests (`test_session_key_lifecycle.py`)
   - 27 Production Transport Security, TLS/mTLS & Certificate Lifecycle tests (`test_transport_security.py`)
   - 29 Secure Physical Transport & Cryptographic Peer Identity tests (`test_secure_transport.py`)
@@ -256,59 +260,18 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
-  - `docs/STEP_32_SESSION_KEY_LIFECYCLE_ARCHITECTURE.md` (Step 32 Architecture Specification)
-  - `docs/STEP_32_THREAT_MODEL.md` (Step 32 Threat Model)
-  - `docs/STEP_32_BENCHMARK_RESULTS.json` (Step 32 Empirical Benchmark Data)
-  - `docs/STEP_32_RATIFICATION_REPORT.md` (Step 32 Formal Ratification Report)
-  - `docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md` (Step 31 Architecture Specification)
-  - `docs/STEP_31_THREAT_MODEL.md` (Step 31 Threat Model)
-  - `docs/STEP_31_BENCHMARK_RESULTS.json` (Step 31 Empirical Benchmark Data)
-  - `docs/STEP_31_RATIFICATION_REPORT.md` (Step 31 Formal Ratification Report)
-  - `docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md` (Step 30 Architecture Specification)
-  - `docs/STEP_30_BENCHMARK_RESULTS.json` (Step 30 Empirical Benchmark Data)
-  - `docs/STEP_30_RATIFICATION_REPORT.md` (Step 30 Formal Ratification Report)
-  - `docs/STEP_29_CROSS_ZONE_PEERING_ARCHITECTURE.md` (Step 29 Architecture Specification)
-  - `docs/STEP_29_BENCHMARK_RESULTS.json` (Step 29 Empirical Benchmark Data)
-  - `docs/STEP_28_ADAPTIVE_COGNITIVE_ORCHESTRATION_ARCHITECTURE.md` (Step 28 Architecture Specification)
-  - `docs/STEP_28_BENCHMARK_RESULTS.json` (Step 28 Empirical Benchmark Data)
-  - `docs/STEP_27_DISTRIBUTED_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 27 Architecture Specification)
-  - `docs/STEP_27_BENCHMARK_RESULTS.json` (Step 27 Empirical Benchmark Data)
-  - `docs/STEP_26_FEDERATED_COGNITION_ARCHITECTURE.md` (Step 26 Architecture Report)
-  - `docs/STEP_26_BENCHMARK_RESULTS.json` (Step 26 Empirical Benchmark Data)
-  - `docs/STEP_25_UNIFIED_COGNITIVE_ARCHITECTURE.md` (Step 25 Architecture Report)
-  - `docs/STEP_25_BENCHMARK_RESULTS.json` (Step 25 Empirical Benchmark Data)
-  - `docs/STEP_24_MEMORY_CONTINUAL_COGNITION_ARCHITECTURE.md` (Step 24 Architecture Report)
-  - `docs/STEP_24_BENCHMARK_RESULTS.json` (Step 24 Empirical Benchmark Data)
-  - `docs/STEP_23_CRITICAL_THINKING_ADAPTIVE_ARCHITECTURE.md` (Step 23 Architecture Report)
-  - `docs/STEP_23_BENCHMARK_RESULTS.json` (Step 23 Empirical Benchmark Data)
-  - `docs/STEP_22_NEURAL_LEARNING_ARCHITECTURE.md` (Step 22 Neural Learning Architecture Report)
-  - `docs/STEP_22_BENCHMARK_RESULTS.json` (Step 22 Empirical Training Benchmark Data)
-  - `docs/STEP_21_NEURAL_THINKING_ARCHITECTURE.md` (Step 21 Neural Thinking Architecture Report)
-  - `docs/STEP_21_BENCHMARK_RESULTS.json` (Step 21 Empirical Thinking Benchmark Data)
-  - `docs/STEP_20_NEURAL_INTELLIGENCE_ARCHITECTURE.md` (Step 20 Neural Reasoning Architecture Report)
-  - `docs/STEP_20_BENCHMARK_RESULTS.json` (Step 20 Empirical Intelligence Loop Benchmark Data)
-  - `docs/STEP_19_REASONING_ARCHITECTURE.md` (Step 19 Governed Cognitive Reasoning Architecture Report)
-  - `docs/STEP_19_BENCHMARK_RESULTS.json` (Step 19 Empirical Reasoning Benchmark Data)
-  - `docs/STEP_18_COGNITIVE_STATE_ARCHITECTURE.md` (Step 18 Cognitive Identity Architecture Report)
-  - `docs/STEP_18_BENCHMARK_RESULTS.json` (Step 18 Empirical State Benchmark Data)
-  - `docs/STEP_17_CAPABILITY_ARCHITECTURE.md` (Step 17 Capability Architecture Report)
-  - `docs/STEP_17_BENCHMARK_RESULTS.json` (Step 17 Empirical Capability Benchmark Data)
-  - `docs/STEP_16_PERSISTENT_MEMORY.md` (Step 16 Persistent Personal Memory Report)
-  - `docs/STEP_16_BENCHMARK_RESULTS.json` (Step 16 Empirical Memory Benchmark Data)
-  - `docs/STEP_15_COGNITIVE_AGENT.md` (Step 15 Cognitive Agent Report)
-  - `docs/STEP_15_BENCHMARK_RESULTS.json` (Step 15 Empirical Cognitive Agent Benchmark Data)
-  - `docs/STEP_14_SEMANTIC_ENCODER.md` (Step 14 Semantic Encoder Architecture Report)
-  - `docs/STEP_14_BENCHMARK_RESULTS.json` (Step 14 Empirical Semantic Encoder Benchmark Data)
-  - `docs/STEP_13_HYBRID_RETRIEVAL.md` (Step 13 Hybrid Memory Report)
-  - `docs/STEP_13_BENCHMARK_RESULTS.json` (Step 13 Empirical Hybrid Retrieval Benchmark Data)
-  - `docs/STEP_12_CONVERSATIONAL_MEMORY.md` (Step 12 Conversational State Report)
-  - `docs/STEP_12_BENCHMARK_RESULTS.json` (Step 12 Empirical Conversational Memory Benchmark Data)
-  - `docs/STEP_11_RAG_SKILL_INTEGRATION.md` (Step 11 RAG Subsystem Report)
-  - `docs/STEP_11_BENCHMARK_RESULTS.json` (Step 11 Empirical RAG Benchmark Data)
-  - `docs/STEP_10_INFERENCE_ENGINE.md` (Step 10 Inference Engine Report)
-  - `docs/STEP_10_BENCHMARK_RESULTS.json` (Step 10 Empirical Inference Benchmark Data)
-  - `docs/STEP_09_ARCHITECTURE_AUDIT.md` (Step 9 Architecture Audit Report)
-  - `docs/STEP_08_FULL_EPOCH_PRETRAINING_REPORT.md` (Step 8 Full-Epoch Pre-Training Report)
+  - `docs/STEP_37_FEDERATION_RESOURCES_ARCHITECTURE.md` (Step 37 Architecture Specification)
+  - `docs/STEP_37_THREAT_MODEL.md` (Step 37 Threat Model)
+  - `docs/STEP_37_BENCHMARK_RESULTS.json` (Step 37 Empirical Benchmark Data)
+  - `docs/STEP_37_RATIFICATION_REPORT.md` (Step 37 Formal Ratification Report)
+  - `docs/STEP_36_FEDERATION_TRANSPORT_ARCHITECTURE.md` (Step 36 Architecture Specification)
+  - `docs/STEP_36_THREAT_MODEL.md` (Step 36 Threat Model)
+  - `docs/STEP_36_BENCHMARK_RESULTS.json` (Step 36 Empirical Benchmark Data)
+  - `docs/STEP_36_RATIFICATION_REPORT.md` (Step 36 Formal Ratification Report)
+  - `docs/STEP_35_FEDERATION_DISCOVERY_MEMBERSHIP_ARCHITECTURE.md` (Step 35 Architecture Specification)
+  - `docs/STEP_35_THREAT_MODEL.md` (Step 35 Threat Model)
+  - `docs/STEP_35_BENCHMARK_RESULTS.json` (Step 35 Empirical Benchmark Data)
+  - `docs/STEP_35_RATIFICATION_REPORT.md` (Step 35 Formal Ratification Report)
 
 ---
 
@@ -347,5 +310,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 35 RATIFIED — PRODUCTION FEDERATION RUNTIME NETWORKING, NODE DISCOVERY & SECURE MEMBERSHIP COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 36 (Awaiting user explicit command; DO NOT START STEP 36 AUTOMATICALLY).
+- **Decision**: **STEP 37 RATIFIED — DISTRIBUTED RESOURCE & CAPABILITY ADVERTISEMENT COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 38 (Awaiting user explicit command; DO NOT START STEP 38 AUTOMATICALLY).
