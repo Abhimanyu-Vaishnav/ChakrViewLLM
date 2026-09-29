@@ -2,60 +2,55 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 31 — Production Transport Security, TLS/mTLS & Certificate Lifecycle
-- **Status**: Complete & Verified (Production-oriented secure transport subsystem established under `chakrview/cognition/transport/security/`, `chakrview/cognition/transport/`, and `chakrview/cognition/peering/`, coordinating wire-capable federated cognitive zones with explicit TLS 1.3 / TLS 1.2 boundaries, mutual TLS [mTLS] bidirectional authentication, deterministic X.509 certificate validation, CertificateRevocationRegistry, HermeticPKIBuilder, PeerCertificateBinder for formal TLS-to-Ed25519 identity binding, socket TLS wrapping in TCPWireTransport, secure adapter boundaries for HTTP/2 and gRPC, CapabilityGate mediation, tenant isolation, fail-closed security, zero-leakage private key protections, bounded audit telemetry, and zero-weight-mutation verification; 889/889 tests passing across 76 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; TLS != TRUST, TLS_AUTHENTICATION != FEDERATION_AUTHORIZATION, TLS_IDENTITY != FEDERATION_AUTHORITY, CERTIFICATE_VALIDITY != CAPABILITY_PERMISSION, mTLS != TRUST_GRANT, TRANSPORT_SECURITY != AUTHORITY, TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
+- **Current phase**: Step 32 — Secure Federation Session & Key Lifecycle Hardening
+- **Status**: Complete & Verified (Production-grade federation session lifecycle state machine, session key lifecycle with state transitions, Ed25519 peer key rotation protocol with retirement proof & verification, TLS certificate rotation and validated re-binding via PeerCertificateBinder and CertificateRevocationRegistry, trust grant continuity & strict temporal bounding, replay protection with monotonic sequence numbering and bounded message tracking, cascading revocation across sessions, keys, certificates, and trust grants, zero secret leakage, fail-closed security, and zero-weight-mutation verification; 916/916 tests passing across 77 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; SESSION != AUTHORITY, SESSION_KEY != FEDERATION_AUTHORITY, ROTATION != TRUST_RENEWAL, RETIRED_KEY != VALID_KEY, REPLAY_REJECTION != SILENT_DROP, TLS != TRUST, TLS_AUTHENTICATION != FEDERATION_AUTHORIZATION, TLS_IDENTITY != FEDERATION_AUTHORITY, CERTIFICATE_VALIDITY != CAPABILITY_PERMISSION, mTLS != TRUST_GRANT, TRANSPORT_SECURITY != AUTHORITY, TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 31 establishes the **Production Transport Security, TLS/mTLS & Certificate Lifecycle** layer without altering the frozen neural core:
+> **IMPORTANT**: Step 32 establishes the **Secure Federation Session & Key Lifecycle Hardening** layer without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Secure Transport Cycle:} \quad &\text{Transport Security (TLS 1.3 / mTLS)} \longrightarrow \text{Wire Framing (Length-Prefixed)} \longrightarrow \text{Canonical Serialization \& Digest} \\
-> &\longrightarrow \text{TLS Certificate Validation \& Identity Binding} \longrightarrow \text{Ed25519 Peer Signature Verification} \\
-> &\longrightarrow \text{Challenge-Response Authentication} \longrightarrow \text{Secure Session Binding \& Replay Defense} \\
-> &\longrightarrow \text{Tenant Isolation \& Trust Model Scope} \longrightarrow \text{Default-Deny Policy Gate} \\
-> &\longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \longrightarrow \text{Execution} \\
-> &\longrightarrow \text{Signed Wire Response} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{TLS Axiom:} \quad &\text{TLS} \neq \text{TRUST}, \quad \text{TLS\_AUTHENTICATION} \neq \text{FEDERATION\_AUTHORIZATION} \\
-> \textbf{Certificate Axiom:} \quad &\text{TLS\_IDENTITY} \neq \text{FEDERATION\_AUTHORITY}, \quad \text{CERTIFICATE\_VALIDITY} \neq \text{CAPABILITY\_PERMISSION} \\
-> \textbf{mTLS Axiom:} \quad &\text{mTLS} \neq \text{TRUST\_GRANT}, \quad \text{TRANSPORT\_SECURITY} \neq \text{AUTHORITY} \\
-> \textbf{Immutability Axiom:} \quad &\text{Secure Transport Security} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Session Lifecycle Cycle:} \quad &\text{Session Initiation (INITIATED)} \longrightarrow \text{Challenge-Response (AUTHENTICATING)} \longrightarrow \text{Session Activation (ACTIVE)} \\
+> &\longrightarrow \text{Session Key Derivation \& Monotonic Sequence Tracking} \longrightarrow \text{Atomic Key Rotation Proof Verification} \\
+> &\longrightarrow \text{TLS Certificate Re-binding \& Revocation Verification} \longrightarrow \text{Trust Expiry Boundary Checks} \\
+> &\longrightarrow \text{Renewal Ceiling Enforcement (\le 5 Renewals, \le 200 Epochs)} \longrightarrow \text{Cascading Revocation Propagation} \\
+> &\longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{Session Axiom:} \quad &\text{SESSION} \neq \text{AUTHORITY}, \quad \text{SESSION\_KEY} \neq \text{FEDERATION\_AUTHORITY} \\
+> \textbf{Rotation Axiom:} \quad &\text{ROTATION} \neq \text{TRUST\_RENEWAL}, \quad \text{RETIRED\_KEY} \neq \text{VALID\_KEY} \\
+> \textbf{Freshness Axiom:} \quad &\text{SESSION\_FRESHNESS} \leq \min(\text{Session Lifetime}, \text{Trust Expiry}), \quad \text{EXPIRED\_SESSION} \Rightarrow \text{FAIL\_CLOSED} \\
+> \textbf{Immutability Axiom:} \quad &\text{Session \& Key Hardening} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **TLS != Trust & Transport Security != Authority:** Encrypted transport and mutual certificate validation protect wire integrity/confidentiality but confer zero execution authority or federation trust.
-> 2. **TLS Identity != Federation Authority & Certificate Validity != Capability Permission:** Valid X.509 certificates do not authorize capabilities or bypass CapabilityGate.
-> 3. **mTLS != Trust Grant:** Mutual TLS authentication establishes channel security; federation trust requires independent explicit `TrustGrant` negotiation.
-> 4. **Deterministic X.509 Validation & Revocation:** Certificates are strictly validated against temporal windows, trusted CA roots, hostname/SAN matches, and `CertificateRevocationRegistry`.
-> 5. **Fail-Closed Security & Downgrade Protection:** Insecure protocol downgrades, untrusted CAs, expired/revoked certificates, hostname mismatches, missing client certs in mTLS, and cross-tenant crossover unconditionally fail closed.
-> 6. **Zero Private Key Exposure:** Private keys never appear in `repr`, `str`, audit records, traces, wire envelopes, or benchmarks.
-> All 889 unit, integration, invariant, capability gate, transport, and regression tests pass with zero failures and zero warnings across 76 test files.
+> 1. **Session != Authority & Session Key != Federation Authority:** Sessions and session keys provide time-bounded, replay-protected communication contexts but grant zero execution capabilities or federation trust.
+> 2. **Rotation != Trust Renewal & Retired Key != Valid Key:** Ed25519 identity key rotation proves identity continuity through dual-signed proofs without extending or elevating trust grants; retired keys are strictly invalidated and rejected on future wire envelopes.
+> 3. **Session Freshness & Strict Ceilings:** Sessions are bounded by hard lifetime ceilings ($\le 200$ epochs) and renewal counts ($\le 5$), bounded by trust grant expiration, and fail-closed upon expiration or renewal failure.
+> 4. **TLS Certificate Rotation & Revocation Check:** Peer certificate updates must pass deterministic X.509 validation, revocation registry checks, and atomic re-binding in `PeerCertificateBinder`.
+> 5. **Replay Protection & Sequence Monotonicity:** Inbound wire envelopes are strictly checked for strictly increasing sequence numbers and duplicate message ID rejection within a bounded FIFO window ($\le 1000$).
+> 6. **Cascading Revocation:** Peer revocation atomically cascades across all associated sessions, keys, certificate bindings, and trust grants.
+> 7. **Zero Secret Exposure:** Session keys, private keys, and nonces never appear in `repr`, `str`, `to_dict()`, traces, or audit logs.
+> All 916 unit, integration, invariant, capability gate, transport, session, and regression tests pass with zero failures and zero warnings across 77 test files.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 31)
-* Comprehensive architectural documentation in [docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md).
-* Step 31 Threat Model in [docs/STEP_31_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_31_THREAT_MODEL.md).
-* Repository audit findings in [docs/STEP_31_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_31_REPOSITORY_AUDIT.md).
-* Empirical benchmark results recorded in [docs/STEP_31_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_31_BENCHMARK_RESULTS.json) via `scripts/benchmark_transport_security.py`.
-* **Transport Security Subsystem** (`chakrview/cognition/transport/security/`):
-  - `errors.py`: Strongly typed error hierarchy (`TransportSecurityError`, `TLSError`, `TLSConfigurationError`, `TLSHandshakeError`, `InsecureDowngradeError`, `CertificateError`, `CertificateValidationError`, `CertificateExpiredError`, `CertificateRevokedError`, `HostnameMismatchError`, `UntrustedCAError`, `ClientCertificateMissingError`, `PeerBindingMismatchError`).
-  - `models.py`: Strongly typed enums & models (`TLSMode`, `TLSProtocolVersion`, `CertificateLifecycleState`, `CertificateUsage`, `CertificateMetadata`, `PeerCertificateBinding`).
-  - `policy.py`: `SecureTransportPolicy` enforcing minimum TLS 1.3 preference, fail-closed downgrade protection, and CA requirements.
-  - `certificates.py`: X.509 parsing, fingerprint calculation, metadata extraction, `CertificateRevocationRegistry`, and in-memory `HermeticPKIBuilder`.
-  - `validation.py`: Deterministic `validate_certificate` and `validate_certificate_or_raise`.
-  - `tls.py`: `TLSContextFactory` generating hardened server and client `ssl.SSLContext` instances.
-  - `binding.py`: `PeerCertificateBinder` for explicit binding between peer IDs and certificate fingerprints with rotation support.
-  - `__init__.py`: Clean public exports of transport security components.
-* **Transport Integrations**:
-  - `tcp.py`: `TCPWireTransport` extended with TLS/mTLS socket wrapping, peer certificate extraction, and clean shutdown.
-  - `http2.py` & `grpc.py`: Updated with `SecureTransportPolicy` integration and explicit absence detection.
-  - `peering/engine.py`: Enhanced `CrossZoneFederationEngine` with `certificate_binder`, `bind_peer_certificate()`, and TLS certificate validation & binding check in `authorize_and_execute_wire_envelope()`.
-* 27 new dedicated tests in `tests/test_transport_security.py`, expanding verified test suite to 889 tests across 76 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `3bddebc2189b2c950abbd76d79c7a2d9016065b637f1d231be0c0c4f92aeaaa3`).
+#### 1. Implemented Now (Verified in Step 32)
+* Comprehensive architectural documentation in [docs/STEP_32_SESSION_KEY_LIFECYCLE_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_32_SESSION_KEY_LIFECYCLE_ARCHITECTURE.md).
+* Step 32 Threat Model in [docs/STEP_32_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_32_THREAT_MODEL.md).
+* Repository audit findings in [docs/STEP_32_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_32_REPOSITORY_AUDIT.md).
+* Empirical benchmark results recorded in [docs/STEP_32_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_32_BENCHMARK_RESULTS.json) via `scripts/benchmark_session_key_lifecycle.py`.
+* Step 32 Ratification Report in [docs/STEP_32_RATIFICATION_REPORT.md](file:///d:/Project/ChakrView/docs/STEP_32_RATIFICATION_REPORT.md).
+* **Session & Key Lifecycle Subsystem** (`chakrview/cognition/peering/`):
+  - `session.py`: `SessionTransitionError`, `SessionKeyState`, `SessionKeyMetadata`, `VALID_SESSION_TRANSITIONS` table, state machine `transition_to()`, freshness checking `can_renew()`, atomic `renew()`, terminal `terminate()` and `revoke()`, `record_and_check_sequence()` monotonic ordering and replay tracking.
+  - `crypto.py`: `retired_keys` list and `retired_key_fingerprints` tracking in `CryptographicPeerIdentity`, hardened `rotate_key()` with atomic proof verification and state transitions (`ACTIVE` -> `ROTATING` -> `ACTIVE`), `is_key_retired()` verification.
+  - `models.py`: Step 32 audit events (`SESSION_ACTIVATED`, `SESSION_RENEWED`, `SESSION_RENEWAL_FAILED`, `SESSION_REVOKED`, `SESSION_TERMINATED`, `KEY_ROTATION_STARTED`, `KEY_ROTATION_COMPLETED`, `KEY_ROTATION_FAILED`, `CERTIFICATE_ROTATION_STARTED`, `CERTIFICATE_ROTATION_COMPLETED`, `CERTIFICATE_ROTATION_FAILED`, `REVOCATION_CASCADE_TRIGGERED`, `REVOCATION_CASCADE_COMPLETED`, `STALE_AUTHORIZATION_DENIED`), and `TrustGrant.is_expired()`.
+  - `engine.py`: Enhanced `CrossZoneFederationEngine` with `terminate_session()`, `renew_session()`, `rotate_peer_key()`, `rotate_peer_certificate()`, atomic revocation cascading, signature rejection for retired keys, sequence monotonicity enforcement, and stale authorization denial.
+* **Production Transport Security Subsystem** (`chakrview/cognition/transport/security/`):
+  - `errors.py`, `models.py`, `policy.py`, `certificates.py`, `validation.py`, `tls.py`, `binding.py`, `__init__.py`.
+* 27 new dedicated tests in `tests/test_session_key_lifecycle.py`, expanding verified test suite to 916 tests across 77 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `69979a5d77dec8ed2612c9d36b3d324fa47bd2259c17bf9d51cb57a16bac549e`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
 * **Autonomous Internet-Wide Peer Discovery:** Autonomous scanning or unsolicited peer ingestion (deferred to future discovery steps).
@@ -76,11 +71,11 @@
   - `http2.py` & `grpc.py`: Adapter boundaries checking optional `h2`/`httpx` and `grpc`; returns `is_available=False` and raises `TransportUnavailableError` without faking
   - `registry.py`: `TransportRegistry` mapping schemes (`loopback`, `tcp`, `http2`, `grpc`)
   - `__init__.py`: Clean public exports of transport components
-- `chakrview/cognition/peering/`: **Cross-Zone Peering, Cryptographic Identity & Trust Negotiation (Updated in Step 30)**
-  - `crypto.py`: `Ed25519PublicKeyWrapper`, `Ed25519PrivateKeyWrapper` (strict zero leakage; `to_dict()` forbidden, `repr` redacted), `KeyLifecycleState` (`ACTIVE`, `ROTATING`, `REVOKED`, `EXPIRED`), `CryptographicPeerIdentity`, `KeyRevocationRecord`, key rotation protocol
+- `chakrview/cognition/peering/`: **Cross-Zone Peering, Cryptographic Identity, Trust & Session Lifecycle (Hardened in Step 32)**
+  - `crypto.py`: `Ed25519PublicKeyWrapper`, `Ed25519PrivateKeyWrapper` (strict zero leakage; `to_dict()` forbidden, `repr` redacted), `KeyLifecycleState` (`ACTIVE`, `ROTATING`, `REVOKED`, `EXPIRED`), `CryptographicPeerIdentity` with `retired_keys` tracking and `is_key_retired()` checks, `KeyRevocationRecord`, atomic key rotation protocol
   - `authentication.py`: `AuthChallenge`, `AuthChallengeResponse`, `ChallengeResponseAuthenticator` (256-bit cryptographically secure random nonces, session binding, one-time consumption, FIFO replay cache)
-  - `session.py`: `SecurePeerSession` (`INITIATED`, `AUTHENTICATING`, `ACTIVE`, `EXPIRED`, `TERMINATED`, `REVOKED`), bounded message replay cache, deterministic epoch expiration
-  - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant`, `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord`, `SafePublicPeeringTrace`, and hard ceiling constants
+  - `session.py`: `SecurePeerSession` state machine (`INITIATED`, `AUTHENTICATING`, `ACTIVE`, `RENEWING`, `EXPIRED`, `TERMINATED`, `REVOKED`, `FAILED`), `SessionKeyState`, `SessionKeyMetadata`, bounded sequence monotonic ordering, bounded message replay cache, deterministic epoch expiration, renewal bounds
+  - `models.py`: Strongly typed `PeerIdentity`, `PeerAttestation`, `PeerDeclaration`, `TrustGrant` (with `is_expired`), `NegotiationAgreement`, `RevocationRecord`, `PeerRegistration`, `AuditRecord` (with Step 32 audit events), `SafePublicPeeringTrace`, and hard ceiling constants
   - `identity.py`: Deterministic `PeerIdentityProvider` with format validation, canonical serialization, and SHA-256 fingerprinting
   - `attestation.py`: `PeerAttestationVerifier` checking structural architectural claims against frozen ChakrMicro constants
   - `policy.py`: `CrossZoneFederationPolicy` enforcing default-deny semantics and non-negotiable prohibited boundaries
@@ -88,10 +83,10 @@
   - `discovery.py`: `PeerDiscoveryManager` enforcing `DISCOVERY != TRUST`
   - `negotiation.py`: `TrustNegotiator` computing deterministic `NegotiationAgreement` based on local policy and peer claims
   - `registry.py`: `PeerRegistry` enforcing unique identity, tenant-scoped storage, and hard ceilings ($\le 32$ total, $\le 16$/zone, $\le 8$ active)
-  - `revocation.py`: `RevocationManager` executing fail-closed revocation and active grant invalidation
+  - `revocation.py`: `RevocationManager` executing fail-closed revocation, cascading invalidation of sessions, keys, bindings, and active grants
   - `isolation.py`: `CrossZoneIsolationGuard` blocking cross-tenant crossover and sanitizing sensitive artifacts (weights, activations, scratchpads, secrets)
   - `audit.py`: `BoundedAuditLogger` recording structured telemetry with FIFO capping ($\le 1000$ entries)
-  - `engine.py`: Enhanced `CrossZoneFederationEngine` central coordinator managing asymmetric keypairs, cryptographic peer registration, challenge issuance/verification, secure sessions, wire envelope execution mediation, and pre/post SHA-256 weight hash invariance
+  - `engine.py`: Enhanced `CrossZoneFederationEngine` / `FederationEngine` central coordinator managing asymmetric keypairs, cryptographic peer registration, challenge issuance/verification, hardened secure sessions, atomic key/cert rotations, wire envelope execution mediation, and pre/post SHA-256 weight hash invariance
   - `__init__.py`: Clean public exports of peering components
 - `chakrview/cognition/orchestration/`: **Adaptive Cognitive Orchestration & Resource-Aware Federation (Ratified in Step 28)**
   - `models.py`: Strongly typed `WorkloadClass`, `TaskPlan`, `ResourceAllocationDecision`, `OrchestrationState`, `SafePublicOrchestrationTrace`, and hard ceiling constants
@@ -191,6 +186,8 @@
 - `chakrview/brain/`: **Indigenous Neural Core Engine (ChakrMicro v0.1 - Frozen)**
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
+  - `benchmark_session_key_lifecycle.py`: Step 32 empirical secure federation session & key lifecycle benchmark
+  - `benchmark_transport_security.py`: Step 31 empirical production transport security & TLS/mTLS benchmark
   - `benchmark_secure_transport.py`: Step 30 empirical secure physical transport & cryptographic peer identity benchmark
   - `benchmark_cross_zone_peering.py`: Step 29 empirical cross-zone peering & trust negotiation benchmark
   - `benchmark_adaptive_cognitive_orchestration.py`: Step 28 empirical adaptive cognitive orchestration benchmark
@@ -205,7 +202,9 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **862/862 Tests Passing** across 75 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **916/916 Tests Passing** across 77 test files (100% green, 0 failures, 0 errors, 0 warnings)
+  - 27 Secure Federation Session & Key Lifecycle Hardening tests (`test_session_key_lifecycle.py`)
+  - 27 Production Transport Security, TLS/mTLS & Certificate Lifecycle tests (`test_transport_security.py`)
   - 29 Secure Physical Transport & Cryptographic Peer Identity tests (`test_secure_transport.py`)
   - 37 Cross-Zone Peering & Trust Negotiation tests (`test_cross_zone_peering.py`)
   - 40 Adaptive Cognitive Orchestration & Resource-Aware Federation tests (`test_adaptive_cognitive_orchestration.py`)
@@ -232,6 +231,14 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_32_SESSION_KEY_LIFECYCLE_ARCHITECTURE.md` (Step 32 Architecture Specification)
+  - `docs/STEP_32_THREAT_MODEL.md` (Step 32 Threat Model)
+  - `docs/STEP_32_BENCHMARK_RESULTS.json` (Step 32 Empirical Benchmark Data)
+  - `docs/STEP_32_RATIFICATION_REPORT.md` (Step 32 Formal Ratification Report)
+  - `docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md` (Step 31 Architecture Specification)
+  - `docs/STEP_31_THREAT_MODEL.md` (Step 31 Threat Model)
+  - `docs/STEP_31_BENCHMARK_RESULTS.json` (Step 31 Empirical Benchmark Data)
+  - `docs/STEP_31_RATIFICATION_REPORT.md` (Step 31 Formal Ratification Report)
   - `docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md` (Step 30 Architecture Specification)
   - `docs/STEP_30_BENCHMARK_RESULTS.json` (Step 30 Empirical Benchmark Data)
   - `docs/STEP_30_RATIFICATION_REPORT.md` (Step 30 Formal Ratification Report)
@@ -315,5 +322,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 30 RATIFIED — SECURE PHYSICAL TRANSPORT & CRYPTOGRAPHIC PEER IDENTITY COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 31 (Awaiting user explicit command; DO NOT START STEP 31 AUTOMATICALLY).
+- **Decision**: **STEP 32 RATIFIED — SECURE FEDERATION SESSION & KEY LIFECYCLE HARDENING COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 33 (Awaiting user explicit command; DO NOT START STEP 33 AUTOMATICALLY).
