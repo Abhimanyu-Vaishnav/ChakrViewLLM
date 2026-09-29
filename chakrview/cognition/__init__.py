@@ -231,6 +231,19 @@ from chakrview.cognition.federation import (
     JournalEntryType,
     DurableSecuritySnapshot,
     RecoveryManifest,
+    NodeAddress,
+    NodeProtocol,
+    NodeDiscoverySource,
+    MembershipState,
+    FederationNodeEndpoint,
+    FederationNodeCandidate,
+    FederationNodeMembership,
+    FederationMembershipManager,
+    FederationHeartbeatMonitor,
+    FederationConnectionManager,
+    CompositeDiscoveryService,
+    StaticConfigDiscoveryProvider,
+    FileConfigDiscoveryProvider,
 )
 
 
@@ -428,6 +441,20 @@ __all__ = [
     "JournalEntryType",
     "DurableSecuritySnapshot",
     "RecoveryManifest",
+    # Step 35 Federation Discovery & Secure Membership
+    "NodeAddress",
+    "NodeProtocol",
+    "NodeDiscoverySource",
+    "MembershipState",
+    "FederationNodeEndpoint",
+    "FederationNodeCandidate",
+    "FederationNodeMembership",
+    "FederationMembershipManager",
+    "FederationHeartbeatMonitor",
+    "FederationConnectionManager",
+    "CompositeDiscoveryService",
+    "StaticConfigDiscoveryProvider",
+    "FileConfigDiscoveryProvider",
 ]
 
 

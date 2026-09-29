@@ -43,6 +43,16 @@ class JournalEntryType(str, Enum):
     REPLAY_FLOOR_ADVANCED = "REPLAY_FLOOR_ADVANCED"
     EPOCH_ADVANCED = "EPOCH_ADVANCED"
 
+    # Step 35 Node Membership Journal Entries
+    NODE_DISCOVERED = "NODE_DISCOVERED"
+    NODE_AUTHENTICATED = "NODE_AUTHENTICATED"
+    NODE_MEMBERSHIP_GRANTED = "NODE_MEMBERSHIP_GRANTED"
+    NODE_MEMBERSHIP_SUSPENDED = "NODE_MEMBERSHIP_SUSPENDED"
+    NODE_QUARANTINED = "NODE_QUARANTINED"
+    NODE_REVOKED = "NODE_REVOKED"
+    NODE_TERMINATED = "NODE_TERMINATED"
+    NODE_REMOVED = "NODE_REMOVED"
+
 
 @dataclass(frozen=True)
 class JournalEntry:
@@ -162,6 +172,7 @@ class DurableSecuritySnapshot:
     certificate_revocations: List[str]
     replay_floors: Dict[str, int]
     composite_digest: str
+    memberships: List[Dict[str, Any]] = field(default_factory=list)
     schema_version: str = DURABLE_SCHEMA_VERSION
     created_at: float = field(default_factory=time.time)
     integrity_hash: Optional[str] = None
@@ -182,6 +193,7 @@ class DurableSecuritySnapshot:
             "certificate_revocations": sorted(self.certificate_revocations),
             "replay_floors": dict(sorted(self.replay_floors.items())),
             "composite_digest": self.composite_digest,
+            "memberships": self.memberships,
             "schema_version": self.schema_version,
         }
         canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
@@ -213,6 +225,7 @@ class DurableSecuritySnapshot:
             "certificate_revocations": self.certificate_revocations,
             "replay_floors": self.replay_floors,
             "composite_digest": self.composite_digest,
+            "memberships": self.memberships,
             "schema_version": self.schema_version,
             "created_at": self.created_at,
             "integrity_hash": self.integrity_hash,
@@ -240,6 +253,7 @@ class DurableSecuritySnapshot:
             certificate_revocations=list(data.get("certificate_revocations", [])),
             replay_floors=dict(data.get("replay_floors", {})),
             composite_digest=str(data["composite_digest"]),
+            memberships=list(data.get("memberships", [])),
             schema_version=str(schema),
             created_at=float(data.get("created_at", time.time())),
             integrity_hash=data.get("integrity_hash"),

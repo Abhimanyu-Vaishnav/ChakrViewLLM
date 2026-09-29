@@ -51,6 +51,11 @@ class SecurityStateJournal:
         with self._lock:
             return len(self._entries)
 
+    @property
+    def entries(self) -> List[JournalEntry]:
+        with self._lock:
+            return list(self._entries)
+
     def append(
         self,
         entry_type: JournalEntryType,

@@ -173,14 +173,31 @@ class CrossZoneFederationEngine:
 
         # Step 34 Federation Runtime
         self.runtime = runtime
+        self._membership_manager: Optional[Any] = None
         if self.runtime and not hasattr(self.runtime, "engine"):
             self.runtime.engine = self
+
+    @property
+    def membership_manager(self) -> Any:
+        if self._membership_manager is None:
+            if self.runtime and hasattr(self.runtime, "membership_manager"):
+                self._membership_manager = self.runtime.membership_manager
+            else:
+                from chakrview.cognition.federation.discovery.membership import FederationMembershipManager
+                self._membership_manager = FederationMembershipManager(engine=self, runtime=self.runtime)
+        return self._membership_manager
+
+    @membership_manager.setter
+    def membership_manager(self, mgr: Any) -> None:
+        self._membership_manager = mgr
 
     def attach_runtime(self, runtime: Any) -> None:
         """Attach a FederationRuntime to this engine for durable write-ahead journaling."""
         self.runtime = runtime
         if runtime and getattr(runtime, "engine", None) != self:
             runtime.engine = self
+        if runtime and hasattr(runtime, "membership_manager"):
+            self._membership_manager = runtime.membership_manager
 
     @property
     def engine_identity(self) -> FederationEngineIdentity:

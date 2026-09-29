@@ -55,6 +55,11 @@ from chakrview.cognition.federation.persistence.models import (
     JOURNAL_GENESIS_DIGEST,
 )
 from chakrview.cognition.federation.persistence.journal import SecurityStateJournal
+from chakrview.cognition.federation.discovery.models import (
+    FederationNodeMembership,
+    MembershipState,
+    FederationNodeCandidate,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -173,7 +178,16 @@ class FederationRecoveryManager:
         if hasattr(engine, "certificate_revocation_registry"):
             cert_revocations = sorted(list(engine.certificate_revocation_registry.list_revocations()))
 
-        # 6. Composite Digest
+        # 6. Memberships
+        memberships_data: List[Dict[str, Any]] = []
+        membership_mgr = getattr(engine, "membership_manager", None)
+        if not membership_mgr and hasattr(engine, "runtime"):
+            membership_mgr = getattr(engine.runtime, "membership_manager", None)
+        if membership_mgr:
+            for m in membership_mgr.list_memberships():
+                memberships_data.append(m.to_dict())
+
+        # 7. Composite Digest
         composite_digest = "NO_DIGEST"
         if coord:
             rev_records = list(engine.revocation_manager._revocations.values()) if hasattr(engine, "revocation_manager") else []
@@ -197,6 +211,7 @@ class FederationRecoveryManager:
             certificate_revocations=cert_revocations,
             replay_floors=replay_floors,
             composite_digest=composite_digest,
+            memberships=memberships_data,
         )
         snapshot.seal()
         store.save_snapshot(snapshot)
@@ -425,6 +440,22 @@ class FederationRecoveryManager:
                     revoked_by=r.get("revoked_by", "snapshot_recovery"),
                 )
 
+        # Restore memberships
+        membership_mgr = getattr(engine, "membership_manager", None)
+        if not membership_mgr and hasattr(engine, "runtime"):
+            membership_mgr = getattr(engine.runtime, "membership_manager", None)
+        if membership_mgr and hasattr(snapshot, "memberships") and snapshot.memberships:
+            for m_dict in snapshot.memberships:
+                try:
+                    mem = FederationNodeMembership.from_dict(m_dict)
+                    membership_mgr._memberships[mem.membership_id] = mem
+                    if mem.node_id:
+                        membership_mgr._node_to_membership[mem.node_id] = mem.membership_id
+                    if mem.endpoint:
+                        membership_mgr._endpoint_to_membership[mem.endpoint.endpoint_id] = mem.membership_id
+                except Exception as ex:
+                    logger.warning("Failed to restore membership: %s", ex)
+
     def _apply_journal_entry(self, engine: Any, entry: JournalEntry) -> None:
         """Apply an individual journal entry to mutate in-memory security state."""
         coord = getattr(engine, "coordinator", None)
@@ -554,6 +585,88 @@ class FederationRecoveryManager:
                 if msg_id:
                     sess._seen_message_ids.add(msg_id)
 
+        # Membership journal entry replay
+        membership_mgr = getattr(engine, "membership_manager", None)
+        if not membership_mgr and hasattr(engine, "runtime"):
+            membership_mgr = getattr(engine.runtime, "membership_manager", None)
+
+        if membership_mgr:
+            mid = p.get("membership_id")
+            nid = p.get("node_id") or p.get("engine_id")
+            cid = p.get("candidate_id")
+
+            # Resolve target membership if possible
+            target_mem = None
+            if mid and mid in membership_mgr._memberships:
+                target_mem = membership_mgr._memberships[mid]
+            elif nid and nid in membership_mgr._node_to_membership:
+                target_mem = membership_mgr._memberships.get(membership_mgr._node_to_membership[nid])
+            elif nid and nid in membership_mgr._memberships:
+                target_mem = membership_mgr._memberships[nid]
+
+            if entry.entry_type == JournalEntryType.NODE_DISCOVERED:
+                if mid and "endpoint" in p:
+                    try:
+                        ep = FederationNodeEndpoint.from_dict(p["endpoint"])
+                        cand = FederationNodeCandidate(
+                            candidate_id=cid or f"cand_{ep.endpoint_id}",
+                            endpoint=ep,
+                            discovery_source=NodeDiscoverySource.STATIC_CONFIG,
+                            discovered_epoch=entry.epoch,
+                        )
+                        membership = FederationNodeMembership.create(candidate=cand, enrolled_epoch=entry.epoch)
+                        membership_mgr._memberships[membership.membership_id] = membership
+                        membership_mgr._endpoint_to_membership[ep.endpoint_id] = membership.membership_id
+                        membership_mgr._candidates[cand.candidate_id] = cand
+                    except Exception:
+                        pass
+                elif "candidate" in p:
+                    try:
+                        cand = FederationNodeCandidate.from_dict(p["candidate"])
+                        membership_mgr._candidates[cand.candidate_id] = cand
+                    except Exception:
+                        pass
+            elif entry.entry_type == JournalEntryType.NODE_AUTHENTICATED:
+                if cid and cid in membership_mgr._candidates:
+                    membership_mgr._candidates[cid].state = MembershipState.AUTHENTICATED
+                if target_mem:
+                    target_mem.state = MembershipState.AUTHENTICATED
+                    if nid:
+                        target_mem.node_id = nid
+                        membership_mgr._node_to_membership[nid] = target_mem.membership_id
+            elif entry.entry_type == JournalEntryType.NODE_MEMBERSHIP_GRANTED:
+                if target_mem:
+                    target_mem.state = MembershipState.MEMBER
+                elif "membership" in p:
+                    try:
+                        mem = FederationNodeMembership.from_dict(p["membership"])
+                        membership_mgr._memberships[mem.membership_id] = mem
+                        if mem.node_id:
+                            membership_mgr._node_to_membership[mem.node_id] = mem.membership_id
+                    except Exception:
+                        pass
+            elif entry.entry_type == JournalEntryType.NODE_MEMBERSHIP_SUSPENDED:
+                if target_mem:
+                    target_mem.state = MembershipState.SUSPENDED
+            elif entry.entry_type == JournalEntryType.NODE_QUARANTINED:
+                if target_mem:
+                    target_mem.state = MembershipState.QUARANTINED
+                    target_mem.quarantine_reason = p.get("reason", "Quarantined by journal replay")
+            elif entry.entry_type == JournalEntryType.NODE_REVOKED:
+                if target_mem:
+                    target_mem.state = MembershipState.REVOKED
+                    target_mem.revocation_reason = p.get("reason", "Revocation from journal replay")
+            elif entry.entry_type == JournalEntryType.NODE_TERMINATED:
+                if target_mem:
+                    target_mem.state = MembershipState.TERMINATED
+            elif entry.entry_type == JournalEntryType.NODE_REMOVED:
+                if target_mem:
+                    membership_mgr._memberships.pop(target_mem.membership_id, None)
+                    if target_mem.node_id:
+                        membership_mgr._node_to_membership.pop(target_mem.node_id, None)
+                if cid:
+                    membership_mgr._candidates.pop(cid, None)
+
     def _enforce_terminal_invariants(self, engine: Any) -> None:
         """
         Enforce that terminal states (REVOKED, EXPIRED, TERMINATED) cannot be undone.
@@ -570,3 +683,12 @@ class FederationRecoveryManager:
                     sess.status = SessionStatus.REVOKED
                     if sess.session_key_metadata:
                         sess.session_key_metadata.key_state = SessionKeyState.REVOKED
+
+            # Enforce membership terminal invariants
+            membership_mgr = getattr(engine, "membership_manager", None)
+            if not membership_mgr and hasattr(engine, "runtime"):
+                membership_mgr = getattr(engine.runtime, "membership_manager", None)
+            if membership_mgr:
+                for nid, mem in list(membership_mgr._memberships.items()):
+                    if mem.node_id in revoked_peers:
+                        mem.state = MembershipState.REVOKED
