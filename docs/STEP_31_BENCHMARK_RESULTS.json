@@ -1,0 +1,114 @@
+{
+  "step": "Step 31 \u2014 Production Transport Security, TLS/mTLS & Certificate Lifecycle",
+  "iterations": 50,
+  "latencies_ms": {
+    "tls_context_creation": 3.5874,
+    "cert_parsing": 0.0112,
+    "cert_fingerprint_extraction": 0.1111,
+    "cert_validation": 0.0055,
+    "peer_identity_binding": 0.0085,
+    "tcp_tls_handshake": 17.8854,
+    "tcp_mtls_handshake": 21.2665,
+    "tcp_tls_round_trip": 2.3399,
+    "wire_envelope_validation": 0.2523,
+    "full_mtls_federation_request": 115.9595
+  },
+  "p95_latencies_ms": {
+    "tls_context_creation": 6.6753,
+    "cert_parsing": 0.012,
+    "cert_fingerprint_extraction": 0.1138,
+    "cert_validation": 0.0055,
+    "peer_identity_binding": 0.0147,
+    "tcp_tls_handshake": 29.6978,
+    "tcp_mtls_handshake": 34.4919,
+    "tcp_tls_round_trip": 2.9258,
+    "wire_envelope_validation": 0.3669,
+    "full_mtls_federation_request": 122.5209
+  },
+  "throughput_ops_sec": {
+    "tls_context_creation": 278.8,
+    "cert_parsing": 89285.7,
+    "cert_fingerprint_extraction": 9000.9,
+    "cert_validation": 181818.2,
+    "peer_identity_binding": 117647.1,
+    "tcp_tls_handshake": 55.9,
+    "tcp_mtls_handshake": 47.0,
+    "tcp_tls_round_trip": 427.4,
+    "wire_envelope_validation": 3963.5,
+    "full_mtls_federation_request": 8.6
+  },
+  "detailed_statistics": {
+    "tls_context_creation": {
+      "mean_ms": 3.5874,
+      "p95_ms": 6.6753,
+      "min_ms": 2.3617,
+      "max_ms": 14.7636
+    },
+    "cert_parsing": {
+      "mean_ms": 0.0112,
+      "p95_ms": 0.012,
+      "min_ms": 0.0098,
+      "max_ms": 0.0579
+    },
+    "cert_fingerprint_extraction": {
+      "mean_ms": 0.1111,
+      "p95_ms": 0.1138,
+      "min_ms": 0.0989,
+      "max_ms": 0.5402
+    },
+    "cert_validation": {
+      "mean_ms": 0.0055,
+      "p95_ms": 0.0055,
+      "min_ms": 0.0044,
+      "max_ms": 0.0143
+    },
+    "peer_identity_binding": {
+      "mean_ms": 0.0085,
+      "p95_ms": 0.0147,
+      "min_ms": 0.0071,
+      "max_ms": 0.0195
+    },
+    "tcp_tls_handshake": {
+      "mean_ms": 17.8854,
+      "p95_ms": 29.6978,
+      "min_ms": 5.4295,
+      "max_ms": 30.2409
+    },
+    "tcp_mtls_handshake": {
+      "mean_ms": 21.2665,
+      "p95_ms": 34.4919,
+      "min_ms": 11.6134,
+      "max_ms": 36.9569
+    },
+    "tcp_tls_round_trip": {
+      "mean_ms": 2.3399,
+      "p95_ms": 2.9258,
+      "min_ms": 1.6771,
+      "max_ms": 3.255
+    },
+    "wire_envelope_validation": {
+      "mean_ms": 0.2523,
+      "p95_ms": 0.3669,
+      "min_ms": 0.1776,
+      "max_ms": 0.4053
+    },
+    "full_mtls_federation_request": {
+      "mean_ms": 115.9595,
+      "p95_ms": 122.5209,
+      "min_ms": 108.7992,
+      "max_ms": 124.4095
+    }
+  },
+  "memory": {
+    "peak_memory_mb": 3.79
+  },
+  "invariants": {
+    "chakrmicro_parameters": 3443136,
+    "vocabulary_size": 4096,
+    "context_window": 512,
+    "model_pre_hash": "3bddebc2189b2c950abbd76d79c7a2d9016065b637f1d231be0c0c4f92aeaaa3",
+    "model_post_hash": "3bddebc2189b2c950abbd76d79c7a2d9016065b637f1d231be0c0c4f92aeaaa3",
+    "weight_mutation_detected": false,
+    "weight_delta": 0
+  }
+}

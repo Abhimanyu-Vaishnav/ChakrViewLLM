@@ -82,6 +82,15 @@ from chakrview.cognition.transport.errors import (
     ReplayAttackError,
     WireSecurityError,
 )
+from chakrview.cognition.transport.security import (
+    CertificateMetadata,
+    PeerCertificateBinding,
+    PeerCertificateBinder,
+    validate_certificate,
+    CertificateValidationError,
+    PeerBindingMismatchError,
+)
+
 
 
 class CrossZoneAuthorizationError(PermissionError):
@@ -127,8 +136,10 @@ class CrossZoneFederationEngine:
         self.audit_logger = BoundedAuditLogger()
         self.authenticator = ChallengeResponseAuthenticator()
         self.sessions: Dict[str, SecurePeerSession] = {}
+        self.certificate_binder = PeerCertificateBinder()
 
     # ========================================================================
+
     # 1. Neural Core Invariant Checks
     # ========================================================================
 
@@ -685,25 +696,50 @@ class CrossZoneFederationEngine:
         return self.sessions.get(session_id)
 
     # ========================================================================
-    # 11. Wire-Level Request Authorization & Execution (Step 30)
+    # 11. Wire-Level Request Authorization & Execution (Steps 30 & 31)
     # ========================================================================
+
+    def bind_peer_certificate(
+        self,
+        peer_id: str,
+        certificate_fingerprint: str,
+        expected_common_name: Optional[str] = None,
+        expected_san: Optional[str] = None,
+    ) -> PeerCertificateBinding:
+        """Explicitly bind a registered peer identity to an authorized TLS certificate fingerprint."""
+        binding = self.certificate_binder.bind_peer(
+            peer_id=peer_id,
+            certificate_fingerprint=certificate_fingerprint,
+            expected_common_name=expected_common_name,
+            expected_san=expected_san,
+            epoch=self.current_epoch,
+        )
+        self.audit_logger.log(
+            event_type=AuditEventType.PEER_BINDING_VERIFIED,
+            epoch=self.current_epoch,
+            peer_id=peer_id,
+            details={"certificate_fingerprint": certificate_fingerprint},
+        )
+        return binding
 
     def authorize_and_execute_wire_envelope(
         self,
         envelope: WireEnvelope,
         capability_gate: Optional[CapabilityGate] = None,
         capability_context: Optional[CapabilityContext] = None,
+        peer_certificate_metadata: Optional[CertificateMetadata] = None,
     ) -> WireEnvelope:
         """
         Authoritatively validate and execute an incoming signed WireEnvelope.
         Enforces:
         1. Envelope schema, size, and payload digest
-        2. Remote peer registration and cryptographic key validity
-        3. Ed25519 signature verification against registered remote public key
-        4. Session state, epoch expiration, and replay protection
-        5. Tenant boundary isolation via CrossZoneIsolationGuard
-        6. Scope authorization and CapabilityGate mediation
-        7. Frozen neural core weight immutability (ΔW = 0)
+        2. TLS transport certificate validity & peer identity binding (Step 31)
+        3. Remote peer registration and cryptographic key validity
+        4. Ed25519 signature verification against registered remote public key
+        5. Session state, epoch expiration, and replay protection
+        6. Tenant boundary isolation via CrossZoneIsolationGuard
+        7. Scope authorization and CapabilityGate mediation
+        8. Frozen neural core weight immutability (ΔW = 0)
         Returns a signed response WireEnvelope.
         """
         pre_hash = self._compute_weight_hash()
@@ -712,8 +748,52 @@ class CrossZoneFederationEngine:
             # 1. Validate envelope framing & digest
             envelope.validate()
 
+            # 1b. Validate TLS peer certificate & identity binding if present (Step 31)
+            if peer_certificate_metadata is not None:
+                cert_valid, cert_reason = validate_certificate(
+                    peer_certificate_metadata,
+                    current_time=time.time(),
+                )
+                if not cert_valid:
+                    self.audit_logger.log(
+                        event_type=AuditEventType.CERTIFICATE_VALIDATION_FAILED,
+                        epoch=self.current_epoch,
+                        peer_id=envelope.sender_peer_id,
+                        details={"reason": cert_reason, "fingerprint": peer_certificate_metadata.fingerprint},
+                    )
+                    raise CertificateValidationError(f"Incoming wire envelope rejected: invalid peer certificate: {cert_reason}")
+
+                self.audit_logger.log(
+                    event_type=AuditEventType.CERTIFICATE_VALIDATED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    details={"fingerprint": peer_certificate_metadata.fingerprint},
+                )
+
+                # Verify peer identity binding
+                bind_valid, bind_reason = self.certificate_binder.verify_binding(
+                    envelope.sender_peer_id,
+                    peer_certificate_metadata,
+                )
+                if not bind_valid:
+                    self.audit_logger.log(
+                        event_type=AuditEventType.PEER_BINDING_FAILED,
+                        epoch=self.current_epoch,
+                        peer_id=envelope.sender_peer_id,
+                        details={"reason": bind_reason, "fingerprint": peer_certificate_metadata.fingerprint},
+                    )
+                    raise PeerBindingMismatchError(f"Incoming wire envelope rejected: {bind_reason}")
+
+                self.audit_logger.log(
+                    event_type=AuditEventType.PEER_BINDING_VERIFIED,
+                    epoch=self.current_epoch,
+                    peer_id=envelope.sender_peer_id,
+                    details={"fingerprint": peer_certificate_metadata.fingerprint},
+                )
+
             # 2. Check peer standing in registry
             reg = self.registry.get_peer(envelope.sender_peer_id)
+
             if not reg:
                 self.audit_logger.log(
                     event_type=AuditEventType.REQUEST_DENIED,

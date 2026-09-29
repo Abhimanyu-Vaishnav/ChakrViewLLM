@@ -1,7 +1,7 @@
 """
-HTTP/2 Transport Adapter Boundary (Step 30).
+HTTP/2 Transport Adapter Boundary (Step 31).
 
-Provides architectural adapter boundary for HTTP/2 framing and multiplexing.
+Provides architectural adapter boundary for HTTP/2 framing, multiplexing, and TLS.
 Performs explicit dependency verification and fails closed if runtime libraries
 (e.g., 'h2' or 'httpx') are missing. Never fakes transport availability.
 """
@@ -12,6 +12,8 @@ from typing import Dict, List, Optional, Any
 from chakrview.cognition.transport.base import Transport
 from chakrview.cognition.transport.models import WireEnvelope, TransportHealth, TransportStatus
 from chakrview.cognition.transport.errors import TransportUnavailableError
+from chakrview.cognition.transport.security.models import TLSMode
+from chakrview.cognition.transport.security.policy import SecureTransportPolicy
 
 
 def is_http2_available() -> bool:
@@ -24,12 +26,33 @@ def is_http2_available() -> bool:
 
 class HTTP2WireTransport(Transport):
     """
-    HTTP/2 Transport Adapter boundary.
+    HTTP/2 Transport Adapter boundary with TLS security configuration.
     Enforces strict dependency checking and clean failure when libraries are not installed.
     """
 
-    def __init__(self, endpoint: str = "http2://127.0.0.1:8080") -> None:
+    def __init__(
+        self,
+        endpoint: str = "http2://127.0.0.1:8080",
+        security_policy: Optional[SecureTransportPolicy] = None,
+        server_cert_pem: Optional[str] = None,
+        server_key_pem: Optional[str] = None,
+        client_cert_pem: Optional[str] = None,
+        client_key_pem: Optional[str] = None,
+        ca_cert_pem: Optional[str] = None,
+    ) -> None:
         self.endpoint = endpoint
+        self.security_policy = security_policy or SecureTransportPolicy(
+            tls_mode=TLSMode.TLS,
+            allow_tls_1_2=False,
+        )
+        self.security_policy.validate()
+
+        self._server_cert_pem = server_cert_pem
+        self._server_key_pem = server_key_pem
+        self._client_cert_pem = client_cert_pem
+        self._client_key_pem = client_key_pem
+        self._ca_cert_pem = ca_cert_pem
+
         self._available = is_http2_available()
         self._status = TransportStatus.DISCONNECTED
 
@@ -74,14 +97,27 @@ class HTTP2WireTransport(Transport):
             is_healthy=self._available and self._status == TransportStatus.CONNECTED,
             endpoint=self.endpoint,
             transport_type="http2",
-            details={"is_available": self._available, "dependency": "h2/httpx"},
+            latency_ms=0.0,
+            active_connections=0,
+            messages_sent=0,
+            messages_received=0,
+            error_count=0,
+            details={
+                "is_available": self._available,
+                "status": self._status.value,
+                "tls_mode": self.security_policy.tls_mode.value,
+            },
         )
 
     def capabilities(self) -> Dict[str, Any]:
         return {
             "transport_type": "http2",
             "is_physical": True,
-            "is_available": self._available,
+            "supports_duplex": True,
+            "supports_streaming": True,
             "supports_multiplexing": True,
-            "supports_header_compression": True,
+            "supports_tls": True,
+            "supports_mtls": True,
+            "tls_mode": self.security_policy.tls_mode.value,
+            "is_available": self._available,
         }

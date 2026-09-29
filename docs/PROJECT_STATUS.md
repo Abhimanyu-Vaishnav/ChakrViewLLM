@@ -2,60 +2,60 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 30 — Secure Physical Transport & Cryptographic Peer Identity
-- **Status**: Complete & Verified (Secure physical transport and cryptographic peer identity subsystem established under `chakrview/cognition/transport/` and `chakrview/cognition/peering/`, coordinating wire-capable federated cognitive zones with asymmetric Ed25519 cryptographic peer identity, detached signature verification, deterministic public identity fingerprinting, bounded challenge-response authentication [AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST], bounded secure peer sessions, strict length-prefixed framing and wire envelope serialization, replay attack protection, loopback and non-blocking TCP socket transports, explicit adapter boundaries for gRPC and HTTP/2, CapabilityGate mediation, tenant isolation, fail-closed security, bounded audit telemetry, and zero-weight-mutation verification; 862/862 tests passing across 75 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
+- **Current phase**: Step 31 — Production Transport Security, TLS/mTLS & Certificate Lifecycle
+- **Status**: Complete & Verified (Production-oriented secure transport subsystem established under `chakrview/cognition/transport/security/`, `chakrview/cognition/transport/`, and `chakrview/cognition/peering/`, coordinating wire-capable federated cognitive zones with explicit TLS 1.3 / TLS 1.2 boundaries, mutual TLS [mTLS] bidirectional authentication, deterministic X.509 certificate validation, CertificateRevocationRegistry, HermeticPKIBuilder, PeerCertificateBinder for formal TLS-to-Ed25519 identity binding, socket TLS wrapping in TCPWireTransport, secure adapter boundaries for HTTP/2 and gRPC, CapabilityGate mediation, tenant isolation, fail-closed security, zero-leakage private key protections, bounded audit telemetry, and zero-weight-mutation verification; 889/889 tests passing across 76 test files; all frozen invariants strictly intact: params=3,443,136, vocab=4096, context=512, BOS=0, EOS=1, PAD=2; TLS != TRUST, TLS_AUTHENTICATION != FEDERATION_AUTHORIZATION, TLS_IDENTITY != FEDERATION_AUTHORITY, CERTIFICATE_VALIDITY != CAPABILITY_PERMISSION, mTLS != TRUST_GRANT, TRANSPORT_SECURITY != AUTHORITY, TRANSPORT != AUTHORITY, TRANSPORT != TRUST, CRYPTOGRAPHIC_IDENTITY != AUTHORITY, AUTHENTICATION != AUTHORIZATION, AUTHENTICATION != TRUST, SIGNATURE_VALIDITY != CAPABILITY_PERMISSION, LOCAL_AUTHORITY > PEER_AUTHORITY, PEER_TRUST != PEER_AUTHORITY, CROSS_ZONE_FEDERATION != AUTHORITY_TRANSFER, FEDERATION_ENGINE != AUTHORITY, ORCHESTRATOR != AUTHORITY, NODE != AUTHORITY, AGENT != AUTHORITY, CONSENSUS != AUTHORITY).
 
 ---
 
 ## Status Summary
 
 ### Implementation & Verification Notice
-> **IMPORTANT**: Step 30 establishes the **Secure Physical Transport & Cryptographic Peer Identity** layer without altering the frozen neural core:
+> **IMPORTANT**: Step 31 establishes the **Production Transport Security, TLS/mTLS & Certificate Lifecycle** layer without altering the frozen neural core:
 > $$\begin{aligned}
-> \textbf{Secure Wire Cycle:} \quad &\text{Wire Framing (4-byte length prefix)} \longrightarrow \text{Canonical Serialization \& Digest} \longrightarrow \text{Ed25519 Signature Verification} \\
-> &\longrightarrow \text{Deterministic Peer Identity \& Fingerprint} \longrightarrow \text{Challenge-Response Authentication} \\
-> &\longrightarrow \text{Secure Session Binding \& Replay Defense} \longrightarrow \text{Tenant Isolation \& Trust Model Scope} \\
-> &\longrightarrow \text{Default-Deny Policy Gate} \longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \\
-> &\longrightarrow \text{Execution} \longrightarrow \text{Signed Wire Response} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
-> \textbf{Transport Axiom:} \quad &\text{TRANSPORT} \neq \text{AUTHORITY}, \quad \text{TRANSPORT} \neq \text{TRUST} \\
-> \textbf{Identity Axiom:} \quad &\text{CRYPTOGRAPHIC\_IDENTITY} \neq \text{AUTHORITY}, \quad \text{AUTHENTICATION} \neq \text{AUTHORIZATION} \\
-> \textbf{Trust Axiom:} \quad &\text{AUTHENTICATION} \neq \text{TRUST}, \quad \text{SIGNATURE\_VALIDITY} \neq \text{CAPABILITY\_PERMISSION} \\
-> \textbf{Immutability Axiom:} \quad &\text{Secure Wire Transport} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
+> \textbf{Secure Transport Cycle:} \quad &\text{Transport Security (TLS 1.3 / mTLS)} \longrightarrow \text{Wire Framing (Length-Prefixed)} \longrightarrow \text{Canonical Serialization \& Digest} \\
+> &\longrightarrow \text{TLS Certificate Validation \& Identity Binding} \longrightarrow \text{Ed25519 Peer Signature Verification} \\
+> &\longrightarrow \text{Challenge-Response Authentication} \longrightarrow \text{Secure Session Binding \& Replay Defense} \\
+> &\longrightarrow \text{Tenant Isolation \& Trust Model Scope} \longrightarrow \text{Default-Deny Policy Gate} \\
+> &\longrightarrow \text{CapabilityGate Mediation (Local Authorization)} \longrightarrow \text{Execution} \\
+> &\longrightarrow \text{Signed Wire Response} \longrightarrow \text{Zero-Weight-Mutation Verification} \\
+> \textbf{TLS Axiom:} \quad &\text{TLS} \neq \text{TRUST}, \quad \text{TLS\_AUTHENTICATION} \neq \text{FEDERATION\_AUTHORIZATION} \\
+> \textbf{Certificate Axiom:} \quad &\text{TLS\_IDENTITY} \neq \text{FEDERATION\_AUTHORITY}, \quad \text{CERTIFICATE\_VALIDITY} \neq \text{CAPABILITY\_PERMISSION} \\
+> \textbf{mTLS Axiom:} \quad &\text{mTLS} \neq \text{TRUST\_GRANT}, \quad \text{TRANSPORT\_SECURITY} \neq \text{AUTHORITY} \\
+> \textbf{Immutability Axiom:} \quad &\text{Secure Transport Security} \neq \text{Weight Mutation} \quad (\text{Weights Modified} \equiv \text{False}, \Delta W = 0)
 > \end{aligned}$$
 > The architecture strictly enforces:
-> 1. **Transport != Authority & Transport != Trust:** The transport layer is purely an untrusted physical conduit. Establishing a connection or framing a packet conveys zero authority or trust.
-> 2. **Authentication != Authorization & Authentication != Trust:** Cryptographic proof of private key possession proves identity, but never grants trust or capability authorization.
-> 3. **Signature Validity != Capability Permission:** A cryptographically valid signature on a wire envelope does not grant permission to execute capabilities. Capability execution requires explicit trust grants, policy compliance, and `CapabilityGate` mediation.
-> 4. **Zero Custom Confidentiality Cryptography:** Standard PyCA `cryptography` Ed25519 is used exclusively for identity and signing. Transport encryption is bounded to standard TLS boundaries; custom encryption algorithms are strictly forbidden.
-> 5. **Fail-Closed Security & Replay Defense:** Replayed nonces, replayed message IDs, expired challenges, malformed envelopes, oversized frames (>1 MB), invalid signatures, and cross-tenant crossover unconditionally fail closed.
-> 6. **Zero Private Key Exposure:** Private keys are isolated in memory, never serialized in envelopes, never emitted in audit logs, never visible in telemetry or public traces.
-> All 862 unit, integration, invariant, capability gate, transport, and regression tests pass with zero failures and zero warnings.
+> 1. **TLS != Trust & Transport Security != Authority:** Encrypted transport and mutual certificate validation protect wire integrity/confidentiality but confer zero execution authority or federation trust.
+> 2. **TLS Identity != Federation Authority & Certificate Validity != Capability Permission:** Valid X.509 certificates do not authorize capabilities or bypass CapabilityGate.
+> 3. **mTLS != Trust Grant:** Mutual TLS authentication establishes channel security; federation trust requires independent explicit `TrustGrant` negotiation.
+> 4. **Deterministic X.509 Validation & Revocation:** Certificates are strictly validated against temporal windows, trusted CA roots, hostname/SAN matches, and `CertificateRevocationRegistry`.
+> 5. **Fail-Closed Security & Downgrade Protection:** Insecure protocol downgrades, untrusted CAs, expired/revoked certificates, hostname mismatches, missing client certs in mTLS, and cross-tenant crossover unconditionally fail closed.
+> 6. **Zero Private Key Exposure:** Private keys never appear in `repr`, `str`, audit records, traces, wire envelopes, or benchmarks.
+> All 889 unit, integration, invariant, capability gate, transport, and regression tests pass with zero failures and zero warnings across 76 test files.
 
 ---
 
 ### Scientific Scope & Boundary Accounting
 
-#### 1. Implemented Now (Verified in Step 30)
-* Comprehensive architectural documentation in [docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_30_SECURE_TRANSPORT_ARCHITECTURE.md).
-* Empirical benchmark results recorded in [docs/STEP_30_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_30_BENCHMARK_RESULTS.json) via `scripts/benchmark_secure_transport.py`.
-* **Transport Abstraction Subsystem** (`chakrview/cognition/transport/`):
-  - `base.py`: Abstract `Transport` interface (`connect`, `listen`, `accept`, `send`, `receive`, `close`, `health`, `capabilities`).
-  - `models.py`: Strongly typed `MessageType`, `WireEnvelope` (protocol version 30.0, SHA-256 payload digest, detached Ed25519 signature, size limits), `TransportHealth`, `TransportStatus`.
-  - `errors.py`: Robust hierarchy (`TransportError`, `TransportTimeoutError`, `TransportUnavailableError`, `TransportProtocolError`, `FrameError`, `OversizedPayloadError`, `ReplayAttackError`, `WireSecurityError`).
-  - `serialization.py`: `DeterministicWireSerializer` (canonical JSON with sorted keys, compact separators, UTF-8, zero pickle).
-  - `framing.py`: `LengthPrefixedFramer` (4-byte big-endian header + payload, 1 MB ceiling, buffer reassembly).
-  - `loopback.py`: `LoopbackWireTransport` (in-process thread-safe queues, zero OS sockets, deterministic CPU tests).
-  - `tcp.py`: `TCPWireTransport` (IPv4 loopback `127.0.0.1`, length-prefixed binary framing, timeouts, clean shutdown).
-  - `http2.py` & `grpc.py`: Adapter boundaries checking `h2`/`httpx` and `grpc`; returns `is_available=False` and raises `TransportUnavailableError` without faking.
-  - `registry.py`: `TransportRegistry` mapping schemes (`loopback`, `tcp`, `http2`, `grpc`).
-  - `__init__.py`: Clean public exports of transport components.
-* **Cryptographic Identity & Authentication Extensions** (`chakrview/cognition/peering/`):
-  - `crypto.py`: `Ed25519PublicKeyWrapper`, `Ed25519PrivateKeyWrapper` (strict zero leakage; `to_dict()` forbidden, `repr` redacted), `KeyLifecycleState` (`ACTIVE`, `ROTATING`, `REVOKED`, `EXPIRED`), `CryptographicPeerIdentity`, `KeyRevocationRecord`, key rotation protocol.
-  - `authentication.py`: `AuthChallenge`, `AuthChallengeResponse`, `ChallengeResponseAuthenticator` (256-bit cryptographically secure random nonces, session binding, one-time consumption, FIFO replay cache).
-  - `session.py`: `SecurePeerSession` (`INITIATED`, `AUTHENTICATING`, `ACTIVE`, `EXPIRED`, `TERMINATED`, `REVOKED`), bounded message replay cache, deterministic epoch expiration.
-  - `engine.py`: Enhanced `CrossZoneFederationEngine` with asymmetric keypair management, cryptographic peer registration, challenge issuance/verification, secure session lifecycle, and wire envelope execution mediation.
-* 29 new unit, cryptographic, authentication, wire protocol, transport, and security tests in `tests/test_secure_transport.py`, expanding verified test suite to 862 tests across 75 test files.
-* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `16f7453ac207444d0626944216b81aacaa7619c417672397ecd1b0f3c1b626c4`).
+#### 1. Implemented Now (Verified in Step 31)
+* Comprehensive architectural documentation in [docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_31_TRANSPORT_SECURITY_ARCHITECTURE.md).
+* Step 31 Threat Model in [docs/STEP_31_THREAT_MODEL.md](file:///d:/Project/ChakrView/docs/STEP_31_THREAT_MODEL.md).
+* Repository audit findings in [docs/STEP_31_REPOSITORY_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_31_REPOSITORY_AUDIT.md).
+* Empirical benchmark results recorded in [docs/STEP_31_BENCHMARK_RESULTS.json](file:///d:/Project/ChakrView/docs/STEP_31_BENCHMARK_RESULTS.json) via `scripts/benchmark_transport_security.py`.
+* **Transport Security Subsystem** (`chakrview/cognition/transport/security/`):
+  - `errors.py`: Strongly typed error hierarchy (`TransportSecurityError`, `TLSError`, `TLSConfigurationError`, `TLSHandshakeError`, `InsecureDowngradeError`, `CertificateError`, `CertificateValidationError`, `CertificateExpiredError`, `CertificateRevokedError`, `HostnameMismatchError`, `UntrustedCAError`, `ClientCertificateMissingError`, `PeerBindingMismatchError`).
+  - `models.py`: Strongly typed enums & models (`TLSMode`, `TLSProtocolVersion`, `CertificateLifecycleState`, `CertificateUsage`, `CertificateMetadata`, `PeerCertificateBinding`).
+  - `policy.py`: `SecureTransportPolicy` enforcing minimum TLS 1.3 preference, fail-closed downgrade protection, and CA requirements.
+  - `certificates.py`: X.509 parsing, fingerprint calculation, metadata extraction, `CertificateRevocationRegistry`, and in-memory `HermeticPKIBuilder`.
+  - `validation.py`: Deterministic `validate_certificate` and `validate_certificate_or_raise`.
+  - `tls.py`: `TLSContextFactory` generating hardened server and client `ssl.SSLContext` instances.
+  - `binding.py`: `PeerCertificateBinder` for explicit binding between peer IDs and certificate fingerprints with rotation support.
+  - `__init__.py`: Clean public exports of transport security components.
+* **Transport Integrations**:
+  - `tcp.py`: `TCPWireTransport` extended with TLS/mTLS socket wrapping, peer certificate extraction, and clean shutdown.
+  - `http2.py` & `grpc.py`: Updated with `SecureTransportPolicy` integration and explicit absence detection.
+  - `peering/engine.py`: Enhanced `CrossZoneFederationEngine` with `certificate_binder`, `bind_peer_certificate()`, and TLS certificate validation & binding check in `authorize_and_execute_wire_envelope()`.
+* 27 new dedicated tests in `tests/test_transport_security.py`, expanding verified test suite to 889 tests across 76 test files.
+* Programmatic verification of all frozen invariants (ChakrMicro parameters exactly 3,443,136; vocabulary 4096; context length 512; BOS=0, EOS=1, PAD=2; weights_modified=False; SHA-256 weight hash identical before and after execution: `3bddebc2189b2c950abbd76d79c7a2d9016065b637f1d231be0c0c4f92aeaaa3`).
 
 #### 2. Future Capability (Explicitly Not Implemented / Planned for Future Steps)
 * **Autonomous Internet-Wide Peer Discovery:** Autonomous scanning or unsolicited peer ingestion (deferred to future discovery steps).
