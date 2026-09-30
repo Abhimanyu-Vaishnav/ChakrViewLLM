@@ -106,6 +106,7 @@ class GenerationConfig:
         stream_interval: Emit stream event every N tokens.
     """
     max_new_tokens: int = 64
+    min_new_tokens: int = 0
     sampling: SamplingConfig = field(default_factory=SamplingConfig)
     stop_token_ids: List[int] = field(default_factory=lambda: [1])  # EOS = 1
     context_window: int = 512
@@ -115,6 +116,12 @@ class GenerationConfig:
     def __post_init__(self) -> None:
         if self.max_new_tokens <= 0:
             raise ValueError(f"max_new_tokens must be positive, got {self.max_new_tokens}")
+        if self.min_new_tokens < 0:
+            raise ValueError(f"min_new_tokens must be non-negative, got {self.min_new_tokens}")
+        if self.min_new_tokens > self.max_new_tokens:
+            raise ValueError(
+                f"min_new_tokens ({self.min_new_tokens}) cannot exceed max_new_tokens ({self.max_new_tokens})"
+            )
         if not (1 <= self.context_window <= 512):
             raise ValueError(f"context_window must be in [1, 512], got {self.context_window}")
         if self.context_overflow_policy not in ("stop", "truncate", "sliding_window"):

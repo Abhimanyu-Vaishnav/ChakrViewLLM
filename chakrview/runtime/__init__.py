@@ -65,6 +65,7 @@ from chakrview.runtime.sampling import (
     SamplingStrategy,
     SamplingConfig,
     Sampler,
+    SamplingProbabilityError,
     apply_repetition_penalty,
     apply_top_k,
     apply_top_p,
@@ -102,11 +103,15 @@ from chakrview.runtime.pipeline import (
     PathologicalLogitsError,
     InvalidGenerationConfigError,
     NeuralWeightMutationError,
+    IncompatibleCheckpointError,
+    ModelIdentity,
     InferenceRequest,
     InferenceContext,
     InferenceResult,
     InferenceContextBuilder,
     InferenceEngine,
+    validate_checkpoint_compatibility,
+    load_and_validate_checkpoint,
 )
 from chakrview.runtime.memory import (
     MemoryType,
@@ -203,6 +208,7 @@ __all__ = [
     "apply_top_k",
     "apply_top_p",
     "apply_min_prob",
+    "SamplingProbabilityError",
     # Inference
     "StopReason",
     "StreamToken",
@@ -212,7 +218,7 @@ __all__ = [
     "RAGResponse",
     "ChatResponse",
     "InferenceSession",
-    # Neural Inference Pipeline (Step 44)
+    # Neural Inference Pipeline (Step 44 & 45)
     "InferencePipelineError",
     "TokenizerModelMismatchError",
     "MalformedTokenIdError",
@@ -220,11 +226,15 @@ __all__ = [
     "PathologicalLogitsError",
     "InvalidGenerationConfigError",
     "NeuralWeightMutationError",
+    "IncompatibleCheckpointError",
+    "ModelIdentity",
     "InferenceRequest",
     "InferenceContext",
     "InferenceResult",
     "InferenceContextBuilder",
     "InferenceEngine",
+    "validate_checkpoint_compatibility",
+    "load_and_validate_checkpoint",
     # Conversational State & Memory (Step 12)
     "MemoryType",
     "ConversationTurn",
