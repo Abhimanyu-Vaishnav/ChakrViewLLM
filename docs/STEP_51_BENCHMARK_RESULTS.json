@@ -1,0 +1,72 @@
+{
+  "timestamp_utc": "2026-09-30T15:15:17Z",
+  "phase": "Step 51 \u2014 Coding Language Acquisition & Project Arena Foundation",
+  "frozen_baseline_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+  "baseline_immutability_verified": true,
+  "delta_w_baseline": 0.0,
+  "tokenizer_vocab_size": 4096,
+  "sharded_dataset": {
+    "train_tokens": 3053,
+    "validation_tokens": 753,
+    "train_documents": 4,
+    "validation_documents": 1
+  },
+  "phase_g_training_experiment": {
+    "steps": 60,
+    "initial_val_loss": 8.3049,
+    "initial_val_ppl": 4043.59,
+    "final_val_loss": 5.4525,
+    "final_val_ppl": 233.33,
+    "loss_reduction_pct": 34.35,
+    "weight_delta_l2": 27.532647,
+    "training_duration_seconds": 4.7652,
+    "trained_checkpoint_hash": "bc6c77106c076aa5cb093342dc9807fb14d5a0566b7269888872b105cfd1dbf6",
+    "negative_control": {
+      "negative_control_val_loss": 6.546,
+      "negative_control_val_ppl": 696.45
+    },
+    "negative_control_rejected": true
+  },
+  "phase_h_arena_benchmarks": [
+    {
+      "benchmark_id": "BM01_AST_SYNTAX",
+      "level": 1,
+      "name": "AST Syntax Validation",
+      "valid_code_passed": true,
+      "invalid_code_rejected": true,
+      "error_captured": true,
+      "passed": true
+    },
+    {
+      "benchmark_id": "BM02_PROJECT_EXECUTION_CLEAN",
+      "level": 6,
+      "name": "Math Utils Project Execution",
+      "syntax_valid": true,
+      "tests_passed": 4,
+      "tests_failed": 0,
+      "pass_rate": 1.0,
+      "is_success": true,
+      "passed": true
+    },
+    {
+      "benchmark_id": "BM03_BUG_DETECTION_AND_FAILURE_CLASSIFICATION",
+      "level": 3,
+      "name": "Failure Classification on Defective Implementation",
+      "syntax_valid": true,
+      "failure_category": "assertion_failure",
+      "tests_failed": 1,
+      "is_assertion_failure": true,
+      "passed": true
+    },
+    {
+      "benchmark_id": "BM04_SANDBOX_TIMEOUT_ENFORCEMENT",
+      "level": 7,
+      "name": "Fail-Closed Subprocess Timeout Enforcement",
+      "failure_category": "timeout",
+      "is_timeout": true,
+      "duration_under_2s": true,
+      "passed": true
+    }
+  ],
+  "all_benchmarks_passed": true
+}

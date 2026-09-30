@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 48 — Controlled Pretraining & Learning Validation
-- **Status**: Complete & Ratified (Controlled pretraining on real token shards, statistical learning validated: validation loss 8.34 -> 2.53, PPL 4203.6 -> 12.58; negative control rejected; 1,342 / 1,342 tests passing across 94 test files; Baseline ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`; Experiment ΔW > 0 verified).
+- **Current phase**: Step 51 — Coding Language Acquisition & Project Arena Foundation
+- **Status**: Complete & Ratified (Project Arena isolated workspaces, sandboxed subprocess test execution, AST syntax validation, project-level split isolation, Byte-Level BPE code representation verified; coding experiment loss reduction 34.35%, negative control rejected; 20/20 Step 51 tests passing, 1,402 / 1,402 tests total; Baseline ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 ---
 
@@ -337,9 +337,9 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 50 RATIFIED — TRAINED CHAKRVIEW INTERACTIVE MODEL EVALUATION COMPLETE & VERIFIED**
-  - Step 49: Language Acquisition & Coherence Validation Ratified (1,362 passed)
+- **Decision**: **STEP 51 RATIFIED — CODING LANGUAGE ACQUISITION & PROJECT ARENA FOUNDATION COMPLETE & VERIFIED**
   - Step 50: Interactive Evaluation Runtime & Benchmark Ratified (1,382 passed, 20/20 Step 50 tests passing)
-  - Invariants Confirmed: $\Delta W_{\text{baseline}} = 0$ (`c5571c...`), $\Delta W_{\text{trained}} = 0$ during inference (`85e1eb...`)
+  - Step 51: Project Arena & Coding Acquisition Ratified (1,402 passed, 20/20 Step 51 tests passing)
+  - Invariants Confirmed: $\Delta W_{\text{baseline}} = 0$ (`c5571c...`), $\Delta W_{\text{trained}} > 0$ for isolated coding experiment (`bc6c77...`)
   - Parameters: 3,443,136 | Vocab: 4,096 | Max Context: 512 | CPU-First Execution
-- **Next Allowed Step**: Step 51 (Awaiting user explicit command; DO NOT START STEP 51 AUTOMATICALLY).
+- **Next Allowed Step**: Step 52 (Awaiting user explicit command; DO NOT START STEP 52 AUTOMATICALLY).
