@@ -1,0 +1,92 @@
+{
+  "step": 42,
+  "title": "Federated Cognitive Orchestration & Distributed Reasoning Graph",
+  "timestamp": "2026-09-30T05:40:36Z",
+  "benchmarks": [
+    {
+      "label": "episode_planning",
+      "iterations": 300,
+      "total_ms": 4.35,
+      "mean_ms": 0.0145,
+      "median_ms": 0.0131,
+      "stdev_ms": 0.0092,
+      "min_ms": 0.0114,
+      "max_ms": 0.1099,
+      "throughput_per_sec": 68943.3
+    },
+    {
+      "label": "context_envelope_create_validate",
+      "iterations": 1000,
+      "total_ms": 11.72,
+      "mean_ms": 0.0117,
+      "median_ms": 0.0112,
+      "stdev_ms": 0.0047,
+      "min_ms": 0.0101,
+      "max_ms": 0.1107,
+      "throughput_per_sec": 85332.2
+    },
+    {
+      "label": "dag_traversal_5_steps",
+      "iterations": 500,
+      "total_ms": 9.61,
+      "mean_ms": 0.0192,
+      "median_ms": 0.0144,
+      "stdev_ms": 0.0481,
+      "min_ms": 0.0135,
+      "max_ms": 1.0008,
+      "throughput_per_sec": 52051.3
+    },
+    {
+      "label": "full_episode_plan_execute_simulate",
+      "iterations": 100,
+      "total_ms": 7.44,
+      "mean_ms": 0.0744,
+      "median_ms": 0.0692,
+      "stdev_ms": 0.0229,
+      "min_ms": 0.0661,
+      "max_ms": 0.238,
+      "throughput_per_sec": 13436.0
+    },
+    {
+      "label": "synthesis_5_workers",
+      "iterations": 500,
+      "total_ms": 2.1,
+      "mean_ms": 0.0042,
+      "median_ms": 0.0041,
+      "stdev_ms": 0.0005,
+      "min_ms": 0.004,
+      "max_ms": 0.0135,
+      "throughput_per_sec": 237993.2
+    },
+    {
+      "label": "envelope_serialization_roundtrip",
+      "iterations": 1000,
+      "total_ms": 1.93,
+      "mean_ms": 0.0019,
+      "median_ms": 0.0018,
+      "stdev_ms": 0.0021,
+      "min_ms": 0.0017,
+      "max_ms": 0.0668,
+      "throughput_per_sec": 517143.4
+    },
+    {
+      "label": "neural_inference_1_token",
+      "iterations": 5,
+      "total_ms": 100.57,
+      "mean_ms": 20.1146,
+      "median_ms": 20.1731,
+      "stdev_ms": 0.9544,
+      "min_ms": 18.6714,
+      "max_ms": 21.3558,
+      "throughput_per_sec": 49.7
+    }
+  ],
+  "neural_core_verification": {
+    "parameter_count": 3443136,
+    "vocabulary_size": 4096,
+    "context_length": 512,
+    "weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "expected_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "delta_w_zero": true
+  }
+}
