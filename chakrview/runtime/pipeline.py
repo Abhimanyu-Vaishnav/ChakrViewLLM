@@ -35,7 +35,7 @@ from chakrview.cognition.federation.cognitive.models import (
 )
 from chakrview.runtime.hardware import ModelExecutionPlan
 from chakrview.runtime.inference import GenerationConfig, StopReason
-from chakrview.runtime.sampling import Sampler, SamplingConfig
+from chakrview.runtime.sampling import Sampler, SamplingConfig, SamplingProbabilityError
 from chakrview.tokenizer.serialization import load_tokenizer_artifacts
 from chakrview.tokenizer.special_tokens import BOS_ID, EOS_ID, PAD_ID
 from chakrview.tokenizer.tokenizer import BPETokenizer
@@ -84,9 +84,30 @@ class NeuralWeightMutationError(InferencePipelineError):
     pass
 
 
+class IncompatibleCheckpointError(InferencePipelineError):
+    """Raised when a checkpoint's structure or weights are incompatible with ChakrMicro."""
+    pass
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # 2. Pipeline Request, Context & Result Contracts
 # ─────────────────────────────────────────────────────────────────────────────
+
+@dataclass
+class ModelIdentity:
+    """
+    Cryptographic and architectural identity specification for ChakrMicro (Step 45).
+    """
+    architecture_name: str = "ChakrMicro"
+    version: str = "0.1.0"
+    parameter_count: int = 3_443_136
+    vocab_size: int = 4096
+    max_context_len: int = 512
+    weight_hash: str = EXPECTED_WEIGHT_HASH
+    tokenizer_checksum: str = "7498d92adeef7c6db98d89a444a7f0e303dd5e7ea4b679a95781a95e6347c617"
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
 
 @dataclass
 class InferenceRequest:
@@ -148,6 +169,8 @@ class InferenceResult:
     generation_config: GenerationConfig
     stop_reason: StopReason
     latency_ms: float
+    model_identity: ModelIdentity = field(default_factory=ModelIdentity)
+    reproducibility: Dict[str, Any] = field(default_factory=dict)
     provenance: Dict[str, Any] = field(default_factory=dict)
     weight_hash_verified: bool = True
 
@@ -162,6 +185,8 @@ class InferenceResult:
             "generation_config": self.generation_config.to_dict(),
             "stop_reason": self.stop_reason.value,
             "latency_ms": self.latency_ms,
+            "model_identity": self.model_identity.to_dict(),
+            "reproducibility": self.reproducibility,
             "provenance": self.provenance,
             "weight_hash_verified": self.weight_hash_verified,
         }
@@ -292,6 +317,13 @@ class InferenceEngine:
 
         # Validate contract on initialization
         self.validate_contract()
+
+        # Model Identity Contract (Step 45)
+        self.model_identity = ModelIdentity(
+            parameter_count=self.model.count_parameters()["total_parameters"],
+            max_context_len=self.max_context,
+            weight_hash=self.expected_weight_hash,
+        )
 
         # Initialize KV Cache
         self.kv_cache = KVCache(
@@ -478,6 +510,7 @@ class InferenceEngine:
         generated_tokens: List[int] = []
         stop_reason = StopReason.MAX_TOKENS
         stop_tokens = set(config.stop_token_ids) if config.stop_token_ids else {EOS_ID}
+        min_new = getattr(config, "min_new_tokens", 0)
 
         for step in range(max_new):
             # Check context limits
@@ -485,20 +518,55 @@ class InferenceEngine:
                 stop_reason = StopReason.CONTEXT_LIMIT
                 break
 
-            # Sample next token
-            next_token_id = self.sampler.sample(
-                logits=latest_logits,
-                generated_tokens=generated_tokens,
-                config=config.sampling,
-                step=step,
-            )
-            self.validate_token_ids([next_token_id])
-            generated_tokens.append(next_token_id)
+            # Sample next token with signature compatibility
+            try:
+                next_token_id = self.sampler.sample(
+                    logits=latest_logits,
+                    generated_tokens=generated_tokens,
+                    config=config.sampling,
+                    step=step,
+                    strict_safety=True,
+                )
+            except TypeError:
+                next_token_id = self.sampler.sample(
+                    logits=latest_logits,
+                    generated_tokens=generated_tokens,
+                    config=config.sampling,
+                    step=step,
+                )
 
             # Check stop condition
             if next_token_id in stop_tokens:
-                stop_reason = StopReason.EOS
-                break
+                if step < min_new:
+                    # Enforce min_new_tokens: mask stop tokens and resample
+                    masked_logits = latest_logits.clone()
+                    for st in stop_tokens:
+                        masked_logits[st] = -1e9
+                    try:
+                        next_token_id = self.sampler.sample(
+                            logits=masked_logits,
+                            generated_tokens=generated_tokens,
+                            config=config.sampling,
+                            step=step,
+                            strict_safety=True,
+                        )
+                    except TypeError:
+                        next_token_id = self.sampler.sample(
+                            logits=masked_logits,
+                            generated_tokens=generated_tokens,
+                            config=config.sampling,
+                            step=step,
+                        )
+                    self.validate_token_ids([next_token_id])
+                    generated_tokens.append(next_token_id)
+                else:
+                    self.validate_token_ids([next_token_id])
+                    generated_tokens.append(next_token_id)
+                    stop_reason = StopReason.EOS
+                    break
+            else:
+                self.validate_token_ids([next_token_id])
+                generated_tokens.append(next_token_id)
 
             # Single-token decode next step
             next_tensor = torch.tensor([[next_token_id]], dtype=torch.long, device=self.device)
@@ -519,6 +587,27 @@ class InferenceEngine:
         # 7. Decode text output
         generated_text = self.decode(generated_tokens, skip_special_tokens=True)
 
+        model_identity = ModelIdentity(
+            architecture_name="ChakrMicro",
+            version="0.1.0",
+            parameter_count=sum(p.numel() for p in self.model.parameters()),
+            vocab_size=self.model.config.vocab_size,
+            max_context_len=self.max_context,
+            weight_hash=post_hash,
+        )
+
+        reproducibility = {
+            "seed": config.sampling.seed,
+            "is_greedy": config.sampling.is_greedy,
+            "strategy": config.sampling.strategy.value,
+            "temperature": config.sampling.temperature,
+            "top_k": config.sampling.top_k,
+            "top_p": config.sampling.top_p,
+            "repetition_penalty": config.sampling.repetition_penalty,
+            "min_new_tokens": min_new,
+            "max_new_tokens": max_new,
+        }
+
         return InferenceResult(
             text=generated_text,
             token_ids=generated_tokens,
@@ -529,6 +618,8 @@ class InferenceEngine:
             generation_config=config,
             stop_reason=stop_reason,
             latency_ms=latency_ms,
+            model_identity=model_identity,
+            reproducibility=reproducibility,
             provenance=provenance,
             weight_hash_verified=True,
         )
@@ -551,3 +642,88 @@ class InferenceEngine:
         )
         res = self.execute(req)
         return res.text
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. Checkpoint & Model Identity Validation Functions
+# ─────────────────────────────────────────────────────────────────────────────
+
+def validate_checkpoint_compatibility(
+    checkpoint: Dict[str, Any],
+    expected_config: Optional[ModelConfig] = None,
+) -> bool:
+    """
+    Validate that checkpoint dictionary is strictly compatible with ChakrMicro.
+
+    Checks:
+    1. Must be a dict containing 'model_state_dict'.
+    2. Must contain all required ChakrMicro parameter keys.
+    3. Parameter tensor shapes must match ModelConfig.
+    4. Total parameter count must match exactly 3,443,136.
+
+    Raises:
+        IncompatibleCheckpointError on any discrepancy.
+    """
+    if not isinstance(checkpoint, dict):
+        raise IncompatibleCheckpointError(f"Checkpoint must be a dict, got {type(checkpoint).__name__}")
+
+    state_dict = checkpoint.get("model_state_dict")
+    if state_dict is None:
+        raise IncompatibleCheckpointError("Checkpoint missing 'model_state_dict' key.")
+
+    cfg = expected_config or ModelConfig()
+    ref_model = ChakrMicro(cfg)
+    ref_dict = ref_model.state_dict()
+
+    # Verify all expected keys are present
+    missing_keys = set(ref_dict.keys()) - set(state_dict.keys())
+    if missing_keys:
+        raise IncompatibleCheckpointError(f"Checkpoint missing required parameter keys: {sorted(missing_keys)}")
+
+    unexpected_keys = set(state_dict.keys()) - set(ref_dict.keys())
+    if unexpected_keys:
+        raise IncompatibleCheckpointError(f"Checkpoint contains unexpected parameter keys: {sorted(unexpected_keys)}")
+
+    # Verify tensor shapes and count parameters
+    total_params = 0
+    for key, ref_tensor in ref_dict.items():
+        ckpt_tensor = state_dict[key]
+        if not isinstance(ckpt_tensor, torch.Tensor):
+            raise IncompatibleCheckpointError(f"Parameter '{key}' in checkpoint is not a torch.Tensor")
+        if ckpt_tensor.shape != ref_tensor.shape:
+            raise IncompatibleCheckpointError(
+                f"Shape mismatch for parameter '{key}': checkpoint has {ckpt_tensor.shape}, "
+                f"expected {ref_tensor.shape}"
+            )
+        if key != "lm_head.weight":
+            total_params += ckpt_tensor.numel()
+
+    if total_params != 3_443_136:
+        raise IncompatibleCheckpointError(
+            f"Checkpoint total unique parameters {total_params} != expected 3443136"
+        )
+
+    return True
+
+
+def load_and_validate_checkpoint(
+    checkpoint_path: Union[str, Path],
+    model: ChakrMicro,
+    expected_config: Optional[ModelConfig] = None,
+) -> Dict[str, Any]:
+    """
+    Safely load a checkpoint from disk and validate architectural compatibility.
+
+    Raises:
+        FileNotFoundError if checkpoint path does not exist.
+        IncompatibleCheckpointError if weights/shapes are incompatible.
+    """
+    path = Path(checkpoint_path)
+    if not path.is_file():
+        raise FileNotFoundError(f"Checkpoint file not found: {path}")
+
+    checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+    validate_checkpoint_compatibility(checkpoint, expected_config=expected_config)
+    model.load_state_dict(checkpoint["model_state_dict"])
+    return checkpoint
+

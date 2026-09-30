@@ -27,6 +27,11 @@ class SamplingStrategy(str, Enum):
     HYBRID = "hybrid"
 
 
+class SamplingProbabilityError(ValueError):
+    """Raised when sampling encounters a degenerate or unnormalizable probability distribution."""
+    pass
+
+
 @dataclass
 class SamplingConfig:
     """
@@ -36,7 +41,7 @@ class SamplingConfig:
         temperature: Logit scaling factor (0.0 for greedy, >0.0 for stochastic).
         top_k: Keep only top K highest-probability tokens (<= 0 to disable).
         top_p: Nucleus threshold cumulative probability (1.0 to disable).
-        repetition_penalty: Discount factor applied to previously emitted tokens (>= 1.0; 1.0 disables).
+        repetition_penalty: Discount factor applied to previously emitted tokens ([1.0, 10.0]; 1.0 disables).
         min_prob: Minimum token probability threshold (0.0 to disable).
         seed: Random seed for deterministic stochastic sampling.
     """
@@ -56,6 +61,8 @@ class SamplingConfig:
             raise ValueError(f"top_p must be in (0.0, 1.0], got {self.top_p}")
         if self.repetition_penalty < 1.0:
             raise ValueError(f"repetition_penalty must be >= 1.0, got {self.repetition_penalty}")
+        if self.repetition_penalty > 10.0:
+            raise ValueError(f"repetition_penalty must be <= 10.0, got {self.repetition_penalty}")
         if not (0.0 <= self.min_prob < 1.0):
             raise ValueError(f"min_prob must be in [0.0, 1.0), got {self.min_prob}")
 
@@ -166,6 +173,7 @@ class Sampler:
         generated_tokens: Optional[List[int]] = None,
         config: Optional[SamplingConfig] = None,
         step: int = 0,
+        strict_safety: bool = False,
     ) -> int:
         """
         Sample the next token ID from next-token logits.
@@ -175,6 +183,7 @@ class Sampler:
             generated_tokens: List of previously generated token IDs for repetition penalty.
             config: Optional sampling configuration override.
             step: Step index used for deterministic pseudorandom generator seed progression.
+            strict_safety: If True, raise SamplingProbabilityError on degenerate distribution.
             
         Returns:
             Integer next-token ID in [0, vocab_size - 1].
@@ -219,7 +228,11 @@ class Sampler:
         probs = torch.softmax(scaled, dim=-1)
 
         # Handle potential zero-probability degeneracies
-        if torch.isnan(probs).any() or probs.sum() == 0:
+        if torch.isnan(probs).any() or probs.sum() <= 0:
+            if strict_safety:
+                raise SamplingProbabilityError(
+                    "Degenerate probability distribution (sum <= 0 or NaNs) encountered in Sampler."
+                )
             # Fallback to greedy on original logits
             return int(torch.argmax(logits).item())
 
