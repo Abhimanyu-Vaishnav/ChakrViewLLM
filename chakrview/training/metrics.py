@@ -36,6 +36,7 @@ class MetricsTracker:
         tokens_in_step: int,
         batch_size: int,
         val_loss: Optional[float] = None,
+        grad_norm: Optional[float] = None,
     ) -> Dict[str, Any]:
         """
         Record step metrics and calculate throughput and perplexity.
@@ -63,6 +64,9 @@ class MetricsTracker:
             "total_examples": self.total_examples_processed,
             "total_elapsed_sec": round(total_elapsed, 2),
         }
+
+        if grad_norm is not None:
+            record["grad_norm"] = round(grad_norm, 4)
 
         if val_loss is not None:
             val_perplexity = math.exp(min(20.0, val_loss)) if not math.isnan(val_loss) else float("nan")

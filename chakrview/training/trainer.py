@@ -28,6 +28,7 @@ from chakrview.training.optimizer import build_optimizer, build_lr_scheduler
 from chakrview.training.checkpoint import CheckpointManager
 from chakrview.training.metrics import MetricsTracker
 from chakrview.training.evaluator import evaluate
+from chakrview.training.safety import TrainingSafetyChecker
 
 
 class Trainer:
@@ -40,9 +41,13 @@ class Trainer:
         model: Optional[nn.Module] = None,
         train_loader: Optional[Iterable[Dict[str, torch.Tensor]]] = None,
         val_loader: Optional[Iterable[Dict[str, torch.Tensor]]] = None,
+        tokenizer_checksum: Optional[str] = None,
+        dataset_manifest_hash: Optional[str] = None,
     ) -> None:
         self.config = config
         self.device = "cpu"
+        self.tokenizer_checksum = tokenizer_checksum or getattr(config.data, "tokenizer_checksum", None)
+        self.dataset_manifest_hash = dataset_manifest_hash or getattr(config.data, "dataset_manifest_hash", None)
 
         # 1. Determinism
         set_seed(config.training.seed)
@@ -50,6 +55,7 @@ class Trainer:
         # 2. Model
         self.model = model if model is not None else ChakrMicro(config.model)
         self.model.to(self.device)
+        TrainingSafetyChecker.enforce_model_invariants(self.model)
 
         # 3. Loss
         self.loss_fn = CausalLoss(ignore_index=config.data.pad_token_id)
@@ -73,10 +79,12 @@ class Trainer:
         # Internal state
         self.current_step = 0
         self.micro_step = 0
+        self.latest_grad_norm: Optional[float] = None
 
     def resume(self, checkpoint_path: Optional[Path | str] = None) -> int:
         """
         Resume trainer state from checkpoint file or latest available checkpoint.
+        Validates training checkpoint integrity and compatibility before loading.
         """
         if checkpoint_path is None:
             checkpoint_path = self.checkpoint_manager.get_latest_checkpoint_path()
@@ -84,7 +92,13 @@ class Trainer:
         if checkpoint_path is None:
             raise FileNotFoundError("No valid checkpoint found to resume from.")
 
-        payload = CheckpointManager.load(checkpoint_path)
+        param_count = sum(p.numel() for p in self.model.parameters())
+        payload = CheckpointManager.load(
+            checkpoint_path,
+            validate_training=True,
+            expected_tokenizer_checksum=self.tokenizer_checksum,
+            expected_param_count=param_count,
+        )
 
         # 1. Restore model state
         self.model.load_state_dict(payload["model_state_dict"])
@@ -106,6 +120,8 @@ class Trainer:
     def train_step(self, batch: Dict[str, torch.Tensor]) -> float:
         """
         Execute a single forward-backward-accumulate optimization step.
+        Enforces token range verification, loss finiteness, gradient finiteness,
+        and records gradient norm.
         """
         self.model.train()
         input_ids = batch["input_ids"].to(self.device)
@@ -114,18 +130,41 @@ class Trainer:
         if attention_mask is not None:
             attention_mask = attention_mask.to(self.device)
 
-        # Forward
+        # 1. Bounds verification
+        TrainingSafetyChecker.verify_token_ids(
+            input_ids,
+            min_id=0,
+            max_id=self.config.model.vocab_size - 1,
+            allowed_ignore_index=self.config.data.pad_token_id,
+        )
+        TrainingSafetyChecker.verify_token_ids(
+            target_ids,
+            min_id=0,
+            max_id=self.config.model.vocab_size - 1,
+            allowed_ignore_index=self.config.data.pad_token_id,
+        )
+
+        # 2. Forward pass
         logits = self.model(input_ids, attention_mask=attention_mask)
         loss = self.loss_fn(logits, target_ids)
 
-        # Scale loss by gradient accumulation steps
+        # 3. Safety check: Loss finiteness
+        loss_val = TrainingSafetyChecker.check_loss(loss, step=self.current_step)
+
+        # 4. Backward pass
         scaled_loss = loss / self.config.training.gradient_accumulation_steps
         scaled_loss.backward()
 
         self.micro_step += 1
 
-        # Optimizer step upon completing accumulation window
+        # 5. Optimizer step upon completing accumulation window
         if self.micro_step % self.config.training.gradient_accumulation_steps == 0:
+            # Gradient verification
+            grad_norm = TrainingSafetyChecker.check_gradients(
+                self.model, step=self.current_step
+            )
+            self.latest_grad_norm = grad_norm
+
             if self.config.training.gradient_clipping > 0.0:
                 torch.nn.utils.clip_grad_norm_(
                     self.model.parameters(), self.config.training.gradient_clipping
@@ -135,8 +174,10 @@ class Trainer:
             self.scheduler.step()
             self.optimizer.zero_grad()
             self.current_step += 1
+        else:
+            self.latest_grad_norm = None
 
-        return loss.item()
+        return loss_val
 
     def train(self) -> Dict[str, Any]:
         """
@@ -198,6 +239,7 @@ class Trainer:
                 tokens_in_step=tokens_in_step,
                 batch_size=B,
                 val_loss=latest_val_metrics.get("val_loss"),
+                grad_norm=self.latest_grad_norm,
             )
 
             # Checkpointing interval
@@ -213,6 +255,10 @@ class Trainer:
                     step=self.current_step,
                     epoch=0,
                     config=self.config.to_dict(),
+                    model_config=self.model.config.to_dict() if hasattr(self.model, "config") and hasattr(self.model.config, "to_dict") else {},
+                    tokenizer_checksum=self.tokenizer_checksum,
+                    dataset_manifest_hash=self.dataset_manifest_hash,
+                    parameter_count=sum(p.numel() for p in self.model.parameters()),
                     rng_state=get_rng_state(),
                     train_metrics=record,
                     val_metrics=latest_val_metrics,
@@ -226,6 +272,10 @@ class Trainer:
             step=self.current_step,
             epoch=0,
             config=self.config.to_dict(),
+            model_config=self.model.config.to_dict() if hasattr(self.model, "config") and hasattr(self.model.config, "to_dict") else {},
+            tokenizer_checksum=self.tokenizer_checksum,
+            dataset_manifest_hash=self.dataset_manifest_hash,
+            parameter_count=sum(p.numel() for p in self.model.parameters()),
             rng_state=get_rng_state(),
             train_metrics=self.metrics.history[-1] if self.metrics.history else {},
             val_metrics=latest_val_metrics,
@@ -236,3 +286,4 @@ class Trainer:
             "final_checkpoint": str(final_ckpt),
             "history": self.metrics.history,
         }
+

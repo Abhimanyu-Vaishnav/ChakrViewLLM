@@ -19,6 +19,8 @@ import torch.nn as nn
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR
 
+from chakrview.training.safety import CheckpointCorruptionError
+
 
 class CheckpointManager:
     """
@@ -47,20 +49,42 @@ class CheckpointManager:
         rng_state: Optional[Dict[str, Any]] = None,
         train_metrics: Optional[Dict[str, Any]] = None,
         val_metrics: Optional[Dict[str, Any]] = None,
+        checkpoint_type: str = "training",
+        tokenizer_checksum: Optional[str] = None,
+        dataset_manifest_hash: Optional[str] = None,
+        model_config: Optional[Dict[str, Any]] = None,
+        parameter_count: Optional[int] = None,
     ) -> Path:
         """
-        Atomically save complete training state to disk.
+        Atomically save complete training state to disk with integrity metadata.
         """
         checkpoint_name = f"checkpoint_{step:07d}.pt"
         final_path = self.checkpoint_dir / checkpoint_name
         tmp_path = self.checkpoint_dir / f"{checkpoint_name}.tmp"
 
+        total_params = parameter_count or sum(p.numel() for p in model.parameters())
+
+        model_cfg_dict = {}
+        if model_config is not None:
+            model_cfg_dict = model_config
+        elif hasattr(model, "config"):
+            if hasattr(model.config, "to_dict"):
+                model_cfg_dict = model.config.to_dict()
+            elif hasattr(model.config, "__dataclass_fields__"):
+                from dataclasses import asdict
+                model_cfg_dict = asdict(model.config)
+
         payload = {
+            "checkpoint_type": checkpoint_type,
             "step": step,
             "epoch": epoch,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "model_state_dict": model.state_dict(),
             "config": config or {},
+            "model_config": model_cfg_dict,
+            "tokenizer_checksum": tokenizer_checksum,
+            "dataset_manifest_hash": dataset_manifest_hash,
+            "parameter_count": total_params,
             "rng_state": rng_state or {},
             "train_metrics": train_metrics or {},
             "val_metrics": val_metrics or {},
@@ -82,6 +106,7 @@ class CheckpointManager:
             "latest_checkpoint": checkpoint_name,
             "step": step,
             "timestamp": payload["timestamp"],
+            "checkpoint_type": checkpoint_type,
         }
         pointer_tmp = self.checkpoint_dir / "latest_checkpoint.json.tmp"
         with open(pointer_tmp, "w", encoding="utf-8") as f:
@@ -128,9 +153,73 @@ class CheckpointManager:
         return None
 
     @staticmethod
-    def load(path: Path | str, weights_only: bool = False) -> Dict[str, Any]:
-        """Load state payload from a checkpoint file."""
+    def validate_training_checkpoint(
+        payload: Dict[str, Any],
+        expected_tokenizer_checksum: Optional[str] = None,
+        expected_param_count: int = 3_443_136,
+    ) -> None:
+        """
+        Validate that payload is a legitimate, uncorrupted ChakrView training checkpoint.
+        Rejects inference checkpoints, truncated payloads, or mismatched models.
+        """
+        if not isinstance(payload, dict):
+            raise CheckpointCorruptionError("Checkpoint payload must be a dictionary.")
+
+        # 1. Type validation
+        ckpt_type = payload.get("checkpoint_type")
+        if ckpt_type != "training":
+            raise CheckpointCorruptionError(
+                f"Invalid checkpoint type '{ckpt_type}': expected 'training'. "
+                f"Inference checkpoints cannot be resumed for training."
+            )
+
+        # 2. Required keys for a valid training checkpoint
+        required_keys = [
+            "step", "model_state_dict", "optimizer_state_dict", "config", "timestamp"
+        ]
+        for key in required_keys:
+            if key not in payload:
+                raise CheckpointCorruptionError(
+                    f"Corrupted training checkpoint: missing required key '{key}'."
+                )
+
+        # 3. Model state dict check
+        state_dict = payload["model_state_dict"]
+        if not isinstance(state_dict, dict) or len(state_dict) == 0:
+            raise CheckpointCorruptionError("Corrupted training checkpoint: empty or invalid model_state_dict.")
+
+        # 4. Parameter count
+        param_count = payload.get("parameter_count")
+        if param_count is not None and param_count != expected_param_count:
+            raise CheckpointCorruptionError(
+                f"Checkpoint parameter count mismatch: found {param_count:,}, expected {expected_param_count:,}."
+            )
+
+        # 5. Tokenizer checksum if provided
+        if expected_tokenizer_checksum and payload.get("tokenizer_checksum"):
+            if payload["tokenizer_checksum"] != expected_tokenizer_checksum:
+                raise CheckpointCorruptionError(
+                    f"Tokenizer checksum mismatch in checkpoint: found {payload['tokenizer_checksum']}, "
+                    f"expected {expected_tokenizer_checksum}."
+                )
+
+    @staticmethod
+    def load(
+        path: Path | str,
+        weights_only: bool = False,
+        validate_training: bool = False,
+        expected_tokenizer_checksum: Optional[str] = None,
+        expected_param_count: int = 3_443_136,
+    ) -> Dict[str, Any]:
+        """Load state payload from a checkpoint file, optionally validating training integrity."""
         ckpt_path = Path(path)
         if not ckpt_path.is_file():
             raise FileNotFoundError(f"Checkpoint file not found: {ckpt_path}")
-        return torch.load(ckpt_path, map_location="cpu", weights_only=weights_only)
+        payload = torch.load(ckpt_path, map_location="cpu", weights_only=weights_only)
+        if validate_training:
+            CheckpointManager.validate_training_checkpoint(
+                payload,
+                expected_tokenizer_checksum=expected_tokenizer_checksum,
+                expected_param_count=expected_param_count,
+            )
+        return payload
