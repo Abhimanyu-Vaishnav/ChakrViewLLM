@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 42 — Federated Cognitive Orchestration & Distributed Reasoning Graph
-- **Status**: Complete & Verified (CognitiveTaskGraph DAG, CognitiveContextEnvelope bounded <=448 tokens with secret scanning, FederatedNeuralCapability with verified dW=0, 5 governed cognitive roles, FederatedReasoningBridge WorkUnit routing, CognitiveSynthesisEngine preserving minority evidence, CognitiveEpisodeManager lifecycle, 1,221 / 1,221 tests passing across 88 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+- **Current phase**: Step 43 — Persistent Cognitive Memory, Knowledge Retrieval & Adaptive Planning Integration
+- **Status**: Complete & Verified (PersistentCognitiveMemoryAdapter connecting ContinualMemoryRetriever & ContinualMemoryStorage, GovernedKnowledgeRetrievalCapability wrapping BM25KnowledgeIndex & LexicalRetriever, AdaptiveTaskPlanner DAG planning via plan_adaptive_episode in FederatedCognitiveEngine, 1,243 / 1,243 tests passing across 89 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
 
 ---
 
@@ -212,6 +212,8 @@
   - Fully verified and frozen weights/hyperparameters ($3,443,136$ parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, weight-tied, bias-free, Pre-RMSNorm, RoPE, SwiGLU)
 - `scripts/`: **Execution, Benchmarking & Ingestion Engine**
   - `benchmark_session_key_lifecycle.py`: Step 32 empirical secure federation session & key lifecycle benchmark
+  - `benchmark_persistent_cognitive_memory.py`: Step 43 empirical persistent cognitive memory, RAG & adaptive planning benchmark
+  - `benchmark_federated_cognitive_engine.py`: Step 42 empirical federated cognitive orchestration benchmark
   - `benchmark_transport_security.py`: Step 31 empirical production transport security & TLS/mTLS benchmark
   - `benchmark_secure_transport.py`: Step 30 empirical secure physical transport & cryptographic peer identity benchmark
   - `benchmark_cross_zone_peering.py`: Step 29 empirical cross-zone peering & trust negotiation benchmark
@@ -227,7 +229,9 @@
   - `benchmark_state.py`: Step 18 empirical state benchmark
   - `benchmark_capability.py`: Step 17 empirical capability benchmark
   - `benchmark_cognitive_agent.py`: Step 15 empirical benchmark
-- `tests/`: **1,100/1,100 Tests Passing** across 83 test files (100% green, 0 failures, 0 errors, 0 warnings)
+- `tests/`: **1,243/1,243 Tests Passing** across 89 test files (100% green, 0 failures, 1 pre-existing warning)
+  - 22 Persistent Cognitive Memory, Knowledge Retrieval & Adaptive Planning tests (`test_persistent_cognitive_memory.py`)
+  - 69 Federated Cognitive Orchestration & Distributed Reasoning Graph tests (`test_federated_cognitive_engine.py`)
   - 20 Distributed Resource Orchestration, Fault-Tolerant Task Execution & Work Continuity tests (`test_federation_tasks.py`)
   - 35 Distributed Resource & Capability Advertisement tests (`test_federation_resources.py`)
   - 42 Production Federation Message Transport & Secure Inter-Node Communication tests (`test_federation_transport.py`)
@@ -261,6 +265,16 @@
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
 - `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_43_PERSISTENT_COGNITIVE_MEMORY_ARCHITECTURE.md` (Step 43 Architecture Specification)
+  - `docs/STEP_43_THREAT_MODEL.md` (Step 43 Threat Model)
+  - `docs/STEP_43_BENCHMARK_RESULTS.json` (Step 43 Empirical Benchmark Data)
+  - `docs/STEP_43_RATIFICATION_REPORT.md` (Step 43 Formal Ratification Report)
+  - `docs/STEP_43_REPOSITORY_AUDIT.md` (Step 43 Repository Audit Findings)
+  - `docs/STEP_42_COGNITIVE_ARCHITECTURE.md` (Step 42 Architecture Specification)
+  - `docs/STEP_42_THREAT_MODEL.md` (Step 42 Threat Model)
+  - `docs/STEP_42_BENCHMARK_RESULTS.json` (Step 42 Empirical Benchmark Data)
+  - `docs/STEP_42_RATIFICATION_REPORT.md` (Step 42 Formal Ratification Report)
+  - `docs/STEP_42_REPOSITORY_AUDIT.md` (Step 42 Repository Audit Findings)
   - `docs/STEP_38_FEDERATION_TASKS_ARCHITECTURE.md` (Step 38 Architecture Specification)
   - `docs/STEP_38_THREAT_MODEL.md` (Step 38 Threat Model)
   - `docs/STEP_38_BENCHMARK_RESULTS.json` (Step 38 Empirical Benchmark Data)
@@ -316,5 +330,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 38 RATIFIED — PRODUCTION DISTRIBUTED RESOURCE ORCHESTRATION, FAULT-TOLERANT TASK EXECUTION & WORK CONTINUITY COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 39 (Awaiting user explicit command; DO NOT START STEP 39 AUTOMATICALLY).
+- **Decision**: **STEP 43 RATIFIED — PERSISTENT COGNITIVE MEMORY, KNOWLEDGE RETRIEVAL & ADAPTIVE PLANNING INTEGRATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 44 (Awaiting user explicit command; DO NOT START STEP 44 AUTOMATICALLY).
