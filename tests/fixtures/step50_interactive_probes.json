@@ -1,0 +1,72 @@
+{
+  "description": "Step 50 Structured Interactive Evaluation Probes",
+  "probe_a_basic_language": [
+    "The sun rises in the",
+    "Water freezes at",
+    "A computer has",
+    "The child is",
+    "The sky is"
+  ],
+  "probe_b_context_change": [
+    {
+      "prompt_1": "The cat sat on the",
+      "prompt_2": "The dog sat on the"
+    },
+    {
+      "prompt_1": "In winter the weather is very",
+      "prompt_2": "In summer the weather is very"
+    },
+    {
+      "prompt_1": "A bird can fly through the",
+      "prompt_2": "A fish can swim through the"
+    }
+  ],
+  "probe_c_controlled_memory": [
+    {
+      "target_value_1": "BLUE",
+      "target_value_2": "RED",
+      "distances": [8, 16, 32, 64, 128],
+      "base_prefix": "The secret color is ",
+      "query_suffix": "The secret color is"
+    }
+  ],
+  "probe_d_negative_control": [
+    {
+      "clean_prompt": "The secret color is BLUE. The object has the secret color. Therefore the secret color is",
+      "corrupted_prompt": "color BLUE secret The has Therefore the is object The color. secret. color is"
+    },
+    {
+      "clean_prompt": "The scientist conducted an experiment in the laboratory to test the hypothesis.",
+      "corrupted_prompt": "experiment laboratory scientist The an the conducted test to in hypothesis the."
+    }
+  ],
+  "probe_e_simple_pattern": [
+    "A B A B A",
+    "1 2 1 2 1",
+    "red blue red blue"
+  ],
+  "probe_f_multi_turn": [
+    {
+      "scenario": "Favorite color tracking",
+      "turns": [
+        {"role": "user", "content": "My favorite color is blue."},
+        {"role": "user", "content": "What is my favorite color?"}
+      ],
+      "contrast_turns": [
+        {"role": "user", "content": "My favorite color is red."},
+        {"role": "user", "content": "What is my favorite color?"}
+      ]
+    },
+    {
+      "scenario": "User identity tracking",
+      "turns": [
+        {"role": "user", "content": "My name is Abhimanyu."},
+        {"role": "user", "content": "What is my name?"}
+      ],
+      "contrast_turns": [
+        {"role": "user", "content": "My name is Vikram."},
+        {"role": "user", "content": "What is my name?"}
+      ]
+    }
+  ]
+}

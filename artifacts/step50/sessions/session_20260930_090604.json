@@ -1,0 +1,126 @@
+{
+  "session_id": "session_1790759162",
+  "timestamp": "2026-09-30T09:06:04.205887+00:00",
+  "model_info": {
+    "checkpoint": "D:\\Project\\ChakrView\\artifacts\\step48\\run_seed_42\\checkpoint_0000100.pt",
+    "training_steps": 100,
+    "parameters": 3443136,
+    "vocabulary": 4096,
+    "context_length": 512,
+    "tokenizer_checksum": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f",
+    "model_weight_hash": "85e1eb6cd3472d431692cde71cf58f705990fee50be91a2d70f46e0968481a64",
+    "baseline_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "deterministic": true,
+    "seed": 42,
+    "raw_diagnostics": false
+  },
+  "generation_config": {
+    "max_new_tokens": 48,
+    "min_new_tokens": 1,
+    "sampling": {
+      "temperature": 0.7,
+      "top_k": 40,
+      "top_p": 0.9,
+      "repetition_penalty": 1.1,
+      "min_prob": 0.0,
+      "seed": 42,
+      "strategy": "hybrid"
+    },
+    "stop_token_ids": [
+      1
+    ],
+    "context_window": 512,
+    "context_overflow_policy": "stop",
+    "stream_interval": 1
+  },
+  "session_stats": {
+    "prompts": 2,
+    "generated_tokens": 2,
+    "average_latency_ms": 11.85,
+    "average_tokens_per_sec": 84.4,
+    "eos_count": 2,
+    "repetition_ratio": 0.0
+  },
+  "history": [
+    {
+      "timestamp": "2026-09-30T09:06:02.950687+00:00",
+      "user_input": "Hello.",
+      "response": "",
+      "token_ids": [
+        1
+      ],
+      "metrics": {
+        "length": 1,
+        "token_diversity": 1.0,
+        "repetition_unigram": 0.0,
+        "repetition_bigram": 0.0,
+        "repetition_trigram": 0.0,
+        "eos_occurred": true,
+        "throughput_tokens_per_sec": 84.65,
+        "latency_ms_per_token": 11.81,
+        "elapsed_sec": 0.0118
+      },
+      "raw_diagnostics": []
+    },
+    {
+      "timestamp": "2026-09-30T09:06:02.965513+00:00",
+      "user_input": "The sky is",
+      "response": "",
+      "token_ids": [
+        1
+      ],
+      "metrics": {
+        "length": 1,
+        "token_diversity": 1.0,
+        "repetition_unigram": 0.0,
+        "repetition_bigram": 0.0,
+        "repetition_trigram": 0.0,
+        "eos_occurred": true,
+        "throughput_tokens_per_sec": 84.15,
+        "latency_ms_per_token": 11.88,
+        "elapsed_sec": 0.0119
+      },
+      "raw_diagnostics": [
+        {
+          "step": 1,
+          "token_id": 1,
+          "token_text": "",
+          "probability": 0.5931,
+          "rank": 1,
+          "top5_alternatives": [
+            {
+              "rank": 1,
+              "token_id": 1,
+              "token_str": "",
+              "probability": 0.5931
+            },
+            {
+              "rank": 2,
+              "token_id": 42,
+              "token_str": "'",
+              "probability": 0.0273
+            },
+            {
+              "rank": 3,
+              "token_id": 324,
+              "token_str": ": ",
+              "probability": 0.0167
+            },
+            {
+              "rank": 4,
+              "token_id": 43,
+              "token_str": "(",
+              "probability": 0.0143
+            },
+            {
+              "rank": 5,
+              "token_id": 816,
+              "token_str": " * ",
+              "probability": 0.012
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
