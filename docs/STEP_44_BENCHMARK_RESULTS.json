@@ -1,0 +1,103 @@
+{
+  "benchmark_suite": "Step 44: End-to-End Neural Inference Pipeline",
+  "timestamp": 1790752011.7881153,
+  "environment": {
+    "mode": "in-process loopback CPU execution",
+    "cpu_only": true,
+    "gpu_required": false,
+    "neural_model": "ChakrMicro v0.1 (3,443,136 parameters, \u0394W = 0)",
+    "weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "max_context": 512,
+    "vocab_size": 4096
+  },
+  "benchmarks": {
+    "tokenizer_encode": {
+      "label": "tokenizer_encode",
+      "iterations": 500,
+      "total_ms": 725.21,
+      "mean_ms": 1.4504,
+      "median_ms": 1.3971,
+      "stdev_ms": 0.2232,
+      "min_ms": 1.1265,
+      "max_ms": 2.3909,
+      "throughput_per_sec": 689.5
+    },
+    "tokenizer_decode_64_tokens": {
+      "label": "tokenizer_decode_64_tokens",
+      "iterations": 500,
+      "total_ms": 3.59,
+      "mean_ms": 0.0072,
+      "median_ms": 0.0071,
+      "stdev_ms": 0.0007,
+      "min_ms": 0.0069,
+      "max_ms": 0.015,
+      "throughput_per_sec": 139466.1
+    },
+    "context_assembly_and_scan": {
+      "label": "context_assembly_and_scan",
+      "iterations": 500,
+      "total_ms": 1.41,
+      "mean_ms": 0.0028,
+      "median_ms": 0.0028,
+      "stdev_ms": 0.0004,
+      "min_ms": 0.0026,
+      "max_ms": 0.0088,
+      "throughput_per_sec": 354937.2
+    },
+    "single_forward_pass_32_tokens": {
+      "label": "single_forward_pass_32_tokens",
+      "iterations": 50,
+      "total_ms": 1075.17,
+      "mean_ms": 21.5035,
+      "median_ms": 21.1591,
+      "stdev_ms": 2.1466,
+      "min_ms": 18.7845,
+      "max_ms": 29.2461,
+      "throughput_per_sec": 46.5
+    },
+    "greedy_generation_8_tokens": {
+      "label": "greedy_generation_8_tokens",
+      "iterations": 30,
+      "total_ms": 1348.06,
+      "mean_ms": 44.9355,
+      "median_ms": 42.3015,
+      "stdev_ms": 8.6515,
+      "min_ms": 37.0356,
+      "max_ms": 76.8497,
+      "throughput_per_sec": 22.3
+    },
+    "greedy_generation_32_tokens": {
+      "label": "greedy_generation_32_tokens",
+      "iterations": 15,
+      "total_ms": 1841.41,
+      "mean_ms": 122.7606,
+      "median_ms": 118.3871,
+      "stdev_ms": 30.4418,
+      "min_ms": 90.4177,
+      "max_ms": 192.7128,
+      "throughput_per_sec": 8.1
+    },
+    "greedy_generation_64_tokens": {
+      "label": "greedy_generation_64_tokens",
+      "iterations": 10,
+      "total_ms": 2652.09,
+      "mean_ms": 265.2086,
+      "median_ms": 264.5169,
+      "stdev_ms": 24.4774,
+      "min_ms": 225.4148,
+      "max_ms": 297.5182,
+      "throughput_per_sec": 3.8
+    },
+    "end_to_end_cognitive_inference": {
+      "label": "end_to_end_cognitive_inference",
+      "iterations": 20,
+      "total_ms": 1697.79,
+      "mean_ms": 84.8894,
+      "median_ms": 79.9455,
+      "stdev_ms": 13.7234,
+      "min_ms": 71.0782,
+      "max_ms": 128.8689,
+      "throughput_per_sec": 11.8
+    }
+  }
+}
