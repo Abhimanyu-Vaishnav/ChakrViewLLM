@@ -119,6 +119,20 @@ from chakrview.runtime.session import (
     ConversationContextManager,
     LocalModelSession,
 )
+from chakrview.runtime.interactive import (
+    InteractiveModelSessionCoordinator,
+    ModelComparator,
+    StructuredProbeEvaluator,
+    GenerationMetricsCalculator,
+    ResponseMetrics,
+    ComparisonResult,
+    compute_model_hash,
+    instantiate_frozen_baseline,
+    load_trained_checkpoint,
+    compute_cosine_distance,
+    compute_js_divergence,
+    compute_topk_overlap,
+)
 from chakrview.runtime.local_runtime import (
     LocalModelRuntime,
 )
@@ -250,6 +264,19 @@ __all__ = [
     "ConversationContextManager",
     "LocalModelSession",
     "LocalModelRuntime",
+    # Interactive Evaluation & Diagnostics (Step 50)
+    "InteractiveModelSessionCoordinator",
+    "ModelComparator",
+    "StructuredProbeEvaluator",
+    "GenerationMetricsCalculator",
+    "ResponseMetrics",
+    "ComparisonResult",
+    "compute_model_hash",
+    "instantiate_frozen_baseline",
+    "load_trained_checkpoint",
+    "compute_cosine_distance",
+    "compute_js_divergence",
+    "compute_topk_overlap",
     # Conversational State & Memory (Step 12)
     "MemoryType",
     "ConversationTurn",
