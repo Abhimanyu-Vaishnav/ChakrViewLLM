@@ -45,8 +45,24 @@ from chakrview.cognition.federation.cognitive.models import (
 from chakrview.cognition.federation.cognitive.bridge import FederatedReasoningBridge
 from chakrview.cognition.federation.cognitive.episode import CognitiveEpisodeManager
 from chakrview.cognition.federation.cognitive.synthesis import CognitiveSynthesisEngine
+from chakrview.capability.contract import CapabilityRequest
+from chakrview.cognition.federation.cognitive.memory import PersistentCognitiveMemoryAdapter
+from chakrview.cognition.federation.cognitive.capabilities import GovernedKnowledgeRetrievalCapability
+from chakrview.cognition.orchestration.planner import AdaptiveTaskPlanner
+from chakrview.cognition.orchestration.classifier import DeterministicWorkloadClassifier
+from chakrview.cognition.orchestration.models import WorkloadClass
+from chakrview.cognition.federated.models import AgentRole
 
 logger = logging.getLogger("chakrview.federation.cognitive.engine")
+
+ROLE_TO_CAPABILITY: Dict[AgentRole, str] = {
+    AgentRole.ANALYST: CAPABILITY_ANALYST,
+    AgentRole.RESEARCHER: CAPABILITY_RESEARCHER,
+    AgentRole.CRITIC: CAPABILITY_CRITIC,
+    AgentRole.SYNTHESIZER: CAPABILITY_SYNTHESIZER,
+    AgentRole.VERIFIER: CAPABILITY_VERIFIER,
+    AgentRole.PLANNER: CAPABILITY_ANALYST,
+}
 
 
 class FederatedCognitiveEngine:
@@ -73,14 +89,28 @@ class FederatedCognitiveEngine:
     STEP_SYNTHESIZER = "step_synthesizer"
     STEP_VERIFIER = "step_verifier"
 
-    def __init__(self, federated_node: Optional[Any] = None) -> None:
+    def __init__(
+        self,
+        federated_node: Optional[Any] = None,
+        memory_adapter: Optional[PersistentCognitiveMemoryAdapter] = None,
+        knowledge_capability: Optional[GovernedKnowledgeRetrievalCapability] = None,
+    ) -> None:
         """
         Args:
             federated_node: Optional FederatedNode (Step 41). When provided,
                 cognitive steps are dispatched through live federation.
                 When None, the engine operates in local simulation mode.
+            memory_adapter: Optional PersistentCognitiveMemoryAdapter (Step 43).
+                When provided, queries memory before planning and consolidates
+                committed episodes into persistent memory.
+            knowledge_capability: Optional GovernedKnowledgeRetrievalCapability (Step 43).
+                When provided, handles the RESEARCHER role with real BM25 retrieval.
         """
         self.federated_node = federated_node
+        self.memory_adapter = memory_adapter
+        self.knowledge_capability = knowledge_capability
+        self.adaptive_planner = AdaptiveTaskPlanner()
+        self.workload_classifier = DeterministicWorkloadClassifier()
         self.episode_manager = CognitiveEpisodeManager()
         self.bridge = FederatedReasoningBridge()
         self.synthesis_engine = CognitiveSynthesisEngine()
@@ -96,12 +126,18 @@ class FederatedCognitiveEngine:
         tenant_id: str,
         session_id: str,
         initial_context: Optional[List[str]] = None,
+        workload_class: Optional[WorkloadClass] = None,
+        use_adaptive_planner: bool = False,
     ) -> CognitiveEpisode:
         """
         Plan a cognitive episode for the given objective.
 
-        Generates a standard 5-step reasoning pipeline:
-            ANALYST → RESEARCHER → CRITIC → SYNTHESIZER → VERIFIER
+        If use_adaptive_planner is True (or workload_class is supplied), uses
+        AdaptiveTaskPlanner to build a dynamic CognitiveTaskGraph.
+        Otherwise, builds the standard 5-step pipeline.
+
+        Pre-populates CognitiveContextEnvelope from persistent memory if
+        PersistentCognitiveMemoryAdapter is configured.
 
         Returns:
             CognitiveEpisode in PLANNING state.
@@ -113,25 +149,52 @@ class FederatedCognitiveEngine:
             session_id=session_id,
         )
 
-        # 2. Build the cognitive DAG
-        graph = self._build_standard_graph(
-            episode_id=episode.episode_id,
-            objective=objective,
-        )
+        # 2. Build the cognitive DAG (adaptive or standard)
+        if use_adaptive_planner or workload_class is not None:
+            if workload_class is not None:
+                effective_wc = workload_class
+            else:
+                effective_wc, _ = self.workload_classifier.classify(objective)
+            graph = self._build_adaptive_graph(
+                episode_id=episode.episode_id,
+                objective=objective,
+                workload_class=effective_wc,
+            )
+        else:
+            graph = self._build_standard_graph(
+                episode_id=episode.episode_id,
+                objective=objective,
+            )
 
-        # 3. Build initial context envelope
+        # 3. Retrieve prior context from persistent memory if configured
+        combined_context: List[str] = []
+        if self.memory_adapter is not None:
+            try:
+                retrieved_mems = self.memory_adapter.retrieve_context(
+                    objective=objective,
+                    tenant_id=tenant_id,
+                    session_id=session_id,
+                    top_k=5,
+                )
+                combined_context.extend(retrieved_mems)
+            except Exception as exc:
+                logger.warning("Memory context retrieval failed: %s", exc)
+
+        if initial_context:
+            combined_context.extend(initial_context)
+
+        # 4. Build initial context envelope
         context = CognitiveContextEnvelope(
             envelope_id=f"env_{uuid.uuid4().hex[:10]}",
             episode_id=episode.episode_id,
             tenant_id=tenant_id,
             session_id=session_id,
         )
-        if initial_context:
-            for item in initial_context[: CognitiveContextEnvelope.MAX_CONTEXT_ITEMS]:
-                context.add_context_item(item)
+        for item in combined_context[: CognitiveContextEnvelope.MAX_CONTEXT_ITEMS]:
+            context.add_context_item(item)
         context.validate()
 
-        # 4. Attach graph to episode: UNINITIALIZED -> PLANNING
+        # 5. Attach graph to episode: UNINITIALIZED -> PLANNING
         self.episode_manager.attach_graph(episode.episode_id, graph, context)
 
         logger.info(
@@ -141,6 +204,75 @@ class FederatedCognitiveEngine:
             tenant_id,
         )
         return episode
+
+    def plan_adaptive_episode(
+        self,
+        objective: str,
+        tenant_id: str,
+        session_id: str,
+        initial_context: Optional[List[str]] = None,
+        workload_class: Optional[WorkloadClass] = None,
+    ) -> CognitiveEpisode:
+        """
+        Plan an adaptive cognitive episode using AdaptiveTaskPlanner to dynamically
+        tailor the CognitiveTaskGraph to the objective's WorkloadClass.
+        """
+        return self.plan_episode(
+            objective=objective,
+            tenant_id=tenant_id,
+            session_id=session_id,
+            initial_context=initial_context,
+            workload_class=workload_class,
+            use_adaptive_planner=True,
+        )
+
+    def _build_adaptive_graph(
+        self,
+        episode_id: str,
+        objective: str,
+        workload_class: WorkloadClass,
+    ) -> CognitiveTaskGraph:
+        """
+        Build a dynamic CognitiveTaskGraph using AdaptiveTaskPlanner tailored
+        to the WorkloadClass.
+        """
+        task_plan = self.adaptive_planner.plan_task(
+            task_id=episode_id,
+            objective=objective,
+            workload_class=workload_class,
+        )
+
+        graph = CognitiveTaskGraph(
+            graph_id=f"gr_{uuid.uuid4().hex[:10]}",
+            episode_id=episode_id,
+        )
+
+        role_step_ids: Dict[str, str] = {}
+        for role in task_plan.required_roles:
+            role_step_ids[role.value] = f"step_{role.value.lower()}"
+
+        for role in task_plan.required_roles:
+            step_id = role_step_ids[role.value]
+            cap_id = ROLE_TO_CAPABILITY.get(role, CAPABILITY_ANALYST)
+            try:
+                role_enum = CognitiveRole(role.value.lower())
+            except ValueError:
+                role_enum = CognitiveRole.ANALYST
+
+            raw_deps = task_plan.role_dependencies.get(role.value, [])
+            step_deps = [role_step_ids[dep] for dep in raw_deps if dep in role_step_ids]
+
+            step = CognitiveStep(
+                step_id=step_id,
+                role=role_enum,
+                capability_id=cap_id,
+                input_payload={"objective": objective},
+                dependencies=step_deps,
+            )
+            graph.add_step(step)
+
+        graph.validate()
+        return graph
 
     # ─────────────────────────────────────────────────────────────────────────
     # Execution
@@ -222,6 +354,13 @@ class FederatedCognitiveEngine:
                 episode_id, proposal_id or "local_only"
             )
             self.episode_manager.mark_committed(episode_id)
+
+            # Consolidate into persistent memory if adapter configured
+            if self.memory_adapter is not None:
+                try:
+                    self.memory_adapter.consolidate_episode(episode)
+                except Exception as exc:
+                    logger.warning("Episode memory consolidation error: %s", exc)
 
         return episode
 
@@ -330,6 +469,28 @@ class FederatedCognitiveEngine:
         # Live federation dispatch
         if self.federated_node is not None:
             return self._dispatch_via_federation(episode, step)
+
+        # Check if local GovernedKnowledgeRetrievalCapability can handle RESEARCHER role
+        if step.role == CognitiveRole.RESEARCHER and self.knowledge_capability is not None:
+            req = CapabilityRequest(
+                capability_id=self.knowledge_capability.descriptor.capability_id,
+                parameters={
+                    "objective": step.input_payload.get("objective", ""),
+                    "query": step.input_payload.get("objective", ""),
+                    "step_id": step_id,
+                },
+            )
+            cap_result = self.knowledge_capability.execute(req)
+            if cap_result.success:
+                return {
+                    "step_id": step_id,
+                    "success": True,
+                    "node_id": "local",
+                    "conclusion": cap_result.output.get("conclusion", ""),
+                    "evidence": cap_result.output.get("evidence", []),
+                    "evidence_records": cap_result.output.get("evidence_records", []),
+                    "hypotheses": cap_result.output.get("hypotheses", []),
+                }
 
         # Local fallback: minimal governed response
         return {

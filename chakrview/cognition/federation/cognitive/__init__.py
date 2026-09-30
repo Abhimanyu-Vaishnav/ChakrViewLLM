@@ -40,11 +40,13 @@ from chakrview.cognition.federation.cognitive.models import (
 from chakrview.cognition.federation.cognitive.capabilities import (
     FederatedNeuralCapability,
     SimpleCognitiveCapability,
+    GovernedKnowledgeRetrievalCapability,
 )
 from chakrview.cognition.federation.cognitive.bridge import FederatedReasoningBridge
 from chakrview.cognition.federation.cognitive.synthesis import CognitiveSynthesisEngine
 from chakrview.cognition.federation.cognitive.episode import CognitiveEpisodeManager
 from chakrview.cognition.federation.cognitive.engine import FederatedCognitiveEngine
+from chakrview.cognition.federation.cognitive.memory import PersistentCognitiveMemoryAdapter
 
 __all__ = [
     # Errors
@@ -80,8 +82,10 @@ __all__ = [
     # Components
     "FederatedNeuralCapability",
     "SimpleCognitiveCapability",
+    "GovernedKnowledgeRetrievalCapability",
     "FederatedReasoningBridge",
     "CognitiveSynthesisEngine",
     "CognitiveEpisodeManager",
     "FederatedCognitiveEngine",
+    "PersistentCognitiveMemoryAdapter",
 ]
