@@ -65,7 +65,7 @@ def tokenizer():
     return tok
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def sample_project_manifest():
     spec = ProjectSpecification(
         project_id="proj_test_math_001",
@@ -458,3 +458,169 @@ def test_20_cpu_resource_constraints():
     # Verify model parameter count is exactly 3,443,136
     total_params = sum(p.numel() for p in model.parameters())
     assert total_params == 3_443_136
+
+
+# ---------------------------------------------------------------------------
+# Test 21: Path traversal protection raises PathTraversalError
+# ---------------------------------------------------------------------------
+def test_21_path_traversal_protection(sample_project_manifest: ProjectManifest):
+    from chakrview.arena.models import PathTraversalError
+
+    with IsolatedWorkspace(sample_project_manifest) as ws:
+        with pytest.raises(PathTraversalError):
+            ws.write_source_file("../../outside.py", "malicious_code = True\n")
+
+        with pytest.raises(PathTraversalError):
+            ws.write_test_file("../../../etc/passwd", "root::0:0\n")
+
+
+# ---------------------------------------------------------------------------
+# Test 22: Patch diff generation and diff file persistence
+# ---------------------------------------------------------------------------
+def test_22_patch_diff_and_history(sample_project_manifest: ProjectManifest):
+    with IsolatedWorkspace(sample_project_manifest) as ws:
+        initial_content = ws.get_source_file_path("core.py").read_text(encoding="utf-8")
+        patched_content = initial_content + "\ndef multiply(a: int, b: int) -> int:\n    return a * b\n"
+
+        diff = ws.apply_patch("core.py", patched_content)
+        assert len(ws.patch_history) == 1
+        assert diff.path == "core.py"
+        assert "+def multiply(a: int, b: int) -> int:" in diff.diff_text
+
+        # Verify diff artifact saved to artifacts/diffs/
+        diff_files = list(ws.diffs_dir.glob("*.diff"))
+        assert len(diff_files) == 1
+        assert "+def multiply" in diff_files[0].read_text(encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Test 23: Workspace reset restores original manifest state
+# ---------------------------------------------------------------------------
+def test_23_workspace_reset(sample_project_manifest: ProjectManifest):
+    with IsolatedWorkspace(sample_project_manifest) as ws:
+        # Mutate workspace
+        ws.apply_patch("core.py", "# Completely overwritten\n")
+        assert len(ws.patch_history) == 1
+
+        # Reset
+        ws.reset_to_initial()
+        assert len(ws.patch_history) == 0
+
+        restored = ws.get_source_file_path("core.py").read_text(encoding="utf-8")
+        assert "def add(a: int, b: int) -> int:" in restored
+
+
+# ---------------------------------------------------------------------------
+# Test 24: Traceback diagnostic extraction parses failure frame
+# ---------------------------------------------------------------------------
+def test_24_traceback_diagnostic_extraction():
+    executor = SandboxedExecutor()
+    mock_stdout = """============================= test session starts =============================
+collected 1 item
+
+tests/test_calc.py F                                                     [100%]
+
+================================== FAILURES ===================================
+__________________________________ test_add ___________________________________
+
+    def test_add():
+>       assert add(2, 2) == 5
+E       assert 4 == 5
+
+tests/test_calc.py:4: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_calc.py::test_add - assert 4 == 5
+============================== 1 failed in 0.03s ==============================
+"""
+    test_res = TestResult(passed=0, failed=1, stdout=mock_stdout, stderr="", exit_code=1)
+    diag = executor.extract_traceback_diagnostic(test_res)
+
+    assert diag is not None
+    assert diag["failing_test"] == "test_add"
+    assert "assert 4 == 5" in diag["error_message"]
+    assert diag["exception_type"] == "AssertionError"
+
+
+# ---------------------------------------------------------------------------
+# Test 25: Closed-loop feedback controller achieves repair convergence
+# ---------------------------------------------------------------------------
+def test_25_closed_loop_feedback_repair_convergence():
+    from chakrview.arena.loop import ArenaClosedLoopController
+
+    # Create project with intentional bug
+    spec = ProjectSpecification(
+        project_id="proj_buggy_math_01",
+        project_name="buggy_math",
+        description="Math project with off-by-one bug to test repair loop.",
+    )
+    files = [
+        SourceFile(
+            path="core.py",
+            content="def multiply(a: int, b: int) -> int:\n    return a * b + 1  # Bug: extra + 1\n",
+            role=FileRole.SOURCE,
+        ),
+        SourceFile(
+            path="test_core.py",
+            content="from core import multiply\n\ndef test_multiply():\n    assert multiply(3, 4) == 12\n",
+            role=FileRole.TEST,
+        ),
+    ]
+    manifest = ProjectManifest(specification=spec, files=files)
+
+    # Mock generator that fixes the bug when prompt contains error
+    def mock_repair_generator(prompt: str) -> str:
+        if "assert 13 == 12" in prompt or "AssertionError" in prompt:
+            return "def multiply(a: int, b: int) -> int:\n    return a * b\n"
+        return "def multiply(a: int, b: int) -> int:\n    return a * b + 1\n"
+
+    controller = ArenaClosedLoopController(max_iterations=3)
+    history = controller.run_closed_loop(manifest, repair_generator=mock_repair_generator)
+
+    assert history.converged is True
+    assert history.total_iterations == 2
+    assert history.final_pass_rate == 1.0
+    assert history.iterations[0].test_result.failed == 1
+    assert history.iterations[1].test_result.passed == 1
+    assert len(history.iterations[1].patch_diffs) >= 1
+
+
+# ---------------------------------------------------------------------------
+# Test 26: ArenaMemoryBridge packages execution history for RIL
+# ---------------------------------------------------------------------------
+def test_26_arena_memory_bridge_experience_record():
+    from chakrview.arena.memory import ArenaMemoryBridge
+    from chakrview.arena.loop import ArenaClosedLoopController
+
+    spec = ProjectSpecification(
+        project_id="proj_mem_test_01",
+        project_name="mem_test",
+        description="Memory bridge verification.",
+    )
+    files = [
+        SourceFile(path="core.py", content="def f(): return 1\n"),
+        SourceFile(path="test_core.py", content="from core import f\ndef test_f(): assert f() == 1\n", role=FileRole.TEST),
+    ]
+    manifest = ProjectManifest(specification=spec, files=files)
+    controller = ArenaClosedLoopController()
+    history = controller.run_closed_loop(manifest)
+
+    exp = ArenaMemoryBridge.create_experience_record(spec, history)
+    assert exp["project_id"] == "proj_mem_test_01"
+    assert exp["converged"] is True
+    assert exp["final_pass_rate"] == 1.0
+    assert "timestamp_utc" in exp
+    assert "execution_history" in exp
+
+
+# ---------------------------------------------------------------------------
+# Test 27: Workspace file count quota enforcement
+# ---------------------------------------------------------------------------
+def test_27_workspace_quota_enforcement(sample_project_manifest: ProjectManifest):
+    from chakrview.arena.models import WorkspaceQuotaExceededError
+
+    with IsolatedWorkspace(sample_project_manifest) as ws:
+        # Attempt to flood workspace with > 50 files
+        with pytest.raises(WorkspaceQuotaExceededError):
+            for i in range(55):
+                ws.write_source_file(f"flood_{i}.py", "x = 1\n")
+
