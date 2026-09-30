@@ -21,6 +21,7 @@ from chakrview.brain.cache import (
     KVCacheDtypeMismatchError,
 )
 from chakrview.brain.model import ChakrMicro
+from chakrview.brain.adapter import NativeTaskAdapter, AdaptedLinear, LowRankLinear
 
 __all__ = [
     "ModelConfig",
@@ -34,6 +35,9 @@ __all__ = [
     "LMHead",
     "initialize_weights",
     "ChakrMicro",
+    "NativeTaskAdapter",
+    "AdaptedLinear",
+    "LowRankLinear",
     "KVCache",
     "LayerKVCache",
     "KVCacheError",
