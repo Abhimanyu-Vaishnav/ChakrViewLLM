@@ -94,6 +94,20 @@ from chakrview.runtime.inference import (
     ChatResponse,
     InferenceSession,
 )
+from chakrview.runtime.pipeline import (
+    InferencePipelineError,
+    TokenizerModelMismatchError,
+    MalformedTokenIdError,
+    ContextOverflowError,
+    PathologicalLogitsError,
+    InvalidGenerationConfigError,
+    NeuralWeightMutationError,
+    InferenceRequest,
+    InferenceContext,
+    InferenceResult,
+    InferenceContextBuilder,
+    InferenceEngine,
+)
 from chakrview.runtime.memory import (
     MemoryType,
     ConversationTurn,
@@ -198,6 +212,19 @@ __all__ = [
     "RAGResponse",
     "ChatResponse",
     "InferenceSession",
+    # Neural Inference Pipeline (Step 44)
+    "InferencePipelineError",
+    "TokenizerModelMismatchError",
+    "MalformedTokenIdError",
+    "ContextOverflowError",
+    "PathologicalLogitsError",
+    "InvalidGenerationConfigError",
+    "NeuralWeightMutationError",
+    "InferenceRequest",
+    "InferenceContext",
+    "InferenceResult",
+    "InferenceContextBuilder",
+    "InferenceEngine",
     # Conversational State & Memory (Step 12)
     "MemoryType",
     "ConversationTurn",
