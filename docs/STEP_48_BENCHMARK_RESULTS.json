@@ -1,0 +1,50 @@
+{
+  "benchmark": "Step 48 Controlled Pretraining Performance",
+  "timestamp": "2026-09-30T08:20:03Z",
+  "model_architecture": "ChakrMicro v0.1",
+  "parameters": 3443136,
+  "vocabulary_size": 4096,
+  "context_length": 512,
+  "batch_size": 4,
+  "sequence_length": 64,
+  "throughput": {
+    "tokens_per_second": 6102.64,
+    "steps_per_second": 23.84,
+    "benchmark_steps": 30,
+    "benchmark_tokens": 7680,
+    "total_elapsed_sec": 1.258
+  },
+  "latencies": {
+    "forward_pass": {
+      "mean_ms": 13.275,
+      "median_ms": 12.922,
+      "min_ms": 10.908,
+      "max_ms": 19.891
+    },
+    "backward_pass": {
+      "mean_ms": 28.094,
+      "median_ms": 27.813,
+      "min_ms": 24.35,
+      "max_ms": 35.088
+    },
+    "total_training_step": {
+      "mean_ms": 41.948,
+      "median_ms": 42.04,
+      "min_ms": 37.426,
+      "max_ms": 55.616
+    },
+    "validation_batch": {
+      "mean_ms": 11.956,
+      "median_ms": 11.507,
+      "min_ms": 10.091,
+      "max_ms": 15.474
+    },
+    "checkpoint_save_ms": 34.737,
+    "checkpoint_load_ms": 16.914
+  },
+  "resources": {
+    "memory_rss_mb": 455.12,
+    "device": "cpu",
+    "threads": 14
+  }
+}
