@@ -266,7 +266,14 @@
   - 162 Tokenizer, Corpus pipeline, and Pre-Training tests
   - 78 Neural Core tests
   - 27 Pre-Training Infrastructure and Learning Validation tests
-- `docs/`: **Comprehensive Documentation Ratified**
+  - `docs/STEP_51_REPOSITORY_AUDIT.md` (Step 51 Repository Audit & Gap Analysis)
+  - `docs/STEP_51_ARCHITECTURE.md` (Step 51 Master Architecture Specification)
+  - `docs/STEP_51_PROJECT_ENVIRONMENT.md` (Step 51 Project Arena & Sandbox Environment)
+  - `docs/STEP_51_CODING_CURRICULUM.md` (Step 51 11-Level Coding Curriculum Ladder)
+  - `docs/STEP_51_EVALUATION_PROTOCOL.md` (Step 51 Real-World Feedback Loop & Evaluation Protocol)
+  - `docs/STEP_51_THREAT_MODEL.md` (Step 51 Threat Model & Security Posture)
+  - `docs/STEP_51_BENCHMARK_RESULTS.json` (Step 51 Empirical Benchmark Data)
+  - `docs/STEP_51_RATIFICATION_REPORT.md` (Step 51 Formal Ratification Report)
   - `docs/STEP_44_NEURAL_INFERENCE_ARCHITECTURE.md` (Step 44 Architecture Specification)
   - `docs/STEP_44_THREAT_MODEL.md` (Step 44 Threat Model)
   - `docs/STEP_44_BENCHMARK_RESULTS.json` (Step 44 Empirical Benchmark Data)

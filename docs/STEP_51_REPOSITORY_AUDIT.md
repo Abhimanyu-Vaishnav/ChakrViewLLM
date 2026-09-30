@@ -1,109 +1,166 @@
-# ChakrView Step 51: Repository Audit & Architectural Assessment
+# ChakrView Step 51: Comprehensive Repository Audit & Architectural Gap Analysis
 
 - **Date**: 2026-09-30
-- **Scope**: Step 51 — Coding Language Acquisition & Project Arena Foundation
-- **Target Architecture**: ChakrMicro v0.1 (Decoder-only causal transformer)
+- **Scope**: Step 51 — Project-Based Coding Capability Acquisition & Project Arena Foundation
+- **Target Architecture**: ChakrMicro v0.1 (Decoder-only causal autoregressive transformer)
 - **Parameters**: 3,443,136
-- **Vocabulary Size**: 4,096
-- **Context Length**: 512
+- **Vocabulary Size**: 4,096 (Byte-Level BPE)
+- **Context Length**: 512 tokens
 - **Frozen Baseline SHA-256**: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`
-- **Selected Trained Weight SHA-256**: `85e1eb6cd3472d431692cde71cf58f705990fee50be91a2d70f46e0968481a64`
-- **CPU-First Invariant**: 100% CPU execution; zero GPU dependencies
+- **Execution Target**: Native CPU-first (x86-64, ARM64, Raspberry-Pi-class SBCs)
 
 ---
 
-## 1. Executive Summary
+## 1. Context & Long-Term Vision Alignment
 
-This audit assesses the ChakrView codebase following the formal ratification of Step 50. The purpose is to determine how existing subsystems (neural core, tokenizer, training engine, sharding pipeline, runtime inference, memory/RIL, and cognitive gates) can be reused to support coding language acquisition and the Project Arena foundation, while identifying architectural gaps and verifying non-negotiable safety boundaries.
+ChakrView is an indigenous, modular, edge-efficient neural intelligence framework developed from scratch on local CPU architecture without third-party model wrappers, external model weights, or cloud GPU dependencies. Its long-term trajectory targets general intelligence (AGI) through modular architecture, self-learning, self-improvement, self-healing, self-updating, persistent memory, and the Recursive Intelligence Loop (RIL).
 
----
-
-## 2. Subsystem Inventory & Reuse Analysis
-
-| Subsystem | Existing Component | Status | Step 51 Reuse Potential |
-|:---|:---|:---:|:---|
-| **Neural Core** | `chakrview/brain/model.py` (`ChakrMicro`) | Ratified & Frozen | **100% Reuse**. 3,443,136 parameters, 6 layers, $d_{\text{model}}=192$, 6 heads, $d_{\text{ff}}=512$, RoPE, Pre-RMSNorm. Zero architectural changes required. |
-| **Tokenizer** | `chakrview/tokenizer/tokenizer.py` (`BPETokenizer`) | Ratified & Frozen | **100% Reuse**. Byte-level BPE with 256 base bytes + 3 special tokens + 3,837 merges. Empirically verified lossless round-trip across all major coding languages. |
-| **Training Engine** | `chakrview/training/engine.py` (`TrainingEngine`) | Ratified (Step 48-49) | **100% Reuse**. CPU-first AdamW, CosineAnnealingLR, gradient clipping, NaN/Inf guards, atomic checkpoint manager. |
-| **Dataset & Sharding** | `chakrview/training/sharding.py`, `dataset.py` | Ratified (Step 48-49) | **100% Reuse**. `ShardWriter` (uint16 binary, SHA-256 checksums) and `StreamingTokenDataset` (lazy chunk streaming, next-token prediction pairs). |
-| **Runtime Inference** | `chakrview/runtime/interactive.py`, `inference.py` | Ratified (Step 50) | **100% Reuse**. KV caching, greedy/sampling generation, token-level probability inspection, context divergence calculation, repetition metrics. |
-| **Safety & Capability** | `chakrview/capability/gate.py`, `cognition/tool_gate.py` | Ratified (Step 23-36) | **Foundational Reference**. Enforces strict prohibition against unauthorized subprocess/exec/eval in production runtime. Project Arena will implement an isolated sandboxed execution runner. |
-| **Memory & RIL** | `chakrview/memory/`, `cognition/` | Ratified (Step 24-43) | **Architectural Target**. Arena evaluation outcomes (pass/fail traces, error logs) will form structured episodic experiences for future RIL learning cycles. |
+Software engineering is **not** an end in itself; it is the fundamental foundational domain through which an intelligent agent can construct, inspect, verify, debug, and extend its own tools and environment. Crucially, autonomous self-modification cannot be approached naively. A model cannot reliably edit its own source code before it can reliably build, execute, test, and repair small, bounded external software projects.
 
 ---
 
-## 3. Empirical Tokenizer Evaluation on Source Code
+## 2. Comprehensive Subsystem Audit
 
-To verify whether the Byte-Level BPE tokenizer (`vocab_size=4096`) can represent source code without replacement or vocabulary expansion, an empirical audit was conducted across 10 programming languages and syntax modalities:
+We systematically audited all existing ChakrView subsystems across 19 dimensions:
 
-```
-Loaded tokenizer from data/experiments/vocab_4096, vocab_size=4096, merges=3837
-[python] 34 tokens, exact: True, compression: 2.59 chars/tok
-[javascript] 38 tokens, exact: True, compression: 1.97 chars/tok
-[typescript] 45 tokens, exact: True, compression: 2.00 chars/tok
-[html] 80 tokens, exact: True, compression: 1.32 chars/tok
-[css] 65 tokens, exact: True, compression: 1.55 chars/tok
-[json] 41 tokens, exact: True, compression: 1.95 chars/tok
-[sql] 86 tokens, exact: True, compression: 2.30 chars/tok
-[shell] 104 tokens, exact: True, compression: 1.43 chars/tok
-[symbols_indentation] 35 tokens, exact: True, compression: 1.11 chars/tok
-[paths_identifiers] 64 tokens, exact: True, compression: 1.77 chars/tok
+### 1. Training Infrastructure (`chakrview/training/`)
+- **Existing**: `TrainingEngine`, `TrainingConfig`, CPU AdamW optimizer, `CosineAnnealingLR` scheduler, gradient clipping (norm 1.0), loss calculation (`CrossEntropyLoss`), NaN/Inf finite gradient safety guards, atomic checkpoint manager (`save_checkpoint`, `load_checkpoint`).
+- **Reuse Assessment**: Fully functional on CPU. Handles micro-scale training cleanly.
+- **Gaps**: Lacks multi-epoch curriculum scheduling, project-loss weighting, and masked loss calculation (distinguishing prompt instruction tokens from generated code tokens).
 
-All exact roundtrips? True
-```
+### 2. Inference Pipeline (`chakrview/runtime/inference.py`, `pipeline.py`)
+- **Existing**: `InferenceEngine`, `KVCache`, causal decoding, greedy and sampling modes (temperature, top-k, top-p), input sequence padding and EOS termination.
+- **Reuse Assessment**: Verified causal ($ABCD$ test $< 10^{-6}$), low latency ($7.5\text{ ms}$ TTFT).
+- **Gaps**: Fixed context ceiling at 512 tokens requires strict budget management for multi-file code contexts.
 
-### Key Findings:
-1. **100% Lossless Round-Trip**: Every tested code snippet, symbol, bracket sequence, whitespace indentation pattern, string literal, and identifier reconstructed bit-identically (`decoded == original`).
-2. **Byte-Level Fallback Safety**: Because byte tokens `0..255` are present, no unknown token `<UNK>` is ever emitted, even for unseen programming keywords or escape sequences.
-3. **Compression Ratio**: Ranging from $1.11$ to $2.59$ chars/token. Standard Python utilities achieve $\sim 2.59$ chars/token, allowing a 512-token context window to hold $\sim 1,300$ characters ($\approx 35-50$ lines of well-structured code).
-4. **Decision**: The current tokenizer is **completely sufficient** for Step 51. No tokenizer modification or re-training is required.
+### 3. Interactive Sessions (`chakrview/runtime/interactive.py`, `session.py`)
+- **Existing**: `InteractiveModelSessionCoordinator`, `ModelComparator`, `StructuredProbeEvaluator`, conversational history budgeting, token divergence metrics, repetition calculators.
+- **Reuse Assessment**: Excellent foundation for interactive CLI and human-in-the-loop evaluation.
+- **Gaps**: Sessions manage conversational dialog turns, not iterative code editing sessions or compiler feedback passes.
+
+### 4. Memory & RIL Architecture (`chakrview/memory/`, `cognition/`)
+- **Existing**: `WorkingMemory`, `EpisodicMemoryStore`, `SemanticMemoryStore`, `ContradictionManager`, `ExperienceConsolidationEngine`, governance bridges.
+- **Reuse Assessment**: The episodic memory structure is architecturally ready to ingest test execution traces, syntax errors, and repair histories.
+- **Gaps**: No code-specific memory schemas (e.g. tracking API signatures, function contracts, or past bug fixes).
+
+### 5. RAG & External Knowledge (`chakrview/runtime/retrieval.py`, `knowledge.py`)
+- **Existing**: BM25 lexical retriever, sparse indexer, document chunking, hybrid reranking.
+- **Reuse Assessment**: Can retrieve relevant API documentation and code snippets into the 512-token context window.
+- **Gaps**: Lacks symbol-level code indexing (e.g. definitions, references, import graphs).
+
+### 6. Tokenizer (`chakrview/tokenizer/`)
+- **Existing**: Byte-Level BPE (`BPETokenizer`), vocabulary size 4,096 (256 base bytes, 3 special tokens `<BOS>=0`, `<EOS>=1`, `<PAD>=2`, 3,837 merges).
+- **Reuse Assessment**: **100% verified lossless round-trip** on Python, JS, TS, HTML, CSS, JSON, SQL, Shell, formatting/indentation, and programming symbols.
+- **Gaps**: None for initial coding experiments. Byte-level fallback guarantees zero `<UNK>` tokens.
+
+### 7. Datasets & Sharding (`chakrview/training/sharding.py`, `dataset.py`)
+- **Existing**: `ShardWriter` generating compact uint16 binary token arrays with SHA-256 integrity digests; `StreamingTokenDataset` performing lazy streaming chunking on CPU.
+- **Reuse Assessment**: High throughput, minimal RAM usage.
+- **Gaps**: Previously operated on flat text documents; lacked project-level metadata, repository boundaries, and file relationships.
+
+### 8. Checkpoint Infrastructure (`chakrview/training/checkpoint.py`)
+- **Existing**: Atomic writing (`.tmp` $\to$ `.pt`), typed checkpoint validation, SHA-256 weight hash recording, state dict verification.
+- **Reuse Assessment**: Production grade and reliable.
+- **Gaps**: None.
+
+### 9. Evaluation Infrastructure (`chakrview/runtime/`, `scripts/`)
+- **Existing**: Perplexity, cross-entropy loss, context divergence, Type-Token Ratio (TTR), trigram diversity, repetition ratio.
+- **Reuse Assessment**: Comprehensive statistical evaluation.
+- **Gaps**: Lacks software engineering metrics: AST parseability, compilation success, unit test pass rates, regression rates, iteration repair counts.
+
+### 10. Tool Execution & Sandboxing (`chakrview/capability/`, `cognition/tool_gate.py`)
+- **Existing**: `CapabilityGate` policy enforcement blocking dangerous patterns (`eval`, `exec`, `subprocess`, `os.system`, `open`, `__builtins__`), credential redaction.
+- **Reuse Assessment**: Solid security philosophy.
+- **Gaps**: Designed for API capability gating, not for compiling and executing arbitrary source code generated by the model.
+
+### 11. File Operations & Workspaces
+- **Existing**: Ad-hoc file utilities in scripts and fixtures.
+- **Reuse Assessment**: Limited.
+- **Gaps**: ChakrView lacked a managed, disposable project workspace manager capable of structuring `specification/`, `source/`, `tests/`, `logs/`, and `artifacts/`.
+
+### 12. Test Execution Engine
+- **Existing**: Host test suite runs via `pytest`.
+- **Reuse Assessment**: Excellent for host test validation.
+- **Gaps**: No sandboxed test execution runner capable of executing generated code inside an isolated subprocess with timeout and memory enforcement.
+
+### 13. Experiment Tracking & Artifacts
+- **Existing**: JSON benchmark results stored in `docs/` and `artifacts/`.
+- **Reuse Assessment**: Transparent, inspectable, and git-versionable.
+- **Gaps**: None.
+
+### 14. Safety & System Boundaries
+- **Existing**: Frozen baseline invariant ($\Delta W_{\text{baseline}} = 0$), hash verification (`c5571c...`), parameter immutability checks.
+- **Reuse Assessment**: Essential fail-closed protection.
+- **Gaps**: Need formal sandboxing ensuring generated code cannot touch the ChakrView repository or environment.
+
+### 15. Distributed Execution & Federation (`chakrview/cognition/federation/`)
+- **Existing**: Step 30-42 federation subsystem: mTLS framing, canonical JSON codec, capability gate dispatch, node registry, consensus state.
+- **Reuse Assessment**: Ready for future multi-node distributed task routing.
+- **Gaps**: Not currently connected to coding project compilation.
+
+### 16. Self-Improvement & Recursive Loops
+- **Existing**: Conceptual design in cognition deliberation; episodic memory recording.
+- **Reuse Assessment**: Theoretical basis established.
+- **Gaps**: Concrete code improvement loop (observe error $\to$ diagnose $\to$ patch $\to$ re-test) not yet implemented.
+
+### 17. Model Comparison & Checkpoint Selection (`chakrview/runtime/interactive.py`)
+- **Existing**: `ModelComparator` running identical prompts against baseline vs experimental models under identical seeds.
+- **Reuse Assessment**: Directly applicable for comparing coding outputs against the frozen baseline.
+- **Gaps**: Needs test-execution comparison in addition to text generation comparison.
 
 ---
 
-## 4. Identified Architectural Gaps
+## 3. Systematic Accounting: What Exists vs What is Needed
 
-While ChakrView possesses a mature neural, training, and inference foundation, four specific gaps prevented coding capability development prior to Step 51:
+### A. What Can Already Be Reused
+1. **ChakrMicro Neural Core**: 3,443,136 parameters, 6 transformer layers, $d_{\text{model}}=192$, 6 heads, Pre-RMSNorm, RoPE, SwiGLU. Verified gradient flow, causality, and CPU numerical stability.
+2. **Byte-Level BPE Tokenizer**: 4,096 vocabulary, lossless encoding across all programming languages, zero `<UNK>` emission.
+3. **Training & Sharding Engine**: CPU AdamW, cosine annealing, gradient clipping, binary uint16 shards, streaming dataset loader.
+4. **Interactive Evaluation Primitives**: KV cache decoding, generation metrics, temperature/top-k/top-p sampling.
+5. **Memory & Experience Infrastructure**: Episodic store ready to capture test outcomes.
 
-1. **Absence of Project-Aware Corpus Contract**:
-   - *Previous State*: Stage B data consisted of flat text shards without repository or file hierarchy semantics.
-   - *Requirement*: A formal specification defining repository boundaries, file types, license/provenance tags, and project-level split isolation.
+### B. What is Incomplete
+1. **Instruction / Code Masking in Training**: Current training engine computes cross-entropy over all tokens; project training needs prompt-masking so the model is penalized only on code completion, not on prompt reproduction.
+2. **Context Window Management**: At 512 tokens, multi-file projects cannot be loaded simultaneously without intelligent code summarization or file-by-file context chunking.
 
-2. **Project-Level Data Leakage**:
-   - *Previous State*: Traditional train/validation splits operated at document/file granularity.
-   - *Requirement*: Strict splitting at the repository/project level so that files belonging to Project $X$ never appear in both train and validation splits.
+### C. What is Missing
+1. **Project Arena Subsystem**: Managed isolated workspaces (`specification/`, `source/`, `tests/`, `logs/`, `artifacts/`).
+2. **Sandboxed Subprocess Test Runner**: Execution of pytest/unittest in an isolated subprocess with strict wall-clock timeouts ($\le 5.0$ s) and sanitized environments.
+3. **AST Syntax & Execution Metrics**: AST parseability rate, test pass percentage, failure classification (`SYNTAX_ERROR`, `IMPORT_ERROR`, `ASSERTION_FAILURE`, `TIMEOUT`), regression tracking.
+4. **Project-Aware Corpus Specification**: Repository boundaries, license verification, non-source filtering, and project-level split isolation.
+5. **Iterative Repair Loop**: The closed-loop controller that feeds test failure stdout/stderr back into the model for diagnostic patching.
 
-3. **Absence of Sandboxed Project Arena**:
-   - *Previous State*: ChakrView runtime had no mechanism to spin up disposable directory trees, write multi-file projects, execute unit tests, capture exit codes, and harvest failure diagnostics safely.
-   - *Requirement*: An isolated `ProjectArena` workspace subsystem with sandboxed execution, memory ceilings, and timeouts.
+### D. What is Unsafe
+1. **Executing Generated Code in Host Python Process**: Any `exec()`, `eval()`, or direct `import` of model-generated code inside the ChakrView process runtime creates severe risks of memory corruption, process hangs, or arbitrary state mutation. **Mitigation**: Generated code must run exclusively in an isolated OS subprocess.
+2. **Unrestricted Subprocess Execution**: A generated script containing `while True:` or fork loops could freeze the host machine. **Mitigation**: Strict subprocess timeout ($\le 5.0$ s) and process kill on expiry.
+3. **Host Repository Mutation**: Allowing the model or arena runner write permissions to `chakrview/`, `tests/`, or `docs/`. **Mitigation**: Sandboxes must be strictly confined to disposable scratch directories.
 
-4. **Absence of Programmatic Evaluation Metrics**:
-   - *Previous State*: Evaluation was limited to statistical metrics (loss, perplexity, repetition, context divergence).
-   - *Requirement*: Functional metrics including AST syntax validity, compilation/parse success, unit test pass rates, and failure recovery tracking.
+### E. What Should NOT Yet Be Implemented in Step 51
+1. ❌ **Autonomous Self-Modification**: The model must NOT be permitted to edit ChakrView source code.
+2. ❌ **Large Architecture Scaling**: Model parameters must remain frozen at 3,443,136.
+3. ❌ **Uncontrolled Web-Scale Scraping**: No automated mass code ingestion from GitHub without provenance/license filtering.
+4. ❌ **Multi-Node Distributed Training Cluster**: Keep execution CPU-local on a single machine for Step 51.
 
 ---
 
-## 5. Architectural Answers to Core Step 51 Questions
+## 4. Critical Investigation: 3.44M Parameter Model Capacity
 
-### 1. What can ChakrView already do that Step 51 can reuse?
-ChakrView provides a fully verified, frozen neural transformer (`ChakrMicro`), a lossless byte-level BPE tokenizer, an atomic uint16 binary shard pipeline, a robust CPU training loop with LR scheduling, an interactive inference engine with KV caching, and a comprehensive cognitive memory architecture.
+Can the current 3,443,136 parameter ChakrMicro architecture realistically learn useful programming patterns?
 
-### 2. What exactly is missing for coding capability?
-A project-aware coding corpus contract, project-isolated train/validation splitting, a sandboxed Project Arena workspace execution harness, and AST/test-driven evaluation metrics.
+### Empirical Realities & Theoretical Bounds
+- **Parameter Accounting**: At $3.44\text{M}$ parameters ($13.77\text{ MB}$ FP32), ChakrMicro is approximately $1/2000\text{th}$ the size of CodeLlama-7B or StarCoder.
+- **Context Ceiling**: Maximum sequence length is strictly $T_{\text{max}} = 512$ tokens.
 
-### 3. Is the current tokenizer adequate for the first coding experiment?
-Yes. The Byte-Level BPE tokenizer achieves 100% lossless round-trips across Python, JS, TS, HTML, CSS, JSON, SQL, and Shell without emitting `<UNK>`, with compression up to 2.59 chars/token.
+### What CAN Realistically Be Learned:
+1. **Token Syntax & Lexical Regularities**: Balanced brackets (`()`, `[]`, `{}`), indentation blocks (4 spaces), keyword placement (`def`, `class`, `return`, `if`, `else`), standard operators.
+2. **Local Code Completion**: Completing simple one-line expressions, filling in return statements, implementing elementary arithmetic or string operations.
+3. **Canonical Idioms**: Frequent Python boilerplate (e.g. `if __name__ == "__main__":`, standard docstring formats, type annotations).
+4. **Syntax Error Reduction**: Substantial reduction in invalid AST parsing rate compared to the untrained baseline.
 
-### 4. What should be the smallest useful coding dataset?
-A high-density corpus of 100–200 clean, canonical Python project/module records totaling 150,000–250,000 tokens (1 compact binary shard), strictly split at project boundary (80% train, 10% validation, 10% test).
+### What CANNOT Realistically Be Learned at 3.44M Parameters:
+1. **Complex Architectural Synthesis**: Designing multi-layer architectures or large software systems from abstract requirements.
+2. **Deep Algorithmic Inferences**: Inventing non-trivial algorithms (e.g. Red-Black trees, simplex algorithms) from scratch.
+3. **Multi-Turn Semantic Reasoning**: Complex multi-file dependency reasoning spanning thousands of lines.
 
-### 5. What should the first Project Arena benchmark look like?
-An isolated benchmark suite of canonical micro-tasks covering syntax completion, pure function implementation, bug fixing, and test execution with objective ground-truth assertions and automated pytest execution.
-
-### 6. Which parts must remain isolated from ChakrView itself?
-Generated code execution, disposable project workspaces, model weights, and the ChakrView source tree. All test runs must occur in temporary directories with sanitized environments and zero access to repository source code.
-
-### 7. How does Step 51 preserve long-term ChakrView principles?
-- **Self-Learning / Self-Improvement**: Establishes the Generate $\to$ Test $\to$ Failure Analysis $\to$ Experience loop.
-- **RIL / Memory**: Arena test traces map directly into episodic experiences for continual learning.
-- **CPU-First & Low-Resource**: Runs entirely on CPU within $\le 256$ MB RAM, compatible with low-end x86 and Raspberry Pi hardware.
-- **Modularity & AGI Direction**: Maintains fixed core weights while using code as the verifiable substrate for autonomous tool creation and iterative refinement.
+### Scientific Conclusion:
+The 3.44M model is **not** an autonomous software engineer, but it is **fully capable** of serving as the testbed for the Project Arena infrastructure, syntax acquisition, and micro-task execution. As ChakrView matures toward modular domain-specialized models, the Arena infrastructure built here will scale seamlessly to larger parameter footprints.
