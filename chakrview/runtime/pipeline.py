@@ -20,7 +20,7 @@ import hashlib
 from pathlib import Path
 import re
 import time
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, Generator, List, Optional, Tuple, Union
 import torch
 
 from chakrview.brain.cache import KVCache
@@ -189,6 +189,29 @@ class InferenceResult:
             "reproducibility": self.reproducibility,
             "provenance": self.provenance,
             "weight_hash_verified": self.weight_hash_verified,
+        }
+
+
+@dataclass
+class StreamChunk:
+    """
+    Incremental chunk yielded during streaming generation (Step 46).
+    """
+    token_id: int
+    token_text: str
+    step_index: int
+    is_final: bool
+    stop_reason: Optional[StopReason] = None
+    latency_ms: float = 0.0
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "token_id": self.token_id,
+            "token_text": self.token_text,
+            "step_index": self.step_index,
+            "is_final": self.is_final,
+            "stop_reason": self.stop_reason.value if self.stop_reason else None,
+            "latency_ms": self.latency_ms,
         }
 
 
@@ -642,6 +665,165 @@ class InferenceEngine:
         )
         res = self.execute(req)
         return res.text
+
+    def stream(
+        self,
+        request: InferenceRequest,
+    ) -> Generator[StreamChunk, None, None]:
+        """
+        Stream generation chunk-by-chunk in real-time (Step 46).
+
+        Yields:
+            StreamChunk for every generated token.
+        """
+        # 1. Pre-flight verification
+        pre_hash = self.compute_weight_hash()
+        if pre_hash != self.expected_weight_hash:
+            raise NeuralWeightMutationError("Pre-flight weight mutation detected.")
+
+        # 2. Context Assembly & Tokenization
+        if request.prompt_tokens is not None:
+            prompt_tokens = list(request.prompt_tokens)
+            self.validate_token_ids(prompt_tokens)
+        else:
+            full_text, _ = InferenceContextBuilder.build_context(request, self.tokenizer)
+            if not full_text:
+                prompt_tokens = [BOS_ID] if request.add_bos else []
+            else:
+                prompt_tokens = self.encode(
+                    full_text,
+                    add_bos=request.add_bos,
+                    add_eos=request.add_eos,
+                )
+
+        if not prompt_tokens:
+            prompt_tokens = [BOS_ID]
+
+        # 3. Generation configuration & Token budget
+        config = request.generation_config or GenerationConfig(
+            max_new_tokens=32,
+            sampling=SamplingConfig(temperature=0.0),
+        )
+        max_new = config.max_new_tokens
+        if max_new <= 0:
+            raise InvalidGenerationConfigError(f"max_new_tokens must be positive, got {max_new}")
+
+        total_requested = len(prompt_tokens) + max_new
+        if total_requested > self.max_context:
+            if request.truncate_if_overflow:
+                available_for_prompt = self.max_context - max_new
+                if available_for_prompt <= 0:
+                    raise ContextOverflowError(
+                        f"max_new_tokens ({max_new}) >= max_context ({self.max_context}); cannot fit prompt."
+                    )
+                has_bos = (prompt_tokens[0] == BOS_ID)
+                if has_bos:
+                    prompt_tokens = [BOS_ID] + prompt_tokens[-(available_for_prompt - 1):]
+                else:
+                    prompt_tokens = prompt_tokens[-available_for_prompt:]
+            else:
+                raise ContextOverflowError(
+                    f"Prompt tokens ({len(prompt_tokens)}) + max_new_tokens ({max_new}) = "
+                    f"{total_requested} exceeds context ceiling {self.max_context}."
+                )
+
+        try:
+            # 4. Reset KV cache and execute Prefill
+            self.kv_cache.reset()
+            prompt_tensor = torch.tensor([prompt_tokens], dtype=torch.long, device=self.device)
+
+            with torch.no_grad():
+                prefill_logits, _ = self.model.prefill(prompt_tensor, kv_cache=self.kv_cache)
+                if not torch.isfinite(prefill_logits).all():
+                    raise PathologicalLogitsError("Non-finite logits detected during prompt prefill.")
+                latest_logits = prefill_logits[0, -1, :]
+
+            # 5. Autoregressive Streaming Loop
+            generated_tokens: List[int] = []
+            stop_reason = StopReason.MAX_TOKENS
+            stop_tokens = set(config.stop_token_ids) if config.stop_token_ids else {EOS_ID}
+            min_new = getattr(config, "min_new_tokens", 0)
+
+            for step in range(max_new):
+                t_token_start = time.perf_counter()
+                if self.kv_cache.sequence_length >= self.max_context:
+                    stop_reason = StopReason.CONTEXT_LIMIT
+                    break
+
+                try:
+                    next_token_id = self.sampler.sample(
+                        logits=latest_logits,
+                        generated_tokens=generated_tokens,
+                        config=config.sampling,
+                        step=step,
+                        strict_safety=True,
+                    )
+                except TypeError:
+                    next_token_id = self.sampler.sample(
+                        logits=latest_logits,
+                        generated_tokens=generated_tokens,
+                        config=config.sampling,
+                        step=step,
+                    )
+
+                is_eos = (next_token_id in stop_tokens)
+                if is_eos and step < min_new:
+                    # Enforce min_new_tokens: mask stop token and resample
+                    masked_logits = latest_logits.clone()
+                    for st in stop_tokens:
+                        masked_logits[st] = -1e9
+                    try:
+                        next_token_id = self.sampler.sample(
+                            logits=masked_logits,
+                            generated_tokens=generated_tokens,
+                            config=config.sampling,
+                            step=step,
+                            strict_safety=True,
+                        )
+                    except TypeError:
+                        next_token_id = self.sampler.sample(
+                            logits=masked_logits,
+                            generated_tokens=generated_tokens,
+                            config=config.sampling,
+                            step=step,
+                        )
+                    is_eos = False
+
+                self.validate_token_ids([next_token_id])
+                generated_tokens.append(next_token_id)
+                token_text = self.decode([next_token_id], skip_special_tokens=False)
+
+                is_final = is_eos or (step == max_new - 1) or (self.kv_cache.sequence_length + 1 >= self.max_context)
+                if is_eos:
+                    stop_reason = StopReason.EOS
+                elif step == max_new - 1:
+                    stop_reason = StopReason.MAX_TOKENS
+
+                chunk = StreamChunk(
+                    token_id=next_token_id,
+                    token_text=token_text,
+                    step_index=step,
+                    is_final=is_final,
+                    stop_reason=stop_reason if is_final else None,
+                    latency_ms=(time.perf_counter() - t_token_start) * 1000.0,
+                )
+                yield chunk
+
+                if is_final:
+                    break
+
+                # Single-token decode next step
+                next_tensor = torch.tensor([[next_token_id]], dtype=torch.long, device=self.device)
+                with torch.no_grad():
+                    step_logits = self.model.decode_next(next_tensor, kv_cache=self.kv_cache)
+                    if not torch.isfinite(step_logits).all():
+                        raise PathologicalLogitsError("Non-finite logits detected during incremental decode.")
+                    latest_logits = step_logits[0, -1, :]
+        finally:
+            self.kv_cache.reset()
+            post_hash = self.compute_weight_hash()
+            if post_hash != self.expected_weight_hash:
+                raise NeuralWeightMutationError("Post-inference weight mutation detected (ΔW != 0).")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
