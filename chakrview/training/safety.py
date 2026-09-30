@@ -194,8 +194,23 @@ class TrainingSafetyChecker:
             )
 
     @classmethod
-    def verify_checkpoint_metadata(cls, payload: Dict[str, Any]) -> None:
+    def verify_checkpoint_metadata(
+        cls,
+        payload: Dict[str, Any],
+        expected_type: Optional[str] = None,
+        expected_tokenizer_checksum: Optional[str] = None,
+    ) -> None:
         """Validate metadata from a saved checkpoint before loading."""
+        if not isinstance(payload, dict):
+            raise CheckpointCorruptionError("Checkpoint corrupted: payload is not a dictionary.")
+
+        if expected_type is not None:
+            ckpt_type = payload.get("checkpoint_type")
+            if ckpt_type != expected_type:
+                raise CheckpointCorruptionError(
+                    f"Checkpoint type mismatch: found '{ckpt_type}', expected '{expected_type}'."
+                )
+
         required_keys = ["step", "model_state_dict", "timestamp"]
         for k in required_keys:
             if k not in payload:
@@ -218,3 +233,10 @@ class TrainingSafetyChecker:
                 f"Checkpoint parameter mismatch: found {total_ckpt_params:,} unique params in checkpoint, "
                 f"expected {cls.FROZEN_PARAMS:,}."
             )
+
+        if expected_tokenizer_checksum and payload.get("tokenizer_checksum"):
+            if payload["tokenizer_checksum"] != expected_tokenizer_checksum:
+                raise CheckpointCorruptionError(
+                    f"Tokenizer checksum mismatch in checkpoint: found {payload['tokenizer_checksum']}, "
+                    f"expected {expected_tokenizer_checksum}."
+                )
