@@ -110,8 +110,17 @@ from chakrview.runtime.pipeline import (
     InferenceResult,
     InferenceContextBuilder,
     InferenceEngine,
+    StreamChunk,
     validate_checkpoint_compatibility,
     load_and_validate_checkpoint,
+)
+from chakrview.runtime.session import (
+    ConversationRole,
+    ConversationContextManager,
+    LocalModelSession,
+)
+from chakrview.runtime.local_runtime import (
+    LocalModelRuntime,
 )
 from chakrview.runtime.memory import (
     MemoryType,
@@ -233,8 +242,14 @@ __all__ = [
     "InferenceResult",
     "InferenceContextBuilder",
     "InferenceEngine",
+    "StreamChunk",
     "validate_checkpoint_compatibility",
     "load_and_validate_checkpoint",
+    # Local Model Runtime & Sessions (Step 46)
+    "ConversationRole",
+    "ConversationContextManager",
+    "LocalModelSession",
+    "LocalModelRuntime",
     # Conversational State & Memory (Step 12)
     "MemoryType",
     "ConversationTurn",
