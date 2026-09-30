@@ -396,6 +396,41 @@ class FederatedNode:
             if not reg.has("process"):
                 reg.register(SimpleFederatedCapability("process", "Process", "Batch Process"))
 
+            # Step 42: Register federated cognitive capabilities
+            try:
+                from chakrview.cognition.federation.cognitive.capabilities import (
+                    FederatedNeuralCapability,
+                    SimpleCognitiveCapability,
+                )
+                from chakrview.cognition.federation.cognitive.models import (
+                    CAPABILITY_NEURAL_INFERENCE,
+                    CAPABILITY_ANALYST,
+                    CAPABILITY_RESEARCHER,
+                    CAPABILITY_CRITIC,
+                    CAPABILITY_SYNTHESIZER,
+                    CAPABILITY_VERIFIER,
+                )
+                cognitive_caps = [
+                    (CAPABILITY_ANALYST,     "Cognitive Analyst",     "analyst"),
+                    (CAPABILITY_RESEARCHER,  "Cognitive Researcher",  "researcher"),
+                    (CAPABILITY_CRITIC,      "Cognitive Critic",      "critic"),
+                    (CAPABILITY_SYNTHESIZER, "Cognitive Synthesizer", "synthesizer"),
+                    (CAPABILITY_VERIFIER,    "Cognitive Verifier",    "verifier"),
+                ]
+                for cap_id, cap_name, role in cognitive_caps:
+                    if not reg.has(cap_id):
+                        reg.register(SimpleCognitiveCapability(
+                            capability_id=cap_id,
+                            name=cap_name,
+                            description=f"Governed federated {role} reasoning capability",
+                            role=role,
+                        ))
+                if not reg.has(CAPABILITY_NEURAL_INFERENCE):
+                    reg.register(FederatedNeuralCapability(model=self.model))
+            except Exception as e:
+                logger.warning("Step 42 cognitive capability registration skipped: %s", e)
+
+
     def _verify_neural_hash(self) -> None:
         """Verify non-negotiable invariant: ΔW = 0."""
         param_count = sum(p.numel() for p in self.model.parameters())
