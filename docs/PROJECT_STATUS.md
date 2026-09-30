@@ -2,18 +2,20 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 54 — Structured Reasoning Curriculum & Action-Observation Trajectories
-- **Status**: Structured Reasoning Curriculum Implemented, Sharded, and Empirically Evaluated.
-  - ChakrKshetra naming migration complete (`docs/CHAKRKHETRA_SPECIFICATION.md`).
-  - Structured Reasoning Curriculum generator implemented (`chakrview/curriculum/reasoning.py`) covering Levels R0, R1, R2, R3, and Trajectories.
-  - Canonical XML-tagged action/observation trajectory format implemented within 512-token context (`docs/STEP_54_TRAJECTORY_FORMAT.md`).
-  - RIL Preparation Layer implemented and verified (`extract_experience_from_trajectory`).
-  - Controlled 500-step training pass completed on pure CPU (`artifacts/step54/chakrmicro_step54_reasoning_500steps.pt`).
-  - Step-54 Structured Reasoning Benchmark established and evaluated (80.0% pass rate, 8/10 tasks).
-  - Dual anchor & held-out benchmarks evaluated (Anchor: 10%, Held-Out: 10%).
-  - Release 0.1 gate review: NOT APPROVED due to insufficient generalization on held-out tasks.
+- **Current phase**: Step 55 — ChakrMicro Multi-Task Generalization & Anti-Forgetting
+- **Status**: Multi-Task Interleaved Curriculum Implemented, Sharded, and Empirically Evaluated.
+  - Multi-Task Curriculum Generator implemented (`chakrview/curriculum/multitask.py`) with configurable weights covering 7 domains (Foundation, Computation, Programming, Reasoning, Diagnosis, Trajectory, Instruction).
+  - Anti-forgetting interleaved replay dataset generated and sharded into `data/tokenized/multitask_step55/`.
+  - Combinatorial Generalization Benchmark established (`scripts/experiment_step55_generalization.py`).
+  - Controlled 500-step training pass completed on pure CPU (`artifacts/step55/chakrmicro_step55_multitask_500steps.pt`).
+  - Quadruple benchmark matrix evaluated:
+    - Step-52 Anchor Benchmark: 25.0% (5/20 passed) — rebounded +15.0% from Step 54.
+    - Step-53 Held-Out Benchmark: 20.0% (2/10 passed) — doubled generalization (+10.0%).
+    - Step-54 Reasoning Benchmark: 10.0% (1/10 passed) — documented catastrophic forgetting on complex chains.
+    - Step-55 Combinatorial Benchmark: 30.0% (3/10 passed) — verified acquisition of novel combinations.
+  - Release 0.1 gate review: NOT APPROVED due to insufficient multi-task retention and generalization.
   - Baseline immutability verified ($\Delta W = 0$, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - 1,445/1,445 automated tests passing across entire test suite.
+  - 1,457/1,457 automated tests passing across entire test suite.
 
 ---
 
