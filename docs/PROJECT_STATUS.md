@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 47 — Training Readiness & First Learning Loop Phase
-- **Status**: Complete & Ratified (Learning loop validated with gradient norm monitoring, safety checks, typed atomic checkpointing, and safe resumption; 1,327 / 1,327 tests passing across 93 test files; Baseline ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`; Experiment ΔW > 0 verified).
+- **Current phase**: Step 48 — Controlled Pretraining & Learning Validation
+- **Status**: Complete & Ratified (Controlled pretraining on real token shards, statistical learning validated: validation loss 8.34 -> 2.53, PPL 4203.6 -> 12.58; negative control rejected; 1,342 / 1,342 tests passing across 94 test files; Baseline ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`; Experiment ΔW > 0 verified).
 
 ---
 
@@ -337,5 +337,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 47 RATIFIED — TRAINING READINESS & FIRST LEARNING LOOP COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 48 (Awaiting user explicit command; DO NOT START STEP 48 AUTOMATICALLY).
+- **Decision**: **STEP 48 RATIFIED — CONTROLLED PRETRAINING & LEARNING VALIDATION COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 49 (Awaiting user explicit command; DO NOT START STEP 49 AUTOMATICALLY).

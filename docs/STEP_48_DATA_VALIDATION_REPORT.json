@@ -1,0 +1,65 @@
+{
+  "dataset_name": "stage_b",
+  "dataset_path": "D:\\Project\\ChakrView\\data\\tokenized\\stage_b",
+  "dataset_fingerprint": "3efb6f8ff1f402e54b4e9f174feea346ec3c250f1573aea0bddcb185b93d7ac3",
+  "manifest_path": "D:\\Project\\ChakrView\\data\\manifests\\stage_b_manifest.json",
+  "manifest_sha256": "00c26aa72fb08dd514e61da26ea4009ef00059f23cca71465c96ea63a459aad2",
+  "tokenizer_checksum": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f",
+  "total_shards": 4,
+  "total_tokens": 501653,
+  "split_statistics": {
+    "train": {
+      "token_count": 405244,
+      "unique_tokens": 3515,
+      "bos_count": 0,
+      "eos_count": 7258,
+      "pad_count": 0,
+      "min_token_id": 1,
+      "max_token_id": 4095
+    },
+    "validation": {
+      "token_count": 48527,
+      "unique_tokens": 2053,
+      "bos_count": 0,
+      "eos_count": 891,
+      "pad_count": 0,
+      "min_token_id": 1,
+      "max_token_id": 4089
+    },
+    "test": {
+      "token_count": 47882,
+      "unique_tokens": 2052,
+      "bos_count": 0,
+      "eos_count": 853,
+      "pad_count": 0,
+      "min_token_id": 1,
+      "max_token_id": 4089
+    }
+  },
+  "sequence_leakage_analysis": {
+    "16_gram_overlap": {
+      "window_size": 16,
+      "train_unique_sequences": 18653,
+      "val_unique_sequences": 2762,
+      "test_unique_sequences": 2695,
+      "val_train_duplicates": 775,
+      "val_train_duplicate_pct": 28.0594,
+      "test_train_duplicates": 670,
+      "test_train_duplicate_pct": 24.8609,
+      "val_test_duplicates": 266
+    },
+    "32_gram_overlap": {
+      "window_size": 32,
+      "train_unique_sequences": 11582,
+      "val_unique_sequences": 1489,
+      "test_unique_sequences": 1451,
+      "val_train_duplicates": 180,
+      "val_train_duplicate_pct": 12.0887,
+      "test_train_duplicates": 158,
+      "test_train_duplicate_pct": 10.889,
+      "val_test_duplicates": 37
+    }
+  },
+  "data_integrity_status": "VERIFIED_CLEAN",
+  "split_isolation_status": "VERIFIED_ISOLATED"
+}
