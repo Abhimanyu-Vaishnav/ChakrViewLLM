@@ -2,22 +2,37 @@
 ChakrView Project Arena: Data Models & Contracts.
 
 Defines strongly typed specifications and records for isolated project execution:
+- PathTraversalError, WorkspaceQuotaExceededError
 - ProjectSpecification: Requirements, interfaces, entrypoints, and test specs.
 - SourceFile: Path, contents, sha256 checksum, role.
 - ProjectManifest: Comprehensive project file manifest with dependency metadata.
 - TestResult: Outcome of test execution (passed, failed, duration, stdout, stderr).
+- PatchDiff: Record of file modifications across iterations.
+- IterationRecord: Detailed diagnostic and execution snapshot of a single iteration.
+- ExecutionHistory: Sequence of iterations with convergence and regression tracking.
 - ArenaExecutionResult: Full execution summary with failure classification.
 - EvaluationMetrics: Aggregated score record (syntax validity, pass rate, latency).
 """
 
 from __future__ import annotations
 
+import difflib
+import hashlib
+import time
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-import hashlib
-import time
+
+
+class PathTraversalError(PermissionError):
+    """Raised when a file path attempts to escape the isolated workspace boundary."""
+    pass
+
+
+class WorkspaceQuotaExceededError(RuntimeError):
+    """Raised when workspace file count or disk byte limit is exceeded."""
+    pass
 
 
 class FailureCategory(str, Enum):
@@ -127,6 +142,19 @@ class ProjectManifest:
     def get_test_files(self) -> List[SourceFile]:
         return [f for f in self.files if f.role == FileRole.TEST]
 
+    def get_file(self, path: str) -> Optional[SourceFile]:
+        for f in self.files:
+            if f.path == path:
+                return f
+        return None
+
+    def upsert_file(self, sfile: SourceFile) -> None:
+        for idx, f in enumerate(self.files):
+            if f.path == sfile.path:
+                self.files[idx] = sfile
+                return
+        self.files.append(sfile)
+
     def to_dict(self) -> Dict[str, Any]:
         return {
             "specification": self.specification.to_dict(),
@@ -180,6 +208,83 @@ class TestResult:
 
 
 @dataclass
+class PatchDiff:
+    """Record of a code modification applied to a file."""
+    path: str
+    old_content: str
+    new_content: str
+    diff_text: str = field(default="")
+    timestamp_utc: str = field(default="")
+
+    def __post_init__(self) -> None:
+        if not self.diff_text:
+            old_lines = self.old_content.splitlines(keepends=True)
+            new_lines = self.new_content.splitlines(keepends=True)
+            diff = difflib.unified_diff(old_lines, new_lines, fromfile=f"a/{self.path}", tofile=f"b/{self.path}")
+            self.diff_text = "".join(diff)
+        if not self.timestamp_utc:
+            self.timestamp_utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "path": self.path,
+            "diff_text": self.diff_text,
+            "timestamp_utc": self.timestamp_utc,
+        }
+
+
+@dataclass
+class IterationRecord:
+    """Diagnostic and execution snapshot of a single iteration loop."""
+    iteration: int
+    files_modified: List[str]
+    test_result: TestResult
+    failure_category: FailureCategory
+    diagnosis: Optional[str] = None
+    patch_diffs: List[PatchDiff] = field(default_factory=list)
+    duration_seconds: float = 0.0
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "iteration": self.iteration,
+            "files_modified": self.files_modified,
+            "test_result": self.test_result.to_dict(),
+            "failure_category": self.failure_category.value,
+            "diagnosis": self.diagnosis,
+            "patch_diffs": [p.to_dict() for p in self.patch_diffs],
+            "duration_seconds": round(self.duration_seconds, 4),
+        }
+
+
+@dataclass
+class ExecutionHistory:
+    """Full execution trajectory of a project across multiple iterations."""
+    project_id: str
+    iterations: List[IterationRecord] = field(default_factory=list)
+    converged: bool = False
+    final_pass_rate: float = 0.0
+
+    def add_iteration(self, record: IterationRecord) -> None:
+        self.iterations.append(record)
+        self.final_pass_rate = record.test_result.pass_rate
+        if record.failure_category == FailureCategory.SUCCESS and record.test_result.failed == 0 and record.test_result.passed > 0:
+            self.converged = True
+
+    @property
+    def total_iterations(self) -> int:
+        return len(self.iterations)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "project_id": self.project_id,
+            "total_iterations": self.total_iterations,
+            "converged": self.converged,
+            "final_pass_rate": round(self.final_pass_rate, 4),
+            "iterations": [it.to_dict() for it in self.iterations],
+        }
+
+
+@dataclass
 class ArenaExecutionResult:
     """Aggregate execution result from an isolated Arena run."""
     project_id: str
@@ -190,6 +295,7 @@ class ArenaExecutionResult:
     execution_time_seconds: float = 0.0
     workspace_path: Optional[str] = None
     artifacts: Dict[str, Any] = field(default_factory=dict)
+    history: Optional[ExecutionHistory] = None
 
     @property
     def is_success(self) -> bool:
@@ -212,6 +318,7 @@ class ArenaExecutionResult:
             "execution_time_seconds": round(self.execution_time_seconds, 4),
             "workspace_path": self.workspace_path,
             "artifacts": self.artifacts,
+            "history": self.history.to_dict() if self.history else None,
         }
 
 

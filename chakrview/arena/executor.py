@@ -3,10 +3,17 @@ ChakrView Project Arena: Sandboxed Test Executor.
 
 Executes tests inside isolated subprocesses with:
 - Strict wall-clock timeouts (fail-closed)
-- Sanitized environment variables
+- Sanitized environment variables (purging host credentials)
 - Controlled PYTHONPATH (restricted to workspace source dir)
 - Capturing stdout, stderr, exit codes, and durations
 - Structured parsing of pytest / unittest outputs
+- Error frame and traceback extraction for closed-loop repair
+
+SECURITY NOTICE:
+This executor implements process-level isolation with wall-clock timeouts and
+sanitized environments. It does NOT implement kernel-level cgroups or Windows
+Job Object memory containment in the current step. OS-level containment remains
+a future enhancement.
 """
 
 from __future__ import annotations
@@ -17,7 +24,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any, Tuple
 
 from chakrview.arena.models import TestResult, FailureCategory
 from chakrview.arena.workspace import IsolatedWorkspace
@@ -149,6 +156,35 @@ class SandboxedExecutor:
                 FailureCategory.RUNTIME_ERROR,
             )
 
+    def extract_traceback_diagnostic(self, test_result: TestResult) -> Optional[Dict[str, Any]]:
+        """
+        Extract failing test name, error message, and traceback frames from test output.
+        """
+        combined = f"{test_result.stdout}\n{test_result.stderr}"
+        if test_result.failed == 0 and test_result.errors == 0:
+            return None
+
+        # Look for FAILED test lines: "FAILED test_core.py::test_clamp - AssertionError: ..."
+        failed_match = re.search(r"FAILED\s+([^\s:]+)::([^\s\-]+)\s*-\s*(.*)", combined)
+        failing_file = failed_match.group(1) if failed_match else None
+        failing_test = failed_match.group(2) if failed_match else None
+        error_msg = failed_match.group(3).strip() if failed_match else None
+
+        # Find line number from traceback snippet like: "test_core.py:12: AssertionError"
+        line_match = re.search(r"([a-zA-Z0-9_\.]+\.py):(\d+):\s*([a-zA-Z0-9_]+Error|AssertionError)", combined)
+        target_file = line_match.group(1) if line_match else failing_file
+        target_line = int(line_match.group(2)) if line_match else None
+        exception_type = line_match.group(3) if line_match else "TestFailure"
+
+        return {
+            "failing_test": failing_test,
+            "target_file": target_file,
+            "target_line": target_line,
+            "exception_type": exception_type,
+            "error_message": error_msg or combined[:300].strip(),
+            "raw_snippet": combined[-500:].strip(),
+        }
+
     def _parse_pytest_output(
         self,
         stdout: str,
@@ -180,10 +216,8 @@ class SandboxedExecutor:
             if skipped_m:
                 skipped = int(skipped_m.group(1))
         elif exit_code == 0:
-            # Fallback if pytest returned 0 but format differed
             passed = max(1, len(re.findall(r"PASSED", stdout)))
         else:
-            # If nonzero and unparsed, count as failure or error
             if "ModuleNotFoundError" in stderr or "ImportError" in stderr or "ModuleNotFoundError" in stdout or "ImportError" in stdout:
                 errors = 1
             elif "SyntaxError" in stderr or "SyntaxError" in stdout:
