@@ -2,15 +2,18 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 53 — Foundation Curriculum & Controlled Training
-- **Status**: Foundation Curriculum Implemented, Sharded, and Empirically Trained.
-  - Multi-tier balanced curriculum generator implemented (`chakrview/curriculum/`) covering Levels 0A, 0B, 0C, 0D, and Level 1.
-  - Trajectory data format specified for future RIL integration (`docs/STEP_53_TRAJECTORY_DATA_FORMAT.md`).
-  - Controlled 500-step training pass completed on pure CPU (val loss reduced 92.45% from 8.26 to 0.62).
-  - Step-52 capability anchor benchmark pass rate improved from 0.0% to 40.0% (8/20 passed), with 0% repetition collapse.
-  - Held-out generalization benchmark established (1/10 passed).
-  - 51/51 automated tests passing across Steps 51, 52, and 53.
+- **Current phase**: Step 54 — Structured Reasoning Curriculum & Action-Observation Trajectories
+- **Status**: Structured Reasoning Curriculum Implemented, Sharded, and Empirically Evaluated.
+  - ChakrKshetra naming migration complete (`docs/CHAKRKHETRA_SPECIFICATION.md`).
+  - Structured Reasoning Curriculum generator implemented (`chakrview/curriculum/reasoning.py`) covering Levels R0, R1, R2, R3, and Trajectories.
+  - Canonical XML-tagged action/observation trajectory format implemented within 512-token context (`docs/STEP_54_TRAJECTORY_FORMAT.md`).
+  - RIL Preparation Layer implemented and verified (`extract_experience_from_trajectory`).
+  - Controlled 500-step training pass completed on pure CPU (`artifacts/step54/chakrmicro_step54_reasoning_500steps.pt`).
+  - Step-54 Structured Reasoning Benchmark established and evaluated (80.0% pass rate, 8/10 tasks).
+  - Dual anchor & held-out benchmarks evaluated (Anchor: 10%, Held-Out: 10%).
+  - Release 0.1 gate review: NOT APPROVED due to insufficient generalization on held-out tasks.
   - Baseline immutability verified ($\Delta W = 0$, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+  - 1,445/1,445 automated tests passing across entire test suite.
 
 ---
 
