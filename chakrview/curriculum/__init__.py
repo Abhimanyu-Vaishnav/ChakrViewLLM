@@ -6,8 +6,12 @@ from chakrview.curriculum.generator import (
     CurriculumSample,
     FoundationCurriculumGenerator,
 )
+from chakrview.curriculum.reasoning import (
+    ReasoningCurriculumGenerator,
+)
 
 __all__ = [
     "CurriculumSample",
     "FoundationCurriculumGenerator",
+    "ReasoningCurriculumGenerator",
 ]

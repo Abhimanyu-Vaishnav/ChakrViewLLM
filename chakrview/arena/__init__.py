@@ -1,9 +1,13 @@
 """
-ChakrView Project Arena: Subsystem Package Initialization.
+ChakrKshetra (formerly Project Arena): Subsystem Package Initialization.
 
-Provides isolated project workspaces, sandboxed test execution,
-path traversal protection, closed-loop repair controller, memory bridge,
-AST evaluation, and metrics collection.
+ChakrKshetra is ChakrView's controlled execution, experimentation,
+observation, and evaluation environment. It provides isolated disposable workspaces,
+sandboxed test execution, path traversal protection, closed-loop repair controller,
+episodic memory bridge, AST evaluation, and metrics collection.
+
+Architectural Invariant:
+    ChakrKshetra is an external environment, NOT the neural brain.
 """
 
 from chakrview.arena.models import (
@@ -28,6 +32,13 @@ from chakrview.arena.dataset import CodingCorpusManager
 from chakrview.arena.loop import ArenaClosedLoopController
 from chakrview.arena.memory import ArenaMemoryBridge
 
+# ChakrKshetra Conceptual Aliases
+ChakrKshetraWorkspace = IsolatedWorkspace
+ChakrKshetraExecutor = SandboxedExecutor
+ChakrKshetraEvaluator = ArenaEvaluator
+ChakrKshetraController = ArenaClosedLoopController
+ChakrKshetraMemoryBridge = ArenaMemoryBridge
+
 __all__ = [
     "PathTraversalError",
     "WorkspaceQuotaExceededError",
@@ -48,4 +59,9 @@ __all__ = [
     "CodingCorpusManager",
     "ArenaClosedLoopController",
     "ArenaMemoryBridge",
+    "ChakrKshetraWorkspace",
+    "ChakrKshetraExecutor",
+    "ChakrKshetraEvaluator",
+    "ChakrKshetraController",
+    "ChakrKshetraMemoryBridge",
 ]
