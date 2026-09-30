@@ -1,5 +1,5 @@
 """
-ChakrView Step 59: Repository Cognition Package Exports.
+ChakrView Step 59/60: Repository Cognition Package Exports.
 """
 
 from chakrview.cognition.repository.inspector import RepositoryInspector, ModuleInspection
@@ -20,6 +20,18 @@ from chakrview.cognition.repository.verifier import (
     RepositoryVerifier,
 )
 from chakrview.cognition.repository.engine import RepositoryCognitionEngine
+from chakrview.cognition.repository.semantic_record import RepositorySemanticRecord
+from chakrview.cognition.repository.memory_index import RepositoryMemoryIndex
+from chakrview.cognition.repository.arbitration import (
+    ArbitrationWeights,
+    DEFAULT_WEIGHTS,
+    RepositoryQuery,
+    ArbitrationSignalBreakdown,
+    ArbitrationCandidate,
+    ArbitrationStatus,
+    ArbitrationResult,
+    arbitrate,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -36,4 +48,14 @@ __all__ = [
     "RepositoryVerificationResult",
     "RepositoryVerifier",
     "RepositoryCognitionEngine",
+    "RepositorySemanticRecord",
+    "RepositoryMemoryIndex",
+    "ArbitrationWeights",
+    "DEFAULT_WEIGHTS",
+    "RepositoryQuery",
+    "ArbitrationSignalBreakdown",
+    "ArbitrationCandidate",
+    "ArbitrationStatus",
+    "ArbitrationResult",
+    "arbitrate",
 ]
