@@ -2,8 +2,8 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 46 — Local Model Runtime & Interactive Streaming Session Layer
-- **Status**: Complete & Verified (Real-time token streaming, StreamChunk, LocalModelSession with sliding context window compaction, LocalModelRuntime, interactive CLI, and benchmark; 1,311 / 1,311 tests passing across 92 test files; ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+- **Current phase**: Step 47 — Training Readiness & First Learning Loop Phase
+- **Status**: Complete & Ratified (Learning loop validated with gradient norm monitoring, safety checks, typed atomic checkpointing, and safe resumption; 1,327 / 1,327 tests passing across 93 test files; Baseline ΔW = 0, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`; Experiment ΔW > 0 verified).
 
 ---
 
@@ -337,5 +337,5 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 46 RATIFIED — LOCAL MODEL RUNTIME & INTERACTIVE STREAMING SESSION LAYER COMPLETE & EMPIRICALLY VERIFIED**
-- **Next Allowed Step**: Step 47 (Awaiting user explicit command; DO NOT START STEP 47 AUTOMATICALLY).
+- **Decision**: **STEP 47 RATIFIED — TRAINING READINESS & FIRST LEARNING LOOP COMPLETE & EMPIRICALLY VERIFIED**
+- **Next Allowed Step**: Step 48 (Awaiting user explicit command; DO NOT START STEP 48 AUTOMATICALLY).

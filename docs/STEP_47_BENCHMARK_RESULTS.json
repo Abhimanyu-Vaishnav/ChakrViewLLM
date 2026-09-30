@@ -1,0 +1,91 @@
+{
+  "benchmark": "Step 47 Training Readiness & First Learning Loop",
+  "timestamp": "2026-09-30T08:07:34Z",
+  "model_architecture": "ChakrMicro v0.1",
+  "parameters": 3443136,
+  "vocabulary_size": 4096,
+  "context_length": 512,
+  "baseline_model_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+  "baseline_model_post_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+  "baseline_delta_w": 0.0,
+  "baseline_immutability_preserved": true,
+  "experiment_initial_hash": "a5ba4dab354e9dc038513a969c2602a27b0b69f279f3c3f1b0269b2cd40aeaf1",
+  "experiment_final_hash": "0fdb3094be6ffb4376dacb43915c1a04269da71e43d294b06a934c795cc2e133",
+  "experiment_parameters_updated": true,
+  "experiment_l2_update_norm": 8.370955,
+  "experiment_max_abs_delta": 0.009699,
+  "micro_training_steps": 10,
+  "loss_initial": 8.3369,
+  "loss_final": 8.4279,
+  "loss_progression": [
+    8.3369,
+    8.3659,
+    8.2961,
+    8.2235,
+    8.1209,
+    8.0982,
+    7.9718,
+    8.0644,
+    7.9012,
+    8.4279
+  ],
+  "grad_norm_progression": [
+    6.7832,
+    6.3727,
+    49.1267,
+    8.3547,
+    1.9863,
+    2.8746,
+    7.8101,
+    1.679,
+    1.7107,
+    3.2917
+  ],
+  "latencies": {
+    "batch_loading": {
+      "mean_ms": 0.098,
+      "median_ms": 0.081,
+      "min_ms": 0.071,
+      "max_ms": 0.261
+    },
+    "forward_pass": {
+      "mean_ms": 9.417,
+      "median_ms": 8.159,
+      "min_ms": 6.686,
+      "max_ms": 17.128
+    },
+    "backward_pass": {
+      "mean_ms": 21.811,
+      "median_ms": 20.7,
+      "min_ms": 18.754,
+      "max_ms": 32.806
+    },
+    "optimizer_step": {
+      "mean_ms": 9.162,
+      "median_ms": 8.546,
+      "min_ms": 6.826,
+      "max_ms": 13.415
+    },
+    "total_step": {
+      "mean_ms": 40.799,
+      "median_ms": 37.478,
+      "min_ms": 34.706,
+      "max_ms": 59.919
+    },
+    "checkpoint_save_ms": 35.467,
+    "checkpoint_load_ms": 18.564
+  },
+  "checkpoint": {
+    "size_mb": 39.47,
+    "type": "training",
+    "step": 10,
+    "tokenizer_checksum": "tok_bpe_4096_verified",
+    "dataset_manifest_hash": "shard_00000_manifest_verified",
+    "validation_passed": true
+  },
+  "resources": {
+    "memory_rss_mb": 469.95,
+    "device": "cpu",
+    "threads": 14
+  }
+}
