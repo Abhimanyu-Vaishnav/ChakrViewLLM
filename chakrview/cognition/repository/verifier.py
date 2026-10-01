@@ -57,11 +57,17 @@ class RepositoryVerifier:
 
         # Level 1: Targeted test pass
         level1 = False
+        output_text = (test_res.stdout or "") + (test_res.stderr or "")
         if all_passed:
             level1 = True
-        elif targeted_test_rel_path and targeted_test_rel_path not in (test_res.stderr or ""):
-            # If targeted test didn't fail specifically
-            level1 = test_res.passed > 0
+        elif targeted_test_rel_path:
+            # Targeted test is considered failed if it appears under failures or FAILED lines
+            target_failed = (
+                f"FAILED tests/{targeted_test_rel_path}" in output_text
+                or f"FAILED {targeted_test_rel_path}" in output_text
+                or f"::{targeted_test_rel_path}" in output_text and "FAILED" in output_text
+            )
+            level1 = not target_failed and test_res.passed > 0
 
         # Level 2: Regression pass
         level2 = (test_res.failed == 0 and test_res.errors == 0) if all_passed else False
