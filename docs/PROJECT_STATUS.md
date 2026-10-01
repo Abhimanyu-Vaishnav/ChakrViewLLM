@@ -2,16 +2,17 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 66 — Episodic Memory Recall Loop, Structural Relevance & Deterministic Validity Verification
-- **Status**: Episodic Memory Recall Loop, Deterministic Candidate Retrieval, Structural Relevance Scoring, Drift/Validity Verification, Negative Boundary Exposure, and Conflict Arbitration Implemented, Tested, and Verified.
-  - **Memory Recall Architecture** (`chakrview/cognition/repository/episodic_recall.py`): Explicit recall request (`MemoryRecallRequest`), lifecycle statuses (`RECALLABLE`, `NEGATIVE_BOUNDARY`, `REJECTED_STALE`, `REJECTED_SUPERSEDED`, `CONFLICTED`, `UNAVAILABLE`, `ABSTAIN`), and budgeted context bundle (`RecalledContextBundle`).
-  - **Deterministic Relevance Scoring**: Explainable, bounded scoring based on task family match, module overlap, pattern/symptom token Jaccard similarity, dependency signatures, and historical success evidence.
-  - **Validity & Freshness Verification**: Structural drift and dependency modifications evaluated via `RepositoryChangeDetector` and `RepositoryImpactAnalyzer`; stale or superseded memories are strictly rejected.
-  - **Negative Boundary Exposure & Conflict Arbitration**: Recalls negative failure patterns as explicit boundary constraints (`DO_NOT_APPLY`); detects collisions between positive proposals and negative boundaries on shared modules.
-  - **Recall Budgeting & Determinism**: Enforces strict candidate and recall counts, deterministic descending score ordering, and fail-closed cross-domain negative transfer defense.
-  - **Experiment Protocol & Cognitive Evidence**: 15 controlled conditions (A through O) executed and passed with 100% precision (`artifacts/step66/step66_episodic_recall_evidence.json`).
+- **Current phase**: Step 67 — Unified Cognitive Context Composition
+- **Status**: Unified Cognitive Context Composition Layer, Deterministic Ordering, Conflict Isolation, Negative Boundary Quarantine, Resource Budgeting, and Passive Neural Proposal Boundary Implemented, Tested, and Verified.
+  - **Cognitive Context Architecture** (`chakrview/cognition/repository/cognitive_context.py`): Explicit request (`CognitiveContextRequest`), lifecycle statuses (`ACTIVE`, `NEGATIVE`, `CONFLICTED`, `STALE`, `SUPERSEDED`, `UNAVAILABLE`, `ABSTAIN`), and budgeted context bundle (`CognitiveContextBundle`).
+  - **Deterministic Composition & Key Ordering**: Deterministic key synthesis (`1_ev:...`, `2_neg:...`, `3_pos:...`, `4_conf:...`) guaranteeing bit-for-bit reproducible context bundles and SHA-256 context fingerprints.
+  - **Negative Boundary Isolation & Conflict Arbitration**: Deep arbitration isolating negative boundary prohibitions into `negative_boundaries` and quarantining colliding positive memories, task constraint collisions, or missing module references into `conflicted_items` as `CONFLICTED`.
+  - **Budget Limits & 100% Provenance Coverage**: Enforces strict evidence, memory, negative boundary, and total item caps while maintaining non-empty provenance records across 100% of context items.
+  - **Passive Neural Proposal Boundary**: `to_neural_context()` exposes read-only dictionary payloads to `NeuralProposalAdapter` with zero execution handles, callbacks, or memory mutation authority.
+  - **Empirical Benchmark & Cognitive Evidence**: 14 controlled conditions (A through N) passed with 100% precision (`docs/STEP_67_COGNITIVE_EVIDENCE.md`).
   - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 1,608/1,608 tests passing across entire repository test suite (Step 66 adds 15 new comprehensive tests in `tests/test_step66_episodic_recall.py`).
+  - **Automated Tests**: 1,624/1,624 tests passing across full repository test suite (Step 67 adds 16 new tests in `tests/test_step67_cognitive_context.py`).
+
 
 
 

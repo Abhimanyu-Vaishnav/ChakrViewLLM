@@ -76,9 +76,9 @@ class NeuralProposalAdapter(ABC):
     @abstractmethod
     def generate_proposal(
         self,
-        context: GroundedContextBundle,
+        context: Any,
     ) -> Optional[NeuralProposalOutput]:
-        """Propose a refactoring candidate from grounded context."""
+        """Propose a refactoring candidate from grounded context or cognitive context."""
         pass
 
 
@@ -90,33 +90,61 @@ class MockNeuralProposalAdapter(NeuralProposalAdapter):
 
     def __init__(
         self,
-        preset_proposal_generator: Optional[Callable[[GroundedContextBundle], Optional[NeuralProposalOutput]]] = None,
+        preset_proposal_generator: Optional[Callable[[Any], Optional[NeuralProposalOutput]]] = None,
     ) -> None:
         self.preset_generator = preset_proposal_generator
 
     def generate_proposal(
         self,
-        context: GroundedContextBundle,
+        context: Any,
     ) -> Optional[NeuralProposalOutput]:
         if self.preset_generator:
             return self.preset_generator(context)
 
-        # Default fallback: propose modifying first candidate file if memory pattern exists
-        if not context.candidate_files:
+        # Support both GroundedContextBundle and CognitiveContextBundle / Dict
+        candidate_files: List[str] = []
+        task_desc: str = ""
+        patch: Dict[str, str] = {}
+
+        if isinstance(context, dict):
+            candidate_files = list(context.get("target_files", [])) or list(context.get("allowed_files", []))
+            task_desc = str(context.get("task_description", ""))
+            pos_patterns = context.get("positive_solution_patterns", ())
+            if pos_patterns and isinstance(pos_patterns, (list, tuple)):
+                p0 = pos_patterns[0]
+                pat_str = p0.get("pattern", "") if isinstance(p0, dict) else ""
+                if candidate_files and pat_str:
+                    patch[candidate_files[0]] = pat_str
+            symbols = list(context.get("target_symbols", []))[:2]
+        elif hasattr(context, "positive_memories"):
+            # CognitiveContextBundle
+            candidate_files = list(context.request.target_files) or list(context.request.allowed_files)
+            task_desc = context.request.task_description
+            if context.positive_memories and candidate_files:
+                patch[candidate_files[0]] = context.positive_memories[0].content_payload
+            symbols = list(context.active_symbols)[:2]
+        elif hasattr(context, "candidate_files"):
+            # GroundedContextBundle
+            candidate_files = list(context.candidate_files)
+            task_desc = context.task_description
+            if context.active_memory_records and candidate_files:
+                patch[candidate_files[0]] = context.active_memory_records[0].solution_pattern
+            symbols = list(context.relevant_symbols)[:2]
+        else:
+            symbols = []
+
+        if not candidate_files:
             return None
 
-        primary_file = context.candidate_files[0]
-        patch = {}
-        if context.active_memory_records:
-            patch[primary_file] = context.active_memory_records[0].solution_pattern
-        else:
-            patch[primary_file] = f"# Proposed fix for {context.task_description}\n"
+        primary_file = candidate_files[0]
+        if not patch:
+            patch[primary_file] = f"# Proposed fix for {task_desc}\n"
 
         return NeuralProposalOutput(
             proposal_id=f"prop_neural_{int(time.time() * 1000) % 100000}",
-            objective=context.task_description,
+            objective=task_desc,
             target_files=[primary_file],
-            target_symbols=context.relevant_symbols[:2],
+            target_symbols=symbols,
             proposed_patches=patch,
             confidence=0.85,
             model_identifier="ChakrMicro-DeterministicReference-v0.1",

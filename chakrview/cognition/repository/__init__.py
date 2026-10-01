@@ -112,6 +112,16 @@ from chakrview.cognition.repository.episodic_recall import (
     RecalledContextBundle,
     EpisodicMemoryRecallCoordinator,
 )
+from chakrview.cognition.repository.cognitive_context import (
+    CognitiveContextSource,
+    CognitiveContextStatus,
+    CognitiveContextBudget,
+    CognitiveContextRequest,
+    CognitiveContextItem,
+    CognitiveContextTelemetry,
+    CognitiveContextBundle,
+    UnifiedCognitiveContextComposer,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -202,6 +212,14 @@ __all__ = [
     "RecalledMemoryItem",
     "RecalledContextBundle",
     "EpisodicMemoryRecallCoordinator",
+    "CognitiveContextSource",
+    "CognitiveContextStatus",
+    "CognitiveContextBudget",
+    "CognitiveContextRequest",
+    "CognitiveContextItem",
+    "CognitiveContextTelemetry",
+    "CognitiveContextBundle",
+    "UnifiedCognitiveContextComposer",
 ]
 
 
