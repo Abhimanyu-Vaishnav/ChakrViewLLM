@@ -2,16 +2,14 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 69 + 70 Combined — From Grounded Neural Proposal to Safe, Deterministic Repository Patch Lifecycle
-- **Status**: Deterministic Patch Planning, Provenance Tracking, Independent Validation Gate, Unified Diff Engine, Explicit Approval Boundary, Atomic Staging, Post-Application Verification, and Reversible Rollback Engine Implemented, Tested, and Verified.
-  - **Deterministic Patch Planning** (`chakrview/cognition/repository/patch_planning.py`): Strongly typed `PatchPlan` and `PatchOperation` data structures with canonical SHA-256 fingerprinting, complete provenance preservation (`evidence_ids`, `memory_ids`, `negative_boundary_ids`), and deterministic diff generation (`generate_deterministic_diff`).
-  - **Independent Validation Gate**: `PatchPlanValidator` performs authoritative, decoupled pre-flight validation against repository facts, enforcing allowed-file containment, state freshness, and execution keyword prohibitions (`os.system`, `subprocess`, `eval`, `exec`).
-  - **Explicit Approval Boundary & Safe Execution** (`chakrview/cognition/repository/patch_execution.py`): `SafePatchExecutor` strictly forbids autonomous or unapproved filesystem execution; transitions from `READY_FOR_EXECUTION_REVIEW` to `APPROVED` only via explicit request token.
-  - **Atomicity, Containment & Verification**: In-memory staging guarantees fail-closed rollback before committing writes; immediate post-application verification checks target correctness and unrelated file byte invariance.
-  - **Deterministic Rollback**: `PatchRollbackRecord` stores pre- and post-content snapshots enabling exact restoration without invoking arbitrary shell processes.
-  - **Empirical Benchmark & Cognitive Evidence**: All 21 mandatory conditions (A through U) verified and passed in `scripts/experiment_step69_70_patch_lifecycle.py` (`docs/STEP_69_70_COGNITIVE_EVIDENCE.md`).
+- **Current phase**: Steps 71–73 Combined — Reasoning + Critical Thinking + Self-Evaluation Subsystem
+- **Status**: Structured Reasoning, Critical Thinking & Alternative Hypotheses, Independent Self-Evaluation Gate, and Bounded Revision Subsystem Implemented, Tested, and Verified.
+  - **Structured Reasoning** (`chakrview/cognition/reasoning/structured.py`): Explicit epistemic partitions (`FACT`, `MEMORY`, `INFERENCE`, `HYPOTHESIS`, `PROPOSAL`, `UNCERTAINTY`, `UNKNOWN`), complete provenance tracking, and zero private chain-of-thought exposure.
+  - **Critical Thinking & Alternative Hypotheses** (`chakrview/cognition/reasoning/critical.py`): Independent evidence balance auditing, assumption vulnerability tracking, contradiction containment, and structured alternative hypothesis generation.
+  - **Self-Evaluation & Bounded Revision** (`chakrview/cognition/reasoning/evaluation.py`): Decoupled independent gate evaluating grounding, constraint satisfaction, and dangerous execution handles (`os.system`, `subprocess`, etc.) with bounded revision ($\le 2$ cycles).
+  - **Empirical Benchmark & Cognitive Evidence**: All 12 mandatory controls passed in `scripts/experiment_step71_73_reasoning_evaluation.py` (`docs/STEP_71_73_COGNITIVE_EVIDENCE.md`).
   - **Baseline Immutability**: Neural weights remain strictly invariant ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 13 new dedicated tests (159/159 passing across Steps 59–70 regression suite; 1,652/1,652 passing across the full repository test suite).
+  - **Automated Tests**: 13 new dedicated tests (172/172 passing across Steps 59–73 regression suite; 1,665/1,665 passing across the full repository test suite).
 
 
 
