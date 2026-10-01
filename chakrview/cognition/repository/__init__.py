@@ -52,6 +52,15 @@ from chakrview.cognition.repository.refactoring import (
     MultiStepRefactoringResult,
     MultiStepRefactoringCoordinator,
 )
+from chakrview.cognition.repository.branching import (
+    BranchStatus,
+    RefactoringBranch,
+    BranchObservation,
+    BranchSelectionDecision,
+    RecoveryDecision,
+    BranchingRefactoringResult,
+    ObservationDrivenBranchingCoordinator,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -93,5 +102,13 @@ __all__ = [
     "StepExecutionResult",
     "MultiStepRefactoringResult",
     "MultiStepRefactoringCoordinator",
+    "BranchStatus",
+    "RefactoringBranch",
+    "BranchObservation",
+    "BranchSelectionDecision",
+    "RecoveryDecision",
+    "BranchingRefactoringResult",
+    "ObservationDrivenBranchingCoordinator",
 ]
+
 
