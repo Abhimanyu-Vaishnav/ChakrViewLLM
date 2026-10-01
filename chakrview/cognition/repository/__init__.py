@@ -104,6 +104,14 @@ from chakrview.cognition.repository.episodic_learning import (
     DeterministicAdmissionGate,
     EpisodicLearningCoordinator,
 )
+from chakrview.cognition.repository.episodic_recall import (
+    MemoryRecallStatus,
+    MemoryRecallRequest,
+    RecallBudget,
+    RecalledMemoryItem,
+    RecalledContextBundle,
+    EpisodicMemoryRecallCoordinator,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -188,6 +196,12 @@ __all__ = [
     "AdmissionDecision",
     "DeterministicAdmissionGate",
     "EpisodicLearningCoordinator",
+    "MemoryRecallStatus",
+    "MemoryRecallRequest",
+    "RecallBudget",
+    "RecalledMemoryItem",
+    "RecalledContextBundle",
+    "EpisodicMemoryRecallCoordinator",
 ]
 
 
