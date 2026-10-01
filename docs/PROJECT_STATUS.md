@@ -2,16 +2,15 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 62 — Dynamic Multi-Branch Refactoring & Observation-Driven Recovery
-- **Status**: Dynamic Multi-Branch Refactoring & Observation-Driven Recovery Implemented, Tested, and Verified.
-  - **Branching Architecture** (`chakrview/cognition/repository/branching.py`): Formal abstractions for `RefactoringBranch`, `BranchStatus`, `BranchObservation`, `BranchSelectionDecision`, `RecoveryDecision`, `BranchingRefactoringResult`, and `ObservationDrivenBranchingCoordinator`.
-  - **Deterministic Observation Collection**: Captures targeted test results, repository state fingerprints, file boundary compliance, dependency impacts, memory validity status, and fatal error counts.
-  - **Multi-Branch Dynamic Selection & Safe Recovery**: Deterministic branch ranking (healthy steps, verification depth, memory quality), automatic failure abandonment, rollback verification with fingerprint check, eligible alternative execution, and safe fail-closed abstention when no branch is safe.
-  - **Bounded Execution Safety**: Explicit thresholds enforcing maximum branch count (default: 5), branch depth (default: 4), total step attempts (default: 12), and recovery transitions (default: 3) to prevent combinatorial explosion.
-  - **Memory-Guided Selection & Stale Memory Rejection**: Memory patterns inform candidate prioritization; stale or invalid memory is deterministically rejected from driving execution.
-  - **Experiment Protocol & Evidence**: 9 controlled conditions (A through I) executed and passed with 100% precision and zero unhandled failures (`artifacts/step62/step62_branching_evidence.json`).
+- **Current phase**: Step 63 — Autonomous Multi-Branch Strategy Synthesis & Deterministic Safety Gate
+- **Status**: Autonomous Multi-Branch Strategy Synthesis & Deterministic Safety Gate Implemented, Tested, and Verified.
+  - **Synthesis Architecture** (`chakrview/cognition/repository/synthesis.py`): Formal abstractions for `SynthesizedCandidate`, `CandidateOrigin`, `CandidateProvenance`, `CandidateNormalizer`, `DeterministicSafetyGate`, `CandidateDeduplicator`, `StrategyRecombiner`, `CandidateSynthesisEngine`, and `SynthesisAwareBranchingCoordinator`.
+  - **Strict Proposal/Authority Decoupling**: Candidate generation layer produces passive, serializable proposals with zero execution authority.
+  - **Deterministic Safety Gating**: Evaluates allowed file scopes, operational step/recombination ceilings, domain matching (negative-transfer defense), and semantic memory revalidation before candidate execution.
+  - **Candidate Deduplication & Recombination**: Collapses duplicate proposals via SHA-256 fingerprint hashing while preserving merged provenance; recombines partial traces into verified multi-step candidates.
+  - **Experiment Protocol & Evidence**: 13 controlled conditions (A through M) executed and passed with 100% precision (`artifacts/step63/step63_synthesis_evidence.json`).
   - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - **Automated Tests**: 1,560/1,560 tests passing across entire repository test suite (Step 62 adds 15 new comprehensive tests in `tests/test_step62_dynamic_branching.py`).
+  - **Automated Tests**: 1,573/1,573 tests passing across entire repository test suite (Step 63 adds 13 new comprehensive tests in `tests/test_step63_candidate_synthesis.py`).
 
 
 
@@ -363,15 +362,15 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 62 DYNAMIC MULTI-BRANCH REFACTORING & OBSERVATION-DRIVEN RECOVERY VERIFIED**
-  - Readiness Audit: Completed and documented in [docs/STEP_62_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_62_READINESS_AUDIT.md).
-  - Branching Refactoring Specification: Documented in [docs/STEP_62_DYNAMIC_BRANCHING_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_62_DYNAMIC_BRANCHING_SPECIFICATION.md).
-  - Experiment Protocol: Formulated in [docs/STEP_62_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_62_EXPERIMENT_PROTOCOL.md).
-  - Cognitive Evidence: Recorded in [docs/STEP_62_COGNITIVE_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_62_COGNITIVE_EVIDENCE.md).
-  - Observation-Driven Branching Coordinator: Formal branching lifecycle, dynamic candidate arbitration, automatic failure abandonment, transactional rollback, fingerprint verification, and deterministic recovery demonstrated.
-  - Fail-Closed Protection: Unsafe branches exceeding file scope, failing preconditions, or presenting stale memory are deterministically rejected. Full abstention when all candidates fail.
-  - Operational Bounds: Enforced hard caps on branch counts, branch depth, total attempts, and recovery hops preventing search explosion.
+- **Decision**: **STEP 63 AUTONOMOUS MULTI-BRANCH STRATEGY SYNTHESIS & DETERMINISTIC SAFETY GATE VERIFIED**
+  - Readiness Audit: Completed and documented in [docs/STEP_63_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_63_READINESS_AUDIT.md).
+  - Synthesis Specification: Documented in [docs/STEP_63_CANDIDATE_SYNTHESIS_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_63_CANDIDATE_SYNTHESIS_SPECIFICATION.md).
+  - Experiment Protocol: Formulated in [docs/STEP_63_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_63_EXPERIMENT_PROTOCOL.md).
+  - Cognitive Evidence: Recorded in [docs/STEP_63_COGNITIVE_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_63_COGNITIVE_EVIDENCE.md).
+  - Proposal/Execution Separation: Candidate proposal generation possesses zero execution authority; all proposals are normalized and evaluated by `DeterministicSafetyGate`.
+  - Recombination & Deduplication: Partial trace recombination and canonical candidate deduplication via SHA-256 fingerprint matching demonstrated.
+  - Fail-Closed Safety & Rollback: Unsafe candidates, scope leaks, and stale memories fail closed; rollback restores bit-exact state fingerprint.
   - Baseline Immutability: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - Automated Tests: 1,560/1,560 tests passing across entire repository test suite (15/15 in `tests/test_step62_dynamic_branching.py`).
-- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 63 without review.
+  - Automated Tests: 1,573/1,573 tests passing across entire repository test suite (13/13 in `tests/test_step63_candidate_synthesis.py`).
+- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 64 without review.
 
