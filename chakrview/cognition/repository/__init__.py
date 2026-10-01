@@ -61,6 +61,22 @@ from chakrview.cognition.repository.branching import (
     BranchingRefactoringResult,
     ObservationDrivenBranchingCoordinator,
 )
+from chakrview.cognition.repository.synthesis import (
+    CandidateOrigin,
+    SafetyDecision,
+    CandidateProvenance,
+    SynthesizedCandidate,
+    NormalizationResult,
+    CandidateNormalizer,
+    SafetyGateDecision,
+    DeterministicSafetyGate,
+    CandidateDeduplicator,
+    StrategyRecombiner,
+    CandidateSynthesisEngine,
+    DeterministicRuleSynthesisEngine,
+    SynthesisCoordinationResult,
+    SynthesisAwareBranchingCoordinator,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -109,6 +125,20 @@ __all__ = [
     "RecoveryDecision",
     "BranchingRefactoringResult",
     "ObservationDrivenBranchingCoordinator",
+    "CandidateOrigin",
+    "SafetyDecision",
+    "CandidateProvenance",
+    "SynthesizedCandidate",
+    "NormalizationResult",
+    "CandidateNormalizer",
+    "SafetyGateDecision",
+    "DeterministicSafetyGate",
+    "CandidateDeduplicator",
+    "StrategyRecombiner",
+    "CandidateSynthesisEngine",
+    "DeterministicRuleSynthesisEngine",
+    "SynthesisCoordinationResult",
+    "SynthesisAwareBranchingCoordinator",
 ]
 
 
