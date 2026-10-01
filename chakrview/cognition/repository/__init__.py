@@ -122,6 +122,15 @@ from chakrview.cognition.repository.cognitive_context import (
     CognitiveContextBundle,
     UnifiedCognitiveContextComposer,
 )
+from chakrview.cognition.repository.neural_proposal import (
+    ProposalValidationStatus,
+    EpistemicPartition,
+    StructuredEpistemicClaim,
+    ProposalContract,
+    NeuralProposalInputEncoder,
+    ProposalValidator,
+    ChakrMicroNeuralProposalAdapter,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -220,6 +229,14 @@ __all__ = [
     "CognitiveContextTelemetry",
     "CognitiveContextBundle",
     "UnifiedCognitiveContextComposer",
+    "ProposalValidationStatus",
+    "EpistemicPartition",
+    "StructuredEpistemicClaim",
+    "ProposalContract",
+    "NeuralProposalInputEncoder",
+    "ProposalValidator",
+    "ChakrMicroNeuralProposalAdapter",
 ]
+
 
 
