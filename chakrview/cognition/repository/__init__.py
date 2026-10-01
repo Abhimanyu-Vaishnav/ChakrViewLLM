@@ -90,10 +90,19 @@ from chakrview.cognition.repository.context_store import (
 from chakrview.cognition.repository.neural_adapter import (
     NeuralProposalOutput,
     NeuralProposalAdapter,
-    MockNeuralProposalAdapter,
     GroundingVerificationDecision,
     HallucinationContainmentGate,
     GroundedNeuralSynthesisEngine,
+)
+from chakrview.cognition.repository.episodic_learning import (
+    EpisodeOutcome,
+    FailureClass,
+    AdmissionStatus,
+    LearnedObservation,
+    EpisodicExperience,
+    AdmissionDecision,
+    DeterministicAdmissionGate,
+    EpisodicLearningCoordinator,
 )
 
 __all__ = [
@@ -171,6 +180,14 @@ __all__ = [
     "GroundingVerificationDecision",
     "HallucinationContainmentGate",
     "GroundedNeuralSynthesisEngine",
+    "EpisodeOutcome",
+    "FailureClass",
+    "AdmissionStatus",
+    "LearnedObservation",
+    "EpisodicExperience",
+    "AdmissionDecision",
+    "DeterministicAdmissionGate",
+    "EpisodicLearningCoordinator",
 ]
 
 
