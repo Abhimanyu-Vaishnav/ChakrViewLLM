@@ -2,16 +2,17 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 67 — Unified Cognitive Context Composition
-- **Status**: Unified Cognitive Context Composition Layer, Deterministic Ordering, Conflict Isolation, Negative Boundary Quarantine, Resource Budgeting, and Passive Neural Proposal Boundary Implemented, Tested, and Verified.
-  - **Cognitive Context Architecture** (`chakrview/cognition/repository/cognitive_context.py`): Explicit request (`CognitiveContextRequest`), lifecycle statuses (`ACTIVE`, `NEGATIVE`, `CONFLICTED`, `STALE`, `SUPERSEDED`, `UNAVAILABLE`, `ABSTAIN`), and budgeted context bundle (`CognitiveContextBundle`).
-  - **Deterministic Composition & Key Ordering**: Deterministic key synthesis (`1_ev:...`, `2_neg:...`, `3_pos:...`, `4_conf:...`) guaranteeing bit-for-bit reproducible context bundles and SHA-256 context fingerprints.
-  - **Negative Boundary Isolation & Conflict Arbitration**: Deep arbitration isolating negative boundary prohibitions into `negative_boundaries` and quarantining colliding positive memories, task constraint collisions, or missing module references into `conflicted_items` as `CONFLICTED`.
-  - **Budget Limits & 100% Provenance Coverage**: Enforces strict evidence, memory, negative boundary, and total item caps while maintaining non-empty provenance records across 100% of context items.
-  - **Passive Neural Proposal Boundary**: `to_neural_context()` exposes read-only dictionary payloads to `NeuralProposalAdapter` with zero execution handles, callbacks, or memory mutation authority.
-  - **Empirical Benchmark & Cognitive Evidence**: 14 controlled conditions (A through N) passed with 100% precision (`docs/STEP_67_COGNITIVE_EVIDENCE.md`).
+- **Current phase**: Step 68 — Grounded Neural Proposal Generation
+- **Status**: Grounded Neural Proposal Generation, Input Encoding, Inference Engine Execution, Proposal Contract Decoding, and Authoritative Grounding Validation Implemented, Tested, and Verified.
+  - **Proposal Architecture** (`chakrview/cognition/repository/neural_proposal.py`): Strongly typed `ProposalContract` with explicit epistemic partitions (`FACT_EVIDENCE`, `MEMORY`, `INFERENCE`, `PROPOSAL`, `UNCERTAINTY`), provenance linkages, and zero private chain-of-thought exposure.
+  - **Neural Input Encoding**: `NeuralProposalInputEncoder` deterministically formats Step 67 cognitive context bundles into bounded prompt/token representations respecting the 512-token context horizon.
+  - **Frozen Neural Execution**: `ChakrMicroNeuralProposalAdapter` invokes `ChakrMicro` via `InferenceEngine` with greedy decoding, strictly enforcing $\Delta W = 0$ (pre- and post-flight SHA-256 weight hash invariants).
+  - **Authoritative Deterministic Validation**: `ProposalValidator` gates all proposals; rejects hallucinated files/symbols, negative boundary violations, context fingerprint mismatches, and execution handles; marks task constraint violations as `CONFLICTED`.
+  - **Zero Authority & Mutation Separation**: Neural proposals remain passive data only; zero filesystem write authority, zero memory index mutation authority, zero subprocess execution handles.
+  - **Empirical Benchmark & Cognitive Evidence**: End-to-end pipeline and 5 controls (A through E) passed with 100% precision (`docs/STEP_68_COGNITIVE_EVIDENCE.md`).
   - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 1,624/1,624 tests passing across full repository test suite (Step 67 adds 16 new tests in `tests/test_step67_cognitive_context.py`).
+  - **Automated Tests**: 146/146 tests passing across Steps 59–68 regression suite (Step 68 adds 15 new tests in `tests/test_step68_neural_proposal.py`).
+
 
 
 
