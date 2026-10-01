@@ -2,9 +2,9 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 71–73 Combined — Reasoning + Critical Thinking + Self-Evaluation Subsystem
-- **Status**: Structured Reasoning, Critical Thinking & Alternative Hypotheses, Independent Self-Evaluation Gate, and Bounded Revision Subsystem Implemented, Tested, and Verified.
-  - **Structured Reasoning** (`chakrview/cognition/reasoning/structured.py`): Explicit epistemic partitions (`FACT`, `MEMORY`, `INFERENCE`, `HYPOTHESIS`, `PROPOSAL`, `UNCERTAINTY`, `UNKNOWN`), complete provenance tracking, and zero private chain-of-thought exposure.
+- **Current phase**: Steps 74–77 Combined — Knowledge Acquisition + Verification + Research Integration + Resource-Adaptive Runtime
+- **Status**: Research abstraction, evidence verification, integration into cognitive context, and resource-adaptive runtime strategy Implemented, Tested, and Verified.
+  - **Knowledge Acquisition & Verification**: Typed abstraction handling evidence candidates. Cross-checks for corroboration/contradiction (`VERIFIED`, `CONTESTED`, `STALE`, etc.) preventing assumption of truth.
   - **Critical Thinking & Alternative Hypotheses** (`chakrview/cognition/reasoning/critical.py`): Independent evidence balance auditing, assumption vulnerability tracking, contradiction containment, and structured alternative hypothesis generation.
   - **Self-Evaluation & Bounded Revision** (`chakrview/cognition/reasoning/evaluation.py`): Decoupled independent gate evaluating grounding, constraint satisfaction, and dangerous execution handles (`os.system`, `subprocess`, etc.) with bounded revision ($\le 2$ cycles).
   - **Empirical Benchmark & Cognitive Evidence**: All 12 mandatory controls passed in `scripts/experiment_step71_73_reasoning_evaluation.py` (`docs/STEP_71_73_COGNITIVE_EVIDENCE.md`).
