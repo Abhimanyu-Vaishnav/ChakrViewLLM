@@ -29,6 +29,7 @@ class ModuleInspection:
     calls: List[str] = field(default_factory=list)
     is_test: bool = False
     parse_error: Optional[str] = None
+    ast_hash: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -80,6 +81,10 @@ class RepositoryInspector:
                 elif isinstance(node.func, ast.Attribute):
                     calls.append(node.func.attr)
 
+        import hashlib
+        ast_repr = ast.dump(tree, annotate_fields=False, include_attributes=False)
+        ast_hash = hashlib.sha256(ast_repr.encode("utf-8")).hexdigest()
+
         return ModuleInspection(
             rel_path=rel_path,
             module_name=mod_name,
@@ -90,6 +95,7 @@ class RepositoryInspector:
             calls=sorted(list(set(calls))),
             is_test=is_test,
             parse_error=None,
+            ast_hash=ast_hash,
         )
 
     @classmethod

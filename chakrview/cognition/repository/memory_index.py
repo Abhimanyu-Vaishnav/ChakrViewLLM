@@ -137,3 +137,9 @@ class RepositoryMemoryIndex:
         with self._lock:
             return len(self._store)
 
+    def all_records(self) -> Dict[str, RepositorySemanticRecord]:
+        """Return a copy of all stored records."""
+        with self._lock:
+            return dict(self._store)
+
+

@@ -2,20 +2,15 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 60 — Scalable Semantic Repository Memory, Retrieval Arbitration & Conflict Resolution
-- **Status**: Semantic Repository Memory Arbitration Layer Implemented, Tested, and Empirically Demonstrated.
-  - **RepositorySemanticRecord** (`chakrview/cognition/repository/semantic_record.py`): Strongly-typed repository memory entry with versioning, boundary conditions, and evidence tracking.
-  - **RepositoryMemoryIndex** (`chakrview/cognition/repository/memory_index.py`): Deterministic, thread-safe, in-memory index with insert/delete/lookup/candidate_set/to_json/from_json.
-  - **Arbitration Layer** (`chakrview/cognition/repository/arbitration.py`): Multi-signal scoring (8 signals: task_family, language, framework, symptom, dependency, module_overlap, evidence, boundary_penalty) derived from Step 58 formula with Step 60 extensions.
-  - **ArbitrationStatus**: SELECTED / AMBIGUOUS / CONFLICTING / REJECTED / NO_MATCH — five explicit outcomes including two safe-abstention routes.
-  - **Conflict Detection**: Near-tied candidates (|delta| <= 0.05) with incompatible solution patterns trigger CONFLICTING status and hard abstention.
-  - **Negative-Transfer Protection**: Cross-domain queries yield NO_MATCH; low-evidence queries yield REJECTED.
-  - **Memory Versioning**: active_version / superseded_by chain preserved on re-insert.
-  - **Serialization**: to_json/from_json round-trips deterministically (verified JSON equality).
-  - **Experiment benchmarks A-J**: 11/11 pass across single-entry, 5, 20, 100, and 500-entry corpora, conflict, negative-transfer, ablation, versioning, and consolidation scenarios.
-  - Retrieval latency: 0.04ms (100-entry), 0.66ms (500-entry) — pure CPU-first.
-  - Baseline immutability verified ($\Delta W = 0$, parameters = 3,443,136, hash intact: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - All automated tests passing across entire test suite (Step 60 adds 20 new tests).
+- **Current phase**: Step 61 — Real-Time Repository Change Awareness & Memory-Guided Multi-Step Refactoring
+- **Status**: Live Repository State Model, Deterministic Change Detection, Impact Analysis, Memory Revalidation, and Multi-Step Refactoring Implemented, Tested, and Verified.
+  - **RepositoryState** (`chakrview/cognition/repository/state.py`): Deterministic snapshot of repository files, AST signatures (`ast_hash`), dependency topology, and reproducible SHA-256 fingerprint.
+  - **RepositoryChangeDetector** (`chakrview/cognition/repository/change_detector.py`): Classifies repository diffs into 6 cognitive impact categories (`COSMETIC`, `LOCAL`, `DEPENDENCY`, `BEHAVIORAL`, `ARCHITECTURAL`, `TEST_ONLY`).
+  - **RepositoryImpactAnalyzer** (`chakrview/cognition/repository/impact_analyzer.py`): Traces transitive downstream propagation, affected test suites, and evaluates semantic memory applicability (`VALID`, `CONDITIONALLY_VALID`, `STALE`, `INVALID`, `ABSTAIN`).
+  - **MultiStepRefactoringCoordinator** (`chakrview/cognition/repository/refactoring.py`): Sequential refactoring coordinator with intermediate Level 1 & Level 2 verification, fail-closed regression detection, atomic rollback, and post-refactoring experience consolidation.
+  - **Experiment Protocol & Evidence**: 8 controlled conditions (A through H) executed and passed with 100% precision and 0.0% negative transfer.
+  - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
+  - **Automated Tests**: 1,545/1,545 tests passing across entire repository test suite (Step 61 adds 20 new tests in `tests/test_step61_realtime_change.py`).
 
 
 
@@ -367,15 +362,17 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 60 SCALABLE SEMANTIC REPOSITORY MEMORY & ARBITRATION VERIFIED**
-  - Readiness Audit: Completed and documented in [docs/STEP_60_SEMANTIC_MEMORY_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_60_SEMANTIC_MEMORY_READINESS_AUDIT.md).
-  - Architecture: Specified in [docs/STEP_60_SEMANTIC_MEMORY_ARCHITECTURE.md](file:///d:/Project/ChakrView/docs/STEP_60_SEMANTIC_MEMORY_ARCHITECTURE.md).
-  - Experiment Protocol: Formulated in [docs/STEP_60_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_60_EXPERIMENT_PROTOCOL.md).
-  - Empirical Evidence: Recorded in [docs/STEP_60_SEMANTIC_MEMORY_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_60_SEMANTIC_MEMORY_EVIDENCE.md).
-  - Multi-Signal Scoring: 8 signals implemented in `chakrview/cognition/repository/arbitration.py` with explainable trace generation.
-  - Safe Abstention: Hard abstention demonstrated on conflicting repairs (Benchmark F) and cross-domain queries (Benchmark G).
-  - Scalability: 11/11 benchmarks passed up to 500 competing repository patterns with sub-millisecond retrieval latency (0.66ms).
+- **Decision**: **STEP 61 REAL-TIME REPOSITORY CHANGE AWARENESS & MEMORY-GUIDED MULTI-STEP REFACTORING VERIFIED**
+  - Readiness Audit: Completed and documented in [docs/STEP_61_REALTIME_REPOSITORY_CHANGE_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_61_REALTIME_REPOSITORY_CHANGE_READINESS_AUDIT.md).
+  - State Model Specification: Documented in [docs/STEP_61_REALTIME_REPOSITORY_STATE_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_61_REALTIME_REPOSITORY_STATE_SPECIFICATION.md).
+  - Memory Revalidation Specification: Documented in [docs/STEP_61_MEMORY_REVALIDATION_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_61_MEMORY_REVALIDATION_SPECIFICATION.md).
+  - Multi-Step Refactoring Specification: Documented in [docs/STEP_61_MULTISTEP_REFACTORING_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_61_MULTISTEP_REFACTORING_SPECIFICATION.md).
+  - Experiment Protocol: Formulated in [docs/STEP_61_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_61_EXPERIMENT_PROTOCOL.md).
+  - Cognitive Evidence: Recorded in [docs/STEP_61_COGNITIVE_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_61_COGNITIVE_EVIDENCE.md).
+  - Change Detection: 6 categories implemented and tested with AST dump hash discrimination.
+  - Memory Revalidation: VALID, CONDITIONALLY_VALID, STALE, and INVALID states proven under controlled repository perturbations.
+  - Multi-Step Refactoring: Sequential step execution with intermediate Level 1 & Level 2 verification and atomic rollback on regression demonstrated.
   - Baseline Immutability: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - Automated Tests: 1,525/1,525 tests passing across entire repository test suite (20/20 in `tests/test_step60_semantic_repository_memory.py`).
-- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 61 without review.
+  - Automated Tests: 1,545/1,545 tests passing across entire repository test suite (20/20 in `tests/test_step61_realtime_change.py`).
+- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 62 without review.
 

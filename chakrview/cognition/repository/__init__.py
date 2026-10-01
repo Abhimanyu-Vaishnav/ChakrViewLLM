@@ -32,6 +32,26 @@ from chakrview.cognition.repository.arbitration import (
     ArbitrationResult,
     arbitrate,
 )
+from chakrview.cognition.repository.state import FileState, RepositoryState
+from chakrview.cognition.repository.change_detector import (
+    ChangeCategory,
+    FileChange,
+    RepositoryDiff,
+    RepositoryChangeDetector,
+)
+from chakrview.cognition.repository.impact_analyzer import (
+    MemoryValidityStatus,
+    MemoryRevalidationDecision,
+    ImpactReport,
+    RepositoryImpactAnalyzer,
+)
+from chakrview.cognition.repository.refactoring import (
+    RefactoringStep,
+    RefactoringPlan,
+    StepExecutionResult,
+    MultiStepRefactoringResult,
+    MultiStepRefactoringCoordinator,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -58,4 +78,20 @@ __all__ = [
     "ArbitrationStatus",
     "ArbitrationResult",
     "arbitrate",
+    "FileState",
+    "RepositoryState",
+    "ChangeCategory",
+    "FileChange",
+    "RepositoryDiff",
+    "RepositoryChangeDetector",
+    "MemoryValidityStatus",
+    "MemoryRevalidationDecision",
+    "ImpactReport",
+    "RepositoryImpactAnalyzer",
+    "RefactoringStep",
+    "RefactoringPlan",
+    "StepExecutionResult",
+    "MultiStepRefactoringResult",
+    "MultiStepRefactoringCoordinator",
 ]
+
