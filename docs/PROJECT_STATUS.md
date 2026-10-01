@@ -2,16 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 65 — Active Episodic Learning Loop & Verified Semantic Memory Admission
-- **Status**: Active Episodic Learning Loop, Verified Semantic Memory Admission, Provenance Tracking, Deterministic Gate Enforcement, and Failure Boundary Recording Implemented, Tested, and Verified.
-  - **Episodic Experience Model** (`chakrview/cognition/repository/episodic_learning.py`): Explicit schema (`EpisodicExperience`) capturing task context, retrieved evidence, neural proposal, epistemic state, execution traces, verification outcomes, rollback status, and derived observations.
-  - **Verified-Only Learning**: Strict deterministic enforcement ensuring unverified proposals, hallucinated files/symbols, and failed patch executions cannot become positive persistent memory.
-  - **Negative Experience Handling**: Structured capture of verified failures (hallucinations, test regressions) admitted safely as negative boundary constraints (`DO_NOT_APPLY`), without unjustified generalization.
-  - **Deterministic Admission Gate**: Evaluates 4 cognitive invariants before admission into `RepositoryMemoryIndex`; completely decouples neural proposal authority from memory mutation authority.
-  - **Deterministic Superseding**: Newer verified records supersede older records covering identical module scope with audit pointer updates (`supersedes`, `superseded_by`), preserving historical traces.
-  - **Experiment Protocol & Cognitive Evidence**: 10 controlled conditions (A through J) executed and passed with 100% precision (`artifacts/step65/step65_episodic_learning_evidence.json`).
+- **Current phase**: Step 66 — Episodic Memory Recall Loop, Structural Relevance & Deterministic Validity Verification
+- **Status**: Episodic Memory Recall Loop, Deterministic Candidate Retrieval, Structural Relevance Scoring, Drift/Validity Verification, Negative Boundary Exposure, and Conflict Arbitration Implemented, Tested, and Verified.
+  - **Memory Recall Architecture** (`chakrview/cognition/repository/episodic_recall.py`): Explicit recall request (`MemoryRecallRequest`), lifecycle statuses (`RECALLABLE`, `NEGATIVE_BOUNDARY`, `REJECTED_STALE`, `REJECTED_SUPERSEDED`, `CONFLICTED`, `UNAVAILABLE`, `ABSTAIN`), and budgeted context bundle (`RecalledContextBundle`).
+  - **Deterministic Relevance Scoring**: Explainable, bounded scoring based on task family match, module overlap, pattern/symptom token Jaccard similarity, dependency signatures, and historical success evidence.
+  - **Validity & Freshness Verification**: Structural drift and dependency modifications evaluated via `RepositoryChangeDetector` and `RepositoryImpactAnalyzer`; stale or superseded memories are strictly rejected.
+  - **Negative Boundary Exposure & Conflict Arbitration**: Recalls negative failure patterns as explicit boundary constraints (`DO_NOT_APPLY`); detects collisions between positive proposals and negative boundaries on shared modules.
+  - **Recall Budgeting & Determinism**: Enforces strict candidate and recall counts, deterministic descending score ordering, and fail-closed cross-domain negative transfer defense.
+  - **Experiment Protocol & Cognitive Evidence**: 15 controlled conditions (A through O) executed and passed with 100% precision (`artifacts/step66/step66_episodic_recall_evidence.json`).
   - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 1,593/1,593 tests passing across entire repository test suite (Step 65 adds 10 new comprehensive tests in `tests/test_step65_episodic_learning.py`).
+  - **Automated Tests**: 1,608/1,608 tests passing across entire repository test suite (Step 66 adds 15 new comprehensive tests in `tests/test_step66_episodic_recall.py`).
 
 
 
