@@ -131,6 +131,23 @@ from chakrview.cognition.repository.neural_proposal import (
     ProposalValidator,
     ChakrMicroNeuralProposalAdapter,
 )
+from chakrview.cognition.repository.patch_planning import (
+    PatchOperationType,
+    PatchPlanStatus,
+    PatchOperation,
+    PatchPlan,
+    PatchPlanner,
+    PatchPlanValidator,
+    generate_deterministic_diff,
+    sanitize_relative_path,
+)
+from chakrview.cognition.repository.patch_execution import (
+    PatchExecutionStatus,
+    PatchExecutionRequest,
+    PatchRollbackRecord,
+    PatchExecutionResult,
+    SafePatchExecutor,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -236,6 +253,19 @@ __all__ = [
     "NeuralProposalInputEncoder",
     "ProposalValidator",
     "ChakrMicroNeuralProposalAdapter",
+    "PatchOperationType",
+    "PatchPlanStatus",
+    "PatchOperation",
+    "PatchPlan",
+    "PatchPlanner",
+    "PatchPlanValidator",
+    "generate_deterministic_diff",
+    "sanitize_relative_path",
+    "PatchExecutionStatus",
+    "PatchExecutionRequest",
+    "PatchRollbackRecord",
+    "PatchExecutionResult",
+    "SafePatchExecutor",
 ]
 
 

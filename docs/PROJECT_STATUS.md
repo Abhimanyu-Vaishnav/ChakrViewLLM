@@ -2,16 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 68 — Grounded Neural Proposal Generation
-- **Status**: Grounded Neural Proposal Generation, Input Encoding, Inference Engine Execution, Proposal Contract Decoding, and Authoritative Grounding Validation Implemented, Tested, and Verified.
-  - **Proposal Architecture** (`chakrview/cognition/repository/neural_proposal.py`): Strongly typed `ProposalContract` with explicit epistemic partitions (`FACT_EVIDENCE`, `MEMORY`, `INFERENCE`, `PROPOSAL`, `UNCERTAINTY`), provenance linkages, and zero private chain-of-thought exposure.
-  - **Neural Input Encoding**: `NeuralProposalInputEncoder` deterministically formats Step 67 cognitive context bundles into bounded prompt/token representations respecting the 512-token context horizon.
-  - **Frozen Neural Execution**: `ChakrMicroNeuralProposalAdapter` invokes `ChakrMicro` via `InferenceEngine` with greedy decoding, strictly enforcing $\Delta W = 0$ (pre- and post-flight SHA-256 weight hash invariants).
-  - **Authoritative Deterministic Validation**: `ProposalValidator` gates all proposals; rejects hallucinated files/symbols, negative boundary violations, context fingerprint mismatches, and execution handles; marks task constraint violations as `CONFLICTED`.
-  - **Zero Authority & Mutation Separation**: Neural proposals remain passive data only; zero filesystem write authority, zero memory index mutation authority, zero subprocess execution handles.
-  - **Empirical Benchmark & Cognitive Evidence**: End-to-end pipeline and 5 controls (A through E) passed with 100% precision (`docs/STEP_68_COGNITIVE_EVIDENCE.md`).
-  - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 146/146 tests passing across Steps 59–68 regression suite (Step 68 adds 15 new tests in `tests/test_step68_neural_proposal.py`).
+- **Current phase**: Steps 69 + 70 Combined — From Grounded Neural Proposal to Safe, Deterministic Repository Patch Lifecycle
+- **Status**: Deterministic Patch Planning, Provenance Tracking, Independent Validation Gate, Unified Diff Engine, Explicit Approval Boundary, Atomic Staging, Post-Application Verification, and Reversible Rollback Engine Implemented, Tested, and Verified.
+  - **Deterministic Patch Planning** (`chakrview/cognition/repository/patch_planning.py`): Strongly typed `PatchPlan` and `PatchOperation` data structures with canonical SHA-256 fingerprinting, complete provenance preservation (`evidence_ids`, `memory_ids`, `negative_boundary_ids`), and deterministic diff generation (`generate_deterministic_diff`).
+  - **Independent Validation Gate**: `PatchPlanValidator` performs authoritative, decoupled pre-flight validation against repository facts, enforcing allowed-file containment, state freshness, and execution keyword prohibitions (`os.system`, `subprocess`, `eval`, `exec`).
+  - **Explicit Approval Boundary & Safe Execution** (`chakrview/cognition/repository/patch_execution.py`): `SafePatchExecutor` strictly forbids autonomous or unapproved filesystem execution; transitions from `READY_FOR_EXECUTION_REVIEW` to `APPROVED` only via explicit request token.
+  - **Atomicity, Containment & Verification**: In-memory staging guarantees fail-closed rollback before committing writes; immediate post-application verification checks target correctness and unrelated file byte invariance.
+  - **Deterministic Rollback**: `PatchRollbackRecord` stores pre- and post-content snapshots enabling exact restoration without invoking arbitrary shell processes.
+  - **Empirical Benchmark & Cognitive Evidence**: All 21 mandatory conditions (A through U) verified and passed in `scripts/experiment_step69_70_patch_lifecycle.py` (`docs/STEP_69_70_COGNITIVE_EVIDENCE.md`).
+  - **Baseline Immutability**: Neural weights remain strictly invariant ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
+  - **Automated Tests**: 13 new dedicated tests (159/159 passing across Steps 59–70 regression suite; 1,652/1,652 passing across the full repository test suite).
 
 
 
