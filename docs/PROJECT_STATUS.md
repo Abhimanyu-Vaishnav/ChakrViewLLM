@@ -2,15 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Step 63 — Autonomous Multi-Branch Strategy Synthesis & Deterministic Safety Gate
-- **Status**: Autonomous Multi-Branch Strategy Synthesis & Deterministic Safety Gate Implemented, Tested, and Verified.
-  - **Synthesis Architecture** (`chakrview/cognition/repository/synthesis.py`): Formal abstractions for `SynthesizedCandidate`, `CandidateOrigin`, `CandidateProvenance`, `CandidateNormalizer`, `DeterministicSafetyGate`, `CandidateDeduplicator`, `StrategyRecombiner`, `CandidateSynthesisEngine`, and `SynthesisAwareBranchingCoordinator`.
-  - **Strict Proposal/Authority Decoupling**: Candidate generation layer produces passive, serializable proposals with zero execution authority.
-  - **Deterministic Safety Gating**: Evaluates allowed file scopes, operational step/recombination ceilings, domain matching (negative-transfer defense), and semantic memory revalidation before candidate execution.
-  - **Candidate Deduplication & Recombination**: Collapses duplicate proposals via SHA-256 fingerprint hashing while preserving merged provenance; recombines partial traces into verified multi-step candidates.
-  - **Experiment Protocol & Evidence**: 13 controlled conditions (A through M) executed and passed with 100% precision (`artifacts/step63/step63_synthesis_evidence.json`).
+- **Current phase**: Step 64 — Grounded Local Neural Proposal & Persistent Repository Context
+- **Status**: Persistent Repository Context, Incremental Invalidation, Grounded Neural Proposal Adapter, and Hallucination Containment Gate Implemented, Tested, and Verified.
+  - **Persistent Repository Context** (`chakrview/cognition/repository/context_store.py`): Reusable intelligence/cache layer (`RepositoryContextStore`) maintaining file digests, AST signatures, and dependency topologies, eliminating full-repo rescans.
+  - **Incremental Invalidation**: Selectively invalidates only modified files and downstream dependents based on Step 61 change categories; achieves 100% cache hit ratio on unchanged manifests and re-parses only mutated files.
+  - **Evidence Provenance & Context Budgeting**: Budgeted retrieval (`GroundedContextRetriever`) delivering `GroundedContextBundle` where every item is bound to an `EvidenceRecord`.
+  - **Neural Proposal Adapter & Authority Decoupling**: Pluggable `NeuralProposalAdapter` generating structured proposals with zero ambient authority.
+  - **Hallucination Containment Gate** (`chakrview/cognition/repository/neural_adapter.py`): Deterministically checks proposed files and symbols; rejects nonexistent entities (`CONTRADICTED`) and ungrounded claims (`UNKNOWN`).
+  - **Experiment Protocol & Evidence**: 13 controlled conditions (A through M) executed and passed with 100% precision (`artifacts/step64/step64_grounded_proposal_evidence.json`).
   - **Baseline Immutability**: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - **Automated Tests**: 1,573/1,573 tests passing across entire repository test suite (Step 63 adds 13 new comprehensive tests in `tests/test_step63_candidate_synthesis.py`).
+  - **Automated Tests**: 1,583/1,583 tests passing across entire repository test suite (Step 64 adds 10 new comprehensive tests in `tests/test_step64_grounded_proposal.py`).
 
 
 
@@ -362,15 +363,18 @@
 
 ## Verification Decision & Next Allowed Step
 
-- **Decision**: **STEP 63 AUTONOMOUS MULTI-BRANCH STRATEGY SYNTHESIS & DETERMINISTIC SAFETY GATE VERIFIED**
-  - Readiness Audit: Completed and documented in [docs/STEP_63_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_63_READINESS_AUDIT.md).
-  - Synthesis Specification: Documented in [docs/STEP_63_CANDIDATE_SYNTHESIS_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_63_CANDIDATE_SYNTHESIS_SPECIFICATION.md).
-  - Experiment Protocol: Formulated in [docs/STEP_63_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_63_EXPERIMENT_PROTOCOL.md).
-  - Cognitive Evidence: Recorded in [docs/STEP_63_COGNITIVE_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_63_COGNITIVE_EVIDENCE.md).
-  - Proposal/Execution Separation: Candidate proposal generation possesses zero execution authority; all proposals are normalized and evaluated by `DeterministicSafetyGate`.
-  - Recombination & Deduplication: Partial trace recombination and canonical candidate deduplication via SHA-256 fingerprint matching demonstrated.
-  - Fail-Closed Safety & Rollback: Unsafe candidates, scope leaks, and stale memories fail closed; rollback restores bit-exact state fingerprint.
+- **Decision**: **STEP 64 GROUNDED LOCAL NEURAL PROPOSAL & PERSISTENT REPOSITORY CONTEXT VERIFIED**
+  - Path Consistency Audit: Completed and documented in [docs/STEP_64_READINESS_AUDIT.md](file:///d:/Project/ChakrView/docs/STEP_64_READINESS_AUDIT.md).
+  - Context Store Specification: Documented in [docs/STEP_64_REPOSITORY_CONTEXT_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_64_REPOSITORY_CONTEXT_SPECIFICATION.md).
+  - Grounding Specification: Documented in [docs/STEP_64_GROUNDING_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_64_GROUNDING_SPECIFICATION.md).
+  - Neural Adapter Specification: Documented in [docs/STEP_64_NEURAL_ADAPTER_SPECIFICATION.md](file:///d:/Project/ChakrView/docs/STEP_64_NEURAL_ADAPTER_SPECIFICATION.md).
+  - Experiment Protocol: Formulated in [docs/STEP_64_EXPERIMENT_PROTOCOL.md](file:///d:/Project/ChakrView/docs/STEP_64_EXPERIMENT_PROTOCOL.md).
+  - Cognitive Evidence: Recorded in [docs/STEP_64_COGNITIVE_EVIDENCE.md](file:///d:/Project/ChakrView/docs/STEP_64_COGNITIVE_EVIDENCE.md).
+  - Persistent Context & Incremental Invalidation: Demonstrated 100% cache hit ratio on warm synchronization and single-module re-parsing on isolated modifications.
+  - Evidence Budgeting & Provenance: Bounded context retrieval linking all items to traceable `EvidenceRecord` elements.
+  - Hallucination Containment: Deterministic rejection of nonexistent files and imaginary symbols with `CONTRADICTED` epistemic status.
+  - Fail-Closed Safety & Rollback: Scope leaks and stale memories fail closed; execution failures trigger atomic rollback with bit-exact fingerprint restoration.
   - Baseline Immutability: Bit-exact verification confirmed ($\Delta W = 0$, hash invariant: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`).
-  - Automated Tests: 1,573/1,573 tests passing across entire repository test suite (13/13 in `tests/test_step63_candidate_synthesis.py`).
-- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 64 without review.
+  - Automated Tests: 1,583/1,583 tests passing across entire repository test suite (10/10 in `tests/test_step64_grounded_proposal.py`).
+- **Next Allowed Step**: Awaiting explicit user direction. Hard stop active. Do not proceed to Step 65 without review.
 

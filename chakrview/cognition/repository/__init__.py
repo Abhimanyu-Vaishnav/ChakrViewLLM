@@ -77,6 +77,24 @@ from chakrview.cognition.repository.synthesis import (
     SynthesisCoordinationResult,
     SynthesisAwareBranchingCoordinator,
 )
+from chakrview.cognition.repository.context_store import (
+    EpistemicState,
+    EvidenceRecord,
+    CachedFileEntry,
+    ContextStoreTelemetry,
+    RepositoryContextStore,
+    GroundedContextBudget,
+    GroundedContextBundle,
+    GroundedContextRetriever,
+)
+from chakrview.cognition.repository.neural_adapter import (
+    NeuralProposalOutput,
+    NeuralProposalAdapter,
+    MockNeuralProposalAdapter,
+    GroundingVerificationDecision,
+    HallucinationContainmentGate,
+    GroundedNeuralSynthesisEngine,
+)
 
 __all__ = [
     "RepositoryInspector",
@@ -139,6 +157,20 @@ __all__ = [
     "DeterministicRuleSynthesisEngine",
     "SynthesisCoordinationResult",
     "SynthesisAwareBranchingCoordinator",
+    "EpistemicState",
+    "EvidenceRecord",
+    "CachedFileEntry",
+    "ContextStoreTelemetry",
+    "RepositoryContextStore",
+    "GroundedContextBudget",
+    "GroundedContextBundle",
+    "GroundedContextRetriever",
+    "NeuralProposalOutput",
+    "NeuralProposalAdapter",
+    "MockNeuralProposalAdapter",
+    "GroundingVerificationDecision",
+    "HallucinationContainmentGate",
+    "GroundedNeuralSynthesisEngine",
 ]
 
 
