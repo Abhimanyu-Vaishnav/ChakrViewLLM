@@ -41,6 +41,8 @@ class CognitiveContextSource(Enum):
     EPISODIC_MEMORY = auto()         # Recalled positive episodic solution pattern
     NEGATIVE_BOUNDARY = auto()       # Recalled or verified negative failure boundary / prohibition
     TASK_CONSTRAINT = auto()         # Explicit specification requirement or constraint
+    PROJECT_BRAIN = auto()           # Retrievable knowledge from Persistent Project Brain (Steps 78–81)
+
 
 
 class CognitiveContextStatus(Enum):
@@ -259,9 +261,11 @@ class UnifiedCognitiveContextComposer:
         self,
         context_store: RepositoryContextStore,
         recall_coordinator: Optional[EpisodicMemoryRecallCoordinator] = None,
+        project_brain: Optional[Any] = None,
     ) -> None:
         self.context_store = context_store
         self.recall_coordinator = recall_coordinator
+        self.project_brain = project_brain
 
     def compose_context(
         self,
@@ -341,7 +345,41 @@ class UnifiedCognitiveContextComposer:
                 )
             )
 
+        # 3b. Gather Step 80 Persistent Project Brain Context if available
+        if self.project_brain:
+
+            try:
+                from chakrview.cognition.ppb.retrieval import ProjectKnowledgeRetriever, PPBRetrievalBudget
+                retriever_ppb = ProjectKnowledgeRetriever(self.project_brain)
+                retrieved_bundle = retriever_ppb.retrieve_for_task(
+                    task_query=request.task_description,
+                    budget=PPBRetrievalBudget(max_records=budget.max_evidence_items),
+                    target_files=request.target_files,
+                    target_symbols=request.target_symbols,
+                )
+                for rec in retrieved_bundle.records:
+                    rec_id = f"ppb_{rec.record_id}"
+                    ord_key = f"1b_ppb:{rec.record_type.value}:{rec.file_path}:{rec.symbol_name or ''}"
+                    evidence_items.append(
+                        CognitiveContextItem(
+                            item_id=rec_id,
+                            source_type=CognitiveContextSource.PROJECT_BRAIN,
+                            source_identifier=f"ppb:{rec.record_id}",
+                            module_reference=rec.file_path,
+                            symbol_reference=rec.symbol_name,
+                            evidence_fingerprint=rec.compute_content_hash(),
+                            status=CognitiveContextStatus.ACTIVE if rec.epistemic_status in (EpistemicStatus.FACT, EpistemicStatus.REVERIFIED) else CognitiveContextStatus.STALE,
+                            deterministic_reason=f"Persistent project brain [{rec.record_type.value}]: {rec.summary}",
+                            epistemic_state=EpistemicState.KNOWN if rec.epistemic_status in (EpistemicStatus.FACT, EpistemicStatus.REVERIFIED) else EpistemicState.STALE,
+                            content_payload=rec.summary,
+                            ordering_key=ord_key,
+                        )
+                    )
+            except Exception:
+                pass
+
         # Negative boundaries from episodic recall
+
         negative_items: List[CognitiveContextItem] = []
         if recalled_bundle:
             for neg in recalled_bundle.negative_boundaries:
