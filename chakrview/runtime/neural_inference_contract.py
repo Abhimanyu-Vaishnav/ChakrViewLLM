@@ -174,6 +174,35 @@ class NeuralInferenceContract:
 
         self.validate_contract()
 
+    @classmethod
+    def from_checkpoint(
+        cls,
+        checkpoint_path: Union[str, Path],
+        tokenizer: BPETokenizer,
+        config: Optional[ModelConfig] = None,
+        device: Optional[torch.device] = None,
+        max_context: int = DEFAULT_MAX_CONTEXT,
+    ) -> NeuralInferenceContract:
+        """
+        Safely construct a NeuralInferenceContract from a trained model checkpoint file.
+        Verifies architecture configuration, finite weights, and binds the newly computed
+        weight hash as the invariant for this trained contract instance.
+        The canonical frozen baseline is never mutated.
+        """
+        from chakrview.runtime.interactive import load_trained_checkpoint
+        model, _, weight_hash = load_trained_checkpoint(
+            checkpoint_path=checkpoint_path,
+            config=config,
+            allow_baseline=True,
+        )
+        return cls(
+            model=model,
+            tokenizer=tokenizer,
+            device=device,
+            max_context=max_context,
+            expected_weight_hash=weight_hash,
+        )
+
     def compute_weight_hash(self) -> str:
         """Compute SHA-256 digest of all model parameters to verify ΔW = 0."""
         hasher = hashlib.sha256()
