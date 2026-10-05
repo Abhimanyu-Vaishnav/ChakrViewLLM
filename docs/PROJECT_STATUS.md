@@ -2,15 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 82–85 Combined — Persistent Task Decomposition, Resource-Aware Scheduling, Incremental Work Loop & Knowledge Evolution
-- **Status**: Persistent Task Decomposition, Hardware-Aware Scheduling, Incremental Resumable Work Loop, and Structured Knowledge Evolution Implemented, Tested, and Verified.
-  - **Persistent Task Decomposition** (`chakrview/cognition/ppb/task_models.py`, `task_storage.py`): Durable DAG task decomposition graph (`PersistentTaskGraph`, `PersistentTaskNode`) stored in SQLite with parent links, prerequisite dependencies, resource categorization, cycle prevention, and restart recovery.
-  - **Resource-Aware Task Scheduler** (`chakrview/cognition/ppb/scheduler.py`): Maps node execution resource demands against `HardwareCapability` (`LOW_RESOURCE`, `STANDARD`, `ACCELERATED`), managing sequential vs bounded parallel leases, GPU accelerator enablement for reasoning, and exclusive write locks for patch execution.
-  - **Incremental Cognitive Work Loop** (`chakrview/cognition/ppb/work_loop.py`): Resumable execution loop executing ready tasks in bounded steps, persisting state at each milestone, surviving process termination, and resuming without re-running finished nodes.
-  - **Project Knowledge Evolution** (`chakrview/cognition/ppb/work_loop.py`): Completed tasks produce durable, structured, epistemically classified project knowledge records (`TASK_HISTORY`, `OBSERVATION`) without dumping raw chat strings.
-  - **Realistic Multi-File Experiment**: Verified on realistic enterprise codebase in `tests/test_step82_85_experiment.py` (simulating constrained hardware, partial scanning, restart, decomposition, safe patch, and zero repeat rescan).
+- **Current phase**: Steps 86–90 Combined — Adaptive Autonomous Work Orchestration
+- **Status**: Dynamic Task Expansion, Context & Resource Budget Intelligence, Autonomous Investigation Loop, Adaptive Re-planning, and Authoritative Goal Verification Gate Implemented, Tested, and Verified.
+  - **Dynamic Task Expansion** (`chakrview/cognition/ppb/expansion_models.py`, `task_models.py`): In-flight subtask creation with deterministic fingerprints, parent-child links, execution provenance, Kahn's algorithm cycle prevention, and restart durability.
+  - **Context & Resource Budget Intelligence** (`chakrview/cognition/ppb/budget_planner.py`): Hardware-bounded context and memory planner estimating token demand and selecting actions (`EXECUTE_DIRECT`, `RETRIEVE_PPB_ONLY`, `SPLIT_TASK`, `DEFER_QUEUE`, `REQUEST_INVESTIGATION`) across `LOW_RESOURCE`, `STANDARD`, and `ACCELERATED` profiles.
+  - **Autonomous Investigation Loop** (`chakrview/cognition/ppb/investigation_loop.py`): Connects reasoning `InvestigationRequirement` to `EvidenceVerifier`, preserving grounded statuses (`FACT`, `INFERRED`, `CONTESTED`, `STALE`, `UNKNOWN`, `INSUFFICIENT`) and updating PPB without hallucination.
+  - **Adaptive Re-planning** (`chakrview/cognition/ppb/replan_and_gate.py`): Dynamic task graph modification upon discovery of new dependencies or evidence, strictly bounded to prevent cycles/infinite loops ($\le 3$ cycles).
+  - **Authoritative Goal Verification Gate** (`chakrview/cognition/ppb/replan_and_gate.py`): Whole-goal completion audit verifying objective, task outputs, file grounding, stale records, and validation tests, issuing verdicts `ACCEPT`, `PARTIAL`, `REVISE`, `REJECT`, or `ABSTAIN`.
+  - **Realistic Adaptive Multi-Module Experiment**: Verified on realistic enterprise codebase in `tests/test_step86_90_experiment.py` (simulating constrained hardware, partial scanning, discovery of unknown dependency, in-flight expansion, investigation, verification, PPB update, process termination, restart, resumption, and goal gate acceptance).
   - **Baseline Immutability**: Neural weights remain strictly bit-exact ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 8 new dedicated tests across `tests/test_step82_85_task_orchestration.py` and `tests/test_step82_85_experiment.py` (202/202 passing across Steps 59–85 regression suite).
+  - **Automated Tests**: 7 new dedicated tests across `tests/test_step86_90_adaptive_orchestration.py` and `tests/test_step86_90_experiment.py` (1,702/1,702 passing across entire test suite).
 
 
 
