@@ -2,14 +2,18 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 91–93 Combined — First End-to-End Neural Runtime
-- **Status**: Neural Inference Contract, Resource-Adaptive Inference Pipeline, and Cognitive Runtime Integration Implemented, Tested, and Verified.
-  - **Neural Inference Contract** (`chakrview/runtime/neural_inference_contract.py`): Sovereign inference contract decoupling tokenizer bounds, model forward pass, finite logits checks, greedy autoregressive decoding, and ΔW = 0 verification.
-  - **Resource-Adaptive Inference Pipeline** (`chakrview/runtime/adaptive_inference_pipeline.py`): Dynamically shapes context limits and generation budgets across `LOW_RESOURCE`, `STANDARD`, and `ACCELERATED` capability profiles with guaranteed CPU fallback.
-  - **Cognitive Runtime Integration** (`chakrview/runtime/cognitive_neural_runtime.py`): Cognitive routing connecting neural generation to PPB knowledge retrieval, autonomous investigation for unknown entities, and explicit honest abstention without hallucination.
-  - **Realistic End-to-End Experiment**: Verified in `tests/test_step91_93_experiment.py` (simulating hardware adaptation, PPB retrieval, autonomous investigation of unknown module, explicit abstention, session termination/reload, and ΔW = 0 verification).
+- **Current phase**: Steps 94–100 Combined — Governed Cognitive Learning & First Release Readiness
+- **Status**: Governed Experience Records, Self-Evaluation & Failure Diagnosis, Cognitive Lesson Extraction, Closed-Loop Improvement, Strategy Registry, Evaluation Memory, and First Release Readiness Gate Implemented, Tested, and Verified.
+  - **Governed Experience Records** (`chakrview/cognition/governed_learning/experience_models.py`): Structured, auditable, provenance-tracked experience units in SQLite with epistemic authority ranking (FACT > OBSERVATION > SUCCESS > FAILURE > LESSON > INFERENCE > HYPOTHESIS > UNKNOWN) ensuring inferences never override facts.
+  - **Self-Evaluation & Failure Diagnosis** (`chakrview/cognition/governed_learning/self_evaluator.py`): Structured post-task audit evaluating the 10 diagnostic questions, classifying failure modes, and converting errors into structured learning signals.
+  - **Cognitive Lesson Extraction** (`chakrview/cognition/governed_learning/lesson_extractor.py`): Extracts operational avoidance rules and patterns, enforcing conflict resolution where lessons cannot supersede empirical facts.
+  - **Governed Cognitive Improvement Loop** (`chakrview/cognition/governed_learning/improvement_loop.py`): Closed-loop learning cycle: Task -> Plan -> Execute -> Observe -> Verify -> Self-Evaluate -> Extract Lesson -> Store Experience -> Update Strategy -> Next Task (preserving ΔW = 0).
+  - **Cognitive Strategy Registry** (`chakrview/cognition/governed_learning/strategy_registry.py`): Durable catalog of operational heuristics with empirical promotion rules (requiring >= 2 successes and confidence >= 0.7 to become ACTIVE).
+  - **Evaluation & Regression Memory** (`chakrview/cognition/governed_learning/evaluation_memory.py`): Historical SQLite proof accounting answering what capabilities are proven, partially proven, or unproven.
+  - **First Release Readiness Gate** (`chakrview/cognition/governed_learning/release_gate.py`): 15-point fail-closed audit assessing neural, tokenizer, runtime, PPB, task, and security boundaries with explicit limitation disclosures.
+  - **Realistic Governed Learning Experiment**: Verified in `tests/test_step94_100_experiment.py` (simulating subtask failure, failure diagnosis, experience storage, lesson extraction, strategy registration, retry success using learned strategy, restart survival, and ΔW = 0 verification).
   - **Baseline Immutability**: Neural weights remain strictly bit-exact ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 8 new dedicated tests across `tests/test_step91_93_neural_runtime.py` and `tests/test_step91_93_experiment.py` (35/35 passing across Steps 78–93 regression suite).
+  - **Automated Tests**: 8 new dedicated tests across `tests/test_step94_100_governed_learning.py` and `tests/test_step94_100_experiment.py` (43/43 passing across Steps 78–100 regression suite).
 
 
 
