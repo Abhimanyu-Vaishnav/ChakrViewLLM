@@ -31,6 +31,25 @@ from chakrview.cognition.ppb.maintainer import (
     MaintenanceReport,
     ChangeAwareBrainMaintainer,
 )
+from chakrview.cognition.ppb.task_models import (
+    TaskNodeStatus,
+    TaskResourceType,
+    PersistentTaskNode,
+    PersistentTaskGraph,
+)
+from chakrview.cognition.ppb.task_storage import (
+    PersistentTaskStorage,
+    DeterministicTaskDecomposer,
+)
+from chakrview.cognition.ppb.scheduler import (
+    TaskExecutionLease,
+    ScheduleDecision,
+    ResourceAwareTaskScheduler,
+)
+from chakrview.cognition.ppb.work_loop import (
+    LoopExecutionProgress,
+    IncrementalCognitiveWorkLoop,
+)
 
 __all__ = [
     "CURRENT_SCHEMA_VERSION",
@@ -49,4 +68,16 @@ __all__ = [
     "ProjectKnowledgeRetriever",
     "MaintenanceReport",
     "ChangeAwareBrainMaintainer",
+    "TaskNodeStatus",
+    "TaskResourceType",
+    "PersistentTaskNode",
+    "PersistentTaskGraph",
+    "PersistentTaskStorage",
+    "DeterministicTaskDecomposer",
+    "TaskExecutionLease",
+    "ScheduleDecision",
+    "ResourceAwareTaskScheduler",
+    "LoopExecutionProgress",
+    "IncrementalCognitiveWorkLoop",
 ]
+

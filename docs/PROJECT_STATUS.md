@@ -2,16 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 78–81 Combined — Persistent Project Brain (PPB)
-- **Status**: First-class Persistent Project Brain, incremental scanning, targeted retrieval, change-aware invalidation, and session continuity Implemented, Tested, and Verified.
-  - **Persistent Project Brain** (`chakrview/cognition/ppb/`): Durable, SQLite ACID storage with WAL mode, strongly-typed `KnowledgeRecord` entities, provenance tracking, and strict epistemic states (`FACT`, `INFERRED`, `HYPOTHESIS`, `STALE`, `UNKNOWN`, `INSUFFICIENT`, `CONTESTED`, `REVERIFIED`).
-  - **Incremental Resumable Scanner** (`chakrview/cognition/ppb/scanner.py`): Resource-adaptive bounded file batching, scan state progress persistence, automatic safe resume across process restarts, and zero redundant rescanning of unchanged units.
-  - **Project Knowledge Retrieval Layer** (`chakrview/cognition/ppb/retrieval.py`): Query token, symbol, file, and dependency-targeted retrieval delivering bounded, provenance-linked `RetrievedKnowledgeBundle` and `EvidenceRecord` items without full-repository rescans.
-  - **Change-Aware Brain Maintenance** (`chakrview/cognition/ppb/maintainer.py`): Selective invalidation marking affected modules/symbols `STALE` while preserving unaffected facts as `VALID`; targeted re-analysis producing `REVERIFIED` knowledge and preserving historical audit versions (`supersedes`).
-  - **Cognitive Context Integration** (`chakrview/cognition/repository/cognitive_context.py`): First-class `CognitiveContextSource.PROJECT_BRAIN` integration supplying active knowledge into downstream reasoning.
-  - **11-Phase Demonstration & Experiment**: All 11 phases passed in `tests/test_step78_81_experiment.py`.
+- **Current phase**: Steps 82–85 Combined — Persistent Task Decomposition, Resource-Aware Scheduling, Incremental Work Loop & Knowledge Evolution
+- **Status**: Persistent Task Decomposition, Hardware-Aware Scheduling, Incremental Resumable Work Loop, and Structured Knowledge Evolution Implemented, Tested, and Verified.
+  - **Persistent Task Decomposition** (`chakrview/cognition/ppb/task_models.py`, `task_storage.py`): Durable DAG task decomposition graph (`PersistentTaskGraph`, `PersistentTaskNode`) stored in SQLite with parent links, prerequisite dependencies, resource categorization, cycle prevention, and restart recovery.
+  - **Resource-Aware Task Scheduler** (`chakrview/cognition/ppb/scheduler.py`): Maps node execution resource demands against `HardwareCapability` (`LOW_RESOURCE`, `STANDARD`, `ACCELERATED`), managing sequential vs bounded parallel leases, GPU accelerator enablement for reasoning, and exclusive write locks for patch execution.
+  - **Incremental Cognitive Work Loop** (`chakrview/cognition/ppb/work_loop.py`): Resumable execution loop executing ready tasks in bounded steps, persisting state at each milestone, surviving process termination, and resuming without re-running finished nodes.
+  - **Project Knowledge Evolution** (`chakrview/cognition/ppb/work_loop.py`): Completed tasks produce durable, structured, epistemically classified project knowledge records (`TASK_HISTORY`, `OBSERVATION`) without dumping raw chat strings.
+  - **Realistic Multi-File Experiment**: Verified on realistic enterprise codebase in `tests/test_step82_85_experiment.py` (simulating constrained hardware, partial scanning, restart, decomposition, safe patch, and zero repeat rescan).
   - **Baseline Immutability**: Neural weights remain strictly bit-exact ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 12 new dedicated tests in `tests/test_step78_81_persistent_project_brain.py` and `tests/test_step78_81_experiment.py` (194/194 passing across Steps 59–81 regression suite).
+  - **Automated Tests**: 8 new dedicated tests across `tests/test_step82_85_task_orchestration.py` and `tests/test_step82_85_experiment.py` (202/202 passing across Steps 59–85 regression suite).
+
 
 
 
