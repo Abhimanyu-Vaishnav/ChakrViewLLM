@@ -157,6 +157,7 @@ class CheckpointManager:
         payload: Dict[str, Any],
         expected_tokenizer_checksum: Optional[str] = None,
         expected_param_count: int = 3_443_136,
+        expected_dataset_manifest_hash: Optional[str] = None,
     ) -> None:
         """
         Validate that payload is a legitimate, uncorrupted ChakrView training checkpoint.
@@ -203,6 +204,14 @@ class CheckpointManager:
                     f"expected {expected_tokenizer_checksum}."
                 )
 
+        # 6. Dataset manifest hash if provided
+        if expected_dataset_manifest_hash and payload.get("dataset_manifest_hash"):
+            if payload["dataset_manifest_hash"] != expected_dataset_manifest_hash:
+                raise CheckpointCorruptionError(
+                    f"Dataset manifest hash mismatch in checkpoint: found {payload['dataset_manifest_hash']}, "
+                    f"expected {expected_dataset_manifest_hash}."
+                )
+
     @staticmethod
     def load(
         path: Path | str,
@@ -210,6 +219,7 @@ class CheckpointManager:
         validate_training: bool = False,
         expected_tokenizer_checksum: Optional[str] = None,
         expected_param_count: int = 3_443_136,
+        expected_dataset_manifest_hash: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Load state payload from a checkpoint file, optionally validating training integrity."""
         ckpt_path = Path(path)
@@ -221,5 +231,6 @@ class CheckpointManager:
                 payload,
                 expected_tokenizer_checksum=expected_tokenizer_checksum,
                 expected_param_count=expected_param_count,
+                expected_dataset_manifest_hash=expected_dataset_manifest_hash,
             )
         return payload
