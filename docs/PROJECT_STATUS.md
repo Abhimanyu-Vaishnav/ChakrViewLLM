@@ -2,14 +2,16 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 74–77 Combined — Knowledge Acquisition + Verification + Research Integration + Resource-Adaptive Runtime
-- **Status**: Research abstraction, evidence verification, integration into cognitive context, and resource-adaptive runtime strategy Implemented, Tested, and Verified.
-  - **Knowledge Acquisition & Verification**: Typed abstraction handling evidence candidates. Cross-checks for corroboration/contradiction (`VERIFIED`, `CONTESTED`, `STALE`, etc.) preventing assumption of truth.
-  - **Critical Thinking & Alternative Hypotheses** (`chakrview/cognition/reasoning/critical.py`): Independent evidence balance auditing, assumption vulnerability tracking, contradiction containment, and structured alternative hypothesis generation.
-  - **Self-Evaluation & Bounded Revision** (`chakrview/cognition/reasoning/evaluation.py`): Decoupled independent gate evaluating grounding, constraint satisfaction, and dangerous execution handles (`os.system`, `subprocess`, etc.) with bounded revision ($\le 2$ cycles).
-  - **Empirical Benchmark & Cognitive Evidence**: All 12 mandatory controls passed in `scripts/experiment_step71_73_reasoning_evaluation.py` (`docs/STEP_71_73_COGNITIVE_EVIDENCE.md`).
-  - **Baseline Immutability**: Neural weights remain strictly invariant ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 13 new dedicated tests (172/172 passing across Steps 59–73 regression suite; 1,665/1,665 passing across the full repository test suite).
+- **Current phase**: Steps 78–81 Combined — Persistent Project Brain (PPB)
+- **Status**: First-class Persistent Project Brain, incremental scanning, targeted retrieval, change-aware invalidation, and session continuity Implemented, Tested, and Verified.
+  - **Persistent Project Brain** (`chakrview/cognition/ppb/`): Durable, SQLite ACID storage with WAL mode, strongly-typed `KnowledgeRecord` entities, provenance tracking, and strict epistemic states (`FACT`, `INFERRED`, `HYPOTHESIS`, `STALE`, `UNKNOWN`, `INSUFFICIENT`, `CONTESTED`, `REVERIFIED`).
+  - **Incremental Resumable Scanner** (`chakrview/cognition/ppb/scanner.py`): Resource-adaptive bounded file batching, scan state progress persistence, automatic safe resume across process restarts, and zero redundant rescanning of unchanged units.
+  - **Project Knowledge Retrieval Layer** (`chakrview/cognition/ppb/retrieval.py`): Query token, symbol, file, and dependency-targeted retrieval delivering bounded, provenance-linked `RetrievedKnowledgeBundle` and `EvidenceRecord` items without full-repository rescans.
+  - **Change-Aware Brain Maintenance** (`chakrview/cognition/ppb/maintainer.py`): Selective invalidation marking affected modules/symbols `STALE` while preserving unaffected facts as `VALID`; targeted re-analysis producing `REVERIFIED` knowledge and preserving historical audit versions (`supersedes`).
+  - **Cognitive Context Integration** (`chakrview/cognition/repository/cognitive_context.py`): First-class `CognitiveContextSource.PROJECT_BRAIN` integration supplying active knowledge into downstream reasoning.
+  - **11-Phase Demonstration & Experiment**: All 11 phases passed in `tests/test_step78_81_experiment.py`.
+  - **Baseline Immutability**: Neural weights remain strictly bit-exact ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
+  - **Automated Tests**: 12 new dedicated tests in `tests/test_step78_81_persistent_project_brain.py` and `tests/test_step78_81_experiment.py` (194/194 passing across Steps 59–81 regression suite).
 
 
 
