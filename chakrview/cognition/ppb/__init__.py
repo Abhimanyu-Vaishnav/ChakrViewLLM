@@ -50,6 +50,26 @@ from chakrview.cognition.ppb.work_loop import (
     LoopExecutionProgress,
     IncrementalCognitiveWorkLoop,
 )
+from chakrview.cognition.ppb.expansion_models import (
+    GoalVerificationVerdict,
+    GoalVerificationResult,
+    TaskProvenance,
+    DynamicSubtaskRequest,
+)
+from chakrview.cognition.ppb.budget_planner import (
+    BudgetDecisionAction,
+    ContextBudgetPlan,
+    ContextResourcePlanner,
+)
+from chakrview.cognition.ppb.investigation_loop import (
+    InvestigationExecutionOutcome,
+    AutonomousInvestigationLoop,
+)
+from chakrview.cognition.ppb.replan_and_gate import (
+    ReplanDecision,
+    AdaptiveReplanEngine,
+    GoalVerificationGate,
+)
 
 __all__ = [
     "CURRENT_SCHEMA_VERSION",
@@ -79,5 +99,18 @@ __all__ = [
     "ResourceAwareTaskScheduler",
     "LoopExecutionProgress",
     "IncrementalCognitiveWorkLoop",
+    "GoalVerificationVerdict",
+    "GoalVerificationResult",
+    "TaskProvenance",
+    "DynamicSubtaskRequest",
+    "BudgetDecisionAction",
+    "ContextBudgetPlan",
+    "ContextResourcePlanner",
+    "InvestigationExecutionOutcome",
+    "AutonomousInvestigationLoop",
+    "ReplanDecision",
+    "AdaptiveReplanEngine",
+    "GoalVerificationGate",
 ]
+
 
