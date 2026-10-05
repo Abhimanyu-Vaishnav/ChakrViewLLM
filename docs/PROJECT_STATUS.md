@@ -2,16 +2,14 @@
 
 ## Project Overview
 - **Project**: ChakrView
-- **Current phase**: Steps 86–90 Combined — Adaptive Autonomous Work Orchestration
-- **Status**: Dynamic Task Expansion, Context & Resource Budget Intelligence, Autonomous Investigation Loop, Adaptive Re-planning, and Authoritative Goal Verification Gate Implemented, Tested, and Verified.
-  - **Dynamic Task Expansion** (`chakrview/cognition/ppb/expansion_models.py`, `task_models.py`): In-flight subtask creation with deterministic fingerprints, parent-child links, execution provenance, Kahn's algorithm cycle prevention, and restart durability.
-  - **Context & Resource Budget Intelligence** (`chakrview/cognition/ppb/budget_planner.py`): Hardware-bounded context and memory planner estimating token demand and selecting actions (`EXECUTE_DIRECT`, `RETRIEVE_PPB_ONLY`, `SPLIT_TASK`, `DEFER_QUEUE`, `REQUEST_INVESTIGATION`) across `LOW_RESOURCE`, `STANDARD`, and `ACCELERATED` profiles.
-  - **Autonomous Investigation Loop** (`chakrview/cognition/ppb/investigation_loop.py`): Connects reasoning `InvestigationRequirement` to `EvidenceVerifier`, preserving grounded statuses (`FACT`, `INFERRED`, `CONTESTED`, `STALE`, `UNKNOWN`, `INSUFFICIENT`) and updating PPB without hallucination.
-  - **Adaptive Re-planning** (`chakrview/cognition/ppb/replan_and_gate.py`): Dynamic task graph modification upon discovery of new dependencies or evidence, strictly bounded to prevent cycles/infinite loops ($\le 3$ cycles).
-  - **Authoritative Goal Verification Gate** (`chakrview/cognition/ppb/replan_and_gate.py`): Whole-goal completion audit verifying objective, task outputs, file grounding, stale records, and validation tests, issuing verdicts `ACCEPT`, `PARTIAL`, `REVISE`, `REJECT`, or `ABSTAIN`.
-  - **Realistic Adaptive Multi-Module Experiment**: Verified on realistic enterprise codebase in `tests/test_step86_90_experiment.py` (simulating constrained hardware, partial scanning, discovery of unknown dependency, in-flight expansion, investigation, verification, PPB update, process termination, restart, resumption, and goal gate acceptance).
+- **Current phase**: Steps 91–93 Combined — First End-to-End Neural Runtime
+- **Status**: Neural Inference Contract, Resource-Adaptive Inference Pipeline, and Cognitive Runtime Integration Implemented, Tested, and Verified.
+  - **Neural Inference Contract** (`chakrview/runtime/neural_inference_contract.py`): Sovereign inference contract decoupling tokenizer bounds, model forward pass, finite logits checks, greedy autoregressive decoding, and ΔW = 0 verification.
+  - **Resource-Adaptive Inference Pipeline** (`chakrview/runtime/adaptive_inference_pipeline.py`): Dynamically shapes context limits and generation budgets across `LOW_RESOURCE`, `STANDARD`, and `ACCELERATED` capability profiles with guaranteed CPU fallback.
+  - **Cognitive Runtime Integration** (`chakrview/runtime/cognitive_neural_runtime.py`): Cognitive routing connecting neural generation to PPB knowledge retrieval, autonomous investigation for unknown entities, and explicit honest abstention without hallucination.
+  - **Realistic End-to-End Experiment**: Verified in `tests/test_step91_93_experiment.py` (simulating hardware adaptation, PPB retrieval, autonomous investigation of unknown module, explicit abstention, session termination/reload, and ΔW = 0 verification).
   - **Baseline Immutability**: Neural weights remain strictly bit-exact ($\Delta W = 0$, hash: `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da`, 3,443,136 parameters).
-  - **Automated Tests**: 7 new dedicated tests across `tests/test_step86_90_adaptive_orchestration.py` and `tests/test_step86_90_experiment.py` (1,702/1,702 passing across entire test suite).
+  - **Automated Tests**: 8 new dedicated tests across `tests/test_step91_93_neural_runtime.py` and `tests/test_step91_93_experiment.py` (35/35 passing across Steps 78–93 regression suite).
 
 
 

@@ -160,7 +160,47 @@ from chakrview.runtime.retrieval import (
     NeuralSemanticEmbeddingProvider,
 )
 
+from chakrview.runtime.neural_inference_contract import (
+    NeuralContractError,
+    TokenBoundsError,
+    ContextBudgetExceededError,
+    PathologicalLogitsError,
+    WeightMutationDetectedError,
+    InferenceStopReason,
+    InferenceExecutionMode,
+    NeuralInferenceConfig,
+    NeuralInferencePayload,
+    NeuralInferenceOutput,
+    NeuralInferenceContract,
+)
+from chakrview.runtime.adaptive_inference_pipeline import (
+    AdaptiveExecutionBudget,
+    ResourceAdaptiveInferencePipeline,
+)
+from chakrview.runtime.cognitive_neural_runtime import (
+    CognitiveRoute,
+    CognitiveRuntimeResponse,
+    EndToEndCognitiveNeuralRuntime,
+)
+
 __all__ = [
+    # Step 91-93 Neural Runtime
+    "NeuralContractError",
+    "TokenBoundsError",
+    "ContextBudgetExceededError",
+    "PathologicalLogitsError",
+    "WeightMutationDetectedError",
+    "InferenceStopReason",
+    "InferenceExecutionMode",
+    "NeuralInferenceConfig",
+    "NeuralInferencePayload",
+    "NeuralInferenceOutput",
+    "NeuralInferenceContract",
+    "AdaptiveExecutionBudget",
+    "ResourceAdaptiveInferencePipeline",
+    "CognitiveRoute",
+    "CognitiveRuntimeResponse",
+    "EndToEndCognitiveNeuralRuntime",
     # Knowledge
     "KnowledgeSource",
     "KnowledgeDocument",
