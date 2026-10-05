@@ -24,6 +24,16 @@ from chakrview.cognition.multi_agent.worker import (
 )
 from chakrview.cognition.multi_agent.coordinator import MultiAgentCoordinator
 from chakrview.cognition.multi_agent.protocol import MultiAgentProtocol
+from chakrview.cognition.multi_agent.transport import (
+    PROTOCOL_VERSION_V1,
+    RequestEnvelope,
+    ResponseEnvelope,
+    EnvelopeType,
+)
+from chakrview.cognition.multi_agent.federation import (
+    FederatedWorkerMetadata,
+    FederatedScheduler,
+)
 
 __all__ = [
     "WorkerRole",
@@ -42,4 +52,11 @@ __all__ = [
     "ReviewerWorker",
     "MultiAgentCoordinator",
     "MultiAgentProtocol",
+    "PROTOCOL_VERSION_V1",
+    "RequestEnvelope",
+    "ResponseEnvelope",
+    "EnvelopeType",
+    "FederatedWorkerMetadata",
+    "FederatedScheduler",
 ]
+
