@@ -98,6 +98,7 @@ class Trainer:
             validate_training=True,
             expected_tokenizer_checksum=self.tokenizer_checksum,
             expected_param_count=param_count,
+            expected_dataset_manifest_hash=self.dataset_manifest_hash,
         )
 
         # 1. Restore model state
