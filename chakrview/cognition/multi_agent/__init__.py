@@ -55,6 +55,37 @@ from chakrview.cognition.multi_agent.fault_tolerance import (
 from chakrview.cognition.multi_agent.curriculum_integration import (
     run_extended_curriculum_wave,
 )
+from chakrview.cognition.multi_agent.federation_hardening import (
+    NodeHealthState,
+    HardenedNodeRecord,
+    NodeLifecycleManager,
+    ReconnectingTcpTransportChannel,
+)
+from chakrview.cognition.multi_agent.consistency_engine import (
+    ConflictResolutionPolicy,
+    GovernedConsistencyEngine,
+)
+from chakrview.cognition.multi_agent.knowledge_plane import (
+    MemoryPartition,
+    KnowledgeFactRecord,
+    GovernedKnowledgePlane,
+)
+from chakrview.cognition.multi_agent.observability_plane import (
+    AuditEventType,
+    CognitiveAuditEvent,
+    CognitiveObservabilityPlane,
+)
+from chakrview.cognition.multi_agent.locality_orchestrator import (
+    LocalityAwareOrchestrator,
+)
+from chakrview.cognition.multi_agent.self_healing import (
+    SelfHealingAction,
+    SelfHealingRecord,
+    CognitiveSelfHealingEngine,
+)
+from chakrview.cognition.multi_agent.distributed_pipeline import (
+    DistributedCognitivePipeline,
+)
 
 __all__ = [
     "WorkerRole",
@@ -90,4 +121,23 @@ __all__ = [
     "FailureRecoveryAudit",
     "FederationFaultToleranceManager",
     "run_extended_curriculum_wave",
+    # Steps 129-136
+    "NodeHealthState",
+    "HardenedNodeRecord",
+    "NodeLifecycleManager",
+    "ReconnectingTcpTransportChannel",
+    "ConflictResolutionPolicy",
+    "GovernedConsistencyEngine",
+    "MemoryPartition",
+    "KnowledgeFactRecord",
+    "GovernedKnowledgePlane",
+    "AuditEventType",
+    "CognitiveAuditEvent",
+    "CognitiveObservabilityPlane",
+    "LocalityAwareOrchestrator",
+    "SelfHealingAction",
+    "SelfHealingRecord",
+    "CognitiveSelfHealingEngine",
+    "DistributedCognitivePipeline",
 ]
+
