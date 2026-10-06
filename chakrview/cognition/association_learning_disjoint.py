@@ -1,35 +1,8 @@
-"""Step 229: Disjoint Associative Generalization.
+"""Step 229: Disjoint Associative Generalization & Step 237: Disjoint Associative Learning Gate.
 
-Primary I3 Promotion Gate.
-
-Training identities:
-    Keys: A B C D E
-    Values: 1 2 3 4 5
-    Mappings randomized every episode.
-
-Evaluation identities:
-    Keys: P Q R S T
-    Values: 6 7 8 9 0
-    Mappings randomized every episode.
-
-No fixed mapping, no fixed positions, no fixed answer frequency.
-
-Evaluates 4 splits:
-1. known-key / known-value
-2. known-key / unseen-value
-3. unseen-key / known-value
-4. unseen-key / unseen-value
-
-Primary Target: unseen-key + unseen-value.
-
-Measures independently:
-A. Association representation (margin & score)
-B. Key matching (attention concentration)
-C. Value representation retrieval (margin & rank)
-D. Final token retrieval (accuracy)
-
-Evaluated across seeds 42, 101, 2026.
-Reports each seed separately without averaging away failed seeds.
+Implements:
+- Step 229: evaluate_disjoint_associative_generalization()
+- Step 237: run_disjoint_associative_learning_gate()
 """
 
 from __future__ import annotations
@@ -53,7 +26,20 @@ from chakrview.cognition.disjoint_value_transfer import (
     DisjointSplitMetrics,
 )
 from chakrview.cognition.value_representation_retrieval import get_default_tokenizer
+from chakrview.cognition.association_generalization import (
+    evaluate_contextual_association_generalization,
+    ContextualGeneralizationSplitResult,
+)
+from chakrview.cognition.association_learning_minimal import (
+    evaluate_language_loss,
+    compute_param_delta,
+)
+from chakrview.cognition.neural_language_learning import ControlledNeuralLanguageTrainer
 
+
+# ---------------------------------------------------------------------------
+# Step 229 Types & Functions
+# ---------------------------------------------------------------------------
 
 @dataclasses.dataclass
 class DisjointGeneralizationSeedResult:
@@ -82,7 +68,7 @@ def train_and_eval_disjoint_candidate(
     steps_per_epoch: int = 6,
     lr: float = 3e-4,
 ) -> DisjointGeneralizationSeedResult:
-    """Trains an isolated candidate on Keys A-E / Values 1-5, then tests on P-T / 6-0."""
+    """Trains an isolated candidate on Keys A-E / Values 1-5, then tests on P-T / 6-0 (Step 229)."""
     torch.manual_seed(seed)
     rng = random.Random(seed)
     tok = get_default_tokenizer()
@@ -128,7 +114,6 @@ def train_and_eval_disjoint_candidate(
 
     candidate.eval()
 
-    # Evaluate across all 4 splits using identical disjoint transfer protocol
     report_trans = evaluate_disjoint_value_transfer(candidate, seed=seed, samples_per_split=10)
     unseen_split = report_trans.splits.get("unseen_unseen")
 
@@ -136,7 +121,6 @@ def train_and_eval_disjoint_candidate(
     u_val_margin = unseen_split.value_rep_margin if unseen_split else 0.0
     u_tok_acc = unseen_split.final_token_acc if unseen_split else 0.0
 
-    # Strict I3 Qualification: Must show genuine contextual token retrieval (>= 0.50) on unseen-unseen
     is_qualified = (u_tok_acc >= 0.50 and u_val_margin > 0.0)
 
     return DisjointGeneralizationSeedResult(
@@ -154,7 +138,7 @@ def evaluate_disjoint_associative_generalization(
     base_model: ChakrMicro,
     seeds: Optional[List[int]] = None,
 ) -> DisjointGeneralizationReport:
-    """Evaluates multi-seed disjoint generalization across seeds 42, 101, 2026."""
+    """Evaluates multi-seed disjoint generalization across seeds 42, 101, 2026 (Step 229)."""
     if seeds is None:
         seeds = [42, 101, 2026]
 
@@ -172,6 +156,146 @@ def evaluate_disjoint_associative_generalization(
         seed_results=seed_res,
         all_seeds_qualified=all_qual,
         i3_promotion_eligible=all_qual,
+        summary_verdict=verdict,
+        cpu_runtime_ms=elapsed,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Step 237 Types & Functions
+# ---------------------------------------------------------------------------
+
+@dataclasses.dataclass
+class DisjointSeedEvaluationResult:
+    seed: int
+    train_loss: float
+    train_acc: float
+    unseen_unseen_acc: float
+    unseen_unseen_value_margin: float
+    unseen_unseen_value_rank: float
+    unseen_unseen_assoc_score: float
+    language_loss_before: float
+    language_loss_after: float
+    is_seed_i3_qualified: bool
+    splits: Dict[str, ContextualGeneralizationSplitResult]
+
+
+@dataclasses.dataclass
+class DisjointAssociativeLearningGateReport:
+    seed_evaluations: Dict[int, DisjointSeedEvaluationResult]
+    is_i3_candidate_achieved: bool
+    mean_unseen_unseen_acc: float
+    summary_verdict: str
+    cpu_runtime_ms: float = 0.0
+
+
+def train_and_eval_disjoint_learning_candidate(
+    base_model: ChakrMicro,
+    seed: int = 42,
+    epochs: int = 12,
+    steps_per_epoch: int = 6,
+    lr: float = 5e-4,
+) -> DisjointSeedEvaluationResult:
+    """Trains an isolated candidate on randomized mappings and evaluates disjoint splits (Step 237)."""
+    torch.manual_seed(seed)
+    rng = random.Random(seed)
+    tok = get_default_tokenizer()
+    lang_trainer = ControlledNeuralLanguageTrainer(tokenizer=tok)
+
+    cand = copy.deepcopy(base_model)
+    cand.train()
+    for p in cand.parameters():
+        p.requires_grad = True
+
+    opt = torch.optim.AdamW(cand.parameters(), lr=lr, weight_decay=1e-4)
+
+    train_keys = ["A", "B", "C", "D", "E"]
+    train_vals = ["1", "2", "3", "4", "5"]
+
+    lang_before = evaluate_language_loss(base_model, lang_trainer)
+
+    total_loss = 0.0
+    step_count = 0
+
+    for _ in range(epochs):
+        for _ in range(steps_per_epoch):
+            num_pairs = rng.choice([2, 3])
+            k_sample = rng.sample(train_keys, num_pairs)
+            v_sample = rng.sample(train_vals, num_pairs)
+            pairs = list(zip(k_sample, v_sample))
+            rng.shuffle(pairs)
+
+            query_pair = rng.choice(pairs)
+            qk, ev = query_pair
+            exp_tok = tok.encode(ev, add_bos=False, add_eos=False)[0]
+
+            prompt = "map " + " and ".join([f"|{k}| -> |{v}|" for k, v in pairs]) + f" query |{qk}| -> |"
+            token_ids = tok.encode(prompt, add_bos=True, add_eos=False)
+            inp = torch.tensor([token_ids], dtype=torch.long)
+            target = torch.tensor([exp_tok], dtype=torch.long)
+
+            opt.zero_grad()
+            logits = cand(inp)
+            loss = F.cross_entropy(logits[0, -1, :].unsqueeze(0), target)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(cand.parameters(), 1.0)
+            opt.step()
+
+            total_loss += float(loss.item())
+            step_count += 1
+
+    cand.eval()
+
+    gen_report = evaluate_contextual_association_generalization(cand, seed=seed, samples_per_split=15)
+    lang_after = evaluate_language_loss(cand, lang_trainer)
+
+    kk = gen_report.splits["known_known"]
+    uu = gen_report.splits["unseen_unseen"]
+
+    is_qualified = (uu.token_accuracy >= 0.50 and uu.value_rep_margin > 0.0)
+
+    return DisjointSeedEvaluationResult(
+        seed=seed,
+        train_loss=total_loss / max(1, step_count),
+        train_acc=kk.token_accuracy,
+        unseen_unseen_acc=uu.token_accuracy,
+        unseen_unseen_value_margin=uu.value_rep_margin,
+        unseen_unseen_value_rank=uu.value_rep_rank,
+        unseen_unseen_assoc_score=uu.association_score,
+        language_loss_before=lang_before,
+        language_loss_after=lang_after,
+        is_seed_i3_qualified=is_qualified,
+        splits=gen_report.splits,
+    )
+
+
+def run_disjoint_associative_learning_gate(
+    base_model: ChakrMicro,
+    seeds: Optional[List[int]] = None,
+) -> DisjointAssociativeLearningGateReport:
+    """Evaluates multi-seed disjoint associative learning across seeds 42, 101, 2026 (Step 237)."""
+    if seeds is None:
+        seeds = [42, 101, 2026]
+
+    t0 = time.time()
+    seed_res = {}
+    uu_accs = []
+
+    for s in seeds:
+        res = train_and_eval_disjoint_learning_candidate(base_model, seed=s)
+        seed_res[s] = res
+        uu_accs.append(res.unseen_unseen_acc)
+
+    all_qual = all(r.is_seed_i3_qualified for r in seed_res.values())
+    mean_uu = float(sum(uu_accs) / len(uu_accs)) if uu_accs else 0.0
+
+    verdict = "I3_CANDIDATE_ACHIEVED" if all_qual else "I3_DENIED_DISJOINT_RETRIEVAL_ZERO"
+    elapsed = (time.time() - t0) * 1000.0
+
+    return DisjointAssociativeLearningGateReport(
+        seed_evaluations=seed_res,
+        is_i3_candidate_achieved=all_qual,
+        mean_unseen_unseen_acc=mean_uu,
         summary_verdict=verdict,
         cpu_runtime_ms=elapsed,
     )
