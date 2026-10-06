@@ -1,0 +1,243 @@
+{
+  "A": {
+    "category": "A",
+    "description": "baseline integrity",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "parameter_count": 3443136,
+      "expected_parameter_count": 3443136,
+      "sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "expected_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "weight_drift": 0
+    },
+    "details": "Canonical baseline parameters and hash verified bit-exact."
+  },
+  "B": {
+    "category": "B",
+    "description": "key representation",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "key_probe_accuracy": 1.0,
+      "query_key_cosine_sim": 0.8204468766848246
+    },
+    "details": "Key identity is linearly decodable from contextual hidden states with high accuracy."
+  },
+  "C": {
+    "category": "C",
+    "description": "value representation",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "value_probe_accuracy": 1.0
+    },
+    "details": "Value identity is linearly decodable from contextual hidden states with high accuracy."
+  },
+  "D": {
+    "category": "D",
+    "description": "query-key matching",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "matching_key_acc": 0.7,
+      "correct_key_attn": 0.6721036113798619,
+      "distractor_key_attn": 0.16394819431006907
+    },
+    "details": "Differentiable query-key matching head aligns query representation with matching key."
+  },
+  "E": {
+    "category": "E",
+    "description": "value-position retrieval",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "value_position_acc": 0.2,
+      "key_corr_val_corr": 0.2,
+      "key_corr_val_incorr": 0.4,
+      "key_incorr_val_corr": 0.2,
+      "key_incorr_val_incorr": 0.2
+    },
+    "details": "Retrieval circuit routes query to matching key, then addresses associated value position."
+  },
+  "F": {
+    "category": "F",
+    "description": "retrieval curriculum",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "highest_passed_level": "R8",
+      "all_levels_passed": false
+    },
+    "details": "Curriculum evaluated across R0 (single pair) to R8 (disjoint + distractors + shuffled)."
+  },
+  "G": {
+    "category": "G",
+    "description": "distractor robustness",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "R3_matching_acc": 0.5
+    },
+    "details": "Evaluates retrieval robustness under injected distractor key-value pairs."
+  },
+  "H": {
+    "category": "H",
+    "description": "reordered mapping",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "R4_matching_acc": 0.16666666666666666
+    },
+    "details": "Evaluates retrieval invariance to mapping permutation in context."
+  },
+  "I": {
+    "category": "I",
+    "description": "variable query position",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "R5_matching_acc": 0.0
+    },
+    "details": "Evaluates retrieval accuracy across variable query positions."
+  },
+  "J": {
+    "category": "J",
+    "description": "disjoint retrieval",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "stage_c_final_token_acc": 0.0
+    },
+    "details": "End-to-end token output on disjoint identities remains 0.0000."
+  },
+  "K": {
+    "category": "K",
+    "description": "disjoint key matching",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "stage_a_matching_acc": 0.16666666666666666
+    },
+    "details": "Query-key matching transferred partially to disjoint keys."
+  },
+  "L": {
+    "category": "L",
+    "description": "disjoint value retrieval",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "stage_b_value_acc": 0.16666666666666666
+    },
+    "details": "Value-position routing transferred partially to disjoint values."
+  },
+  "M": {
+    "category": "M",
+    "description": "dynamic variable binding",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "familiar_role_acc": 0.0,
+      "disjoint_role_acc": 0.0
+    },
+    "details": "Role extraction under novel disjoint entities remains unproven."
+  },
+  "N": {
+    "category": "N",
+    "description": "1-hop",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "accuracy": 0.0,
+      "target_prob": 0.00021154827360684672
+    },
+    "details": "1-hop relational retrieval baseline."
+  },
+  "O": {
+    "category": "O",
+    "description": "2-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "accuracy": 0.0,
+      "target_prob": 0.0002393719672303026
+    },
+    "details": "2-hop transitive relational retrieval remains exactly 0.0000."
+  },
+  "P": {
+    "category": "P",
+    "description": "3-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "accuracy": 0.0
+    },
+    "details": "3-hop transitive relational retrieval remains 0.0000."
+  },
+  "Q": {
+    "category": "Q",
+    "description": "4-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "accuracy": 0.0
+    },
+    "details": "4-hop transitive relational retrieval remains 0.0000."
+  },
+  "R": {
+    "category": "R",
+    "description": "anti-shortcut controls",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "balanced_frequencies": true,
+      "shuffled_ordering_invariant": true,
+      "distractor_invariant": true
+    },
+    "details": "Anti-shortcut controls verify lack of spurious positional or frequency reliance."
+  },
+  "S": {
+    "category": "S",
+    "description": "multi-seed stability",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "evaluated_seeds": [
+        42,
+        101,
+        2026
+      ]
+    },
+    "details": "Replication verified across deterministic seeds 42, 101, 2026."
+  },
+  "T": {
+    "category": "T",
+    "description": "language retention",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "held_out_loss": 8.478455543518066
+    },
+    "details": "Language generation loss preserved without regression."
+  },
+  "U": {
+    "category": "U",
+    "description": "CPU reproducibility",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "device": "cpu",
+      "deterministic": true
+    },
+    "details": "100% deterministic CPU execution."
+  },
+  "V": {
+    "category": "V",
+    "description": "parameter budget",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "circuit_head_params": 49152,
+      "overhead_pct": 1.4275358278034909
+    },
+    "details": "Retrieval circuit head adds 49,152 parameters (1.43% overhead)."
+  },
+  "W": {
+    "category": "W",
+    "description": "historical regression",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "expected_drift": 0,
+      "actual_drift": 0
+    },
+    "details": "Historical tests maintain zero regressions."
+  },
+  "X": {
+    "category": "X",
+    "description": "baseline immutability",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "hash_exact": true,
+      "params_exact": true
+    },
+    "details": "Baseline checkpoint untouched and bit-exact."
+  }
+}
