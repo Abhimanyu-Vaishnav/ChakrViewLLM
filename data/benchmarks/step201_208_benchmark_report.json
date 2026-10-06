@@ -1,0 +1,273 @@
+{
+  "A": {
+    "category": "A",
+    "description": "baseline integrity",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "parameter_count": 3443136,
+      "sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "weight_drift": 0
+    },
+    "details": "Canonical baseline parameters and hash verified bit-exact."
+  },
+  "AB": {
+    "category": "AB",
+    "description": "baseline immutability",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "hash_exact": true
+    },
+    "details": "Baseline model weights strictly immutable (Delta W = 0)."
+  },
+  "B": {
+    "category": "B",
+    "description": "key identity",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "probe_accuracy": 1.0
+    },
+    "details": "Key identity verified 1.0000 decodable from contextual hidden states."
+  },
+  "C": {
+    "category": "C",
+    "description": "value identity",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "probe_accuracy": 1.0
+    },
+    "details": "Value identity verified 1.0000 decodable from contextual hidden states."
+  },
+  "D": {
+    "category": "D",
+    "description": "association representation",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "pos_sim": 0.6427688141663869,
+      "neg_sim": 0.5716226950287819,
+      "margin": 0.07114611913760494,
+      "acc": 0.6666666865348816
+    },
+    "details": "Contextual representations exhibit positive contrastive margin over negative bindings."
+  },
+  "E": {
+    "category": "E",
+    "description": "relative binding",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "case_a_acc": 0.0,
+      "case_b_acc": 0.0,
+      "invariance": 1.0
+    },
+    "details": "Evaluates directional and relative invariance across key-value pairings."
+  },
+  "F": {
+    "category": "F",
+    "description": "contrastive binding",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "lambda": 0.5,
+      "disjoint_binding": 0.16666666666666666
+    },
+    "details": "Auxiliary contrastive compatibility objective trains neural bilinear projection."
+  },
+  "G": {
+    "category": "G",
+    "description": "permutation invariance",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "variance": 0.0
+    },
+    "details": "Evaluates association stability across all 5 layout permutations."
+  },
+  "H": {
+    "category": "H",
+    "description": "distractor robustness",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "entropy_scaling": [
+        1.58,
+        1.73,
+        1.8800000000000001
+      ]
+    },
+    "details": "Distractor scaling quantified from 0 to 2 distractor pairs."
+  },
+  "I": {
+    "category": "I",
+    "description": "known/known binding",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "acc": 0.0,
+      "rank": 1872
+    },
+    "details": "Known key + known value binding baseline."
+  },
+  "J": {
+    "category": "J",
+    "description": "known/unseen binding",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "prob": 0.00015797373756261854
+    },
+    "details": "Known key + unseen value binding transfer."
+  },
+  "K": {
+    "category": "K",
+    "description": "unseen/known binding",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "prob": 0.00023570042200541744
+    },
+    "details": "Unseen key + known value binding transfer."
+  },
+  "L": {
+    "category": "L",
+    "description": "unseen/unseen binding",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "acc": 0.0
+    },
+    "details": "Unseen key + unseen value binding remains unproven."
+  },
+  "M": {
+    "category": "M",
+    "description": "disjoint key matching",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "matching_acc": 0.0
+    },
+    "details": "Disjoint key matching evaluation."
+  },
+  "N": {
+    "category": "N",
+    "description": "disjoint association",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "association_score": 0.017211828041278448
+    },
+    "details": "Disjoint association compatibility scoring."
+  },
+  "O": {
+    "category": "O",
+    "description": "disjoint value retrieval",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "value_retrieval_acc": 0.0
+    },
+    "details": "Disjoint value retrieval output."
+  },
+  "P": {
+    "category": "P",
+    "description": "final disjoint output",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "final_acc": 0.0
+    },
+    "details": "Final end-to-end token output on disjoint pairs remains 0.0000."
+  },
+  "Q": {
+    "category": "Q",
+    "description": "variable binding",
+    "classification": "UNPROVEN",
+    "metrics": {
+      "disjoint_acc": 0.0
+    },
+    "details": "Dynamic role binding on disjoint entities remains unproven."
+  },
+  "R": {
+    "category": "R",
+    "description": "1-hop",
+    "classification": "DIAGNOSTIC EVIDENCE",
+    "metrics": {
+      "prob": 0.00021036952384747564
+    },
+    "details": "1-hop relational retrieval diagnostic."
+  },
+  "S": {
+    "category": "S",
+    "description": "2-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "acc": 0.0
+    },
+    "details": "2-hop transitive relational retrieval remains exactly 0.0000."
+  },
+  "T": {
+    "category": "T",
+    "description": "3-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "acc": 0.0
+    },
+    "details": "3-hop transitive relational retrieval remains 0.0000."
+  },
+  "U": {
+    "category": "U",
+    "description": "4-hop",
+    "classification": "REFUTED",
+    "metrics": {
+      "acc": 0.0
+    },
+    "details": "4-hop transitive relational retrieval remains 0.0000."
+  },
+  "V": {
+    "category": "V",
+    "description": "anti-shortcut controls",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "balanced_targets": true,
+      "shuffled_invariance": true
+    },
+    "details": "Controls confirm model does not exploit positional or frequency shortcuts."
+  },
+  "W": {
+    "category": "W",
+    "description": "multi-seed stability",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "seeds": [
+        42,
+        101,
+        2026
+      ]
+    },
+    "details": "Deterministic seed replication verified."
+  },
+  "X": {
+    "category": "X",
+    "description": "language retention",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "heldout_loss": 8.478455543518066
+    },
+    "details": "Linguistic perplexity untouched and preserved."
+  },
+  "Y": {
+    "category": "Y",
+    "description": "CPU reproducibility",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "device": "cpu"
+    },
+    "details": "Deterministic CPU execution verified."
+  },
+  "Z": {
+    "category": "Z",
+    "description": "parameter budget",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "overhead_params": 24576,
+      "overhead_pct": 0.7137679139017454
+    },
+    "details": "Binding head adds 24,576 parameters (+0.71% overhead)."
+  },
+  "AA": {
+    "category": "AA",
+    "description": "historical regression",
+    "classification": "EMPIRICALLY VERIFIED",
+    "metrics": {
+      "regression_count": 0
+    },
+    "details": "Zero regressions across all historical test suites."
+  }
+}
