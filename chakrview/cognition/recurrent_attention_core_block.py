@@ -208,6 +208,7 @@ class RecurrentAttentionCoreBlock(nn.Module):
         x: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         query_pos: Optional[int] = None,
+        prev_state: Optional[torch.Tensor] = None,
         override_s1: Optional[torch.Tensor] = None,
         override_q2: Optional[torch.Tensor] = None,
         disable_c1: bool = False,
@@ -220,6 +221,7 @@ class RecurrentAttentionCoreBlock(nn.Module):
             x: Residual tensor [B, T, d_model]
             attention_mask: Optional [B, T]
             query_pos: Token position where relational state transition occurs (defaults to last token T-1)
+            prev_state: Optional incoming recurrent state tensor [B, d_state] from previous block
             override_s1: Optional tensor to force state s1 (for causal intervention)
             override_q2: Optional tensor to force query q2
             disable_c1: If True, zero out Cycle 1 attention contribution
@@ -251,7 +253,7 @@ class RecurrentAttentionCoreBlock(nn.Module):
         r1 = self.val_to_state(h_norm)  # [B, d_state]
 
         # Recurrent state transition (GRU step)
-        s_prev = self.s0.expand(B, -1)  # [B, d_state]
+        s_prev = prev_state if prev_state is not None else self.s0.expand(B, -1)  # [B, d_state]
         z_t = torch.sigmoid(self.w_z_h(r1) + self.w_z_s(s_prev))
         r_t = torch.sigmoid(self.w_r_h(r1) + self.w_r_s(s_prev))
         n_t = torch.tanh(self.w_n_h(r1) + self.w_n_s(r_t * s_prev))
