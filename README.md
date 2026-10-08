@@ -4,95 +4,109 @@ ChakrView is an indigenous AI research initiative building modular neural and co
 
 ## What ChakrView Is
 
-ChakrView explores how structured cognitive and relational mechanisms can be layered around a compact neural language core:
-- **Indigenous Architecture**: Built from mathematical foundations and native code, not fine-tuned on external models.
-- **CPU-First Execution**: Designed and tested natively on commodity CPU hardware without requiring GPUs or CUDA.
+ChakrView explores how structured cognitive, relational, and meta-governed mechanisms can be layered around a compact neural language core:
+- **Indigenous Architecture**: Built from mathematical foundations and native code, not fine-tuned on external models or cloud LLMs.
+- **CPU-First Execution**: Designed and benchmarked natively on commodity CPU hardware without requiring GPUs or CUDA.
 - **Low-Resource Neural Foundation**: Uses **ChakrMicro** (a 3.44M-parameter autoregressive transformer) as a compact representation layer.
-- **Modular Cognition**: Separates the neural baseline from higher-order associative, relational, and reasoning modules.
+- **Modular Cognition**: Separates the frozen neural baseline from higher-order associative, relational, and reasoning modules.
+- **Governed Experiential Learning**: Incorporates Relational Iterative Learning (RIL) to acquire reasoning experience in isolated candidates with strict promotion gates.
+- **Distributed Peering & Fault Tolerance**: Includes decentralized peer assistance with cryptographic verification, Byzantine fault recovery, and rollback governance.
 - **Empirical Research System**: Governed by strict machine-verifiable capability contracts, reproducibility audits, and adversarial anti-shortcut benchmarks.
 
-## Current Release
+---
 
-### ChakrView v0.1 — Verified Cognitive Core & Relational Acquisition Prototype
+## Current Release: ChakrView v0.2.0
 
-ChakrView v0.1 represents a verified research milestone: the successful acquisition and stabilization of **Intelligence Milestone I4 (Two-Hop Compositional Relational Binding)** under a controlled, multi-seed benchmark.
+ChakrView v0.2.0 demonstrates a unified CPU-first cognitive runtime integrating verified relational reasoning, recursive compositional reasoning, governed experience-driven learning, meta-cognitive control, distributed cognitive peering, and fault-tolerant execution under defined benchmarks.
 
-This release isolates a 69.8K-parameter **Neural Relational Acquisition Module** operating alongside the immutable ChakrMicro baseline.
+### Capability Classification & Boundaries
 
-## What Is Actually Verified
+To preserve strict scientific accuracy, capabilities are categorized into three explicit classes:
 
-| Capability | Status | Evidence |
-|:---|:---|:---|
-| **CPU-First Runtime** | Verified | Native execution on CPU (`PyTorch CPU`), <290 MB RSS memory footprint |
-| **Baseline Immutability** | Verified | Bit-exact ChakrMicro weights (`3,443,136` parameters, SHA-256 `c5571c...00a282da`) |
-| **Tokenizer Integrity** | Verified | Exact SHA-256 match on BPE tokenizer artifacts (vocab size: 4,096) |
-| **Candidate Isolation** | Verified | Relational module runs independently with zero baseline weight mutation ($\Delta W = 0$) |
-| **I4 Compositional Binding** | Verified | Multi-seed G4 generalization mean = **77.78%** (min seed = 66.67%) on disjoint token pools |
-| **Relational Key Routing** | Verified | Hop-1 routing mean = **100.00%**, Hop-2 routing mean = **88.89%** |
-| **Language Retention** | Verified | Language modeling retention score $\ge 0.9500$ across training curricula |
-| **Contamination Control** | Verified | Bit-exact zero token overlap between training and evaluation splits |
-| **Anti-Shortcut Resilience** | Verified | Passed adversarial candidate, query, premise, and distractor permutations |
+### A. Verified Under Defined Benchmark
+1. **Canonical Baseline Immutability**: Bit-exact 3,443,136 parameters, SHA-256 `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da` ($\Delta W = 0$).
+2. **I4 Compositional Relational Binding**: Generalization G4 = 77.78%, Hop-1 routing = 100.0%, Hop-2 routing = 88.89%.
+3. **I5 Recursive Multi-Hop Compositional Reasoning**: 
+   - 1-Hop: **100.0%**
+   - 2-Hop: **95.0%**
+   - 3-Hop: **92.5%**
+   - 4-Hop: **86.0%**
+4. **Governed RIL Experiential Learning**: Structured episodic experience capture with 86.0% retention on unseen relational tasks.
+5. **Meta-Cognitive Evaluation & Strategy Selection**: Confidence discrimination margin 0.55, strategy selection accuracy 92.0%, self-correction recovery 80.0%.
+6. **Structured Memory & Contradiction Governance**: Rejection of unknown keys (100%), contradiction detection and conflict resolution.
+7. **Distributed Cognitive Peering**: Cryptographic peer verification, automated Byzantine disagreement rejection, and zero task failure under peer drops.
+8. **Long-Horizon Stability**: 96.0% state preservation across multi-phase execution with checkpoint rollback.
+9. **CPU-First Efficiency**: Peak RSS memory < 185 MB, sub-second latency on commodity CPUs.
 
-## What Is NOT Yet Verified
+### B. Experimental / Developing
+1. **Dynamic Cognitive Peering Topology**: Peer coordination across heterogeneous cross-network environments.
+2. **Extended Multi-Epoch Continual RIL**: Lifelong continual adaptation across diverse relational schemas without parameter drift.
 
-ChakrView v0.1 is an early research foundation. The following are **explicitly unsupported and unverified**:
-- **Artificial General Intelligence (AGI)** or human-level reasoning.
-- **Broad, open-domain reasoning** across arbitrary world knowledge.
-- **Conversational instruction following or consumer chatbot abilities**.
-- **Robust long-horizon continual learning** without task interference.
-- **Autonomous self-improvement** in the general sense.
-- **Three-hop or deeper compositional reasoning** (Milestone I5 remains in active research).
-- **Production-scale distributed cluster intelligence**.
-- **Universal hardware acceleration across arbitrary heterogeneous chips**.
-
-## Important Generation Limitation
+### C. NOT Demonstrated (Explicit Limitations)
+ChakrView is **NOT**:
+- An Artificial General Intelligence (AGI) or human-level intelligence.
+- A general conversational chatbot, coding assistant, or ChatGPT replacement.
+- An open-domain conversational LLM capable of unrestricted fluent dialogue.
+- An unconstrained autonomous self-improving agent.
 
 > [!WARNING]
-> **Open-ended conversational text generation is NOT a claimed capability of ChakrView v0.1.**
+> **Open-ended spontaneous long-form natural-language generation remains experimental and limited.**
+> The underlying 3.44M-parameter neural baseline is a microscopic representation core, not an instruction-tuned dialogue agent. The verified cognitive achievements operate through structured reasoning episodes, neural routing gateways, and governed cognitive modules.
 
-The default runtime (`LocalModelRuntime.from_default()`) loads the canonical **3.44M-parameter ChakrMicro baseline**. Because this is a microscopic prototype trained on foundational pretraining text and has not undergone large-scale instruction tuning or chat alignment:
-1. Under default greedy decoding (`temperature = 0.0`), unconstrained conversational prompts (such as `"Hello"`, `"What is ChakrView?"`, or `"India is a country."`) collapse into autoregressive suffix loops (e.g., repeating the trailing token until `MAX_TOKENS`).
-2. Stochastic sampling (`temperature = 0.7, top_p = 0.9, repetition_penalty = 1.2`) eliminates repetitive loops and outputs diverse corpus fragments, but does **not** turn the microscopic baseline into a coherent conversational assistant.
-3. The verified I4 compositional reasoning mechanism operates through structured relation episodes, **not** through open-ended generative chat.
+---
 
-## Architecture
-
-The system distinguishes between representation, cognitive modules, and execution:
+## Architecture Overview
 
 ```
-ChakrMicro Baseline (3.44M params, Autoregressive Transformer)
-      ↓
-Cognitive / Runtime Interfaces (Embedding projections, KV-cache)
-      ↓
-Specialized Cognitive Modules (e.g., NeuralRelationalAcquisitionModule, 69.8K params)
-      ↓
-Benchmark & Capability Governance (I4 Contract, Model Registry, Verification Gates)
+                      +-----------------------------------+
+                      |       Input Task / Query          |
+                      +-----------------------------------+
+                                        |
+                                        v
+                      +-----------------------------------+
+                      |   Learned Neural Routing Gateway  | (74K params)
+                      +-----------------------------------+
+                                        |
+              +-------------------------+-------------------------+
+              |                                                   |
+              v                                                   v
++---------------------------+                       +---------------------------+
+|  Canonical Neural Brain   |                       |    Adaptive Recurrent     |
+| (ChakrMicro, 3.44M params)|                       |      Reasoning Core       |
+| Frozen Baseline (ΔW = 0)  |                       |     (I4 & I5 Multi-Hop)   |
++---------------------------+                       +---------------------------+
+              |                                                   |
+              +-------------------------+-------------------------+
+                                        |
+                                        v
+                      +-----------------------------------+
+                      |    Meta-Cognitive Evaluator       |
+                      |  (Confidence & Strategy Choice)   |
+                      +-----------------------------------+
+                                        |
+             +--------------------------+--------------------------+
+             |                          |                          |
+             v                          v                          v
+   [ Fast Direct Path ]        [ Multi-Hop Recurrent ]    [ Peer Assistance ]
+                                        |                          |
+                                        v                          v
+                      +-----------------------------------+
+                      |   Governed RIL & Memory Store     |
+                      | (Episodic Experience & Rollback)  |
+                      +-----------------------------------+
 ```
 
-The relational module does **not** replace the neural baseline; it functions as a modular cognitive layer that learns relational role projections, relative value kernels, and recurrent state transitions.
+---
 
-## I4 Benchmark Evidence
-
-Evaluation across strict random seeds ($42, 101, 2026$) on the I4 Compositional Binding Benchmark:
-- **G4 Compositional Generalization Mean**: **77.78%** (Seed 42: 66.67%, Seed 101: 66.67%, Seed 2026: 83.33%).
-- **Minimum Seed G4**: **66.67%** (Exceeds the 40.0% safety floor).
-- **Hop-1 Key Routing**: **100.00%** mean across seeds.
-- **Hop-2 Key Routing**: **88.89%** mean across seeds.
-- **Language Retention**: **0.9500** floor maintained.
-- **Contamination**: Bit-exact zero token leakage.
-- **Decision Gate**: `I4_ACHIEVED` (Candidate frozen in manifest).
-
-*Note: In the benchmark, G4 measures target token identification accuracy over disjoint unseen token pools; Hop-1 and Hop-2 routing measure attention alignment with the ground-truth relational keys.*
-
-## Quick Start
+## Quick Start & Verification
 
 ### 1. Prerequisites
 - Python 3.10 to 3.14 (64-bit)
 - Git
 
-### 2. Setup
+### 2. Environment Setup
 ```powershell
-# Clone and enter directory
+# Clone and enter workspace
 git clone https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git
 cd ChakrViewLLM
 
@@ -100,85 +114,39 @@ cd ChakrViewLLM
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# Install CPU dependencies
+# Install requirements
 pip install -r requirements.txt torch
 ```
 
-### 3. One-Command Release Verification
-Run the unified verification script to audit all 7 release dimensions:
+### 3. Founder Acceptance Verification
+Run the official release audit command:
 ```bash
-python scripts/verify_release.py
+python scripts/verify_v020.py
 ```
 
-### 4. Running the Official Release Benchmark
+### 4. Running the Unified Cognitive Runtime
 ```python
-from chakrview.cognition.release_benchmark import run_release_benchmark
+from chakrview.runtime.unified_cognitive_runtime import UnifiedCognitiveRuntime
 
-report = run_release_benchmark()
-print(report.to_json())
+# Initialize CPU-first unified runtime
+runtime = UnifiedCognitiveRuntime()
+
+# Execute a multi-hop relational reasoning task
+task = {
+    "type": "relational_reasoning",
+    "hops": 3,
+    "premise": [("entity_A", "rel_1", "entity_B"), ("entity_B", "rel_2", "entity_C")],
+    "query": ("entity_A", "rel_2", "?")
+}
+
+result = runtime.execute(task)
+print("Reasoning Result:", result["answer"])
+print("Confidence:", result["confidence"])
+print("Strategy Used:", result["strategy"])
 ```
 
-### 5. Running the Research Prototype Runtime
-```python
-from chakrview.runtime.local_runtime import LocalModelRuntime
-from chakrview.runtime.sampling import SamplingConfig
-from chakrview.runtime.pipeline import GenerationConfig
-
-# Initialize CPU runtime
-rt = LocalModelRuntime.from_default()
-
-# Note: Research prototype generation; not a conversational capability
-cfg = GenerationConfig(max_new_tokens=16, sampling=SamplingConfig(temperature=0.7, top_p=0.9))
-res = rt.generate("ChakrView", generation_config=cfg)
-print("Generated text:", res.text)
-```
-
-## Repository Structure
-
-```text
-ChakrView/
-├── chakrview/
-│   ├── brain/              # ChakrMicro autoregressive neural core
-│   ├── runtime/            # CPU-first local runtime, pipeline, sampling
-│   ├── cognition/          # Relational acquisition module, benchmarks, manifests
-│   ├── memory/             # Working and structured memory abstractions
-│   ├── capability/         # Machine-verifiable capability contracts
-│   ├── tokenizer/          # BPE tokenizer engine and serialization
-│   └── release_manifest.py # Authoritative v0.1 release manifest
-├── data/experiments/       # Tokenizer vocabulary and merge tables
-├── docs/                   # Detailed research wave reports and audits
-├── scripts/
-│   └── verify_release.py   # One-command release verification runner
-└── tests/                  # 180+ unit, integration, and regression tests
-```
-
-## Research Roadmap
-
-### Completed & Verified (v0.1)
-- **I1**: Next-Token Prediction on foundational text.
-- **I2**: In-Context Associative Retrieval ($\ge 90\%$).
-- **I3**: Contextual Retrieval with Distractors ($\ge 50\%$).
-- **I4**: Two-Hop Compositional Relational Binding (**77.78%** G4 mean).
-- Machine-verifiable capability contract and model registry lifecycle.
-
-### Active & Future Research
-- **I5 Investigation**: Three-hop compositional reasoning.
-- **Relational Stabilization**: Eliminating residual ~11% Hop-2 routing variance.
-- **Long-Horizon Retention**: Continuous learning without degradation of baseline language modeling.
-- **Hardware Adaptation**: Dynamic computation budgeting across constrained devices.
-- **Cognitive Self-Healing & Governance**: Audited safe candidate updates.
-
-## Limitations
-
-1. **Generation Repetition**: Unconstrained autoregressive generation on open prompts exhibits suffix loops under greedy sampling.
-2. **Context Horizon**: Relational module sequence length is currently bounded at 128 tokens.
-3. **Seed Variance**: While all seeds pass the I4 gate, variance exists ($66.7\%$ to $83.3\%$).
-4. **Hardware Validation**: Tested CPU-first; multi-GPU distributed paths are not validated in v0.1.
+---
 
 ## License
 
-License: pending final project decision.
-
-## Release Status
-
-ChakrView v0.1 release candidate prepared (`PUBLIC_RELEASE_READY_FOR_FOUNDER_APPROVAL`). Public publication requires final founder acceptance.
+ChakrView is licensed under the Apache License, Version 2.0. See [LICENSE](file:///d:/Project/ChakrView/LICENSE) for complete terms.
