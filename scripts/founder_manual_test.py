@@ -72,6 +72,14 @@ from chakrview.cognition.v060_candidate.language_grounding import (
 from chakrview.cognition.v060_candidate.surface_reformulation import SurfaceReformulationTester
 from chakrview.cognition.v060_candidate.multihop_semantic import MultiHopSemanticReasoner
 from chakrview.cognition.v060_candidate.semantic_cognitive_coupling import SemanticCognitiveCouplingEngine
+from chakrview.runtime.hardware_adaptive_engine import (
+    HardwareDiscovery,
+    HardwareAdaptiveGovernor,
+    ChunkedAdaptiveExecutor,
+    HardwareDiagnostics,
+    HardwareExecutionProfile,
+    ExecutionBudgetMode,
+)
 
 
 class ChakrViewRuntimeSession:
@@ -84,13 +92,23 @@ class ChakrViewRuntimeSession:
     - Bounded Working Memory 2.0
     - Memory-Evidence Precedence Bridge
     - Hierarchical Planning & Goal Execution
+    - Hardware-Adaptive Execution & Governance
     """
 
-    def __init__(self):
+    def __init__(self, user_workload_active: bool = False):
         self.memory_bridge = MemoryReasoningBridge()
         self.working_memory = WorkingMemory2()
         self.current_task_id = "founder_session_task"
         self.working_memory.initialize_task(self.current_task_id, "Founder Interactive Session")
+
+        # Hardware discovery & governance
+        self.hardware_env = HardwareDiscovery.probe()
+        self.resource_budget = HardwareAdaptiveGovernor.select_profile(
+            self.hardware_env, user_workload_active=user_workload_active
+        )
+        self.hardware_diagnostics = HardwareDiagnostics.get_summary(
+            self.hardware_env, self.resource_budget
+        )
 
     def process_input(
         self,
@@ -232,14 +250,24 @@ class ChakrViewRuntimeSession:
 
 def run_interactive_mode() -> None:
     """Runs interactive founder test console."""
-    print("=" * 60)
+    session = ChakrViewRuntimeSession()
+    diag_hw = session.hardware_diagnostics
+
+    print("=" * 65)
     print("ChakrView Founder Test Console")
     print("Version: v0.5.0-RC")
-    print("Mode: CPU Native (Canonical Baseline: 3,443,136 params, ΔW = 0)")
-    print("=" * 60)
+    print("Canonical Baseline: 3,443,136 params (Delta W = 0)")
+    print("-" * 65)
+    print(f"Hardware Profile:    {diag_hw['hardware_profile']}")
+    print(f"CPU:                 {diag_hw['cpu_model']} ({diag_hw['cpu_cores']})")
+    print(f"RAM:                 {diag_hw['ram_available_gb']} GB available / {diag_hw['ram_total_gb']} GB total")
+    print(f"Resource Budget:     {diag_hw['ram_budget_mb']} MB RAM | Threads: {diag_hw['execution_threads']}")
+    print(f"Selected Device:     {diag_hw['selected_device']}")
+    print(f"GPU / VRAM:          {diag_hw['gpu_name']} ({diag_hw['gpu_vram_gb']} GB)")
+    print(f"GPU Support Status:  {diag_hw['gpu_support_status']}")
+    print(f"Fallback Policy:     {diag_hw['fallback_policy']}")
+    print("=" * 65)
     print("Type a proposition, question, or task (or 'exit' to quit).\n")
-
-    session = ChakrViewRuntimeSession()
 
     while True:
         try:

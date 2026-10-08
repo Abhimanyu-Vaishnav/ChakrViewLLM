@@ -75,6 +75,8 @@ def verify_all() -> bool:
         allowed_release_prefixes = (
             "scripts/founder_manual_test.py",
             "scripts/verify_v050_release.py",
+            "chakrview/runtime/hardware_adaptive_engine.py",
+            "tests/test_hardware_adaptive_engine.py",
             "docs/founder_tests/",
             "docs/releases/",
             "README.md",

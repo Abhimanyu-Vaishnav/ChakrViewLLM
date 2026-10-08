@@ -17,7 +17,7 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 
 ## Public Release Candidate: ChakrView v0.5.0
 
-ChakrView v0.5.0 is an indigenous neural-cognitive architecture integrating a CPU-first 3.44M-parameter neural core with controlled neural learning, relational reasoning, semantic grounding under defined tasks, memory, planning, evidence reasoning and governed adaptation.
+ChakrView v0.5.0 embodies a **One Cognitive Brain + Hardware-Adaptive Execution** architecture. The same indigenous 3.44M-parameter neural core runs across weak/old PCs, modern multi-core CPUs, systems with integrated GPUs, systems with discrete GPUs, and embedded hardware. Hardware differences change execution strategy, resource allocation, batching, chunking, parallelism and scheduling — NOT the cognitive brain or model identities.
 
 Internal research lineage:
 `V0.4 candidate -> V0.5 neural research -> V0.6 semantic research` (Candidate commit: `1e06746`).
@@ -34,11 +34,12 @@ To preserve strict scientific accuracy, capabilities are categorized into three 
 5. **Hierarchical Planning & Failure Recovery**: Goal decomposition into dependency-aware subgoals (`RETRIEVE`, `VERIFY`, `SYNTHESIZE`) with automatic replanning upon step failure.
 6. **Task-Scoped Working Memory**: Bounded ephemeral working state (`WorkingMemory2`) with clean task-boundary resets and zero durable memory pollution.
 7. **Evidence Precedence Over Stale Beliefs**: Newer verified external evidence supersedes outdated internal beliefs automatically.
-8. **CPU-First Execution**: Fully native low-resource CPU execution without GPU or cloud dependency.
+8. **Hardware-Adaptive Resource Governance**: Dynamic hardware capability discovery (CPU, RAM, GPU, VRAM), profile selection, task sizing, adaptive chunking, checkpointed recovery, and user interactive workload cooperation.
 
 ### B. Experimental / Developing
 1. **Disjoint Entity Generalization**: Zero-shot relational reasoning across completely unseen arbitrary entity vocabularies.
 2. **Multi-Dialect Grounding**: Rich Hindi/Hinglish deep semantic alignment beyond token and keyword cues.
+3. **GPU Support Scope**: Available for supported operations when real benefit exists; CPU fallback is automatic. Full GPU acceleration across all components is not claimed.
 
 ### C. NOT Demonstrated (Explicit Limitations)
 ChakrView is **NOT**:
