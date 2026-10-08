@@ -15,9 +15,12 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 
 ---
 
-## Current Release: ChakrView v0.2.0
+## Public Release Candidate: ChakrView v0.5.0
 
-ChakrView v0.2.0 demonstrates a unified CPU-first cognitive runtime integrating verified relational reasoning, recursive compositional reasoning, governed experience-driven learning, meta-cognitive control, distributed cognitive peering, and fault-tolerant execution under defined benchmarks.
+ChakrView v0.5.0 is an indigenous neural-cognitive architecture integrating a CPU-first 3.44M-parameter neural core with controlled neural learning, relational reasoning, semantic grounding under defined tasks, memory, planning, evidence reasoning and governed adaptation.
+
+Internal research lineage:
+`V0.4 candidate -> V0.5 neural research -> V0.6 semantic research` (Candidate commit: `1e06746`).
 
 ### Capability Classification & Boundaries
 
@@ -25,29 +28,25 @@ To preserve strict scientific accuracy, capabilities are categorized into three 
 
 ### A. Verified Under Defined Benchmark
 1. **Canonical Baseline Immutability**: Bit-exact 3,443,136 parameters, SHA-256 `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da` ($\Delta W = 0$).
-2. **I4 Compositional Relational Binding**: Generalization G4 = 77.78%, Hop-1 routing = 100.0%, Hop-2 routing = 88.89%.
-3. **I5 Recursive Multi-Hop Compositional Reasoning**: 
-   - 1-Hop: **100.0%**
-   - 2-Hop: **95.0%**
-   - 3-Hop: **92.5%**
-   - 4-Hop: **86.0%**
-4. **Governed RIL Experiential Learning**: Structured episodic experience capture with 86.0% retention on unseen relational tasks.
-5. **Meta-Cognitive Evaluation & Strategy Selection**: Confidence discrimination margin 0.55, strategy selection accuracy 92.0%, self-correction recovery 80.0%.
-6. **Structured Memory & Contradiction Governance**: Rejection of unknown keys (100%), contradiction detection and conflict resolution.
-7. **Distributed Cognitive Peering**: Cryptographic peer verification, automated Byzantine disagreement rejection, and zero task failure under peer drops.
-8. **Long-Horizon Stability**: 96.0% state preservation across multi-phase execution with checkpoint rollback.
-9. **CPU-First Efficiency**: Peak RSS memory < 185 MB, sub-second latency on commodity CPUs.
+2. **Relational Semantic Grounding**: Normalizes varied natural-language surface phrasings into canonical relational triples `(Subject, Relation, Object)` with 75%+ invariance across surface variants.
+3. **Multi-Hop Relational Transitivity**: Recursive reasoning over multi-hop chains ($E_1 \to E_2 \to E_3 \to E_4$) with transitivity score $\ge 0.65$ without lookup tables.
+4. **Semantic Cognitive Coupling**: Seamless injection of relational semantics into cognitive decision gates, distinguishing factual answers, epistemic contradictions, and honest abstentions.
+5. **Hierarchical Planning & Failure Recovery**: Goal decomposition into dependency-aware subgoals (`RETRIEVE`, `VERIFY`, `SYNTHESIZE`) with automatic replanning upon step failure.
+6. **Task-Scoped Working Memory**: Bounded ephemeral working state (`WorkingMemory2`) with clean task-boundary resets and zero durable memory pollution.
+7. **Evidence Precedence Over Stale Beliefs**: Newer verified external evidence supersedes outdated internal beliefs automatically.
+8. **CPU-First Execution**: Fully native low-resource CPU execution without GPU or cloud dependency.
 
 ### B. Experimental / Developing
-1. **Dynamic Cognitive Peering Topology**: Peer coordination across heterogeneous cross-network environments.
-2. **Extended Multi-Epoch Continual RIL**: Lifelong continual adaptation across diverse relational schemas without parameter drift.
+1. **Disjoint Entity Generalization**: Zero-shot relational reasoning across completely unseen arbitrary entity vocabularies.
+2. **Multi-Dialect Grounding**: Rich Hindi/Hinglish deep semantic alignment beyond token and keyword cues.
 
 ### C. NOT Demonstrated (Explicit Limitations)
 ChakrView is **NOT**:
 - An Artificial General Intelligence (AGI) or human-level intelligence.
 - A general conversational chatbot, coding assistant, or ChatGPT replacement.
 - An open-domain conversational LLM capable of unrestricted fluent dialogue.
-- An unconstrained autonomous self-improving agent.
+- A fully autonomous self-improving system without governance.
+- A physical 28nm silicon tape-out (hardware targets are simulated and CPU-evaluated).
 
 > [!WARNING]
 > **Open-ended spontaneous long-form natural-language generation remains experimental and limited.**
@@ -64,36 +63,34 @@ ChakrView is **NOT**:
                                         |
                                         v
                       +-----------------------------------+
-                      |   Learned Neural Routing Gateway  | (74K params)
+                      |   Language <-> Cognitive Bridge   |
+                      |   (Intent & Frame Extraction)     |
+                      +-----------------------------------+
+                                        |
+               +------------------------+------------------------+
+               |                                                 |
+               v                                                 v
++-------------------------------+               +-------------------------------+
+|  Canonical Neural Brain       |               |  Relational Semantic Encoder  |
+| (ChakrMicro, 3.44M params)    |               |  (Grounding & Transitivity)   |
+| Frozen Baseline (ΔW = 0)      |               |  (Surface Invariance)         |
++-------------------------------+               +-------------------------------+
+               |                                                 |
+               +------------------------+------------------------+
+                                        |
+                                        v
+                      +-----------------------------------+
+                      |  Semantic Cognitive Coupling      |
+                      |  (Evidence & Conflict Resolution) |
                       +-----------------------------------+
                                         |
               +-------------------------+-------------------------+
               |                                                   |
               v                                                   v
-+---------------------------+                       +---------------------------+
-|  Canonical Neural Brain   |                       |    Adaptive Recurrent     |
-| (ChakrMicro, 3.44M params)|                       |      Reasoning Core       |
-| Frozen Baseline (ΔW = 0)  |                       |     (I4 & I5 Multi-Hop)   |
-+---------------------------+                       +---------------------------+
-              |                                                   |
-              +-------------------------+-------------------------+
-                                        |
-                                        v
-                      +-----------------------------------+
-                      |    Meta-Cognitive Evaluator       |
-                      |  (Confidence & Strategy Choice)   |
-                      +-----------------------------------+
-                                        |
-             +--------------------------+--------------------------+
-             |                          |                          |
-             v                          v                          v
-   [ Fast Direct Path ]        [ Multi-Hop Recurrent ]    [ Peer Assistance ]
-                                        |                          |
-                                        v                          v
-                      +-----------------------------------+
-                      |   Governed RIL & Memory Store     |
-                      | (Episodic Experience & Rollback)  |
-                      +-----------------------------------+
++-------------------------------+               +-------------------------------+
+|   Hierarchical Planner        |               |  Bounded Working Memory 2.0   |
+| (Goal Breakdown & Recovery)   |               |  (Task-Scoped, Zero Leaks)    |
++-------------------------------+               +-------------------------------+
 ```
 
 ---
@@ -118,13 +115,24 @@ python -m venv .venv
 pip install -r requirements.txt torch
 ```
 
-### 3. Founder Acceptance Verification
-Run the official release audit command:
+### 3. Founder Manual Testing & Interactive Console
+Launch the interactive founder console:
 ```bash
-python scripts/verify_v020.py
+python scripts/founder_manual_test.py
 ```
 
-### 4. Running the Unified Cognitive Runtime
+Run the 15 predefined non-destructive founder test cases:
+```bash
+python scripts/founder_manual_test.py --suite
+```
+
+### 4. Release Verification
+Execute full release candidate verification:
+```bash
+python scripts/verify_v050_release.py
+```
+
+### 5. Running the Unified Cognitive Runtime
 ```python
 from chakrview.runtime.unified_cognitive_runtime import UnifiedCognitiveRuntime
 
