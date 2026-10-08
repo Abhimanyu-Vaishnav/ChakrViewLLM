@@ -29,6 +29,7 @@ Allows the founder to interact directly with the actual ChakrView runtime:
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 import time
 from pathlib import Path
@@ -72,6 +73,15 @@ from chakrview.cognition.v060_candidate.language_grounding import (
 from chakrview.cognition.v060_candidate.surface_reformulation import SurfaceReformulationTester
 from chakrview.cognition.v060_candidate.multihop_semantic import MultiHopSemanticReasoner
 from chakrview.cognition.v060_candidate.semantic_cognitive_coupling import SemanticCognitiveCouplingEngine
+from chakrview.cognition.language_realizer import (
+    LanguageClassifier,
+    IntentClassifier,
+    LanguageRealizer,
+    LanguageTag,
+    ConversationalIntent,
+    ConversationalContextTracker,
+    ConversationalTurn,
+)
 from chakrview.runtime.hardware_adaptive_engine import (
     HardwareDiscovery,
     HardwareAdaptiveGovernor,
@@ -93,11 +103,13 @@ class ChakrViewRuntimeSession:
     - Memory-Evidence Precedence Bridge
     - Hierarchical Planning & Goal Execution
     - Hardware-Adaptive Execution & Governance
+    - Natural Language Realization & Context Reference Resolution
     """
 
     def __init__(self, user_workload_active: bool = False):
         self.memory_bridge = MemoryReasoningBridge()
         self.working_memory = WorkingMemory2()
+        self.context_tracker = ConversationalContextTracker(max_turns=6)
         self.current_task_id = "founder_session_task"
         self.working_memory.initialize_task(self.current_task_id, "Founder Interactive Session")
 
@@ -116,18 +128,28 @@ class ChakrViewRuntimeSession:
         active_evidence: Optional[Dict[str, str]] = None,
     ) -> Dict[str, Any]:
         """
-        Executes actual runtime pipeline and returns structured diagnostics.
+        Executes actual runtime pipeline and returns structured diagnostics alongside natural user response.
         """
         raw_text = text.strip()
         ev_map = active_evidence if active_evidence is not None else {}
 
-        # 1. Parse linguistic cognitive frame
-        cog_frame = LanguageCognitiveBridge.parse_to_cognitive_frame(raw_text)
+        # 1. Linguistic classification (English, Hindi, Hinglish)
+        lang_tag = LanguageClassifier.classify(raw_text)
+        intent = IntentClassifier.classify(raw_text, lang_tag)
 
-        # 2. Extract grounded relational triple
-        grounding_res = LanguageSemanticGroundingBridge.ground_text_to_semantic_triple(raw_text)
+        # 2. Conversational context reference resolution
+        # E.g. "Where does he live?" or "What about his city?"
+        processed_text = raw_text
+        pronoun_match = re.search(r"\b(he|she|his|her|unka|uska|vo|woh)\b", raw_text, re.IGNORECASE)
+        latest_subj = self.context_tracker.get_latest_subject()
+        if pronoun_match and latest_subj:
+            # Substitute reference for semantic grounding
+            processed_text = re.sub(r"\b(he|she|his|her|unka|uska|vo|woh)\b", latest_subj, raw_text, flags=re.IGNORECASE)
 
-        # 3. Memory & Evidence status
+        # 3. Relational grounding
+        grounding_res = LanguageSemanticGroundingBridge.ground_text_to_semantic_triple(processed_text)
+
+        # 4. Memory & Evidence status
         semantic_repr = (
             grounding_res.canonical_semantic_form
             if grounding_res.is_grounded
@@ -137,50 +159,51 @@ class ChakrViewRuntimeSession:
         decision = "ABSTAIN"
         confidence = 0.0
         strategy = "DIRECT_GROUNDING"
-        final_response = ""
         evidence_status = "NO_EVIDENCE"
         memory_status = "UNTRACKED"
+        target_subject: Optional[str] = None
+        target_relation: Optional[str] = None
+        resolved_value: Optional[str] = None
+        plan_details: Optional[str] = None
 
         # Check for unknown / fictitious entities (Zorvax, Atlantis, etc.)
         unknown_entities = ["zorvax", "zorvax-917", "atlantis", "kavix", "eryndor", "norlath", "zethra"]
-        is_unknown_query = any(ent in raw_text.lower() for ent in unknown_entities)
+        is_unknown_query = any(ent in raw_text.lower() for ent in unknown_entities) or (intent == ConversationalIntent.UNKNOWN_QUERY)
 
-        if "plan" in raw_text.lower() or cog_frame.is_command_or_instruction:
+        # A. Greetings / Social Check-ins / Casual
+        if intent in (ConversationalIntent.GREETING, ConversationalIntent.SOCIAL_CHECK_IN):
+            decision = "CONVERSATIONAL_RESPONSE"
+            confidence = 1.00
+            strategy = "CONVERSATIONAL_INTERACTION"
+
+        # B. Planning / Task Request
+        elif intent == ConversationalIntent.TASK_REQUEST or "plan" in raw_text.lower():
             strategy = "HIERARCHICAL_PLANNING"
             plan = HierarchicalPlanner.create_plan(raw_text)
             subgoal_steps = " -> ".join([sg.subgoal_id for sg in plan.subgoals])
             decision = "PLAN_GENERATED"
             confidence = 0.90
-            final_response = f"Plan '{plan.plan_id}' constructed with {len(plan.subgoals)} subgoals: [{subgoal_steps}]."
+            plan_details = f"Plan '{plan.plan_id}' constructed with {len(plan.subgoals)} subgoals: [{subgoal_steps}]."
 
+        # C. Grounded Relational Statements or Questions
         elif grounding_res.is_grounded and grounding_res.extracted_triple:
             triple = grounding_res.extracted_triple
+            target_subject = triple.subject
+            target_relation = triple.relation
             ev_key = f"{triple.subject.lower()}::{triple.relation.lower()}"
 
-            # Check evidence map first
+            # Check external evidence first
             if ev_key in ev_map:
                 ev_val = ev_map[ev_key]
                 evidence_status = f"PRESENT ('{ev_val}')"
                 if ev_val.lower() == triple.object.lower():
                     decision = "ANSWER"
                     confidence = 0.95
-                    final_response = LanguageCognitiveBridge.verbalize_decision(
-                        decision_action="ANSWER",
-                        target_entity=triple.subject,
-                        resolved_value=triple.object,
-                        confidence=confidence,
-                        rationale=f"Grounded relation confirmed by evidence ({triple.relation}: {ev_val}).",
-                    )
+                    resolved_value = triple.object
                 else:
                     decision = "REPORT_CONFLICT"
                     confidence = 0.40
-                    final_response = LanguageCognitiveBridge.verbalize_decision(
-                        decision_action="REPORT_CONFLICT",
-                        target_entity=triple.subject,
-                        resolved_value=None,
-                        confidence=confidence,
-                        rationale=f"Contradiction: Evidence reports '{ev_val}' but asserted '{triple.object}'.",
-                    )
+                    resolved_value = ev_val
             else:
                 # Check stored memory
                 stored_belief = self.memory_bridge.get_belief(triple.subject, triple.relation)
@@ -188,16 +211,10 @@ class ChakrViewRuntimeSession:
                     memory_status = f"STORED ('{stored_belief.value}')"
                     decision = "ANSWER"
                     confidence = stored_belief.confidence
-                    final_response = LanguageCognitiveBridge.verbalize_decision(
-                        decision_action="ANSWER",
-                        target_entity=triple.subject,
-                        resolved_value=stored_belief.value,
-                        confidence=confidence,
-                        rationale="Retrieved from established task memory store.",
-                    )
+                    resolved_value = stored_belief.value
                 else:
-                    # If this is a statement, store into memory
-                    if not cog_frame.is_factual_query:
+                    # If this is a statement / proposition, store into memory
+                    if intent == ConversationalIntent.PROPOSITION and not is_unknown_query:
                         new_rec = MemoryBeliefRecord(
                             belief_id=f"bel_{triple.subject}_{triple.relation}",
                             entity=triple.subject,
@@ -210,41 +227,77 @@ class ChakrViewRuntimeSession:
                         memory_status = f"RECORDED ('{triple.object}')"
                         decision = "BELIEF_ACQUIRED"
                         confidence = 0.90
-                        final_response = f"Stored verified belief: ({triple.subject}) --[{triple.relation}]--> ({triple.object})."
+                        resolved_value = triple.object
                     else:
                         decision = "ABSTAIN"
                         confidence = 0.0
                         evidence_status = "MISSING"
-                        final_response = LanguageCognitiveBridge.verbalize_decision(
-                            decision_action="ABSTAIN",
-                            target_entity=triple.subject,
-                            resolved_value=None,
-                            confidence=0.0,
-                            rationale="No verified evidence or memory for query.",
-                        )
+
+        # D. Non-grounded query / unknown / clarification
         else:
-            # Non-grounded or unknown query
             if is_unknown_query:
                 decision = "ABSTAIN"
                 confidence = 0.0
                 evidence_status = "UNKNOWN_ENTITY"
-                final_response = "INSUFFICIENT_EVIDENCE: Unseen entity or unverified premise. Honest abstention preserved."
+            elif intent == ConversationalIntent.CLARIFICATION:
+                decision = "REQUEST_CLARIFICATION"
+                confidence = 0.40
             else:
-                decision = "EVALUATE_UNSTRUCTURED"
-                confidence = 0.50
-                final_response = f"Cognitive frame: intent={cog_frame.identified_intent}, entities={cog_frame.extracted_entities}."
+                # Check if this is a query about previous subject in context (e.g. "Where does Ram live?")
+                latest_subj = self.context_tracker.get_latest_subject()
+                stored_belief = self.memory_bridge.get_belief(latest_subj or "", "LIVES_IN") if latest_subj else None
+                if stored_belief and ("where" in raw_text.lower() or "kahan" in raw_text.lower() or "city" in raw_text.lower()):
+                    decision = "ANSWER"
+                    confidence = stored_belief.confidence
+                    target_subject = latest_subj
+                    target_relation = "LIVES_IN"
+                    resolved_value = stored_belief.value
+                    memory_status = f"STORED ('{stored_belief.value}')"
+                else:
+                    decision = "EVALUATE_UNSTRUCTURED"
+                    confidence = 0.50
+
+        # Realize natural user response via language realizer
+        natural_response = LanguageRealizer.realize(
+            intent=intent,
+            language=lang_tag,
+            cognitive_decision=decision,
+            subject=target_subject or (grounding_res.extracted_triple.subject if grounding_res.extracted_triple else latest_subj),
+            relation=target_relation or (grounding_res.extracted_triple.relation if grounding_res.extracted_triple else None),
+            value=resolved_value or (grounding_res.extracted_triple.object if grounding_res.extracted_triple else None),
+            confidence=confidence,
+            evidence_status=evidence_status,
+            raw_text=raw_text,
+            plan_details=plan_details,
+            context_tracker=self.context_tracker,
+        )
+
+        # Record turn in conversational context tracker
+        self.context_tracker.record_turn(
+            ConversationalTurn(
+                user_input=raw_text,
+                detected_language=lang_tag,
+                detected_intent=intent,
+                active_subject=target_subject or (grounding_res.extracted_triple.subject if grounding_res.extracted_triple else latest_subj),
+                active_attribute=target_relation or (grounding_res.extracted_triple.relation if grounding_res.extracted_triple else None),
+                active_value=resolved_value or (grounding_res.extracted_triple.object if grounding_res.extracted_triple else None),
+                system_response=natural_response,
+                timestamp=time.time(),
+            )
+        )
 
         return {
             "input": raw_text,
-            "detected_language": cog_frame.detected_language,
-            "intent": cog_frame.identified_intent,
+            "detected_language": lang_tag.value,
+            "intent": intent.value,
             "semantic_representation": semantic_repr,
             "decision": decision,
             "confidence": confidence,
             "evidence_status": evidence_status,
             "memory_status": memory_status,
             "strategy": strategy,
-            "final_response": final_response,
+            "final_response": natural_response,
+            "natural_response": natural_response,
         }
 
 
@@ -284,7 +337,7 @@ def run_interactive_mode() -> None:
 
         diag = session.process_input(user_input)
 
-        print("\n--- Structured Diagnostics ---")
+        print("\n--- Cognitive Diagnostics ---")
         print(f"Language:                {diag['detected_language']}")
         print(f"Intent:                  {diag['intent']}")
         print(f"Semantic Representation: {diag['semantic_representation']}")
@@ -293,7 +346,8 @@ def run_interactive_mode() -> None:
         print(f"Evidence Status:         {diag['evidence_status']}")
         print(f"Memory Status:           {diag['memory_status']}")
         print(f"Strategy:                {diag['strategy']}")
-        print(f"Final Response:          {diag['final_response']}\n")
+        print("\n--- ChakrView ---")
+        print(f"{diag['final_response']}\n")
 
 
 def run_founder_test_suite() -> int:
