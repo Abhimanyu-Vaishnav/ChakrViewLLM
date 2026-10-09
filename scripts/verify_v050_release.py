@@ -78,6 +78,7 @@ def verify_all() -> bool:
             "chakrview/runtime/hardware_adaptive_engine.py",
             "chakrview/cognition/language_realizer.py",
             "chakrview/cognition/language_understanding.py",
+            "chakrview/cognition/strict_recurrent_i4_evaluation.py",
             "tests/test_hardware_adaptive_engine.py",
             "tests/test_language_realizer.py",
             "tests/test_language_understanding.py",

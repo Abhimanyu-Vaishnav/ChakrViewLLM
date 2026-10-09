@@ -83,6 +83,18 @@ class StrictRecurrentI4Report:
     decision_rationale: str
     summary: str
 
+    @property
+    def is_base_bit_exact(self) -> bool:
+        return self.baseline_exact and self.delta_w_zero
+
+    @property
+    def comparisons(self) -> Dict[str, Any]:
+        return {
+            "baseline": self.mean_g1,
+            "recurrent": self.mean_g4,
+            "hop2": self.mean_h2_key,
+        }
+
 
 def train_and_eval_seed_recurrent(
     base_model: ChakrMicro,
@@ -246,6 +258,8 @@ def train_and_eval_seed_recurrent(
 def run_strict_recurrent_i4_evaluation(
     base_model: ChakrMicro,
     seeds: Optional[List[int]] = None,
+    train_steps: int = 15,
+    eval_episodes: int = 8,
 ) -> StrictRecurrentI4Report:
     """Runs complete multi-seed strict gate evaluation across seeds 42, 101, 2026."""
     if seeds is None:
@@ -259,7 +273,9 @@ def run_strict_recurrent_i4_evaluation(
     last_candidate = None
 
     for s in seeds:
-        cand, m = train_and_eval_seed_recurrent(base_model=base_model, seed=s)
+        cand, m = train_and_eval_seed_recurrent(
+            base_model=base_model, seed=s, train_steps=train_steps, eval_episodes=eval_episodes
+        )
         seed_metrics[s] = m
         last_candidate = cand
 
@@ -359,3 +375,8 @@ if __name__ == "__main__":
     print(f"Delta W = 0: {rep.delta_w_zero}")
     for s, sm in rep.seed_metrics.items():
         print(f"Seed {s}: G1={sm.g1_acc:.1%}, G2={sm.g2_acc:.1%}, G3={sm.g3_acc:.1%}, G4={sm.g4_acc:.1%}, H2_K={sm.h2_key_acc:.1%}")
+
+
+# Backward-compatibility aliases for historical test imports (Wave 321-328)
+train_recurrent_core_candidate = train_and_eval_seed_recurrent
+run_strict_recurrent_i3_i4_evaluation = run_strict_recurrent_i4_evaluation

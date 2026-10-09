@@ -20,7 +20,7 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 ChakrView v0.5.0 embodies a **One Cognitive Brain + Hardware-Adaptive Execution** architecture. The same indigenous 3.44M-parameter neural core runs across weak/old PCs, modern multi-core CPUs, systems with integrated GPUs, systems with discrete GPUs, and embedded hardware. Hardware differences change execution strategy, resource allocation, batching, chunking, parallelism and scheduling — NOT the cognitive brain or model identities.
 
 Internal research lineage:
-`V0.4 candidate -> V0.5 neural research -> V0.6 semantic research` (Candidate commit: `1e06746`).
+`v0.2.0 foundation -> V0.4 candidate -> V0.5 neural research -> V0.6 semantic research` (Candidate commit: `1e06746`).
 
 ### Capability Classification & Boundaries
 
