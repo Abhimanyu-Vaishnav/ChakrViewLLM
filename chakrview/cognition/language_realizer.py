@@ -200,9 +200,11 @@ class IntentClassifier:
             if re.search(pat, clean, re.IGNORECASE):
                 return ConversationalIntent.REASONING_QUERY
 
-        # 5. Incomplete statement / clarification check (e.g. "Computer is", "System is")
-        tokens = clean.split()
-        if len(tokens) <= 3 and tokens[-1] in ("is", "are", "hai", "tha", "thi"):
+        # 5. Incomplete statement / clarification check
+        # Detect incomplete definition-style statements e.g. "Computer is", "Computer is an ?", "System is a"
+        clean_no_punct = re.sub(r"[\?\.!,;:]+$", "", clean).strip()
+        tokens = clean_no_punct.split()
+        if len(tokens) <= 4 and tokens and tokens[-1] in ("is", "are", "hai", "tha", "thi", "a", "an", "the", "ek"):
             return ConversationalIntent.CLARIFICATION
 
         # 6. Queries vs Propositions
@@ -251,6 +253,17 @@ class BuiltInKnowledgeRepository:
         for term in cls.DEFINITIONS.keys():
             if re.search(rf"\b{term}\b", clean):
                 return term
+        # Fallback: extract target term syntactically from definition queries (e.g. 'Define Zorvax-917')
+        t = text.strip()
+        m = re.search(r"\b(?:define|meaning\s+of|definition\s+of|defination\s+of)\s+([A-Za-z0-9_\-]+)", t, re.IGNORECASE)
+        if m:
+            return m.group(1).strip()
+        m_what = re.search(r"\bwhat\s+is\s+(?:a|an|the)?\s*([A-Za-z0-9_\-]+)", t, re.IGNORECASE)
+        if m_what:
+            return m_what.group(1).strip()
+        m_hing = re.search(r"([A-Za-z0-9_\-]+)\s+ki\s+(?:defination|definition|paribhasha)", t, re.IGNORECASE)
+        if m_hing:
+            return m_hing.group(1).strip()
         return None
 
     @classmethod
@@ -308,7 +321,7 @@ class LanguageRealizer:
             else:
                 return "I am functioning well, thank you! ChakrView's indigenous cognitive core is active and ready. How are you?"
 
-        # C. Definition Queries (e.g. "Define computer", "computer ki defination btao")
+        # C. Definition Queries (e.g. "Define computer", "computer ki defination btao", "Define Zorvax-917")
         if intent == ConversationalIntent.DEFINITION_QUERY:
             term = subject or BuiltInKnowledgeRepository.extract_term(raw_text)
             if term:
@@ -316,15 +329,16 @@ class LanguageRealizer:
                 if definition:
                     return definition
             # If no suitable built-in or verified knowledge source exists, report missing capability honestly
+            target_display = term or raw_text
             if language == LanguageTag.HINDI:
-                return f"क्षमा करें, मेरे पास '{raw_text}' की कोई सत्यापित परिभाषा उपलब्ध नहीं है।"
+                return f"क्षमा करें, मेरे पास '{target_display}' की कोई सत्यापित परिभाषा उपलब्ध नहीं है।"
             elif language == LanguageTag.HINGLISH:
-                return f"Maaf kijiye, mere paas is vishay ('{raw_text}') ke liye verified definition uplabdh nahi hai."
+                return f"Maaf kijiye, mere paas '{target_display}' ke liye verified definition uplabdh nahi hai."
             else:
-                return f"I do not have verified built-in knowledge defining '{raw_text}'. Preserving honest abstention."
+                return f"I do not have verified built-in knowledge defining '{target_display}'. Preserving honest abstention."
 
-        # D. Incomplete or ambiguous inputs (e.g. "Computer is")
-        if intent == ConversationalIntent.CLARIFICATION or raw_text.strip().lower().endswith("is"):
+        # D. Incomplete or ambiguous inputs (e.g. "Computer is", "Computer is an ?")
+        if intent == ConversationalIntent.CLARIFICATION:
             if language in (LanguageTag.HINDI, LanguageTag.HINGLISH):
                 return f"Aapka prashna adhura lag raha hai: '{raw_text}'. Kripya poora sentence batayein."
             else:

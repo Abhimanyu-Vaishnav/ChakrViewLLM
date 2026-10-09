@@ -183,6 +183,80 @@ def test_definition_query_and_incomplete_routing():
     assert "Got it. Ram lives in Delhi." in r_prop["final_response"]
 
 
+def test_language_understanding_defects_and_preservation():
+    """
+    Focused regression test covering the two reported defects and all preserved behaviors:
+    Defect 1: 'Computer is an ?' -> CLARIFICATION, not ungrounded echo.
+    Defect 2: 'Define Zorvax-917' -> DEFINITION_QUERY, extracts 'Zorvax-917', honest abstention.
+    Preserved 1: 'Define Computer' -> ANSWER with definition.
+    Preserved 2: 'Can you tell me defination of Computer' -> ANSWER with definition.
+    Preserved 3: 'Main bhi thik hu, jra muje computer ki defination btao' -> HINGLISH, ANSWER.
+    Preserved 4: 'Hello' -> GREETING conversational response.
+    Preserved 5: 'Ram lives in Delhi.' -> PROPOSITION belief acquired.
+    Preserved 6: 'Where Ram lives?' -> FACTUAL_QUERY answer from memory.
+    Preserved 7: 'Where he lives' -> FACTUAL_QUERY answer from memory via reference resolution.
+    """
+    session = ChakrViewRuntimeSession()
+
+    # Defect 1: Incomplete definition-style statement with punctuation
+    d1 = session.process_input("Computer is an ?")
+    assert d1["intent"] == ConversationalIntent.CLARIFICATION
+    assert d1["decision"] == "REQUEST_CLARIFICATION"
+    assert "incomplete" in d1["final_response"].lower()
+    assert d1["final_response"] != "Acknowledged input: 'Computer is an ?'."
+
+    # Defect 2: Unknown term definition query extracts subject and produces clean honest abstention
+    d2 = session.process_input("Define Zorvax-917")
+    assert d2["intent"] == ConversationalIntent.DEFINITION_QUERY
+    assert d2["decision"] == "ABSTAIN"
+    assert "Zorvax-917" in d2["final_response"]
+    assert "Define Zorvax-917" not in d2["final_response"]  # clean subject extraction, not echoing command verb
+    assert "verified built-in knowledge" in d2["final_response"]
+
+    # Preserved 1: Define Computer
+    p1 = session.process_input("Define Computer")
+    assert p1["intent"] == ConversationalIntent.DEFINITION_QUERY
+    assert p1["decision"] == "ANSWER"
+    assert "electronic device" in p1["final_response"]
+
+    # Preserved 2: Can you tell me defination of Computer
+    p2 = session.process_input("Can you tell me defination of Computer")
+    assert p2["intent"] == ConversationalIntent.DEFINITION_QUERY
+    assert p2["decision"] == "ANSWER"
+    assert "electronic device" in p2["final_response"]
+
+    # Preserved 3: Main bhi thik hu, jra muje computer ki defination btao
+    p3 = session.process_input("Main bhi thik hu, jra muje computer ki defination btao")
+    assert p3["detected_language"] == "HINGLISH"
+    assert p3["intent"] == ConversationalIntent.DEFINITION_QUERY
+    assert p3["decision"] == "ANSWER"
+    assert "electronic device" in p3["final_response"]
+
+    # Preserved 4: Hello
+    p4 = session.process_input("Hello")
+    assert p4["intent"] == ConversationalIntent.GREETING
+    assert p4["decision"] == "CONVERSATIONAL_RESPONSE"
+    assert "Hello!" in p4["final_response"]
+
+    # Preserved 5: Ram lives in Delhi.
+    p5 = session.process_input("Ram lives in Delhi.")
+    assert p5["intent"] == ConversationalIntent.PROPOSITION
+    assert p5["decision"] == "BELIEF_ACQUIRED"
+    assert "Got it. Ram lives in Delhi." in p5["final_response"]
+
+    # Preserved 6: Where Ram lives?
+    p6 = session.process_input("Where Ram lives?")
+    assert p6["intent"] == ConversationalIntent.FACTUAL_QUERY
+    assert p6["decision"] == "ANSWER"
+    assert "Ram lives in Delhi." in p6["final_response"]
+
+    # Preserved 7: Where he lives
+    p7 = session.process_input("Where he lives")
+    assert p7["intent"] == ConversationalIntent.FACTUAL_QUERY
+    assert p7["decision"] == "ANSWER"
+    assert "Ram lives in Delhi." in p7["final_response"]
+
+
 def test_canonical_baseline_intact():
     """Verify that language realization layers leave canonical baseline bit-exact."""
     torch.manual_seed(42)

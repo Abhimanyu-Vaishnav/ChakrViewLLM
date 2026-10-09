@@ -177,18 +177,25 @@ class ChakrViewRuntimeSession:
             confidence = 1.00
             strategy = "CONVERSATIONAL_INTERACTION"
 
-        # B. Definition Query (e.g. "Define computer", "computer ki defination btao")
+        # B. Definition Query (e.g. "Define computer", "computer ki defination btao", "Define Zorvax-917")
         elif intent == ConversationalIntent.DEFINITION_QUERY:
             strategy = "BUILTIN_KNOWLEDGE_RETRIEVAL"
             term = BuiltInKnowledgeRepository.extract_term(raw_text)
             if term:
-                target_subject = term.capitalize()
+                target_subject = term
                 target_relation = "DEFINITION"
-                resolved_value = BuiltInKnowledgeRepository.get_definition(term, lang_tag)
-                evidence_status = "BUILTIN_KNOWLEDGE_STORE"
-                decision = "ANSWER"
-                confidence = 0.95
-                semantic_repr = f"({target_subject}) --[DEFINITION]--> (BUILTIN_KNOWLEDGE)"
+                definition_val = BuiltInKnowledgeRepository.get_definition(term, lang_tag)
+                if definition_val:
+                    resolved_value = definition_val
+                    evidence_status = "BUILTIN_KNOWLEDGE_STORE"
+                    decision = "ANSWER"
+                    confidence = 0.95
+                    semantic_repr = f"({target_subject}) --[DEFINITION]--> (BUILTIN_KNOWLEDGE)"
+                else:
+                    decision = "ABSTAIN"
+                    confidence = 0.0
+                    evidence_status = "MISSING_BUILTIN_KNOWLEDGE"
+                    semantic_repr = f"({target_subject}) --[DEFINITION]--> (UNKNOWN)"
             else:
                 decision = "ABSTAIN"
                 confidence = 0.0
