@@ -77,6 +77,7 @@ from chakrview.cognition.language_realizer import (
     LanguageClassifier,
     IntentClassifier,
     LanguageRealizer,
+    BuiltInKnowledgeRepository,
     LanguageTag,
     ConversationalIntent,
     ConversationalContextTracker,
@@ -176,7 +177,24 @@ class ChakrViewRuntimeSession:
             confidence = 1.00
             strategy = "CONVERSATIONAL_INTERACTION"
 
-        # B. Planning / Task Request
+        # B. Definition Query (e.g. "Define computer", "computer ki defination btao")
+        elif intent == ConversationalIntent.DEFINITION_QUERY:
+            strategy = "BUILTIN_KNOWLEDGE_RETRIEVAL"
+            term = BuiltInKnowledgeRepository.extract_term(raw_text)
+            if term:
+                target_subject = term.capitalize()
+                target_relation = "DEFINITION"
+                resolved_value = BuiltInKnowledgeRepository.get_definition(term, lang_tag)
+                evidence_status = "BUILTIN_KNOWLEDGE_STORE"
+                decision = "ANSWER"
+                confidence = 0.95
+                semantic_repr = f"({target_subject}) --[DEFINITION]--> (BUILTIN_KNOWLEDGE)"
+            else:
+                decision = "ABSTAIN"
+                confidence = 0.0
+                evidence_status = "MISSING_BUILTIN_KNOWLEDGE"
+
+        # C. Planning / Task Request
         elif intent == ConversationalIntent.TASK_REQUEST or "plan" in raw_text.lower():
             strategy = "HIERARCHICAL_PLANNING"
             plan = HierarchicalPlanner.create_plan(raw_text)
@@ -185,7 +203,7 @@ class ChakrViewRuntimeSession:
             confidence = 0.90
             plan_details = f"Plan '{plan.plan_id}' constructed with {len(plan.subgoals)} subgoals: [{subgoal_steps}]."
 
-        # C. Grounded Relational Statements or Questions
+        # D. Grounded Relational Statements or Questions
         elif grounding_res.is_grounded and grounding_res.extracted_triple:
             triple = grounding_res.extracted_triple
             target_subject = triple.subject

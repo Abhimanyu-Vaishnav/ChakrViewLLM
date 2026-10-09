@@ -133,6 +133,56 @@ def test_truthful_realization_of_abstention_and_contradiction():
     assert res_conflict["decision"] == "REPORT_CONFLICT"
 
 
+def test_definition_query_and_incomplete_routing():
+    """
+    Verify all 6 core test prompts from founder review:
+    1. 'Computer is' -> CLARIFICATION / INCOMPLETE
+    2. 'Define computer' -> DEFINITION_QUERY
+    3. 'Tell me the definition of a computer' -> DEFINITION_QUERY
+    4. 'Mujhe computer ki definition batao' -> DEFINITION_QUERY
+    5. 'Main bhi theek hoon, zara mujhe computer ki definition batao' -> HINGLISH / DEFINITION_QUERY
+    6. 'Main bhi thik hu, jra muje computer ki defination btao' -> HINGLISH / DEFINITION_QUERY
+    7. 'How are you?' -> SOCIAL_CHECK_IN
+    8. 'Ram lives in Delhi.' -> PROPOSITION
+    """
+    session = ChakrViewRuntimeSession()
+
+    # 1. Incomplete statement
+    r_inc = session.process_input("Computer is")
+    assert r_inc["intent"] == ConversationalIntent.CLARIFICATION
+    assert "incomplete" in r_inc["final_response"].lower() or "adhura" in r_inc["final_response"].lower()
+
+    # 2. English definition queries
+    for eng_q in ["Define computer", "Tell me the definition of a computer", "Tell Me Defination of Computer"]:
+        r_def = session.process_input(eng_q)
+        assert r_def["detected_language"] == "ENGLISH"
+        assert r_def["intent"] == ConversationalIntent.DEFINITION_QUERY
+        assert r_def["decision"] == "ANSWER"
+        assert "electronic device" in r_def["final_response"]
+
+    # 3. Hinglish definition queries
+    for hing_q in [
+        "Mujhe computer ki definition batao",
+        "Main bhi theek hoon, zara mujhe computer ki definition batao",
+        "Main bhi thik hu, jra muje computer ki defination btao",
+    ]:
+        r_hing = session.process_input(hing_q)
+        assert r_hing["detected_language"] == "HINGLISH"
+        assert r_hing["intent"] == ConversationalIntent.DEFINITION_QUERY
+        assert r_hing["decision"] == "ANSWER"
+        assert "electronic device" in r_hing["final_response"]
+
+    # 4. Social check-in
+    r_soc = session.process_input("How are you?")
+    assert r_soc["intent"] == ConversationalIntent.SOCIAL_CHECK_IN
+    assert "functioning well" in r_soc["final_response"]
+
+    # 5. Proposition
+    r_prop = session.process_input("Ram lives in Delhi.")
+    assert r_prop["intent"] == ConversationalIntent.PROPOSITION
+    assert "Got it. Ram lives in Delhi." in r_prop["final_response"]
+
+
 def test_canonical_baseline_intact():
     """Verify that language realization layers leave canonical baseline bit-exact."""
     torch.manual_seed(42)

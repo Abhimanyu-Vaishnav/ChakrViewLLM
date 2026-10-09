@@ -40,6 +40,7 @@ class ConversationalIntent(str, Enum):
     PROPOSITION = "PROPOSITION"
     TASK_REQUEST = "TASK_REQUEST"
     REASONING_QUERY = "REASONING_QUERY"
+    DEFINITION_QUERY = "DEFINITION_QUERY"
     UNKNOWN_QUERY = "UNKNOWN_QUERY"
     CLARIFICATION = "CLARIFICATION"
 
@@ -97,10 +98,11 @@ class LanguageClassifier:
     # Common Romanized Hindi / Hinglish markers
     HINGLISH_MARKERS = {
         "kya", "kaise", "kyon", "kyu", "hai", "hain", "kab", "kahan", "kaha",
-        "kaun", "koun", "batao", "karo", "rehta", "rehti", "rehte", "mein",
-        "par", "aur", "tum", "aap", "mera", "meri", "hum", "accha", "theek",
-        "shukriya", "dhanyavaad", "namaste", "namaskar", "alvida", "chalo",
-        "kuch", "sab", "yeh", "woh", "voh", "ho", "tha", "thi", "gaya"
+        "kaun", "koun", "batao", "btao", "karo", "rehta", "rehti", "rehte", "mein",
+        "par", "aur", "tum", "aap", "mera", "meri", "hum", "accha", "achha", "theek",
+        "thik", "shukriya", "dhanyavaad", "namaste", "namaskar", "alvida", "chalo",
+        "kuch", "sab", "yeh", "woh", "voh", "ho", "tha", "thi", "gaya",
+        "main", "bhi", "jra", "zara", "muje", "mujhe", "hame", "hume", "ki", "ka", "ke"
     }
 
     @classmethod
@@ -121,7 +123,8 @@ class LanguageClassifier:
         hinglish_hits = sum(1 for tok in tokens if tok in cls.HINGLISH_MARKERS)
         ratio = hinglish_hits / len(tokens)
 
-        if hinglish_hits >= 1 and (ratio >= 0.25 or hinglish_hits >= 2 or len(tokens) <= 4):
+        # If 2 or more distinct Hinglish markers exist, or ratio >= 0.20, classify as HINGLISH
+        if hinglish_hits >= 2 or (hinglish_hits >= 1 and (ratio >= 0.20 or len(tokens) <= 4)):
             return LanguageTag.HINGLISH
 
         # 3. Default to English if standard Latin characters
@@ -152,8 +155,19 @@ class IntentClassifier:
         r"\b(step-by-step\s+plan|make\s+a\s+plan|need\s+to\s+move)\b",
     ]
 
+    DEFINITION_PATTERNS = [
+        r"\b(defination|definition|define|meaning\s+of|arth|paribhasha)\b",
+        r"\b(what\s+is\s+a\s+|what\s+is\s+an\s+|what\s+is\s+the\s+definition)\b",
+        r"\b(ki\s+(defination|definition|paribhasha)\s+(batao|btao|samjhao))\b",
+    ]
+
     REASONING_PATTERNS = [
         r"\b(relative\s+to|where\s+is\s+.*relative|infer|deduce|transitive)\b",
+    ]
+
+    INCOMPLETE_PATTERNS = [
+        r"^(what|who|where|when|why|how|computer|system|network|device|entity)\s+(is|are|tha|thi|hai)$",
+        r"^([a-zA-Z0-9_\- ]{1,30})\s+(is|are|hai)$",
     ]
 
     @classmethod
@@ -161,6 +175,12 @@ class IntentClassifier:
         clean = text.strip().lower()
 
         # 1. Social check-ins (e.g. "how are you", "tum kaise ho")
+        # Ensure compound requests with definition queries (e.g. "Main bhi thik hu, jra muje computer ki defination btao")
+        # are recognized as definition query rather than pure social check-in.
+        has_definition = any(re.search(pat, clean, re.IGNORECASE) for pat in cls.DEFINITION_PATTERNS)
+        if has_definition:
+            return ConversationalIntent.DEFINITION_QUERY
+
         for pat in cls.SOCIAL_PATTERNS:
             if re.search(pat, clean, re.IGNORECASE):
                 return ConversationalIntent.SOCIAL_CHECK_IN
@@ -180,21 +200,67 @@ class IntentClassifier:
             if re.search(pat, clean, re.IGNORECASE):
                 return ConversationalIntent.REASONING_QUERY
 
-        # 5. Queries vs Propositions
+        # 5. Incomplete statement / clarification check (e.g. "Computer is", "System is")
+        tokens = clean.split()
+        if len(tokens) <= 3 and tokens[-1] in ("is", "are", "hai", "tha", "thi"):
+            return ConversationalIntent.CLARIFICATION
+
+        # 6. Queries vs Propositions
         is_question = "?" in text or any(
             clean.startswith(w) for w in ["what", "who", "where", "when", "why", "how", "kya", "kahan", "kab", "koun"]
-        )
+        ) or any(w in clean for w in ["kya", "kahan", "batao", "btao"])
         if is_question:
             unknown_markers = ["zorvax", "atlantis", "norlath", "eryndor", "zethra"]
             if any(m in clean for m in unknown_markers):
                 return ConversationalIntent.UNKNOWN_QUERY
             return ConversationalIntent.FACTUAL_QUERY
 
-        # 6. Default to proposition / statement
-        if len(clean.split()) <= 2 and clean.endswith("is"):
-            return ConversationalIntent.CLARIFICATION
-
+        # 7. Default to proposition / statement
         return ConversationalIntent.PROPOSITION
+
+
+class BuiltInKnowledgeRepository:
+    """
+    Clearly identified, verified built-in factual knowledge repository.
+    Truthfulness Guarantee:
+    - Answers are explicitly attributed to 'BUILTIN_KNOWLEDGE_STORE'.
+    - Not claimed as learned neural weights or external LLM generations.
+    - If a concept is unknown, returns None so caller abstains honestly.
+    """
+
+    DEFINITIONS: Dict[str, Dict[str, str]] = {
+        "computer": {
+            "ENGLISH": (
+                "A computer is an electronic device that accepts raw data as input, processes it "
+                "according to stored instructions (programs), and produces output or stores the result."
+            ),
+            "HINGLISH": (
+                "Computer ek electronic device hai jo raw data ko input ke roop mein leta hai, "
+                "instructions (programs) ke hisab se process karta hai, aur output produce ya store karta hai."
+            ),
+            "HINDI": (
+                "कंप्यूटर एक इलेक्ट्रॉनिक उपकरण है जो इनपुट के रूप में डेटा स्वीकार करता है, "
+                "निर्देशों (प्रोग्राम्स) के अनुसार इसे संसाधित (process) करता है, और परिणाम आउटपुट के रूप में देता है।"
+            ),
+        },
+    }
+
+    @classmethod
+    def extract_term(cls, text: str) -> Optional[str]:
+        clean = text.lower()
+        for term in cls.DEFINITIONS.keys():
+            if re.search(rf"\b{term}\b", clean):
+                return term
+        return None
+
+    @classmethod
+    def get_definition(cls, term: str, language: LanguageTag) -> Optional[str]:
+        t = term.lower().strip()
+        if t not in cls.DEFINITIONS:
+            return None
+        term_dict = cls.DEFINITIONS[t]
+        lang_key = language.value if language.value in term_dict else "ENGLISH"
+        return term_dict.get(lang_key, term_dict.get("ENGLISH"))
 
 
 class LanguageRealizer:
@@ -242,7 +308,22 @@ class LanguageRealizer:
             else:
                 return "I am functioning well, thank you! ChakrView's indigenous cognitive core is active and ready. How are you?"
 
-        # C. Incomplete or ambiguous inputs (e.g. "Computer is")
+        # C. Definition Queries (e.g. "Define computer", "computer ki defination btao")
+        if intent == ConversationalIntent.DEFINITION_QUERY:
+            term = subject or BuiltInKnowledgeRepository.extract_term(raw_text)
+            if term:
+                definition = BuiltInKnowledgeRepository.get_definition(term, language)
+                if definition:
+                    return definition
+            # If no suitable built-in or verified knowledge source exists, report missing capability honestly
+            if language == LanguageTag.HINDI:
+                return f"क्षमा करें, मेरे पास '{raw_text}' की कोई सत्यापित परिभाषा उपलब्ध नहीं है।"
+            elif language == LanguageTag.HINGLISH:
+                return f"Maaf kijiye, mere paas is vishay ('{raw_text}') ke liye verified definition uplabdh nahi hai."
+            else:
+                return f"I do not have verified built-in knowledge defining '{raw_text}'. Preserving honest abstention."
+
+        # D. Incomplete or ambiguous inputs (e.g. "Computer is")
         if intent == ConversationalIntent.CLARIFICATION or raw_text.strip().lower().endswith("is"):
             if language in (LanguageTag.HINDI, LanguageTag.HINGLISH):
                 return f"Aapka prashna adhura lag raha hai: '{raw_text}'. Kripya poora sentence batayein."

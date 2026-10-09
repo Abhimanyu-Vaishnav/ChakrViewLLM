@@ -179,14 +179,15 @@ class HardwareDiscovery:
         cuda_avail = False
         mps_avail = False
         is_igpu = False
+        gpu_driver_detected = False
 
+        # Step 3a: Check PyTorch CUDA / MPS first
         try:
             if torch.cuda.is_available():
                 cuda_avail = True
                 gpu_avail = True
                 gpu_name = torch.cuda.get_device_name(0)
                 gpu_vram = torch.cuda.get_device_properties(0).total_memory
-                # Check for Intel / AMD integrated graphics or mobile APU keywords
                 igpu_keywords = ["intel", "iris", "uhd", "radeon graphics", "vega", "integrated"]
                 if any(kw in gpu_name.lower() for kw in igpu_keywords) and gpu_vram < 4 * (1024 ** 3):
                     is_igpu = True
@@ -195,10 +196,32 @@ class HardwareDiscovery:
                 gpu_avail = True
                 gpu_name = "Apple Silicon MPS (Unified Memory)"
                 is_igpu = True
-                gpu_vram = available_ram  # Shared unified memory
+                gpu_vram = available_ram
         except Exception:
-            # Never crash merely because GPU detection failed
             pass
+
+        # Step 3b: If PyTorch is CPU-only but host hardware has a physical GPU (e.g. nvidia-smi or Windows WMI)
+        if not gpu_avail:
+            try:
+                import subprocess
+                import shutil
+                if shutil.which("nvidia-smi"):
+                    smi_res = subprocess.run(
+                        ["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader,nounits"],
+                        capture_output=True,
+                        text=True,
+                        timeout=3,
+                    )
+                    if smi_res.returncode == 0 and smi_res.stdout.strip():
+                        first_line = smi_res.stdout.strip().splitlines()[0]
+                        parts = [p.strip() for p in first_line.split(",")]
+                        gpu_name = parts[0]
+                        vram_mb = float(parts[1]) if len(parts) > 1 else 0.0
+                        gpu_vram = int(vram_mb * (1024 ** 2))
+                        gpu_avail = True
+                        gpu_driver_detected = True
+            except Exception:
+                pass
 
         return HardwareEnvironment(
             cpu_model=cpu_model,
@@ -300,7 +323,10 @@ class HardwareAdaptiveGovernor:
                 chunk_chars = 800
                 allows_gpu = False
                 fallback = "CPU_IN_MEMORY"
-                summary = f"High-memory workstation CPU ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM)."
+                if env.gpu_available and not env.cuda_available:
+                    summary = f"High-memory workstation CPU ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM). Physical GPU detected ({env.gpu_name}) but active PyTorch build is CPU-only; executing CPU-first."
+                else:
+                    summary = f"High-memory workstation CPU ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM)."
             else:
                 profile = HardwareExecutionProfile.BALANCED
                 device = torch.device("cpu")
@@ -310,7 +336,10 @@ class HardwareAdaptiveGovernor:
                 chunk_chars = 500
                 allows_gpu = False
                 fallback = "STANDARD_CPU"
-                summary = f"Balanced CPU execution ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM)."
+                if env.gpu_available and not env.cuda_available:
+                    summary = f"Balanced CPU execution ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM). Physical GPU detected ({env.gpu_name}) but active PyTorch build is CPU-only; executing CPU-first."
+                else:
+                    summary = f"Balanced CPU execution ({env.physical_cores} cores, {env.available_ram_gb:.1f} GB RAM)."
 
         return ResourceAllocationBudget(
             profile=profile,
@@ -465,6 +494,13 @@ class HardwareDiagnostics:
         env = env or HardwareDiscovery.probe()
         budget = budget or HardwareAdaptiveGovernor.select_profile(env)
 
+        if budget.allows_gpu_execution:
+            gpu_status = "AVAILABLE FOR SUPPORTED OPERATIONS (CUDA Accelerated)"
+        elif env.gpu_available and not env.cuda_available:
+            gpu_status = f"DETECTED ({env.gpu_name}) — PyTorch build is CPU-only; executing CPU-first"
+        else:
+            gpu_status = "CPU-FIRST GOVERNED (GPU idle or unneeded)"
+
         return {
             "hardware_profile": budget.profile.value,
             "cpu_model": env.cpu_model,
@@ -475,10 +511,11 @@ class HardwareDiagnostics:
             "gpu_detected": env.gpu_available,
             "gpu_name": env.gpu_name or "None",
             "gpu_vram_gb": round(env.gpu_vram_gb, 2) if env.gpu_available else 0.0,
+            "cuda_available": env.cuda_available,
             "selected_device": str(budget.selected_device),
             "execution_threads": budget.allocated_threads,
             "default_chunk_chars": budget.default_chunk_chars,
             "fallback_policy": budget.fallback_policy,
             "yield_priority_to_user": budget.yield_priority_to_user,
-            "gpu_support_status": "AVAILABLE FOR SUPPORTED OPERATIONS" if budget.allows_gpu_execution else "CPU-FIRST GOVERNED (GPU idle or unneeded)",
+            "gpu_support_status": gpu_status,
         }

@@ -209,3 +209,27 @@ def test_hardware_diagnostics_formatting():
     for k, v in diag.items():
         assert "chain_of_thought" not in str(v).lower()
         assert "hidden_state" not in str(v).lower()
+
+
+def test_hardware_execution_cuda_or_cpu_fallback():
+    """Verify tensor execution on selected hardware device or graceful fallback."""
+    env = HardwareDiscovery.probe()
+    budget = HardwareAdaptiveGovernor.select_profile(env)
+
+    device = budget.selected_device
+    if budget.allows_gpu_execution and torch.cuda.is_available():
+        # Execute tensor operation on CUDA
+        t1 = torch.tensor([1.0, 2.0], device=device)
+        t2 = torch.tensor([3.0, 4.0], device=device)
+        t3 = t1 + t2
+        torch.cuda.synchronize()
+        res = t3.cpu().tolist()
+        assert res == [4.0, 6.0]
+        # Verify bounded VRAM budget (not reserving all VRAM)
+        assert torch.cuda.memory_allocated() < budget.max_vram_budget_bytes
+    else:
+        # CPU execution
+        t1 = torch.tensor([1.0, 2.0], device=torch.device("cpu"))
+        t2 = torch.tensor([3.0, 4.0], device=torch.device("cpu"))
+        t3 = t1 + t2
+        assert t3.tolist() == [4.0, 6.0]
