@@ -405,20 +405,28 @@ class CompositionalSentenceParser:
         is_def_query = (
             any(w in words_low for w in ["define", "definition", "paribhasha", "arth"])
             or "meaning of" in low
-            or ("what is" in low and ("computer" in low or "system" in low or "device" in low))
+            or re.search(r"\bwhat\s+is\s+(?:a|an|the)?\s*([a-zA-Z0-9_\-]+)", low) is not None
             or re.search(r"\bki\s+(?:definition|defination|paribhasha)\b", low) is not None
+            or re.search(r"\b(?:kya\s+hai\s+[a-zA-Z0-9_\-]+|[a-zA-Z0-9_\-]+\s+kya\s+hai)\b", low) is not None
         )
 
         # Check incomplete/truncated fragments requiring clarification
         # e.g., "Computer is", "Computer is an ?", "System is a", or input of 1-3 words ending in copula/determiner
+        # IMPORTANT: Do not treat full questions ("Computer kya hai?"), identity assertions ("Mera naam X hai"), or definition queries as incomplete.
         clean_punct = re.sub(r"[\?\.!,;:]+$", "", cleaned).strip()
         tokens_no_punc = clean_punct.split()
         is_incomplete = False
         clarification_reason = None
 
-        if len(tokens_no_punc) <= 4 and tokens_no_punc:
+        is_identity_statement = bool(re.search(r"\b(?:my\s+name\s+is|mera\s+naam|main\s+hoon)\b", low))
+
+        if not is_def_query and not is_identity_statement and len(tokens_no_punc) <= 4 and tokens_no_punc:
             last_tok = tokens_no_punc[-1].lower()
-            if last_tok in {"is", "are", "am", "hai", "tha", "thi", "a", "an", "the", "ek"}:
+            # If the statement is just "Subject is/are" (e.g. "Computer is", "System is a") without a predicate
+            if (
+                last_tok in {"is", "are", "am", "a", "an", "the", "ek"}
+                or (last_tok in {"hai", "tha", "thi"} and len(tokens_no_punc) <= 2 and not any(w in words_low for w in ["kya", "kaise", "kahan", "naam"]))
+            ):
                 is_incomplete = True
                 clarification_reason = f"Statement ends abruptly on copula or determiner '{last_tok}'"
 
@@ -484,22 +492,29 @@ class CompositionalSentenceParser:
 
         if is_def_query:
             predicate_rel = "DEFINITION"
-            # Try extracting entity after 'define' or 'meaning of' or 'definition of'
+            # Try extracting entity via word order variants:
+            m_post_kya = re.search(r"([A-Za-z0-9_\-]+)\s+kya\s+hai", cleaned, re.IGNORECASE)
+            m_pre_kya = re.search(r"kya\s+hai\s+([A-Za-z0-9_\-]+)", cleaned, re.IGNORECASE)
             m_def = re.search(r"\b(?:define|meaning\s+of|definition\s+of)\s+([A-Za-z0-9_\-]+)", cleaned, re.IGNORECASE)
-            if m_def:
+            m_what = re.search(r"\bwhat\s+is\s+(?:a|an|the)?\s*([A-Za-z0-9_\-]+)", cleaned, re.IGNORECASE)
+            m_hing = re.search(r"([A-Za-z0-9_\-]+)\s+ki\s+(?:definition|defination|paribhasha)", cleaned, re.IGNORECASE)
+
+            if m_post_kya:
+                subject = m_post_kya.group(1).strip()
+            elif m_pre_kya:
+                subject = m_pre_kya.group(1).strip()
+            elif m_def:
                 subject = m_def.group(1).strip()
-            else:
-                m_what = re.search(r"\bwhat\s+is\s+(?:a|an|the)?\s*([A-Za-z0-9_\-]+)", cleaned, re.IGNORECASE)
-                if m_what:
-                    subject = m_what.group(1).strip()
-                else:
-                    m_hing = re.search(r"([A-Za-z0-9_\-]+)\s+ki\s+(?:definition|defination|paribhasha)", cleaned, re.IGNORECASE)
-                    if m_hing:
-                        subject = m_hing.group(1).strip()
-                    elif "computer" in low:
-                        subject = "computer"
-                    elif entities:
-                        subject = entities[0]
+            elif m_what:
+                subject = m_what.group(1).strip()
+            elif m_hing:
+                subject = m_hing.group(1).strip()
+            elif "computer" in low:
+                subject = "computer"
+            elif "cpu" in low:
+                subject = "cpu"
+            elif entities:
+                subject = entities[0]
 
             if subject and subject not in entities:
                 entities.append(subject)

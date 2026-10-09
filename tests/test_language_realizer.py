@@ -257,6 +257,140 @@ def test_language_understanding_defects_and_preservation():
     assert "Ram lives in Delhi." in p7["final_response"]
 
 
+def test_user_identity_memory_and_queries():
+    """
+    Verify personal identity extraction, profile storage with provenance,
+    and truthful retrieval vs honest abstention.
+    1. 'My name is Abhimanyu Vaishnav.' -> User profile stored.
+    2. 'What is my name?' -> 'Your name is Abhimanyu Vaishnav.'
+    3. 'Mera naam Abhimanyu hai.' -> 'Aapse milkar accha laga, Abhimanyu!'
+    4. 'Mera naam kya hai?' -> 'Aapka naam Abhimanyu hai.'
+    5. Compound: 'Main bhi thik hu, mera naam Abhimanyu hai.' -> stores name, doesn't get blocked by social greeting.
+    6. 'Can you remind me what my name is?' -> retrieves correctly.
+    7. Negative: Fresh session with no name assertion -> honest abstention, no guessing.
+    """
+    # Test 1 & 2: English identity flow
+    session_eng = ChakrViewRuntimeSession()
+    # Check negative before providing name
+    neg_q = session_eng.process_input("What is my name?")
+    assert neg_q["intent"] == ConversationalIntent.USER_IDENTITY_QUERY
+    assert neg_q["decision"] == "ABSTAIN"
+    assert "do not know your name yet" in neg_q["final_response"].lower()
+
+    t_assert_eng = session_eng.process_input("My name is Abhimanyu Vaishnav.")
+    assert t_assert_eng["decision"] == "IDENTITY_ACQUIRED"
+    assert "Abhimanyu Vaishnav" in t_assert_eng["final_response"]
+    assert session_eng.context_tracker.user_profile.has_fact("name")
+    assert session_eng.context_tracker.user_profile.get_fact("name").value == "Abhimanyu Vaishnav"
+    assert session_eng.context_tracker.user_profile.get_fact("name").provenance == "USER_INPUT"
+
+    t_query_eng = session_eng.process_input("What is my name?")
+    assert t_query_eng["decision"] == "ANSWER"
+    assert "Abhimanyu Vaishnav" in t_query_eng["final_response"]
+    assert "Your name is Abhimanyu Vaishnav." in t_query_eng["final_response"]
+
+    t_remind = session_eng.process_input("Can you remind me what my name is?")
+    assert t_remind["decision"] == "ANSWER"
+    assert "Abhimanyu Vaishnav" in t_remind["final_response"]
+
+    # Test 3 & 4: Hinglish identity flow
+    session_hing = ChakrViewRuntimeSession()
+    t_assert_hing = session_hing.process_input("Mera naam Abhimanyu hai.")
+    assert t_assert_hing["decision"] == "IDENTITY_ACQUIRED"
+    assert "Abhimanyu" in t_assert_hing["final_response"]
+    assert session_hing.context_tracker.user_profile.get_fact("name").value == "Abhimanyu"
+
+    t_query_hing = session_hing.process_input("Mera naam kya hai?")
+    assert t_query_hing["decision"] == "ANSWER"
+    assert "Aapka naam Abhimanyu hai." in t_query_hing["final_response"]
+
+    # Test 5: Compound greeting + identity assertion
+    session_compound = ChakrViewRuntimeSession()
+    t_compound = session_compound.process_input("Main bhi thik hu, mera naam Abhimanyu hai.")
+    assert t_compound["decision"] == "IDENTITY_ACQUIRED"
+    assert "Abhimanyu" in t_compound["final_response"]
+    assert session_compound.context_tracker.user_profile.has_fact("name")
+    assert session_compound.context_tracker.user_profile.get_fact("name").value == "Abhimanyu"
+
+    t_followup = session_compound.process_input("What is my name?")
+    assert "Abhimanyu" in t_followup["final_response"]
+
+
+def test_generalized_definition_routing_and_cpu():
+    """
+    Verify generalized definition-query routing across word order variations,
+    punctuation, and verified built-in definition for CPU and computer.
+    1. 'What is a computer?'
+    2. 'Kya hai computer?'
+    3. 'Computer kya hai?'
+    4. 'Computer ki definition batao.'
+    5. 'CPU kya hai?'
+    6. 'Define CPU.'
+    7. Negative: Unknown concept honest abstention ('Define Zorvax-917').
+    """
+    session = ChakrViewRuntimeSession()
+
+    def_queries = [
+        ("What is a computer?", "computer", "electronic device"),
+        ("Kya hai computer?", "computer", "electronic device"),
+        ("Computer kya hai?", "computer", "electronic device"),
+        ("Computer ki definition batao.", "computer", "electronic device"),
+        ("CPU kya hai?", "cpu", "Central Processing Unit"),
+        ("Define CPU.", "cpu", "Central Processing Unit"),
+    ]
+
+    for q, term, expected_substr in def_queries:
+        res = session.process_input(q)
+        assert res["intent"] == ConversationalIntent.DEFINITION_QUERY, f"Failed for {q}"
+        assert res["decision"] == "ANSWER", f"Failed for {q}"
+        assert expected_substr.lower() in res["final_response"].lower(), f"Expected '{expected_substr}' in '{res['final_response']}' for query '{q}'"
+        assert res["evidence_status"] == "BUILTIN_KNOWLEDGE_STORE"
+
+    # Negative test: Unknown concept honestly abstains
+    res_unknown = session.process_input("Define Zorvax-917")
+    assert res_unknown["decision"] == "ABSTAIN"
+    assert res_unknown["evidence_status"] == "MISSING_BUILTIN_KNOWLEDGE"
+    assert "Zorvax-917" in res_unknown["final_response"]
+
+
+def test_compositional_ram_live_sequence():
+    """
+    Test exact 4-step sequence from requirement:
+    1. 'Ram lives in Delhi.'
+    2. 'Where does Ram live?'
+    3. 'Where Ram lives?'
+    4. 'Where does he live?'
+    Followed by negative test on missing fact (unknown person) without hallucination.
+    """
+    session = ChakrViewRuntimeSession()
+
+    # Step 1: Proposition assertion
+    s1 = session.process_input("Ram lives in Delhi.")
+    assert s1["decision"] == "BELIEF_ACQUIRED"
+    assert "Ram lives in Delhi." in s1["final_response"]
+
+    # Step 2: Where does Ram live?
+    s2 = session.process_input("Where does Ram live?")
+    assert s2["decision"] == "ANSWER"
+    assert "Ram lives in Delhi." in s2["final_response"]
+
+    # Step 3: Where Ram lives?
+    s3 = session.process_input("Where Ram lives?")
+    assert s3["decision"] == "ANSWER"
+    assert "Ram lives in Delhi." in s3["final_response"]
+
+    # Step 4: Where does he live?
+    s4 = session.process_input("Where does he live?")
+    assert s4["decision"] == "ANSWER"
+    assert "Ram lives in Delhi." in s4["final_response"]
+
+    # Negative test: missing fact for unmentioned person
+    s_neg = session.process_input("Where does Suresh live?")
+    assert s_neg["decision"] == "ABSTAIN"
+    assert "Delhi" not in s_neg["final_response"]
+    assert "verified evidence" in s_neg["final_response"].lower() or "pramaan" in s_neg["final_response"].lower() or "maaf" in s_neg["final_response"].lower()
+
+
 def test_canonical_baseline_intact():
     """Verify that language realization layers leave canonical baseline bit-exact."""
     torch.manual_seed(42)

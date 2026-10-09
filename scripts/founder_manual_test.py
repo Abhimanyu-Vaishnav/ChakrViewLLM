@@ -157,6 +157,47 @@ class ChakrViewRuntimeSession:
         if compositional_parse.mood == SentenceMood.INCOMPLETE or compositional_parse.requires_clarification:
             intent = ConversationalIntent.CLARIFICATION
 
+        # Check for user identity query first
+        is_identity_query = bool(re.search(
+            r"\b(?:what\s+is\s+my\s+name|mera\s+naam\s+kya\s+hai|remind\s+me\s+what\s+my\s+name\s+is|can\s+you\s+remind\s+me\s+what\s+my\s+name\s+is|mera\s+naam\s+kya)\b",
+            raw_text,
+            re.IGNORECASE,
+        )) or intent == ConversationalIntent.USER_IDENTITY_QUERY
+
+        if is_identity_query:
+            intent = ConversationalIntent.USER_IDENTITY_QUERY
+        else:
+            # Check for user identity assertion in input (English and Hinglish, standalone or compound)
+            # Patterns: "My name is Abhimanyu Vaishnav.", "Mera naam Abhimanyu hai.", "Main bhi thik hu, mera naam Abhimanyu hai."
+            name_assertion_match = re.search(
+                r"\b(?:my\s+name\s+is|mera\s+naam(?:\s+bhi)?|main\s+hoon|mai\s+hu)\s+([A-Za-z0-9_\- ]+?)(?:\s+hai|\s+hoon|\.|\!|\?|$)",
+                raw_text,
+                re.IGNORECASE,
+            )
+            if name_assertion_match:
+                extracted_name = name_assertion_match.group(1).strip()
+                # Clean common words if included at end
+                extracted_name = re.sub(r"\b(hai|hoon|hu|theek|thik)\b.*$", "", extracted_name, flags=re.IGNORECASE).strip()
+                if extracted_name and extracted_name.lower() not in ("kya", "kya hai", "what"):
+                    self.context_tracker.user_profile.set_fact(
+                        attribute="name",
+                        value=extracted_name,
+                        confidence=1.0,
+                        provenance="USER_INPUT",
+                    )
+                    self.candidate_learning_ledger.submit_candidate_fact(
+                        raw_input=raw_text,
+                        normalized_input=norm_result.cleaned_text,
+                        subject="User",
+                        relation="HAS_NAME",
+                        value=extracted_name,
+                        polarity=Polarity.AFFIRMATIVE,
+                        provenance="USER_IDENTITY_INPUT",
+                    )
+                    # If this turn is primarily about identity or a compound check-in, set identity intent
+                    if intent in (ConversationalIntent.PROPOSITION, ConversationalIntent.SOCIAL_CHECK_IN, ConversationalIntent.GREETING, ConversationalIntent.USER_IDENTITY_ASSERTION):
+                        intent = ConversationalIntent.USER_IDENTITY_ASSERTION
+
         # 3. Conversational context reference resolution
         # E.g. "Where does he live?" or "What about his city?"
         processed_text = norm_result.cleaned_text
@@ -206,13 +247,47 @@ class ChakrViewRuntimeSession:
         unknown_entities = ["zorvax", "zorvax-917", "atlantis", "kavix", "eryndor", "norlath", "zethra"]
         is_unknown_query = any(ent in raw_text.lower() for ent in unknown_entities) or (intent == ConversationalIntent.UNKNOWN_QUERY)
 
-        # A. Greetings / Social Check-ins / Casual
-        if intent in (ConversationalIntent.GREETING, ConversationalIntent.SOCIAL_CHECK_IN):
+        # A. User Identity Assertion
+        if intent == ConversationalIntent.USER_IDENTITY_ASSERTION:
+            strategy = "USER_PROFILE_STORAGE"
+            name_fact = self.context_tracker.user_profile.get_fact("name")
+            if name_fact:
+                target_subject = "User"
+                target_relation = "HAS_NAME"
+                resolved_value = name_fact.value
+                decision = "IDENTITY_ACQUIRED"
+                confidence = 1.00
+                memory_status = f"STORED_PROFILE ('{name_fact.value}')"
+                evidence_status = "USER_ASSERTION"
+                semantic_repr = f"(User) --[HAS_NAME]--> ({name_fact.value})"
+
+        # A2. User Identity Query
+        elif intent == ConversationalIntent.USER_IDENTITY_QUERY:
+            strategy = "USER_PROFILE_RETRIEVAL"
+            name_fact = self.context_tracker.user_profile.get_fact("name")
+            target_subject = "User"
+            target_relation = "USER_NAME"
+            if name_fact:
+                resolved_value = name_fact.value
+                decision = "ANSWER"
+                confidence = name_fact.confidence
+                memory_status = f"PROFILE_FOUND ('{name_fact.value}')"
+                evidence_status = "USER_PROFILE_STORE"
+                semantic_repr = f"(User) --[USER_NAME]--> ({name_fact.value})"
+            else:
+                decision = "ABSTAIN"
+                confidence = 0.0
+                memory_status = "NO_USER_PROFILE_NAME"
+                evidence_status = "MISSING_IDENTITY_RECORD"
+                semantic_repr = "(User) --[USER_NAME]--> (UNKNOWN)"
+
+        # B. Greetings / Social Check-ins / Casual
+        elif intent in (ConversationalIntent.GREETING, ConversationalIntent.SOCIAL_CHECK_IN):
             decision = "CONVERSATIONAL_RESPONSE"
             confidence = 1.00
             strategy = "CONVERSATIONAL_INTERACTION"
 
-        # B. Definition Query (e.g. "Define computer", "computer ki defination btao", "Define Zorvax-917")
+        # C. Definition Query (e.g. "Define computer", "computer ki defination btao", "Define Zorvax-917", "CPU kya hai")
         elif intent == ConversationalIntent.DEFINITION_QUERY:
             strategy = "BUILTIN_KNOWLEDGE_RETRIEVAL"
             term = BuiltInKnowledgeRepository.extract_term(raw_text)
@@ -236,7 +311,7 @@ class ChakrViewRuntimeSession:
                 confidence = 0.0
                 evidence_status = "MISSING_BUILTIN_KNOWLEDGE"
 
-        # C. Planning / Task Request
+        # D. Planning / Task Request
         elif intent == ConversationalIntent.TASK_REQUEST or "plan" in raw_text.lower():
             strategy = "HIERARCHICAL_PLANNING"
             plan = HierarchicalPlanner.create_plan(raw_text)
@@ -245,7 +320,7 @@ class ChakrViewRuntimeSession:
             confidence = 0.90
             plan_details = f"Plan '{plan.plan_id}' constructed with {len(plan.subgoals)} subgoals: [{subgoal_steps}]."
 
-        # D. Grounded Relational Statements or Questions
+        # E. Grounded Relational Statements or Questions
         elif grounding_res.is_grounded and grounding_res.extracted_triple:
             triple = grounding_res.extracted_triple
             target_subject = triple.subject
@@ -303,7 +378,7 @@ class ChakrViewRuntimeSession:
                         confidence = 0.0
                         evidence_status = "MISSING"
 
-        # D. Non-grounded query / unknown / clarification
+        # F. Non-grounded query / unknown / clarification
         else:
             if is_unknown_query:
                 decision = "ABSTAIN"
@@ -313,16 +388,30 @@ class ChakrViewRuntimeSession:
                 decision = "REQUEST_CLARIFICATION"
                 confidence = 0.40
             else:
-                # Check if this is a query about previous subject in context (e.g. "Where does Ram live?")
-                latest_subj = self.context_tracker.get_latest_subject()
-                stored_belief = self.memory_bridge.get_belief(latest_subj or "", "LIVES_IN") if latest_subj else None
+                # Check if this is a query about specific subject or previous subject in context
+                # E.g. "Where does Ram live?", "Where Ram lives?", "Where does he live?", "Where he lives?"
+                m_where = re.search(r"\bwhere\s+(?:does\s+)?([A-Za-z0-9_\-]+)\s+live[s]?", raw_text, re.IGNORECASE)
+                queried_subj = m_where.group(1).strip() if m_where else None
+                if queried_subj and queried_subj.lower() in ("he", "she", "his", "her", "unka", "uska", "vo", "woh"):
+                    queried_subj = self.context_tracker.get_latest_subject()
+                active_subj = queried_subj or self.context_tracker.get_latest_subject()
+
+                stored_belief = self.memory_bridge.get_belief(active_subj or "", "LIVES_IN") if active_subj else None
                 if stored_belief and ("where" in raw_text.lower() or "kahan" in raw_text.lower() or "city" in raw_text.lower()):
                     decision = "ANSWER"
                     confidence = stored_belief.confidence
-                    target_subject = latest_subj
+                    target_subject = active_subj
                     target_relation = "LIVES_IN"
                     resolved_value = stored_belief.value
                     memory_status = f"STORED ('{stored_belief.value}')"
+                    semantic_repr = f"({target_subject}) --[LIVES_IN]--> ({resolved_value})"
+                elif active_subj and ("where" in raw_text.lower() or "kahan" in raw_text.lower()):
+                    # Honest abstention for unknown or unmentioned person's residence
+                    decision = "ABSTAIN"
+                    confidence = 0.0
+                    evidence_status = f"NO_FACT_FOR_{active_subj}"
+                    target_subject = active_subj
+                    target_relation = "LIVES_IN"
                 else:
                     decision = "EVALUATE_UNSTRUCTURED"
                     confidence = 0.50

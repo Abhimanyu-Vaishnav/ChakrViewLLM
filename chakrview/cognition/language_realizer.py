@@ -20,6 +20,7 @@ Principles:
 from __future__ import annotations
 
 import re
+import time
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, Any, List, Optional, Tuple
@@ -41,8 +42,57 @@ class ConversationalIntent(str, Enum):
     TASK_REQUEST = "TASK_REQUEST"
     REASONING_QUERY = "REASONING_QUERY"
     DEFINITION_QUERY = "DEFINITION_QUERY"
+    USER_IDENTITY_ASSERTION = "USER_IDENTITY_ASSERTION"
+    USER_IDENTITY_QUERY = "USER_IDENTITY_QUERY"
     UNKNOWN_QUERY = "UNKNOWN_QUERY"
     CLARIFICATION = "CLARIFICATION"
+
+
+@dataclass
+class UserProfileFact:
+    attribute: str
+    value: str
+    confidence: float = 1.0
+    provenance: str = "USER_INPUT"
+    timestamp: float = field(default_factory=time.time)
+    scope: str = "persistent_user_profile"
+
+
+class UserProfileMemory:
+    """
+    Structured user profile memory distinguishing persistent user-profile facts
+    from transient conversational session memory.
+    """
+
+    def __init__(self):
+        self._facts: Dict[str, UserProfileFact] = {}
+
+    def set_fact(
+        self,
+        attribute: str,
+        value: str,
+        confidence: float = 1.0,
+        provenance: str = "USER_INPUT",
+    ) -> UserProfileFact:
+        fact = UserProfileFact(
+            attribute=attribute.strip().lower(),
+            value=value.strip(),
+            confidence=confidence,
+            provenance=provenance,
+            timestamp=time.time(),
+            scope="persistent_user_profile",
+        )
+        self._facts[fact.attribute] = fact
+        return fact
+
+    def get_fact(self, attribute: str) -> Optional[UserProfileFact]:
+        return self._facts.get(attribute.strip().lower())
+
+    def has_fact(self, attribute: str) -> bool:
+        return attribute.strip().lower() in self._facts
+
+    def clear(self) -> None:
+        self._facts.clear()
 
 
 @dataclass
@@ -60,11 +110,13 @@ class ConversationalTurn:
 class ConversationalContextTracker:
     """
     Maintains bounded multi-turn conversational context for reference resolution.
+    Explicitly tracks ephemeral session memory and links to user profile memory.
     """
 
     def __init__(self, max_turns: int = 6):
         self.max_turns = max_turns
         self.history: List[ConversationalTurn] = []
+        self.user_profile = UserProfileMemory()
 
     def record_turn(self, turn: ConversationalTurn) -> None:
         self.history.append(turn)
@@ -85,6 +137,7 @@ class ConversationalContextTracker:
 
     def clear(self) -> None:
         self.history.clear()
+        self.user_profile.clear()
 
 
 class LanguageClassifier:
@@ -170,9 +223,27 @@ class IntentClassifier:
         r"^([a-zA-Z0-9_\- ]{1,30})\s+(is|are|hai)$",
     ]
 
+    USER_IDENTITY_PATTERNS = [
+        r"\b(?:my\s+name\s+is|mera\s+naam|main\s+hoon|mai\s+hu)\s+([A-Za-z0-9_\- ]+)",
+    ]
+
+    USER_NAME_QUERY_PATTERNS = [
+        r"\b(?:what\s+is\s+my\s+name|mera\s+naam\s+kya\s+hai|remind\s+me\s+what\s+my\s+name\s+is|do\s+you\s+know\s+my\s+name|kya\s+tumhe\s+mera\s+naam\s+pata\s+hai)\b",
+    ]
+
     @classmethod
     def classify(cls, text: str, detected_lang: LanguageTag) -> ConversationalIntent:
         clean = text.strip().lower()
+
+        # Check for user identity query first
+        for pat in cls.USER_NAME_QUERY_PATTERNS:
+            if re.search(pat, clean, re.IGNORECASE):
+                return ConversationalIntent.USER_IDENTITY_QUERY
+
+        # Check for user identity assertion
+        # E.g. "My name is Abhimanyu Vaishnav", "Mera naam Abhimanyu hai", "Main bhi thik hu, mera naam Abhimanyu hai"
+        if re.search(r"\b(?:my\s+name\s+is|mera\s+naam)\b", clean, re.IGNORECASE):
+            return ConversationalIntent.USER_IDENTITY_ASSERTION
 
         # Try compositional sentence parser for generalized grammatical mood & intent
         try:
@@ -190,11 +261,15 @@ class IntentClassifier:
         except Exception:
             pass
 
-        # 1. Social check-ins (e.g. "how are you", "tum kaise ho")
+        # 1. Definition queries (generalized English and Hinglish)
         # Ensure compound requests with definition queries (e.g. "Main bhi thik hu, jra muje computer ki defination btao")
         # are recognized as definition query rather than pure social check-in.
         has_definition = any(re.search(pat, clean, re.IGNORECASE) for pat in cls.DEFINITION_PATTERNS)
         if has_definition:
+            return ConversationalIntent.DEFINITION_QUERY
+
+        # Check for generalized Hinglish/English definition patterns: "kya hai X", "X kya hai", "what is X", "define X"
+        if re.search(r"\b(?:kya\s+hai\s+[a-zA-Z0-9_\-]+|[a-zA-Z0-9_\-]+\s+kya\s+hai)\b", clean):
             return ConversationalIntent.DEFINITION_QUERY
 
         for pat in cls.SOCIAL_PATTERNS:
@@ -220,7 +295,9 @@ class IntentClassifier:
         # Detect incomplete definition-style statements e.g. "Computer is", "Computer is an ?", "System is a"
         clean_no_punct = re.sub(r"[\?\.!,;:]+$", "", clean).strip()
         tokens = clean_no_punct.split()
-        if len(tokens) <= 4 and tokens and tokens[-1] in ("is", "are", "hai", "tha", "thi", "a", "an", "the", "ek"):
+        if len(tokens) <= 4 and tokens and tokens[-1] in ("is", "are", "a", "an", "the", "ek"):
+            return ConversationalIntent.CLARIFICATION
+        if len(tokens) <= 2 and tokens and tokens[-1] in ("hai", "tha", "thi") and not any(w in tokens for w in ["kya", "naam", "kaise"]):
             return ConversationalIntent.CLARIFICATION
 
         # 6. Queries vs Propositions
@@ -261,16 +338,37 @@ class BuiltInKnowledgeRepository:
                 "निर्देशों (प्रोग्राम्स) के अनुसार इसे संसाधित (process) करता है, और परिणाम आउटपुट के रूप में देता है।"
             ),
         },
+        "cpu": {
+            "ENGLISH": (
+                "The Central Processing Unit (CPU) is the primary component of a computer that "
+                "executes instructions, performs arithmetic and logic operations, and controls data flow."
+            ),
+            "HINGLISH": (
+                "CPU (Central Processing Unit) computer ka primary processor hai jo instructions execute karta hai, "
+                "arithmetic aur logic operations perform karta hai, aur data flow control karta hai."
+            ),
+            "HINDI": (
+                "सीपीयू (Central Processing Unit) कंप्यूटर का मुख्य प्रोसेसर है जो निर्देशों को निष्पादित करता है "
+                "और अंकगणितीय एवं तार्किक गणनाएं करता है।"
+            ),
+        },
     }
 
     @classmethod
     def extract_term(cls, text: str) -> Optional[str]:
         clean = text.lower()
+        # Direct check for known terms
         for term in cls.DEFINITIONS.keys():
             if re.search(rf"\b{term}\b", clean):
                 return term
-        # Fallback: extract target term syntactically from definition queries (e.g. 'Define Zorvax-917')
+        # Fallback: extract target term syntactically from definition queries
         t = text.strip()
+        m_kya_post = re.search(r"([A-Za-z0-9_\-]+)\s+kya\s+hai", t, re.IGNORECASE)
+        if m_kya_post:
+            return m_kya_post.group(1).strip()
+        m_kya_pre = re.search(r"kya\s+hai\s+([A-Za-z0-9_\-]+)", t, re.IGNORECASE)
+        if m_kya_pre:
+            return m_kya_pre.group(1).strip()
         m = re.search(r"\b(?:define|meaning\s+of|definition\s+of|defination\s+of)\s+([A-Za-z0-9_\-]+)", t, re.IGNORECASE)
         if m:
             return m.group(1).strip()
@@ -353,14 +451,49 @@ class LanguageRealizer:
             else:
                 return f"I do not have verified built-in knowledge defining '{target_display}'. Preserving honest abstention."
 
-        # D. Incomplete or ambiguous inputs (e.g. "Computer is", "Computer is an ?")
+        # D. User Identity Assertion & Query
+        if intent == ConversationalIntent.USER_IDENTITY_ASSERTION or cognitive_decision == "IDENTITY_ACQUIRED":
+            user_name = value or subject or (context_tracker.user_profile.get_fact("name").value if context_tracker and context_tracker.user_profile.has_fact("name") else None)
+            if user_name:
+                if language == LanguageTag.HINDI:
+                    return f"नमस्ते {user_name}! मैंने आपका नाम याद रख लिया है।"
+                elif language == LanguageTag.HINGLISH:
+                    return f"Aapse milkar accha laga, {user_name}! Maine aapka naam yaad rakh liya hai."
+                else:
+                    return f"Nice to meet you, {user_name}! I have recorded your name in your profile."
+            else:
+                if language in (LanguageTag.HINDI, LanguageTag.HINGLISH):
+                    return "Samajh gaya! Maine aapki jankari record kar li hai."
+                else:
+                    return "Understood. I have recorded your information."
+
+        if intent == ConversationalIntent.USER_IDENTITY_QUERY or (target_rel := relation) == "USER_NAME":
+            name_fact = context_tracker.user_profile.get_fact("name") if context_tracker else None
+            user_name = value or (name_fact.value if name_fact else None)
+            if user_name:
+                if language == LanguageTag.HINDI:
+                    return f"आपका नाम {user_name} है।"
+                elif language == LanguageTag.HINGLISH:
+                    return f"Aapka naam {user_name} hai."
+                else:
+                    return f"Your name is {user_name}."
+            else:
+                # Honest abstention when fact has not been provided
+                if language == LanguageTag.HINDI:
+                    return "मुझे अभी आपका नाम नहीं पता है। आपने अभी तक अपना नाम नहीं बताया है।"
+                elif language == LanguageTag.HINGLISH:
+                    return "Mujhe abhi aapka naam nahi pata. Aapne abhi tak apna naam nahi bataya hai."
+                else:
+                    return "I do not know your name yet. You have not told me your name."
+
+        # E. Incomplete or ambiguous inputs (e.g. "Computer is", "Computer is an ?")
         if intent == ConversationalIntent.CLARIFICATION:
             if language in (LanguageTag.HINDI, LanguageTag.HINGLISH):
                 return f"Aapka prashna adhura lag raha hai: '{raw_text}'. Kripya poora sentence batayein."
             else:
                 return f"It looks like your statement is incomplete: '{raw_text}'. What would you like to know or record about it?"
 
-        # D. Hierarchical Planning
+        # F. Hierarchical Planning
         if intent == ConversationalIntent.TASK_REQUEST or cognitive_decision == "PLAN_GENERATED":
             if plan_details:
                 return f"Plan generated successfully. {plan_details}"
