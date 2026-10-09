@@ -113,6 +113,13 @@ class ChakrViewRuntimeSession:
         self.context_tracker = ConversationalContextTracker(max_turns=6)
         self.current_task_id = "founder_session_task"
         self.working_memory.initialize_task(self.current_task_id, "Founder Interactive Session")
+        from chakrview.cognition.language_understanding import (
+            TextNormalizer,
+            CompositionalSentenceParser,
+            CandidateLearningLedger,
+            SentenceMood,
+        )
+        self.candidate_learning_ledger = CandidateLearningLedger()
 
         # Hardware discovery & governance
         self.hardware_env = HardwareDiscovery.probe()
@@ -134,23 +141,51 @@ class ChakrViewRuntimeSession:
         raw_text = text.strip()
         ev_map = active_evidence if active_evidence is not None else {}
 
-        # 1. Linguistic classification (English, Hindi, Hinglish)
-        lang_tag = LanguageClassifier.classify(raw_text)
-        intent = IntentClassifier.classify(raw_text, lang_tag)
+        # 1. Input normalization and compositional understanding
+        from chakrview.cognition.language_understanding import (
+            TextNormalizer,
+            CompositionalSentenceParser,
+            SentenceMood,
+            Polarity,
+        )
+        norm_result = TextNormalizer.normalize(raw_text)
+        compositional_parse = CompositionalSentenceParser.parse(norm_result)
 
-        # 2. Conversational context reference resolution
+        # 2. Linguistic classification (English, Hindi, Hinglish)
+        lang_tag = LanguageClassifier.classify(norm_result.cleaned_text)
+        intent = IntentClassifier.classify(norm_result.cleaned_text, lang_tag)
+        if compositional_parse.mood == SentenceMood.INCOMPLETE or compositional_parse.requires_clarification:
+            intent = ConversationalIntent.CLARIFICATION
+
+        # 3. Conversational context reference resolution
         # E.g. "Where does he live?" or "What about his city?"
-        processed_text = raw_text
-        pronoun_match = re.search(r"\b(he|she|his|her|unka|uska|vo|woh)\b", raw_text, re.IGNORECASE)
+        processed_text = norm_result.cleaned_text
+        pronoun_match = re.search(r"\b(he|she|his|her|unka|uska|vo|woh)\b", processed_text, re.IGNORECASE)
         latest_subj = self.context_tracker.get_latest_subject()
         if pronoun_match and latest_subj:
             # Substitute reference for semantic grounding
-            processed_text = re.sub(r"\b(he|she|his|her|unka|uska|vo|woh)\b", latest_subj, raw_text, flags=re.IGNORECASE)
+            processed_text = re.sub(r"\b(he|she|his|her|unka|uska|vo|woh)\b", latest_subj, processed_text, flags=re.IGNORECASE)
 
-        # 3. Relational grounding
+        # 4. Relational grounding (compositional parse or bridge)
         grounding_res = LanguageSemanticGroundingBridge.ground_text_to_semantic_triple(processed_text)
+        if not grounding_res.is_grounded and compositional_parse.subject and compositional_parse.predicate_relation and compositional_parse.target_object:
+            from chakrview.cognition.v060_candidate.language_grounding import GroundedTriple, GroundingResult
+            c_triple = GroundedTriple(
+                subject=compositional_parse.subject,
+                relation=compositional_parse.predicate_relation,
+                object=compositional_parse.target_object,
+                surface_form=norm_result.cleaned_text,
+                confidence=compositional_parse.confidence,
+            )
+            grounding_res = GroundingResult(
+                input_text=norm_result.cleaned_text,
+                extracted_triple=c_triple,
+                canonical_semantic_form=f"({c_triple.subject}) --[{c_triple.relation}]--> ({c_triple.object})",
+                is_grounded=True,
+                rationale="Compositionally parsed relational sentence structure.",
+            )
 
-        # 4. Memory & Evidence status
+        # 5. Memory & Evidence status
         semantic_repr = (
             grounding_res.canonical_semantic_form
             if grounding_res.is_grounded
@@ -249,6 +284,16 @@ class ChakrViewRuntimeSession:
                             observed_timestamp=time.time(),
                         )
                         self.memory_bridge.store_belief(new_rec)
+                        # Record candidate learning record for non-parametric governance
+                        self.candidate_learning_ledger.submit_candidate_fact(
+                            raw_input=raw_text,
+                            normalized_input=norm_result.cleaned_text,
+                            subject=triple.subject,
+                            relation=triple.relation,
+                            value=triple.object,
+                            polarity=compositional_parse.polarity,
+                            provenance="USER_CONVERSATIONAL_INPUT",
+                        )
                         memory_status = f"RECORDED ('{triple.object}')"
                         decision = "BELIEF_ACQUIRED"
                         confidence = 0.90

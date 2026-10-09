@@ -174,6 +174,22 @@ class IntentClassifier:
     def classify(cls, text: str, detected_lang: LanguageTag) -> ConversationalIntent:
         clean = text.strip().lower()
 
+        # Try compositional sentence parser for generalized grammatical mood & intent
+        try:
+            from chakrview.cognition.language_understanding import (
+                TextNormalizer,
+                CompositionalSentenceParser,
+                SentenceMood,
+            )
+            norm = TextNormalizer.normalize(text)
+            parsed = CompositionalSentenceParser.parse(norm)
+            if parsed.mood == SentenceMood.INCOMPLETE or parsed.requires_clarification:
+                return ConversationalIntent.CLARIFICATION
+            if parsed.predicate_relation == "DEFINITION":
+                return ConversationalIntent.DEFINITION_QUERY
+        except Exception:
+            pass
+
         # 1. Social check-ins (e.g. "how are you", "tum kaise ho")
         # Ensure compound requests with definition queries (e.g. "Main bhi thik hu, jra muje computer ki defination btao")
         # are recognized as definition query rather than pure social check-in.
