@@ -78,12 +78,14 @@ def verify_all() -> bool:
             "chakrview/runtime/hardware_adaptive_engine.py",
             "chakrview/runtime/recovery.py",
             "chakrview/runtime/__init__.py",
+            "chakrview/cognition/controller.py",
             "chakrview/cognition/language_realizer.py",
             "chakrview/cognition/language_understanding.py",
             "chakrview/cognition/strict_recurrent_i4_evaluation.py",
             "tests/test_hardware_adaptive_engine.py",
             "tests/test_contract_execution_paths.py",
             "tests/test_durable_execution_journal.py",
+            "tests/test_end_to_end_orchestration_recovery.py",
             "tests/test_language_realizer.py",
             "tests/test_language_understanding.py",
             "docs/architecture/",
@@ -91,6 +93,7 @@ def verify_all() -> bool:
             "docs/releases/",
             "docs/STEP_14_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_15_MASTER_WORK_BATCH_REPORT.md",
+            "docs/STEP_16_MASTER_WORK_BATCH_REPORT.md",
             "README.md",
         )
         untracked = []

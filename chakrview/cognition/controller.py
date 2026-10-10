@@ -37,6 +37,16 @@ from chakrview.cognition.profile import DeploymentProfile, get_desktop_profile
 
 from chakrview.runtime.skills import Skill, SkillRegistry, SkillPolicy
 from chakrview.runtime.context import PromptContextBuilder, AssembledContext, ContextBudget
+from chakrview.runtime.recovery import (
+    DurableExecutionJournal,
+    ExecutionJournalState,
+    JournalChunkRecord,
+    JournalTaskStatus,
+    JournalError,
+    IncompatibleSchemaError,
+    CorruptedJournalError,
+    JOURNAL_SCHEMA_VERSION,
+)
 
 
 @dataclass
@@ -142,9 +152,16 @@ class CognitiveController:
         environment: Optional[Any] = None,
         reasoning_engine: Optional[Any] = None,
         use_reasoning: bool = False,
+        journal_path: Optional[Union[str, Path]] = None,
+        simulate_interrupt_after_step: Optional[str] = None,
     ) -> CognitiveExecutionResult:
         """
         Execute a complete governed cognitive workflow for the given task.
+        
+        If `journal_path` is provided, task execution progress (plan, steps,
+        observations, and execution state) is persisted atomically to disk.
+        If a prior journal exists at `journal_path`, execution resumes from the
+        persisted state, skipping already completed steps idempotently.
         """
         # 1. Normalize task
         if isinstance(task_or_prompt, str):
@@ -160,6 +177,39 @@ class CognitiveController:
         observations: Dict[str, StepObservation] = {}
         memory_candidates: List[MemoryCandidate] = []
         artifacts: List[CognitiveArtifact] = []
+
+        journal: Optional[DurableExecutionJournal] = None
+        journal_state: Optional[ExecutionJournalState] = None
+
+        if journal_path is not None:
+            journal = DurableExecutionJournal(journal_path)
+            if journal.exists():
+                # Load existing journal with task_id verification to prevent cross-task pollution
+                journal_state = journal.load(expected_task_id=task.task_id)
+                # If already completed, restore state and return immediately
+                if journal_state.status == JournalTaskStatus.COMPLETED:
+                    task.status = TaskStatus.COMPLETED
+                    if "task_execution_state" in journal_state.metadata:
+                        task.execution_state.update(journal_state.metadata["task_execution_state"])
+                    plan_dict = journal_state.metadata.get("cognitive_plan")
+                    restored_plan = CognitivePlan.from_dict(plan_dict) if plan_dict else CognitivePlan(plan_id="restored", task_id=task.task_id)
+                    for rec in journal_state.chunks:
+                        if rec.is_committed and rec.result is not None:
+                            obs_dict = rec.result.get("observation")
+                            if obs_dict:
+                                observations[rec.chunk_payload] = StepObservation.from_dict(obs_dict)
+                    trace.finalize()
+                    resp = journal_state.metadata.get("response_text", f"Task '{task.task_id}' already completed.")
+                    return CognitiveExecutionResult(
+                        task=task,
+                        plan=restored_plan,
+                        observations=observations,
+                        artifacts=artifacts,
+                        memory_candidates=[],
+                        trace=trace,
+                        response_text=resp,
+                        success=True,
+                    )
 
         # 2. Skill Selection
         if active_skill is None:
@@ -181,30 +231,37 @@ class CognitiveController:
         task.transition_to(TaskStatus.PLANNING, reason="Initiating bounded cognitive planning.")
         trace.record_event("TASK_STATUS_CHANGE", details={"status": TaskStatus.PLANNING.value})
 
-        # 4. Generate Bounded Plan
-        try:
-            allowed_tools = resolved_skill.policy.allowed_tools if resolved_skill.policy else []
-            plan = self.planner.plan(
-                task=task,
-                active_skill=resolved_skill,
-                available_tools=allowed_tools,
-            )
+        # 4. Generate Bounded Plan or Restore from Journal
+        restored_from_journal = False
+        if journal_state is not None and "cognitive_plan" in journal_state.metadata:
+            plan = CognitivePlan.from_dict(journal_state.metadata["cognitive_plan"])
             trace.plan_id = plan.plan_id
-            trace.record_event("PLAN_CREATED", details={"plan_id": plan.plan_id, "step_count": len(plan.steps)})
-        except Exception as e:
-            task.transition_to(TaskStatus.FAILED, reason=f"Planning failed: {str(e)}")
-            trace.record_event("PLANNING_ERROR", details={"error": str(e)})
-            trace.finalize()
-            return CognitiveExecutionResult(
-                task=task,
-                plan=CognitivePlan(plan_id="empty", task_id=task.task_id),
-                observations={},
-                artifacts=[],
-                memory_candidates=[],
-                trace=trace,
-                response_text=f"Cognitive planning failed: {str(e)}",
-                success=False,
-            )
+            restored_from_journal = True
+            trace.record_event("PLAN_RESTORED_FROM_JOURNAL", details={"plan_id": plan.plan_id, "step_count": len(plan.steps)})
+        else:
+            try:
+                allowed_tools = resolved_skill.policy.allowed_tools if resolved_skill.policy else []
+                plan = self.planner.plan(
+                    task=task,
+                    active_skill=resolved_skill,
+                    available_tools=allowed_tools,
+                )
+                trace.plan_id = plan.plan_id
+                trace.record_event("PLAN_CREATED", details={"plan_id": plan.plan_id, "step_count": len(plan.steps)})
+            except Exception as e:
+                task.transition_to(TaskStatus.FAILED, reason=f"Planning failed: {str(e)}")
+                trace.record_event("PLANNING_ERROR", details={"error": str(e)})
+                trace.finalize()
+                return CognitiveExecutionResult(
+                    task=task,
+                    plan=CognitivePlan(plan_id="empty", task_id=task.task_id),
+                    observations={},
+                    artifacts=[],
+                    memory_candidates=[],
+                    trace=trace,
+                    response_text=f"Cognitive planning failed: {str(e)}",
+                    success=False,
+                )
 
         # 5. Build Execution Graph & Transition to READY
         try:
@@ -226,6 +283,56 @@ class CognitiveController:
                 success=False,
             )
 
+        # Initialize or Update Journal on disk
+        if journal is not None:
+            now = time.time()
+            if journal_state is None:
+                chunk_records = [
+                    JournalChunkRecord(
+                        chunk_index=i,
+                        total_chunks=len(plan.steps),
+                        chunk_payload=s.step_id,
+                        is_committed=False,
+                    )
+                    for i, s in enumerate(plan.steps)
+                ]
+                journal_state = ExecutionJournalState(
+                    task_id=task.task_id,
+                    schema_version=JOURNAL_SCHEMA_VERSION,
+                    status=JournalTaskStatus.RUNNING,
+                    total_chunks=len(plan.steps),
+                    completed_chunks_count=0,
+                    chunks=chunk_records,
+                    committed_results=[],
+                    failed_chunk_indices=[],
+                    attempt_count=1,
+                    peak_working_bytes=0,
+                    created_at=now,
+                    updated_at=now,
+                    budget_summary=self.profile.profile_name,
+                    metadata={
+                        "user_request": task.user_request,
+                        "cognitive_plan": plan.to_dict(),
+                        "task_execution_state": dict(task.execution_state),
+                    },
+                )
+                journal.write_atomic(journal_state)
+            else:
+                # Resuming from loaded journal: restore completed observations & task state
+                journal_state.attempt_count += 1
+                journal_state.status = JournalTaskStatus.RUNNING
+                if "task_execution_state" in journal_state.metadata:
+                    task.execution_state.update(journal_state.metadata["task_execution_state"])
+                for rec in journal_state.chunks:
+                    if rec.is_committed and rec.result is not None:
+                        obs_dict = rec.result.get("observation")
+                        if obs_dict:
+                            observations[rec.chunk_payload] = StepObservation.from_dict(obs_dict)
+                        # Mark already-completed step in the graph so it will not re-execute
+                        graph.mark_step_completed(rec.chunk_payload)
+                        trace.record_event("STEP_SKIPPED_ALREADY_COMMITTED", step_id=rec.chunk_payload)
+                journal.write_atomic(journal_state)
+
         # 6. Transition to RUNNING
         task.transition_to(TaskStatus.RUNNING, reason="Starting step execution loop.")
         trace.record_event("TASK_STATUS_CHANGE", details={"status": TaskStatus.RUNNING.value})
@@ -239,6 +346,32 @@ class CognitiveController:
                 active_cap_gate = CapabilityGate(get_standard_capability_registry())
             except Exception:
                 active_cap_gate = None
+
+        # Helper closure to persist journal progress
+        def _sync_journal_step(step_id: str, success: bool, obs: StepObservation, err_msg: Optional[str] = None):
+            if journal is not None and journal_state is not None:
+                for rec in journal_state.chunks:
+                    if rec.chunk_payload == step_id:
+                        rec.attempt_count += 1
+                        if success:
+                            rec.is_committed = True
+                            rec.committed_at = time.time()
+                            rec.result = {
+                                "output": obs.output,
+                                "observation": obs.to_dict(),
+                            }
+                            rec.error = None
+                        else:
+                            rec.error = err_msg or obs.error
+                        break
+                journal_state.completed_chunks_count = sum(1 for c in journal_state.chunks if c.is_committed)
+                journal_state.committed_results = [c.result for c in journal_state.chunks if c.is_committed and c.result is not None]
+                journal_state.metadata["task_execution_state"] = dict(task.execution_state)
+                if not success:
+                    step_idx = next((c.chunk_index for c in journal_state.chunks if c.chunk_payload == step_id), None)
+                    if step_idx is not None and step_idx not in journal_state.failed_chunk_indices:
+                        journal_state.failed_chunk_indices.append(step_idx)
+                journal.write_atomic(journal_state)
 
         # 7. Execution Loop
         while not graph.is_finished():
@@ -289,9 +422,16 @@ class CognitiveController:
                         for state_k in step.output_references.values():
                             task.execution_state[state_k] = observation.output
 
+                    # Persist step completion atomically to journal
+                    _sync_journal_step(step.step_id, success=True, obs=observation)
+
                     trace.record_event("STEP_COMPLETED", step_id=step.step_id, details={
                         "output_summary": str(observation.output)[:120],
                     })
+
+                    # Check for simulated interruption point
+                    if simulate_interrupt_after_step and step.step_id == simulate_interrupt_after_step:
+                        raise KeyboardInterrupt(f"Simulated interruption after step '{step.step_id}'.")
                 else:
                     # Step execution or verification failed
                     if self.recovery_manager.should_retry(step, observation):
@@ -314,6 +454,7 @@ class CognitiveController:
                             reason=f"Step '{step.step_id}' failed: {observation.error or ver_res.notes}",
                         )
                         trace.record_event("ROLLBACK", step_id=step.step_id, details=rollback_record.to_dict())
+                        _sync_journal_step(step.step_id, success=False, obs=observation, err_msg=observation.error or ver_res.notes)
                         break
 
             if graph.has_failed():
@@ -321,6 +462,9 @@ class CognitiveController:
 
         # 8. Post-Execution Evaluation
         if graph.has_failed() or task.status == TaskStatus.ROLLED_BACK:
+            if journal is not None and journal_state is not None:
+                journal_state.status = JournalTaskStatus.ROLLED_BACK if task.status == TaskStatus.ROLLED_BACK else JournalTaskStatus.FAILED
+                journal.write_atomic(journal_state)
             trace.finalize()
             return CognitiveExecutionResult(
                 task=task,
@@ -395,6 +539,15 @@ class CognitiveController:
             resolved_skill=resolved_skill,
             session=session,
         )
+
+        # 13. Persist Final Completion to Journal
+        if journal is not None and journal_state is not None:
+            journal_state.status = JournalTaskStatus.COMPLETED
+            journal_state.completed_chunks_count = len(journal_state.chunks)
+            journal_state.committed_results = [c.result for c in journal_state.chunks if c.is_committed and c.result is not None]
+            journal_state.metadata["task_execution_state"] = dict(task.execution_state)
+            journal_state.metadata["response_text"] = response_text
+            journal.write_atomic(journal_state)
 
         trace.finalize()
         return CognitiveExecutionResult(

@@ -211,6 +211,8 @@ class DurableExecutionJournal:
         """
         Atomically writes execution state to disk using a temporary file
         and atomic replacement. Calculates content SHA-256 before write.
+        Flush and os.fsync are performed on the file, and directory metadata
+        sync is attempted where supported.
         """
         state.updated_at = time.time()
         state.checksum = state.compute_payload_hash()
@@ -233,6 +235,17 @@ class DurableExecutionJournal:
 
             # Atomic replace
             os.replace(temp_path_str, str(self.journal_path))
+
+            # Attempt parent directory sync on POSIX platforms if supported
+            if hasattr(os, "O_DIRECTORY"):
+                try:
+                    dir_fd = os.open(str(target_dir), os.O_RDONLY | os.O_DIRECTORY)
+                    try:
+                        os.fsync(dir_fd)
+                    finally:
+                        os.close(dir_fd)
+                except Exception:
+                    pass
         except Exception as e:
             if os.path.exists(temp_path_str):
                 try:
@@ -241,9 +254,32 @@ class DurableExecutionJournal:
                     pass
             raise JournalError(f"Atomic journal write failed: {e}") from e
 
-    def load(self) -> ExecutionJournalState:
+    def cleanup_abandoned_temp_files(self) -> int:
+        """
+        Removes leftover abandoned temporary journal files in the journal directory.
+        Returns the number of abandoned temp files removed.
+        """
+        target_dir = self.journal_path.parent
+        if not target_dir.exists():
+            return 0
+        prefix = f".{self.journal_path.stem}_"
+        removed_count = 0
+        try:
+            for item in target_dir.iterdir():
+                if item.is_file() and item.name.startswith(prefix) and item.name.endswith(".tmp"):
+                    try:
+                        item.unlink()
+                        removed_count += 1
+                    except OSError:
+                        pass
+        except Exception:
+            pass
+        return removed_count
+
+    def load(self, expected_task_id: Optional[str] = None) -> ExecutionJournalState:
         """
         Loads and cryptographically verifies the journal state from disk.
+        Optionally validates that the journal belongs to expected_task_id.
         """
         if not self.journal_path.is_file():
             raise FileNotFoundError(f"Journal file not found: {self.journal_path}")
@@ -276,6 +312,11 @@ class DurableExecutionJournal:
         if computed_checksum != stored_checksum:
             raise CorruptedJournalError(
                 f"Journal checksum mismatch! Stored: {stored_checksum}, Computed: {computed_checksum}."
+            )
+
+        if expected_task_id is not None and state.task_id != expected_task_id:
+            raise JournalError(
+                f"Journal task_id mismatch. Stored journal has task_id '{state.task_id}', expected '{expected_task_id}'."
             )
 
         return state

@@ -69,9 +69,10 @@ To maintain release discipline without weakening quality standards, features are
    - Compositional sentence understanding (`CompositionalSentenceParser`) extracting canonical `(Subject, Relation, Object)` triples across English and Hinglish.
    - Multi-hop transitivity reasoning ($E_1 \to E_2 \to E_3$) over structured relational graphs.
    - Candidate learning ledger (`CandidateLearningLedger`) recording assertions as uncommitted evidence without altering neural weights.
-4. **Hierarchical Planning & Recovery**:
+4. **Hierarchical Planning & Durable Recovery**:
    - DAG goal decomposition into dependency-aware subgoals (`RETRIEVE`, `VERIFY`, `SYNTHESIZE`).
    - Bounded retries and downstream failure isolation (`RecoveryManager`).
+   - End-to-end task recovery integrated directly into `CognitiveController.execute_task`: multi-step plans, observations, and intermediate task states persist atomically to disk with seamless process-restart resumption.
 5. **Zero Credential Leaks & Clean Packaging**:
    - No hardcoded developer machine paths or secret keys in public release artifacts.
 
