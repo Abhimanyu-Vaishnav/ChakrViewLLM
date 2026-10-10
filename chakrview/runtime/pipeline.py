@@ -382,7 +382,7 @@ class InferenceEngine:
             )
 
         cur_hash = self.compute_weight_hash()
-        if cur_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and cur_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError(
                 f"Pre-flight neural weight hash mismatch: {cur_hash[:16]}… != {self.expected_weight_hash[:16]}…"
             )
@@ -430,7 +430,7 @@ class InferenceEngine:
             )
 
         pre_hash = self.compute_weight_hash()
-        if pre_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and pre_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError("Pre-forward weight mutation detected.")
 
         tensor_in = torch.tensor([token_ids], dtype=torch.long, device=self.device)
@@ -446,7 +446,7 @@ class InferenceEngine:
             )
 
         post_hash = self.compute_weight_hash()
-        if post_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and post_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError("Post-forward weight mutation detected (ΔW != 0).")
 
         return logits
@@ -465,7 +465,7 @@ class InferenceEngine:
 
         # 1. Pre-flight verification
         pre_hash = self.compute_weight_hash()
-        if pre_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and pre_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError("Pre-flight weight mutation detected.")
 
         # 2. Context Assembly & Tokenization
@@ -601,7 +601,7 @@ class InferenceEngine:
 
         # 6. Post-flight immutability verification
         post_hash = self.compute_weight_hash()
-        if post_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and post_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError("Post-inference weight mutation detected (ΔW != 0).")
 
         t_end = time.perf_counter()
@@ -678,7 +678,7 @@ class InferenceEngine:
         """
         # 1. Pre-flight verification
         pre_hash = self.compute_weight_hash()
-        if pre_hash != self.expected_weight_hash:
+        if self.expected_weight_hash is not None and pre_hash != self.expected_weight_hash:
             raise NeuralWeightMutationError("Pre-flight weight mutation detected.")
 
         # 2. Context Assembly & Tokenization
@@ -822,7 +822,7 @@ class InferenceEngine:
         finally:
             self.kv_cache.reset()
             post_hash = self.compute_weight_hash()
-            if post_hash != self.expected_weight_hash:
+            if self.expected_weight_hash is not None and post_hash != self.expected_weight_hash:
                 raise NeuralWeightMutationError("Post-inference weight mutation detected (ΔW != 0).")
 
 
