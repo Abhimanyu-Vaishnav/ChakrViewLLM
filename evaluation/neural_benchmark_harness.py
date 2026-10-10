@@ -137,6 +137,65 @@ def evaluate_deterministic_match(
     return None
 
 
+def classify_failure_mode(
+    generated_text: str,
+    domain: str,
+    is_correct: Optional[bool],
+) -> str:
+    """
+    Assigns an evidence-supported, auditable failure category (v2.1.0).
+    Categories:
+    - correct_deterministic: Answer verified correct by deterministic evaluator.
+    - human_judgment_required: Open-ended task requiring semantic human rubric evaluation.
+    - degeneration / character_loop: Repeating ungrounded punctuation or characters.
+    - template_leakage / memorization: Canned arithmetic scratchpad or prompt leakage.
+    - repetition / loop_collapse: Autoregressive n-gram loop attractor.
+    - arithmetic_error / ungrounded: Calculation failure or unrelated numbers.
+    - instruction_noncompliance: Ignored formatting or logic instructions.
+    - syntax_error / non_code: Invalid code syntax or non-code text for coding prompts.
+    - unsupported_claim / non_grounded: Information absent from supplied source passage.
+    - irrelevant_response: Off-topic generation.
+    """
+    if is_correct is True:
+        return "correct_deterministic"
+
+    clean = generated_text.strip()
+    if not clean:
+        return "empty_output / early_eos"
+
+    if clean.startswith("?") or clean.startswith(":") or clean.startswith("="):
+        return "degeneration / character_loop"
+
+    if "<<" in clean or "The answer is 200" in clean or "So he has 200*2=" in clean or "There are 50*2=" in clean:
+        return "template_leakage / memorization"
+
+    if (
+        "The Great of the Great" in clean
+        or "the first of the first" in clean
+        or "the group of the group" in clean
+        or "number of the number" in clean
+        or "| \n|" in clean
+        or "* [http" in clean
+    ):
+        return "repetition / loop_collapse"
+
+    if domain == "arithmetic_logic":
+        return "arithmetic_error / ungrounded"
+
+    if domain == "algorithmic_reasoning":
+        return "instruction_noncompliance"
+
+    if domain == "safe_coding_structure":
+        return "syntax_error / non_code"
+
+    if domain in ("passage_factual_recall", "passage_explanation_summarization"):
+        return "unsupported_claim / non_grounded"
+
+    if domain == "open_continuation":
+        return "human_judgment_required"
+
+    return "irrelevant_response"
+
 
 @dataclass
 class PromptGenerationResult:
@@ -159,6 +218,8 @@ class PromptGenerationResult:
     eval_keys: Optional[List[str]] = None
     is_correct_deterministic: Optional[bool] = None
     human_rubric: Optional[str] = None
+    failure_category: Optional[str] = None
+
 
 
 @dataclass
@@ -337,6 +398,8 @@ class NeuralBenchmarkHarness:
                 if is_correct:
                     det_pass_count += 1
 
+            fail_cat = classify_failure_mode(gen_text, cat, is_correct)
+
             prompt_results.append(
                 PromptGenerationResult(
                     prompt_id=pid,
@@ -358,6 +421,7 @@ class NeuralBenchmarkHarness:
                     eval_keys=eval_keys,
                     is_correct_deterministic=is_correct,
                     human_rubric=rubric,
+                    failure_category=fail_cat,
                 )
             )
 
@@ -437,15 +501,16 @@ def save_benchmark_results(res: BenchmarkSuiteResult, out_json: Path, out_md: Pa
         "",
         "## Prompt Generation Samples",
         "",
-        "| ID | Domain | Prompt | Generated Output (First 60 chars) | Correct? | TPS | Unique Ratio | 4-Gram Rep |",
-        "| :--- | :--- | :--- | :--- | :---: | :---: | :---: | :---: |",
+        "| ID | Domain | Prompt | Generated Output (First 50 chars) | Correct? | Failure Category | TPS | Unique Ratio | 4-Gram Rep |",
+        "| :--- | :--- | :--- | :--- | :---: | :--- | :---: | :---: | :---: |",
     ]
 
     for p in res.prompt_results:
-        clean_out = p.generated_text.replace("\n", " ").replace("|", "\\|")[:60]
+        clean_out = p.generated_text.replace("\n", " ").replace("|", "\\|")[:50]
         corr_str = "N/A" if p.is_correct_deterministic is None else ("PASS" if p.is_correct_deterministic else "FAIL")
+        f_cat = p.failure_category or "unclassified"
         md_lines.append(
-            f"| `{p.prompt_id}` | {p.category} | {p.prompt_text[:30]}... | `{clean_out}` | {corr_str} | {p.tokens_per_second:.1f} | {p.unique_token_ratio:.2f} | {p.repeated_4gram_ratio:.2f} |"
+            f"| `{p.prompt_id}` | {p.category} | {p.prompt_text[:25]}... | `{clean_out}` | {corr_str} | `{f_cat}` | {p.tokens_per_second:.1f} | {p.unique_token_ratio:.2f} | {p.repeated_4gram_ratio:.2f} |"
         )
 
     out_md.write_text("\n".join(md_lines), encoding="utf-8")

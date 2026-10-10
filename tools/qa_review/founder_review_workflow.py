@@ -26,6 +26,9 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 QUEUE_PATH = ROOT_DIR / "checkpoints" / "experiments" / "neural_learning_v02" / "stage_d_design" / "qa_review_queue_v0.3.0.jsonl"
 ADVISORY_PATH = ROOT_DIR / "checkpoints" / "experiments" / "neural_learning_v02" / "stage_d_design" / "qa_review_advisory_batch1_v0.2.json"
 DRAFT_PATH = ROOT_DIR / "checkpoints" / "experiments" / "neural_learning_v02" / "stage_d_design" / "qa_review_draft_user.jsonl"
@@ -169,12 +172,70 @@ def preview_draft(candidate_id: str, decision: str, notes: str):
     return rec
 
 
+def record_decision(candidate_id: str, decision: str, notes: str, queue_path: Path = QUEUE_PATH) -> Dict[str, Any]:
+    """
+    Records an explicit human decision for a candidate into a specified queue file.
+    Does NOT allow automatic or default approvals.
+    Fails closed if split invariants or required notes are violated.
+    """
+    queue_records, _ = ReviewQueueValidator.validate_file(queue_path)
+    q_map = {r["candidate_id"]: r for r in queue_records}
+
+    if candidate_id not in q_map:
+        raise ValueError(f"Unknown candidate_id '{candidate_id}'")
+
+    updated_rec = preview_draft(candidate_id, decision, notes)
+
+    # Perform atomic update on queue_path
+    new_records = []
+    for r in queue_records:
+        if r["candidate_id"] == candidate_id:
+            new_records.append(updated_rec)
+        else:
+            new_records.append(r)
+
+    temp_queue = queue_path.with_suffix(".tmp")
+    with open(temp_queue, "w", encoding="utf-8") as f:
+        for r in new_records:
+            f.write(json.dumps(r) + "\n")
+    temp_queue.replace(queue_path)
+    print(f"[DECISION RECORDED AT {queue_path.name}] Candidate '{candidate_id}' -> {decision} ({updated_rec['semantic_review_status']})\n")
+    return updated_rec
+
+
+def save_draft(candidate_id: str, decision: str, notes: str, draft_path: Path = DRAFT_PATH) -> Dict[str, Any]:
+    """
+    Saves an in-progress review decision to an isolated draft file, never mutating the official queue.
+    """
+    updated_rec = preview_draft(candidate_id, decision, notes)
+
+    draft_records = {}
+    if draft_path.is_file():
+        lines = draft_path.read_text(encoding="utf-8").splitlines()
+        for line in lines:
+            if line.strip():
+                item = json.loads(line)
+                draft_records[item["candidate_id"]] = item
+
+    draft_records[candidate_id] = updated_rec
+
+    temp_draft = draft_path.with_suffix(".tmp")
+    with open(temp_draft, "w", encoding="utf-8") as f:
+        for r in draft_records.values():
+            f.write(json.dumps(r) + "\n")
+    temp_draft.replace(draft_path)
+    print(f"[DRAFT SAVED AT {draft_path.name}] Candidate '{candidate_id}' -> {decision}\n")
+    return updated_rec
+
+
 def main():
     parser = argparse.ArgumentParser(description="ChakrView Founder QA Review Accelerator")
     parser.add_argument("--status", action="store_true", help="Display authoritative queue status and counts")
     parser.add_argument("--list", action="store_true", help="List all candidate IDs and review statuses")
     parser.add_argument("--show", type=str, metavar="ID", help="Show full detail and evidence for a candidate")
-    parser.add_argument("--preview", nargs=3, metavar=("ID", "DECISION", "NOTES"), help="Preview a proposed decision safely")
+    parser.add_argument("--preview", nargs=3, metavar=("ID", "DECISION", "NOTES"), help="Preview a proposed decision safely without mutating the queue")
+    parser.add_argument("--save-draft", nargs=3, metavar=("ID", "DECISION", "NOTES"), help="Save decision to an isolated user draft file")
+    parser.add_argument("--record", nargs=3, metavar=("ID", "DECISION", "NOTES"), help="Explicitly record a founder decision to the official review queue")
 
     args = parser.parse_args()
 
@@ -192,7 +253,14 @@ def main():
     elif args.preview:
         cid, dec, notes = args.preview
         preview_draft(cid, dec, notes)
+    elif args.save_draft:
+        cid, dec, notes = args.save_draft
+        save_draft(cid, dec, notes)
+    elif args.record:
+        cid, dec, notes = args.record
+        record_decision(cid, dec, notes)
 
 
 if __name__ == "__main__":
     main()
+

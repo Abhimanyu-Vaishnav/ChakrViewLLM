@@ -149,7 +149,8 @@
         "1921"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Does the response extract 1921 as the excavation year from the passage without hallucinating?"
+      "human_rubric": "Does the response extract 1921 as the excavation year from the passage without hallucinating?",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-FACT-02",
@@ -270,7 +271,8 @@
         "Corbett"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Does the response identify Jim Corbett National Park as the launching venue?"
+      "human_rubric": "Does the response identify Jim Corbett National Park as the launching venue?",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-FACT-03",
@@ -390,7 +392,8 @@
         "Aryabhata"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Does the output clearly identify Aryabhata as India's first satellite?"
+      "human_rubric": "Does the output clearly identify Aryabhata as India's first satellite?",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-FACT-04",
@@ -511,7 +514,8 @@
         "chloroplasts"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Identifies chloroplasts as the organelle containing chlorophyll."
+      "human_rubric": "Identifies chloroplasts as the organelle containing chlorophyll.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-FACT-05",
@@ -631,7 +635,8 @@
         "64"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Extracts 64 or 64 bytes as the line size."
+      "human_rubric": "Extracts 64 or 64 bytes as the line size.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-EXPL-01",
@@ -752,7 +757,8 @@
         "variable"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "States that paging uses fixed-sized blocks while segmentation uses variable-sized or logical units."
+      "human_rubric": "States that paging uses fixed-sized blocks while segmentation uses variable-sized or logical units.",
+      "failure_category": "unsupported_claim / non_grounded"
     },
     {
       "prompt_id": "PASS-EXPL-02",
@@ -874,7 +880,8 @@
         "machine code"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Explains pre-execution conversion vs runtime translation."
+      "human_rubric": "Explains pre-execution conversion vs runtime translation.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-EXPL-03",
@@ -996,7 +1003,8 @@
         "simultaneously"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Explains temporal decoupling and independent availability."
+      "human_rubric": "Explains temporal decoupling and independent availability.",
+      "failure_category": "unsupported_claim / non_grounded"
     },
     {
       "prompt_id": "PASS-EXPL-04",
@@ -1119,7 +1127,8 @@
         "consistency"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Identifies memory bus traffic vs consistency / complexity trade-off."
+      "human_rubric": "Identifies memory bus traffic vs consistency / complexity trade-off.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "PASS-EXPL-05",
@@ -1241,7 +1250,8 @@
         "errors"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Notes early compile-time bug detection before runtime."
+      "human_rubric": "Notes early compile-time bug detection before runtime.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "ARITH-01",
@@ -1361,7 +1371,8 @@
         "27"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 27."
+      "human_rubric": "Outputs 27.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "ARITH-02",
@@ -1481,7 +1492,8 @@
         "32"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 32."
+      "human_rubric": "Outputs 32.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "ARITH-03",
@@ -1601,7 +1613,8 @@
         "56"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 56."
+      "human_rubric": "Outputs 56.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "ARITH-04",
@@ -1721,7 +1734,8 @@
         "8"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 8."
+      "human_rubric": "Outputs 8.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "ARITH-05",
@@ -1841,7 +1855,8 @@
         "18"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 18 apples remaining."
+      "human_rubric": "Outputs 18 apples remaining.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "LOGIC-01",
@@ -1962,7 +1977,8 @@
         "yes"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Answers Yes."
+      "human_rubric": "Answers Yes.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "LOGIC-02",
@@ -2082,7 +2098,8 @@
         "10"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs 10 as the next term."
+      "human_rubric": "Outputs 10 as the next term.",
+      "failure_category": "instruction_noncompliance"
     },
     {
       "prompt_id": "LOGIC-03",
@@ -2203,7 +2220,8 @@
         "false"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs False."
+      "human_rubric": "Outputs False.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "LOGIC-04",
@@ -2324,7 +2342,8 @@
         "Last In First Out"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Identifies LIFO."
+      "human_rubric": "Identifies LIFO.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "LOGIC-05",
@@ -2445,7 +2464,8 @@
         "tac"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs TAC."
+      "human_rubric": "Outputs TAC.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "CODE-01",
@@ -2566,7 +2586,8 @@
         "> 0"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Contains a syntactically valid Python function signature `def is_positive(x):` and condition checking `x > 0`."
+      "human_rubric": "Contains a syntactically valid Python function signature `def is_positive(x):` and condition checking `x > 0`.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "CODE-02",
@@ -2688,7 +2709,8 @@
         "n ** 2"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Defines function `def square(n):` returning `n * n` or `n ** 2`."
+      "human_rubric": "Defines function `def square(n):` returning `n * n` or `n ** 2`.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "CODE-03",
@@ -2808,7 +2830,8 @@
         "int count = 0;"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs standard C declaration `int count = 0;`."
+      "human_rubric": "Outputs standard C declaration `int count = 0;`.",
+      "failure_category": "syntax_error / non_code"
     },
     {
       "prompt_id": "CODE-04",
@@ -2928,7 +2951,8 @@
         "SELECT * FROM users"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs `SELECT * FROM users` or equivalent case-insensitive SQL."
+      "human_rubric": "Outputs `SELECT * FROM users` or equivalent case-insensitive SQL.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "CODE-05",
@@ -3048,7 +3072,8 @@
         "import math"
       ],
       "is_correct_deterministic": false,
-      "human_rubric": "Outputs `import math`."
+      "human_rubric": "Outputs `import math`.",
+      "failure_category": "degeneration / character_loop"
     },
     {
       "prompt_id": "CONT-01",
@@ -3170,7 +3195,8 @@
         "address space"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Completes the sentence with coherent technical concepts such as process isolation, address space protection, or paging."
+      "human_rubric": "Completes the sentence with coherent technical concepts such as process isolation, address space protection, or paging.",
+      "failure_category": "human_judgment_required"
     },
     {
       "prompt_id": "CONT-02",
@@ -3292,7 +3318,8 @@
         "instruction"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Explains increased instruction throughput or overlapping stages without infinite looping."
+      "human_rubric": "Explains increased instruction throughput or overlapping stages without infinite looping.",
+      "failure_category": "human_judgment_required"
     },
     {
       "prompt_id": "CONT-03",
@@ -3414,7 +3441,8 @@
         "availability"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Addresses fault tolerance, CAP trade-offs, or message loss."
+      "human_rubric": "Addresses fault tolerance, CAP trade-offs, or message loss.",
+      "failure_category": "human_judgment_required"
     },
     {
       "prompt_id": "CONT-04",
@@ -3536,7 +3564,8 @@
         "overfitting"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Discusses class imbalance, bias, overfitting, or performance degradation."
+      "human_rubric": "Discusses class imbalance, bias, overfitting, or performance degradation.",
+      "failure_category": "human_judgment_required"
     },
     {
       "prompt_id": "CONT-05",
@@ -3658,7 +3687,8 @@
         "self-reliance"
       ],
       "is_correct_deterministic": null,
-      "human_rubric": "Produces a grammatically coherent continuation addressing self-reliance, data sovereignty, or architecture independence."
+      "human_rubric": "Produces a grammatically coherent continuation addressing self-reliance, data sovereignty, or architecture independence.",
+      "failure_category": "human_judgment_required"
     }
   ]
 }

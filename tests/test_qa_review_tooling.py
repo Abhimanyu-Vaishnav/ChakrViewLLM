@@ -168,6 +168,79 @@ class TestQAReviewTooling(unittest.TestCase):
         with self.assertRaises(AdmissionGateError):
             preview_draft("QA-REV-030", "APPROVE", "Attempting test split approval")
 
+    def test_10_record_decision_on_isolated_queue(self):
+        """Verifies that record_decision updates status, retains reviewer notes, and maintains schema invariants."""
+        from tools.qa_review.founder_review_workflow import record_decision
+        import shutil
+
+        with tempfile.TemporaryDirectory() as td:
+            temp_q = Path(td) / "temp_queue.jsonl"
+            shutil.copy(self.queue_path, temp_q)
+
+            # Record an approval
+            rec = record_decision("QA-REV-001", "APPROVE", "Verified by human founder.", queue_path=temp_q)
+            self.assertEqual(rec["reviewer_decision"], "APPROVE")
+            self.assertEqual(rec["semantic_review_status"], "TRAIN-ELIGIBLE")
+            self.assertEqual(rec["reviewer_notes"], "Verified by human founder.")
+
+            # Validate queue schema
+            recs, stats = ReviewQueueValidator.validate_file(temp_q)
+            self.assertEqual(stats["train_eligible"], 1)
+            self.assertEqual(stats["unreviewed"], 29)
+
+            # Record a rejection
+            rec_rej = record_decision("QA-REV-003", "REJECT", "Fails quality threshold.", queue_path=temp_q)
+            self.assertEqual(rec_rej["reviewer_decision"], "REJECT")
+            self.assertEqual(rec_rej["semantic_review_status"], "REJECT")
+
+            recs2, stats2 = ReviewQueueValidator.validate_file(temp_q)
+            self.assertEqual(stats2["rejected"], 1)
+            self.assertEqual(stats2["train_eligible"], 1)
+            self.assertEqual(stats2["unreviewed"], 28)
+
+    def test_11_save_draft_does_not_mutate_official_queue(self):
+        """Verifies that save_draft creates an isolated draft file without modifying the official queue."""
+        from tools.qa_review.founder_review_workflow import save_draft
+
+        with tempfile.TemporaryDirectory() as td:
+            temp_draft = Path(td) / "user_draft.jsonl"
+            save_draft("QA-REV-004", "REVISE", "Wording adjustment requested.", draft_path=temp_draft)
+
+            self.assertTrue(temp_draft.is_file())
+            content = temp_draft.read_text(encoding="utf-8")
+            self.assertIn("QA-REV-004", content)
+            self.assertIn("NEEDS-REVISION", content)
+
+            # Confirm official queue was NOT touched
+            recs, stats = ReviewQueueValidator.validate_file(self.queue_path)
+            self.assertEqual(stats["unreviewed"], 30)
+
+    def test_12_unanswered_candidates_remain_unreviewed(self):
+        """Verifies that candidates not explicitly addressed remain in UNREVIEWED state without automatic mutation."""
+        recs, stats = ReviewQueueValidator.validate_file(self.queue_path)
+        for r in recs:
+            self.assertEqual(r["semantic_review_status"], "UNREVIEWED")
+            self.assertEqual(r["reviewer_decision"], "UNREVIEWED")
+
+    def test_13_repeated_decision_execution_idempotence(self):
+        """Repeated decision recordings on the same candidate overwrite cleanly without duplicating lines."""
+        from tools.qa_review.founder_review_workflow import record_decision
+        import shutil
+
+        with tempfile.TemporaryDirectory() as td:
+            temp_q = Path(td) / "temp_queue.jsonl"
+            shutil.copy(self.queue_path, temp_q)
+
+            # Record decision twice
+            record_decision("QA-REV-005", "REVISE", "First note", queue_path=temp_q)
+            record_decision("QA-REV-005", "REVISE", "Second note updated", queue_path=temp_q)
+
+            recs, stats = ReviewQueueValidator.validate_file(temp_q)
+            self.assertEqual(len(recs), 30)  # Exactly 30 records, no duplicate line
+            r5 = next(r for r in recs if r["candidate_id"] == "QA-REV-005")
+            self.assertEqual(r5["reviewer_notes"], "Second note updated")
+
 
 if __name__ == "__main__":
     unittest.main()
+
