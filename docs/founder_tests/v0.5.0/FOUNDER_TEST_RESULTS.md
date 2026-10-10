@@ -42,14 +42,36 @@
 
 ---
 
+---
+
+## 10-Point Founder Manual Acceptance Checklist
+
+This checklist provides a reproducible, auditable framework for the founder to evaluate whether ChakrView qualifies as an **Experimental Research Preview**.
+
+| # | Inspection Item | Scope & Evaluation Method | Result (`PASS` / `FAIL` / `NOT_TESTED`) | Founder Observation |
+|---|---|---|---|---|
+| **1** | **Startup & Model / Tokenizer Identity** | Run `scripts/verify_v050_release.py`. Verify parameter count ($3,443,136$), canonical SHA-256 (`c5571c...00a282da`), and $\Delta W = 0$. | NOT_TESTED | [To be recorded by Founder] |
+| **2** | **Neural Generation vs. Governed Cognitive Responses** | Inspect responses to structured relational queries vs open prompts. Verify system uses deterministic cognitive realizer for verified facts and does not conflate neural text generation with factual grounding. | NOT_TESTED | [To be recorded by Founder] |
+| **3** | **Empty & Malformed Input Handling** | Test empty string `""`, whitespace `"   "`, punctuation only `"?!"`, and mixed transliterations. Verify system does not crash and returns controlled fallback. | NOT_TESTED | [To be recorded by Founder] |
+| **4** | **Conflicting Evidence & Honest Abstention** | Provide contradictory assertions (e.g. Test 6: Ram in Delhi vs. Mumbai). Verify system returns `REPORT_CONFLICT` or `ABSTAIN` instead of arbitrary hallucination. | NOT_TESTED | [To be recorded by Founder] |
+| **5** | **Working Memory & Factual Consistency** | Assert task-scoped fact, query within task, reset task, query again. Confirm timestamped evidence precedence and zero durable memory leakage. | NOT_TESTED | [To be recorded by Founder] |
+| **6** | **Task Failure & Honest Error Reporting** | Trigger step failure in multi-step task execution (e.g. Test 12). Verify honest `FAILED` reporting, bounded retries, and dynamic replanning without fabricated success. | NOT_TESTED | [To be recorded by Founder] |
+| **7** | **Durable Restart Recovery** | Simulate process interruption during chunked task or journaled execution. Verify atomic journal reload, SHA-256 integrity check, and clean resumption from checkpoint. | NOT_TESTED | [To be recorded by Founder] |
+| **8** | **CPU & Memory Behavior** | Monitor resource footprint under load. Verify host resource discovery, strict memory upper bounds, and absence of memory leaks during multi-hop reasoning. | NOT_TESTED | [To be recorded by Founder] |
+| **9** | **Known Neural Reasoning Limitations** | Evaluate ungrounded open queries on 3.44M ChakrMicro. Verify that limitations (repetition, small vocab $V=4096$, lack of general reasoning) are honestly acknowledged in output/manifest. | NOT_TESTED | [To be recorded by Founder] |
+| **10** | **Suitability for Experimental Research Preview** | Synthesize all criteria: evaluate whether v0.5.0 meets the documented scope of an Experimental Research Preview without marketing overclaims. | NOT_TESTED | [To be recorded by Founder] |
+
+---
+
 ## Founder Final Sign-off
 
-- [ ] All 15 behavioral scenarios manually verified by Founder.
-- [ ] No hallucination observed on unknown entities or false premises.
-- [ ] Working memory boundary isolation confirmed.
-- [ ] Evidence precedence over stale memory confirmed.
+- [ ] All 10 checklist items inspected and recorded by Founder.
+- [ ] Behavioral scenarios audited against experimental preview standards.
+- [ ] No fabricated results or automated substitutions for Founder judgment.
 - [ ] Canonical baseline parameters and SHA-256 intact ($\Delta W = 0$).
+- [ ] Official QA review queue (30 records) remains preserved.
 
 **Founder Signature**: ___________________________  
 **Date**: ___________________________  
 **Approval Status**: `PENDING_FOUNDER_TEST`
+

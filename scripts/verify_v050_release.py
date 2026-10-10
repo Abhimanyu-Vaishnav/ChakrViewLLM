@@ -97,6 +97,7 @@ def verify_all() -> bool:
             "docs/STEP_15_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_16_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_17_MASTER_WORK_BATCH_REPORT.md",
+            "docs/STEP_18_MASTER_WORK_BATCH_REPORT.md",
             "README.md",
         )
         untracked = []

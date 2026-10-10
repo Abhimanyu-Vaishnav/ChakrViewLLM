@@ -1,8 +1,9 @@
 # ChakrView v0.5.0 Release Gap Audit
+## Experimental Research Preview Qualification
 
 **Document Status**: Release Engineering Audit  
-**Target Release**: `v0.5.0` (First Public Tag / Candidate Target: `1e06746` / Active HEAD: `4a4aba9`)  
-**Audit Purpose**: Reconcile actual repository state against official v0.5.0 release criteria, separate real release blockers from long-term research goals, and establish a dependency-aware path to public release.
+**Target Release**: `v0.5.0` (Classification: **Experimental Research Preview** / Candidate Target: `1e06746` / Active HEAD: `24a59a0`)  
+**Audit Purpose**: Reconcile actual repository state against official v0.5.0 release criteria, separate real release blockers from long-term research goals, qualify the system as an Experimental Research Preview rather than a general reasoner, and establish a dependency-aware path to founder acceptance.
 
 ---
 
