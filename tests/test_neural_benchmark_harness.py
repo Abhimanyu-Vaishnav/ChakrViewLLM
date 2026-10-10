@@ -167,17 +167,38 @@ class TestNeuralBenchmarkHarness(unittest.TestCase):
             self.assertEqual(file_sha256(self.stage_d_path), "8ab1ec36b5c5a09929b8510332f18fecc0183eb0e9332ab99375995a8cc1a449")
 
     def test_07_deterministic_match_evaluation(self):
-        """Verifies deterministic evaluation helper functions on synthetic outputs."""
-        # Substring pass
+        """Verifies deterministic evaluation helper functions on synthetic outputs across validity edge cases."""
+        # 1. Exact match and valid formatting
         self.assertTrue(evaluate_deterministic_match("The answer is 1921.", "deterministic_substring", ["1921"]))
-        # Substring fail
-        self.assertFalse(evaluate_deterministic_match("The answer is 200.", "deterministic_substring", ["1921"]))
-        # Syntax check pass
+        self.assertTrue(evaluate_deterministic_match("   1921   \n", "deterministic_substring", ["1921"]))
+        self.assertTrue(evaluate_deterministic_match("Result: 27", "deterministic_exact_or_substring", ["27"]))
+        self.assertTrue(evaluate_deterministic_match("Result: yes", "deterministic_substring", ["Yes"]))
+
+        # 2. Prevent substring false positives using word boundaries (e.g. 27 inside 127)
+        self.assertFalse(evaluate_deterministic_match("The count was 127 items.", "deterministic_exact_or_substring", ["27"]))
+        self.assertFalse(evaluate_deterministic_match("Total is 270 degrees.", "deterministic_exact_or_substring", ["27"]))
+        self.assertFalse(evaluate_deterministic_match("It was in 19210.", "deterministic_substring", ["1921"]))
+
+        # 3. Code syntax: AST parsing rejects broken syntax despite containing key substrings
         self.assertTrue(evaluate_deterministic_match("def is_positive(x):\n    return x > 0", "deterministic_syntax_check", ["def is_positive", "> 0"]))
-        # Syntax check fail
-        self.assertFalse(evaluate_deterministic_match("def foo(): pass", "deterministic_syntax_check", ["def is_positive", "> 0"]))
-        # Human rubric returns None
-        self.assertIsNone(evaluate_deterministic_match("Some text", "human_rubric", ["key"]))
+        # Missing colon in function definition: AST fails
+        self.assertFalse(evaluate_deterministic_match("def is_positive(x) return x > 0", "deterministic_syntax_check", ["def is_positive", "> 0"]))
+        # Missing return statement:
+        self.assertFalse(evaluate_deterministic_match("def is_positive(x):\n    pass", "deterministic_syntax_check", ["def is_positive", "return x > 0"]))
+
+        # 4. SQL and C syntax checks
+        self.assertTrue(evaluate_deterministic_match("SELECT * FROM users;", "deterministic_syntax_check", ["SELECT * FROM users"]))
+        self.assertTrue(evaluate_deterministic_match("select * from users where id=1;", "deterministic_syntax_check", ["SELECT * FROM users"]))
+        self.assertTrue(evaluate_deterministic_match("int count = 0;", "deterministic_substring", ["int count = 0;"]))
+
+        # 5. Empty / whitespace outputs fail gracefully
+        self.assertFalse(evaluate_deterministic_match("", "deterministic_substring", ["1921"]))
+        self.assertFalse(evaluate_deterministic_match("   \n\t  ", "deterministic_substring", ["1921"]))
+
+        # 6. Human rubric returns None (distinguishing subjective from objective)
+        self.assertIsNone(evaluate_deterministic_match("Paging uses fixed blocks.", "human_rubric", ["fixed", "variable"]))
+        self.assertIsNone(evaluate_deterministic_match("Some text", "human_rubric", []))
+
 
 
 if __name__ == "__main__":

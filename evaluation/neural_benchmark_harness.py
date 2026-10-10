@@ -84,34 +84,58 @@ def file_sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+import ast
+import re
+
+EVALUATOR_VERSION = "2.1.0"
+
+
 def evaluate_deterministic_match(
     generated_text: str,
     eval_type: str,
     eval_keys: List[str],
 ) -> Optional[bool]:
     """
-    Evaluates objective checkability where applicable.
+    Evaluates objective checkability (v2.1.0).
+    - Uses regex word boundary checks (?<!\\w)...(?!\\w) to prevent accidental substring false positives
+      (e.g., matching '27' in '127' or 'Corbett' in 'unCorbett').
+    - Uses AST parsing for Python syntax checks, preventing broken syntax with matching substrings from passing.
+    - Preserves case-insensitive checking for semantic keys while respecting formatting invariants.
     Returns True/False for deterministic types, or None for open/human review types.
     """
     if not eval_keys or eval_type == "human_rubric":
         return None
 
     clean_gen = generated_text.strip()
+    if not clean_gen:
+        return False
+
     if eval_type in ("deterministic_exact_or_substring", "deterministic_substring"):
-        # Check if any expected key appears in the generated text (case-insensitive where reasonable)
-        gen_lower = clean_gen.lower()
+        # Match with word boundaries to avoid false substring collisions
         for k in eval_keys:
-            if k.lower() in gen_lower:
+            # If key contains symbols (e.g. operators or punctuation), escape safely
+            escaped = re.escape(k.strip())
+            pattern = rf"(?<!\w){escaped}(?!\w)"
+            if re.search(pattern, clean_gen, re.IGNORECASE):
                 return True
         return False
+
     elif eval_type == "deterministic_syntax_check":
-        # Check if all required syntactic tokens/substrings are present
+        # Check if code snippet contains Python function definition, attempt AST parse
+        if any(k.startswith("def ") or "return " in k for k in eval_keys):
+            try:
+                ast.parse(clean_gen)
+            except SyntaxError:
+                return False
+
+        # Validate presence of required syntactic substrings
         for k in eval_keys:
             if k not in clean_gen and k.lower() not in clean_gen.lower():
                 return False
         return True
 
     return None
+
 
 
 @dataclass
