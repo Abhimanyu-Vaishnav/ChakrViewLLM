@@ -60,16 +60,19 @@ class LocalModelRuntime:
         tokenizer: BPETokenizer,
         memory_adapter: Optional[Any] = None,
         expected_weight_hash: str = EXPECTED_WEIGHT_HASH,
+        execution_plan: Optional[Any] = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
         self.memory_adapter = memory_adapter
         self.expected_weight_hash = expected_weight_hash
+        self.execution_plan = execution_plan
 
         # Initialize core inference engine
         self.engine = InferenceEngine(
             model=self.model,
             tokenizer=self.tokenizer,
+            execution_plan=self.execution_plan,
             expected_weight_hash=self.expected_weight_hash,
         )
 
@@ -85,6 +88,7 @@ class LocalModelRuntime:
         tokenizer_dir: Optional[Path] = None,
         memory_adapter: Optional[Any] = None,
         torch_seed: int = 42,
+        execution_plan: Optional[Any] = None,
     ) -> LocalModelRuntime:
         """
         Factory initializing runtime with canonical ChakrMicro weights and tokenizer.
@@ -96,10 +100,19 @@ class LocalModelRuntime:
         tok_path = tokenizer_dir or DEFAULT_TOKENIZER_DIR
         tokenizer, _ = load_tokenizer_artifacts(tok_path)
 
+        if execution_plan is None:
+            try:
+                from chakrview.runtime.hardware import HardwareCapabilityDetector, RuntimePlanner
+                profile = HardwareCapabilityDetector.detect()
+                execution_plan = RuntimePlanner.plan(profile)
+            except Exception:
+                execution_plan = None
+
         return cls(
             model=model,
             tokenizer=tokenizer,
             memory_adapter=memory_adapter,
+            execution_plan=execution_plan,
         )
 
     def verify_runtime_integrity(self) -> bool:

@@ -338,6 +338,10 @@ class InferenceEngine:
             execution_plan.max_context_len if execution_plan else self.model.config.max_seq_len
         )
 
+        # Apply thread allocation policy to prevent CPU thrashing
+        if self.execution_plan and self.execution_plan.thread_count > 0 and self.device.type == "cpu":
+            torch.set_num_threads(self.execution_plan.thread_count)
+
         # Validate contract on initialization
         self.validate_contract()
 
