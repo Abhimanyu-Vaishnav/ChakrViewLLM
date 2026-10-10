@@ -63,6 +63,7 @@ To maintain release discipline without weakening quality standards, features are
    - Automatic CPU fallback if GPU/CUDA runtime is unavailable or unstable.
    - Dynamic profile selection (`CPU_ONLY`, `BALANCED`, `CPU_HIGH_MEMORY`, `LOW_RESOURCE`).
    - Task sizing: single-pass vs. chunked execution with checkpointed progress.
+   - Durable execution journaling (`DurableExecutionJournal`, `DurableChunkedExecutor`): atomic disk persistence, SHA-256 tamper detection, schema versioning, and process restart recovery.
 3. **Relational Semantic Grounding**:
    - Input normalization (`TextNormalizer`) preserving proper nouns and verbatim terms.
    - Compositional sentence understanding (`CompositionalSentenceParser`) extracting canonical `(Subject, Relation, Object)` triples across English and Hinglish.

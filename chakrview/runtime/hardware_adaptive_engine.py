@@ -414,11 +414,36 @@ class ChunkedAdaptiveExecutor:
         chunk_processor_fn: Callable[[str], Any],
         budget: ResourceAllocationBudget,
         simulate_failure_chunk: Optional[int] = None,
+        journal_path: Optional[str | Path] = None,
+        verification_fn: Optional[Callable[[List[Any]], bool]] = None,
     ) -> CheckpointedExecutionRecord:
         """
         Decomposes text into chunks, executes chunk-by-chunk, and checkpoints progress.
         If a chunk fails, it replans and retries without dropping committed chunks.
+        If journal_path is provided, persists progress durably via DurableChunkedExecutor.
         """
+        if journal_path is not None:
+            from chakrview.runtime.recovery import DurableChunkedExecutor
+            journal_state = DurableChunkedExecutor.execute(
+                task_id=task_id,
+                text=text,
+                chunk_processor_fn=chunk_processor_fn,
+                budget=budget,
+                journal_path=journal_path,
+                simulate_failure_chunk=simulate_failure_chunk,
+                verification_fn=verification_fn,
+            )
+            return CheckpointedExecutionRecord(
+                task_id=journal_state.task_id,
+                total_chunks=journal_state.total_chunks,
+                completed_chunks=journal_state.completed_chunks_count,
+                committed_results=journal_state.committed_results,
+                failed_chunk_indices=journal_state.failed_chunk_indices,
+                is_complete=(journal_state.status.value == "COMPLETED"),
+                peak_working_bytes=journal_state.peak_working_bytes,
+                replanned_count=1 if journal_state.failed_chunk_indices else 0,
+            )
+
         chunks = cls.split_into_chunks(text, budget.default_chunk_chars)
         total_chunks = len(chunks)
 
@@ -467,6 +492,11 @@ class ChunkedAdaptiveExecutor:
                     failed_indices.append(idx)
 
         all_done = len(committed_results) == total_chunks
+        if all_done and verification_fn is not None:
+            try:
+                all_done = verification_fn(committed_results)
+            except Exception:
+                all_done = False
 
         return CheckpointedExecutionRecord(
             task_id=task_id,

@@ -48,6 +48,18 @@ from chakrview.runtime.integrity import (
     QuarantineManager,
     RollbackManager,
 )
+from chakrview.runtime.recovery import (
+    JournalTaskStatus,
+    ExecutionJournalState,
+    JournalChunkRecord,
+    DurableExecutionJournal,
+    DurableChunkedExecutor,
+    CorruptedJournalError,
+    IncompatibleSchemaError,
+    InvalidJournalTransitionError,
+    JournalError,
+    JOURNAL_SCHEMA_VERSION,
+)
 from chakrview.runtime.hardware import (
     ComputeDevice,
     PrecisionType,
@@ -252,6 +264,17 @@ __all__ = [
     "QuarantineRecord",
     "QuarantineManager",
     "RollbackManager",
+    # Durable Recovery Journal
+    "JournalTaskStatus",
+    "ExecutionJournalState",
+    "JournalChunkRecord",
+    "DurableExecutionJournal",
+    "DurableChunkedExecutor",
+    "CorruptedJournalError",
+    "IncompatibleSchemaError",
+    "InvalidJournalTransitionError",
+    "JournalError",
+    "JOURNAL_SCHEMA_VERSION",
     # Hardware Adaptation
     "ComputeDevice",
     "PrecisionType",
