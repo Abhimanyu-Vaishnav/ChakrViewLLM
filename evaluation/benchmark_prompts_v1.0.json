@@ -1,0 +1,66 @@
+{
+  "suite_version": "1.0.0",
+  "description": "Standard frozen model generation benchmark suite spanning 5 core evaluation domains with known provenance.",
+  "prompts": [
+    {
+      "id": "FACT-01",
+      "category": "factual_knowledge",
+      "prompt": "What is the primary function of an operating system kernel?",
+      "expected_topic": "operating systems resource management"
+    },
+    {
+      "id": "FACT-02",
+      "category": "factual_knowledge",
+      "prompt": "What does a translation lookaside buffer (TLB) cache?",
+      "expected_topic": "virtual to physical address translations"
+    },
+    {
+      "id": "EXPL-01",
+      "category": "short_explanation",
+      "prompt": "Explain the difference between volatile and non-volatile memory in one sentence.",
+      "expected_topic": "power persistence difference"
+    },
+    {
+      "id": "EXPL-02",
+      "category": "short_explanation",
+      "prompt": "How does multi-level caching improve processor throughput?",
+      "expected_topic": "latency reduction hierarchy"
+    },
+    {
+      "id": "ARITH-01",
+      "category": "arithmetic_logic",
+      "prompt": "Calculate: If a cache has 4 sets and 2 ways per set, what is the total number of lines?",
+      "expected_topic": "basic multiplication 4 * 2 = 8"
+    },
+    {
+      "id": "ARITH-02",
+      "category": "arithmetic_logic",
+      "prompt": "A program executes 100 instructions. 20 are branch instructions. What percentage are branches?",
+      "expected_topic": "percentage 20%"
+    },
+    {
+      "id": "CODE-01",
+      "category": "coding_algorithmic",
+      "prompt": "Write a python function to check if a number n is even:",
+      "expected_topic": "python function modulo"
+    },
+    {
+      "id": "CODE-02",
+      "category": "coding_algorithmic",
+      "prompt": "In C, write a struct definition for a binary tree node with left and right pointers:",
+      "expected_topic": "c struct tree pointers"
+    },
+    {
+      "id": "CONT-01",
+      "category": "open_continuation",
+      "prompt": "Computer architecture continues to evolve because",
+      "expected_topic": "open-ended text continuation"
+    },
+    {
+      "id": "CONT-02",
+      "category": "open_continuation",
+      "prompt": "The development of indigenous sovereign intelligence requires",
+      "expected_topic": "open-ended domain continuation"
+    }
+  ]
+}
