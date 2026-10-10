@@ -1,0 +1,314 @@
+{
+  "suite_version": "2.0.0",
+  "description": "ChakrView Frozen Neural Capability Benchmark v2.0 spanning 6 domains with known provenance, answer keys, deterministic checks, and human-review rubrics.",
+  "domains": [
+    "passage_factual_recall",
+    "passage_explanation_summarization",
+    "arithmetic_logic",
+    "algorithmic_reasoning",
+    "safe_coding_structure",
+    "open_continuation"
+  ],
+  "prompts": [
+    {
+      "id": "PASS-FACT-01",
+      "domain": "passage_factual_recall",
+      "prompt": "Source: The Indus Valley site of Harappa was excavated by Daya Ram Sahni in 1921.\nQuestion: In what year was Harappa excavated?",
+      "provenance": "Indus Valley archeological records / Indian history syllabus",
+      "expected_answer": "1921",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["1921"],
+      "human_rubric": "Does the response extract 1921 as the excavation year from the passage without hallucinating?"
+    },
+    {
+      "id": "PASS-FACT-02",
+      "domain": "passage_factual_recall",
+      "prompt": "Source: Project Tiger was launched in India in April 1973 from Jim Corbett National Park.\nQuestion: From which national park was Project Tiger launched?",
+      "provenance": "Indian conservation history records",
+      "expected_answer": "Jim Corbett National Park",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["Jim Corbett", "Corbett"],
+      "human_rubric": "Does the response identify Jim Corbett National Park as the launching venue?"
+    },
+    {
+      "id": "PASS-FACT-03",
+      "domain": "passage_factual_recall",
+      "prompt": "Source: The Aryabhata satellite, India's first satellite, was launched on 19 April 1975 using a Soviet Kosmos-3M launch vehicle.\nQuestion: What was the name of India's first satellite?",
+      "provenance": "ISRO historical mission records",
+      "expected_answer": "Aryabhata",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["Aryabhata"],
+      "human_rubric": "Does the output clearly identify Aryabhata as India's first satellite?"
+    },
+    {
+      "id": "PASS-FACT-04",
+      "domain": "passage_factual_recall",
+      "prompt": "Source: Photosynthesis occurs in chloroplasts, where chlorophyll absorbs sunlight to convert water and carbon dioxide into glucose and oxygen.\nQuestion: Which cellular organelle contains chlorophyll for photosynthesis?",
+      "provenance": "Standard cellular biology textbook",
+      "expected_answer": "chloroplasts",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["chloroplast", "chloroplasts"],
+      "human_rubric": "Identifies chloroplasts as the organelle containing chlorophyll."
+    },
+    {
+      "id": "PASS-FACT-05",
+      "domain": "passage_factual_recall",
+      "prompt": "Source: The cache line size of the processor is 64 bytes, and L1 data cache capacity is 32 kilobytes.\nQuestion: What is the cache line size in bytes?",
+      "provenance": "Computer architecture textbook",
+      "expected_answer": "64 bytes",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["64"],
+      "human_rubric": "Extracts 64 or 64 bytes as the line size."
+    },
+    {
+      "id": "PASS-EXPL-01",
+      "domain": "passage_explanation_summarization",
+      "prompt": "Passage: Paging divides virtual address space into fixed-sized blocks called pages, while segmentation divides memory into variable-sized logical units like code, stack, and data.\nExplain the primary structural difference between paging and segmentation in one sentence:",
+      "provenance": "Operating systems concepts textbook",
+      "expected_answer": "Paging uses fixed-sized blocks whereas segmentation uses variable-sized logical units.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["fixed", "variable"],
+      "human_rubric": "States that paging uses fixed-sized blocks while segmentation uses variable-sized or logical units."
+    },
+    {
+      "id": "PASS-EXPL-02",
+      "domain": "passage_explanation_summarization",
+      "prompt": "Passage: A compiled language converts source code into native machine code before execution, while an interpreted language translates code line by line at runtime.\nSummarize the execution difference between compiled and interpreted languages:",
+      "provenance": "Programming languages principles",
+      "expected_answer": "Compiled languages translate code ahead of time into machine instructions, while interpreted languages translate code at runtime.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["ahead of time", "runtime", "machine code"],
+      "human_rubric": "Explains pre-execution conversion vs runtime translation."
+    },
+    {
+      "id": "PASS-EXPL-03",
+      "domain": "passage_explanation_summarization",
+      "prompt": "Passage: In synchronous communication, the sender and receiver coordinate in real time and both must be active simultaneously. In asynchronous communication, messages are stored in queues and delivered without requiring concurrent availability.\nSummarize why asynchronous messaging decouples systems:",
+      "provenance": "Distributed systems engineering",
+      "expected_answer": "It allows sender and receiver to operate independently without both needing to be active simultaneously.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["independently", "queue", "simultaneously"],
+      "human_rubric": "Explains temporal decoupling and independent availability."
+    },
+    {
+      "id": "PASS-EXPL-04",
+      "domain": "passage_explanation_summarization",
+      "prompt": "Passage: Write-through caches update main memory simultaneously with cache updates, while write-back caches update main memory only when a dirty line is evicted.\nState the main trade-off between write-through and write-back caches:",
+      "provenance": "Computer systems architecture",
+      "expected_answer": "Write-through provides simpler memory consistency at the cost of higher bus write traffic, while write-back saves write bandwidth but introduces memory incoherence until eviction.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["traffic", "bandwidth", "dirty", "consistency"],
+      "human_rubric": "Identifies memory bus traffic vs consistency / complexity trade-off."
+    },
+    {
+      "id": "PASS-EXPL-05",
+      "domain": "passage_explanation_summarization",
+      "prompt": "Passage: Static typing checks variable types during compilation, catching type errors early. Dynamic typing resolves types at runtime, offering development flexibility.\nExplain the benefit of static typing over dynamic typing:",
+      "provenance": "Software engineering fundamentals",
+      "expected_answer": "Static typing catches type errors early at compile time before execution.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["compile", "early", "errors"],
+      "human_rubric": "Notes early compile-time bug detection before runtime."
+    },
+    {
+      "id": "ARITH-01",
+      "domain": "arithmetic_logic",
+      "prompt": "Calculate: 12 + 15 = ",
+      "provenance": "Basic arithmetic addition",
+      "expected_answer": "27",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["27"],
+      "human_rubric": "Outputs 27."
+    },
+    {
+      "id": "ARITH-02",
+      "domain": "arithmetic_logic",
+      "prompt": "Calculate: 50 - 18 = ",
+      "provenance": "Basic arithmetic subtraction",
+      "expected_answer": "32",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["32"],
+      "human_rubric": "Outputs 32."
+    },
+    {
+      "id": "ARITH-03",
+      "domain": "arithmetic_logic",
+      "prompt": "Calculate: 8 * 7 = ",
+      "provenance": "Basic arithmetic multiplication table",
+      "expected_answer": "56",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["56"],
+      "human_rubric": "Outputs 56."
+    },
+    {
+      "id": "ARITH-04",
+      "domain": "arithmetic_logic",
+      "prompt": "Calculate: 72 / 9 = ",
+      "provenance": "Basic arithmetic integer division",
+      "expected_answer": "8",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["8"],
+      "human_rubric": "Outputs 8."
+    },
+    {
+      "id": "ARITH-05",
+      "domain": "arithmetic_logic",
+      "prompt": "Problem: A box has 24 apples. If 6 apples are eaten, how many apples remain in the box? Answer: ",
+      "provenance": "One-step word problem",
+      "expected_answer": "18",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["18"],
+      "human_rubric": "Outputs 18 apples remaining."
+    },
+    {
+      "id": "LOGIC-01",
+      "domain": "algorithmic_reasoning",
+      "prompt": "Question: If all cats are mammals, and all mammals are animals, are all cats animals? Answer with Yes or No: ",
+      "provenance": "Classical categorical syllogism",
+      "expected_answer": "Yes",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["Yes", "yes"],
+      "human_rubric": "Answers Yes."
+    },
+    {
+      "id": "LOGIC-02",
+      "domain": "algorithmic_reasoning",
+      "prompt": "Task: Complete the number sequence: 2, 4, 6, 8, ",
+      "provenance": "Even number arithmetic progression",
+      "expected_answer": "10",
+      "evaluation_type": "deterministic_exact_or_substring",
+      "eval_keys": ["10"],
+      "human_rubric": "Outputs 10 as the next term."
+    },
+    {
+      "id": "LOGIC-03",
+      "domain": "algorithmic_reasoning",
+      "prompt": "Question: In a boolean expression, what is the value of (True AND False)? Answer with True or False: ",
+      "provenance": "Boolean logic truth tables",
+      "expected_answer": "False",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["False", "false"],
+      "human_rubric": "Outputs False."
+    },
+    {
+      "id": "LOGIC-04",
+      "domain": "algorithmic_reasoning",
+      "prompt": "Question: A stack data structure follows which principle: LIFO (Last In First Out) or FIFO (First In First Out)? ",
+      "provenance": "Data structures fundamental definitions",
+      "expected_answer": "LIFO",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["LIFO", "Last In First Out"],
+      "human_rubric": "Identifies LIFO."
+    },
+    {
+      "id": "LOGIC-05",
+      "domain": "algorithmic_reasoning",
+      "prompt": "Task: Reverse the three-letter word 'CAT': ",
+      "provenance": "String reversal test",
+      "expected_answer": "TAC",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["TAC", "tac"],
+      "human_rubric": "Outputs TAC."
+    },
+    {
+      "id": "CODE-01",
+      "domain": "safe_coding_structure",
+      "prompt": "Write a Python function named `is_positive` that returns True if integer x is greater than 0, otherwise False:\n",
+      "provenance": "Basic Python function specification",
+      "expected_answer": "def is_positive(x):\n    return x > 0",
+      "evaluation_type": "deterministic_syntax_check",
+      "eval_keys": ["def is_positive", "> 0"],
+      "human_rubric": "Contains a syntactically valid Python function signature `def is_positive(x):` and condition checking `x > 0`."
+    },
+    {
+      "id": "CODE-02",
+      "domain": "safe_coding_structure",
+      "prompt": "Write a Python function named `square` that returns the square of number n:\n",
+      "provenance": "Elementary Python arithmetic function",
+      "expected_answer": "def square(n):\n    return n * n",
+      "evaluation_type": "deterministic_syntax_check",
+      "eval_keys": ["def square", "n * n", "n ** 2"],
+      "human_rubric": "Defines function `def square(n):` returning `n * n` or `n ** 2`."
+    },
+    {
+      "id": "CODE-03",
+      "domain": "safe_coding_structure",
+      "prompt": "In C, declare a variable named `count` of type `int` initialized to 0;\n",
+      "provenance": "C language basic declaration",
+      "expected_answer": "int count = 0;",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["int count = 0;"],
+      "human_rubric": "Outputs standard C declaration `int count = 0;`."
+    },
+    {
+      "id": "CODE-04",
+      "domain": "safe_coding_structure",
+      "prompt": "Write the SQL query to select all columns from a table named `users`:\n",
+      "provenance": "Basic SQL SELECT statement",
+      "expected_answer": "SELECT * FROM users;",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["SELECT * FROM users"],
+      "human_rubric": "Outputs `SELECT * FROM users` or equivalent case-insensitive SQL."
+    },
+    {
+      "id": "CODE-05",
+      "domain": "safe_coding_structure",
+      "prompt": "In Python, how do you import the standard `math` module?\n",
+      "provenance": "Python module import syntax",
+      "expected_answer": "import math",
+      "evaluation_type": "deterministic_substring",
+      "eval_keys": ["import math"],
+      "human_rubric": "Outputs `import math`."
+    },
+    {
+      "id": "CONT-01",
+      "domain": "open_continuation",
+      "prompt": "In modern operating systems, virtual memory provides",
+      "provenance": "Standard systems concept continuation",
+      "expected_answer": "isolation, abstraction of physical memory, and memory protection across processes.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["isolation", "protection", "address space"],
+      "human_rubric": "Completes the sentence with coherent technical concepts such as process isolation, address space protection, or paging."
+    },
+    {
+      "id": "CONT-02",
+      "domain": "open_continuation",
+      "prompt": "The primary advantage of pipelined CPU execution is",
+      "provenance": "Computer architecture continuation",
+      "expected_answer": "increased instruction throughput by overlapping instruction execution stages.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["throughput", "overlap", "instruction"],
+      "human_rubric": "Explains increased instruction throughput or overlapping stages without infinite looping."
+    },
+    {
+      "id": "CONT-03",
+      "domain": "open_continuation",
+      "prompt": "When designing reliable distributed systems, network partitions",
+      "provenance": "Distributed systems continuation",
+      "expected_answer": "must be tolerated according to the CAP theorem by balancing consistency and availability.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["partition", "consistency", "availability"],
+      "human_rubric": "Addresses fault tolerance, CAP trade-offs, or message loss."
+    },
+    {
+      "id": "CONT-04",
+      "domain": "open_continuation",
+      "prompt": "Deep learning models require balanced training datasets because",
+      "provenance": "Machine learning methodology continuation",
+      "expected_answer": "imbalanced data leads to biased representations and poor generalization on minority classes.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["bias", "generalization", "overfitting"],
+      "human_rubric": "Discusses class imbalance, bias, overfitting, or performance degradation."
+    },
+    {
+      "id": "CONT-05",
+      "domain": "open_continuation",
+      "prompt": "An indigenous sovereign artificial intelligence core enables",
+      "provenance": "Sovereign AI mission statement continuation",
+      "expected_answer": "technological self-reliance, data sovereignty, and independent computational intelligence.",
+      "evaluation_type": "human_rubric",
+      "eval_keys": ["sovereignty", "independence", "self-reliance"],
+      "human_rubric": "Produces a grammatically coherent continuation addressing self-reliance, data sovereignty, or architecture independence."
+    }
+  ]
+}

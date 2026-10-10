@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 """
-Tracked, Reproducible Neural Generation Capability Benchmark Harness.
+Tracked, Reproducible Neural Generation Capability Benchmark Harness v2.0.
 
 Location: evaluation/neural_benchmark_harness.py
 
 Key Capabilities:
 1. Loads explicit model configurations or checkpoints (canonical random baseline, Stage C 9k, Stage D 500).
 2. Validates checkpoint compatibility and architecture invariants fail-closed.
-3. Evaluates models against a fixed, versioned prompt suite (evaluation/benchmark_prompts_v1.0.json).
+3. Evaluates models against a fixed, versioned prompt suite (v1.0 or v2.0).
 4. Strictly measures pure neural autoregressive forward passes (LocalModelRuntime / InferenceEngine).
    Never falls back to symbolic templates or rules.
 5. Computes precise metrics:
-   - actual generated tokens (measured chunk by chunk)
+   - actual generated tokens (measured suffix chunk by chunk, strictly excluding prompt tokens)
    - latency (wall-clock total and time-to-first-token TTFT)
    - actual tokens per second (actual generated tokens / elapsed seconds)
-   - repeated n-grams (2-gram, 3-gram, 4-gram repetition ratios)
+   - repeated n-grams (2-gram, 3-gram, 4-gram repetition ratios over generated tokens)
    - unique token ratio (distinct generated tokens / total generated tokens)
    - EOS termination rate (genuine EOS vs MAX_TOKENS limit)
+   - deterministic task checking (for arithmetic, factual recall, logic, and code syntax)
 6. Outputs structured JSON reports and clean Markdown summaries.
 """
 
@@ -27,11 +28,16 @@ import hashlib
 import json
 import os
 import platform
+import sys
 import time
 from collections import Counter
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 import torch
 
@@ -45,7 +51,8 @@ from chakrview.tokenizer.serialization import load_tokenizer_artifacts
 from chakrview.tokenizer.tokenizer import BPETokenizer
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_PROMPTS_PATH = ROOT_DIR / "evaluation" / "benchmark_prompts_v1.0.json"
+DEFAULT_PROMPTS_PATH = ROOT_DIR / "evaluation" / "benchmark_prompts_v2.0.json"
+DEFAULT_PROMPTS_V1_PATH = ROOT_DIR / "evaluation" / "benchmark_prompts_v1.0.json"
 DEFAULT_TOKENIZER_DIR = ROOT_DIR / "data" / "experiments" / "vocab_4096"
 
 
@@ -77,6 +84,36 @@ def file_sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def evaluate_deterministic_match(
+    generated_text: str,
+    eval_type: str,
+    eval_keys: List[str],
+) -> Optional[bool]:
+    """
+    Evaluates objective checkability where applicable.
+    Returns True/False for deterministic types, or None for open/human review types.
+    """
+    if not eval_keys or eval_type == "human_rubric":
+        return None
+
+    clean_gen = generated_text.strip()
+    if eval_type in ("deterministic_exact_or_substring", "deterministic_substring"):
+        # Check if any expected key appears in the generated text (case-insensitive where reasonable)
+        gen_lower = clean_gen.lower()
+        for k in eval_keys:
+            if k.lower() in gen_lower:
+                return True
+        return False
+    elif eval_type == "deterministic_syntax_check":
+        # Check if all required syntactic tokens/substrings are present
+        for k in eval_keys:
+            if k not in clean_gen and k.lower() not in clean_gen.lower():
+                return False
+        return True
+
+    return None
+
+
 @dataclass
 class PromptGenerationResult:
     prompt_id: str
@@ -93,11 +130,17 @@ class PromptGenerationResult:
     repeated_2gram_ratio: float
     repeated_3gram_ratio: float
     repeated_4gram_ratio: float
+    expected_answer: Optional[str] = None
+    evaluation_type: Optional[str] = None
+    eval_keys: Optional[List[str]] = None
+    is_correct_deterministic: Optional[bool] = None
+    human_rubric: Optional[str] = None
 
 
 @dataclass
 class BenchmarkSuiteResult:
     benchmark_name: str
+    suite_version: str
     checkpoint_label: str
     checkpoint_path: Optional[str]
     checkpoint_file_sha256: Optional[str]
@@ -117,6 +160,9 @@ class BenchmarkSuiteResult:
     max_tokens_termination_count: int
     mean_unique_token_ratio: float
     mean_repeated_4gram_ratio: float
+    deterministic_evaluated_count: int
+    deterministic_passed_count: int
+    deterministic_accuracy: float
     system_info: Dict[str, Any]
     prompt_results: List[PromptGenerationResult]
 
@@ -187,11 +233,12 @@ class NeuralBenchmarkHarness:
 
         with open(prompts_path, "r", encoding="utf-8") as f:
             suite_data = json.load(f)
+        suite_version = suite_data.get("suite_version", "1.0.0")
         prompts = suite_data.get("prompts", [])
         if not prompts:
             raise ValueError(f"No prompts found in {prompts_path}")
 
-        # Warm-up phase (discarded)
+        # Warm-up phase (discarded from metrics)
         gen_cfg = GenerationConfig(
             max_new_tokens=16,
             sampling=SamplingConfig(temperature=temperature),
@@ -211,10 +258,17 @@ class NeuralBenchmarkHarness:
             sampling=SamplingConfig(temperature=temperature),
         )
 
+        det_eval_count = 0
+        det_pass_count = 0
+
         for p_item in prompts:
             pid = p_item["id"]
-            cat = p_item["category"]
+            cat = p_item.get("domain") or p_item.get("category", "general")
             prompt_str = p_item["prompt"]
+            exp_ans = p_item.get("expected_answer") or p_item.get("expected_topic")
+            eval_type = p_item.get("evaluation_type")
+            eval_keys = p_item.get("eval_keys")
+            rubric = p_item.get("human_rubric")
 
             tokens_emitted: List[str] = []
             tokens_emitted_ids: List[int] = []
@@ -250,12 +304,21 @@ class NeuralBenchmarkHarness:
             ttfts_ms.append(ttft_sec * 1000.0)
             throughputs.append(tps)
 
+            gen_text = "".join(tokens_emitted)
+
+            # Deterministic check if applicable
+            is_correct = evaluate_deterministic_match(gen_text, eval_type or "", eval_keys or [])
+            if is_correct is not None:
+                det_eval_count += 1
+                if is_correct:
+                    det_pass_count += 1
+
             prompt_results.append(
                 PromptGenerationResult(
                     prompt_id=pid,
                     category=cat,
                     prompt_text=prompt_str,
-                    generated_text="".join(tokens_emitted),
+                    generated_text=gen_text,
                     generated_token_ids=tokens_emitted_ids,
                     generated_token_count=act_token_count,
                     ttft_seconds=ttft_sec,
@@ -266,6 +329,11 @@ class NeuralBenchmarkHarness:
                     repeated_2gram_ratio=rep_2,
                     repeated_3gram_ratio=rep_3,
                     repeated_4gram_ratio=rep_4,
+                    expected_answer=exp_ans,
+                    evaluation_type=eval_type,
+                    eval_keys=eval_keys,
+                    is_correct_deterministic=is_correct,
+                    human_rubric=rubric,
                 )
             )
 
@@ -276,6 +344,7 @@ class NeuralBenchmarkHarness:
         mean_tps = sum(throughputs) / len(throughputs) if throughputs else 0.0
         mean_unique = sum(r.unique_token_ratio for r in prompt_results) / len(prompt_results) if prompt_results else 0.0
         mean_rep4 = sum(r.repeated_4gram_ratio for r in prompt_results) / len(prompt_results) if prompt_results else 0.0
+        det_acc = (det_pass_count / det_eval_count) if det_eval_count > 0 else 0.0
 
         sys_info = {
             "platform": platform.platform(),
@@ -286,7 +355,8 @@ class NeuralBenchmarkHarness:
         }
 
         return BenchmarkSuiteResult(
-            benchmark_name="ChakrView Frozen Neural Generation Benchmark v1.0",
+            benchmark_name="ChakrView Frozen Neural Generation Benchmark v2.0",
+            suite_version=suite_version,
             checkpoint_label=self.checkpoint_label,
             checkpoint_path=str(self.checkpoint_path) if self.checkpoint_path else None,
             checkpoint_file_sha256=self.checkpoint_sha256,
@@ -306,6 +376,9 @@ class NeuralBenchmarkHarness:
             max_tokens_termination_count=max_tokens_count,
             mean_unique_token_ratio=mean_unique,
             mean_repeated_4gram_ratio=mean_rep4,
+            deterministic_evaluated_count=det_eval_count,
+            deterministic_passed_count=det_pass_count,
+            deterministic_accuracy=det_acc,
             system_info=sys_info,
             prompt_results=prompt_results,
         )
@@ -322,6 +395,7 @@ def save_benchmark_results(res: BenchmarkSuiteResult, out_json: Path, out_md: Pa
     # Markdown format
     md_lines = [
         f"# Benchmark Report: {res.checkpoint_label}",
+        f"- **Suite Version**: `{res.suite_version}`",
         f"- **Model**: ChakrMicro ({res.parameter_count:,} parameters)",
         f"- **Weight Hash**: `{res.model_weight_hash}`",
         f"- **Checkpoint Path**: `{res.checkpoint_path or 'None (Random Init)'}`",
@@ -335,17 +409,57 @@ def save_benchmark_results(res: BenchmarkSuiteResult, out_json: Path, out_md: Pa
         f"- **Mean Unique-Token Ratio**: {res.mean_unique_token_ratio:.3f}",
         f"- **Mean 4-Gram Repetition Ratio**: {res.mean_repeated_4gram_ratio:.3f}",
         f"- **Termination**: {res.eos_termination_count} EOS / {res.max_tokens_termination_count} Token Limit",
+        f"- **Deterministic Task Accuracy**: {res.deterministic_passed_count}/{res.deterministic_evaluated_count} ({res.deterministic_accuracy:.1%})",
         "",
         "## Prompt Generation Samples",
         "",
-        "| ID | Category | Prompt | Generated Output (First 60 chars) | TPS | Unique Ratio | 4-Gram Rep |",
-        "| :--- | :--- | :--- | :--- | :---: | :---: | :---: |",
+        "| ID | Domain | Prompt | Generated Output (First 60 chars) | Correct? | TPS | Unique Ratio | 4-Gram Rep |",
+        "| :--- | :--- | :--- | :--- | :---: | :---: | :---: | :---: |",
     ]
 
     for p in res.prompt_results:
         clean_out = p.generated_text.replace("\n", " ").replace("|", "\\|")[:60]
+        corr_str = "N/A" if p.is_correct_deterministic is None else ("PASS" if p.is_correct_deterministic else "FAIL")
         md_lines.append(
-            f"| `{p.prompt_id}` | {p.category} | {p.prompt_text[:30]}... | `{clean_out}` | {p.tokens_per_second:.1f} | {p.unique_token_ratio:.2f} | {p.repeated_4gram_ratio:.2f} |"
+            f"| `{p.prompt_id}` | {p.category} | {p.prompt_text[:30]}... | `{clean_out}` | {corr_str} | {p.tokens_per_second:.1f} | {p.unique_token_ratio:.2f} | {p.repeated_4gram_ratio:.2f} |"
         )
 
     out_md.write_text("\n".join(md_lines), encoding="utf-8")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="ChakrView Frozen Neural Capability Benchmark Harness")
+    parser.add_argument("--checkpoint", type=str, default=None, help="Path to checkpoint .pt file")
+    parser.add_argument("--label", type=str, default="RANDOM_INITIALIZATION", help="Label for the model")
+    parser.add_argument("--prompts", type=str, default=str(DEFAULT_PROMPTS_PATH), help="Path to prompts JSON")
+    parser.add_argument("--out-json", type=str, required=True, help="Path for output JSON")
+    parser.add_argument("--out-md", type=str, required=True, help="Path for output Markdown")
+    parser.add_argument("--max-tokens", type=int, default=32, help="Max new tokens to generate")
+    parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument("--cpu-threads", type=int, default=2, help="Number of CPU threads")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--warmup-runs", type=int, default=2, help="Number of warmup inference passes")
+
+    args = parser.parse_args()
+
+    ckpt_path = Path(args.checkpoint) if args.checkpoint else None
+    harness = NeuralBenchmarkHarness(
+        checkpoint_label=args.label,
+        checkpoint_path=ckpt_path,
+        cpu_threads=args.cpu_threads,
+        seed=args.seed,
+    )
+
+    results = harness.run_benchmark(
+        prompts_path=Path(args.prompts),
+        max_new_tokens=args.max_tokens,
+        temperature=args.temperature,
+        warmup_runs=args.warmup_runs,
+    )
+
+    save_benchmark_results(results, Path(args.out_json), Path(args.out_md))
+    print(f"Benchmark finished successfully. Results saved to {args.out_json} and {args.out_md}")
+
+
+if __name__ == "__main__":
+    main()

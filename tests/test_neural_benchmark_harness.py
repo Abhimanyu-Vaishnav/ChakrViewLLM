@@ -1,5 +1,5 @@
 """
-Unit & Regression Tests for Neural Generation Benchmark Harness.
+Unit & Regression Tests for Neural Generation Benchmark Harness v2.0.
 
 Tracked Location: tests/test_neural_benchmark_harness.py
 
@@ -10,6 +10,10 @@ Verifies:
 4. Correct recording of system info, parameter counts, and weight hashes.
 5. Invariant check: Ensures model weights are not mutated during benchmark execution (ΔW = 0).
 6. File serialization (JSON & Markdown) without partial file corruption.
+7. Verification of Prompt Suite v2.0 schema and completeness (30 prompts, 6 domains).
+8. Canonical checkpoint identity verification for Stage C and Stage D checkpoints.
+9. Deterministic evaluation logic (substring matching and syntax checking).
+10. EOS vs MAX_TOKENS termination handling.
 """
 
 from __future__ import annotations
@@ -23,6 +27,8 @@ from evaluation.neural_benchmark_harness import (
     NeuralBenchmarkHarness,
     compute_ngram_repetition_ratio,
     compute_unique_token_ratio,
+    evaluate_deterministic_match,
+    file_sha256,
     save_benchmark_results,
 )
 
@@ -31,8 +37,11 @@ class TestNeuralBenchmarkHarness(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.root_dir = Path(__file__).resolve().parents[1]
-        cls.prompts_path = cls.root_dir / "evaluation" / "benchmark_prompts_v1.0.json"
+        cls.prompts_v1_path = cls.root_dir / "evaluation" / "benchmark_prompts_v1.0.json"
+        cls.prompts_v2_path = cls.root_dir / "evaluation" / "benchmark_prompts_v2.0.json"
         cls.tokenizer_dir = cls.root_dir / "data" / "experiments" / "vocab_4096"
+        cls.stage_c_path = cls.root_dir / "checkpoints" / "experiments" / "neural_learning_v02" / "run_10k" / "checkpoint_0009000.pt"
+        cls.stage_d_path = cls.root_dir / "checkpoints" / "experiments" / "neural_learning_v02" / "stage_d_pilot_run500" / "checkpoints" / "checkpoint_0000500.pt"
 
     def test_01_synthetic_metric_calculations(self):
         """Verifies mathematical correctness of unique-token and n-gram repetition ratios."""
@@ -72,6 +81,7 @@ class TestNeuralBenchmarkHarness(unittest.TestCase):
         # Run on a 2-prompt temporary suite
         with tempfile.NamedTemporaryFile("w+", delete=False, suffix=".json", encoding="utf-8") as tf:
             suite_data = {
+                "suite_version": "test-1.0",
                 "prompts": [
                     {"id": "TEST-01", "category": "test", "prompt": "Hello world"},
                     {"id": "TEST-02", "category": "test", "prompt": "ChakrView architecture"},
@@ -100,7 +110,7 @@ class TestNeuralBenchmarkHarness(unittest.TestCase):
             p_md = Path(td) / "eval.md"
 
             with tempfile.NamedTemporaryFile("w+", delete=False, suffix=".json", encoding="utf-8") as tf:
-                tf.write(json.dumps({"prompts": [{"id": "P1", "category": "cat", "prompt": "test"}]}))
+                tf.write(json.dumps({"suite_version": "test-2.0", "prompts": [{"id": "P1", "category": "cat", "prompt": "test"}]}))
                 tf_path = Path(tf.name)
 
             res = harness.run_benchmark(prompts_path=tf_path, max_new_tokens=4, warmup_runs=0)
@@ -118,6 +128,56 @@ class TestNeuralBenchmarkHarness(unittest.TestCase):
             self.assertIn("c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da", md_content)
 
             tf_path.unlink()
+
+    def test_05_prompt_suite_v2_schema_and_domain_coverage(self):
+        """Verifies that benchmark_prompts_v2.0.json conforms to the 6-domain 30-prompt specification."""
+        self.assertTrue(self.prompts_v2_path.is_file(), "v2 prompt suite file missing")
+        data = json.loads(self.prompts_v2_path.read_text(encoding="utf-8"))
+        self.assertEqual(data["suite_version"], "2.0.0")
+        self.assertEqual(len(data["domains"]), 6)
+        self.assertEqual(len(data["prompts"]), 30)
+
+        domains = {p["domain"] for p in data["prompts"]}
+        self.assertEqual(len(domains), 6)
+        for p in data["prompts"]:
+            self.assertIn("id", p)
+            self.assertIn("domain", p)
+            self.assertIn("prompt", p)
+            self.assertIn("provenance", p)
+            self.assertIn("expected_answer", p)
+            self.assertIn("evaluation_type", p)
+            self.assertIn("human_rubric", p)
+
+    def test_06_checkpoint_identity_and_hash_resolution(self):
+        """Verifies full weight hashes and file sha256 for canonical baselines and checkpoints."""
+        # 1. Canonical Random
+        h_rand = NeuralBenchmarkHarness("RAND", checkpoint_path=None, seed=42)
+        self.assertEqual(h_rand.model_weight_hash, "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da")
+
+        # 2. Stage C 9k Checkpoint
+        if self.stage_c_path.is_file():
+            h_c = NeuralBenchmarkHarness("STAGE_C", checkpoint_path=self.stage_c_path)
+            self.assertEqual(h_c.model_weight_hash, "36711d25831740840dc9d62d60087a898aa4a19746322ef3cb0e04974a2770e3")
+            self.assertEqual(file_sha256(self.stage_c_path), "3e03ae0a134da40439038d965278f4da2996b1ac2e8f959d6059859600b0bb23")
+
+        # 3. Stage D 500 Checkpoint
+        if self.stage_d_path.is_file():
+            h_d = NeuralBenchmarkHarness("STAGE_D", checkpoint_path=self.stage_d_path)
+            self.assertEqual(h_d.model_weight_hash, "5f3712d80940fb9345d01b5434e8bb64936d01e4d3aaff096ab5268c282d506c")
+            self.assertEqual(file_sha256(self.stage_d_path), "8ab1ec36b5c5a09929b8510332f18fecc0183eb0e9332ab99375995a8cc1a449")
+
+    def test_07_deterministic_match_evaluation(self):
+        """Verifies deterministic evaluation helper functions on synthetic outputs."""
+        # Substring pass
+        self.assertTrue(evaluate_deterministic_match("The answer is 1921.", "deterministic_substring", ["1921"]))
+        # Substring fail
+        self.assertFalse(evaluate_deterministic_match("The answer is 200.", "deterministic_substring", ["1921"]))
+        # Syntax check pass
+        self.assertTrue(evaluate_deterministic_match("def is_positive(x):\n    return x > 0", "deterministic_syntax_check", ["def is_positive", "> 0"]))
+        # Syntax check fail
+        self.assertFalse(evaluate_deterministic_match("def foo(): pass", "deterministic_syntax_check", ["def is_positive", "> 0"]))
+        # Human rubric returns None
+        self.assertIsNone(evaluate_deterministic_match("Some text", "human_rubric", ["key"]))
 
 
 if __name__ == "__main__":
