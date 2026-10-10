@@ -60,6 +60,17 @@ class LayerKVCache:
     def sequence_length(self) -> int:
         return self._seq_len
 
+    @staticmethod
+    def _devices_compatible(dev_a: torch.device, dev_b: torch.device) -> bool:
+        """Check if two devices are physically compatible (handles cuda vs cuda:0)."""
+        if dev_a.type != dev_b.type:
+            return False
+        if dev_a.type == "cuda":
+            idx_a = dev_a.index if dev_a.index is not None else 0
+            idx_b = dev_b.index if dev_b.index is not None else 0
+            return idx_a == idx_b
+        return True
+
     def append(self, key: torch.Tensor, value: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
         """
         Append new key and value slices.
@@ -79,7 +90,7 @@ class LayerKVCache:
             raise ValueError(
                 f"Layer {self.layer_idx}: Key shape {key.shape} does not match Value shape {value.shape}"
             )
-        if key.device != self.device:
+        if not self._devices_compatible(key.device, self.device):
             raise KVCacheDeviceMismatchError(
                 f"Layer {self.layer_idx}: Device mismatch: input on {key.device}, cache on {self.device}"
             )
