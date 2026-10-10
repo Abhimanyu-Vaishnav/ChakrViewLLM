@@ -141,6 +141,21 @@ class ChakrViewRuntimeSession:
         raw_text = text.strip()
         ev_map = active_evidence if active_evidence is not None else {}
 
+        if not raw_text:
+            return {
+                "input": text,
+                "detected_language": "UNKNOWN",
+                "intent": "EMPTY_INPUT",
+                "semantic_representation": "NONE (Empty Input)",
+                "decision": "ABSTAIN",
+                "confidence": 0.0,
+                "evidence_status": "NO_INPUT_PROVIDED",
+                "memory_status": "UNTRACKED",
+                "strategy": "EMPTY_INPUT_HANDLING",
+                "final_response": "No input text provided. Please enter a question, statement, or command.",
+                "natural_response": "No input text provided. Please enter a question, statement, or command.",
+            }
+
         # 1. Input normalization and compositional understanding
         from chakrview.cognition.language_understanding import (
             TextNormalizer,
@@ -396,22 +411,51 @@ class ChakrViewRuntimeSession:
                     queried_subj = self.context_tracker.get_latest_subject()
                 active_subj = queried_subj or self.context_tracker.get_latest_subject()
 
+                active_ev_key = f"{active_subj.lower()}::lives_in" if active_subj else None
+                ev_val = ev_map.get(active_ev_key) if active_ev_key else None
+
                 stored_belief = self.memory_bridge.get_belief(active_subj or "", "LIVES_IN") if active_subj else None
-                if stored_belief and ("where" in raw_text.lower() or "kahan" in raw_text.lower() or "city" in raw_text.lower()):
-                    decision = "ANSWER"
-                    confidence = stored_belief.confidence
-                    target_subject = active_subj
-                    target_relation = "LIVES_IN"
-                    resolved_value = stored_belief.value
-                    memory_status = f"STORED ('{stored_belief.value}')"
-                    semantic_repr = f"({target_subject}) --[LIVES_IN]--> ({resolved_value})"
-                elif active_subj and ("where" in raw_text.lower() or "kahan" in raw_text.lower()):
-                    # Honest abstention for unknown or unmentioned person's residence
-                    decision = "ABSTAIN"
-                    confidence = 0.0
-                    evidence_status = f"NO_FACT_FOR_{active_subj}"
-                    target_subject = active_subj
-                    target_relation = "LIVES_IN"
+                if ("where" in raw_text.lower() or "kahan" in raw_text.lower() or "city" in raw_text.lower()):
+                    if ev_val and stored_belief:
+                        if ev_val.lower() != stored_belief.value.lower():
+                            decision = "REPORT_CONFLICT"
+                            confidence = 0.40
+                            target_subject = active_subj
+                            target_relation = "LIVES_IN"
+                            resolved_value = ev_val
+                            evidence_status = f"CONFLICT (Stored: '{stored_belief.value}' vs Evidence: '{ev_val}')"
+                            semantic_repr = f"({target_subject}) --[LIVES_IN]--> (CONFLICT: {stored_belief.value} vs {ev_val})"
+                        else:
+                            decision = "ANSWER"
+                            confidence = 0.95
+                            target_subject = active_subj
+                            target_relation = "LIVES_IN"
+                            resolved_value = ev_val
+                            evidence_status = f"PRESENT ('{ev_val}')"
+                            semantic_repr = f"({target_subject}) --[LIVES_IN]--> ({ev_val})"
+                    elif ev_val:
+                        decision = "ANSWER"
+                        confidence = 0.95
+                        target_subject = active_subj
+                        target_relation = "LIVES_IN"
+                        resolved_value = ev_val
+                        evidence_status = f"PRESENT ('{ev_val}')"
+                        semantic_repr = f"({target_subject}) --[LIVES_IN]--> ({ev_val})"
+                    elif stored_belief:
+                        decision = "ANSWER"
+                        confidence = stored_belief.confidence
+                        target_subject = active_subj
+                        target_relation = "LIVES_IN"
+                        resolved_value = stored_belief.value
+                        memory_status = f"STORED ('{stored_belief.value}')"
+                        semantic_repr = f"({target_subject}) --[LIVES_IN]--> ({resolved_value})"
+                    elif active_subj:
+                        # Honest abstention for unknown or unmentioned person's residence
+                        decision = "ABSTAIN"
+                        confidence = 0.0
+                        evidence_status = f"NO_FACT_FOR_{active_subj}"
+                        target_subject = active_subj
+                        target_relation = "LIVES_IN"
                 else:
                     decision = "EVALUATE_UNSTRUCTURED"
                     confidence = 0.50

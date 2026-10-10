@@ -88,12 +88,15 @@ def verify_all() -> bool:
             "tests/test_end_to_end_orchestration_recovery.py",
             "tests/test_language_realizer.py",
             "tests/test_language_understanding.py",
+            "tests/test_runtime_acceptance_audit.py",
+            "evaluation/results/",
             "docs/architecture/",
             "docs/founder_tests/",
             "docs/releases/",
             "docs/STEP_14_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_15_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_16_MASTER_WORK_BATCH_REPORT.md",
+            "docs/STEP_17_MASTER_WORK_BATCH_REPORT.md",
             "README.md",
         )
         untracked = []
