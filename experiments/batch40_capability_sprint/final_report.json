@@ -1,0 +1,48 @@
+{
+  "batch": "Batch 40 Master Sprint",
+  "timestamp_utc": "2026-10-11T14:32:00Z",
+  "working_branch": "dev/v0.6-v0.7-validation",
+  "head_commit": "7c3be923acf997d98f693b3509bece86ddf97641",
+  "canonical_baseline": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "n_layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "verified_invariant": true
+  },
+  "gate_statuses": {
+    "GIT_REVIEW_COMPLETE": "PASS",
+    "COMMIT_PLAN_READY": "PASS",
+    "DATA_PIPELINE_REVIEW_COMPLETE": "PASS",
+    "SAFETY_INTEGRATION_COMPLETE": "PASS",
+    "LEARNING_EXPERIMENT_EXECUTED": "PASS",
+    "CHECKPOINT_RELOAD_VERIFIED": "PASS",
+    "CAPABILITY_IMPROVEMENT_DEMONSTRATED": "INCONCLUSIVE",
+    "CANONICAL_BASELINE_PRESERVED": "PASS"
+  },
+  "experiment_summary": {
+    "run_id": "run_batch40_continuation_learning_20steps",
+    "steps": 20,
+    "batch_size": 2,
+    "learning_rate": 5e-05,
+    "train_loss_before": 5.4242,
+    "train_loss_after": 5.0305,
+    "val_loss_before": 6.9763,
+    "val_loss_after": 6.5402,
+    "checkpoint_path": "experiments/batch40_capability_sprint/learning_experiment/sft_checkpoint_step_20.pt",
+    "checkpoint_sha256": "fa1edafb821d0a668d27ac30f9bb1bb0c96f2c67b4b0908bda52f08e77c128cc",
+    "eos_rate_before": 0.0,
+    "eos_rate_after": 0.0,
+    "reasoning_demonstration": "INCONCLUSIVE (Optimization decreased held-out loss from 6.98 to 6.54, but greedy generation remains bound to pretraining repetitive patterns over 20 steps)"
+  },
+  "test_summary": {
+    "batch_tests_executed": 45,
+    "passed": 45,
+    "failed": 0,
+    "skipped": 0
+  }
+}

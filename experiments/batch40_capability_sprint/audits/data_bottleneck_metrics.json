@@ -1,0 +1,69 @@
+{
+  "audit_metadata": {
+    "batch": "Batch 40 Data Pipeline Bottleneck Analysis",
+    "timestamp": "2026-10-11T19:55:00+05:30",
+    "pipeline_origin": "experiments/batch39_dataset_builder"
+  },
+  "counts_verification": {
+    "source_documents_inspected": 27,
+    "sha256_matches": 27,
+    "sha256_failures": 0,
+    "decoding_failures": 0,
+    "passages_extracted": 6044,
+    "passages_rejected_length_or_table": 69,
+    "raw_candidates_generated": 353,
+    "distinct_candidates_retained": 46,
+    "duplicate_rejections": 307,
+    "train_candidates": 39,
+    "val_candidates": 7,
+    "human_review_pending": 46,
+    "reasoning_val_coverage_defect": "Category reasoning has only 1 document (reasoning/stage_b_procedures.txt); disjoint validation split is mathematically impossible without external source."
+  },
+  "rejection_analysis": {
+    "rule_1_synthetic_kernel_rejection": {
+      "target_file": "code/stage_b_algorithms.txt",
+      "pattern": "def evaluate_tensor_kernel_vXXXX",
+      "instances_filtered": 379,
+      "rationale": "Repetitive synthetic variations of identical kernel functions differing only in sequential integer index; keeping them induces severe overfitting and memorization."
+    },
+    "rule_2_near_duplicate_filter": {
+      "algorithm": "difflib.SequenceMatcher",
+      "threshold": 0.75,
+      "instances_rejected": 307,
+      "rationale": "Rejects syntactically or textually redundant QA pairs from single-template document structures."
+    },
+    "rule_3_dialogue_template_collapse": {
+      "target_file": "hinglish/stage_b_dialogues.txt",
+      "pattern": "Single-template Dev Log Q&A",
+      "instances_filtered": 378,
+      "rationale": "All 379 dialogue blocks in stage_b_dialogues share identical answer templates."
+    }
+  },
+  "candidate_distributions": {
+    "total_candidates": 46,
+    "sources_represented": 16,
+    "sources_unrepresented": 11,
+    "domains": {
+      "code": 16,
+      "english": 12,
+      "mathematics": 9,
+      "hindi": 6,
+      "hinglish": 2,
+      "sanskrit": 1
+    },
+    "splits": {
+      "train": 39,
+      "val": 7
+    },
+    "user_prompt_length": {
+      "min_chars": 18,
+      "avg_chars": 88.8,
+      "max_chars": 136
+    },
+    "assistant_response_length": {
+      "min_chars": 29,
+      "avg_chars": 272.3,
+      "max_chars": 822
+    }
+  }
+}
