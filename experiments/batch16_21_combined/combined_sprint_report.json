@@ -1,0 +1,93 @@
+{
+  "sprint": "Batch 16-21 Master Sprint",
+  "status": "VERIFIED COMPLETE",
+  "branch": "dev/v0.6-v0.7-validation",
+  "hardware": "CPU-First (Windows NT x86_64)",
+  "checkpoints": {
+    "step_0_random": {
+      "hash": "deterministic_seed_42",
+      "val_loss": 8.4239
+    },
+    "step_200": {
+      "path": "experiments/batch13_pretraining/training_checkpoint_step_200.pt",
+      "hash": "e84cbef79a1f7cbf544f9cf5c63df9fa20b75dafd7f02279a0cf8363a0bb28b4",
+      "val_loss": 6.2758
+    },
+    "step_1000": {
+      "path": "experiments/batch14_stage_c_scaling/main_training_1000/training_checkpoint_step_1000.pt",
+      "hash": "3c46a6fbb4080ef8a16dbd7e974e64f78aa0e7193b2a26c4f02888cf3b4e7235",
+      "val_loss": 4.4172
+    },
+    "step_5000": {
+      "path": "experiments/batch15_stage_c_scaling/main_training_5000/training_checkpoint_step_5000.pt",
+      "hash": "3b307ec91e2b69dd0e447b935bf7c87cbfb0b2e8d35e1675231c51fc89382f71",
+      "val_loss": 3.4477
+    },
+    "step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "val_loss": 3.2306,
+      "test_loss": 2.9489,
+      "val_perplexity": 25.3,
+      "hash": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    }
+  },
+  "training_metrics": {
+    "steps_trained": 5000,
+    "cumulative_steps": 10000,
+    "tokens_processed_sprint": 1280000,
+    "cumulative_tokens": 2560000,
+    "runtime_seconds": 267.69,
+    "tokens_per_sec": 4789.0,
+    "peak_rss_mb": 462.8
+  },
+  "sampling_analysis": {
+    "total_documents": 5534,
+    "doc_distribution": {
+      "en": 3408,
+      "hi": 948,
+      "sa": 304,
+      "code": 843,
+      "math": 18,
+      "hi-en": 10
+    },
+    "shard_clusters": {
+      "english_code_shards": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "indic_shards": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "sampling_mode_chosen": "balanced_indic_bilingual"
+  },
+  "canonical_baseline": {
+    "parameter_count": 3443136,
+    "expected_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "status": "VERIFIED EXACT (Delta W = 0)"
+  }
+}

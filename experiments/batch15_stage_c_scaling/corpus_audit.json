@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-10-11T08:35:15Z",
+  "manifest_audit": {
+    "total_documents": 5534,
+    "manifest_split_counts": {
+      "train": 4755,
+      "validation": 378,
+      "test": 401
+    },
+    "manifest_token_totals": {
+      "train": 6646338,
+      "validation": 465576,
+      "test": 591153
+    },
+    "manifest_vocab_size": 4096,
+    "tokenizer_checksum": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f"
+  },
+  "shard_integrity": {
+    "train": {
+      "shards_count": 27,
+      "expected_tokens": 6651093,
+      "actual_tokens": 6651093,
+      "match": true,
+      "hash_match_all": true
+    },
+    "validation": {
+      "shards_count": 2,
+      "expected_tokens": 465954,
+      "actual_tokens": 465954,
+      "match": true,
+      "hash_match_all": true
+    },
+    "test": {
+      "shards_count": 3,
+      "expected_tokens": 591554,
+      "actual_tokens": 591554,
+      "match": true,
+      "hash_match_all": true
+    }
+  },
+  "token_bounds_audit": {
+    "shard_errors": [],
+    "train_min_token": 1,
+    "train_max_token": 4094,
+    "val_min_token": 1,
+    "val_max_token": 4094,
+    "test_min_token": 1,
+    "test_max_token": 4094,
+    "vocab_size": 4096,
+    "all_within_bounds": true
+  },
+  "document_level_leakage": {
+    "train_val_id_overlap": 0,
+    "train_test_id_overlap": 0,
+    "val_test_id_overlap": 0,
+    "train_val_content_hash_overlap": 0,
+    "train_test_content_hash_overlap": 0,
+    "val_test_content_hash_overlap": 0,
+    "is_document_disjoint": true
+  },
+  "token_ngram_leakage": {
+    "val_32grams_checked": 1248,
+    "test_32grams_checked": 1248,
+    "train_32grams_pool": 12484,
+    "val_train_32gram_matches": 1,
+    "test_train_32gram_matches": 2,
+    "finding": "Detected 1 val and 2 test matching 32-grams (boilerplate/common formatting)"
+  },
+  "limitations": [
+    "Source documents are stored as pre-tokenized binary shards; document boundary delimiters (<eos>=1) are present at document boundaries, but raw non-tokenized text strings for full cross-entropy verification reside in original dump archives.",
+    "N-gram overlap was evaluated on 32-token contiguous windows. Extremely short common phrases (e.g. 1-4 tokens like 'in the', 'of India') naturally occur across splits in natural language text."
+  ]
+}

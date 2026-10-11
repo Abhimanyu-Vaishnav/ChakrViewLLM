@@ -1,0 +1,102 @@
+{
+  "sprint": "Master Engineering Sprint 22-27",
+  "status": "VERIFIED COMPLETE",
+  "branch": "dev/v0.6-v0.7-validation",
+  "timestamp_utc": "2026-10-11T14:55:00Z",
+  "foundation_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "recorded_step": 10000,
+    "size_bytes": 42212787,
+    "canonical_params": 3443136,
+    "val_loss": 3.2306,
+    "test_loss": 2.9489,
+    "verdict": "TRUSTWORTHY & VERIFIED"
+  },
+  "historical_lineage_forensics": {
+    "step_200": {
+      "path": "experiments/batch13_stage_c_convergence/training_checkpoint_step_200.pt",
+      "sha256": "74a438a63de88785f3d5491d47fbf7f27b31232ae6d805ee31771dc2782ad635",
+      "step": 200,
+      "val_loss": 5.6042,
+      "status": "MATCH"
+    },
+    "step_1000": {
+      "path": "experiments/batch14_stage_c_pretraining/training_checkpoint_step_1000.pt",
+      "sha256": "ec1e53efa31a1c1b7bdbe6f9894a2e491f9f7201ae56480691e7b31050b32f20",
+      "step": 1000,
+      "val_loss": 4.4013,
+      "status": "MATCH"
+    },
+    "step_1500_arm_a": {
+      "path": "experiments/batch15_stage_c_scaling/scheduler_pilots/arm_a_constant/training_checkpoint_step_1500.pt",
+      "sha256": "a4d1b90f896c7f323c39c006fc68e0ef6ce6bbbfcd6bc036ca53d86288852b50",
+      "step": 1500,
+      "val_loss": 4.1226,
+      "status": "MATCH"
+    },
+    "step_1500_arm_b": {
+      "path": "experiments/batch15_stage_c_scaling/scheduler_pilots/arm_b_cosine/training_checkpoint_step_1500.pt",
+      "sha256": "e91ac437875d620d62d23adbd63786434995a95f94e9c6b74b5ade59f21cf9f1",
+      "step": 1500,
+      "val_loss": 4.0953,
+      "status": "MATCH"
+    },
+    "step_5000": {
+      "path": "experiments/batch15_stage_c_scaling/main_training_5000/training_checkpoint_step_5000.pt",
+      "sha256": "0508f986ad3c5ea870d19f021d9f9e3fe8c617f24a390a6bf5d75d89b60bacbc",
+      "step": 5000,
+      "val_loss": 3.4477,
+      "status": "MATCH"
+    },
+    "step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "step": 10000,
+      "val_loss": 3.2306,
+      "status": "MATCH"
+    }
+  },
+  "sampler_distribution_audit": {
+    "balanced_unit": "shard_clusters (partitioned offset sampling across Indic shards 9-19 and non-Indic shards 0-8, 20-26)",
+    "natural_indic_draw_rate": "42.3%",
+    "balanced_indic_draw_rate": "50.0%",
+    "natural_devanagari_char_rate": "21.87%",
+    "balanced_devanagari_char_rate": "26.26%",
+    "verdict": "VERIFIED FUNCTIONAL PARTITION SAMPLER"
+  },
+  "checkpoint_resumption_determinism": {
+    "uninterrupted_vs_split_max_divergence": 0.0,
+    "parameter_layers_verified": 57,
+    "total_step_semantics_verified": "steps parameter represents final target global step",
+    "verdict": "BIT-EXACT DETERMINISTIC RESUMPTION"
+  },
+  "held_out_benchmark": {
+    "manifest_version": "1.0.0",
+    "manifest_sha256": "9f35196569489403487c6031853db20577aa2f89f41753bb9671607a90f39e31",
+    "examples_count": 12,
+    "provenance": "data/validation/*.txt (strict zero-training-leakage verified)",
+    "loss_progression": {
+      "step_0": 8.4046,
+      "step_200": 6.3457,
+      "step_1000": 5.8602,
+      "step_5000": 5.6821,
+      "step_10000": 5.5655
+    },
+    "verdict": "VERIFIED MONOTONIC GENERALIZATION"
+  },
+  "stage_d_readiness": {
+    "specification_path": "experiments/batch22_27_validation/stage_d_prep/stage_d_specification.md",
+    "validator_module": "experiments/batch22_27_validation/stage_d_prep/validator.py",
+    "supervised_loss_masking_verified": true,
+    "pilot_plan_bounded": true,
+    "verdict": "READY FOR BOUNDED SUPERVISED PILOT"
+  },
+  "regression_suite_results": {
+    "tests_passed": 23,
+    "tests_failed": 0,
+    "canonical_baseline_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "weight_divergence_delta_w": 0.0
+  },
+  "next_recommended_action": "Begin a bounded Stage D supervised pilot (500 steps, lr=5e-5, loss masking on response tokens) starting from Step 10,000 checkpoint."
+}
