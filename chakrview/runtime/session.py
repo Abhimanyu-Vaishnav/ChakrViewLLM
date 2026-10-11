@@ -177,6 +177,56 @@ class LocalModelSession:
         """Clear conversation history, preserving system prompt if present."""
         self.turns = [t for t in self.turns if t.pinned]
 
+    def to_dict(self) -> Dict[str, Any]:
+        """Serialize session state and turns to dictionary."""
+        return {
+            "session_id": self.session_id,
+            "tenant_id": self.tenant_id,
+            "max_context": self.max_context,
+            "turns": [t.to_dict() for t in self.turns],
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any], memory_adapter: Optional[Any] = None) -> LocalModelSession:
+        """Instantiate session from serialized dictionary."""
+        sess = cls(
+            session_id=data["session_id"],
+            tenant_id=data.get("tenant_id", "default_tenant"),
+            max_context=data.get("max_context", 512),
+            memory_adapter=memory_adapter,
+        )
+        sess.turns = []
+        for t_data in data.get("turns", []):
+            role_enum = ConversationRole(t_data["role"])
+            turn = ConversationTurn(
+                role=role_enum,
+                content=t_data["content"],
+                token_count=t_data["token_count"],
+                timestamp=t_data.get("timestamp", time.time()),
+                metadata=t_data.get("metadata", {}),
+                pinned=t_data.get("pinned", (role_enum == ConversationRole.SYSTEM)),
+            )
+            sess.turns.append(turn)
+        return sess
+
+    def save_to_file(self, file_path: str) -> None:
+        """Persist session state atomically to JSON file."""
+        import json
+        tmp_path = f"{file_path}.tmp"
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(self.to_dict(), f, indent=2)
+        import os
+        if os.path.exists(tmp_path):
+            os.replace(tmp_path, file_path)
+
+    @classmethod
+    def load_from_file(cls, file_path: str, memory_adapter: Optional[Any] = None) -> LocalModelSession:
+        """Load session state from JSON file."""
+        import json
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return cls.from_dict(data, memory_adapter=memory_adapter)
+
     def build_prompt_package(
         self,
         user_input: str,

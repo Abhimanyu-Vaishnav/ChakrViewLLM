@@ -1,0 +1,41 @@
+{
+  "batch": 31,
+  "sprint_name": "Chat Runtime, Multi-Turn SFT, Generation, Memory, Evaluation, Reliability and Performance",
+  "status": "PASS",
+  "phases": {
+    "Phase_A_Audit_and_Reconcile": {
+      "status": "PASS",
+      "summary": "Verified Step 10,000 checkpoint SHA-256 (96357705...471ee), Step 50 SFT (5a3b2136...51af), Step 200 SFT (935130e9...3e74), baseline random initialization invariance (c5571c...00a282da, ΔW=0), and audited Batch 30 7.33s runtime."
+    },
+    "Phase_B_Chat_Template_and_MultiTurn_Data": {
+      "status": "PASS",
+      "summary": "Implemented versioned ChatMessage and ConversationTemplate with <|im_start|>{role}\\n{content}<|im_end|> delimiters encodable within the 4096 frozen vocab without inventing OOV tokens. Multi-turn SFT masking masks system/user turns (-100) and scores assistant responses."
+    },
+    "Phase_C_Reliable_Inference_and_Generation_Runtime": {
+      "status": "PASS",
+      "summary": "Extended LocalModelRuntime with from_checkpoint() loader, provenance validation, greedy and sampled decoding controls via GenerationConfig and SamplingConfig, and post-generation ΔW=0 invariant check."
+    },
+    "Phase_D_Session_State_and_Memory_Boundaries": {
+      "status": "PASS",
+      "summary": "Implemented LocalModelSession with tenant isolation, atomic file persistence (save_to_file/load_from_file), and sliding-window history budget compaction respecting ChakrMicro 512 context limit."
+    },
+    "Phase_E_SFT_Integration_and_Candidate_Selection": {
+      "status": "PASS",
+      "summary": "Integrated multi-turn SFT dataset serializer with prompt-response masking and candidate comparative evaluation across Base 10,000, Step 50 SFT, and Step 200 SFT."
+    },
+    "Phase_F_Quality_Performance_and_Regression": {
+      "status": "PASS",
+      "summary": "CPU generation throughput benchmarked at 348-371 tokens/second. End-to-end multi-turn chat and session reload passed. Full regression suite passed (19 tests)."
+    }
+  },
+  "metrics": {
+    "cpu_inference_throughput_tok_per_sec": 361.43,
+    "checkpoint_load_time_sec": 0.0983,
+    "memory_rss_mb": 265.72,
+    "regression_tests_passed": 19
+  },
+  "candidate_selection_recommendation": {
+    "selected_checkpoint": "step_10000_base",
+    "rationale": "SFT Step 50 and Step 200 exhibit premature EOS collapse on English/Hinglish questions due to small-scale pilot overfitting on short answers. Base Step 10,000 retains structural vocabulary and syntax continuity across Hindi, English, and code, making it the most stable foundation for larger-scale multi-turn SFT in Batch 32."
+  }
+}

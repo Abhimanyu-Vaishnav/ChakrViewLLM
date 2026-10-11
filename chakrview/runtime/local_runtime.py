@@ -16,6 +16,7 @@ Invariants Enforced:
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 from typing import Any, Dict, Generator, List, Optional
 import torch
@@ -114,6 +115,49 @@ class LocalModelRuntime:
             memory_adapter=memory_adapter,
             execution_plan=execution_plan,
         )
+
+    @classmethod
+    def from_checkpoint(
+        cls,
+        checkpoint_path: Path | str,
+        tokenizer_dir: Optional[Path] = None,
+        memory_adapter: Optional[Any] = None,
+        execution_plan: Optional[Any] = None,
+    ) -> LocalModelRuntime:
+        """
+        Factory initializing runtime with a trained checkpoint (e.g., Step 10,000, Step 50 SFT, Step 200 SFT).
+        Computes SHA-256 and sets expected_weight_hash to match the checkpoint weights.
+        """
+        ckpt_p = Path(checkpoint_path)
+        if not ckpt_p.exists():
+            raise FileNotFoundError(f"Checkpoint not found: {ckpt_p}")
+
+        ckpt = torch.load(ckpt_p, map_location="cpu", weights_only=False)
+        model = ChakrMicro(ModelConfig())
+        model.load_state_dict(ckpt["model_state_dict"], strict=True)
+        model.eval()
+
+        tok_path = tokenizer_dir or DEFAULT_TOKENIZER_DIR
+        tokenizer, _ = load_tokenizer_artifacts(tok_path)
+
+        # Compute weight hash of this specific trained model
+        hasher = hashlib.sha256()
+        with torch.no_grad():
+            for name, param in sorted(model.named_parameters()):
+                hasher.update(name.encode("utf-8"))
+                hasher.update(param.detach().cpu().numpy().tobytes())
+        trained_hash = hasher.hexdigest()
+
+        rt = cls(
+            model=model,
+            tokenizer=tokenizer,
+            memory_adapter=memory_adapter,
+            expected_weight_hash=trained_hash,
+            execution_plan=execution_plan,
+        )
+        rt.checkpoint_path = str(ckpt_p)
+        rt.checkpoint_step = ckpt.get("sft_step", ckpt.get("step", 0))
+        return rt
 
     def verify_runtime_integrity(self) -> bool:
         """

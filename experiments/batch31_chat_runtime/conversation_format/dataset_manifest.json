@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "format": "chatml_compatible_v1",
+  "total_examples": 4,
+  "examples": [
+    {
+      "id": "turn_1_en",
+      "domain": "general_english",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is the capital of India?"
+        },
+        {
+          "role": "assistant",
+          "content": "New Delhi is the capital of India."
+        }
+      ]
+    },
+    {
+      "id": "turn_2_hi",
+      "domain": "hindi_qa",
+      "messages": [
+        {
+          "role": "user",
+          "content": "भारत की राजधानी क्या है?"
+        },
+        {
+          "role": "assistant",
+          "content": "भारत की राजधानी नई दिल्ली है।"
+        }
+      ]
+    },
+    {
+      "id": "turn_3_hinglish",
+      "domain": "hinglish_conversation",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Aap ek helpful AI assistant hain."
+        },
+        {
+          "role": "user",
+          "content": "Mujhe Python me loop kaise likhna hai bataye."
+        },
+        {
+          "role": "assistant",
+          "content": "Python me for loop likhne ke liye: for i in range(5): print(i)"
+        }
+      ]
+    },
+    {
+      "id": "turn_4_multiturn_code",
+      "domain": "code_dialogue",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a coding assistant."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python function to add two numbers."
+        },
+        {
+          "role": "assistant",
+          "content": "def add(a, b):\n    return a + b"
+        },
+        {
+          "role": "user",
+          "content": "Now multiply them."
+        },
+        {
+          "role": "assistant",
+          "content": "def multiply(a, b):\n    return a * b"
+        }
+      ]
+    }
+  ]
+}

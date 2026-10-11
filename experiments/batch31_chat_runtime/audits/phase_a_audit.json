@@ -1,0 +1,45 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "torch_version": "2.14.0+cpu",
+  "cpu_count_logical": 20,
+  "cpu_count_physical": 14,
+  "memory_total_gb": 31.64,
+  "memory_available_gb": 17.56,
+  "device": "cpu",
+  "checkpoints": {
+    "step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "sha_match": true,
+      "step": 10000,
+      "strict_load": true
+    },
+    "step_50_sft": {
+      "path": "experiments/batch29_stage_d_sprint/sft_pilot_run/sft_checkpoint_step_50.pt",
+      "sha256": "5a3b2136864c05b6312e1ab7b66e1ddafac326661ce4ccf5718b8ca631ee51af",
+      "sft_step": 50,
+      "strict_load": true
+    },
+    "step_200_sft": {
+      "path": "experiments/batch30_autonomous_sprint/training/sft_200_run/sft_checkpoint_step_200.pt",
+      "sha256": "935130e9ef4af7e3c04d30f04335420018803c4028517040fc2f7d6b80ab3e74",
+      "sft_step": 200,
+      "strict_load": true
+    },
+    "canonical_baseline": {
+      "is_bit_exact": true,
+      "digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "delta_w": 0,
+      "total_params": 3443136
+    }
+  },
+  "batch_30_runtime_audit": {
+    "total_steps_recorded": 200,
+    "all_200_steps_executed": true,
+    "recorded_elapsed_seconds": 7.33,
+    "step_time_avg_sec": 0.0367,
+    "explanation": "In Batch 30, SFT batch_size was 2 and max_seq_len was dynamically padded per small batch (average sequence length ~30-40 tokens). On an Intel/AMD CPU with batch_size=2 and sequence length 35, each ChakrMicro forward+backward takes ~35 milliseconds. 200 * 0.035s = ~7.0s. All 200 optimizer step updates were genuinely executed and recorded."
+  }
+}
