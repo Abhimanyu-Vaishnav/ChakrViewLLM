@@ -126,11 +126,11 @@ Exit code: `0`
 A packaging script `scripts/package_v050_release.py` was constructed following strict release hygiene:
 - Excludes: `.git/`, `.venv/`, `.venv_gpu/`, `__pycache__/`, `.pytest_cache/`, `checkpoints/experiments/`, `.env*`, and scratch directories.
 - Bundles: Core source tree `chakrview/`, test suite `tests/`, documentation `docs/`, operational scripts `scripts/`, `LICENSE`, `README.md`, `CHANGELOG.md`, `requirements.txt`.
-- Output Archive: `release/dist/chakrview-v0.5.0-research-preview-rc1.zip`
+- Output Archive: `release/dist/chakrview-v0.5.0-research-preview.zip`
 - Companion Checksums: `release/chakrview-v0.5.0/CHECKSUMS.sha256`
 
 ### 5.1 Package Metadata
-- **Archive Path**: `release/dist/chakrview-v0.5.0-research-preview-rc1.zip`
+- **Archive Path**: `release/dist/chakrview-v0.5.0-research-preview.zip`
 - **File Size**: `2,087,279 bytes` (~2.08 MB)
 - **Total Files**: `825` files
 - **Archive SHA-256**:
@@ -231,7 +231,7 @@ python scripts/founder_manual_test.py --suite
 3. **GitHub Release Publication**:
    - Title: `ChakrView v0.5.0 — Experimental Research Preview`
    - Target tag: `v0.5.0`
-   - Attach artifact: `release/dist/chakrview-v0.5.0-research-preview-rc1.zip`
+   - Attach artifact: `release/dist/chakrview-v0.5.0-research-preview.zip`
    - Attach checksum: `release/chakrview-v0.5.0/CHECKSUMS.sha256`
    - Include draft release notes from Section 9.
 
