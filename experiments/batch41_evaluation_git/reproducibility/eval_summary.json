@@ -1,0 +1,114 @@
+{
+  "run_id": "run_batch41_aligned_continuation_learning_20steps",
+  "timestamp_utc": "2026-10-11T14:46:03Z",
+  "elapsed_seconds": 1.6,
+  "dataset": {
+    "format": "canonical_chatml_aligned",
+    "train_records": 39,
+    "val_records": 7
+  },
+  "evaluation": {
+    "aggregation_mode": "full_dataset_deterministic_no_subsampling",
+    "before": {
+      "train_loss": 5.0848,
+      "train_ppl": 161.54,
+      "val_loss": 7.4781,
+      "val_ppl": 1768.81,
+      "probes": [
+        {
+          "probe_id": "probe_code_cross_entropy",
+          "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&qu",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_code_binary_search",
+          "prompt": "<|im_start|>user\nExplain binary search logic in python.<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n|200\n|-\n|2005\n| style=&quot;background-color: #00706;",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_rmsnorm",
+          "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_capital",
+          "prompt": "<|im_start|>user\nWhat is the capital of India?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&qu",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_heads_divisibility",
+          "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n| classcope=&quot;row&quot",
+          "eos_reached": false,
+          "empty_output": false
+        }
+      ]
+    },
+    "after": {
+      "train_loss": 4.4357,
+      "train_ppl": 84.41,
+      "val_loss": 6.0563,
+      "val_ppl": 426.79,
+      "probes": [
+        {
+          "probe_id": "probe_code_cross_entropy",
+          "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n|200/01||Premier League||Premier League||Premier League||Premier ",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_code_binary_search",
+          "prompt": "<|im_start|>user\nExplain binary search logic in python.<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_rmsnorm",
+          "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_capital",
+          "prompt": "<|im_start|>user\nWhat is the capital of India?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+          "eos_reached": false,
+          "empty_output": false
+        },
+        {
+          "probe_id": "probe_heads_divisibility",
+          "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+          "generated_tokens": 40,
+          "generated_text": "|-\n| scope=&quot;row&quot; | \n| style=&quot;text-align: ",
+          "eos_reached": false,
+          "empty_output": false
+        }
+      ]
+    }
+  },
+  "checkpoint": {
+    "path": "experiments\\batch41_evaluation_git\\reproducibility\\sft_aligned_checkpoint_step_20.pt",
+    "sha256": "d7ed7663cc289361aab6078e044fb7c31d8d2e1d5248eee555a68999bc75b55e",
+    "size_bytes": 41392603
+  }
+}
