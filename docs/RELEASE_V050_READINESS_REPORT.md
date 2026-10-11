@@ -4,7 +4,10 @@
 **Target Release**: ChakrView v0.5.0 — Experimental Research Preview  
 **Audit Status**: READY FOR FINAL HUMAN APPROVAL  
 **Repository**: `D:\Project\ChakrView` (Remote: `https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git`)  
-**Proposed Release Commit**: `4a5309a` (Branch `main`, Candidate Ancestry: `1e06746`)  
+**Release Tag Target**: Latest verified `release/v0.5.0` branch commit (descended from `c4cb527`, base `dee16dd`)
+**Source & Package Build Commit**: `c4cb527` (Commit from which final release ZIP was built)
+**Release Base Commit**: `dee16dd` (Historical commit prior to v0.6/v0.7 research containing all v0.5 fixes)
+**Historical Context**: Commit `1e06746` was candidate lineage target before runtime/device fixes; commit `4a5309a` was main audit state before release isolation
 
 ---
 
@@ -224,6 +227,7 @@ python scripts/founder_manual_test.py --suite
 ### 10.2 Exact Next Steps for an Authorized Release Publication
 1. **Founder Review**: Review this readiness report and approve the release package.
 2. **Git Tagging** (Upon explicit human authorization only):
+   *(Note: The annotated release tag `v0.5.0` must target the latest verified release-branch HEAD commit on `release/v0.5.0` incorporating this documentation clarification, NOT historical commit `4a5309a` or `1e06746`)*
    ```bash
    git tag -a v0.5.0 -m "ChakrView v0.5.0 — Experimental Research Preview"
    git push origin v0.5.0
