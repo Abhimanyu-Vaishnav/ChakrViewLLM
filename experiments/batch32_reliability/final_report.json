@@ -1,0 +1,57 @@
+{
+  "batch": 32,
+  "sprint_name": "Runtime Reliability, Conversation Quality, Dataset Integrity, Controlled SFT and End-to-End Validation",
+  "overall_status": "PARTIAL",
+  "status_rationale": "Runtime engineering, conversation delimiter escaping security, session persistence/isolation, context enforcement, model immutability, and acceptance testing are VERIFIED COMPLETE (27/27 regression tests pass). However, SFT dataset quality audit revealed prompt-template overlap between train and validation sets, and candidate evaluation confirms that pilot SFT checkpoints suffer from early EOS collapse on QA prompts. In accordance with Hard Gate 4, further SFT scaling was blocked until clean disjoint datasets are constructed.",
+  "phases": {
+    "Phase_0_Reconnaissance_and_Baseline": {
+      "status": "VERIFIED COMPLETE",
+      "canonical_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "canonical_digest_match": true,
+      "parameter_count": 3443136,
+      "step_10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "step_50_sft_sha256": "5a3b2136864c05b6312e1ab7b66e1ddafac326661ce4ccf5718b8ca631ee51af",
+      "step_200_sft_sha256": "935130e9ef4af7e3c04d30f04335420018803c4028517040fc2f7d6b80ab3e74",
+      "isolated_checkpoint_loads": "ALL_PASS"
+    },
+    "Phase_1_Runtime_Contract_and_Chat_Correctness": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Fixed delimiter injection vulnerability in ConversationTemplate by adding escape/unescape handling for <|im_start|> and <|im_end|>. Verified context packing and causal alignment."
+    },
+    "Phase_2_Generation_Reliability_and_Resource_Control": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Verified greedy determinism, context window limits, weight immutability across repeated generations, and safe handling of edge-case inputs."
+    },
+    "Phase_3_Session_Memory_Persistence_and_Isolation": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Hardened LocalModelSession with schema versioning ('1.0.0'), validation on from_dict, context bounds check (1 to 512), 10MB file size limit, and tenant isolation."
+    },
+    "Phase_4_SFT_Dataset_Provenance_and_Loss_Masking": {
+      "status": "PARTIAL",
+      "summary": "Audited Batch 30 dataset: zero target-response leakage found, but 3 shared prompt templates ('State the mathematical formulation:', etc.) overlap across train and val. Loss masking was verified correct."
+    },
+    "Phase_5_Model_Evaluation_and_Candidate_Comparison": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Comparative evaluation on fixed 4-domain manifest confirmed Step 50 and Step 200 SFT models collapse into early EOS on QA prompts, whereas Base Step 10,000 generates continuous multilingual tokens."
+    },
+    "Phase_6_Controlled_Training_Decision": {
+      "status": "BLOCKED",
+      "summary": "Hard Gate 4 triggered: Further training was held back due to prompt-template overlap in existing SFT splits and verified early EOS collapse in existing pilot models. High-rigor dataset construction is required before long runs."
+    },
+    "Phase_7_End_to_End_Acceptance_Suite": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Implemented tests/test_batch32_acceptance.py covering load provenance, delimiter escaping security, referential dialogue, session isolation, schema validation, SFT masking, and weight immutability (8/8 pass)."
+    },
+    "Phase_8_Performance_and_Reproducibility": {
+      "status": "VERIFIED COMPLETE",
+      "summary": "Median load time: 0.0949s. Median CPU generation rate: 311 tok/s (short), 291 tok/s (medium), 237 tok/s (near-limit). RSS memory: 228MB init -> 356MB peak load -> 299MB post-generation."
+    }
+  },
+  "metrics": {
+    "regression_tests_passed": 27,
+    "regression_tests_total": 27,
+    "cpu_generation_median_tps": 311.31,
+    "checkpoint_load_median_sec": 0.0949,
+    "process_rss_mb": 299.05
+  }
+}

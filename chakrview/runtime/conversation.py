@@ -55,11 +55,24 @@ class ConversationTemplate:
 
     START_TAG = "<|im_start|>"
     END_TAG = "<|im_end|>"
+    ESCAPED_START_TAG = "<\\|im_start\\|>"
+    ESCAPED_END_TAG = "<\\|im_end\\|>"
+
+    @classmethod
+    def escape_content(cls, content: str) -> str:
+        """Escapes raw delimiter tags inside message content to prevent delimiter hijacking."""
+        return content.replace(cls.START_TAG, cls.ESCAPED_START_TAG).replace(cls.END_TAG, cls.ESCAPED_END_TAG)
+
+    @classmethod
+    def unescape_content(cls, content: str) -> str:
+        """Restores escaped delimiter tags in message content."""
+        return content.replace(cls.ESCAPED_START_TAG, cls.START_TAG).replace(cls.ESCAPED_END_TAG, cls.END_TAG)
 
     @classmethod
     def format_message(cls, role: Role | str, content: str) -> str:
         role_name = role.value if isinstance(role, Role) else role
-        return f"{cls.START_TAG}{role_name}\n{content.strip()}{cls.END_TAG}\n"
+        escaped = cls.escape_content(content.strip())
+        return f"{cls.START_TAG}{role_name}\n{escaped}{cls.END_TAG}\n"
 
     @classmethod
     def format_conversation(cls, messages: List[ChatMessage], add_generation_prompt: bool = False) -> str:
@@ -95,7 +108,8 @@ class ConversationTemplate:
 
             lines = turn_body.split("\n", 1)
             role_header = lines[0].strip().lower()
-            content = lines[1].strip() if len(lines) > 1 else ""
+            raw_content = lines[1].strip() if len(lines) > 1 else ""
+            content = cls.unescape_content(raw_content)
 
             if role_header in [r.value for r in Role]:
                 messages.append(ChatMessage(role=Role(role_header), content=content))

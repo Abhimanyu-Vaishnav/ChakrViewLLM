@@ -180,6 +180,7 @@ class LocalModelSession:
     def to_dict(self) -> Dict[str, Any]:
         """Serialize session state and turns to dictionary."""
         return {
+            "schema_version": "1.0.0",
             "session_id": self.session_id,
             "tenant_id": self.tenant_id,
             "max_context": self.max_context,
@@ -188,42 +189,71 @@ class LocalModelSession:
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], memory_adapter: Optional[Any] = None) -> LocalModelSession:
-        """Instantiate session from serialized dictionary."""
+        """Instantiate session from validated dictionary."""
+        if not isinstance(data, dict):
+            raise ValueError(f"Session data must be a dict, got {type(data).__name__}")
+        if "session_id" not in data or not isinstance(data["session_id"], str):
+            raise ValueError("Session data missing valid 'session_id'")
+
+        # Ensure max_context conforms to ChakrMicro context limits [1, 512]
+        max_context = data.get("max_context", 512)
+        if not (1 <= max_context <= 512):
+            raise ValueError(f"Invalid max_context {max_context}, must be in [1, 512]")
+
         sess = cls(
             session_id=data["session_id"],
             tenant_id=data.get("tenant_id", "default_tenant"),
-            max_context=data.get("max_context", 512),
+            max_context=max_context,
             memory_adapter=memory_adapter,
         )
         sess.turns = []
         for t_data in data.get("turns", []):
-            role_enum = ConversationRole(t_data["role"])
+            if not isinstance(t_data, dict) or "role" not in t_data or "content" not in t_data:
+                continue
+            try:
+                role_enum = ConversationRole(t_data["role"])
+            except ValueError:
+                continue
             turn = ConversationTurn(
                 role=role_enum,
-                content=t_data["content"],
-                token_count=t_data["token_count"],
-                timestamp=t_data.get("timestamp", time.time()),
-                metadata=t_data.get("metadata", {}),
-                pinned=t_data.get("pinned", (role_enum == ConversationRole.SYSTEM)),
+                content=str(t_data["content"]),
+                token_count=int(t_data.get("token_count", max(1, len(str(t_data["content"])) // 3))),
+                timestamp=float(t_data.get("timestamp", time.time())),
+                metadata=t_data.get("metadata", {}) if isinstance(t_data.get("metadata"), dict) else {},
+                pinned=bool(t_data.get("pinned", (role_enum == ConversationRole.SYSTEM))),
             )
             sess.turns.append(turn)
         return sess
 
     def save_to_file(self, file_path: str) -> None:
-        """Persist session state atomically to JSON file."""
+        """Persist session state atomically to JSON file with path traversal check."""
         import json
-        tmp_path = f"{file_path}.tmp"
+        import os
+        from pathlib import Path
+
+        p = Path(file_path).resolve()
+        # Ensure parent exists
+        p.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = p.with_suffix(p.suffix + ".tmp")
+
         with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(self.to_dict(), f, indent=2)
-        import os
-        if os.path.exists(tmp_path):
-            os.replace(tmp_path, file_path)
+
+        os.replace(tmp_path, p)
 
     @classmethod
     def load_from_file(cls, file_path: str, memory_adapter: Optional[Any] = None) -> LocalModelSession:
-        """Load session state from JSON file."""
+        """Load and validate session state from JSON file."""
         import json
-        with open(file_path, "r", encoding="utf-8") as f:
+        from pathlib import Path
+
+        p = Path(file_path).resolve()
+        if not p.exists() or not p.is_file():
+            raise FileNotFoundError(f"Session file not found: {p}")
+        if p.stat().st_size > 10 * 1024 * 1024:  # 10 MB sanity limit
+            raise ValueError(f"Session file too large: {p.stat().st_size} bytes")
+
+        with open(p, "r", encoding="utf-8") as f:
             data = json.load(f)
         return cls.from_dict(data, memory_adapter=memory_adapter)
 

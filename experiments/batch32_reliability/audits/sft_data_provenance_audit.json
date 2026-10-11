@@ -1,0 +1,18 @@
+{
+  "total_train_records": 37,
+  "total_val_records": 8,
+  "target_leakage_count": 0,
+  "target_leakage_items": [],
+  "prompt_template_overlap_count": 3,
+  "prompt_template_overlaps": [
+    "Is statement ko technical context mein explain karo:",
+    "State the mathematical formulation:",
+    "Write the code implementation for the specified function or configuration:"
+  ],
+  "provenance_breakdown": {
+    "train_generic_prompts": 11,
+    "val_generic_prompts": 3
+  },
+  "data_audit_verdict": "PARTIAL",
+  "audit_summary": "No target response leakage detected (0 target matches). However, 3 shared generic prompt templates are reused between train and validation. For high-rigor evaluation, prompt templates should also be disjoint."
+}

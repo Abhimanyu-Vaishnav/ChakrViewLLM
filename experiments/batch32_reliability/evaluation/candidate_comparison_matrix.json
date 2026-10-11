@@ -1,0 +1,131 @@
+{
+  "step_10000_base": {
+    "checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "checkpoint_step": 10000,
+    "results": [
+      {
+        "example_id": "turn_1_en",
+        "domain": "general_english",
+        "prompt": "What is the capital of India?",
+        "generated_text": "\n\nStep-by-Step Solution:\nThe total number of the total of the total of the tot",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.1667
+      },
+      {
+        "example_id": "turn_2_hi",
+        "domain": "hindi_qa",
+        "prompt": "भारत की राजधानी क्या है?",
+        "generated_text": " दोनों में माना जाता है।\n\nइन्हें भी देखें\n* दोनों मिलको",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.0667
+      },
+      {
+        "example_id": "turn_3_hinglish",
+        "domain": "hinglish_conversation",
+        "prompt": "Mujhe Python me loop kaise likhna hai bataye.",
+        "generated_text": "\n\n    >>> linked_list.insert(\")\n    >>> linked_list.insert(\")\n    >",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.5
+      },
+      {
+        "example_id": "turn_4_multiturn_code",
+        "domain": "code_dialogue",
+        "prompt": "Write a Python function to add two numbers.",
+        "generated_text": "\n\n    >>> hex_to_to_to_to_to_to_to_to_to_to_to_to",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.6667
+      }
+    ],
+    "average_repetition": 0.35
+  },
+  "step_50_sft": {
+    "checkpoint_path": "experiments/batch29_stage_d_sprint/sft_pilot_run/sft_checkpoint_step_50.pt",
+    "checkpoint_step": 50,
+    "results": [
+      {
+        "example_id": "turn_1_en",
+        "domain": "general_english",
+        "prompt": "What is the capital of India?",
+        "generated_text": "",
+        "output_token_count": 1,
+        "stop_reason": "eos",
+        "repetition_trigram_ratio": 0.0
+      },
+      {
+        "example_id": "turn_2_hi",
+        "domain": "hindi_qa",
+        "prompt": "भारत की राजधानी क्या है?",
+        "generated_text": " दो दो दो दो दो दो दो दो दो दो द",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.9
+      },
+      {
+        "example_id": "turn_3_hinglish",
+        "domain": "hinglish_conversation",
+        "prompt": "Mujhe Python me loop kaise likhna hai bataye.",
+        "generated_text": "jpg| Lim of the word of the word of the world\n|-\n| style=&qu",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.1667
+      },
+      {
+        "example_id": "turn_4_multiturn_code",
+        "domain": "code_dialogue",
+        "prompt": "Write a Python function to add two numbers.",
+        "generated_text": "\n\n    >>> linked_list.insert(\"A\")\n    >>> linked_list.insert(\")\n",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.4
+      }
+    ],
+    "average_repetition": 0.3667
+  },
+  "step_200_sft": {
+    "checkpoint_path": "experiments/batch30_autonomous_sprint/training/sft_200_run/sft_checkpoint_step_200.pt",
+    "checkpoint_step": 200,
+    "results": [
+      {
+        "example_id": "turn_1_en",
+        "domain": "general_english",
+        "prompt": "What is the capital of India?",
+        "generated_text": "",
+        "output_token_count": 1,
+        "stop_reason": "eos",
+        "repetition_trigram_ratio": 0.0
+      },
+      {
+        "example_id": "turn_2_hi",
+        "domain": "hindi_qa",
+        "prompt": "भारत की राजधानी क्या है?",
+        "generated_text": "भाषा कर ने रूप से अधिक उपयोगों से अधिक उपयोगों से अधिक उपयोगों से अधिक उपयोगी में प्रत",
+        "output_token_count": 32,
+        "stop_reason": "max_tokens",
+        "repetition_trigram_ratio": 0.4
+      },
+      {
+        "example_id": "turn_3_hinglish",
+        "domain": "hinglish_conversation",
+        "prompt": "Mujhe Python me loop kaise likhna hai bataye.",
+        "generated_text": "",
+        "output_token_count": 1,
+        "stop_reason": "eos",
+        "repetition_trigram_ratio": 0.0
+      },
+      {
+        "example_id": "turn_4_multiturn_code",
+        "domain": "code_dialogue",
+        "prompt": "Write a Python function to add two numbers.",
+        "generated_text": "",
+        "output_token_count": 1,
+        "stop_reason": "eos",
+        "repetition_trigram_ratio": 0.0
+      }
+    ],
+    "average_repetition": 0.1
+  }
+}
