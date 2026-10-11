@@ -103,18 +103,30 @@ ChakrView is **NOT**:
 - Git
 
 ### 2. Environment Setup
-```powershell
-# Clone and enter workspace
-git clone https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git
-cd ChakrViewLLM
 
+#### Option A: CPU-Only Environment (Commodity Laptops & Standard PCs)
+```powershell
 # Create and activate virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# Install requirements
-pip install -r requirements.txt torch
+# Install project dependencies and CPU PyTorch build
+pip install -r requirements.txt
+pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
+
+#### Option B: CUDA GPU Environment (Supported NVIDIA GPUs)
+```powershell
+# Create and activate separate GPU virtual environment
+python -m venv .venv_gpu
+.\.venv_gpu\Scripts\Activate.ps1
+
+# Install project dependencies and CUDA 12.6 PyTorch build
+pip install -r requirements.txt
+pip install torch --index-url https://download.pytorch.org/whl/cu126
+```
+> [!IMPORTANT]
+> Do not run a bare `pip install torch` from default PyPI without the `--index-url` flag in a CUDA environment, as it may replace the CUDA-accelerated binary with a CPU-only wheel.
 
 ### 3. Founder Manual Testing & Interactive Console
 Launch the interactive founder console:

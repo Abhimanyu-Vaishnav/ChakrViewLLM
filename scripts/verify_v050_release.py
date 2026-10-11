@@ -101,8 +101,12 @@ def verify_all() -> bool:
             "docs/STEP_15_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_16_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_17_MASTER_WORK_BATCH_REPORT.md",
+            "chakrview/cognition/v050_candidate/",
+            "tests/test_inductive_representation_suite.py",
+            "tests/test_neural_development_milestones.py",
             "docs/STEP_18_MASTER_WORK_BATCH_REPORT.md",
             "README.md",
+            "CHANGELOG.md",
         )
         untracked = []
         for line in porcelain.splitlines():

@@ -19,6 +19,8 @@ from .language_pattern_experiment import LanguagePatternExperiment, LanguagePatt
 from .neural_cognitive_coupling import NeuralCognitiveCouplingEngine, CouplingResult
 from .continual_neural_experiment import ContinualNeuralExperiment, ContinualResult
 from .experience_neural_pipeline import GovernedExperienceNeuralPipeline, ExperienceLearningOutcome
+from .inductive_representation_suite import InductiveRepresentationSuite, InductiveBenchmarkMetrics
+from .neural_language_suite import NeuralLanguageExperimentSuite, LanguageExperimentResult
 from .v050_master_gate import V050CandidateMasterGate, V050EvaluationReport
 
 __all__ = [
@@ -36,6 +38,10 @@ __all__ = [
     "ContinualResult",
     "GovernedExperienceNeuralPipeline",
     "ExperienceLearningOutcome",
+    "InductiveRepresentationSuite",
+    "InductiveBenchmarkMetrics",
+    "NeuralLanguageExperimentSuite",
+    "LanguageExperimentResult",
     "V050CandidateMasterGate",
     "V050EvaluationReport",
 ]
