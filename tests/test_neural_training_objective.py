@@ -22,7 +22,7 @@ def test_causal_masking_no_future_leakage():
     logits or hidden representations at position i.
     """
     torch.manual_seed(42)
-    config = ModelConfig(vocab_size=4096, d_model=192, n_layers=2, n_heads=4, max_seq_len=64)
+    config = ModelConfig(vocab_size=4096, d_model=192, n_layers=2, n_heads=6, max_seq_len=64)
     model = ChakrMicro(config)
     model.eval()
 
