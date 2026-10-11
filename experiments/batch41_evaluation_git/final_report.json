@@ -1,0 +1,82 @@
+{
+  "batch": "Batch 41 Master Prompt",
+  "timestamp_utc": "2026-10-11T14:48:00Z",
+  "branch": "dev/v0.6-v0.7-validation",
+  "initial_head": "7c3be923acf997d98f693b3509bece86ddf97641",
+  "final_head": "b271cf0",
+  "working_tree_status": "CLEAN (except preserved user modification chakrview/runtime/session.py)",
+  "preserved_user_modification": {
+    "path": "chakrview/runtime/session.py",
+    "status": "MODIFIED_UNCOMMITTED",
+    "reason": "Pre-existing user modification implementing ChatML prompt formatting in LocalModelSession. Preserved uncommitted per instructions."
+  },
+  "statuses": {
+    "EVALUATION_RELIABLE": "PASS",
+    "TRAINING_RUNTIME_ALIGNED": "PASS",
+    "SAFETY_VALIDATED": "PASS",
+    "BASELINE_PRESERVED": "PASS",
+    "COMMITS_VERIFIED": "PASS",
+    "MAIN_MERGE_READY": "NOT_READY"
+  },
+  "canonical_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_INVARIANT"
+  },
+  "commits_created": [
+    {
+      "commit_hash": "ffcda17",
+      "message": "feat(training): integrate fail-closed batch safety validation in SFTEngine",
+      "files_changed": [
+        "chakrview/training/sft_engine.py"
+      ],
+      "tests_passed": "test_sft_engine.py, test_batch40_capability_sprint.py"
+    },
+    {
+      "commit_hash": "46d1538",
+      "message": "feat(sft): add EOS collapse diagnostics, token recovery, and regression tests (Batches 33-36)",
+      "files_changed": [
+        "experiments/batch33-36/ (31 files)",
+        "tests/test_batch33-36 (4 files)"
+      ],
+      "tests_passed": "test_batch33-36 (13 passed)"
+    },
+    {
+      "commit_hash": "1282268",
+      "message": "feat(dataset): add grounded corpus extraction pipeline, safety guard, and audit hardening (Batches 37-39)",
+      "files_changed": [
+        "experiments/batch37-39/ (34 files)",
+        "tests/test_batch37-39 (3 files)"
+      ],
+      "tests_passed": "test_batch37-39 (29 passed)"
+    },
+    {
+      "commit_hash": "13e9ea0",
+      "message": "feat(experiment): add Batch 40 continuation training manifests, reports, and tests",
+      "files_changed": [
+        "experiments/batch40_capability_sprint/ (16 files)",
+        "tests/test_batch40_capability_sprint.py"
+      ],
+      "tests_passed": "test_batch40_capability_sprint.py (3 passed)"
+    },
+    {
+      "commit_hash": "b271cf0",
+      "message": "feat(evaluation): add ChatML format alignment, deterministic full-dataset evaluation, and Batch 41 tests",
+      "files_changed": [
+        "experiments/batch41_evaluation_git/ (3 files)",
+        "tests/test_batch41_evaluation_git.py"
+      ],
+      "tests_passed": "test_batch41_evaluation_git.py (4 passed)"
+    }
+  ],
+  "main_merge_readiness_assessment": {
+    "status": "NOT_READY",
+    "reasons": [
+      "chakrview/runtime/session.py is an uncommitted user modification requiring explicit founder review and sign-off.",
+      "Model output under greedy generation on small SFT runs remains dominated by pretraining repetitive sequences (EOS rate 0%).",
+      "Dataset size is currently 46 grounded examples (39 train, 7 val); expanding coverage across unrepresented domains is required prior to main release."
+    ]
+  }
+}
