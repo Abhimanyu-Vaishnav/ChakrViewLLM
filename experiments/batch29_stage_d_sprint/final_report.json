@@ -1,0 +1,81 @@
+{
+  "sprint": "BATCH 29 MASTER ENGINEERING SPRINT - STAGE D SFT IMPLEMENTATION",
+  "branch": "dev/v0.6-v0.7-validation",
+  "timestamp_utc": "2026-10-11T15:15:00Z",
+  "workstreams": {
+    "workstream_a_checkpoint_integrity": {
+      "status": "PASS",
+      "base_checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "sha_match": true,
+      "strict_load": true,
+      "canonical_baseline_delta_w": 0,
+      "canonical_baseline_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+    },
+    "workstream_b_batch_28_gap_repairs": {
+      "status": "PASS",
+      "comprehensive_leakage_audit": {
+        "windows_tested_per_example": "multi-window (8-token sliding windows on prompt, target, and full sequences)",
+        "train_shards_scanned": 27,
+        "leakage_detected_count": 0,
+        "classification": "VERIFIED UNLEAKED HELD-OUT"
+      },
+      "sampler_production_audit": {
+        "instrumentation_mode": "direct production MultiShardDataset.get_batch",
+        "sequences_tested": 800,
+        "determinism_exact": true,
+        "boundary_handling": "dynamic contiguous assembly via np.memmap chunks"
+      }
+    },
+    "workstream_c_sft_engine_implementation": {
+      "status": "PASS",
+      "module_path": "chakrview/training/sft_engine.py",
+      "response_only_loss_masking": true,
+      "prompt_gradient_max": 0.0,
+      "response_gradient_max": 0.3333,
+      "atomic_checkpoints": true,
+      "resumability_verified": true
+    },
+    "workstream_d_dataset_pipeline": {
+      "status": "PASS",
+      "manifest_path": "experiments/batch29_stage_d_sprint/data/sft_manifest.json",
+      "total_curated_examples": 40,
+      "train_examples": 30,
+      "val_examples": 10,
+      "languages": {
+        "en": 16,
+        "hi": 13,
+        "hi-en": 5,
+        "code": 6
+      },
+      "provenance": "Grounded in repository-owned data/validation/ text corpus with zero Stage C training shard leakage"
+    },
+    "workstream_e_automated_tests": {
+      "status": "PASS",
+      "test_suite": "tests/test_sft_engine.py",
+      "focused_suites_passed": 18,
+      "focused_suites_failed": 0,
+      "git_diff_check": "CLEAN"
+    },
+    "workstream_f_bounded_training_and_evaluation": {
+      "status": "PASS",
+      "pilot_steps": 50,
+      "batch_size": 2,
+      "learning_rate": "5e-5 -> 5e-6 cosine decay",
+      "initial_val_loss": 4.7745,
+      "final_train_loss": 4.5837,
+      "final_val_loss": 4.537,
+      "final_val_perplexity": 93.41,
+      "base_checkpoint_preserved_exact": true,
+      "pretraining_retention_loss_drift_pct": -1.5,
+      "pretraining_retention_verdict": "EXCELLENT RETENTION (Loss slightly improved from 5.5655 to 5.4819)"
+    },
+    "workstream_g_documentation": {
+      "status": "PASS",
+      "report_markdown": "experiments/batch29_stage_d_sprint/final_report.md",
+      "report_json": "experiments/batch29_stage_d_sprint/final_report.json"
+    }
+  },
+  "overall_verdict": "VERIFIED COMPLETE",
+  "next_recommended_milestone": "Scale curated instruction dataset to 250-500 verified pairs across multilingual technical tasks and execute a 200-step SFT curriculum."
+}

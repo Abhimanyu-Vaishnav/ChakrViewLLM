@@ -1,0 +1,34 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "torch_version": "2.14.0+cpu",
+  "cpu_count_logical": 20,
+  "cpu_count_physical": 14,
+  "memory_total_gb": 31.64,
+  "memory_available_gb": 18.97,
+  "device": "cpu",
+  "checkpoints": {
+    "step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "sha_match": true,
+      "step": 10000,
+      "tensors": 57,
+      "strict_load": true
+    },
+    "step_50_sft_pilot": {
+      "path": "experiments/batch29_stage_d_sprint/sft_pilot_run/sft_checkpoint_step_50.pt",
+      "sha256": "5a3b2136864c05b6312e1ab7b66e1ddafac326661ce4ccf5718b8ca631ee51af",
+      "sft_step": 50,
+      "tensors": 57,
+      "strict_load": true
+    },
+    "canonical_baseline": {
+      "is_bit_exact": true,
+      "digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "delta_w": 0,
+      "total_params": 3443136
+    }
+  }
+}
