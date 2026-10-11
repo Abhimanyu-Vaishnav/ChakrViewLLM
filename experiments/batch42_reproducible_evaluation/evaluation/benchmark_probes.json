@@ -1,0 +1,32 @@
+[
+  {
+    "id": "probe_arithmetic_single_digit",
+    "task_category": "deterministic_arithmetic",
+    "prompt": "<|im_start|>user\nWhat is 2 + 3?<|im_end|>\n<|im_start|>assistant\n",
+    "expected_output_hint": "5"
+  },
+  {
+    "id": "probe_python_syntax_divisibility",
+    "task_category": "python_syntax_completion",
+    "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+    "expected_output_hint": "assert d_model % n_heads == 0"
+  },
+  {
+    "id": "probe_instruction_reversal",
+    "task_category": "short_instruction_following",
+    "prompt": "<|im_start|>user\nRepeat only the word 'ChakrView' and nothing else.<|im_end|>\n<|im_start|>assistant\n",
+    "expected_output_hint": "ChakrView"
+  },
+  {
+    "id": "probe_factual_definition_pre_rmsnorm",
+    "task_category": "corpus_grounded_factual_recall",
+    "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+    "expected_output_hint": "Pre-RMSNorm"
+  },
+  {
+    "id": "probe_code_cross_entropy_definition",
+    "task_category": "corpus_grounded_code_definition",
+    "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+    "expected_output_hint": "def compute_cross_entropy"
+  }
+]

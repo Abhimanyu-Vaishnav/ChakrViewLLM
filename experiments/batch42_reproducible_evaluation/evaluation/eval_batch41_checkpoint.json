@@ -1,0 +1,132 @@
+{
+  "evaluator_version": "1.0.0",
+  "timestamp_utc": "2026-10-11T14:53:36Z",
+  "elapsed_seconds": 1.114,
+  "checkpoint": {
+    "path": "experiments\\batch41_evaluation_git\\reproducibility\\sft_aligned_checkpoint_step_20.pt",
+    "sha256": "d7ed7663cc289361aab6078e044fb7c31d8d2e1d5248eee555a68999bc75b55e"
+  },
+  "model_architecture": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "max_seq_len": 512
+  },
+  "dataset_evaluation": {
+    "dataset_path": "experiments\\batch41_evaluation_git\\val_aligned.jsonl",
+    "dataset_sha256": "ba72fd75e6589998ebaac904a24b29aa43d579ad7849b00589558aa7f5ee2551",
+    "total_records": 7,
+    "evaluated_records": 7,
+    "skipped_records": 0,
+    "total_active_tokens": 195,
+    "mean_token_loss": 6.0563,
+    "perplexity": 426.79,
+    "records": [
+      {
+        "example_id": "CAND-CODE-ASSERT-HEADS-DIVISIBILITY",
+        "active_tokens": 15,
+        "loss": 5.6171,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-EN-CS-HASH-TABLE",
+        "active_tokens": 38,
+        "loss": 5.399,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-EN-CS-BPE-ROLE",
+        "active_tokens": 34,
+        "loss": 5.8042,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-EN-SYS-OBJECTIVE",
+        "active_tokens": 21,
+        "loss": 5.708,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-HI-COMP-TOKENIZER",
+        "active_tokens": 39,
+        "loss": 5.484,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-HG-TECH-EMBEDDING-SIZE",
+        "active_tokens": 27,
+        "loss": 7.915,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-MATH-RMSNORM-FORMULA",
+        "active_tokens": 21,
+        "loss": 6.9891,
+        "status": "EVALUATED",
+        "error_message": null
+      }
+    ]
+  },
+  "probe_evaluation": [
+    {
+      "probe_id": "probe_arithmetic_single_digit",
+      "task_category": "deterministic_arithmetic",
+      "prompt": "<|im_start|>user\nWhat is 2 + 3?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "5",
+      "generated_text": "|-\n|200/01||Premier League||Premier League||Premier League||Premier ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_python_syntax_divisibility",
+      "task_category": "python_syntax_completion",
+      "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "assert d_model % n_heads == 0",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n| style=&quot;text-align: ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_instruction_reversal",
+      "task_category": "short_instruction_following",
+      "prompt": "<|im_start|>user\nRepeat only the word 'ChakrView' and nothing else.<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "ChakrView",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_factual_definition_pre_rmsnorm",
+      "task_category": "corpus_grounded_factual_recall",
+      "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "Pre-RMSNorm",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_code_cross_entropy_definition",
+      "task_category": "corpus_grounded_code_definition",
+      "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "def compute_cross_entropy",
+      "generated_text": "|-\n|200/01||Premier League||Premier League||Premier League||Premier ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    }
+  ]
+}
