@@ -124,7 +124,10 @@ def verify_all() -> bool:
             "docs/STEP_18_MASTER_WORK_BATCH_REPORT.md",
             "docs/STEP_19_V06_NEURAL_PRETRAINING_REPORT.md",
             "docs/STEP_20_V07_STARTING_STATE_AUDIT.md",
-            "docs/STEP_20_V07_LANGUAGE_RESEARCH_REPORT.md",
+            "scripts/package_v050_release.py",
+            "scripts/validate_release_package.py",
+            "release/",
+            "docs/RELEASE_V050_READINESS_REPORT.md",
             "README.md",
             "CHANGELOG.md",
         )
