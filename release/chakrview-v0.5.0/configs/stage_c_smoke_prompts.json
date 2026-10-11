@@ -1,0 +1,105 @@
+{
+  "suite_version": "1.0.0",
+  "milestone": "Step 7 — Real-Corpus Baseline Pre-Training & Evaluation",
+  "description": "Standardized qualitative evaluation prompts across linguistic, algorithmic, and mathematical domains for ChakrMicro v0.1",
+  "prompts": [
+    {
+      "id": "english_sentence",
+      "category": "English",
+      "sub_category": "sentence_continuation",
+      "prompt": "The Republic of India is a country in South Asia, bordered by",
+      "max_new_tokens": 32
+    },
+    {
+      "id": "english_paragraph",
+      "category": "English",
+      "sub_category": "paragraph_continuation",
+      "prompt": "Artificial intelligence systems built from first principles require careful mathematical grounding. In particular,",
+      "max_new_tokens": 40
+    },
+    {
+      "id": "english_factual",
+      "category": "English",
+      "sub_category": "factual_style",
+      "prompt": "The capital of France is Paris, and the capital of India is",
+      "max_new_tokens": 20
+    },
+    {
+      "id": "hindi_sentence",
+      "category": "Hindi",
+      "sub_category": "devanagari_sentence",
+      "prompt": "भारत दक्षिण एशिया में स्थित एक विशाल देश है, जिसकी राजधानी",
+      "max_new_tokens": 32
+    },
+    {
+      "id": "hindi_paragraph",
+      "category": "Hindi",
+      "sub_category": "devanagari_paragraph",
+      "prompt": "विज्ञान और प्रौद्योगिकी के क्षेत्र में भारत ने कई महत्वपूर्ण उपलब्धियां हासिल की हैं। उदाहरण के लिए,",
+      "max_new_tokens": 40
+    },
+    {
+      "id": "hinglish_dialogue",
+      "category": "Hinglish",
+      "sub_category": "mixed_hindi_english",
+      "prompt": "User: Python environment setup kaise karte hain?\nAssistant: Sabse pehle python official website se",
+      "max_new_tokens": 36
+    },
+    {
+      "id": "sanskrit_verse",
+      "category": "Sanskrit",
+      "sub_category": "devanagari_classical",
+      "prompt": "वेदोऽखिलो धर्ममूलम् । वेदाः एव जगतः प्रथमं",
+      "max_new_tokens": 32
+    },
+    {
+      "id": "code_function",
+      "category": "Code",
+      "sub_category": "python_continuation",
+      "prompt": "def binary_search(arr: list[int], target: int) -> int:\n    \"\"\"Return the index of target in sorted arr, or -1.\"\"\"\n    low = 0\n    high =",
+      "max_new_tokens": 36
+    },
+    {
+      "id": "code_docstring",
+      "category": "Code",
+      "sub_category": "class_completion",
+      "prompt": "class Tokenizer:\n    \"\"\"Byte-level BPE tokenizer with vocabulary size 4096.\"\"\"\n    def __init__(self, vocab_size: int = 4096):",
+      "max_new_tokens": 36
+    },
+    {
+      "id": "math_arithmetic",
+      "category": "Mathematics",
+      "sub_category": "arithmetic_expression",
+      "prompt": "Question: If a train travels at 60 km/h for 3 hours, the total distance traveled is",
+      "max_new_tokens": 24
+    },
+    {
+      "id": "math_symbolic",
+      "category": "Mathematics",
+      "sub_category": "symbolic_theorem",
+      "prompt": "Theorem: For any right-angled triangle with legs a and b and hypotenuse c, the Pythagorean theorem states that a^2 + b^2 =",
+      "max_new_tokens": 24
+    },
+    {
+      "id": "structured_data",
+      "category": "Structured Data",
+      "sub_category": "json_table",
+      "prompt": "{\"id\": 1, \"name\": \"ChakrMicro\", \"parameters\": 3443136, \"vocab_size\": 4096, \"layers\":",
+      "max_new_tokens": 24
+    },
+    {
+      "id": "unicode_symbols",
+      "category": "Unicode",
+      "sub_category": "math_and_devanagari",
+      "prompt": "Mathematical symbols: ∀x ∈ ℝ, ∃y : x + y = 0. Devanagari ligatures: क्ष, त्र, ज्ञ, श्र. Example:",
+      "max_new_tokens": 32
+    },
+    {
+      "id": "context_128",
+      "category": "Context",
+      "sub_category": "length_128",
+      "prompt": "In computer science and artificial intelligence research, language models operate by predicting probability distributions over discrete sequences of tokens. When training from scratch without pretrained weights, gradient descent adjusts embedding representations and attention projection matrices to minimize the cross-entropy loss over large-scale text corpora. The training objective encourages the network to capture syntactic regularities, lexical co-occurrences, and cross-lingual associations across diverse documents. As optimization progresses through successive gradient steps,",
+      "max_new_tokens": 32
+    }
+  ]
+}
