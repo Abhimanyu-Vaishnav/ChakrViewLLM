@@ -1,0 +1,70 @@
+{
+  "summary_version": "1.0.0",
+  "timestamp_utc": "2026-10-11T14:09:11.005584+00:00",
+  "source_documents": {
+    "total_inspected": 27,
+    "sha_matches": 27,
+    "sha_failures": 0,
+    "decoding_failures": 0
+  },
+  "passages": {
+    "total_extracted": 6044,
+    "total_rejected": 69,
+    "rejection_reasons": {
+      "PASSAGE_TOO_SHORT": 66,
+      "TABLE_HEADER_OR_SEPARATOR": 3
+    }
+  },
+  "candidates": {
+    "raw_candidate_count": 353,
+    "distinct_candidate_count": 46,
+    "rejected_duplicates_count": 307,
+    "near_duplicate_algorithm": "difflib.SequenceMatcher",
+    "near_duplicate_threshold": 0.75,
+    "train_candidates": 39,
+    "val_candidates": 7
+  },
+  "validation_status_distribution": {
+    "schema_validity": {
+      "PASS": 46
+    },
+    "source_file_validity": {
+      "PASS": 46
+    },
+    "source_hash_validity": {
+      "PASS": 46
+    },
+    "evidence_passage_matching": {
+      "PASS": 46
+    },
+    "answer_to_evidence_support": {
+      "PASS": 46
+    },
+    "technical_correctness": {
+      "PASS": 46
+    },
+    "duplicate_risk": {
+      "PASS": 46
+    },
+    "code_math_validation": {
+      "PASS": 16,
+      "N/A": 30
+    },
+    "human_review_status": {
+      "PENDING_HUMAN_REVIEW": 46
+    }
+  },
+  "domain_coverage": {
+    "code": 16,
+    "english": 12,
+    "hindi": 6,
+    "hinglish": 2,
+    "mathematics": 9,
+    "sanskrit": 1
+  },
+  "unresolved_quality_issues": [
+    "Dataset has 46 distinct candidates, below the 500-record threshold needed to prevent severe SFT overfitting.",
+    "All 46 candidates remain PENDING_HUMAN_REVIEW; automated template matching cannot substitute for human semantic review.",
+    "Category 'reasoning' has only 1 source document and cannot support a disjoint validation split."
+  ]
+}

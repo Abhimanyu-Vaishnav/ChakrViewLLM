@@ -1,0 +1,30 @@
+{
+  "expansion_plan_version": "1.0.0",
+  "target_records_count": 500,
+  "current_available_source_documents": 27,
+  "estimated_extractable_records_per_document": {
+    "large_corpus_files_gt_500_lines": {
+      "count": 7,
+      "files": [
+        "code/stage_b_algorithms.txt (3217 lines)",
+        "english/stage_b_systems.txt (1139 lines)",
+        "hindi/stage_b_literature.txt (619 lines)",
+        "hinglish/stage_b_dialogues.txt (1167 lines)",
+        "mathematics/stage_b_derivations.txt (1240 lines)",
+        "reasoning/stage_b_procedures.txt (586 lines)",
+        "sanskrit/stage_b_classics.txt (250 lines)"
+      ],
+      "estimated_records_yield": 350
+    },
+    "medium_foundation_files_20_to_200_lines": {
+      "count": 20,
+      "estimated_records_yield": 150
+    }
+  },
+  "required_gaps_to_fill_before_500_sft": [
+    "Develop automated paragraph extraction tooling that pairs natural instruction prompts with coherent multi-sentence source passages.",
+    "Implement curriculum length filtering so response token lengths vary across 20-80 tokens to prevent EOS rank-1 collapse.",
+    "Perform human spot-checking across Hindi and Hinglish dialogues to ensure naturalness."
+  ],
+  "training_gate_recommendation": "BLOCKED until expansion tooling is built and automated dataset validation verifies 500 records."
+}

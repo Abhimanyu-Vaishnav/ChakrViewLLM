@@ -1,0 +1,66 @@
+{
+  "batch": 37,
+  "sprint_name": "Independent Dataset Audit, Evidence Validation & Reproducible Evaluation",
+  "overall_status": "PARTIAL",
+  "status_summary": "Independently audited Batch 36 claims, uncovering that Batch 36 provenance_review.json only audited legacy 13 records while the expanded dataset contained 19 records. Audited all 19 expanded records: 12 supported, 1 partially supported, and 6 unsupported/over-claimed. Successfully inventoried all 27 raw corpus files with 100% SHA-256 match. Independently reproduced the Base Step 10,000 baseline across 10 deterministic prompts (0.0% first-token EOS rate). Created strict SFT quality spec and 500-record expansion plan. SFT training gate remains strictly BLOCKED. All 43 repository regression tests passed cleanly.",
+  "phases": {
+    "Phase_A_Inspect_Batch_36": {
+      "status": "VERIFIED COMPLETE",
+      "findings": "Audit revealed discrepancy: Batch 36 provenance_review.json examined 13 records from Batch 35, while Batch 36 generated a 19-record expanded dataset that was left unreviewed. Batch 36 claim of 100% verified expanded grounding was partially inaccurate."
+    },
+    "Phase_B_Build_Strict_Evidence_Audit": {
+      "status": "VERIFIED COMPLETE",
+      "source_inventory_count": 27,
+      "source_sha256_mismatches": 0,
+      "inventory_artifact": "experiments/batch37_independent_audit/audits/source_inventory.json"
+    },
+    "Phase_C_Audit_Expanded_Dataset_Honestly": {
+      "status": "VERIFIED COMPLETE",
+      "total_records_audited": 19,
+      "supported": 12,
+      "partially_supported": 1,
+      "unsupported": 6,
+      "audit_artifact": "experiments/batch37_independent_audit/audits/dataset_record_audit.json"
+    },
+    "Phase_D_Independently_Reproduce_Baseline": {
+      "status": "VERIFIED COMPLETE",
+      "evaluation_mode": "deterministic_greedy",
+      "total_prompts": 10,
+      "first_token_eos_count": 0,
+      "first_token_eos_rate": 0.0,
+      "average_generated_tokens": 30.7,
+      "summary_artifact": "experiments/batch37_independent_audit/evaluation/baseline_summary.json"
+    },
+    "Phase_E_Verify_Runtime_Format_Compatibility": {
+      "status": "VERIFIED COMPLETE",
+      "chatml_delimiters": "<|im_start|> (8 BPE subwords), <|im_end|> (8 BPE subwords)",
+      "compatibility_verdict": "Base weights process ChatML cleanly without crashes, but role semantics require supervised fine-tuning."
+    },
+    "Phase_F_Dataset_Quality_Spec_and_Expansion": {
+      "status": "VERIFIED COMPLETE",
+      "spec_artifact": "experiments/batch37_independent_audit/data/dataset_quality_spec.md",
+      "expansion_plan_artifact": "experiments/batch37_independent_audit/data/expansion_plan.json"
+    },
+    "Phase_G_Training_Gate": {
+      "status": "BLOCKED",
+      "blocking_reasons": [
+        "Expanded dataset has only 12 train records, of which several contain architectural assertions rather than cited text.",
+        "Training on <20 records creates severe 10-epoch overfitting and 70-80% premature EOS collapse as proven in Batch 34/35.",
+        "Training is blocked until expansion tooling extracts >=500 verified, length-regularized records from the 27 raw corpus documents."
+      ]
+    },
+    "Phase_H_Regression_Tests": {
+      "status": "VERIFIED COMPLETE",
+      "tests_passed": 43,
+      "tests_total": 43,
+      "execution_time_sec": 9.01
+    }
+  },
+  "metrics": {
+    "regression_tests_passed": 43,
+    "regression_tests_total": 43,
+    "source_inventory_sha_match_rate": 1.0,
+    "baseline_first_token_eos_rate": 0.0,
+    "git_mutations_executed": false
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "batch": 39,
+  "sprint_name": "Grounded Dataset Builder, Quality Filtering & Safe Training-Gate Integration",
+  "timestamp_utc": "2026-10-11T19:42:00Z",
+  "git_status": {
+    "branch": "dev/v0.6-v0.7-validation",
+    "head": "7c3be923acf997d98f693b3509bece86ddf97641",
+    "tracked_modified": [
+      "chakrview/runtime/session.py"
+    ],
+    "untracked_new_directories": [
+      "experiments/batch39_dataset_builder/",
+      "tests/test_batch39_dataset_builder.py"
+    ],
+    "mutations_performed": {
+      "commit": false,
+      "push": false,
+      "merge": false,
+      "rebase": false,
+      "reset": false
+    }
+  },
+  "canonical_baseline": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_context_length": 512,
+    "expected_fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "computed_fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "init_hash_matched": true
+  },
+  "source_document_pipeline": {
+    "total_documents_inspected": 27,
+    "sha256_matches": 27,
+    "sha256_failures": 0,
+    "decoding_failures": 0,
+    "artifact": "experiments/batch39_dataset_builder/data/source_inventory.json"
+  },
+  "passage_extraction": {
+    "total_passages_extracted": 6044,
+    "total_passages_rejected": 131,
+    "rejection_reasons": {
+      "PASSAGE_TOO_SHORT": 128,
+      "TABLE_HEADER_OR_SEPARATOR": 3
+    },
+    "artifact": "experiments/batch39_dataset_builder/data/passage_inventory.jsonl"
+  },
+  "candidate_construction_and_filtering": {
+    "raw_candidates_generated": 353,
+    "distinct_candidates_retained": 46,
+    "rejected_duplicates_count": 307,
+    "near_duplicate_algorithm": "difflib.SequenceMatcher",
+    "near_duplicate_threshold": 0.75,
+    "train_candidates": 39,
+    "val_candidates": 7,
+    "artifact": "experiments/batch39_dataset_builder/data/candidate_records.jsonl"
+  },
+  "validation_status_distribution": {
+    "schema_validity": { "PASS": 46 },
+    "source_file_validity": { "PASS": 46 },
+    "source_hash_validity": { "PASS": 46 },
+    "evidence_passage_matching": { "PASS": 46 },
+    "answer_to_evidence_support": { "PASS": 46 },
+    "technical_correctness": { "PASS": 46 },
+    "duplicate_risk": { "PASS": 46 },
+    "code_math_validation": { "PASS": 16, "N/A": 30 },
+    "human_review_status": { "PENDING_HUMAN_REVIEW": 46 }
+  },
+  "leakage_resistant_split_planning": {
+    "partition_level": "DOCUMENT_LEVEL_DISJOINT",
+    "total_documents": 27,
+    "train_documents": 17,
+    "val_documents": 10,
+    "document_overlap_count": 0,
+    "leakage_status": "ZERO_DOCUMENT_OVERLAP_CONFIRMED",
+    "insufficient_val_split_domains": [
+      "reasoning"
+    ],
+    "artifact": "experiments/batch39_dataset_builder/data/split_manifest.json"
+  },
+  "sft_batch_safety": {
+    "guard_implementation": "experiments/batch39_dataset_builder/sft_batch_safety.py",
+    "all_masked_batch_handling": "SAFELY_REJECTED_NO_FORWARD_NO_NAN",
+    "vocab_out_of_bounds_handling": "SAFELY_REJECTED",
+    "missing_eos_handling": "SAFELY_REJECTED",
+    "overlength_handling": "SAFELY_REJECTED",
+    "valid_batch_handling": "FINITE_LOSS_AND_VALID_GRADIENTS_CONFIRMED"
+  },
+  "sft_readiness_gate": {
+    "decision": "BLOCKED",
+    "statuses": {
+      "DATASET_READY": false,
+      "PIPELINE_READY": true,
+      "BASELINE_READY": true,
+      "SFT_READY": false
+    },
+    "blocking_reasons_count": 3,
+    "blocking_reasons": [
+      {
+        "category": "DATASET",
+        "condition": "RECORD_COUNT_BELOW_THRESHOLD",
+        "detail": "Distinct candidate count is 46 (threshold: >= 500).",
+        "required_evidence": "Expand diverse corpus documents to compile at least 500 validated candidates."
+      },
+      {
+        "category": "DATASET",
+        "condition": "PENDING_HUMAN_REVIEW",
+        "detail": "All 46 candidates are pending independent human review.",
+        "required_evidence": "Perform independent human review of dialogue naturalness and correctness."
+      },
+      {
+        "category": "DATASET",
+        "condition": "INSUFFICIENT_DOMAIN_SPLIT_COVERAGE",
+        "detail": "Domains ['reasoning'] lack independent documents for disjoint validation split.",
+        "required_evidence": "Provide at least two disjoint documents for every evaluated domain."
+      }
+    ],
+    "artifact": "experiments/batch39_dataset_builder/gates/sft_readiness.json"
+  },
+  "regression_tests": {
+    "test_command": ".\\.venv\\Scripts\\pytest.exe tests/test_pretraining_engine.py tests/test_batch28_stage_d_gate.py tests/test_sft_engine.py tests/test_batch31_chat_runtime.py tests/test_batch32_acceptance.py tests/test_batch33_integrity.py tests/test_batch34_sft_diagnostics.py tests/test_batch35_recovery.py tests/test_batch36_readiness.py tests/test_batch37_independent_audit.py tests/test_batch38_audit_hardening.py tests/test_batch39_dataset_builder.py",
+    "total_tests": 69,
+    "passed": 69,
+    "failed": 0,
+    "execution_time_seconds": 9.71,
+    "exit_code": 0
+  }
+}

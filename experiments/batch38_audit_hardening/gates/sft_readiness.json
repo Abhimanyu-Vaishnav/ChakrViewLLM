@@ -1,0 +1,33 @@
+{
+  "gate_version": "1.0.0_fail_closed",
+  "gate_decision": "BLOCKED",
+  "independent_statuses": {
+    "DATASET_READY": false,
+    "PIPELINE_READY": true,
+    "BASELINE_READY": true,
+    "SFT_READY": false
+  },
+  "blocking_reasons_count": 2,
+  "blocking_reasons": [
+    {
+      "category": "DATASET",
+      "condition": "RECORD_COUNT_BELOW_THRESHOLD",
+      "detail": "Dataset has only 19 records (required >= 500 records to prevent severe overfitting).",
+      "required_evidence": "Expand dataset from 27 raw corpus files to at least 500 verified, length-regularized records."
+    },
+    {
+      "category": "DATASET",
+      "condition": "UNSUPPORTED_CLAIMS_IN_DATASET",
+      "detail": "Found 3 records where claims are unsupported by cited raw sources (e.g., EXP-TR-EN-02, EXP-TR-EN-03, EXP-TR-MT-01).",
+      "required_evidence": "Re-author or align dataset records so every factual claim is grounded in actual raw corpus text."
+    }
+  ],
+  "semantic_and_human_review_outstanding": [
+    {
+      "requirement": "INDEPENDENT_HUMAN_REVIEW",
+      "detail": "All 19 records currently have human_review_status='NOT_VERIFIED'. Automated audit cannot replace human verification.",
+      "outstanding_action": "Conduct independent human review of dialogue naturalness and Hindi grammar."
+    }
+  ],
+  "summary": "SFT training gate is strictly BLOCKED. While baseline evaluation and pipeline loss alignment are mathematically verified (BASELINE_READY=true, PIPELINE_READY=true), the dataset has only 19 records (below the 500-record threshold needed to prevent severe overfitting) and contains unsupported factual claims."
+}

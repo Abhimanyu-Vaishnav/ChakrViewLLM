@@ -1,0 +1,34 @@
+{
+  "gate_version": "2.0.0_batch39_fail_closed",
+  "gate_decision": "BLOCKED",
+  "independent_statuses": {
+    "DATASET_READY": false,
+    "PIPELINE_READY": true,
+    "BASELINE_READY": true,
+    "SFT_READY": false
+  },
+  "blocking_reasons_count": 3,
+  "blocking_reasons": [
+    {
+      "category": "DATASET",
+      "condition": "RECORD_COUNT_BELOW_THRESHOLD",
+      "detail": "Distinct candidate count is 46 (threshold: >= 500).",
+      "required_evidence": "Expand diverse corpus documents to compile at least 500 validated candidates."
+    },
+    {
+      "category": "DATASET",
+      "condition": "PENDING_HUMAN_REVIEW",
+      "detail": "All 46 candidates are pending independent human review.",
+      "required_evidence": "Perform independent human review of dialogue naturalness and correctness."
+    },
+    {
+      "category": "DATASET",
+      "condition": "INSUFFICIENT_DOMAIN_SPLIT_COVERAGE",
+      "detail": "Domains ['reasoning'] lack independent documents for disjoint validation split.",
+      "required_evidence": "Provide at least two disjoint documents for every evaluated domain."
+    }
+  ],
+  "candidate_pool_size": 46,
+  "target_record_threshold": 500,
+  "summary": "SFT readiness gate remains strictly BLOCKED. The pipeline extracted 46 distinct, grounded candidates across 16 source files. Training remains disabled until dataset reaches >= 500 high-quality records and human review is completed."
+}

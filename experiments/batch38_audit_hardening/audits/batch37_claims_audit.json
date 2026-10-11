@@ -1,0 +1,60 @@
+{
+  "audit_version": "1.0.0_claim_by_claim",
+  "audit_target": "experiments/batch37_independent_audit",
+  "claims_evaluated": [
+    {
+      "claim_id": "CLM-B37-01",
+      "claim_statement": "12 of 19 expanded records are genuinely supported by cited text.",
+      "finding_status": "PARTIALLY_INCORRECT_OVERSTATED",
+      "verdict": "QUALIFIED",
+      "evidence_and_analysis": "Batch 37 relied on lexical overlap / keyword search heuristics. When rigorously separating factual claim support, exact passage matching, and technical correctness: Only 11 records have their factual assertions supported by the source text, 5 records are only PARTIALLY supported (e.g., EXP-TR-EN-01 mentions embedding layers but does not support mapping discrete token IDs to dense vectors; EXP-TR-HG-01 & EXP-VL-HG-01 cite texts that do not specify ChakrMicro's 192 dim or 3.4M params; EXP-TR-HG-02 cites RoPE but the answer is about Q*K^T self-attention), and 3 records (EXP-TR-EN-02, EXP-TR-EN-03, EXP-TR-MT-01) are completely UNSUPPORTED. Specifically, EXP-TR-EN-02 was labeled SUPPORTED in Batch 37 based on a keyword match in a UDP socket buffer passage, which does not logically support autoregressive decoding memory bandwidth.",
+      "reproducible_evidence": "experiments/batch38_audit_hardening/audits/record_validation.json"
+    },
+    {
+      "claim_id": "CLM-B37-02",
+      "claim_statement": "Code validation status labeled as EXECUTION_PASS demonstrates actual function execution.",
+      "finding_status": "INCORRECT_OVERCLAIMED",
+      "verdict": "REJECTED",
+      "evidence_and_analysis": "In Batch 37, code validation was performed by running `exec(a_target)` on function definitions. This only parsed and defined the function in a local dictionary; it never invoked the function with test arguments, never tested edge cases, and never verified return values against mathematical ground truth. In Batch 38, SafeCodeExecutionHarness actually invokes `compute_cross_entropy` and `binary_search` with controlled test suites, proving that behavioral validation requires real invocation.",
+      "reproducible_evidence": "tests/test_batch38_audit_hardening.py::test_code_execution_harness_behavioral_validation"
+    },
+    {
+      "claim_id": "CLM-B37-03",
+      "claim_statement": "Baseline evaluation was independently reproduced with dynamic metadata.",
+      "finding_status": "CONFIRMED_FACT_WITH_QUALIFICATION",
+      "verdict": "QUALIFIED",
+      "evidence_and_analysis": "The 0.0% first-token EOS rate and 30.7 average token count on Base Step 10k are genuine and fully reproducible. However, Batch 37 hardcoded the checkpoint SHA-256 string rather than computing it dynamically from the file bytes at runtime, and hardcoded tok_eos_id=1. Batch 38 corrected this by computing the file bytes SHA-256 dynamically (96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee) and resolving the EOS token ID directly from the tokenizer config.",
+      "reproducible_evidence": "experiments/batch38_audit_hardening/evaluation/run_manifest.json"
+    },
+    {
+      "claim_id": "CLM-B37-04",
+      "claim_statement": "The claimed source inventory covers all files referenced by the dataset.",
+      "finding_status": "CONFIRMED_FACT",
+      "verdict": "CONFIRMED",
+      "evidence_and_analysis": "All 16 source files cited across the 19 expanded records are present in data/raw, and all 27 corpus files in the inventory match their recorded SHA-256 digests in data/raw/manifest.json with 100% accuracy.",
+      "reproducible_evidence": "experiments/batch37_independent_audit/audits/source_inventory.json"
+    },
+    {
+      "claim_id": "CLM-B37-05",
+      "claim_statement": "The reported category count matches the actual manifest.",
+      "finding_status": "CONFIRMED_FACT",
+      "verdict": "CONFIRMED",
+      "evidence_and_analysis": "data/raw/manifest.json defines exactly 9 categories ('code', 'english', 'hindi', 'hinglish', 'mathematics', 'mixed', 'numbers', 'reasoning', 'sanskrit'), which accurately encompass all 27 corpus text files.",
+      "reproducible_evidence": "data/raw/manifest.json"
+    },
+    {
+      "claim_id": "CLM-B37-06",
+      "claim_statement": "The 500-example expansion plan is supported by the available source corpus.",
+      "finding_status": "PLAUSIBLE_BUT_EMPIRICALLY_UNVERIFIED",
+      "verdict": "QUALIFIED",
+      "evidence_and_analysis": "The 27 corpus files contain 1.57 MB of text and over 10,000 lines, including 7 large Stage B files with >500 lines each. However, extracting 500 coherent, high-quality, length-regularized Q&A pairs requires building automated passage-extraction and instruction-synthesis tooling. No such tooling currently exists in the repository, and human review is still pending. Thus, the expansion plan is a feasible roadmap but unverified until tooling is built and validated.",
+      "reproducible_evidence": "experiments/batch37_independent_audit/data/expansion_plan.json"
+    }
+  ],
+  "summary_verdict": {
+    "confirmed_facts": 2,
+    "qualified_claims": 3,
+    "rejected_claims": 1,
+    "unresolved_questions": 0
+  }
+}

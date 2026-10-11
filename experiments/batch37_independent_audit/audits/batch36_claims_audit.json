@@ -1,0 +1,26 @@
+{
+  "audit_target": "Batch 36 SFT Readiness and Dataset Expansion",
+  "audit_timestamp": "2026-10-11T16:19:15+05:30",
+  "claims_evaluated": {
+    "claim_1_provenance_review_scope": {
+      "claim": "Batch 36 final report claimed that 13/13 records were audited and verified with supporting passages.",
+      "finding": "INACCURATE / MISALIGNED",
+      "details": "The provenance_review.json in Batch 36 audited the 13 legacy Batch 35 records (TR-EN-01..VL-CD-01), but Batch 36 simultaneously created a NEW expanded dataset with 19 records (EXP-TR-EN-01..EXP-VL-MA-01). The 19 expanded records were never audited in provenance_review.json."
+    },
+    "claim_2_100_percent_source_grounding": {
+      "claim": "Batch 36 claimed all expanded dataset records are source-grounded.",
+      "finding": "PARTIALLY_INCORRECT",
+      "details": "Independent inspection revealed that EXP-TR-EN-03 cites data/raw/english/english_foundation.txt for feed-forward layers, but the text contains zero mention of feed-forward networks. Furthermore, EXP-TR-MT-01 cites stage_b_systems.txt for ChakrMicro 512 context length and sliding window, but the file contains zero mention of 512 or context length (this is a codebase architectural property, not a passage in that text)."
+    },
+    "claim_3_chatml_runtime_compatibility": {
+      "claim": "Batch 36 concluded ChatML formatting is subword decomposition requiring supervised fine-tuning.",
+      "finding": "CONFIRMED_ACCURATE",
+      "details": "<|im_start|> decomposes to 8 subword tokens [63, 127, 1012, 98, 1832, 119, 127, 65]. The base model does not crash on it, but has never learned role separation semantics."
+    },
+    "claim_4_training_gate_decision": {
+      "claim": "Batch 36 declared the SFT training gate BLOCKED.",
+      "finding": "CONFIRMED_ACCURATE",
+      "details": "Training on 12-19 examples causes severe overfitting and premature EOS collapse. Upholding the BLOCKED gate was scientifically sound."
+    }
+  }
+}
