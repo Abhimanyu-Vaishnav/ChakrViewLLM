@@ -1,0 +1,27 @@
+{
+  "investigation_timestamp": "2026-10-11T15:58:20+05:30",
+  "phenomenon": "Premature EOS termination on SFT checkpoints (Step 50: 50% EOS-first rate, Step 200: 80% EOS-first rate vs Base 10k: 10% EOS-first rate)",
+  "hypotheses": {
+    "A_tokenizer_special_token_insertion": {
+      "status": "refuted",
+      "evidence": "Tokenizer IDs are BOS=0, EOS=1, PAD=2. Tokenizer does not inject premature EOS inside prompts or before responses. Delimiters <|im_start|> and <|im_end|> encode cleanly into subword tokens."
+    },
+    "B_causal_target_alignment": {
+      "status": "refuted",
+      "evidence": "In sft_engine.py, target_seq = [-100]*len(p_toks) + r_toks + [EOS]. logits[i] pairs directly with target_seq[i], meaning logits at the last prompt position predict the first response token. Mathematical alignment is causal and correct."
+    },
+    "C_dataset_scale_and_epoch_overfitting": {
+      "status": "confirmed",
+      "evidence": "Batch 30 dataset contained only 37 examples with an average response length of 28.8 tokens. In 200 optimization steps with batch_size=2, 400 examples were sampled, meaning each example was repeated ~10.8 times. The model overfit heavily on short completions, skewing token probability distributions and causing token 1 (EOS) to climb to the top probability rank immediately upon seeing prompt terminators."
+    },
+    "D_prompt_distribution_mismatch": {
+      "status": "confirmed",
+      "evidence": "Batch 30 SFT trained on raw string prompts (e.g., 'What characterizes...') without 'User: ' or '<|im_start|>' wrappers. When prompts in the test set or runtime differ in format or prompt length, the overfit 3.4M parameter model defaults to emitting EOS token (ID 1) as the highest-probability continuation."
+    },
+    "E_runtime_generation_artifact": {
+      "status": "refuted",
+      "evidence": "LocalModelRuntime accurately reports model logits. The generation stops because the model genuinely assigns the highest softmax probability to EOS (Token 1) at step 0 of generation, not because runtime code truncates or halts."
+    }
+  },
+  "root_cause_conclusion": "EOS collapse in Stage D checkpoints is caused by severe overfitting on a tiny 37-example dataset repeated over 10 epochs without length regularization, coupled with format mismatch between pretraining, SFT formatting, and inference prompting."
+}

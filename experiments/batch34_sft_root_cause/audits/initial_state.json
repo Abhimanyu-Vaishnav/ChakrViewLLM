@@ -1,0 +1,48 @@
+{
+  "git_head": "7c3be923acf997d98f693b3509bece86ddf97641",
+  "branch": "dev/v0.6-v0.7-validation",
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.7",
+    "torch": "2.14.0+cpu",
+    "cpu_logical": 20,
+    "cpu_physical": 14,
+    "ram_total_gb": 31.64,
+    "ram_available_gb": 18.76
+  },
+  "baseline": {
+    "digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "expected_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "match": true,
+    "param_count": 3443136
+  },
+  "checkpoints": {
+    "step_10000": {
+      "exists": true,
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "size_bytes": 42212787,
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "step": 10000,
+      "strict_load": true,
+      "tensor_count": 57
+    },
+    "step_50_sft": {
+      "exists": true,
+      "path": "experiments/batch29_stage_d_sprint/sft_pilot_run/sft_checkpoint_step_50.pt",
+      "size_bytes": 41399227,
+      "sha256": "5a3b2136864c05b6312e1ab7b66e1ddafac326661ce4ccf5718b8ca631ee51af",
+      "step": 50,
+      "strict_load": true,
+      "tensor_count": 57
+    },
+    "step_200_sft": {
+      "exists": true,
+      "path": "experiments/batch30_autonomous_sprint/training/sft_200_run/sft_checkpoint_step_200.pt",
+      "size_bytes": 41415394,
+      "sha256": "935130e9ef4af7e3c04d30f04335420018803c4028517040fc2f7d6b80ab3e74",
+      "step": 200,
+      "strict_load": true,
+      "tensor_count": 57
+    }
+  }
+}

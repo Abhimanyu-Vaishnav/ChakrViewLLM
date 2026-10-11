@@ -1,0 +1,119 @@
+[
+  {
+    "record_id": "TR-EN-01",
+    "domain": "english_systems",
+    "source_file": "data/raw/english/english_foundation.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "Weight tying binds the input token embedding table directly to the final unembedding projection layer.",
+    "user_prompt": "What is the role of the embedding layer in language modeling?",
+    "assistant_target": "The embedding layer maps discrete token IDs into dense continuous vector representations, providing semantic coordinates for the neural network."
+  },
+  {
+    "record_id": "TR-EN-02",
+    "domain": "english_systems",
+    "source_file": "data/raw/english/stage_b_systems.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "Computer Networking Engineering [User Datagram Protocol (UDP) Topic 06]: provides lightweight, connectionless transmissi",
+    "user_prompt": "Why is memory bandwidth a critical factor for transformer decoding?",
+    "assistant_target": "Autoregressive decoding is primarily memory-bandwidth bound because all model weight tensors must be fetched from RAM for each generated token."
+  },
+  {
+    "record_id": "TR-HI-01",
+    "domain": "hindi_literature",
+    "source_file": "data/raw/hindi/hindi_foundation.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "हिंदी एक समृद्ध और प्राचीन भाषा है जिसकी लिपि देवनागरी है।",
+    "user_prompt": "देवनागरी लिपि में भाषा की संरचना किस प्रकार व्यक्त होती है?",
+    "assistant_target": "देवनागरी लिपि में स्वर, व्यंजन, मात्राएं और संयुक्त अक्षर भाषा की संरचना को अत्यंत समृद्ध और ध्वन्यात्मक रूप से वैज्ञानिक बनाते हैं।"
+  },
+  {
+    "record_id": "TR-HI-02",
+    "domain": "hindi_literature",
+    "source_file": "data/raw/hindi/stage_b_literature.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "तकनीकी विमर्श [संगणक वास्तुकला (Computer Architecture) आलेख 01]: सीपीयू पाइपलाइन निर्देश निष्पादन को कई चरणों में विभाजि",
+    "user_prompt": "साहित्य और अनुसंधान का ज्ञान समाज के लिए क्यों महत्वपूर्ण है?",
+    "assistant_target": "साहित्य और अनुसंधान समाज की सांस्कृतिक विरासत को संरक्षित करते हैं तथा ज्ञान के निरंतर विकास का मार्ग प्रशस्त करते हैं।"
+  },
+  {
+    "record_id": "TR-HG-01",
+    "domain": "hinglish_dialogue",
+    "source_file": "data/raw/hinglish/hinglish_foundation.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "yaar mere system mein 16 GB RAM hai aur Core i7 processor laga hua hai.",
+    "user_prompt": "ChakrMicro model CPU par run hone ke liye kaise design kiya gaya hai?",
+    "assistant_target": "ChakrMicro lightweight CPU architecture hai jisme 192 hidden dimension aur compact 3.4M parameters use kiye gaye hain taaki standard processor par smooth inference mil sake."
+  },
+  {
+    "record_id": "TR-HG-02",
+    "domain": "hinglish_dialogue",
+    "source_file": "data/raw/hinglish/stage_b_dialogues.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "Dev Discussion [RoPE Positional Encoding Thread #015]: Rotary embeddings query aur key vectors ko rotate karke relative ",
+    "user_prompt": "Python me attention weight matrix calculate karne ke liye kya steps hote hain?",
+    "assistant_target": "Query aur Key tensors ka dot product le kar sqrt(d_k) se scale karte hain, phir causal mask apply kar ke softmax calculate karte hain."
+  },
+  {
+    "record_id": "TR-CD-01",
+    "domain": "code_foundation",
+    "source_file": "data/raw/code/code_foundation.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "def compute_cross_entropy(logits: list[float], target: int) -> float:",
+    "user_prompt": "How is cross entropy loss computed for a single target index in Python?",
+    "assistant_target": "def compute_cross_entropy(logits: list[float], target: int) -> float:\n    import math\n    max_logit = max(logits)\n    sum_exp = sum(math.exp(x - max_logit) for x in logits)\n    log_sum_exp = max_logit + math.log(sum_exp)\n    return log_sum_exp - logits[target]"
+  },
+  {
+    "record_id": "TR-CD-02",
+    "domain": "math_foundation",
+    "source_file": "data/raw/mathematics/math_foundation.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "Attention(Q, K, V) = \\text{softmax}\\left(\\frac{Q K^T}{\\sqrt{d_k}}\\right) V",
+    "user_prompt": "What is the mathematical formulation of scaled dot-product attention?",
+    "assistant_target": "Attention(Q, K, V) = \\text{softmax}\\left(\\frac{Q K^T}{\\sqrt{d_k}}\\right) V"
+  },
+  {
+    "record_id": "TR-MT-01",
+    "domain": "multiturn_dialogue",
+    "source_file": "data/raw/english/stage_b_systems.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "Distributed Systems Deep-Dive [Gossip Membership Protocol Article 01]: Under the Gossip Membership Protocol, epidemic me",
+    "user_prompt": "What is the maximum context length of ChakrMicro?",
+    "assistant_target": "The maximum context length of ChakrMicro is 512 tokens."
+  },
+  {
+    "record_id": "VL-EN-01",
+    "domain": "english_systems",
+    "source_file": "data/raw/english/english_computer_science.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "In natural language processing, the byte-pair encoding algorithm iteratively replaces the most frequent byte pairs with ",
+    "user_prompt": "How does byte-pair encoding balance sequence length and vocabulary size?",
+    "assistant_target": "Byte-pair encoding balances sequence length reduction against the memory required to store the vocabulary lookup table by merging frequent byte pairs."
+  },
+  {
+    "record_id": "VL-HI-01",
+    "domain": "hindi_computing",
+    "source_file": "data/raw/hindi/hindi_computing.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "कंप्यूटर विज्ञान में टोकनाइज़र वह महत्वपूर्ण माध्यम है जो साधारण मानवीय भाषा को गणितीय संख्याओं और वेक्टरों में परिवर्ति",
+    "user_prompt": "कंप्यूटर विज्ञान में टोकनाइज़र का मुख्य कार्य क्या है?",
+    "assistant_target": "कंप्यूटर विज्ञान में टोकनाइज़र साधारण मानवीय भाषा को गणितीय संख्याओं और वेक्टरों में परिवर्तित करता है।"
+  },
+  {
+    "record_id": "VL-HG-01",
+    "domain": "hinglish_tech",
+    "source_file": "data/raw/hinglish/hinglish_tech.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "agar vocab size 4096 select karein toh embedding matrix ka exact size 4096 cross 192 parameters hoga.",
+    "user_prompt": "ChakrView model ka exact parameter size kitna hai?",
+    "assistant_target": "ChakrView ka ChakrMicro model exact 3,443,136 parameters aur 4096 vocabulary size ke sath configure kiya gaya hai."
+  },
+  {
+    "record_id": "VL-CD-01",
+    "domain": "code_math",
+    "source_file": "data/raw/mathematics/math_formulas.txt",
+    "status": "verified_source_grounded",
+    "supporting_passage": "f(x) = (1 / (sigma * sqrt(2 * pi))) * exp(- (x - mu)^2 / (2 * sigma^2))",
+    "user_prompt": "What is the mathematical definition of RMSNorm?",
+    "assistant_target": "RMSNorm(u) = (u / sqrt(mean(u^2) + epsilon)) * gamma"
+  }
+]

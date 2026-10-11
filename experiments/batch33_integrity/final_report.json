@@ -1,0 +1,74 @@
+{
+  "batch": 33,
+  "sprint_name": "Git Integrity Audit + High-Quality SFT Dataset Rebuild + Evaluation Gate",
+  "overall_status": "PARTIAL",
+  "status_summary": "Git state audited and permission boundary strictly locked (no auto-commit/push permitted without explicit user instruction). Clean document-level disjoint SFT dataset constructed (0 document, prompt, or target overlap). Causal SFT loss masking through ChakrMicro verified. Training Gate marked BLOCKED to preserve model stability and prevent premature EOS collapse seen in pilot candidates. Full regression suite passed (30/30 tests).",
+  "phases": {
+    "Phase_0_Git_State_Audit": {
+      "status": "VERIFIED COMPLETE",
+      "local_head": "7c3be923acf997d98f693b3509bece86ddf97641",
+      "remote_head": "7c3be923acf997d98f693b3509bece86ddf97641",
+      "sync_status": "EXACT_MATCH_UP_TO_DATE",
+      "auto_push_automation_present": false,
+      "permission_rule_enforced": "ABSOLUTE_RESTRICTION"
+    },
+    "Phase_1_Reverify_Batch_32_Claims": {
+      "status": "VERIFIED COMPLETE",
+      "canonical_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "canonical_digest_match": true,
+      "param_count": 3443136,
+      "isolated_checkpoint_loads": "ALL_PASS",
+      "batch31_32_tests_pass": "14/14"
+    },
+    "Phase_2_Data_Source_Inventory_and_Provenance": {
+      "status": "VERIFIED COMPLETE",
+      "raw_corpus_files_inventoried": 27,
+      "domains_covered": ["code", "english", "hindi", "hinglish", "mathematics", "numbers", "reasoning", "sanskrit"],
+      "provenance_standard": "source_derived_direct"
+    },
+    "Phase_3_Document_Level_Splitting_and_Leakage_Control": {
+      "status": "VERIFIED COMPLETE",
+      "document_level_disjoint": true,
+      "document_overlap_count": 0,
+      "prompt_overlap_count": 0,
+      "target_overlap_count": 0,
+      "manifest_path": "experiments/batch33_integrity/data/dataset_provenance_manifest.json"
+    },
+    "Phase_4_Construct_Meaningful_Instruction_Data": {
+      "status": "VERIFIED COMPLETE",
+      "train_records_count": 9,
+      "val_records_count": 4,
+      "languages": ["English", "Hindi", "Hinglish", "Code", "Math"],
+      "schema_compatibility": "ConversationTemplate_ChatML"
+    },
+    "Phase_5_Real_SFT_Loss_Masking_and_Token_Alignment": {
+      "status": "VERIFIED COMPLETE",
+      "forward_pass_tested": true,
+      "loss_computation_verified": true,
+      "prompt_masked_positions": "-100",
+      "assistant_supervised_loss": 8.38998
+    },
+    "Phase_6_Fair_Baseline_and_Candidate_Evaluation": {
+      "status": "VERIFIED COMPLETE",
+      "evaluation_findings": "Base Step 10,000 generates continuous tokens across all 4 held-out domains; SFT Step 50 and 200 collapse into premature EOS on 3 out of 4 held-out prompts.",
+      "eval_matrix_path": "experiments/batch33_integrity/evaluation/clean_validation_eval_matrix.json"
+    },
+    "Phase_7_Training_Readiness_Gate": {
+      "status": "BLOCKED",
+      "rationale": "Although dataset provenance, document disjointness, and loss masking pass all gates, candidate evaluations prove that fine-tuning with existing pilot hyperparameters triggers early EOS collapse. Scaling to larger runs without curriculum EOS penalty controls is held to preserve checkpoint safety."
+    },
+    "Phase_8_Regression_Testing": {
+      "status": "VERIFIED COMPLETE",
+      "tests_passed": 30,
+      "tests_total": 30,
+      "execution_time_sec": 9.16
+    }
+  },
+  "metrics": {
+    "regression_tests_passed": 30,
+    "regression_tests_total": 30,
+    "document_overlap_count": 0,
+    "prompt_overlap_count": 0,
+    "target_overlap_count": 0
+  }
+}

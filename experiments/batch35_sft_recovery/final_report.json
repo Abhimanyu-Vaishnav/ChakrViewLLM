@@ -1,0 +1,66 @@
+{
+  "batch": 35,
+  "sprint_name": "EOS Regression Verification, SFT Pipeline Correction & Controlled Recovery",
+  "overall_status": "PARTIAL",
+  "status_summary": "EOS regression verified at the raw token ID level (Base 10k: 0%, Step 50: 50%, Step 200: 70% first-token EOS rate). Pipeline formatting was unified across LocalModelSession and ConversationTemplate to eliminate out-of-distribution chat wrappers. Dataset provenance misattributions were fully resolved (TR-CD-01 derived from code_foundation.txt, TR-CD-02 from math_foundation.txt), achieving 100% source-grounding and strict document-level disjointness. Training gate remains BLOCKED to protect model weights until larger-scale SFT data (>500 records) is integrated. All 36 repository regression tests passed cleanly.",
+  "phases": {
+    "Phase_0_Capture_Current_State": {
+      "status": "VERIFIED COMPLETE",
+      "canonical_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "canonical_digest_match": true,
+      "parameter_count": 3443136,
+      "isolated_checkpoint_loads": "ALL_PASS",
+      "git_head": "7c3be923acf997d98f693b3509bece86ddf97641"
+    },
+    "Phase_1_Verify_EOS_Metrics_Using_Raw_Tokens": {
+      "status": "VERIFIED COMPLETE",
+      "token_level_measurements": {
+        "step_10000_base": "0 / 10 exact first-token == EOS (0.0%), avg tokens: 30.7",
+        "step_50_sft": "5 / 10 exact first-token == EOS (50.0%), avg tokens: 16.5",
+        "step_200_sft": "7 / 10 exact first-token == EOS (70.0%), avg tokens: 9.6"
+      },
+      "evaluation_artifact": "experiments/batch35_sft_recovery/evaluation/token_level_eos_audit.json"
+    },
+    "Phase_2_Separate_Possible_Root_Causes": {
+      "status": "VERIFIED COMPLETE",
+      "root_cause_findings": {
+        "format_discrepancy": "CONFIRMED - Batch 30 raw prompts vs session ChatML wrappers created embedding mismatch.",
+        "loss_alignment": "REFUTED - Causal shift and assistant masking are mathematically sound.",
+        "dataset_overfitting": "CONFIRMED - 37 examples over 10.8 epochs drove token 1 (EOS) to rank 1 probability.",
+        "stopping_artifact": "REFUTED - Model genuinely emits token ID 1 at step 0."
+      },
+      "matrix_artifact": "experiments/batch35_sft_recovery/audits/root_cause_matrix.json"
+    },
+    "Phase_3_Verify_Dataset_and_Provenance": {
+      "status": "VERIFIED COMPLETE",
+      "corrections_made": "TR-CD-01 re-derived from code_foundation.txt; TR-CD-02 re-derived from math_foundation.txt. Document overlap = 0, Prompt overlap = 0, Unsupported records = 0.",
+      "manifest_path": "experiments/batch35_sft_recovery/data/corrected_provenance_manifest.json"
+    },
+    "Phase_4_Correct_Pipeline_Defects": {
+      "status": "VERIFIED COMPLETE",
+      "code_changes": [
+        "chakrview/runtime/session.py: LocalModelSession.build_prompt_package unified to use canonical ConversationTemplate ChatML formatting."
+      ]
+    },
+    "Phase_5_Candidate_Comparison": {
+      "status": "VERIFIED COMPLETE",
+      "comparison_artifact": "experiments/batch35_sft_recovery/evaluation/candidate_comparison_summary.json"
+    },
+    "Phase_6_Training_Readiness_Gate": {
+      "status": "BLOCKED",
+      "rationale": "Scaling training is gated until a large (>500 examples) balanced instruction dataset is ready, preventing premature EOS convergence."
+    },
+    "Phase_7_Regression_Tests": {
+      "status": "VERIFIED COMPLETE",
+      "tests_passed": 36,
+      "tests_total": 36,
+      "execution_time_sec": 9.37
+    }
+  },
+  "metrics": {
+    "regression_tests_passed": 36,
+    "regression_tests_total": 36,
+    "historical_checkpoints_mutated": false,
+    "git_mutations_executed": false
+  }
+}

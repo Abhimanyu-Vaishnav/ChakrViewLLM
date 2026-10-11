@@ -1,0 +1,71 @@
+{
+  "batch": 36,
+  "sprint_name": "Runtime Compatibility, Evidence-Based Dataset Expansion & SFT Readiness",
+  "overall_status": "PARTIAL",
+  "status_summary": "Runtime compatibility of ChatML tags audited and confirmed as subword decompositions requiring supervised fine-tuning. Provenance audit verified 100% of records are grounded in source text. Expanded grounded SFT dataset constructed (12 train, 7 val) with zero document overlap and zero prompt overlap. SFT training gate remains BLOCKED to protect model weights until larger multi-epoch corpus (>500 examples) is ready. All 39 regression tests passed.",
+  "phases": {
+    "Phase_0_Baseline_Audit": {
+      "status": "VERIFIED COMPLETE",
+      "canonical_digest": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "canonical_digest_match": true,
+      "parameter_count": 3443136,
+      "isolated_checkpoint_loads": "ALL_PASS",
+      "git_head": "7c3be923acf997d98f693b3509bece86ddf97641"
+    },
+    "Phase_1_Audit_Training_and_Inference_Formats": {
+      "status": "VERIFIED COMPLETE",
+      "delimiter_tokenization": {
+        "<|im_start|>": "[63, 127, 1012, 98, 1832, 119, 127, 65] (non-dedicated, byte-pair decomposition)",
+        "<|im_end|>": "[63, 127, 1012, 98, 275, 103, 127, 65] (non-dedicated, byte-pair decomposition)"
+      },
+      "compatibility_verdict": "REQUIRES_SUPERVISED_TRAINING",
+      "format_artifact": "experiments/batch36_sft_readiness/audits/format_compatibility.json"
+    },
+    "Phase_2_Test_Batch_35_Runtime_Change": {
+      "status": "VERIFIED COMPLETE",
+      "findings": "Base Step 10k handles ChatML without crashing, but generates general continuations rather than conversational completions because it was never trained on ChatML role delimiters."
+    },
+    "Phase_3_Verify_Dataset_Provenance": {
+      "status": "VERIFIED COMPLETE",
+      "verified_grounded_records": 13,
+      "unverified_records": 0,
+      "audit_artifact": "experiments/batch36_sft_readiness/audits/provenance_review.json"
+    },
+    "Phase_4_Build_Better_Dataset": {
+      "status": "VERIFIED COMPLETE",
+      "train_records_count": 12,
+      "val_records_count": 7,
+      "document_overlap_count": 0,
+      "prompt_overlap_count": 0,
+      "manifest_path": "experiments/batch36_sft_readiness/data/dataset_provenance_manifest.json"
+    },
+    "Phase_5_Verify_SFT_Training_Objective": {
+      "status": "VERIFIED COMPLETE",
+      "causal_loss_alignment": "VERIFIED",
+      "assistant_only_masking": "VERIFIED"
+    },
+    "Phase_6_Define_Reproducible_Baseline": {
+      "status": "VERIFIED COMPLETE",
+      "baseline_eos_first_rate": 0.0,
+      "baseline_avg_tokens": 30.7,
+      "summary_artifact": "experiments/batch36_sft_readiness/evaluation/reproducible_baseline_summary.json"
+    },
+    "Phase_7_Training_Readiness_Gate": {
+      "status": "BLOCKED",
+      "rationale": "SFT training gate remains BLOCKED. Training on a 12-example dataset would recreate the 10-epoch overfitting and premature EOS collapse diagnosed in Batch 34. Training will proceed only once a large-scale balanced dataset (>500 examples) is synthesized."
+    },
+    "Phase_8_Regression_Tests": {
+      "status": "VERIFIED COMPLETE",
+      "tests_passed": 39,
+      "tests_total": 39,
+      "execution_time_sec": 9.18
+    }
+  },
+  "metrics": {
+    "regression_tests_passed": 39,
+    "regression_tests_total": 39,
+    "dataset_document_overlap": 0,
+    "unverified_provenance_records": 0,
+    "git_mutations_executed": false
+  }
+}

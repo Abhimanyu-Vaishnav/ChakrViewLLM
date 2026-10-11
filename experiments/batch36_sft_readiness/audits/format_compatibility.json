@@ -1,0 +1,92 @@
+{
+  "delimiters": {
+    "<|im_start|>": {
+      "token_ids": [
+        63,
+        127,
+        1012,
+        98,
+        1832,
+        119,
+        127,
+        65
+      ],
+      "has_dedicated_id": false,
+      "decoded": "<|im_start|>"
+    },
+    "<|im_end|>": {
+      "token_ids": [
+        63,
+        127,
+        1012,
+        98,
+        275,
+        103,
+        127,
+        65
+      ],
+      "has_dedicated_id": false,
+      "decoded": "<|im_end|>"
+    },
+    "<|im_start|>user\n": {
+      "token_ids": [
+        63,
+        127,
+        1012,
+        98,
+        1832,
+        119,
+        127,
+        65,
+        1940,
+        13
+      ],
+      "has_dedicated_id": false,
+      "decoded": "<|im_start|>user\n"
+    },
+    "<|im_start|>assistant\n": {
+      "token_ids": [
+        63,
+        127,
+        1012,
+        98,
+        1832,
+        119,
+        127,
+        65,
+        427,
+        1855,
+        1807,
+        13
+      ],
+      "has_dedicated_id": false,
+      "decoded": "<|im_start|>assistant\n"
+    }
+  },
+  "base_checkpoint_responses": {
+    "raw_prompt": {
+      "prompt": "What is deep learning?",
+      "tokens": 32,
+      "stop_reason": "max_tokens",
+      "output": "\n\nStep-by-Step Solution:\nThe total number of the total of th"
+    },
+    "user_assistant_prefix": {
+      "prompt": "User: What is deep learning?\nAssistant:",
+      "tokens": 32,
+      "stop_reason": "max_tokens",
+      "output": "\nStep-by-Step Solution:\nThe total number of the total of the"
+    },
+    "chatml_format": {
+      "prompt": "<|im_start|>user\nWhat is deep learning?<|im_end|>\n<|im_start|>assistant\n",
+      "tokens": 32,
+      "stop_reason": "max_tokens",
+      "output": "s\n|-\n|200\n|-\n| scope=&quot;row&quot; | C"
+    }
+  },
+  "compatibility_verdict": {
+    "pretraining_format": "Raw text / document completion",
+    "historical_batch30_sft_format": "Raw prompt string (without ChatML)",
+    "chatml_format_status": "REQUIRES_SUPERVISED_TRAINING",
+    "explanation": "Because <|im_start|> decomposes into 8 tokens ([63, 127, 1012, 98, 1832, 119, 127, 65]), the base model was never pretrained on ChatML delimiter sequences. While Base Step 10k does not crash or collapse into EOS when seeing ChatML, it has not learned to parse ChatML role semantics until SFT is trained directly on ChatML formatted sequences."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "investigation_timestamp": "2026-10-11T16:04:30+05:30",
+  "audit_name": "Batch 35 SFT Root Cause Matrix",
+  "hypotheses": {
+    "A_training_vs_inference_format_discrepancy": {
+      "status": "confirmed",
+      "findings": "Batch 30 SFT was trained using raw, unadorned prompt strings (e.g. 'What is...'), whereas LocalModelSession formatted prompts as 'User: ... \\nAssistant:' and ConversationTemplate used ChatML '<|im_start|>user\\n...'. This created out-of-distribution input embeddings during chat inference. In Batch 35, LocalModelSession prompt packaging was unified to canonical ChatML ConversationTemplate.",
+      "evidence": "Tested across formats: raw prompts vs session prompts produced divergent token distributions and output lengths."
+    },
+    "B_eos_and_causal_loss_alignment": {
+      "status": "refuted",
+      "findings": "Causal loss alignment was verified step-by-step from raw tokens to model logits. Prompt tokens are masked with -100; logit at position N-1 predicts token N (first response token). Target alignment is mathematically correct.",
+      "evidence": "Verified in test_batch34_sft_diagnostics.py and test_batch35_recovery.py."
+    },
+    "C_dataset_scale_and_epoch_overfitting": {
+      "status": "confirmed",
+      "findings": "Batch 30 dataset contained only 37 unique records with an average response length of 28.8 tokens. Executing 200 optimization steps with batch_size=2 sampled 400 examples (~10.8 complete epochs). In a 3.4M parameter model, this extreme over-presentation of short responses caused token 1 (EOS) to climb to rank 1 in output probabilities, resulting in premature termination.",
+      "evidence": "Step 50 had 50% EOS-first rate; Step 200 had 70-80% EOS-first rate. Base Step 10,000 had 0% EOS-first rate."
+    },
+    "D_runtime_stopping_artifact": {
+      "status": "refuted",
+      "findings": "The runtime stopping condition does not artificially truncate or inject EOS. Token-level audits directly inspecting raw integer token IDs confirmed that the neural model itself outputs token ID 1 (EOS) at step 0.",
+      "evidence": "Raw generated token IDs in token_level_eos_audit.json confirm exact first generated token is integer 1."
+    }
+  },
+  "pipeline_corrections_made": [
+    "Unification of LocalModelSession.build_prompt_package to use canonical ConversationTemplate ChatML formatting.",
+    "Correction of dataset provenance misattributions in sft_train_corrected.jsonl and sft_val_corrected.jsonl with 100% source-grounding and document disjointness."
+  ]
+}
