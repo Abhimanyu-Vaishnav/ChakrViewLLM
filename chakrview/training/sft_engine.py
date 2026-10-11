@@ -247,6 +247,15 @@ class SFTExperimentEngine:
             x, y, active_tokens = self.train_dataset.get_batch(
                 batch_size=self.config.batch_size, rng=rng
             )
+            # Fail-closed safety validation on training batch
+            if active_tokens <= 0:
+                raise ValueError(f"Encountered all-masked training batch at step {step}: active_tokens={active_tokens}")
+            if (x < 0).any() or (x >= self.model.config.vocab_size).any():
+                raise ValueError(f"Input tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
+            active_targets = y[y != -100]
+            if (active_targets < 0).any() or (active_targets >= self.model.config.vocab_size).any():
+                raise ValueError(f"Target tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
+
             x, y = x.to(self.device), y.to(self.device)
 
             self.optimizer.zero_grad()
