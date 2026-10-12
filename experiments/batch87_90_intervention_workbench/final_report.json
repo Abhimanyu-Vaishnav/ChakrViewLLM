@@ -1,0 +1,49 @@
+{
+  "sprint": "BATCHES_87_90",
+  "branch": "dev/v0.6-v0.7-validation",
+  "base_commit": "1c9d5610a9fb2bad69f496ecf678e489ae45ed2f",
+  "canonical_invariants": {
+    "num_parameters": 3443136,
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "track_a_incremental_experiment": {
+    "token_budget": 124289,
+    "optimizer_steps": 100,
+    "batch_size": 4,
+    "seq_len": 64,
+    "condition_a_direct": {
+      "train_exact_match": 0.1094,
+      "val_exact_match": 0.0,
+      "test_exact_match": 0.1111,
+      "checkpoint_sha256": "e97b6a46469c0b211dce484fd0f8ee1b489130ca5dc52f872c171121e3f0b739",
+      "diagnosis": "Constant modal digit 10 collapse."
+    },
+    "condition_b_incremental": {
+      "direct_eval_test_exact_match": 0.0,
+      "autonomous_chain_test_success": 0.0,
+      "transition_accuracy": 0.0,
+      "eos_rate": 1.0,
+      "checkpoint_sha256": "f0bb3b4ffb1af0f382efe4406875bb418b6a980936e2e9295ea808d5cdc390e6",
+      "diagnosis": "Transition outputs collapsed to central attractor 13, failing to learn successor function."
+    }
+  },
+  "track_b_workbench_v0_2": {
+    "status": "DELIVERED",
+    "entry_point": "experiments/batch87_90_intervention_workbench/workbench/app.py",
+    "server_command": ".\\.venv\\Scripts\\python.exe experiments/batch87_90_intervention_workbench/workbench/app.py serve --port 8501",
+    "smoke_test_status": "PASSED",
+    "features": [
+      "Live asynchronous training job execution",
+      "HTML5 Canvas real-time loss curve rendering",
+      "Real-time step progress tracking and status indicators",
+      "Automatic report persistence to workbench/reports/",
+      "Checkpoint inspector and deterministic arithmetic oracle comparator"
+    ]
+  },
+  "conclusion": {
+    "incremental_supervision_generalization": false,
+    "mechanism": "Model minimizes next-token cross-entropy by converging to central attractor 13 rather than computing successor logic.",
+    "product_deliverable": "Workbench v0.2 delivered with live training monitor and canvas loss curves."
+  }
+}
