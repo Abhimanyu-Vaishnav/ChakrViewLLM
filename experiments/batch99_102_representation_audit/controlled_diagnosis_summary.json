@@ -1,0 +1,263 @@
+{
+  "timestamp": "2026-10-12 15:17:51",
+  "checkpoints": {
+    "Baseline Step 10,000": {
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "splits": {
+        "train": {
+          "total_evaluated": 64,
+          "valid_syntax_rate": 0.0,
+          "tool_selection_accuracy": 0.0,
+          "operation_selection_accuracy": 0.0,
+          "operand_a_accuracy": 0.0,
+          "operand_b_accuracy": 0.0,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 0.0,
+          "constant_call_collapse_rate": 0.5156,
+          "most_common_call": "|-\n|200\n|-\n| scope=&quot;row&quot; | Monil Britis\n|-\n| scope=&quot",
+          "clarification_spurious_call_rate": 0.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0029,
+              "mean_generated_prob": 0.1052,
+              "prob_ratio_target_to_gen": 0.0271,
+              "mean_target_rank": 72.08
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0158,
+              "mean_generated_prob": 0.1334,
+              "prob_ratio_target_to_gen": 0.1182,
+              "mean_target_rank": 136.28
+            }
+          }
+        },
+        "val": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 0.0,
+          "tool_selection_accuracy": 0.0,
+          "operation_selection_accuracy": 0.0,
+          "operand_a_accuracy": 0.0,
+          "operand_b_accuracy": 0.0,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 0.0,
+          "constant_call_collapse_rate": 0.5556,
+          "most_common_call": "|-\n|200\n|-\n| scope=&quot;row&quot; | Monil Britis\n|-\n| scope=&quot",
+          "clarification_spurious_call_rate": 0.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0031,
+              "mean_generated_prob": 0.1048,
+              "prob_ratio_target_to_gen": 0.0297,
+              "mean_target_rank": 76.22
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0139,
+              "mean_generated_prob": 0.1349,
+              "prob_ratio_target_to_gen": 0.1031,
+              "mean_target_rank": 179.0
+            }
+          }
+        },
+        "test": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 0.0,
+          "tool_selection_accuracy": 0.0,
+          "operation_selection_accuracy": 0.0,
+          "operand_a_accuracy": 0.0,
+          "operand_b_accuracy": 0.0,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 0.0,
+          "constant_call_collapse_rate": 0.7222,
+          "most_common_call": "|-\n|200\n|-\n| scope=&quot;row&quot; | Monil Britis\n|-\n| scope=&quot",
+          "clarification_spurious_call_rate": 0.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0022,
+              "mean_generated_prob": 0.1055,
+              "prob_ratio_target_to_gen": 0.0208,
+              "mean_target_rank": 76.06
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0163,
+              "mean_generated_prob": 0.1333,
+              "prob_ratio_target_to_gen": 0.1222,
+              "mean_target_rank": 116.22
+            }
+          }
+        }
+      }
+    },
+    "Condition B (Unstructured Tool)": {
+      "sha256": "65eb913bbed9c855f17eb07fabfb5ff6a30843d472f467ac37a11d6731505b41",
+      "splits": {
+        "train": {
+          "total_evaluated": 64,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.1094,
+          "operand_b_accuracy": 0.1094,
+          "exact_pair_accuracy": 0.0156,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.087,
+              "mean_generated_prob": 0.2396,
+              "prob_ratio_target_to_gen": 0.3631,
+              "mean_target_rank": 5.56
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0816,
+              "mean_generated_prob": 0.1415,
+              "prob_ratio_target_to_gen": 0.5765,
+              "mean_target_rank": 5.56
+            }
+          }
+        },
+        "val": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.0556,
+          "operand_b_accuracy": 0.0556,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0892,
+              "mean_generated_prob": 0.2399,
+              "prob_ratio_target_to_gen": 0.372,
+              "mean_target_rank": 5.28
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0798,
+              "mean_generated_prob": 0.1423,
+              "prob_ratio_target_to_gen": 0.5606,
+              "mean_target_rank": 5.67
+            }
+          }
+        },
+        "test": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.1111,
+          "operand_b_accuracy": 0.1111,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0832,
+              "mean_generated_prob": 0.2389,
+              "prob_ratio_target_to_gen": 0.3484,
+              "mean_target_rank": 5.5
+            },
+            "operand_b": {
+              "mean_target_prob": 0.075,
+              "mean_generated_prob": 0.1396,
+              "prob_ratio_target_to_gen": 0.5373,
+              "mean_target_rank": 6.0
+            }
+          }
+        }
+      }
+    },
+    "Condition C (Explicit Slot-Binding)": {
+      "sha256": "d7702580c5e586ed4ffa3a6498d4f35520886d92e8f3b581ab8df1c26d4cdaa2",
+      "splits": {
+        "train": {
+          "total_evaluated": 64,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.1094,
+          "operand_b_accuracy": 0.0781,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0913,
+              "mean_generated_prob": 0.1568,
+              "prob_ratio_target_to_gen": 0.582,
+              "mean_target_rank": 5.31
+            },
+            "operand_b": {
+              "mean_target_prob": 0.082,
+              "mean_generated_prob": 0.1703,
+              "prob_ratio_target_to_gen": 0.4817,
+              "mean_target_rank": 5.67
+            }
+          }
+        },
+        "val": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.0556,
+          "operand_b_accuracy": 0.0556,
+          "exact_pair_accuracy": 0.0,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.079,
+              "mean_generated_prob": 0.1564,
+              "prob_ratio_target_to_gen": 0.5052,
+              "mean_target_rank": 6.11
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0721,
+              "mean_generated_prob": 0.1699,
+              "prob_ratio_target_to_gen": 0.4242,
+              "mean_target_rank": 6.17
+            }
+          }
+        },
+        "test": {
+          "total_evaluated": 18,
+          "valid_syntax_rate": 1.0,
+          "tool_selection_accuracy": 1.0,
+          "operation_selection_accuracy": 1.0,
+          "operand_a_accuracy": 0.1111,
+          "operand_b_accuracy": 0.2222,
+          "exact_pair_accuracy": 0.0556,
+          "runtime_execution_rate": 1.0,
+          "constant_call_collapse_rate": 1.0,
+          "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "clarification_spurious_call_rate": 1.0,
+          "teacher_forced_diagnostics": {
+            "operand_a": {
+              "mean_target_prob": 0.0871,
+              "mean_generated_prob": 0.1565,
+              "prob_ratio_target_to_gen": 0.5563,
+              "mean_target_rank": 5.94
+            },
+            "operand_b": {
+              "mean_target_prob": 0.0983,
+              "mean_generated_prob": 0.1716,
+              "prob_ratio_target_to_gen": 0.5728,
+              "mean_target_rank": 4.72
+            }
+          }
+        }
+      }
+    }
+  }
+}

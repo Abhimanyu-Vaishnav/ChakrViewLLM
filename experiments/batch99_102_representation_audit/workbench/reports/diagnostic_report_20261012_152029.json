@@ -1,0 +1,5114 @@
+{
+  "success": true,
+  "title": "Interactive Token-Level Diagnostic & Comparison Report",
+  "timestamp": "2026-10-12T15:20:29.330806",
+  "methodology_disclaimer": "METHODOLOGY NOTICE: 1. Teacher-Forced scores evaluate the model's likelihood on a fixed, pre-existing prefix. 2. Free-Running scores evaluate the model's self-generated continuation. 3. Probability and perplexity metrics are raw model score densities, NOT calibrated confidence or guarantees of truth.",
+  "settings": {
+    "max_tokens": 25,
+    "num_prompts": 1,
+    "tokenizer_path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "interactive_token_diagnostics_version": "v1.0"
+  },
+  "checkpoint_a": {
+    "exists": true,
+    "path": "experiments\\batch91_94_tool_calling_comparator\\experiments\\condition_b_tool_calling_step_100.pt",
+    "size_mb": 39.47,
+    "sha256": "65eb913bbed9c855f17eb07fabfb5ff6a30843d472f467ac37a11d6731505b41",
+    "step": 100,
+    "condition_name": "condition_b_tool_calling",
+    "param_count": 3443136,
+    "history_length": 5,
+    "valid": true
+  },
+  "checkpoint_b": {
+    "exists": true,
+    "path": "experiments\\batch95_98_slot_binding_diagnostics\\experiments\\condition_c_slot_binding_step_100.pt",
+    "size_mb": 39.47,
+    "sha256": "d7702580c5e586ed4ffa3a6498d4f35520886d92e8f3b581ab8df1c26d4cdaa2",
+    "step": 100,
+    "condition_name": "condition_c_slot_binding",
+    "param_count": 3443136,
+    "history_length": 5,
+    "valid": true
+  },
+  "summary": {
+    "total_prompts": 1,
+    "identical_outputs_count": 0,
+    "divergent_outputs_count": 1,
+    "divergence_rate_pct": 100.0,
+    "average_first_divergence_step": 0.0,
+    "model_a_avg_perplexity": 1.05,
+    "model_b_avg_perplexity": 1.01
+  },
+  "diagnostics": [
+    {
+      "index": 0,
+      "prompt": "Request: add numbers\\nOperand A: 3\\nOperand B: 4\\nRequired action: calculator addition",
+      "prompt_token_ids": [
+        0,
+        2270,
+        445,
+        104,
+        304,
+        324,
+        413,
+        292,
+        2024,
+        283,
+        118,
+        2294,
+        2264,
+        354,
+        68,
+        324,
+        54,
+        2294,
+        2264,
+        354,
+        69,
+        324,
+        55,
+        2294,
+        2270,
+        445,
+        108,
+        1412,
+        346,
+        1490,
+        663,
+        4044,
+        278,
+        376,
+        413,
+        415,
+        439
+      ],
+      "prompt_scores_a": [
+        {
+          "position": 1,
+          "token_id": 2270,
+          "token_str": "'Re'",
+          "log_prob": -10.7058,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.7537,
+              "log_prob": -0.2827
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0178,
+              "log_prob": -4.0303
+            },
+            {
+              "token_id": 1,
+              "token_str": "''",
+              "prob": 0.0132,
+              "log_prob": -4.3249
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.011,
+              "log_prob": -4.5071
+            },
+            {
+              "token_id": 663,
+              "token_str": "'cal'",
+              "prob": 0.0095,
+              "log_prob": -4.6564
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "token_id": 445,
+          "token_str": "'qu'",
+          "log_prob": -6.467,
+          "prob": 0.0016,
+          "top_candidates": [
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.1778,
+              "log_prob": -1.7272
+            },
+            {
+              "token_id": 1855,
+              "token_str": "'sist'",
+              "prob": 0.1414,
+              "log_prob": -1.9559
+            },
+            {
+              "token_id": 105,
+              "token_str": "'f'",
+              "prob": 0.0154,
+              "log_prob": -4.1722
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0139,
+              "log_prob": -4.2745
+            },
+            {
+              "token_id": 2337,
+              "token_str": "'gi'",
+              "prob": 0.0138,
+              "log_prob": -4.2826
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "token_id": 104,
+          "token_str": "'e'",
+          "log_prob": -2.7667,
+          "prob": 0.0629,
+          "top_candidates": [
+            {
+              "token_id": 2375,
+              "token_str": "'ot'",
+              "prob": 0.2197,
+              "log_prob": -1.5156
+            },
+            {
+              "token_id": 267,
+              "token_str": "'e '",
+              "prob": 0.0714,
+              "log_prob": -2.6389
+            },
+            {
+              "token_id": 535,
+              "token_str": "'are '",
+              "prob": 0.0683,
+              "log_prob": -2.6843
+            },
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.0629,
+              "log_prob": -2.7667
+            },
+            {
+              "token_id": 409,
+              "token_str": "'id'",
+              "prob": 0.0593,
+              "log_prob": -2.8245
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "token_id": 304,
+          "token_str": "'st'",
+          "log_prob": -4.3289,
+          "prob": 0.0132,
+          "top_candidates": [
+            {
+              "token_id": 120,
+              "token_str": "'u'",
+              "prob": 0.0545,
+              "log_prob": -2.9103
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0424,
+              "log_prob": -3.1599
+            },
+            {
+              "token_id": 96,
+              "token_str": "']'",
+              "prob": 0.0237,
+              "log_prob": -3.7443
+            },
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.0223,
+              "log_prob": -3.8032
+            },
+            {
+              "token_id": 72,
+              "token_str": "'E'",
+              "prob": 0.0215,
+              "log_prob": -3.8417
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -5.7274,
+          "prob": 0.0033,
+          "top_candidates": [
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.1256,
+              "log_prob": -2.0748
+            },
+            {
+              "token_id": 286,
+              "token_str": "'an'",
+              "prob": 0.107,
+              "log_prob": -2.2349
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.1045,
+              "log_prob": -2.2588
+            },
+            {
+              "token_id": 392,
+              "token_str": "'er '",
+              "prob": 0.0488,
+              "log_prob": -3.0198
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0361,
+              "log_prob": -3.3213
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "token_id": 413,
+          "token_str": "'ad'",
+          "log_prob": -9.2149,
+          "prob": 0.0001,
+          "top_candidates": [
+            {
+              "token_id": 126,
+              "token_str": "'{'",
+              "prob": 0.4742,
+              "log_prob": -0.7462
+            },
+            {
+              "token_id": 898,
+              "token_str": "'The '",
+              "prob": 0.2116,
+              "log_prob": -1.5533
+            },
+            {
+              "token_id": 465,
+              "token_str": "'1 '",
+              "prob": 0.0416,
+              "log_prob": -3.18
+            },
+            {
+              "token_id": 70,
+              "token_str": "'C'",
+              "prob": 0.0221,
+              "log_prob": -3.8124
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0209,
+              "log_prob": -3.867
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "token_id": 292,
+          "token_str": "'d '",
+          "log_prob": -3.8083,
+          "prob": 0.0222,
+          "top_candidates": [
+            {
+              "token_id": 103,
+              "token_str": "'d'",
+              "prob": 0.9643,
+              "log_prob": -0.0364
+            },
+            {
+              "token_id": 292,
+              "token_str": "'d '",
+              "prob": 0.0222,
+              "log_prob": -3.8083
+            },
+            {
+              "token_id": 119,
+              "token_str": "'t'",
+              "prob": 0.0022,
+              "log_prob": -6.103
+            },
+            {
+              "token_id": 102,
+              "token_str": "'c'",
+              "prob": 0.0012,
+              "log_prob": -6.7314
+            },
+            {
+              "token_id": 631,
+              "token_str": "'ding '",
+              "prob": 0.0007,
+              "log_prob": -7.2316
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "token_id": 2024,
+          "token_str": "'numb'",
+          "log_prob": -9.1562,
+          "prob": 0.0001,
+          "top_candidates": [
+            {
+              "token_id": 1106,
+              "token_str": "'4 '",
+              "prob": 0.2816,
+              "log_prob": -1.2674
+            },
+            {
+              "token_id": 465,
+              "token_str": "'1 '",
+              "prob": 0.1474,
+              "log_prob": -1.9144
+            },
+            {
+              "token_id": 484,
+              "token_str": "'0 '",
+              "prob": 0.0612,
+              "log_prob": -2.7942
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.0483,
+              "log_prob": -3.0306
+            },
+            {
+              "token_id": 1941,
+              "token_str": "'using '",
+              "prob": 0.0441,
+              "log_prob": -3.1217
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "token_id": 283,
+          "token_str": "'er'",
+          "log_prob": -2.0176,
+          "prob": 0.133,
+          "top_candidates": [
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.2922,
+              "log_prob": -1.2305
+            },
+            {
+              "token_id": 392,
+              "token_str": "'er '",
+              "prob": 0.1391,
+              "log_prob": -1.9726
+            },
+            {
+              "token_id": 283,
+              "token_str": "'er'",
+              "prob": 0.133,
+              "log_prob": -2.0176
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0816,
+              "log_prob": -2.5058
+            },
+            {
+              "token_id": 730,
+              "token_str": "'ers '",
+              "prob": 0.0369,
+              "log_prob": -3.2994
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "token_id": 118,
+          "token_str": "'s'",
+          "log_prob": -1.7504,
+          "prob": 0.1737,
+          "top_candidates": [
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.5229,
+              "log_prob": -0.6485
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.1883,
+              "log_prob": -1.6698
+            },
+            {
+              "token_id": 118,
+              "token_str": "'s'",
+              "prob": 0.1737,
+              "log_prob": -1.7504
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0286,
+              "log_prob": -3.5556
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0153,
+              "log_prob": -4.1774
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -10.6625,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 2418,
+              "token_str": "'wer '",
+              "prob": 0.9366,
+              "log_prob": -0.0655
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0062,
+              "log_prob": -5.09
+            },
+            {
+              "token_id": 549,
+              "token_str": "'h '",
+              "prob": 0.0023,
+              "log_prob": -6.0875
+            },
+            {
+              "token_id": 369,
+              "token_str": "'l '",
+              "prob": 0.0011,
+              "log_prob": -6.7948
+            },
+            {
+              "token_id": 712,
+              "token_str": "'se '",
+              "prob": 0.0006,
+              "log_prob": -7.4064
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "token_id": 2264,
+          "token_str": "'Oper'",
+          "log_prob": -11.4163,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.374,
+              "log_prob": -0.9835
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.136,
+              "log_prob": -1.995
+            },
+            {
+              "token_id": 90,
+              "token_str": "'W'",
+              "prob": 0.0289,
+              "log_prob": -3.5435
+            },
+            {
+              "token_id": 88,
+              "token_str": "'U'",
+              "prob": 0.0181,
+              "log_prob": -4.011
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.015,
+              "log_prob": -4.1993
+            }
+          ]
+        },
+        {
+          "position": 13,
+          "token_id": 354,
+          "token_str": "'and '",
+          "log_prob": -6.0175,
+          "prob": 0.0024,
+          "top_candidates": [
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.1884,
+              "log_prob": -1.6691
+            },
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.1262,
+              "log_prob": -2.0703
+            },
+            {
+              "token_id": 408,
+              "token_str": "'ation'",
+              "prob": 0.046,
+              "log_prob": -3.0785
+            },
+            {
+              "token_id": 390,
+              "token_str": "'it'",
+              "prob": 0.0196,
+              "log_prob": -3.9331
+            },
+            {
+              "token_id": 459,
+              "token_str": "'us'",
+              "prob": 0.0165,
+              "log_prob": -4.1016
+            }
+          ]
+        },
+        {
+          "position": 14,
+          "token_id": 68,
+          "token_str": "'A'",
+          "log_prob": -7.0847,
+          "prob": 0.0008,
+          "top_candidates": [
+            {
+              "token_id": 51,
+              "token_str": "'0'",
+              "prob": 0.1402,
+              "log_prob": -1.9649
+            },
+            {
+              "token_id": 57,
+              "token_str": "'6'",
+              "prob": 0.1284,
+              "log_prob": -2.0527
+            },
+            {
+              "token_id": 1634,
+              "token_str": "'2.'",
+              "prob": 0.1227,
+              "log_prob": -2.0984
+            },
+            {
+              "token_id": 54,
+              "token_str": "'3'",
+              "prob": 0.0367,
+              "log_prob": -3.3059
+            },
+            {
+              "token_id": 1240,
+              "token_str": "'\": \"'",
+              "prob": 0.0358,
+              "log_prob": -3.3308
+            }
+          ]
+        },
+        {
+          "position": 15,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -5.6974,
+          "prob": 0.0034,
+          "top_candidates": [
+            {
+              "token_id": 79,
+              "token_str": "'L'",
+              "prob": 0.698,
+              "log_prob": -0.3595
+            },
+            {
+              "token_id": 113,
+              "token_str": "'n'",
+              "prob": 0.0361,
+              "log_prob": -3.3225
+            },
+            {
+              "token_id": 565,
+              "token_str": "' p'",
+              "prob": 0.0202,
+              "log_prob": -3.901
+            },
+            {
+              "token_id": 83,
+              "token_str": "'P'",
+              "prob": 0.0148,
+              "log_prob": -4.2146
+            },
+            {
+              "token_id": 117,
+              "token_str": "'r'",
+              "prob": 0.0137,
+              "log_prob": -4.2901
+            }
+          ]
+        },
+        {
+          "position": 16,
+          "token_id": 54,
+          "token_str": "'3'",
+          "log_prob": -4.4497,
+          "prob": 0.0117,
+          "top_candidates": [
+            {
+              "token_id": 126,
+              "token_str": "'{'",
+              "prob": 0.5653,
+              "log_prob": -0.5705
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0614,
+              "log_prob": -2.7898
+            },
+            {
+              "token_id": 465,
+              "token_str": "'1 '",
+              "prob": 0.037,
+              "log_prob": -3.2956
+            },
+            {
+              "token_id": 60,
+              "token_str": "'9'",
+              "prob": 0.0348,
+              "log_prob": -3.3568
+            },
+            {
+              "token_id": 3712,
+              "token_str": "'5 + '",
+              "prob": 0.025,
+              "log_prob": -3.6896
+            }
+          ]
+        },
+        {
+          "position": 17,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -9.6272,
+          "prob": 0.0001,
+          "top_candidates": [
+            {
+              "token_id": 543,
+              "token_str": "' + '",
+              "prob": 0.3345,
+              "log_prob": -1.095
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.3206,
+              "log_prob": -1.1375
+            },
+            {
+              "token_id": 400,
+              "token_str": "' = '",
+              "prob": 0.1073,
+              "log_prob": -2.2318
+            },
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.0418,
+              "log_prob": -3.1748
+            },
+            {
+              "token_id": 128,
+              "token_str": "'}'",
+              "prob": 0.0346,
+              "log_prob": -3.3633
+            }
+          ]
+        },
+        {
+          "position": 18,
+          "token_id": 2264,
+          "token_str": "'Oper'",
+          "log_prob": -11.7435,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.3978,
+              "log_prob": -0.9219
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.2525,
+              "log_prob": -1.3762
+            },
+            {
+              "token_id": 65,
+              "token_str": "'>'",
+              "prob": 0.0383,
+              "log_prob": -3.2614
+            },
+            {
+              "token_id": 2230,
+              "token_str": "'> '",
+              "prob": 0.0163,
+              "log_prob": -4.1148
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0147,
+              "log_prob": -4.2186
+            }
+          ]
+        },
+        {
+          "position": 19,
+          "token_id": 354,
+          "token_str": "'and '",
+          "log_prob": -5.963,
+          "prob": 0.0026,
+          "top_candidates": [
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.2185,
+              "log_prob": -1.5208
+            },
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.1057,
+              "log_prob": -2.247
+            },
+            {
+              "token_id": 408,
+              "token_str": "'ation'",
+              "prob": 0.0552,
+              "log_prob": -2.8961
+            },
+            {
+              "token_id": 480,
+              "token_str": "'ate '",
+              "prob": 0.0216,
+              "log_prob": -3.8367
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0167,
+              "log_prob": -4.0918
+            }
+          ]
+        },
+        {
+          "position": 20,
+          "token_id": 69,
+          "token_str": "'B'",
+          "log_prob": -7.2335,
+          "prob": 0.0007,
+          "top_candidates": [
+            {
+              "token_id": 57,
+              "token_str": "'6'",
+              "prob": 0.1729,
+              "log_prob": -1.7552
+            },
+            {
+              "token_id": 51,
+              "token_str": "'0'",
+              "prob": 0.0766,
+              "log_prob": -2.5688
+            },
+            {
+              "token_id": 1634,
+              "token_str": "'2.'",
+              "prob": 0.0762,
+              "log_prob": -2.5745
+            },
+            {
+              "token_id": 59,
+              "token_str": "'8'",
+              "prob": 0.0702,
+              "log_prob": -2.6559
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0644,
+              "log_prob": -2.7432
+            }
+          ]
+        },
+        {
+          "position": 21,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -1.1483,
+          "prob": 0.3172,
+          "top_candidates": [
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.3172,
+              "log_prob": -1.1483
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.2567,
+              "log_prob": -1.3598
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0724,
+              "log_prob": -2.6256
+            },
+            {
+              "token_id": 82,
+              "token_str": "'O'",
+              "prob": 0.0357,
+              "log_prob": -3.3318
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0257,
+              "log_prob": -3.6596
+            }
+          ]
+        },
+        {
+          "position": 22,
+          "token_id": 55,
+          "token_str": "'4'",
+          "log_prob": -4.5834,
+          "prob": 0.0102,
+          "top_candidates": [
+            {
+              "token_id": 126,
+              "token_str": "'{'",
+              "prob": 0.5856,
+              "log_prob": -0.5352
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0668,
+              "log_prob": -2.7065
+            },
+            {
+              "token_id": 465,
+              "token_str": "'1 '",
+              "prob": 0.0345,
+              "log_prob": -3.3658
+            },
+            {
+              "token_id": 2208,
+              "token_str": "'3 + '",
+              "prob": 0.0312,
+              "log_prob": -3.4677
+            },
+            {
+              "token_id": 3712,
+              "token_str": "'5 + '",
+              "prob": 0.0253,
+              "log_prob": -3.6771
+            }
+          ]
+        },
+        {
+          "position": 23,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -9.4085,
+          "prob": 0.0001,
+          "top_candidates": [
+            {
+              "token_id": 543,
+              "token_str": "' + '",
+              "prob": 0.4318,
+              "log_prob": -0.8397
+            },
+            {
+              "token_id": 400,
+              "token_str": "' = '",
+              "prob": 0.2349,
+              "log_prob": -1.4484
+            },
+            {
+              "token_id": 128,
+              "token_str": "'}'",
+              "prob": 0.0927,
+              "log_prob": -2.3784
+            },
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.0576,
+              "log_prob": -2.8537
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0365,
+              "log_prob": -3.3117
+            }
+          ]
+        },
+        {
+          "position": 24,
+          "token_id": 2270,
+          "token_str": "'Re'",
+          "log_prob": -8.4102,
+          "prob": 0.0002,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.3094,
+              "log_prob": -1.173
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.1717,
+              "log_prob": -1.7623
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0303,
+              "log_prob": -3.4953
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.0259,
+              "log_prob": -3.653
+            },
+            {
+              "token_id": 65,
+              "token_str": "'>'",
+              "prob": 0.0246,
+              "log_prob": -3.7048
+            }
+          ]
+        },
+        {
+          "position": 25,
+          "token_id": 445,
+          "token_str": "'qu'",
+          "log_prob": -6.9756,
+          "prob": 0.0009,
+          "top_candidates": [
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.5116,
+              "log_prob": -0.6702
+            },
+            {
+              "token_id": 1855,
+              "token_str": "'sist'",
+              "prob": 0.0633,
+              "log_prob": -2.7606
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0425,
+              "log_prob": -3.1572
+            },
+            {
+              "token_id": 119,
+              "token_str": "'t'",
+              "prob": 0.0233,
+              "log_prob": -3.7609
+            },
+            {
+              "token_id": 98,
+              "token_str": "'_'",
+              "prob": 0.0201,
+              "log_prob": -3.9071
+            }
+          ]
+        },
+        {
+          "position": 26,
+          "token_id": 108,
+          "token_str": "'i'",
+          "log_prob": -4.2635,
+          "prob": 0.0141,
+          "top_candidates": [
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.3857,
+              "log_prob": -0.9526
+            },
+            {
+              "token_id": 286,
+              "token_str": "'an'",
+              "prob": 0.0465,
+              "log_prob": -3.0684
+            },
+            {
+              "token_id": 100,
+              "token_str": "'a'",
+              "prob": 0.04,
+              "log_prob": -3.2197
+            },
+            {
+              "token_id": 1688,
+              "token_str": "'e('",
+              "prob": 0.035,
+              "log_prob": -3.3516
+            },
+            {
+              "token_id": 267,
+              "token_str": "'e '",
+              "prob": 0.0293,
+              "log_prob": -3.5301
+            }
+          ]
+        },
+        {
+          "position": 27,
+          "token_id": 1412,
+          "token_str": "'red '",
+          "log_prob": -7.9322,
+          "prob": 0.0004,
+          "top_candidates": [
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.0774,
+              "log_prob": -2.5593
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.055,
+              "log_prob": -2.9001
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0427,
+              "log_prob": -3.1545
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0422,
+              "log_prob": -3.1642
+            },
+            {
+              "token_id": 648,
+              "token_str": "'an '",
+              "prob": 0.0253,
+              "log_prob": -3.6786
+            }
+          ]
+        },
+        {
+          "position": 28,
+          "token_id": 346,
+          "token_str": "'ac'",
+          "log_prob": -8.2087,
+          "prob": 0.0003,
+          "top_candidates": [
+            {
+              "token_id": 60,
+              "token_str": "'9'",
+              "prob": 0.1004,
+              "log_prob": -2.2988
+            },
+            {
+              "token_id": 59,
+              "token_str": "'8'",
+              "prob": 0.0712,
+              "log_prob": -2.6429
+            },
+            {
+              "token_id": 56,
+              "token_str": "'5'",
+              "prob": 0.0634,
+              "log_prob": -2.7586
+            },
+            {
+              "token_id": 383,
+              "token_str": "'+ '",
+              "prob": 0.0609,
+              "log_prob": -2.798
+            },
+            {
+              "token_id": 65,
+              "token_str": "'>'",
+              "prob": 0.0457,
+              "log_prob": -3.0849
+            }
+          ]
+        },
+        {
+          "position": 29,
+          "token_id": 1490,
+          "token_str": "'tion: '",
+          "log_prob": -6.384,
+          "prob": 0.0017,
+          "top_candidates": [
+            {
+              "token_id": 119,
+              "token_str": "'t'",
+              "prob": 0.1189,
+              "log_prob": -2.1292
+            },
+            {
+              "token_id": 477,
+              "token_str": "'tu'",
+              "prob": 0.0779,
+              "log_prob": -2.5527
+            },
+            {
+              "token_id": 110,
+              "token_str": "'k'",
+              "prob": 0.048,
+              "log_prob": -3.0364
+            },
+            {
+              "token_id": 2408,
+              "token_str": "'tor '",
+              "prob": 0.0344,
+              "log_prob": -3.3709
+            },
+            {
+              "token_id": 2318,
+              "token_str": "'cep'",
+              "prob": 0.0341,
+              "log_prob": -3.3778
+            }
+          ]
+        },
+        {
+          "position": 30,
+          "token_id": 663,
+          "token_str": "'cal'",
+          "log_prob": -7.501,
+          "prob": 0.0006,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.7237,
+              "log_prob": -0.3233
+            },
+            {
+              "token_id": 88,
+              "token_str": "'U'",
+              "prob": 0.0192,
+              "log_prob": -3.9539
+            },
+            {
+              "token_id": 70,
+              "token_str": "'C'",
+              "prob": 0.0145,
+              "log_prob": -4.2313
+            },
+            {
+              "token_id": 90,
+              "token_str": "'W'",
+              "prob": 0.0142,
+              "log_prob": -4.2522
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0129,
+              "log_prob": -4.354
+            }
+          ]
+        },
+        {
+          "position": 31,
+          "token_id": 4044,
+          "token_str": "'cul'",
+          "log_prob": -0.0028,
+          "prob": 0.9972,
+          "top_candidates": [
+            {
+              "token_id": 4044,
+              "token_str": "'cul'",
+              "prob": 0.9972,
+              "log_prob": -0.0028
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0002,
+              "log_prob": -8.4753
+            },
+            {
+              "token_id": 342,
+              "token_str": "'le'",
+              "prob": 0.0001,
+              "log_prob": -8.9505
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0001,
+              "log_prob": -9.0331
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0,
+              "log_prob": -9.9857
+            }
+          ]
+        },
+        {
+          "position": 32,
+          "token_id": 278,
+          "token_str": "'at'",
+          "log_prob": -0.0042,
+          "prob": 0.9958,
+          "top_candidates": [
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.9958,
+              "log_prob": -0.0042
+            },
+            {
+              "token_id": 480,
+              "token_str": "'ate '",
+              "prob": 0.0016,
+              "log_prob": -6.4448
+            },
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.0002,
+              "log_prob": -8.3727
+            },
+            {
+              "token_id": 98,
+              "token_str": "'_'",
+              "prob": 0.0001,
+              "log_prob": -8.8199
+            },
+            {
+              "token_id": 288,
+              "token_str": "'al'",
+              "prob": 0.0001,
+              "log_prob": -8.8276
+            }
+          ]
+        },
+        {
+          "position": 33,
+          "token_id": 376,
+          "token_str": "'or '",
+          "log_prob": -3.8051,
+          "prob": 0.0223,
+          "top_candidates": [
+            {
+              "token_id": 291,
+              "token_str": "'or'",
+              "prob": 0.9724,
+              "log_prob": -0.028
+            },
+            {
+              "token_id": 376,
+              "token_str": "'or '",
+              "prob": 0.0223,
+              "log_prob": -3.8051
+            },
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.0002,
+              "log_prob": -8.6485
+            },
+            {
+              "token_id": 309,
+              "token_str": "'ing'",
+              "prob": 0.0001,
+              "log_prob": -8.8317
+            },
+            {
+              "token_id": 496,
+              "token_str": "'ed'",
+              "prob": 0.0001,
+              "log_prob": -8.9491
+            }
+          ]
+        },
+        {
+          "position": 34,
+          "token_id": 413,
+          "token_str": "'ad'",
+          "log_prob": -5.0989,
+          "prob": 0.0061,
+          "top_candidates": [
+            {
+              "token_id": 473,
+              "token_str": "'to '",
+              "prob": 0.6846,
+              "log_prob": -0.3789
+            },
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.0699,
+              "log_prob": -2.6613
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.0477,
+              "log_prob": -3.0438
+            },
+            {
+              "token_id": 725,
+              "token_str": "'at '",
+              "prob": 0.0278,
+              "log_prob": -3.5839
+            },
+            {
+              "token_id": 1941,
+              "token_str": "'using '",
+              "prob": 0.0249,
+              "log_prob": -3.6944
+            }
+          ]
+        },
+        {
+          "position": 35,
+          "token_id": 415,
+          "token_str": "'di'",
+          "log_prob": -8.4943,
+          "prob": 0.0002,
+          "top_candidates": [
+            {
+              "token_id": 292,
+              "token_str": "'d '",
+              "prob": 0.6487,
+              "log_prob": -0.4328
+            },
+            {
+              "token_id": 103,
+              "token_str": "'d'",
+              "prob": 0.3398,
+              "log_prob": -1.0795
+            },
+            {
+              "token_id": 631,
+              "token_str": "'ding '",
+              "prob": 0.0018,
+              "log_prob": -6.3063
+            },
+            {
+              "token_id": 826,
+              "token_str": "'ds '",
+              "prob": 0.0008,
+              "log_prob": -7.1361
+            },
+            {
+              "token_id": 2321,
+              "token_str": "'d.'",
+              "prob": 0.0006,
+              "log_prob": -7.4389
+            }
+          ]
+        },
+        {
+          "position": 36,
+          "token_id": 439,
+          "token_str": "'tion'",
+          "log_prob": -2.818,
+          "prob": 0.0597,
+          "top_candidates": [
+            {
+              "token_id": 100,
+              "token_str": "'a'",
+              "prob": 0.0988,
+              "log_prob": -2.3142
+            },
+            {
+              "token_id": 439,
+              "token_str": "'tion'",
+              "prob": 0.0597,
+              "log_prob": -2.818
+            },
+            {
+              "token_id": 360,
+              "token_str": "'es '",
+              "prob": 0.0544,
+              "log_prob": -2.912
+            },
+            {
+              "token_id": 364,
+              "token_str": "'o '",
+              "prob": 0.0334,
+              "log_prob": -3.3992
+            },
+            {
+              "token_id": 286,
+              "token_str": "'an'",
+              "prob": 0.0327,
+              "log_prob": -3.4189
+            }
+          ]
+        }
+      ],
+      "prompt_scores_b": [
+        {
+          "position": 1,
+          "token_id": 2270,
+          "token_str": "'Re'",
+          "log_prob": -9.933,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.9803,
+              "log_prob": -0.0199
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.002,
+              "log_prob": -6.1922
+            },
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.0013,
+              "log_prob": -6.6673
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.001,
+              "log_prob": -6.8761
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.001,
+              "log_prob": -6.918
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "token_id": 445,
+          "token_str": "'qu'",
+          "log_prob": -0.0034,
+          "prob": 0.9966,
+          "top_candidates": [
+            {
+              "token_id": 445,
+              "token_str": "'qu'",
+              "prob": 0.9966,
+              "log_prob": -0.0034
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0003,
+              "log_prob": -7.9766
+            },
+            {
+              "token_id": 105,
+              "token_str": "'f'",
+              "prob": 0.0003,
+              "log_prob": -8.2403
+            },
+            {
+              "token_id": 106,
+              "token_str": "'g'",
+              "prob": 0.0002,
+              "log_prob": -8.7681
+            },
+            {
+              "token_id": 415,
+              "token_str": "'di'",
+              "prob": 0.0001,
+              "log_prob": -9.0466
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "token_id": 104,
+          "token_str": "'e'",
+          "log_prob": -0.0171,
+          "prob": 0.983,
+          "top_candidates": [
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.983,
+              "log_prob": -0.0171
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0077,
+              "log_prob": -4.8638
+            },
+            {
+              "token_id": 100,
+              "token_str": "'a'",
+              "prob": 0.0006,
+              "log_prob": -7.5009
+            },
+            {
+              "token_id": 833,
+              "token_str": "'op'",
+              "prob": 0.0004,
+              "log_prob": -7.7326
+            },
+            {
+              "token_id": 363,
+              "token_str": "'es'",
+              "prob": 0.0004,
+              "log_prob": -7.8366
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "token_id": 304,
+          "token_str": "'st'",
+          "log_prob": -0.0031,
+          "prob": 0.9969,
+          "top_candidates": [
+            {
+              "token_id": 304,
+              "token_str": "'st'",
+              "prob": 0.9969,
+              "log_prob": -0.0031
+            },
+            {
+              "token_id": 101,
+              "token_str": "'b'",
+              "prob": 0.0004,
+              "log_prob": -7.953
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0002,
+              "log_prob": -8.7421
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0001,
+              "log_prob": -9.0695
+            },
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.0001,
+              "log_prob": -9.0721
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -0.0055,
+          "prob": 0.9945,
+          "top_candidates": [
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.9945,
+              "log_prob": -0.0055
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0009,
+              "log_prob": -7.026
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0005,
+              "log_prob": -7.5301
+            },
+            {
+              "token_id": 2665,
+              "token_str": "': 1'",
+              "prob": 0.0004,
+              "log_prob": -7.7388
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.0003,
+              "log_prob": -8.237
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "token_id": 413,
+          "token_str": "'ad'",
+          "log_prob": -0.0294,
+          "prob": 0.9711,
+          "top_candidates": [
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.9711,
+              "log_prob": -0.0294
+            },
+            {
+              "token_id": 1012,
+              "token_str": "'im'",
+              "prob": 0.0023,
+              "log_prob": -6.0852
+            },
+            {
+              "token_id": 57,
+              "token_str": "'6'",
+              "prob": 0.0015,
+              "log_prob": -6.5096
+            },
+            {
+              "token_id": 68,
+              "token_str": "'A'",
+              "prob": 0.0013,
+              "log_prob": -6.6383
+            },
+            {
+              "token_id": 56,
+              "token_str": "'5'",
+              "prob": 0.0013,
+              "log_prob": -6.6796
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "token_id": 292,
+          "token_str": "'d '",
+          "log_prob": -0.0014,
+          "prob": 0.9986,
+          "top_candidates": [
+            {
+              "token_id": 292,
+              "token_str": "'d '",
+              "prob": 0.9986,
+              "log_prob": -0.0014
+            },
+            {
+              "token_id": 103,
+              "token_str": "'d'",
+              "prob": 0.0005,
+              "log_prob": -7.6722
+            },
+            {
+              "token_id": 631,
+              "token_str": "'ding '",
+              "prob": 0.0001,
+              "log_prob": -9.2876
+            },
+            {
+              "token_id": 283,
+              "token_str": "'er'",
+              "prob": 0.0001,
+              "log_prob": -9.5168
+            },
+            {
+              "token_id": 415,
+              "token_str": "'di'",
+              "prob": 0.0001,
+              "log_prob": -9.581
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "token_id": 2024,
+          "token_str": "'numb'",
+          "log_prob": -0.0071,
+          "prob": 0.993,
+          "top_candidates": [
+            {
+              "token_id": 2024,
+              "token_str": "'numb'",
+              "prob": 0.993,
+              "log_prob": -0.0071
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.0005,
+              "log_prob": -7.5238
+            },
+            {
+              "token_id": 1832,
+              "token_str": "'star'",
+              "prob": 0.0005,
+              "log_prob": -7.6823
+            },
+            {
+              "token_id": 663,
+              "token_str": "'cal'",
+              "prob": 0.0003,
+              "log_prob": -8.1798
+            },
+            {
+              "token_id": 118,
+              "token_str": "'s'",
+              "prob": 0.0001,
+              "log_prob": -8.8095
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "token_id": 283,
+          "token_str": "'er'",
+          "log_prob": -0.0043,
+          "prob": 0.9957,
+          "top_candidates": [
+            {
+              "token_id": 283,
+              "token_str": "'er'",
+              "prob": 0.9957,
+              "log_prob": -0.0043
+            },
+            {
+              "token_id": 292,
+              "token_str": "'d '",
+              "prob": 0.0005,
+              "log_prob": -7.5997
+            },
+            {
+              "token_id": 392,
+              "token_str": "'er '",
+              "prob": 0.0002,
+              "log_prob": -8.6711
+            },
+            {
+              "token_id": 730,
+              "token_str": "'ers '",
+              "prob": 0.0001,
+              "log_prob": -8.8162
+            },
+            {
+              "token_id": 1807,
+              "token_str": "'ant'",
+              "prob": 0.0001,
+              "log_prob": -8.937
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "token_id": 118,
+          "token_str": "'s'",
+          "log_prob": -0.0022,
+          "prob": 0.9978,
+          "top_candidates": [
+            {
+              "token_id": 118,
+              "token_str": "'s'",
+              "prob": 0.9978,
+              "log_prob": -0.0022
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0003,
+              "log_prob": -7.9836
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0001,
+              "log_prob": -9.4358
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0001,
+              "log_prob": -9.5118
+            },
+            {
+              "token_id": 414,
+              "token_str": "'s.'",
+              "prob": 0.0001,
+              "log_prob": -9.5789
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -15.2249,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.9991,
+              "log_prob": -0.0009
+            },
+            {
+              "token_id": 1,
+              "token_str": "''",
+              "prob": 0.0001,
+              "log_prob": -9.2489
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0,
+              "log_prob": -9.9262
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0,
+              "log_prob": -10.2349
+            },
+            {
+              "token_id": 549,
+              "token_str": "'h '",
+              "prob": 0.0,
+              "log_prob": -10.5
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "token_id": 2264,
+          "token_str": "'Oper'",
+          "log_prob": -6.9501,
+          "prob": 0.001,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.5368,
+              "log_prob": -0.6222
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.052,
+              "log_prob": -2.9574
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.0283,
+              "log_prob": -3.5659
+            },
+            {
+              "token_id": 2024,
+              "token_str": "'numb'",
+              "prob": 0.0128,
+              "log_prob": -4.3581
+            },
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.0105,
+              "log_prob": -4.5559
+            }
+          ]
+        },
+        {
+          "position": 13,
+          "token_id": 354,
+          "token_str": "'and '",
+          "log_prob": -0.0048,
+          "prob": 0.9952,
+          "top_candidates": [
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.9952,
+              "log_prob": -0.0048
+            },
+            {
+              "token_id": 376,
+              "token_str": "'or '",
+              "prob": 0.0009,
+              "log_prob": -7.0082
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.0007,
+              "log_prob": -7.3323
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0006,
+              "log_prob": -7.491
+            },
+            {
+              "token_id": 43,
+              "token_str": "'('",
+              "prob": 0.0001,
+              "log_prob": -8.9499
+            }
+          ]
+        },
+        {
+          "position": 14,
+          "token_id": 68,
+          "token_str": "'A'",
+          "log_prob": -0.0043,
+          "prob": 0.9957,
+          "top_candidates": [
+            {
+              "token_id": 68,
+              "token_str": "'A'",
+              "prob": 0.9957,
+              "log_prob": -0.0043
+            },
+            {
+              "token_id": 69,
+              "token_str": "'B'",
+              "prob": 0.0007,
+              "log_prob": -7.2114
+            },
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.0005,
+              "log_prob": -7.6403
+            },
+            {
+              "token_id": 286,
+              "token_str": "'an'",
+              "prob": 0.0002,
+              "log_prob": -8.4345
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0002,
+              "log_prob": -8.7997
+            }
+          ]
+        },
+        {
+          "position": 15,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -0.0904,
+          "prob": 0.9135,
+          "top_candidates": [
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.9135,
+              "log_prob": -0.0904
+            },
+            {
+              "token_id": 2665,
+              "token_str": "': 1'",
+              "prob": 0.077,
+              "log_prob": -2.5644
+            },
+            {
+              "token_id": 64,
+              "token_str": "'='",
+              "prob": 0.0004,
+              "log_prob": -7.8979
+            },
+            {
+              "token_id": 79,
+              "token_str": "'L'",
+              "prob": 0.0002,
+              "log_prob": -8.4092
+            },
+            {
+              "token_id": 44,
+              "token_str": "')'",
+              "prob": 0.0002,
+              "log_prob": -8.5256
+            }
+          ]
+        },
+        {
+          "position": 16,
+          "token_id": 54,
+          "token_str": "'3'",
+          "log_prob": -2.3513,
+          "prob": 0.0952,
+          "top_candidates": [
+            {
+              "token_id": 57,
+              "token_str": "'6'",
+              "prob": 0.1968,
+              "log_prob": -1.6254
+            },
+            {
+              "token_id": 53,
+              "token_str": "'2'",
+              "prob": 0.1805,
+              "log_prob": -1.7119
+            },
+            {
+              "token_id": 56,
+              "token_str": "'5'",
+              "prob": 0.146,
+              "log_prob": -1.9241
+            },
+            {
+              "token_id": 59,
+              "token_str": "'8'",
+              "prob": 0.1109,
+              "log_prob": -2.1989
+            },
+            {
+              "token_id": 54,
+              "token_str": "'3'",
+              "prob": 0.0952,
+              "log_prob": -2.3513
+            }
+          ]
+        },
+        {
+          "position": 17,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -15.1369,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.9918,
+              "log_prob": -0.0082
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0045,
+              "log_prob": -5.4011
+            },
+            {
+              "token_id": 128,
+              "token_str": "'}'",
+              "prob": 0.0006,
+              "log_prob": -7.4798
+            },
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.0005,
+              "log_prob": -7.5646
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0003,
+              "log_prob": -7.9966
+            }
+          ]
+        },
+        {
+          "position": 18,
+          "token_id": 2264,
+          "token_str": "'Oper'",
+          "log_prob": -7.1555,
+          "prob": 0.0008,
+          "top_candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.6455,
+              "log_prob": -0.4377
+            },
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.0783,
+              "log_prob": -2.547
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.012,
+              "log_prob": -4.4217
+            },
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.0094,
+              "log_prob": -4.6694
+            },
+            {
+              "token_id": 127,
+              "token_str": "'|'",
+              "prob": 0.005,
+              "log_prob": -5.3042
+            }
+          ]
+        },
+        {
+          "position": 19,
+          "token_id": 354,
+          "token_str": "'and '",
+          "log_prob": -0.0033,
+          "prob": 0.9967,
+          "top_candidates": [
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.9967,
+              "log_prob": -0.0033
+            },
+            {
+              "token_id": 376,
+              "token_str": "'or '",
+              "prob": 0.0006,
+              "log_prob": -7.4955
+            },
+            {
+              "token_id": 589,
+              "token_str": "'is '",
+              "prob": 0.0002,
+              "log_prob": -8.3407
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0002,
+              "log_prob": -8.4056
+            },
+            {
+              "token_id": 480,
+              "token_str": "'ate '",
+              "prob": 0.0001,
+              "log_prob": -9.1142
+            }
+          ]
+        },
+        {
+          "position": 20,
+          "token_id": 69,
+          "token_str": "'B'",
+          "log_prob": -0.0293,
+          "prob": 0.9711,
+          "top_candidates": [
+            {
+              "token_id": 69,
+              "token_str": "'B'",
+              "prob": 0.9711,
+              "log_prob": -0.0293
+            },
+            {
+              "token_id": 68,
+              "token_str": "'A'",
+              "prob": 0.02,
+              "log_prob": -3.9143
+            },
+            {
+              "token_id": 70,
+              "token_str": "'C'",
+              "prob": 0.0013,
+              "log_prob": -6.6649
+            },
+            {
+              "token_id": 88,
+              "token_str": "'U'",
+              "prob": 0.0008,
+              "log_prob": -7.1618
+            },
+            {
+              "token_id": 53,
+              "token_str": "'2'",
+              "prob": 0.0007,
+              "log_prob": -7.3015
+            }
+          ]
+        },
+        {
+          "position": 21,
+          "token_id": 324,
+          "token_str": "': '",
+          "log_prob": -0.095,
+          "prob": 0.9094,
+          "top_candidates": [
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.9094,
+              "log_prob": -0.095
+            },
+            {
+              "token_id": 2665,
+              "token_str": "': 1'",
+              "prob": 0.0778,
+              "log_prob": -2.5537
+            },
+            {
+              "token_id": 69,
+              "token_str": "'B'",
+              "prob": 0.0006,
+              "log_prob": -7.4383
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.0005,
+              "log_prob": -7.5549
+            },
+            {
+              "token_id": 128,
+              "token_str": "'}'",
+              "prob": 0.0005,
+              "log_prob": -7.6205
+            }
+          ]
+        },
+        {
+          "position": 22,
+          "token_id": 55,
+          "token_str": "'4'",
+          "log_prob": -2.4634,
+          "prob": 0.0851,
+          "top_candidates": [
+            {
+              "token_id": 53,
+              "token_str": "'2'",
+              "prob": 0.1938,
+              "log_prob": -1.6407
+            },
+            {
+              "token_id": 57,
+              "token_str": "'6'",
+              "prob": 0.1815,
+              "log_prob": -1.7066
+            },
+            {
+              "token_id": 56,
+              "token_str": "'5'",
+              "prob": 0.124,
+              "log_prob": -2.0873
+            },
+            {
+              "token_id": 59,
+              "token_str": "'8'",
+              "prob": 0.1044,
+              "log_prob": -2.2594
+            },
+            {
+              "token_id": 58,
+              "token_str": "'7'",
+              "prob": 0.1032,
+              "log_prob": -2.2712
+            }
+          ]
+        },
+        {
+          "position": 23,
+          "token_id": 2294,
+          "token_str": "'\\\\n'",
+          "log_prob": -15.3142,
+          "prob": 0.0,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.9934,
+              "log_prob": -0.0066
+            },
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.0015,
+              "log_prob": -6.5337
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0014,
+              "log_prob": -6.5538
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0014,
+              "log_prob": -6.5774
+            },
+            {
+              "token_id": 128,
+              "token_str": "'}'",
+              "prob": 0.0005,
+              "log_prob": -7.5373
+            }
+          ]
+        },
+        {
+          "position": 24,
+          "token_id": 2270,
+          "token_str": "'Re'",
+          "log_prob": -3.2126,
+          "prob": 0.0403,
+          "top_candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.3487,
+              "log_prob": -1.0537
+            },
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.1197,
+              "log_prob": -2.1225
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.0978,
+              "log_prob": -2.3246
+            },
+            {
+              "token_id": 2270,
+              "token_str": "'Re'",
+              "prob": 0.0403,
+              "log_prob": -3.2126
+            },
+            {
+              "token_id": 70,
+              "token_str": "'C'",
+              "prob": 0.0242,
+              "log_prob": -3.7203
+            }
+          ]
+        },
+        {
+          "position": 25,
+          "token_id": 445,
+          "token_str": "'qu'",
+          "log_prob": -0.002,
+          "prob": 0.998,
+          "top_candidates": [
+            {
+              "token_id": 445,
+              "token_str": "'qu'",
+              "prob": 0.998,
+              "log_prob": -0.002
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0002,
+              "log_prob": -8.5032
+            },
+            {
+              "token_id": 4009,
+              "token_str": "'amp'",
+              "prob": 0.0001,
+              "log_prob": -9.0583
+            },
+            {
+              "token_id": 106,
+              "token_str": "'g'",
+              "prob": 0.0001,
+              "log_prob": -9.6411
+            },
+            {
+              "token_id": 1966,
+              "token_str": "'text'",
+              "prob": 0.0,
+              "log_prob": -10.3434
+            }
+          ]
+        },
+        {
+          "position": 26,
+          "token_id": 108,
+          "token_str": "'i'",
+          "log_prob": -0.0313,
+          "prob": 0.9692,
+          "top_candidates": [
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.9692,
+              "log_prob": -0.0313
+            },
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.0266,
+              "log_prob": -3.6279
+            },
+            {
+              "token_id": 100,
+              "token_str": "'a'",
+              "prob": 0.0005,
+              "log_prob": -7.565
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0002,
+              "log_prob": -8.3787
+            },
+            {
+              "token_id": 280,
+              "token_str": "'ar'",
+              "prob": 0.0002,
+              "log_prob": -8.4205
+            }
+          ]
+        },
+        {
+          "position": 27,
+          "token_id": 1412,
+          "token_str": "'red '",
+          "log_prob": -0.0042,
+          "prob": 0.9958,
+          "top_candidates": [
+            {
+              "token_id": 1412,
+              "token_str": "'red '",
+              "prob": 0.9958,
+              "log_prob": -0.0042
+            },
+            {
+              "token_id": 101,
+              "token_str": "'b'",
+              "prob": 0.0003,
+              "log_prob": -8.0034
+            },
+            {
+              "token_id": 287,
+              "token_str": "'re'",
+              "prob": 0.0001,
+              "log_prob": -8.9487
+            },
+            {
+              "token_id": 315,
+              "token_str": "'te'",
+              "prob": 0.0001,
+              "log_prob": -9.1454
+            },
+            {
+              "token_id": 1142,
+              "token_str": "'ol'",
+              "prob": 0.0001,
+              "log_prob": -9.2532
+            }
+          ]
+        },
+        {
+          "position": 28,
+          "token_id": 346,
+          "token_str": "'ac'",
+          "log_prob": -0.0041,
+          "prob": 0.9959,
+          "top_candidates": [
+            {
+              "token_id": 346,
+              "token_str": "'ac'",
+              "prob": 0.9959,
+              "log_prob": -0.0041
+            },
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.0003,
+              "log_prob": -8.1796
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0002,
+              "log_prob": -8.444
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0002,
+              "log_prob": -8.6601
+            },
+            {
+              "token_id": 833,
+              "token_str": "'op'",
+              "prob": 0.0001,
+              "log_prob": -9.0993
+            }
+          ]
+        },
+        {
+          "position": 29,
+          "token_id": 1490,
+          "token_str": "'tion: '",
+          "log_prob": -0.002,
+          "prob": 0.998,
+          "top_candidates": [
+            {
+              "token_id": 1490,
+              "token_str": "'tion: '",
+              "prob": 0.998,
+              "log_prob": -0.002
+            },
+            {
+              "token_id": 1,
+              "token_str": "''",
+              "prob": 0.0002,
+              "log_prob": -8.8007
+            },
+            {
+              "token_id": 363,
+              "token_str": "'es'",
+              "prob": 0.0001,
+              "log_prob": -9.302
+            },
+            {
+              "token_id": 267,
+              "token_str": "'e '",
+              "prob": 0.0001,
+              "log_prob": -9.3648
+            },
+            {
+              "token_id": 439,
+              "token_str": "'tion'",
+              "prob": 0.0001,
+              "log_prob": -9.4582
+            }
+          ]
+        },
+        {
+          "position": 30,
+          "token_id": 663,
+          "token_str": "'cal'",
+          "log_prob": -0.0035,
+          "prob": 0.9965,
+          "top_candidates": [
+            {
+              "token_id": 663,
+              "token_str": "'cal'",
+              "prob": 0.9965,
+              "log_prob": -0.0035
+            },
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.0002,
+              "log_prob": -8.6591
+            },
+            {
+              "token_id": 86,
+              "token_str": "'S'",
+              "prob": 0.0001,
+              "log_prob": -8.8757
+            },
+            {
+              "token_id": 325,
+              "token_str": "'to'",
+              "prob": 0.0001,
+              "log_prob": -8.9655
+            },
+            {
+              "token_id": 2024,
+              "token_str": "'numb'",
+              "prob": 0.0001,
+              "log_prob": -9.2728
+            }
+          ]
+        },
+        {
+          "position": 31,
+          "token_id": 4044,
+          "token_str": "'cul'",
+          "log_prob": -0.0019,
+          "prob": 0.9981,
+          "top_candidates": [
+            {
+              "token_id": 4044,
+              "token_str": "'cul'",
+              "prob": 0.9981,
+              "log_prob": -0.0019
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0002,
+              "log_prob": -8.7009
+            },
+            {
+              "token_id": 342,
+              "token_str": "'le'",
+              "prob": 0.0001,
+              "log_prob": -9.324
+            },
+            {
+              "token_id": 111,
+              "token_str": "'l'",
+              "prob": 0.0001,
+              "log_prob": -9.6069
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0001,
+              "log_prob": -9.8843
+            }
+          ]
+        },
+        {
+          "position": 32,
+          "token_id": 278,
+          "token_str": "'at'",
+          "log_prob": -0.0023,
+          "prob": 0.9977,
+          "top_candidates": [
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.9977,
+              "log_prob": -0.0023
+            },
+            {
+              "token_id": 108,
+              "token_str": "'i'",
+              "prob": 0.0002,
+              "log_prob": -8.7878
+            },
+            {
+              "token_id": 480,
+              "token_str": "'ate '",
+              "prob": 0.0001,
+              "log_prob": -8.9749
+            },
+            {
+              "token_id": 2539,
+              "token_str": "'ates '",
+              "prob": 0.0001,
+              "log_prob": -9.1266
+            },
+            {
+              "token_id": 288,
+              "token_str": "'al'",
+              "prob": 0.0001,
+              "log_prob": -9.1656
+            }
+          ]
+        },
+        {
+          "position": 33,
+          "token_id": 376,
+          "token_str": "'or '",
+          "log_prob": -0.0034,
+          "prob": 0.9966,
+          "top_candidates": [
+            {
+              "token_id": 376,
+              "token_str": "'or '",
+              "prob": 0.9966,
+              "log_prob": -0.0034
+            },
+            {
+              "token_id": 354,
+              "token_str": "'and '",
+              "prob": 0.0004,
+              "log_prob": -7.9312
+            },
+            {
+              "token_id": 291,
+              "token_str": "'or'",
+              "prob": 0.0003,
+              "log_prob": -7.9983
+            },
+            {
+              "token_id": 104,
+              "token_str": "'e'",
+              "prob": 0.0001,
+              "log_prob": -9.4182
+            },
+            {
+              "token_id": 118,
+              "token_str": "'s'",
+              "prob": 0.0001,
+              "log_prob": -9.5226
+            }
+          ]
+        },
+        {
+          "position": 34,
+          "token_id": 413,
+          "token_str": "'ad'",
+          "log_prob": -0.002,
+          "prob": 0.998,
+          "top_candidates": [
+            {
+              "token_id": 413,
+              "token_str": "'ad'",
+              "prob": 0.998,
+              "log_prob": -0.002
+            },
+            {
+              "token_id": 275,
+              "token_str": "'en'",
+              "prob": 0.0001,
+              "log_prob": -8.8792
+            },
+            {
+              "token_id": 100,
+              "token_str": "'a'",
+              "prob": 0.0001,
+              "log_prob": -9.174
+            },
+            {
+              "token_id": 286,
+              "token_str": "'an'",
+              "prob": 0.0001,
+              "log_prob": -9.3192
+            },
+            {
+              "token_id": 833,
+              "token_str": "'op'",
+              "prob": 0.0001,
+              "log_prob": -9.3806
+            }
+          ]
+        },
+        {
+          "position": 35,
+          "token_id": 415,
+          "token_str": "'di'",
+          "log_prob": -0.0623,
+          "prob": 0.9396,
+          "top_candidates": [
+            {
+              "token_id": 415,
+              "token_str": "'di'",
+              "prob": 0.9396,
+              "log_prob": -0.0623
+            },
+            {
+              "token_id": 103,
+              "token_str": "'d'",
+              "prob": 0.0446,
+              "log_prob": -3.109
+            },
+            {
+              "token_id": 292,
+              "token_str": "'d '",
+              "prob": 0.0097,
+              "log_prob": -4.6359
+            },
+            {
+              "token_id": 305,
+              "token_str": "'de'",
+              "prob": 0.0005,
+              "log_prob": -7.5736
+            },
+            {
+              "token_id": 115,
+              "token_str": "'p'",
+              "prob": 0.0004,
+              "log_prob": -7.9194
+            }
+          ]
+        },
+        {
+          "position": 36,
+          "token_id": 439,
+          "token_str": "'tion'",
+          "log_prob": -0.0022,
+          "prob": 0.9978,
+          "top_candidates": [
+            {
+              "token_id": 439,
+              "token_str": "'tion'",
+              "prob": 0.9978,
+              "log_prob": -0.0022
+            },
+            {
+              "token_id": 304,
+              "token_str": "'st'",
+              "prob": 0.0001,
+              "log_prob": -8.9147
+            },
+            {
+              "token_id": 396,
+              "token_str": "'tion '",
+              "prob": 0.0001,
+              "log_prob": -9.0873
+            },
+            {
+              "token_id": 2815,
+              "token_str": "'tional '",
+              "prob": 0.0001,
+              "log_prob": -9.3468
+            },
+            {
+              "token_id": 287,
+              "token_str": "'re'",
+              "prob": 0.0001,
+              "log_prob": -9.6938
+            }
+          ]
+        }
+      ],
+      "outputs_identical": false,
+      "first_divergence_step": 0,
+      "divergence_detail": {
+        "step": 0,
+        "model_a_choice": {
+          "token_id": 13,
+          "token_str": "'\\n'",
+          "prob": 0.7354,
+          "log_prob": -0.3073,
+          "candidates": [
+            {
+              "token_id": 13,
+              "token_str": "'\\n'",
+              "prob": 0.7354,
+              "log_prob": -0.3073
+            },
+            {
+              "token_id": 49,
+              "token_str": "'.'",
+              "prob": 0.0897,
+              "log_prob": -2.4118
+            },
+            {
+              "token_id": 276,
+              "token_str": "', '",
+              "prob": 0.0446,
+              "log_prob": -3.1097
+            },
+            {
+              "token_id": 324,
+              "token_str": "': '",
+              "prob": 0.0192,
+              "log_prob": -3.9518
+            },
+            {
+              "token_id": 37,
+              "token_str": "'\"'",
+              "prob": 0.0158,
+              "log_prob": -4.1494
+            }
+          ]
+        },
+        "model_b_choice": {
+          "token_id": 63,
+          "token_str": "'<'",
+          "prob": 0.9987,
+          "log_prob": -0.0013,
+          "candidates": [
+            {
+              "token_id": 63,
+              "token_str": "'<'",
+              "prob": 0.9987,
+              "log_prob": -0.0013
+            },
+            {
+              "token_id": 127,
+              "token_str": "'|'",
+              "prob": 0.0,
+              "log_prob": -9.9666
+            },
+            {
+              "token_id": 280,
+              "token_str": "'ar'",
+              "prob": 0.0,
+              "log_prob": -10.2653
+            },
+            {
+              "token_id": 439,
+              "token_str": "'tion'",
+              "prob": 0.0,
+              "log_prob": -10.267
+            },
+            {
+              "token_id": 278,
+              "token_str": "'at'",
+              "prob": 0.0,
+              "log_prob": -10.3854
+            }
+          ]
+        }
+      },
+      "checkpoint_a_output": {
+        "raw_output": "\nTOOL_CALL: {\"tool\": \"calculator\", \"op\": \"",
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"",
+        "generated_token_ids": [
+          13,
+          87,
+          82,
+          82,
+          79,
+          98,
+          70,
+          68,
+          79,
+          79,
+          324,
+          126,
+          37,
+          325,
+          1142,
+          1240,
+          663,
+          4044,
+          278,
+          291,
+          37,
+          276,
+          37,
+          833,
+          1240
+        ],
+        "token_count": 25,
+        "eos_reached": false,
+        "latency_ms": 129.84,
+        "mean_log_prob": -0.048,
+        "perplexity": 1.05,
+        "step_diagnostics": [
+          {
+            "step": 0,
+            "position": 37,
+            "token_id": 13,
+            "token_str": "'\\n'",
+            "prob": 0.7354,
+            "log_prob": -0.3073,
+            "top_candidates": [
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.7354,
+                "log_prob": -0.3073
+              },
+              {
+                "token_id": 49,
+                "token_str": "'.'",
+                "prob": 0.0897,
+                "log_prob": -2.4118
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0446,
+                "log_prob": -3.1097
+              },
+              {
+                "token_id": 324,
+                "token_str": "': '",
+                "prob": 0.0192,
+                "log_prob": -3.9518
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.0158,
+                "log_prob": -4.1494
+              }
+            ],
+            "is_first_divergence": true
+          },
+          {
+            "step": 1,
+            "position": 38,
+            "token_id": 87,
+            "token_str": "'T'",
+            "prob": 0.496,
+            "log_prob": -0.7012,
+            "top_candidates": [
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.496,
+                "log_prob": -0.7012
+              },
+              {
+                "token_id": 63,
+                "token_str": "'<'",
+                "prob": 0.1246,
+                "log_prob": -2.083
+              },
+              {
+                "token_id": 898,
+                "token_str": "'The '",
+                "prob": 0.0974,
+                "log_prob": -2.3293
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0519,
+                "log_prob": -2.9588
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.041,
+                "log_prob": -3.1935
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 2,
+            "position": 39,
+            "token_id": 82,
+            "token_str": "'O'",
+            "prob": 0.9937,
+            "log_prob": -0.0063,
+            "top_candidates": [
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.9937,
+                "log_prob": -0.0063
+              },
+              {
+                "token_id": 1303,
+                "token_str": "'ES'",
+                "prob": 0.0014,
+                "log_prob": -6.551
+              },
+              {
+                "token_id": 68,
+                "token_str": "'A'",
+                "prob": 0.0011,
+                "log_prob": -6.7773
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.001,
+                "log_prob": -6.8797
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0003,
+                "log_prob": -8.1203
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 3,
+            "position": 40,
+            "token_id": 82,
+            "token_str": "'O'",
+            "prob": 0.9968,
+            "log_prob": -0.0032,
+            "top_candidates": [
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.9968,
+                "log_prob": -0.0032
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0005,
+                "log_prob": -7.6048
+              },
+              {
+                "token_id": 1303,
+                "token_str": "'ES'",
+                "prob": 0.0001,
+                "log_prob": -9.3052
+              },
+              {
+                "token_id": 421,
+                "token_str": "'f '",
+                "prob": 0.0001,
+                "log_prob": -9.409
+              },
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.0001,
+                "log_prob": -9.4343
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 4,
+            "position": 41,
+            "token_id": 79,
+            "token_str": "'L'",
+            "prob": 0.9985,
+            "log_prob": -0.0015,
+            "top_candidates": [
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.9985,
+                "log_prob": -0.0015
+              },
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.0005,
+                "log_prob": -7.6851
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0002,
+                "log_prob": -8.7844
+              },
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.0001,
+                "log_prob": -9.1315
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0001,
+                "log_prob": -9.4353
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 5,
+            "position": 42,
+            "token_id": 98,
+            "token_str": "'_'",
+            "prob": 0.9967,
+            "log_prob": -0.0033,
+            "top_candidates": [
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.9967,
+                "log_prob": -0.0033
+              },
+              {
+                "token_id": 324,
+                "token_str": "': '",
+                "prob": 0.001,
+                "log_prob": -6.9257
+              },
+              {
+                "token_id": 400,
+                "token_str": "' = '",
+                "prob": 0.0004,
+                "log_prob": -7.9393
+              },
+              {
+                "token_id": 43,
+                "token_str": "'('",
+                "prob": 0.0001,
+                "log_prob": -9.263
+              },
+              {
+                "token_id": 544,
+                "token_str": "'\": '",
+                "prob": 0.0001,
+                "log_prob": -9.2847
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 6,
+            "position": 43,
+            "token_id": 70,
+            "token_str": "'C'",
+            "prob": 0.9868,
+            "log_prob": -0.0133,
+            "top_candidates": [
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.9868,
+                "log_prob": -0.0133
+              },
+              {
+                "token_id": 275,
+                "token_str": "'en'",
+                "prob": 0.004,
+                "log_prob": -5.5164
+              },
+              {
+                "token_id": 86,
+                "token_str": "'S'",
+                "prob": 0.0009,
+                "log_prob": -7.0034
+              },
+              {
+                "token_id": 1832,
+                "token_str": "'star'",
+                "prob": 0.0009,
+                "log_prob": -7.0453
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0005,
+                "log_prob": -7.536
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 7,
+            "position": 44,
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.9986,
+            "log_prob": -0.0014,
+            "top_candidates": [
+              {
+                "token_id": 68,
+                "token_str": "'A'",
+                "prob": 0.9986,
+                "log_prob": -0.0014
+              },
+              {
+                "token_id": 288,
+                "token_str": "'al'",
+                "prob": 0.0002,
+                "log_prob": -8.7489
+              },
+              {
+                "token_id": 1303,
+                "token_str": "'ES'",
+                "prob": 0.0002,
+                "log_prob": -8.778
+              },
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.0001,
+                "log_prob": -9.1909
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0001,
+                "log_prob": -9.5359
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 8,
+            "position": 45,
+            "token_id": 79,
+            "token_str": "'L'",
+            "prob": 0.9991,
+            "log_prob": -0.0009,
+            "top_candidates": [
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.9991,
+                "log_prob": -0.0009
+              },
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.0002,
+                "log_prob": -8.7323
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0002,
+                "log_prob": -8.7944
+              },
+              {
+                "token_id": 68,
+                "token_str": "'A'",
+                "prob": 0.0001,
+                "log_prob": -8.929
+              },
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.0,
+                "log_prob": -9.9483
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 9,
+            "position": 46,
+            "token_id": 79,
+            "token_str": "'L'",
+            "prob": 0.9945,
+            "log_prob": -0.0055,
+            "top_candidates": [
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.9945,
+                "log_prob": -0.0055
+              },
+              {
+                "token_id": 324,
+                "token_str": "': '",
+                "prob": 0.0041,
+                "log_prob": -5.4854
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0003,
+                "log_prob": -8.137
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0001,
+                "log_prob": -9.1063
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0001,
+                "log_prob": -9.1685
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 10,
+            "position": 47,
+            "token_id": 324,
+            "token_str": "': '",
+            "prob": 0.9939,
+            "log_prob": -0.0061,
+            "top_candidates": [
+              {
+                "token_id": 324,
+                "token_str": "': '",
+                "prob": 0.9939,
+                "log_prob": -0.0061
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0013,
+                "log_prob": -6.6818
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0007,
+                "log_prob": -7.2713
+              },
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.0007,
+                "log_prob": -7.3318
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0005,
+                "log_prob": -7.5688
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 11,
+            "position": 48,
+            "token_id": 126,
+            "token_str": "'{'",
+            "prob": 0.9674,
+            "log_prob": -0.0331,
+            "top_candidates": [
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.9674,
+                "log_prob": -0.0331
+              },
+              {
+                "token_id": 898,
+                "token_str": "'The '",
+                "prob": 0.0042,
+                "log_prob": -5.4811
+              },
+              {
+                "token_id": 58,
+                "token_str": "'7'",
+                "prob": 0.0029,
+                "log_prob": -5.8374
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.002,
+                "log_prob": -6.2246
+              },
+              {
+                "token_id": 465,
+                "token_str": "'1 '",
+                "prob": 0.0018,
+                "log_prob": -6.2999
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 12,
+            "position": 49,
+            "token_id": 37,
+            "token_str": "'\"'",
+            "prob": 0.9974,
+            "log_prob": -0.0026,
+            "top_candidates": [
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.9974,
+                "log_prob": -0.0026
+              },
+              {
+                "token_id": 3518,
+                "token_str": "'\"re'",
+                "prob": 0.0008,
+                "log_prob": -7.1533
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0006,
+                "log_prob": -7.4291
+              },
+              {
+                "token_id": 128,
+                "token_str": "'}'",
+                "prob": 0.0002,
+                "log_prob": -8.3255
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0001,
+                "log_prob": -9.5299
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 13,
+            "position": 50,
+            "token_id": 325,
+            "token_str": "'to'",
+            "prob": 0.9793,
+            "log_prob": -0.0209,
+            "top_candidates": [
+              {
+                "token_id": 325,
+                "token_str": "'to'",
+                "prob": 0.9793,
+                "log_prob": -0.0209
+              },
+              {
+                "token_id": 128,
+                "token_str": "'}'",
+                "prob": 0.0022,
+                "log_prob": -6.123
+              },
+              {
+                "token_id": 1831,
+                "token_str": "'stat'",
+                "prob": 0.002,
+                "log_prob": -6.2021
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0013,
+                "log_prob": -6.6455
+              },
+              {
+                "token_id": 427,
+                "token_str": "'as'",
+                "prob": 0.0011,
+                "log_prob": -6.7706
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 14,
+            "position": 51,
+            "token_id": 1142,
+            "token_str": "'ol'",
+            "prob": 0.9969,
+            "log_prob": -0.0031,
+            "top_candidates": [
+              {
+                "token_id": 1142,
+                "token_str": "'ol'",
+                "prob": 0.9969,
+                "log_prob": -0.0031
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0004,
+                "log_prob": -7.8488
+              },
+              {
+                "token_id": 544,
+                "token_str": "'\": '",
+                "prob": 0.0004,
+                "log_prob": -7.8542
+              },
+              {
+                "token_id": 114,
+                "token_str": "'o'",
+                "prob": 0.0001,
+                "log_prob": -8.975
+              },
+              {
+                "token_id": 1240,
+                "token_str": "'\": \"'",
+                "prob": 0.0001,
+                "log_prob": -9.1255
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 15,
+            "position": 52,
+            "token_id": 1240,
+            "token_str": "'\": \"'",
+            "prob": 0.9862,
+            "log_prob": -0.0139,
+            "top_candidates": [
+              {
+                "token_id": 1240,
+                "token_str": "'\": \"'",
+                "prob": 0.9862,
+                "log_prob": -0.0139
+              },
+              {
+                "token_id": 544,
+                "token_str": "'\": '",
+                "prob": 0.0041,
+                "log_prob": -5.4976
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.0015,
+                "log_prob": -6.4926
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0009,
+                "log_prob": -6.9907
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0004,
+                "log_prob": -7.8897
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 16,
+            "position": 53,
+            "token_id": 663,
+            "token_str": "'cal'",
+            "prob": 0.9556,
+            "log_prob": -0.0454,
+            "top_candidates": [
+              {
+                "token_id": 663,
+                "token_str": "'cal'",
+                "prob": 0.9556,
+                "log_prob": -0.0454
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0351,
+                "log_prob": -3.3481
+              },
+              {
+                "token_id": 275,
+                "token_str": "'en'",
+                "prob": 0.001,
+                "log_prob": -6.9443
+              },
+              {
+                "token_id": 325,
+                "token_str": "'to'",
+                "prob": 0.0004,
+                "log_prob": -7.8611
+              },
+              {
+                "token_id": 86,
+                "token_str": "'S'",
+                "prob": 0.0003,
+                "log_prob": -7.9589
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 17,
+            "position": 54,
+            "token_id": 4044,
+            "token_str": "'cul'",
+            "prob": 0.9978,
+            "log_prob": -0.0022,
+            "top_candidates": [
+              {
+                "token_id": 4044,
+                "token_str": "'cul'",
+                "prob": 0.9978,
+                "log_prob": -0.0022
+              },
+              {
+                "token_id": 111,
+                "token_str": "'l'",
+                "prob": 0.0001,
+                "log_prob": -8.9246
+              },
+              {
+                "token_id": 275,
+                "token_str": "'en'",
+                "prob": 0.0001,
+                "log_prob": -9.0656
+              },
+              {
+                "token_id": 342,
+                "token_str": "'le'",
+                "prob": 0.0001,
+                "log_prob": -9.2495
+              },
+              {
+                "token_id": 118,
+                "token_str": "'s'",
+                "prob": 0.0,
+                "log_prob": -10.1035
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 18,
+            "position": 55,
+            "token_id": 278,
+            "token_str": "'at'",
+            "prob": 0.9986,
+            "log_prob": -0.0014,
+            "top_candidates": [
+              {
+                "token_id": 278,
+                "token_str": "'at'",
+                "prob": 0.9986,
+                "log_prob": -0.0014
+              },
+              {
+                "token_id": 480,
+                "token_str": "'ate '",
+                "prob": 0.0002,
+                "log_prob": -8.4629
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0001,
+                "log_prob": -8.8259
+              },
+              {
+                "token_id": 288,
+                "token_str": "'al'",
+                "prob": 0.0001,
+                "log_prob": -9.8214
+              },
+              {
+                "token_id": 1807,
+                "token_str": "'ant'",
+                "prob": 0.0,
+                "log_prob": -10.239
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 19,
+            "position": 56,
+            "token_id": 291,
+            "token_str": "'or'",
+            "prob": 0.9968,
+            "log_prob": -0.0032,
+            "top_candidates": [
+              {
+                "token_id": 291,
+                "token_str": "'or'",
+                "prob": 0.9968,
+                "log_prob": -0.0032
+              },
+              {
+                "token_id": 376,
+                "token_str": "'or '",
+                "prob": 0.0018,
+                "log_prob": -6.3246
+              },
+              {
+                "token_id": 119,
+                "token_str": "'t'",
+                "prob": 0.0001,
+                "log_prob": -9.753
+              },
+              {
+                "token_id": 278,
+                "token_str": "'at'",
+                "prob": 0.0001,
+                "log_prob": -9.7794
+              },
+              {
+                "token_id": 120,
+                "token_str": "'u'",
+                "prob": 0.0,
+                "log_prob": -9.9116
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 20,
+            "position": 57,
+            "token_id": 37,
+            "token_str": "'\"'",
+            "prob": 0.9969,
+            "log_prob": -0.0031,
+            "top_candidates": [
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.9969,
+                "log_prob": -0.0031
+              },
+              {
+                "token_id": 49,
+                "token_str": "'.'",
+                "prob": 0.0008,
+                "log_prob": -7.1662
+              },
+              {
+                "token_id": 1240,
+                "token_str": "'\": \"'",
+                "prob": 0.0005,
+                "log_prob": -7.5432
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0005,
+                "log_prob": -7.7055
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0002,
+                "log_prob": -8.3131
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 21,
+            "position": 58,
+            "token_id": 276,
+            "token_str": "', '",
+            "prob": 0.9965,
+            "log_prob": -0.0035,
+            "top_candidates": [
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.9965,
+                "log_prob": -0.0035
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0015,
+                "log_prob": -6.5019
+              },
+              {
+                "token_id": 128,
+                "token_str": "'}'",
+                "prob": 0.0005,
+                "log_prob": -7.6484
+              },
+              {
+                "token_id": 324,
+                "token_str": "': '",
+                "prob": 0.0004,
+                "log_prob": -7.7505
+              },
+              {
+                "token_id": 49,
+                "token_str": "'.'",
+                "prob": 0.0003,
+                "log_prob": -8.1261
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 22,
+            "position": 59,
+            "token_id": 37,
+            "token_str": "'\"'",
+            "prob": 0.9994,
+            "log_prob": -0.0006,
+            "top_candidates": [
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.9994,
+                "log_prob": -0.0006
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0001,
+                "log_prob": -9.7892
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0001,
+                "log_prob": -9.8625
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0,
+                "log_prob": -10.0296
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0,
+                "log_prob": -10.2033
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 23,
+            "position": 60,
+            "token_id": 833,
+            "token_str": "'op'",
+            "prob": 0.9971,
+            "log_prob": -0.0029,
+            "top_candidates": [
+              {
+                "token_id": 833,
+                "token_str": "'op'",
+                "prob": 0.9971,
+                "log_prob": -0.0029
+              },
+              {
+                "token_id": 100,
+                "token_str": "'a'",
+                "prob": 0.001,
+                "log_prob": -6.9427
+              },
+              {
+                "token_id": 1831,
+                "token_str": "'stat'",
+                "prob": 0.0002,
+                "log_prob": -8.614
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0002,
+                "log_prob": -8.7318
+              },
+              {
+                "token_id": 286,
+                "token_str": "'an'",
+                "prob": 0.0001,
+                "log_prob": -8.9231
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 24,
+            "position": 61,
+            "token_id": 1240,
+            "token_str": "'\": \"'",
+            "prob": 0.9867,
+            "log_prob": -0.0133,
+            "top_candidates": [
+              {
+                "token_id": 1240,
+                "token_str": "'\": \"'",
+                "prob": 0.9867,
+                "log_prob": -0.0133
+              },
+              {
+                "token_id": 544,
+                "token_str": "'\": '",
+                "prob": 0.0028,
+                "log_prob": -5.8867
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.002,
+                "log_prob": -6.2255
+              },
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.0016,
+                "log_prob": -6.4565
+              },
+              {
+                "token_id": 128,
+                "token_str": "'}'",
+                "prob": 0.0003,
+                "log_prob": -8.1047
+              }
+            ],
+            "is_first_divergence": false
+          }
+        ]
+      },
+      "checkpoint_b_output": {
+        "raw_output": "<|im_end|>\n<|im_start|>assistant\nTOOL",
+        "clean_output": "<|im_start|>assistant\nTOOL",
+        "generated_token_ids": [
+          63,
+          127,
+          1012,
+          98,
+          275,
+          103,
+          127,
+          65,
+          13,
+          63,
+          127,
+          1012,
+          98,
+          1832,
+          119,
+          127,
+          65,
+          427,
+          1855,
+          1807,
+          13,
+          87,
+          82,
+          82,
+          79
+        ],
+        "token_count": 25,
+        "eos_reached": false,
+        "latency_ms": 178.05,
+        "mean_log_prob": -0.0134,
+        "perplexity": 1.01,
+        "step_diagnostics": [
+          {
+            "step": 0,
+            "position": 37,
+            "token_id": 63,
+            "token_str": "'<'",
+            "prob": 0.9987,
+            "log_prob": -0.0013,
+            "top_candidates": [
+              {
+                "token_id": 63,
+                "token_str": "'<'",
+                "prob": 0.9987,
+                "log_prob": -0.0013
+              },
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.0,
+                "log_prob": -9.9666
+              },
+              {
+                "token_id": 280,
+                "token_str": "'ar'",
+                "prob": 0.0,
+                "log_prob": -10.2653
+              },
+              {
+                "token_id": 439,
+                "token_str": "'tion'",
+                "prob": 0.0,
+                "log_prob": -10.267
+              },
+              {
+                "token_id": 278,
+                "token_str": "'at'",
+                "prob": 0.0,
+                "log_prob": -10.3854
+              }
+            ],
+            "is_first_divergence": true
+          },
+          {
+            "step": 1,
+            "position": 38,
+            "token_id": 127,
+            "token_str": "'|'",
+            "prob": 0.9996,
+            "log_prob": -0.0004,
+            "top_candidates": [
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.9996,
+                "log_prob": -0.0004
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0001,
+                "log_prob": -9.4358
+              },
+              {
+                "token_id": 63,
+                "token_str": "'<'",
+                "prob": 0.0,
+                "log_prob": -10.2613
+              },
+              {
+                "token_id": 36,
+                "token_str": "'!'",
+                "prob": 0.0,
+                "log_prob": -10.3099
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0,
+                "log_prob": -11.0
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 2,
+            "position": 39,
+            "token_id": 1012,
+            "token_str": "'im'",
+            "prob": 0.9968,
+            "log_prob": -0.0032,
+            "top_candidates": [
+              {
+                "token_id": 1012,
+                "token_str": "'im'",
+                "prob": 0.9968,
+                "log_prob": -0.0032
+              },
+              {
+                "token_id": 1831,
+                "token_str": "'stat'",
+                "prob": 0.0002,
+                "log_prob": -8.3621
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0002,
+                "log_prob": -8.4566
+              },
+              {
+                "token_id": 1940,
+                "token_str": "'user'",
+                "prob": 0.0001,
+                "log_prob": -9.1389
+              },
+              {
+                "token_id": 415,
+                "token_str": "'di'",
+                "prob": 0.0001,
+                "log_prob": -9.243
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 3,
+            "position": 40,
+            "token_id": 98,
+            "token_str": "'_'",
+            "prob": 0.9989,
+            "log_prob": -0.0011,
+            "top_candidates": [
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.9989,
+                "log_prob": -0.0011
+              },
+              {
+                "token_id": 49,
+                "token_str": "'.'",
+                "prob": 0.0001,
+                "log_prob": -9.3253
+              },
+              {
+                "token_id": 118,
+                "token_str": "'s'",
+                "prob": 0.0001,
+                "log_prob": -9.4007
+              },
+              {
+                "token_id": 278,
+                "token_str": "'at'",
+                "prob": 0.0001,
+                "log_prob": -9.5442
+              },
+              {
+                "token_id": 283,
+                "token_str": "'er'",
+                "prob": 0.0001,
+                "log_prob": -9.6682
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 4,
+            "position": 41,
+            "token_id": 275,
+            "token_str": "'en'",
+            "prob": 0.9945,
+            "log_prob": -0.0055,
+            "top_candidates": [
+              {
+                "token_id": 275,
+                "token_str": "'en'",
+                "prob": 0.9945,
+                "log_prob": -0.0055
+              },
+              {
+                "token_id": 1832,
+                "token_str": "'star'",
+                "prob": 0.0034,
+                "log_prob": -5.6896
+              },
+              {
+                "token_id": 346,
+                "token_str": "'ac'",
+                "prob": 0.0003,
+                "log_prob": -8.0928
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0001,
+                "log_prob": -8.8901
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.0001,
+                "log_prob": -9.6504
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 5,
+            "position": 42,
+            "token_id": 103,
+            "token_str": "'d'",
+            "prob": 0.9993,
+            "log_prob": -0.0007,
+            "top_candidates": [
+              {
+                "token_id": 103,
+                "token_str": "'d'",
+                "prob": 0.9993,
+                "log_prob": -0.0007
+              },
+              {
+                "token_id": 292,
+                "token_str": "'d '",
+                "prob": 0.0001,
+                "log_prob": -9.1341
+              },
+              {
+                "token_id": 415,
+                "token_str": "'di'",
+                "prob": 0.0001,
+                "log_prob": -9.807
+              },
+              {
+                "token_id": 102,
+                "token_str": "'c'",
+                "prob": 0.0,
+                "log_prob": -10.193
+              },
+              {
+                "token_id": 104,
+                "token_str": "'e'",
+                "prob": 0.0,
+                "log_prob": -10.2863
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 6,
+            "position": 43,
+            "token_id": 127,
+            "token_str": "'|'",
+            "prob": 0.9996,
+            "log_prob": -0.0004,
+            "top_candidates": [
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.9996,
+                "log_prob": -0.0004
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0001,
+                "log_prob": -9.413
+              },
+              {
+                "token_id": 36,
+                "token_str": "'!'",
+                "prob": 0.0,
+                "log_prob": -10.338
+              },
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.0,
+                "log_prob": -10.7688
+              },
+              {
+                "token_id": 128,
+                "token_str": "'}'",
+                "prob": 0.0,
+                "log_prob": -10.8403
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 7,
+            "position": 44,
+            "token_id": 65,
+            "token_str": "'>'",
+            "prob": 0.9997,
+            "log_prob": -0.0003,
+            "top_candidates": [
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.9997,
+                "log_prob": -0.0003
+              },
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.0001,
+                "log_prob": -9.1169
+              },
+              {
+                "token_id": 2230,
+                "token_str": "'> '",
+                "prob": 0.0,
+                "log_prob": -11.0498
+              },
+              {
+                "token_id": 1012,
+                "token_str": "'im'",
+                "prob": 0.0,
+                "log_prob": -11.1218
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0,
+                "log_prob": -11.4415
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 8,
+            "position": 45,
+            "token_id": 13,
+            "token_str": "'\\n'",
+            "prob": 0.9993,
+            "log_prob": -0.0007,
+            "top_candidates": [
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.9993,
+                "log_prob": -0.0007
+              },
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.0001,
+                "log_prob": -9.0873
+              },
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.0001,
+                "log_prob": -9.6761
+              },
+              {
+                "token_id": 61,
+                "token_str": "':'",
+                "prob": 0.0,
+                "log_prob": -9.9496
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0,
+                "log_prob": -9.9648
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 9,
+            "position": 46,
+            "token_id": 63,
+            "token_str": "'<'",
+            "prob": 0.9991,
+            "log_prob": -0.0009,
+            "top_candidates": [
+              {
+                "token_id": 63,
+                "token_str": "'<'",
+                "prob": 0.9991,
+                "log_prob": -0.0009
+              },
+              {
+                "token_id": 1,
+                "token_str": "''",
+                "prob": 0.0,
+                "log_prob": -10.3343
+              },
+              {
+                "token_id": 400,
+                "token_str": "' = '",
+                "prob": 0.0,
+                "log_prob": -10.5289
+              },
+              {
+                "token_id": 2270,
+                "token_str": "'Re'",
+                "prob": 0.0,
+                "log_prob": -10.691
+              },
+              {
+                "token_id": 279,
+                "token_str": "'on'",
+                "prob": 0.0,
+                "log_prob": -10.7129
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 10,
+            "position": 47,
+            "token_id": 127,
+            "token_str": "'|'",
+            "prob": 0.9998,
+            "log_prob": -0.0002,
+            "top_candidates": [
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.9998,
+                "log_prob": -0.0002
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0,
+                "log_prob": -10.0954
+              },
+              {
+                "token_id": 36,
+                "token_str": "'!'",
+                "prob": 0.0,
+                "log_prob": -10.9478
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0,
+                "log_prob": -12.2259
+              },
+              {
+                "token_id": 282,
+                "token_str": "'    '",
+                "prob": 0.0,
+                "log_prob": -12.4284
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 11,
+            "position": 48,
+            "token_id": 1012,
+            "token_str": "'im'",
+            "prob": 0.9985,
+            "log_prob": -0.0015,
+            "top_candidates": [
+              {
+                "token_id": 1012,
+                "token_str": "'im'",
+                "prob": 0.9985,
+                "log_prob": -0.0015
+              },
+              {
+                "token_id": 459,
+                "token_str": "'us'",
+                "prob": 0.0001,
+                "log_prob": -9.4308
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0001,
+                "log_prob": -9.572
+              },
+              {
+                "token_id": 1831,
+                "token_str": "'stat'",
+                "prob": 0.0,
+                "log_prob": -9.9687
+              },
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.0,
+                "log_prob": -10.0683
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 12,
+            "position": 49,
+            "token_id": 98,
+            "token_str": "'_'",
+            "prob": 0.9988,
+            "log_prob": -0.0012,
+            "top_candidates": [
+              {
+                "token_id": 98,
+                "token_str": "'_'",
+                "prob": 0.9988,
+                "log_prob": -0.0012
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0002,
+                "log_prob": -8.3525
+              },
+              {
+                "token_id": 118,
+                "token_str": "'s'",
+                "prob": 0.0001,
+                "log_prob": -9.166
+              },
+              {
+                "token_id": 49,
+                "token_str": "'.'",
+                "prob": 0.0001,
+                "log_prob": -9.6867
+              },
+              {
+                "token_id": 400,
+                "token_str": "' = '",
+                "prob": 0.0,
+                "log_prob": -10.0491
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 13,
+            "position": 50,
+            "token_id": 1832,
+            "token_str": "'star'",
+            "prob": 0.9944,
+            "log_prob": -0.0056,
+            "top_candidates": [
+              {
+                "token_id": 1832,
+                "token_str": "'star'",
+                "prob": 0.9944,
+                "log_prob": -0.0056
+              },
+              {
+                "token_id": 1940,
+                "token_str": "'user'",
+                "prob": 0.0005,
+                "log_prob": -7.6144
+              },
+              {
+                "token_id": 325,
+                "token_str": "'to'",
+                "prob": 0.0002,
+                "log_prob": -8.3599
+              },
+              {
+                "token_id": 2024,
+                "token_str": "'numb'",
+                "prob": 0.0002,
+                "log_prob": -8.3708
+              },
+              {
+                "token_id": 1831,
+                "token_str": "'stat'",
+                "prob": 0.0002,
+                "log_prob": -8.3971
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 14,
+            "position": 51,
+            "token_id": 119,
+            "token_str": "'t'",
+            "prob": 0.9996,
+            "log_prob": -0.0004,
+            "top_candidates": [
+              {
+                "token_id": 119,
+                "token_str": "'t'",
+                "prob": 0.9996,
+                "log_prob": -0.0004
+              },
+              {
+                "token_id": 289,
+                "token_str": "'t '",
+                "prob": 0.0,
+                "log_prob": -10.2865
+              },
+              {
+                "token_id": 111,
+                "token_str": "'l'",
+                "prob": 0.0,
+                "log_prob": -10.8281
+              },
+              {
+                "token_id": 2403,
+                "token_str": "'t.'",
+                "prob": 0.0,
+                "log_prob": -11.0004
+              },
+              {
+                "token_id": 103,
+                "token_str": "'d'",
+                "prob": 0.0,
+                "log_prob": -11.0005
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 15,
+            "position": 52,
+            "token_id": 127,
+            "token_str": "'|'",
+            "prob": 0.9998,
+            "log_prob": -0.0002,
+            "top_candidates": [
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.9998,
+                "log_prob": -0.0002
+              },
+              {
+                "token_id": 36,
+                "token_str": "'!'",
+                "prob": 0.0,
+                "log_prob": -10.204
+              },
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.0,
+                "log_prob": -10.3224
+              },
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.0,
+                "log_prob": -10.8984
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0,
+                "log_prob": -11.4909
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 16,
+            "position": 53,
+            "token_id": 65,
+            "token_str": "'>'",
+            "prob": 0.9995,
+            "log_prob": -0.0005,
+            "top_candidates": [
+              {
+                "token_id": 65,
+                "token_str": "'>'",
+                "prob": 0.9995,
+                "log_prob": -0.0005
+              },
+              {
+                "token_id": 127,
+                "token_str": "'|'",
+                "prob": 0.0002,
+                "log_prob": -8.7374
+              },
+              {
+                "token_id": 2230,
+                "token_str": "'> '",
+                "prob": 0.0,
+                "log_prob": -10.1714
+              },
+              {
+                "token_id": 64,
+                "token_str": "'='",
+                "prob": 0.0,
+                "log_prob": -11.0897
+              },
+              {
+                "token_id": 1012,
+                "token_str": "'im'",
+                "prob": 0.0,
+                "log_prob": -11.4998
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 17,
+            "position": 54,
+            "token_id": 427,
+            "token_str": "'as'",
+            "prob": 0.8807,
+            "log_prob": -0.127,
+            "top_candidates": [
+              {
+                "token_id": 427,
+                "token_str": "'as'",
+                "prob": 0.8807,
+                "log_prob": -0.127
+              },
+              {
+                "token_id": 325,
+                "token_str": "'to'",
+                "prob": 0.0598,
+                "log_prob": -2.8165
+              },
+              {
+                "token_id": 1940,
+                "token_str": "'user'",
+                "prob": 0.0452,
+                "log_prob": -3.0959
+              },
+              {
+                "token_id": 118,
+                "token_str": "'s'",
+                "prob": 0.0008,
+                "log_prob": -7.0835
+              },
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.0006,
+                "log_prob": -7.4989
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 18,
+            "position": 55,
+            "token_id": 1855,
+            "token_str": "'sist'",
+            "prob": 0.9969,
+            "log_prob": -0.0032,
+            "top_candidates": [
+              {
+                "token_id": 1855,
+                "token_str": "'sist'",
+                "prob": 0.9969,
+                "log_prob": -0.0032
+              },
+              {
+                "token_id": 367,
+                "token_str": "'su'",
+                "prob": 0.0002,
+                "log_prob": -8.5629
+              },
+              {
+                "token_id": 413,
+                "token_str": "'ad'",
+                "prob": 0.0001,
+                "log_prob": -9.2922
+              },
+              {
+                "token_id": 304,
+                "token_str": "'st'",
+                "prob": 0.0001,
+                "log_prob": -9.5897
+              },
+              {
+                "token_id": 102,
+                "token_str": "'c'",
+                "prob": 0.0001,
+                "log_prob": -9.7583
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 19,
+            "position": 56,
+            "token_id": 1807,
+            "token_str": "'ant'",
+            "prob": 0.9964,
+            "log_prob": -0.0036,
+            "top_candidates": [
+              {
+                "token_id": 1807,
+                "token_str": "'ant'",
+                "prob": 0.9964,
+                "log_prob": -0.0036
+              },
+              {
+                "token_id": 283,
+                "token_str": "'er'",
+                "prob": 0.0003,
+                "log_prob": -8.0401
+              },
+              {
+                "token_id": 286,
+                "token_str": "'an'",
+                "prob": 0.0002,
+                "log_prob": -8.6074
+              },
+              {
+                "token_id": 278,
+                "token_str": "'at'",
+                "prob": 0.0001,
+                "log_prob": -8.8662
+              },
+              {
+                "token_id": 100,
+                "token_str": "'a'",
+                "prob": 0.0001,
+                "log_prob": -9.2459
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 20,
+            "position": 57,
+            "token_id": 13,
+            "token_str": "'\\n'",
+            "prob": 0.9994,
+            "log_prob": -0.0006,
+            "top_candidates": [
+              {
+                "token_id": 13,
+                "token_str": "'\\n'",
+                "prob": 0.9994,
+                "log_prob": -0.0006
+              },
+              {
+                "token_id": 282,
+                "token_str": "'    '",
+                "prob": 0.0001,
+                "log_prob": -9.5828
+              },
+              {
+                "token_id": 37,
+                "token_str": "'\"'",
+                "prob": 0.0001,
+                "log_prob": -9.7564
+              },
+              {
+                "token_id": 276,
+                "token_str": "', '",
+                "prob": 0.0001,
+                "log_prob": -9.814
+              },
+              {
+                "token_id": 1,
+                "token_str": "''",
+                "prob": 0.0001,
+                "log_prob": -9.8272
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 21,
+            "position": 58,
+            "token_id": 87,
+            "token_str": "'T'",
+            "prob": 0.8463,
+            "log_prob": -0.1669,
+            "top_candidates": [
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.8463,
+                "log_prob": -0.1669
+              },
+              {
+                "token_id": 898,
+                "token_str": "'The '",
+                "prob": 0.1427,
+                "log_prob": -1.9468
+              },
+              {
+                "token_id": 2270,
+                "token_str": "'Re'",
+                "prob": 0.0042,
+                "log_prob": -5.4722
+              },
+              {
+                "token_id": 126,
+                "token_str": "'{'",
+                "prob": 0.0009,
+                "log_prob": -7.0587
+              },
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.0004,
+                "log_prob": -7.9489
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 22,
+            "position": 59,
+            "token_id": 82,
+            "token_str": "'O'",
+            "prob": 0.9971,
+            "log_prob": -0.0029,
+            "top_candidates": [
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.9971,
+                "log_prob": -0.0029
+              },
+              {
+                "token_id": 68,
+                "token_str": "'A'",
+                "prob": 0.0006,
+                "log_prob": -7.4078
+              },
+              {
+                "token_id": 2270,
+                "token_str": "'Re'",
+                "prob": 0.0004,
+                "log_prob": -7.8274
+              },
+              {
+                "token_id": 1303,
+                "token_str": "'ES'",
+                "prob": 0.0002,
+                "log_prob": -8.7461
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0001,
+                "log_prob": -8.8357
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 23,
+            "position": 60,
+            "token_id": 82,
+            "token_str": "'O'",
+            "prob": 0.9953,
+            "log_prob": -0.0047,
+            "top_candidates": [
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.9953,
+                "log_prob": -0.0047
+              },
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.0017,
+                "log_prob": -6.384
+              },
+              {
+                "token_id": 2270,
+                "token_str": "'Re'",
+                "prob": 0.0004,
+                "log_prob": -7.8605
+              },
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.0002,
+                "log_prob": -8.4503
+              },
+              {
+                "token_id": 88,
+                "token_str": "'U'",
+                "prob": 0.0001,
+                "log_prob": -8.9869
+              }
+            ],
+            "is_first_divergence": false
+          },
+          {
+            "step": 24,
+            "position": 61,
+            "token_id": 79,
+            "token_str": "'L'",
+            "prob": 0.9991,
+            "log_prob": -0.0009,
+            "top_candidates": [
+              {
+                "token_id": 79,
+                "token_str": "'L'",
+                "prob": 0.9991,
+                "log_prob": -0.0009
+              },
+              {
+                "token_id": 82,
+                "token_str": "'O'",
+                "prob": 0.0001,
+                "log_prob": -8.8768
+              },
+              {
+                "token_id": 87,
+                "token_str": "'T'",
+                "prob": 0.0001,
+                "log_prob": -8.9544
+              },
+              {
+                "token_id": 70,
+                "token_str": "'C'",
+                "prob": 0.0001,
+                "log_prob": -9.1849
+              },
+              {
+                "token_id": 113,
+                "token_str": "'n'",
+                "prob": 0.0,
+                "log_prob": -10.0116
+              }
+            ],
+            "is_first_divergence": false
+          }
+        ]
+      },
+      "diff_patch": "--- Model_A\n+++ Model_B\n@@ -1 +1,2 @@\n-TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"+<|im_start|>assistant\n+TOOL",
+      "teacher_forced_prompt_eval": {
+        "method": "TEACHER_FORCED_PROMPT_PREFIX",
+        "mean_log_prob_a": -6.1355,
+        "mean_log_prob_b": -2.1712
+      }
+    }
+  ],
+  "report_file": "experiments\\batch99_102_representation_audit\\workbench\\reports\\diagnostic_report_20261012_152029.json"
+}
