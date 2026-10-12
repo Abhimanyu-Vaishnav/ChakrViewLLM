@@ -1,0 +1,74 @@
+{
+  "sprint": "BATCHES_75_78",
+  "branch": "dev/v0.6-v0.7-validation",
+  "base_commit": "f5a72b325e933c221e8cbd9e20a7ac05ddd07e0d",
+  "canonical_invariants": {
+    "num_parameters": 3443136,
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "hardware": {
+    "device": "cpu",
+    "cpu_model": "Intel Core i5-1135G7",
+    "ram_gb": 31.64,
+    "cuda_available": false
+  },
+  "datasets": {
+    "train_pairs_count": 30,
+    "val_pairs_count": 10,
+    "test_pairs_count": 10,
+    "symmetry_pairs_count": 11,
+    "split_leakage_detected": false,
+    "condition_b_tokens": 56231,
+    "condition_a_tokens": 56231
+  },
+  "experiments": {
+    "baseline_step_10000": {
+      "train_exact_match": 0.0,
+      "val_exact_match": 0.0,
+      "test_exact_match": 0.0,
+      "symmetry_exact_match": 0.0,
+      "test_mean_ans_loss": 10.2717,
+      "test_mean_tmpl_loss": 6.3479,
+      "eos_rate": 0.0,
+      "modal_attractor": null
+    },
+    "condition_a_language_control": {
+      "train_exact_match": 0.0,
+      "val_exact_match": 0.0,
+      "test_exact_match": 0.0,
+      "symmetry_exact_match": 0.0,
+      "test_mean_ans_loss": 11.1422,
+      "test_mean_tmpl_loss": 6.8006,
+      "eos_rate": 0.0,
+      "modal_attractor": "wikitable_markup"
+    },
+    "condition_b_arithmetic_curriculum": {
+      "train_exact_match": 0.10,
+      "val_exact_match": 0.20,
+      "test_exact_match": 0.20,
+      "symmetry_exact_match": 0.1818,
+      "test_mean_ans_loss": 2.1251,
+      "test_mean_tmpl_loss": 0.0016,
+      "eos_rate": 1.0,
+      "modal_attractor": "6",
+      "modal_collapsed": true,
+      "checkpoint_sha256": "04c70fe7ef5b1a5bec8085b97a7d6c8f72c1fb6689b0a6a8ca4eddeffe30b2e4"
+    },
+    "overfit_control_3ex": {
+      "train_exact_match": 0.1667,
+      "val_exact_match": 0.0,
+      "test_exact_match": 0.30,
+      "symmetry_exact_match": 0.0909,
+      "test_mean_ans_loss": 7.7603,
+      "eos_rate": 1.0,
+      "checkpoint_sha256": "1e95fa0a944dc618db05b3e100dc065e1289196b0559f977b3b5550a1df2809e"
+    }
+  },
+  "conclusion": {
+    "generalization_observed": false,
+    "modal_collapse_confirmed": true,
+    "primary_factor": "Model converges to modal digit attractor (6) rather than conditioning on operand inputs.",
+    "recommendation": "Investigate chain-of-thought scratchpad representations and balanced-sum batching."
+  }
+}
