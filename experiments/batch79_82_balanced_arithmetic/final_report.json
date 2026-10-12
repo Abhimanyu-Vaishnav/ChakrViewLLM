@@ -1,0 +1,65 @@
+{
+  "sprint": "BATCHES_79_82",
+  "branch": "dev/v0.6-v0.7-validation",
+  "base_commit": "03de18f42242db5a51dfdae7cdd7397d3a746d17",
+  "canonical_invariants": {
+    "num_parameters": 3443136,
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "benchmark": {
+    "total_domain_pairs": 100,
+    "total_unordered_pairs": 55,
+    "sum_range": [0, 18],
+    "train_ordered_pairs": 64,
+    "val_ordered_pairs": 18,
+    "test_ordered_pairs": 18,
+    "symmetry_diagnostic_pairs": 32,
+    "template_diagnostic_pairs": 36,
+    "reversed_pair_leakage": 0,
+    "constant_output_baseline_test_acc": 0.0
+  },
+  "training": {
+    "condition_c_tokens": 63794,
+    "condition_b_tokens": 63794,
+    "optimizer_steps": 100,
+    "batch_size": 4,
+    "seq_len": 64,
+    "learning_rate": 0.0005,
+    "sum_class_stratified": true
+  },
+  "results": {
+    "baseline_step_10000": {
+      "train_acc": 0.0,
+      "val_acc": 0.0,
+      "test_acc": 0.0,
+      "test_ans_loss": 10.4075,
+      "eos_rate": 0.0
+    },
+    "condition_b_generic_control": {
+      "train_acc": 0.0,
+      "val_acc": 0.0,
+      "test_acc": 0.0,
+      "test_ans_loss": 12.2556,
+      "eos_rate": 0.0,
+      "checkpoint_sha256": "7225ddc6d7371dd3127998cd22e3b03e8defad418dd0a18a5fd5455ce98df663"
+    },
+    "condition_c_balanced_curriculum": {
+      "train_acc": 0.0312,
+      "val_acc": 0.0,
+      "test_acc": 0.0556,
+      "symmetry_acc": 0.0312,
+      "template_acc": 0.0,
+      "test_ans_loss": 3.3777,
+      "test_tmpl_loss": 0.0048,
+      "eos_rate": 1.0,
+      "checkpoint_sha256": "5213b7ef38dafa096c7c03818ef4da88cc05d8c9f8a208b312da889eae798b58",
+      "diagnostic": "Piecewise threshold heuristic conditioned predominantly on first operand (a<=2 -> 10, a>=3 -> 18)."
+    }
+  },
+  "conclusion": {
+    "generalization_supported": false,
+    "mechanism_uncovered": "First-operand dominance and lack of dual-operand composition in immediate causal generation.",
+    "recommendation": "Transition to autoregressive multi-token scratchpad / chain-of-thought to provide computational depth for operand composition."
+  }
+}
