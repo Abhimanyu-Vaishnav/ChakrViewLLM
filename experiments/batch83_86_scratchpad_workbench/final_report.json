@@ -1,0 +1,49 @@
+{
+  "sprint": "BATCHES_83_86",
+  "branch": "dev/v0.6-v0.7-validation",
+  "base_commit": "b8afea960f7bcea0022aeec0efc7404ed587458c",
+  "canonical_invariants": {
+    "num_parameters": 3443136,
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "track_a_scratchpad_experiment": {
+    "token_budget": 99417,
+    "optimizer_steps": 100,
+    "batch_size": 4,
+    "seq_len": 64,
+    "condition_a_direct": {
+      "train_exact_match": 0.0938,
+      "val_exact_match": 0.0,
+      "test_exact_match": 0.1667,
+      "checkpoint_sha256": "cc554926216a40cd51d438874352595ae940e7f2ee105a5239ed6bea01cc2766",
+      "diagnosis": "Constant modal digit 8 collapse."
+    },
+    "condition_b_scratchpad": {
+      "train_exact_match": 0.0469,
+      "val_exact_match": 0.1111,
+      "test_exact_match": 0.0,
+      "valid_format_rate": 1.0,
+      "eos_rate": 1.0,
+      "checkpoint_sha256": "f55b87aff8b2c4d7e46f2336fc39e4929c171497bde0c6508c48a823fd8e318d",
+      "diagnosis": "Fluent scratchpad formatting, but memorized canned counting sequences rather than dynamic operand conditioning."
+    }
+  },
+  "track_b_workbench": {
+    "status": "DELIVERED",
+    "entry_point": "experiments/batch83_86_scratchpad_workbench/workbench/app.py",
+    "server_command": ".\\.venv\\Scripts\\python.exe experiments/batch83_86_scratchpad_workbench/workbench/app.py serve --port 8501",
+    "smoke_test_status": "PASSED",
+    "features": [
+      "Checkpoint SHA-256 and metadata inspection",
+      "Local CPU model inference",
+      "Deterministic Arithmetic Oracle comparator",
+      "Report generation and historical report browser"
+    ]
+  },
+  "conclusion": {
+    "scratchpad_learning_demonstrated": false,
+    "mechanism": "Intermediate autoregressive tokens were memorized as template prototypes rather than used as a dynamic algorithm.",
+    "product_deliverable": "Working, zero-dependency local workbench delivered and smoke-tested."
+  }
+}
