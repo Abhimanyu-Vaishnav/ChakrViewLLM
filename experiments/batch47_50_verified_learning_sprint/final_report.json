@@ -1,0 +1,94 @@
+{
+  "batch": "Master Sprint: Batches 47-50",
+  "timestamp_utc": "2026-10-12T06:33:40Z",
+  "branch": "dev/v0.6-v0.7-validation",
+  "initial_head": "eb7517e098a83e2497f39da960abb8816c689c95",
+  "final_head": "b24869781897897f3aa8b5814cef14a78494ed63",
+  "working_tree_status": "CLEAN (except preserved user modification chakrview/runtime/session.py)",
+  "preserved_user_modification": {
+    "path": "chakrview/runtime/session.py",
+    "status": "MODIFIED_UNCOMMITTED",
+    "reason": "Preserved uncommitted per founder instruction; integrates ConversationTemplate ChatML formatting."
+  },
+  "statuses": {
+    "GIT_REPORT_INTEGRITY": "PASS",
+    "DATASET_TRAINING_READY": "PASS",
+    "LEARNING_DEMONSTRATED_ON_NARROW_TASK": "PASS",
+    "HARDWARE_DISCOVERY_VERIFIED": "PASS",
+    "SCHEDULING_LOGIC_VERIFIED": "PASS",
+    "TRAINING_INTEGRATION_VERIFIED": "PASS",
+    "GPU_EXECUTION_PHYSICALLY_VERIFIED": "NOT_TESTED_NO_GPU_ON_HOST",
+    "DISTRIBUTED_EXECUTION_VERIFIED": "POLICY_DISABLED_LOCAL_ONLY",
+    "BASELINE_PRESERVED": "PASS",
+    "COMMITS_VERIFIED": "PASS",
+    "MAIN_MERGE_READY": "NOT_READY"
+  },
+  "canonical_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_INVARIANT"
+  },
+  "new_commits_created": [
+    {
+      "commit_hash": "508dd80",
+      "message": "docs(batch43-46): add final report and manifest for Batches 43-46",
+      "files": [
+        "experiments/batch43_46_architecture_capability_sprint/final_report.json",
+        "experiments/batch43_46_architecture_capability_sprint/final_report.md"
+      ]
+    },
+    {
+      "commit_hash": "b248697",
+      "message": "feat(sprint): complete Batches 47-50 dataset verification, multidomain pilot training, and adaptive execution",
+      "files": [
+        "experiments/batch47_50_verified_learning_sprint/data/domain_audit_report.json",
+        "experiments/batch47_50_verified_learning_sprint/data/train_eligible.jsonl",
+        "experiments/batch47_50_verified_learning_sprint/data/val_eligible.jsonl",
+        "experiments/batch47_50_verified_learning_sprint/learning_experiment/diagnostic_reproduction_manifest.json",
+        "experiments/batch47_50_verified_learning_sprint/learning_experiment/pilot_training_summary.json",
+        "tests/test_batch47_50_verified_learning.py"
+      ]
+    }
+  ],
+  "learning_experiment_results": {
+    "diagnostic_overfit_reproduction": {
+      "task": "2 + 3 arithmetic overfit",
+      "steps": 25,
+      "initial_loss": 6.816,
+      "final_loss": 0.0013,
+      "output": "5<|im_end|>\n",
+      "eos_reached": true
+    },
+    "multidomain_50step_pilot": {
+      "train_records": 65,
+      "val_records": 13,
+      "steps": 50,
+      "val_loss_before": 5.9547,
+      "val_loss_after": 4.8235,
+      "val_ppl_before": 385.54,
+      "val_ppl_after": 124.4,
+      "eos_rate_on_fixed_probes": "3/5 probes emitted EOS (60% vs 0% previously)"
+    }
+  },
+  "regression_tests": {
+    "total_passed": 62,
+    "failed": 0,
+    "skipped": 0,
+    "time_seconds": 6.19
+  },
+  "main_merge_readiness": {
+    "status": "NOT_READY",
+    "reasons": [
+      "chakrview/runtime/session.py is an uncommitted user modification requiring separate review and authorization.",
+      "Although EOS was emitted on 3 of 5 probes and validation perplexity dropped from 385.54 to 124.40, output text still exhibits partial repetition and requires full multi-epoch training.",
+      "Expanded dataset requires ongoing human review before production release."
+    ]
+  }
+}
