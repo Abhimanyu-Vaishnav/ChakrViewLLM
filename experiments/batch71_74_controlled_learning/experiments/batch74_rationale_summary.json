@@ -1,0 +1,436 @@
+{
+  "condition": "rationale_step100",
+  "use_rationale": true,
+  "steps": 100,
+  "elapsed_sec": 4.31,
+  "initial_loss": 5.8694,
+  "final_loss": 0.2072,
+  "checkpoint": "experiments\\batch71_74_controlled_learning\\experiments\\sft_rationale_step100_step_100.pt",
+  "train": {
+    "total": 30,
+    "exact_matches": 9,
+    "exact_match_acc": 0.3,
+    "eos_count": 30,
+    "eos_rate": 1.0,
+    "records": [
+      {
+        "id": "ARITH-ADD-03-03",
+        "expected": "6",
+        "raw_generated": "5 + 2 = 6. Answer: 6<|im_end|>\n",
+        "parsed_answer": "6",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-04",
+        "expected": "6",
+        "raw_generated": "1 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-07-00",
+        "expected": "7",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-01",
+        "expected": "2",
+        "raw_generated": "1 + 0 = 2. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-06",
+        "expected": "7",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-01",
+        "expected": "3",
+        "raw_generated": "1 + 0 = 2. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-07-01",
+        "expected": "8",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-08-01",
+        "expected": "9",
+        "raw_generated": "5 + 1 = 9. Answer: 9<|im_end|>\n",
+        "parsed_answer": "9",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-01",
+        "expected": "5",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-00",
+        "expected": "2",
+        "raw_generated": "1 + 0 = 2. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-09",
+        "expected": "9",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-03-06",
+        "expected": "9",
+        "raw_generated": "5 + 2 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-05-01",
+        "expected": "6",
+        "raw_generated": "5 + 1 = 9. Answer: 9<|im_end|>\n",
+        "parsed_answer": "9",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-05-04",
+        "expected": "9",
+        "raw_generated": "5 + 2 = 6. Answer: 6<|im_end|>\n",
+        "parsed_answer": "6",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-03-02",
+        "expected": "5",
+        "raw_generated": "5 + 2 = 5. Answer: 6<|im_end|>\n",
+        "parsed_answer": "6",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-09-00",
+        "expected": "9",
+        "raw_generated": "2 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-03",
+        "expected": "3",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-02",
+        "expected": "4",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-06-01",
+        "expected": "7",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-04",
+        "expected": "4",
+        "raw_generated": "1 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-03-01",
+        "expected": "4",
+        "raw_generated": "5 + 1 = 9. Answer: 9<|im_end|>\n",
+        "parsed_answer": "9",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-00",
+        "expected": "1",
+        "raw_generated": "1 + 0 = 2. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-05-02",
+        "expected": "7",
+        "raw_generated": "5 + 2 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-03",
+        "expected": "5",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-04",
+        "expected": "8",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-05",
+        "expected": "7",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-00",
+        "expected": "0",
+        "raw_generated": "1 + 0 = 2. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-06",
+        "expected": "8",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-07-02",
+        "expected": "9",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-08",
+        "expected": "9",
+        "raw_generated": "1 + 0 = 6. Answer: 2<|im_end|>\n",
+        "parsed_answer": "2",
+        "exact": false,
+        "eos": true
+      }
+    ]
+  },
+  "val": {
+    "total": 10,
+    "exact_matches": 0,
+    "exact_match_acc": 0.0,
+    "eos_count": 10,
+    "eos_rate": 1.0,
+    "records": [
+      {
+        "id": "ARITH-ADD-03-04",
+        "expected": "7",
+        "raw_generated": "5 + 2 = 6. Answer: 6<|im_end|>\n",
+        "parsed_answer": "6",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-02",
+        "expected": "6",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-02-07",
+        "expected": "9",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-02",
+        "expected": "3",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-05",
+        "expected": "9",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-03-05",
+        "expected": "8",
+        "raw_generated": "5 + 2 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-06-03",
+        "expected": "9",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-03",
+        "expected": "4",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-06-00",
+        "expected": "6",
+        "raw_generated": "7 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-08-00",
+        "expected": "8",
+        "raw_generated": "5 + 1 = 9. Answer: 9<|im_end|>\n",
+        "parsed_answer": "9",
+        "exact": false,
+        "eos": true
+      }
+    ]
+  },
+  "test": {
+    "total": 10,
+    "exact_matches": 1,
+    "exact_match_acc": 0.1,
+    "eos_count": 10,
+    "eos_rate": 1.0,
+    "records": [
+      {
+        "id": "ARITH-ADD-00-02",
+        "expected": "2",
+        "raw_generated": "2 + 3 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-03-00",
+        "expected": "3",
+        "raw_generated": "5 + 1 = 9. Answer: 9<|im_end|>\n",
+        "parsed_answer": "9",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-03",
+        "expected": "7",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": true,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-05",
+        "expected": "5",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-04-00",
+        "expected": "4",
+        "raw_generated": "4 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-05-03",
+        "expected": "8",
+        "raw_generated": "5 + 2 = 6. Answer: 6<|im_end|>\n",
+        "parsed_answer": "6",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-06",
+        "expected": "6",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-00-08",
+        "expected": "8",
+        "raw_generated": "1 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-04",
+        "expected": "5",
+        "raw_generated": "1 + 0 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      },
+      {
+        "id": "ARITH-ADD-01-05",
+        "expected": "6",
+        "raw_generated": "2 + 6 = 7. Answer: 7<|im_end|>\n",
+        "parsed_answer": "7",
+        "exact": false,
+        "eos": true
+      }
+    ]
+  }
+}

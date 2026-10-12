@@ -1,0 +1,93 @@
+{
+  "sprint": "Batches 71-74",
+  "mission": "Reproducibility Audit, Controlled Arithmetic Learning, and Evidence-Based Next Steps",
+  "canonical_invariants": {
+    "architecture": "ChakrMicro v0.1",
+    "parameters": 3443136,
+    "fresh_initialization_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "canonical_step_10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "hash_reconciliation": "CONFIRMED_BIT_EXACT",
+    "status": "PASS"
+  },
+  "benchmark_specification": {
+    "name": "ChakrMicro Single-Digit Arithmetic Benchmark v1",
+    "domain": "Single-digit addition a + b = c, with a,b in [0..9], c <= 9",
+    "total_pairs": 55,
+    "splits": {
+      "train_count": 30,
+      "train_sha256": "a0bd411bca4c67f964fb5a78d572b9e4597d83323cf3b09560a8b50cecd57b97",
+      "val_count": 10,
+      "val_sha256": "1ada6d162c91b082c0fd66b0a5bd96936c6d67e0367365e9faac62b933dda5c7",
+      "held_out_test_count": 10,
+      "held_out_test_sha256": "e4ed6f25eb385fae500e18b45cebf9f5a0bd1fa0102071bf8806d8b4893a8f07",
+      "symmetry_diagnostic_count": 11,
+      "symmetry_diagnostic_sha256": "ab2dd2b83ffe1b9eabaf7099ce05b2859eaf2bdfb879d4ded7f31350895c2453"
+    },
+    "split_integrity": {
+      "train_val_overlap": 0,
+      "train_test_overlap": 0,
+      "val_test_overlap": 0,
+      "zero_overlap_confirmed": true
+    }
+  },
+  "experimental_results": {
+    "baseline_untrained": {
+      "train_exact_match": "0/30 (0.0%)",
+      "val_exact_match": "0/10 (0.0%)",
+      "test_exact_match": "0/10 (0.0%)",
+      "symmetry_diagnostic": "0/11 (0.0%)",
+      "eos_rate": "0.0%"
+    },
+    "condition_a_uniform_sft_100steps": {
+      "train_exact_match": "5/30 (16.67%)",
+      "val_exact_match": "1/10 (10.0%)*",
+      "test_exact_match": "1/10 (10.0%)*",
+      "symmetry_diagnostic": "0/11 (0.0%)",
+      "eos_rate": "100.0%",
+      "phenomenon": "Constant attractor collapse to median digit '7'. The 1/10 val and test exact matches are instances where the true sum was 7."
+    },
+    "condition_b_answer_emphasis_100steps": {
+      "train_exact_match": "5/30 (16.67%)",
+      "val_exact_match": "1/10 (10.0%)*",
+      "test_exact_match": "1/10 (10.0%)*",
+      "symmetry_diagnostic": "0/11 (0.0%)",
+      "eos_rate": "100.0%",
+      "phenomenon": "Identical constant attractor collapse to '7'."
+    },
+    "condition_c_answer_only_diagnostic": {
+      "train_exact_match": "0/30 (0.0%)",
+      "val_exact_match": "0/10 (0.0%)",
+      "test_exact_match": "0/10 (0.0%)",
+      "eos_rate": "0.0%",
+      "phenomenon": "Infinite digit repetition due to complete absence of termination supervision."
+    },
+    "overfit_control_3ex_50steps": {
+      "train_exact_match": "3/3 (100.0%)",
+      "train_loss": 0.0046,
+      "val_exact_match": "0/10 (0.0%)",
+      "test_exact_match": "3/10 (30.0%)*",
+      "phenomenon": "100% memorization on small subset confirms optimization and backprop pipelines are fully functional."
+    },
+    "batch74_rationale_intermediate_sft": {
+      "train_exact_match": "9/30 (30.0%)",
+      "val_exact_match": "0/10 (0.0%)",
+      "test_exact_match": "1/10 (10.0%)*",
+      "eos_rate": "100.0%",
+      "phenomenon": "Premise drift and intermediate hallucination. Model outputs syntactically correct explanations ('4 + 0 = 7. Answer: 7') but drifts from the prompt premises, failing to generalize mathematically."
+    }
+  },
+  "scientific_verdict": {
+    "memorization": "SUPPORTED (100% on 3-ex overfit and up to 100% on 32-ex full-batch).",
+    "transformation_generalization": "CONFIRMED_ZERO (0.0% true operator generalization across direct, weighted, and rationale SFT).",
+    "root_cause": "A 3.44M parameter model trained directly via next-token prediction cannot map 2 arbitrary input integers across 40 attention positions into an answer token in one feedforward pass without pre-existing arithmetic representations or structured routing circuits."
+  },
+  "regression_tests": {
+    "total_collected": 101,
+    "total_passed": 101,
+    "total_failed": 0,
+    "new_tests": 5
+  },
+  "preserved_user_files": [
+    "chakrview/runtime/session.py"
+  ]
+}
