@@ -46,6 +46,7 @@ class SFTConfig:
     tokenizer_dir: str = "release/chakrview-v0.5.0/data/experiments/vocab_4096"
     allow_exploratory_opt_in: bool = False
     enforce_trust_gate: bool = True
+    strip_prompt_delimiters: bool = True
 
 
 class SFTDataset:
@@ -63,6 +64,7 @@ class SFTDataset:
         allow_exploratory_opt_in: bool = False,
         enforce_trust_gate: bool = True,
         is_training: bool = False,
+        strip_prompt_delimiters: bool = True,
     ):
         self.jsonl_path = Path(jsonl_path)
         self.tokenizer = tokenizer
@@ -70,6 +72,7 @@ class SFTDataset:
         self.allow_exploratory_opt_in = allow_exploratory_opt_in
         self.enforce_trust_gate = enforce_trust_gate
         self.is_training = is_training
+        self.strip_prompt_delimiters = strip_prompt_delimiters
         self.records: List[Dict[str, Any]] = []
         self._load()
 
@@ -129,8 +132,15 @@ class SFTDataset:
         eos_id = 1
         ignore_index = -100
 
-        p_toks = self.tokenizer.encode(prompt.strip())
-        r_toks = self.tokenizer.encode(response.strip())
+        if self.strip_prompt_delimiters:
+            p_str = prompt.strip()
+            r_str = response.strip()
+        else:
+            p_str = prompt if prompt.endswith("\n") else prompt.strip()
+            r_str = response if response.endswith("\n") else response.strip()
+
+        p_toks = self.tokenizer.encode(p_str)
+        r_toks = self.tokenizer.encode(r_str)
 
         if not r_toks:
             raise ValueError(f"Response tokenized to 0 tokens for response: {response}")
@@ -213,6 +223,7 @@ class SFTExperimentEngine:
             allow_exploratory_opt_in=config.allow_exploratory_opt_in,
             enforce_trust_gate=config.enforce_trust_gate,
             is_training=True,
+            strip_prompt_delimiters=config.strip_prompt_delimiters,
         )
         self.val_dataset = SFTDataset(
             config.val_file,
@@ -221,6 +232,7 @@ class SFTExperimentEngine:
             allow_exploratory_opt_in=config.allow_exploratory_opt_in,
             enforce_trust_gate=config.enforce_trust_gate,
             is_training=False,
+            strip_prompt_delimiters=config.strip_prompt_delimiters,
         )
 
         # Model and Optimizer setup

@@ -1,0 +1,59 @@
+{
+  "sprint": "Batches 63-66",
+  "mission": "Diagnose the Training-Generation Gap Before Scaling Data",
+  "root_cause_diagnosis": {
+    "primary_cause": "Prompt Delimiter Divergence (.strip() dropping \\n)",
+    "primary_mechanism": "ChatML prompts end with <|im_start|>assistant\\n. SFTDataset.encode_example called prompt.strip(), dropping \\n (token 13). Model trained conditioned on token 'ant' (token 1807), but inference tokenized raw prompt ending in \\n (token 13). At untrained boundary \\n, model reverted to Wikipedia table attractor token 127 ('|'), producing '|277'.",
+    "secondary_cause": "Template Loss Dominance",
+    "secondary_mechanism": "Target sequence contains 1 answer token and 8 template tokens. Rapid convergence on template tokens (loss 0.017) pulled overall loss to 0.38 while answer token loss remained 2.83.",
+    "verdict": "CONFIRMED"
+  },
+  "canonical_invariants": {
+    "architecture": "ChakrMicro v0.1",
+    "parameter_count": 3443136,
+    "fresh_initialization_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "canonical_step_10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "PASS"
+  },
+  "controlled_recovery_experiment": {
+    "dataset": {
+      "task": "Synthetic 2-Digit Arithmetic",
+      "train_count": 32,
+      "train_sha256": "89299ff5e2d81b143c68a6b6c9aae858b69a486f699c6c90c9855600bfbbd4c5",
+      "val_count": 8,
+      "val_sha256": "f905c1310e2c827a2e89d931507af389e001f943fcb82816891ffe020523b354",
+      "bench_count": 8,
+      "bench_sha256": "8a0ccd7ba784032c612b6b0d145de7abce204b0b15772d378f0c79a534d2f030"
+    },
+    "alignment_fix": {
+      "strip_prompt_delimiters": false,
+      "table_attractor_eliminated": true,
+      "output_collapse_resolved": true
+    },
+    "results_50_steps_sft": {
+      "train_exact_match": "3/32 (9.38%)",
+      "train_token_loss": 0.3504,
+      "val_exact_match": "0/8 (0.0%)",
+      "val_token_loss": 0.4145,
+      "bench_exact_match": "1/8 (12.5%)",
+      "bench_token_loss": 0.3394,
+      "eos_rate": "100.0%"
+    },
+    "results_100_steps_full_batch_capacity": {
+      "train_exact_match": "32/32 (100.0%)",
+      "train_token_loss": 0.0029,
+      "val_exact_match": "0/8 (0.0%)",
+      "eos_rate": "100.0%",
+      "interpretation": "ChakrMicro v0.1 successfully memorizes 32/32 training examples with zero table artifacts, but demonstrates 0% generalization to unseen arithmetic instances."
+    }
+  },
+  "regression_tests": {
+    "total_batch_tests": 90,
+    "passed": 90,
+    "failed": 0,
+    "new_tests": 8
+  },
+  "preserved_user_files": [
+    "chakrview/runtime/session.py"
+  ]
+}

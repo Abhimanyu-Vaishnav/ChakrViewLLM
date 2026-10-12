@@ -75,12 +75,15 @@ class DeterministicEvaluator:
         device: str = "cpu",
         max_seq_len: int = 512,
         ignore_index: int = -100,
+        strip_prompt_delimiters: bool = True,
     ):
         self.checkpoint_path = Path(checkpoint_path)
         self.tokenizer_dir = Path(tokenizer_dir)
         self.device = torch.device(device)
         self.max_seq_len = max_seq_len
         self.ignore_index = ignore_index
+
+        self.strip_prompt_delimiters = strip_prompt_delimiters
 
         if not self.checkpoint_path.exists():
             raise FileNotFoundError(f"Checkpoint not found: {self.checkpoint_path}")
@@ -120,8 +123,15 @@ class DeterministicEvaluator:
         bos_id = 0
         eos_id = 1
 
-        p_toks = self.tokenizer.encode(prompt.strip())
-        r_toks = self.tokenizer.encode(response.strip())
+        if self.strip_prompt_delimiters:
+            p_str = prompt.strip()
+            r_str = response.strip()
+        else:
+            p_str = prompt if prompt.endswith("\n") else prompt.strip()
+            r_str = response if response.endswith("\n") else response.strip()
+
+        p_toks = self.tokenizer.encode(p_str)
+        r_toks = self.tokenizer.encode(r_str)
 
         if not r_toks:
             return [], [], "SKIPPED_EMPTY_RESPONSE", "Response string tokenized to 0 tokens."
