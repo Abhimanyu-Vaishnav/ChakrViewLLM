@@ -1,0 +1,30 @@
+{
+  "benchmark": "Batch 127-130 Multi-Digit Binding Diagnosis",
+  "seed": 42,
+  "counts": {
+    "train_baseline.jsonl": 100,
+    "train_expanded.jsonl": 260,
+    "val.jsonl": 20,
+    "test.jsonl": 45
+  },
+  "train_templates": [
+    "Calculate sum of:\nA={a}\nB={b}",
+    "Please add A={a} and B={b}.",
+    "Compute addition for A={a} and B={b}.",
+    "Find the total sum of A={a} and B={b}.",
+    "Sum operands: A={a}, B={b}.",
+    "Perform add operation on A={a} and B={b}.",
+    "Calculate total: A={a} + B={b}.",
+    "What is the sum of A={a} and B={b}?"
+  ],
+  "held_out_templates": [
+    "Execute calculator addition: first={a}, second={b}.",
+    "Determine arithmetic total for inputs: A is {a} and B is {b}."
+  ],
+  "file_hashes": {
+    "train_baseline.jsonl": "449ef4b09b6e4658435011798b4a6db40ab61b14c71f3ed54d5bcfec75d52d59",
+    "train_expanded.jsonl": "46a6719ec3fd7c7a7668a9e575b48c1d47b4f45d1872089135d697bc9e482162",
+    "val.jsonl": "aa2b69359f16210f960bebb9eeb6a95812bec9a29f93af81501a50c3ae149be2",
+    "test.jsonl": "51202c0c51ae0bd76f51cb5a4d5d283fd1d52f876570e3b4391caeaaca900134"
+  }
+}

@@ -1,0 +1,2411 @@
+{
+  "experiment": "batch127_130_binding_diagnosis",
+  "init_checkpoint": "experiments\\batch107_110_operand_copy_benchmark\\checkpoints\\copy_task_sft_step150.pt",
+  "init_checkpoint_sha256": "e84b2ea9b633b50181fb120ea2444a4a3c84c008b28905dd33c24fedba2b1bc4",
+  "steps": 200,
+  "batch_size": 4,
+  "lr": 0.0003,
+  "seed": 42,
+  "arm1_baseline_density": {
+    "total_examples": 45,
+    "tool_examples_count": 35,
+    "non_tool_examples_count": 10,
+    "tool_metrics": {
+      "denominator": 35,
+      "parse_rate": 0.7429,
+      "schema_validity_rate": 0.7429,
+      "tool_accuracy": 0.7429,
+      "operation_accuracy": 0.7429,
+      "operand_a_accuracy": 0.3429,
+      "operand_b_accuracy": 0.3714,
+      "exact_call_accuracy": 0.2286,
+      "execution_success_rate": 0.7429,
+      "e2e_correctness_rate": 0.2286,
+      "unique_outputs_count": 27,
+      "collapse_rate": 0.2571,
+      "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+    },
+    "non_tool_metrics": {
+      "denominator": 10,
+      "total_false_positive_rate": 0.0,
+      "valid_false_positive_rate": 0.0,
+      "malformed_false_positive_rate": 0.0,
+      "clean_refusal_rate": 1.0,
+      "sample_outputs": [
+        "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "I can only invoke the calculator tool when both valid operands A and B are provided."
+      ]
+    },
+    "condition_name": "binding_arm1_baseline_density",
+    "checkpoint_path": "experiments\\batch127_130_binding_diagnosis\\checkpoints\\binding_arm1_baseline_density_step200.pt",
+    "checkpoint_sha256": "c1e39c9b8c69a7dfc7665a4a508fc36b649d597f18157d36ca9186f25101609a",
+    "subcategory_breakdown": {
+      "familiar_pairs_unseen_templates": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 0.5,
+          "schema_validity_rate": 0.5,
+          "tool_accuracy": 0.5,
+          "operation_accuracy": 0.5,
+          "operand_a_accuracy": 0.5,
+          "operand_b_accuracy": 0.5,
+          "exact_call_accuracy": 0.5,
+          "execution_success_rate": 0.5,
+          "e2e_correctness_rate": 0.5,
+          "unique_outputs_count": 6,
+          "collapse_rate": 0.5,
+          "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+        }
+      },
+      "test_negative_control": {
+        "total_examples": 10,
+        "tool_examples_count": 0,
+        "non_tool_examples_count": 10,
+        "non_tool_metrics": {
+          "denominator": 10,
+          "total_false_positive_rate": 0.0,
+          "valid_false_positive_rate": 0.0,
+          "malformed_false_positive_rate": 0.0,
+          "clean_refusal_rate": 1.0,
+          "sample_outputs": [
+            "I can only invoke the calculator tool when both valid operands A and B are provided.",
+            "I can only invoke the calculator tool when both valid operands A and B are provided.",
+            "I can only invoke the calculator tool when both valid operands A and B are provided."
+          ]
+        }
+      },
+      "unseen_pairs_familiar_templates": {
+        "total_examples": 15,
+        "tool_examples_count": 15,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 15,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 0.3333,
+          "operand_b_accuracy": 0.4,
+          "exact_call_accuracy": 0.2,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 0.2,
+          "unique_outputs_count": 15,
+          "collapse_rate": 0.0667,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}"
+        }
+      },
+      "unseen_pairs_unseen_templates": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 0.6,
+          "schema_validity_rate": 0.6,
+          "tool_accuracy": 0.6,
+          "operation_accuracy": 0.6,
+          "operand_a_accuracy": 0.2,
+          "operand_b_accuracy": 0.2,
+          "exact_call_accuracy": 0.0,
+          "execution_success_rate": 0.6,
+          "e2e_correctness_rate": 0.0,
+          "unique_outputs_count": 7,
+          "collapse_rate": 0.4,
+          "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+        }
+      }
+    },
+    "per_example_details": [
+      {
+        "requires_tool": true,
+        "operands": [
+          27,
+          64
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 27,
+          "b": 64
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 64}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-00",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=27, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 64}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          46,
+          98
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-01",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          27,
+          61
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 27,
+          "b": 61
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 61}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-02",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=27, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 61}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          23
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-03",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          74
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 74
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 74}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-04",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=92, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 74}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          80,
+          72
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-05",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          41,
+          22
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 41,
+          "b": 22
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 41, \"b\": 22}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-06",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=41, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 41, \"b\": 22}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          42,
+          63
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-07",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          48,
+          91
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 48,
+          "b": 91
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 91}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-08",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=48, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 91}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          29,
+          13
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-09",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          96
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 91
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-00",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=92 B=96<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          89
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 98,
+          "b": 23
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 23}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-01",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Please add A=98 and B=89.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 23}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          41,
+          43
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 41,
+          "b": 43
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 41, \"b\": 43}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-02",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=41 and B=43.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 41, \"b\": 43}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          10,
+          20
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 27,
+          "b": 20
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 20}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-03",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=10 and B=20.<|im_en",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 27, \"b\": 20}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          21,
+          34
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 29,
+          "b": 23
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 23}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-04",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=21, B=34.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 23}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          80,
+          20
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 80,
+          "b": 20
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 80, \"b\": 20}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-05",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Perform add operation on A=80 and B=20.<|im",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 80, \"b\": 20}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          90,
+          76
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 29
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 29}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-06",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=90 + B=76.<|im_end|> <|i",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 29}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          96,
+          28
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 23
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 23}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-07",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user What is the sum of A=96 and B=28?<|im_end|>",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 23}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          85,
+          27
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 71,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 71, \"b\": 2}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-08",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=85 B=27<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 71, \"b\": 2}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          81,
+          85
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 80,
+          "b": 23
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 80, \"b\": 23}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-09",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Please add A=81 and B=85.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 80, \"b\": 23}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          62,
+          37
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 66,
+          "b": 61
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 66, \"b\": 61}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-10",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=62 and B=37.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 66, \"b\": 61}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          10,
+          97
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 11,
+          "b": 20
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 20}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-11",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=10 and B=97.<|im_en",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 20}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          37,
+          48
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 48,
+          "b": 48
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 48}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-12",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=37, B=48.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 48}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          70,
+          93
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 75,
+          "b": 93
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 75, \"b\": 93}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-13",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Perform add operation on A=70 and B=93.<|im",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 75, \"b\": 93}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          94
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 94
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 94}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-14",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=92 + B=94.<|im_end|> <|i",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 94}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          63,
+          33
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 64,
+          "b": 63
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 64, \"b\": 63}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-00",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=63, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 64, \"b\": 63}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          14,
+          54
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-01",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          29,
+          88
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 29,
+          "b": 79
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 79}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-02",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=29, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 79}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          11,
+          22
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-03",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          60
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 98,
+          "b": 62
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 62}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-04",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=98, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 62}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          67,
+          96
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 64,
+          "b": 64
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 64, \"b\": 64}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-05",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 64, \"b\": 64}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          61,
+          74
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 46,
+          "b": 74
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 46, \"b\": 74}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-06",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=61, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 46, \"b\": 74}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          84,
+          59
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-07",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          97,
+          93
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 93
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 93}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-08",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=97, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 93}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          13,
+          26
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-09",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-00",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the speed of light in vacuum?<|im_e",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-01",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Describe the process of cellular mitosis.<|",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-02",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Translate 'good morning' into Japanese.<|im",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-03",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Who painted the ceiling of the Sistine Chap",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-04",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the function of an operating system",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-05",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Add two numbers when neither operand is spe",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-06",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Perform addition on A=77 with no operand B.",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-07",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Calculate the total when operand A is missi",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-08",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Invoke the calculator on blank input.<|im_e",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-09",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the arithmetic result of unknown nu",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      }
+    ]
+  },
+  "arm2_expanded_density": {
+    "total_examples": 45,
+    "tool_examples_count": 35,
+    "non_tool_examples_count": 10,
+    "tool_metrics": {
+      "denominator": 35,
+      "parse_rate": 0.7429,
+      "schema_validity_rate": 0.7429,
+      "tool_accuracy": 0.7429,
+      "operation_accuracy": 0.7429,
+      "operand_a_accuracy": 0.1143,
+      "operand_b_accuracy": 0.2857,
+      "exact_call_accuracy": 0.0571,
+      "execution_success_rate": 0.7429,
+      "e2e_correctness_rate": 0.0571,
+      "unique_outputs_count": 26,
+      "collapse_rate": 0.2571,
+      "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+    },
+    "non_tool_metrics": {
+      "denominator": 10,
+      "total_false_positive_rate": 0.0,
+      "valid_false_positive_rate": 0.0,
+      "malformed_false_positive_rate": 0.0,
+      "clean_refusal_rate": 1.0,
+      "sample_outputs": [
+        "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "I can only invoke the calculator tool when both valid operands A and B are provided."
+      ]
+    },
+    "condition_name": "binding_arm2_expanded_density",
+    "checkpoint_path": "experiments\\batch127_130_binding_diagnosis\\checkpoints\\binding_arm2_expanded_density_step200.pt",
+    "checkpoint_sha256": "f73f7fd328a96785ea77885fa81fd54d9781bdc0be21f0bbef8c42ad4243b75e",
+    "subcategory_breakdown": {
+      "familiar_pairs_unseen_templates": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 0.5,
+          "schema_validity_rate": 0.5,
+          "tool_accuracy": 0.5,
+          "operation_accuracy": 0.5,
+          "operand_a_accuracy": 0.0,
+          "operand_b_accuracy": 0.2,
+          "exact_call_accuracy": 0.0,
+          "execution_success_rate": 0.5,
+          "e2e_correctness_rate": 0.0,
+          "unique_outputs_count": 6,
+          "collapse_rate": 0.5,
+          "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+        }
+      },
+      "test_negative_control": {
+        "total_examples": 10,
+        "tool_examples_count": 0,
+        "non_tool_examples_count": 10,
+        "non_tool_metrics": {
+          "denominator": 10,
+          "total_false_positive_rate": 0.0,
+          "valid_false_positive_rate": 0.0,
+          "malformed_false_positive_rate": 0.0,
+          "clean_refusal_rate": 1.0,
+          "sample_outputs": [
+            "I can only invoke the calculator tool when both valid operands A and B are provided.",
+            "I can only invoke the calculator tool when both valid operands A and B are provided.",
+            "I can only invoke the calculator tool when both valid operands A and B are provided."
+          ]
+        }
+      },
+      "unseen_pairs_familiar_templates": {
+        "total_examples": 15,
+        "tool_examples_count": 15,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 15,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 0.1333,
+          "operand_b_accuracy": 0.2667,
+          "exact_call_accuracy": 0.0,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 0.0,
+          "unique_outputs_count": 14,
+          "collapse_rate": 0.1333,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}"
+        }
+      },
+      "unseen_pairs_unseen_templates": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 0.6,
+          "schema_validity_rate": 0.6,
+          "tool_accuracy": 0.6,
+          "operation_accuracy": 0.6,
+          "operand_a_accuracy": 0.2,
+          "operand_b_accuracy": 0.4,
+          "exact_call_accuracy": 0.2,
+          "execution_success_rate": 0.6,
+          "e2e_correctness_rate": 0.2,
+          "unique_outputs_count": 7,
+          "collapse_rate": 0.4,
+          "most_common_output": "I can only invoke the calculator tool when both valid operands A and B are provided."
+        }
+      }
+    },
+    "per_example_details": [
+      {
+        "requires_tool": true,
+        "operands": [
+          27,
+          64
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 28,
+          "b": 64
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 28, \"b\": 64}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-00",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=27, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 28, \"b\": 64}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          46,
+          98
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-01",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          27,
+          61
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 28,
+          "b": 68
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 28, \"b\": 68}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-02",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=27, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 28, \"b\": 68}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          23
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-03",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          74
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 98,
+          "b": 74
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 74}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-04",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=92, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 74}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          80,
+          72
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-05",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          41,
+          22
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 48,
+          "b": 20
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 20}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-06",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=41, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 20}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          42,
+          63
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-07",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          48,
+          91
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 39,
+          "b": 90
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 39, \"b\": 90}",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-08",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=48, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 39, \"b\": 90}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          29,
+          13
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-FAMPAIR-UNSEENTMPL-09",
+        "category": "familiar_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          96
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 91
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-00",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=92 B=96<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          89
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 78,
+          "b": 79
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 78, \"b\": 79}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-01",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Please add A=98 and B=89.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 78, \"b\": 79}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          41,
+          43
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 46,
+          "b": 43
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 46, \"b\": 43}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-02",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=41 and B=43.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 46, \"b\": 43}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          10,
+          20
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 11,
+          "b": 20
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 20}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-03",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=10 and B=20.<|im_en",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 20}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          21,
+          34
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 79,
+          "b": 98
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 79, \"b\": 98}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-04",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=21, B=34.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 79, \"b\": 98}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          80,
+          20
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 83,
+          "b": 18
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 83, \"b\": 18}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-05",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Perform add operation on A=80 and B=20.<|im",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 83, \"b\": 18}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          90,
+          76
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 79
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 79}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-06",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=90 + B=76.<|im_end|> <|i",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 79}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          96,
+          28
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 28
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 28}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-07",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user What is the sum of A=96 and B=28?<|im_end|>",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 28}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          85,
+          27
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 79,
+          "b": 24
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 79, \"b\": 24}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-08",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=85 B=27<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 79, \"b\": 24}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          81,
+          85
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 83,
+          "b": 79
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 83, \"b\": 79}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-09",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Please add A=81 and B=85.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 83, \"b\": 79}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          62,
+          37
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 66,
+          "b": 18
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 66, \"b\": 18}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-10",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=62 and B=37.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 66, \"b\": 18}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          10,
+          97
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 11,
+          "b": 40
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 40}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-11",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=10 and B=97.<|im_en",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 11, \"b\": 40}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          37,
+          48
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 39,
+          "b": 32
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 39, \"b\": 32}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-12",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=37, B=48.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 39, \"b\": 32}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          70,
+          93
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 78,
+          "b": 93
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 78, \"b\": 93}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-13",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Perform add operation on A=70 and B=93.<|im",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 78, \"b\": 93}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          92,
+          94
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 91
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}",
+        "id": "TEST-UNSEENPAIR-FAMTMPL-14",
+        "category": "unseen_pairs_familiar_templates",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=92 + B=94.<|im_end|> <|i",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 91}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          63,
+          33
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 68,
+          "b": 33
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 68, \"b\": 33}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-00",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=63, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 68, \"b\": 33}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          14,
+          54
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-01",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          29,
+          88
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 29,
+          "b": 88
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 88}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-02",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=29, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 29, \"b\": 88}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          11,
+          22
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-03",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          98,
+          60
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 98,
+          "b": 60
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 60}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-04",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=98, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 98, \"b\": 60}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          67,
+          96
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 68,
+          "b": 66
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 68, \"b\": 66}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-05",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 68, \"b\": 66}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          61,
+          74
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 48,
+          "b": 74
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 74}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-06",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=61, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 48, \"b\": 74}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          84,
+          59
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-07",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          97,
+          93
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 92,
+          "b": 90
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 90}",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-08",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Execute calculator addition: first=97, seco",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 92, \"b\": 90}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          13,
+          26
+        ],
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "tool_correct": false,
+        "op_correct": false,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": false,
+        "e2e_correct": false,
+        "parsed_payload": null,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "id": "TEST-UNSEENPAIR-UNSEENTMPL-09",
+        "category": "unseen_pairs_unseen_templates",
+        "prompt_snippet": "<|im_start|>user Determine arithmetic total for inputs: A is",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-00",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the speed of light in vacuum?<|im_e",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-01",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Describe the process of cellular mitosis.<|",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-02",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Translate 'good morning' into Japanese.<|im",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-03",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Who painted the ceiling of the Sistine Chap",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-04",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the function of an operating system",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-05",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Add two numbers when neither operand is spe",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-06",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Perform addition on A=77 with no operand B.",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-07",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Calculate the total when operand A is missi",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-08",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user Invoke the calculator on blank input.<|im_e",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I can only invoke the calculator tool when both valid operands A and B are provided.",
+        "correct": true,
+        "id": "TEST-NEG-09",
+        "category": "test_negative_control",
+        "prompt_snippet": "<|im_start|>user What is the arithmetic result of unknown nu",
+        "full_prediction": "I can only invoke the calculator tool when both valid operands A and B are provided."
+      }
+    ]
+  }
+}
