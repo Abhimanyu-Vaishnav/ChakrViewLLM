@@ -6,6 +6,7 @@ atomic versioned checkpointing, and bit-exact resumption on CPU.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import os
@@ -75,6 +76,9 @@ class SFTDataset:
     def _load(self):
         if not self.jsonl_path.exists():
             raise FileNotFoundError(f"SFT dataset file not found: {self.jsonl_path}")
+
+        with open(self.jsonl_path, "rb") as f:
+            self.file_sha256 = hashlib.sha256(f.read()).hexdigest()
 
         raw_records = []
         with open(self.jsonl_path, "r", encoding="utf-8") as f:
@@ -387,6 +391,8 @@ class SFTExperimentEngine:
             "enforce_trust_gate": self.config.enforce_trust_gate,
             "train_file": str(self.config.train_file),
             "val_file": str(self.config.val_file),
+            "train_file_sha256": self.train_dataset.file_sha256 if hasattr(self.train_dataset, "file_sha256") else None,
+            "val_file_sha256": self.val_dataset.file_sha256 if hasattr(self.val_dataset, "file_sha256") else None,
         }
 
         torch.save(payload, temp_path)

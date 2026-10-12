@@ -1,0 +1,53 @@
+{
+  "sprint": "Batches 59-62",
+  "title": "Independent Learning Verification, Generation Debugging & Controlled Recovery",
+  "baseline_verification": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_BIT_EXACT"
+  },
+  "gate_evaluations": {
+    "TRAINING_ROUTE_INDEPENDENTLY_VERIFIED": "PASS",
+    "CONTROLLED_SYNTHETIC_EXPERIMENT_READY": "PASS",
+    "MEMORIZATION_VS_GENERALIZATION_DISAMBIGUATED": "PASS",
+    "CHECKPOINT_RELOAD_DETERMINISM_VERIFIED": "PASS"
+  },
+  "scientific_findings": {
+    "memorization_vs_generalization": "Disproved that narrow one-example overfit demonstrates reasoning. The model trained on '2 + 3 = 5' produces '5' with 99.91% probability on unseen '3 + 4 = ?'. Single-example SFT merely conditioned the model to map the ChatML turn to '5'.",
+    "loss_reduction_vs_exact_match": "In a 32-example arithmetic pilot, token loss dropped from ~7.00 to 0.38 across train, validation, and held-out benchmark splits with 100% EOS emission, yet exact match remained 0.0% due to persistent bias towards table syntax numbers (|277).",
+    "table_attractor_investigation": "Confirmed that the 10,000-step pretraining Wikipedia table attractor dominates greedy generation unless extensive multi-turn training data is provided."
+  },
+  "quantitative_comparison": {
+    "base_step_10000": {
+      "train_exact_match": "0/32 (0.0%)",
+      "val_exact_match": "0/8 (0.0%)",
+      "bench_exact_match": "0/8 (0.0%)",
+      "train_loss": 6.9797,
+      "val_loss": 6.9971,
+      "bench_loss": 7.0321,
+      "eos_rate": "0.0%"
+    },
+    "trained_step_50": {
+      "train_exact_match": "0/32 (0.0%)",
+      "val_exact_match": "0/8 (0.0%)",
+      "bench_exact_match": "0/8 (0.0%)",
+      "train_loss": 0.3823,
+      "val_loss": 0.4642,
+      "bench_loss": 0.3612,
+      "eos_rate": "100.0%"
+    }
+  },
+  "test_suite": {
+    "sprint_tests_passed": 82,
+    "sprint_tests_failed": 0,
+    "sprint_tests_skipped": 0,
+    "duration_sec": 6.01
+  }
+}
