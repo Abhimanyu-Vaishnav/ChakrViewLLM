@@ -43,17 +43,32 @@ class SFTConfig:
     seed: int = 42
     device: str = "cpu"
     tokenizer_dir: str = "release/chakrview-v0.5.0/data/experiments/vocab_4096"
+    allow_exploratory_opt_in: bool = False
+    enforce_trust_gate: bool = True
 
 
 class SFTDataset:
     """
     In-memory validated dataset loader and tensor collator for Stage D SFT.
+    Enforces fail-closed trust gate: records marked PENDING_HUMAN_REVIEW or HELD_OUT_BENCHMARK
+    cannot enter gradient updates unless explicit exploratory opt-in is configured.
     """
 
-    def __init__(self, jsonl_path: Path, tokenizer: Any, max_seq_len: int = 512):
+    def __init__(
+        self,
+        jsonl_path: Path,
+        tokenizer: Any,
+        max_seq_len: int = 512,
+        allow_exploratory_opt_in: bool = False,
+        enforce_trust_gate: bool = True,
+        is_training: bool = False,
+    ):
         self.jsonl_path = Path(jsonl_path)
         self.tokenizer = tokenizer
         self.max_seq_len = max_seq_len
+        self.allow_exploratory_opt_in = allow_exploratory_opt_in
+        self.enforce_trust_gate = enforce_trust_gate
+        self.is_training = is_training
         self.records: List[Dict[str, Any]] = []
         self._load()
 
@@ -61,14 +76,39 @@ class SFTDataset:
         if not self.jsonl_path.exists():
             raise FileNotFoundError(f"SFT dataset file not found: {self.jsonl_path}")
 
+        raw_records = []
         with open(self.jsonl_path, "r", encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if line:
-                    self.records.append(json.loads(line))
+                    raw_records.append(json.loads(line))
 
-        if not self.records:
+        if not raw_records:
             raise ValueError(f"SFT dataset is empty: {self.jsonl_path}")
+
+        for rec in raw_records:
+            rid = rec.get("id", "UNKNOWN_RECORD")
+            role = rec.get("data_role", "TRAIN" if self.is_training else "VALIDATION")
+
+            # Check benchmark leakage into training
+            if self.is_training and role in ("HELD_OUT_BENCHMARK", "BENCHMARK"):
+                raise ValueError(
+                    f"Contamination error: Record {rid} with role {role} cannot enter training dataset."
+                )
+
+            # Enforce trust gate
+            if self.enforce_trust_gate:
+                review_status = rec.get("review_status")
+                status = rec.get("status", "")
+                if review_status == "PENDING_HUMAN_REVIEW" and not self.allow_exploratory_opt_in:
+                    raise PermissionError(
+                        f"Trust Gate Refusal: Record {rid} is PENDING_HUMAN_REVIEW. "
+                        f"Unreviewed records cannot enter training without explicit allow_exploratory_opt_in=True."
+                    )
+                if status == "REJECTED":
+                    raise ValueError(f"Trust Gate Refusal: Record {rid} is marked REJECTED.")
+
+            self.records.append(rec)
 
     def __len__(self) -> int:
         return len(self.records)
@@ -162,8 +202,22 @@ class SFTExperimentEngine:
         self.config.output_dir.mkdir(parents=True, exist_ok=True)
 
         self.tokenizer, self.tokenizer_meta = load_tokenizer_artifacts(config.tokenizer_dir)
-        self.train_dataset = SFTDataset(config.train_file, self.tokenizer, config.max_seq_len)
-        self.val_dataset = SFTDataset(config.val_file, self.tokenizer, config.max_seq_len)
+        self.train_dataset = SFTDataset(
+            config.train_file,
+            self.tokenizer,
+            config.max_seq_len,
+            allow_exploratory_opt_in=config.allow_exploratory_opt_in,
+            enforce_trust_gate=config.enforce_trust_gate,
+            is_training=True,
+        )
+        self.val_dataset = SFTDataset(
+            config.val_file,
+            self.tokenizer,
+            config.max_seq_len,
+            allow_exploratory_opt_in=config.allow_exploratory_opt_in,
+            enforce_trust_gate=config.enforce_trust_gate,
+            is_training=False,
+        )
 
         # Model and Optimizer setup
         self.device = torch.device(config.device)
@@ -328,6 +382,11 @@ class SFTExperimentEngine:
             "numpy_rng_state": rng.get_state() if rng is not None else None,
             "history": self.history,
             "base_checkpoint": str(self.config.base_checkpoint),
+            "dataset_mode": "EXPLORATORY_OPT_IN" if self.config.allow_exploratory_opt_in else "VERIFIED_TRAINING",
+            "allow_exploratory_opt_in": self.config.allow_exploratory_opt_in,
+            "enforce_trust_gate": self.config.enforce_trust_gate,
+            "train_file": str(self.config.train_file),
+            "val_file": str(self.config.val_file),
         }
 
         torch.save(payload, temp_path)

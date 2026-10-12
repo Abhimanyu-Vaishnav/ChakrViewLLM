@@ -1,0 +1,73 @@
+{
+  "sprint": "Batches 55-58",
+  "title": "Enforced Trust Gates, Verified Micro-Datasets, Reliable Generation & Adaptive Runtime Evidence",
+  "baseline_verification": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_BIT_EXACT"
+  },
+  "gate_evaluations": {
+    "TRAINING_TRUST_GATE_ENFORCED": "PASS",
+    "VERIFIED_MICROBENCHMARK_READY": "PASS",
+    "GENERATION_EVALUATION_REPRODUCIBLE": "PASS",
+    "ADAPTIVE_RUNTIME_EVIDENCE_RECORDED": "PASS",
+    "GPU_EXECUTION_PHYSICALLY_VERIFIED": "NOT_TESTED_NO_GPU_ON_HOST",
+    "DISTRIBUTED_EXECUTION_VERIFIED": "NOT_TESTED_DISABLED_BY_POLICY"
+  },
+  "batch55_gate_enforcement": {
+    "summary": "Audited gate bypass risk and enforced strict trust policy at the SFTDataset and SFTExperimentEngine level. Records marked PENDING_HUMAN_REVIEW or REJECTED trigger PermissionError unless explicit allow_exploratory_opt_in=True is configured. Contamination check blocks HELD_OUT_BENCHMARK records from training.",
+    "checkpoint_metadata_mode": "Recorded dataset_mode (VERIFIED_TRAINING vs EXPLORATORY_OPT_IN), trust gate flags, and dataset file paths in all saved checkpoints."
+  },
+  "batch56_verified_microbenchmark": {
+    "items_count": 9,
+    "domains": ["mathematics", "code", "science"],
+    "held_out_role_enforced": true,
+    "contamination_against_training_families": 0,
+    "scoring_methods": ["exact_match", "python_execution", "numeric_or_token"],
+    "manifest_path": "experiments/batch55_58_trustworthy_learning/benchmark/micro_benchmark_manifest.json"
+  },
+  "batch57_generation_diagnostics": {
+    "base_checkpoint_benchmark_score": "0/9 (0.0% task success, 0.0% EOS rate, 33.3% repetition rate)",
+    "step50_pilot_benchmark_score": "0/9 (0.0% task success, 0.0% EOS rate, 0.0% repetition rate)",
+    "attractor_findings": {
+      "base_step_10000": "91.86% probability on token 127 ('|') at first assistant generation step. Model trapped in deep Wikipedia table attractor basin.",
+      "pilot_step_50": "Probability on token 127 reduced to 80.62%, table repetition reduced to 0.0%, but probability remains overwhelming for greedy generation."
+    },
+    "verdict": "GENERATION_FAILURE_REPRODUCED - Proven that 46-record training is insufficient to break pretraining table basin in open-ended greedy generation."
+  },
+  "batch58_adaptive_runtime_evidence": {
+    "host_device": "cpu",
+    "cpu_model": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel (14 physical cores, 20 threads)",
+    "total_ram_gb": 31.64,
+    "available_ram_gb": 17.67,
+    "training_plan": {
+      "target_device": "cpu",
+      "precision": "fp32",
+      "batch_size": 2,
+      "chunk_size": 10,
+      "memory_budget_mb": 13569.4,
+      "safety_reserve_mb": 4523.1,
+      "fallback_reason": "No CUDA hardware available on host."
+    },
+    "inference_plan": {
+      "target_device": "cpu",
+      "precision": "fp32",
+      "batch_size": 8,
+      "chunk_size": 9,
+      "fallback_reason": "No CUDA hardware available on host."
+    }
+  },
+  "test_suite": {
+    "sprint_tests_passed": 77,
+    "sprint_tests_failed": 0,
+    "sprint_tests_skipped": 0,
+    "duration_sec": 6.23
+  }
+}
