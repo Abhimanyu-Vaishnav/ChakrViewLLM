@@ -1,0 +1,77 @@
+{
+  "sprint": "Batches 67-70",
+  "mission": "Answer Learning, Generalization, Runtime Consistency & GitHub Delivery",
+  "canonical_invariants": {
+    "architecture": "ChakrMicro v0.1",
+    "parameters": 3443136,
+    "fresh_initialization_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "canonical_step_10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "PASS"
+  },
+  "batch67_loss_weighting_findings": {
+    "baseline_uniform": {
+      "train_exact_match": "3/32 (9.38%)",
+      "val_exact_match": "0/8 (0.0%)",
+      "train_ans_loss": 2.6209,
+      "train_tmpl_loss": 0.0055,
+      "eos_rate": "100.0%"
+    },
+    "answer_emphasis_5x": {
+      "train_exact_match": "3/32 (9.38%)",
+      "val_exact_match": "1/8 (12.5%)",
+      "train_ans_loss": 2.5702,
+      "train_tmpl_loss": 0.0205,
+      "eos_rate": "100.0%"
+    },
+    "answer_only_diagnostic": {
+      "train_exact_match": "0/32 (0.0%)",
+      "val_exact_match": "0/8 (0.0%)",
+      "train_ans_loss": 2.5045,
+      "train_tmpl_loss": 7.5719,
+      "eos_rate": "0.0%",
+      "observation": "Zeroing template loss causes runaway repetitive digit loops ('2171717171') because model never learns <|im_end|> or EOS termination."
+    }
+  },
+  "batch68_transformation_generalization_findings": {
+    "task": "Single-Digit Addition (sum <= 9)",
+    "data_invariants": {
+      "operands": "Single token (0-9)",
+      "answers": "Single token (0-9)",
+      "train_count": 25,
+      "val_count": 10,
+      "bench_count": 10,
+      "split_overlap": 0
+    },
+    "baseline_uniform_100steps": {
+      "train_exact_match": "5/25 (20.0%)",
+      "val_exact_match": "0/10 (0.0%)",
+      "bench_exact_match": "0/10 (0.0%)",
+      "mean_ans_loss_val": 2.8559,
+      "eos_rate": "100.0%"
+    },
+    "answer_emphasis_5x_100steps": {
+      "train_exact_match": "5/25 (20.0%)",
+      "val_exact_match": "0/10 (0.0%)",
+      "bench_exact_match": "0/10 (0.0%)",
+      "mean_ans_loss_val": 2.7346,
+      "eos_rate": "100.0%"
+    },
+    "verdict": "ChakrMicro v0.1 memorizes seen examples but shows 0.0% generalization to unseen single-digit additions. In-domain direct next-token addition is not learned from 25 examples without chain-of-thought scratchpad tokens."
+  },
+  "batch69_contract_hardening": {
+    "shared_prompt_contract": "chakrview/training/prompt_contract.py",
+    "unified_modules": [
+      "chakrview/training/sft_engine.py",
+      "experiments/batch42_reproducible_evaluation/evaluation/evaluator.py"
+    ],
+    "weighted_loss_module": "chakrview/training/weighted_loss.py",
+    "regression_tests": {
+      "total_tests": 96,
+      "passed": 96,
+      "failed": 0
+    }
+  },
+  "preserved_user_files": [
+    "chakrview/runtime/session.py"
+  ]
+}

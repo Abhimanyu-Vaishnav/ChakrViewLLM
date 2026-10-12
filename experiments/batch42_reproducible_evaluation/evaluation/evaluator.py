@@ -27,6 +27,10 @@ import torch.nn as nn
 from chakrview.brain.config import ModelConfig
 from chakrview.brain.model import ChakrMicro
 from chakrview.tokenizer.serialization import load_tokenizer_artifacts
+from chakrview.training.prompt_contract import (
+    normalize_prompt_response_strings,
+    build_causal_sequence,
+)
 
 
 def compute_file_sha256(filepath: Path | str) -> str:
@@ -123,12 +127,9 @@ class DeterministicEvaluator:
         bos_id = 0
         eos_id = 1
 
-        if self.strip_prompt_delimiters:
-            p_str = prompt.strip()
-            r_str = response.strip()
-        else:
-            p_str = prompt if prompt.endswith("\n") else prompt.strip()
-            r_str = response if response.endswith("\n") else response.strip()
+        p_str, r_str = normalize_prompt_response_strings(
+            prompt, response, strip_delimiters=self.strip_prompt_delimiters
+        )
 
         p_toks = self.tokenizer.encode(p_str)
         r_toks = self.tokenizer.encode(r_str)
@@ -145,8 +146,9 @@ class DeterministicEvaluator:
                 f"Total length {total_len} exceeds max_seq_len {self.max_seq_len}.",
             )
 
-        inp_seq = [bos_id] + p_toks + r_toks
-        tgt_seq = ([self.ignore_index] * len(p_toks)) + r_toks + [eos_id]
+        inp_seq, tgt_seq = build_causal_sequence(
+            p_toks, r_toks, bos_id=bos_id, eos_id=eos_id, ignore_index=self.ignore_index
+        )
 
         # Vocabulary bounds validation
         if any(t < 0 or t >= self.vocab_size for t in inp_seq):

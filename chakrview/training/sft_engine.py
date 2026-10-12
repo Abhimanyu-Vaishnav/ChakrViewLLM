@@ -23,6 +23,10 @@ import torch.optim as optim
 from chakrview.brain.config import ModelConfig
 from chakrview.brain.model import ChakrMicro
 from chakrview.tokenizer.serialization import load_tokenizer_artifacts
+from chakrview.training.prompt_contract import (
+    normalize_prompt_response_strings,
+    build_causal_sequence,
+)
 
 
 @dataclass
@@ -132,12 +136,9 @@ class SFTDataset:
         eos_id = 1
         ignore_index = -100
 
-        if self.strip_prompt_delimiters:
-            p_str = prompt.strip()
-            r_str = response.strip()
-        else:
-            p_str = prompt if prompt.endswith("\n") else prompt.strip()
-            r_str = response if response.endswith("\n") else response.strip()
+        p_str, r_str = normalize_prompt_response_strings(
+            prompt, response, strip_delimiters=self.strip_prompt_delimiters
+        )
 
         p_toks = self.tokenizer.encode(p_str)
         r_toks = self.tokenizer.encode(r_str)
@@ -157,18 +158,14 @@ class SFTDataset:
             allowed_p = max(0, self.max_seq_len - len(r_toks) - 1)
             p_toks = p_toks[-allowed_p:]
 
-        input_seq = [bos_id] + p_toks + r_toks
+        input_seq, target_seq = build_causal_sequence(
+            p_toks, r_toks, bos_id=bos_id, eos_id=eos_id, ignore_index=ignore_index
+        )
         if len(input_seq) > self.max_seq_len:
             raise ValueError(
                 f"Encoded sequence length {len(input_seq)} exceeds max_seq_len {self.max_seq_len}."
             )
-        # Target alignment (shifted next-token):
-        # Position 0 predicts p_toks[0] -> masked
-        # Position len(p_toks)-1 predicts r_toks[0] -> first response target!
-        # Thus, prompt positions in target are masked: len(p_toks) masked tokens
-        target_seq = ([ignore_index] * len(p_toks)) + r_toks + [eos_id]
 
-        assert len(input_seq) == len(target_seq)
         return input_seq, target_seq
 
     def get_batch(

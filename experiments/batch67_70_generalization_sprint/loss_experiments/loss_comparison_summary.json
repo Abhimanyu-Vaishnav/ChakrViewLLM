@@ -1,0 +1,107 @@
+{
+  "baseline": {
+    "strategy": "baseline",
+    "steps": 50,
+    "elapsed_sec": 1.43,
+    "initial_loss": 6.4343,
+    "final_loss": 0.3007,
+    "checkpoint": "experiments\\batch67_70_generalization_sprint\\loss_experiments\\sft_baseline_step_50.pt",
+    "train": {
+      "total": 32,
+      "exact_matches": 3,
+      "exact_match_acc": 0.0938,
+      "eos_count": 32,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.6209,
+      "mean_template_loss": 0.0055
+    },
+    "val": {
+      "total": 8,
+      "exact_matches": 0,
+      "exact_match_acc": 0.0,
+      "eos_count": 8,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.9463,
+      "mean_template_loss": 0.0096
+    },
+    "bench": {
+      "total": 8,
+      "exact_matches": 1,
+      "exact_match_acc": 0.125,
+      "eos_count": 8,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.8308,
+      "mean_template_loss": 0.0042
+    }
+  },
+  "answer_emphasis": {
+    "strategy": "answer_emphasis",
+    "steps": 50,
+    "elapsed_sec": 1.48,
+    "initial_loss": 6.7009,
+    "final_loss": 1.0271,
+    "checkpoint": "experiments\\batch67_70_generalization_sprint\\loss_experiments\\sft_answer_emphasis_step_50.pt",
+    "train": {
+      "total": 32,
+      "exact_matches": 3,
+      "exact_match_acc": 0.0938,
+      "eos_count": 32,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.5702,
+      "mean_template_loss": 0.0205
+    },
+    "val": {
+      "total": 8,
+      "exact_matches": 1,
+      "exact_match_acc": 0.125,
+      "eos_count": 8,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.8053,
+      "mean_template_loss": 0.034
+    },
+    "bench": {
+      "total": 8,
+      "exact_matches": 1,
+      "exact_match_acc": 0.125,
+      "eos_count": 8,
+      "eos_rate": 1.0,
+      "mean_answer_loss": 2.7776,
+      "mean_template_loss": 0.0172
+    }
+  },
+  "answer_only": {
+    "strategy": "answer_only",
+    "steps": 50,
+    "elapsed_sec": 1.48,
+    "initial_loss": 7.1009,
+    "final_loss": 2.3919,
+    "checkpoint": "experiments\\batch67_70_generalization_sprint\\loss_experiments\\sft_answer_only_step_50.pt",
+    "train": {
+      "total": 32,
+      "exact_matches": 0,
+      "exact_match_acc": 0.0,
+      "eos_count": 0,
+      "eos_rate": 0.0,
+      "mean_answer_loss": 2.5045,
+      "mean_template_loss": 7.5719
+    },
+    "val": {
+      "total": 8,
+      "exact_matches": 0,
+      "exact_match_acc": 0.0,
+      "eos_count": 0,
+      "eos_rate": 0.0,
+      "mean_answer_loss": 2.6959,
+      "mean_template_loss": 7.645
+    },
+    "bench": {
+      "total": 8,
+      "exact_matches": 0,
+      "exact_match_acc": 0.0,
+      "eos_count": 0,
+      "eos_rate": 0.0,
+      "mean_answer_loss": 2.7553,
+      "mean_template_loss": 7.5677
+    }
+  }
+}
