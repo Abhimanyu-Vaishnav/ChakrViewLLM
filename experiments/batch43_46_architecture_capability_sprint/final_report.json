@@ -1,0 +1,94 @@
+{
+  "batch": "Master Engineering Sprint: Batches 43-46",
+  "timestamp_utc": "2026-10-12T06:19:05Z",
+  "branch": "dev/v0.6-v0.7-validation",
+  "initial_head": "5f1cac235f7a8b6c6c70cc7540d597ef566020c6",
+  "final_head": "eb7517e",
+  "working_tree_status": "CLEAN (except preserved user modification chakrview/runtime/session.py)",
+  "preserved_user_modification": {
+    "path": "chakrview/runtime/session.py",
+    "status": "MODIFIED_UNCOMMITTED",
+    "reason": "Preserved uncommitted per founder instruction; integrates ConversationTemplate ChatML formatting."
+  },
+  "statuses": {
+    "EVALUATION_INTEGRITY": "PASS",
+    "GENERATION_DIAGNOSIS_COMPLETE": "PASS",
+    "DATA_PIPELINE_EXPANDED": "PASS",
+    "HARDWARE_ADAPTIVE_READY": "PASS",
+    "BASELINE_PRESERVED": "PASS",
+    "COMMITS_VERIFIED": "PASS",
+    "MAIN_MERGE_READY": "NOT_READY"
+  },
+  "canonical_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_INVARIANT"
+  },
+  "new_commits_created": [
+    {
+      "commit_hash": "0e8e35b",
+      "message": "docs(batch42): add final report and manifest for Batch 42",
+      "files": [
+        "experiments/batch42_reproducible_evaluation/final_report.json",
+        "experiments/batch42_reproducible_evaluation/final_report.md"
+      ]
+    },
+    {
+      "commit_hash": "eb7517e",
+      "message": "feat(sprint): complete Batches 43-46 evaluation audit, generation diagnosis, data expansion, and adaptive scheduler",
+      "files": [
+        "experiments/batch43_46_architecture_capability_sprint/audits/batch43_evaluation_audit.md",
+        "experiments/batch43_46_architecture_capability_sprint/generation_diagnosis/generation_failure_diagnosis.md",
+        "experiments/batch43_46_architecture_capability_sprint/data_pipeline/domain_pipeline.py",
+        "experiments/batch43_46_architecture_capability_sprint/data_pipeline/data_pipeline_report.md",
+        "experiments/batch43_46_architecture_capability_sprint/hardware_readiness/scheduler.py",
+        "experiments/batch43_46_architecture_capability_sprint/hardware_readiness/architecture_compatibility_matrix.md",
+        "tests/test_batch43_46_architecture_capability.py"
+      ]
+    }
+  ],
+  "batch43_evaluation_audit": {
+    "status": "PASS",
+    "audit_summary": "DeterministicEvaluator verified across all 12 audit requirements. Evaluates 100% of dataset records without minibatch subsampling. Token-weighted aggregation verified against hand-computed fixtures."
+  },
+  "batch44_generation_diagnosis": {
+    "status": "PASS",
+    "root_cause": "Model generation collapse into wiki table syntax is caused by strong pretraining priors from Stage C Wikipedia table markup combined with insufficient SFT gradient mass (only 39 examples over 20 steps).",
+    "overfit_experiment_finding": "Under targeted supervision on 1 pair for 25 steps, the model successfully unseats the pretraining table attractor, outputs 5<|im_end|>\n and terminates at EOS (id=1) deterministically."
+  },
+  "batch45_data_expansion": {
+    "status": "PASS",
+    "new_grounded_records": 32,
+    "domains": {
+      "mathematics_theorems": 15,
+      "coding_algorithms": 12,
+      "science_reasoning_protocols": 5
+    },
+    "provenance": "100% byte-exact SHA-256 provenance against local source documents. All records marked PENDING_HUMAN_REVIEW."
+  },
+  "batch46_hardware_readiness": {
+    "status": "PASS",
+    "scheduler": "HardwareAdaptiveScheduler implemented. Supports dynamic RAM and VRAM budgeting, adaptive chunk size selection, and safe CPU fallback."
+  },
+  "regression_tests": {
+    "total_passed": 58,
+    "failed": 0,
+    "skipped": 0,
+    "time_seconds": 7.3
+  },
+  "main_merge_readiness": {
+    "status": "NOT_READY",
+    "reasons": [
+      "chakrview/runtime/session.py is an uncommitted user modification requiring separate review and authorization.",
+      "Greedy generation on 20-step models remains bound to pretraining repetitive table patterns; model needs full training run on expanded dataset.",
+      "Expanded dataset requires operator review before advancing to full-epoch multi-turn SFT."
+    ]
+  }
+}
