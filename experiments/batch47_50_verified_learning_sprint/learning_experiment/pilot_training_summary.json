@@ -1,0 +1,127 @@
+{
+  "experiment_id": "sft_multidomain_pilot_50steps",
+  "base_checkpoint": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+  "base_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "trained_checkpoint": "experiments\\batch47_50_verified_learning_sprint\\learning_experiment\\sft_multidomain_checkpoint_step_50.pt",
+  "trained_checkpoint_sha256": "bf67495926791c518303bce446291c7039d79c740fe22d7e5b6684479f6f3ae9",
+  "steps": 50,
+  "elapsed_seconds": 4.66,
+  "validation_loss_before": 5.9547,
+  "validation_loss_after": 4.8235,
+  "validation_ppl_before": 385.54,
+  "validation_ppl_after": 124.4,
+  "probes_before": [
+    {
+      "probe_id": "probe_arithmetic_single_digit",
+      "task_category": "deterministic_arithmetic",
+      "prompt": "<|im_start|>user\nWhat is 2 + 3?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "5",
+      "generated_text": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_python_syntax_divisibility",
+      "task_category": "python_syntax_completion",
+      "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "assert d_model % n_heads == 0",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n| classcope=&quot;row&quot",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_instruction_reversal",
+      "task_category": "short_instruction_following",
+      "prompt": "<|im_start|>user\nRepeat only the word 'ChakrView' and nothing else.<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "ChakrView",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&qu",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_factual_definition_pre_rmsnorm",
+      "task_category": "corpus_grounded_factual_recall",
+      "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "Pre-RMSNorm",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-ali",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_code_cross_entropy_definition",
+      "task_category": "corpus_grounded_code_definition",
+      "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "def compute_cross_entropy",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&qu",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    }
+  ],
+  "probes_after": [
+    {
+      "probe_id": "probe_arithmetic_single_digit",
+      "task_category": "deterministic_arithmetic",
+      "prompt": "<|im_start|>user\nWhat is 2 + 3?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "5",
+      "generated_text": "|-\n|2\n|-\n|200\n|2\n|2\n|200\n|2\n|-\n|2007\n|200\n|2",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_python_syntax_divisibility",
+      "task_category": "python_syntax_completion",
+      "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "assert d_model % n_heads == 0",
+      "generated_text": "|-\n|200/01 = <<2*2=4>>",
+      "generated_tokens": 19,
+      "eos_reached": true,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_instruction_reversal",
+      "task_category": "short_instruction_following",
+      "prompt": "<|im_start|>user\nRepeat only the word 'ChakrView' and nothing else.<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "ChakrView",
+      "generated_text": "|-\n|2\n|>",
+      "generated_tokens": 9,
+      "eos_reached": true,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_factual_definition_pre_rmsnorm",
+      "task_category": "corpus_grounded_factual_recall",
+      "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "Pre-RMSNorm",
+      "generated_text": "|-\n|2\n|\n|-\n|200\n|-\n|200\n|-\n|2007\n|2\n|2007\n|2",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_code_cross_entropy_definition",
+      "task_category": "corpus_grounded_code_definition",
+      "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "def compute_cross_entropy",
+      "generated_text": "|-\n|2\n|-\n|200\n|>>",
+      "generated_tokens": 17,
+      "eos_reached": true,
+      "empty_output": false,
+      "exact_match": false
+    }
+  ]
+}
