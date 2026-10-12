@@ -1,0 +1,4841 @@
+{
+  "baseline_step_10000": {
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-": 4,
+          "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 2005\n| 200\n| 2000 || 5 |": 4,
+          "|-\n|200\n|-\n|200\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005 ||": 3,
+          "|-\n|200\n|-\n|200\n|-\n|2005\n|200\n|2005\n|2005\n|-\n|2007\n|2007\n|2007\n|": 3,
+          "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005": 3
+        },
+        "traces": [
+          {
+            "id": "TOOL-TRA-00-00",
+            "operands": [
+              0,
+              0
+            ],
+            "expected_sum": 0,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-01",
+            "operands": [
+              0,
+              1
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:right&quot;| \n| sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-00",
+            "operands": [
+              1,
+              0
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|2005\n|2005\n|-\n| scope=&quot;row&quot; | 2",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-03",
+            "operands": [
+              0,
+              3
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-00",
+            "operands": [
+              3,
+              0
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|200\n|2005\n|2005\n|-\n|2007\n|2007\n|2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-04",
+            "operands": [
+              0,
+              4
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-00",
+            "operands": [
+              4,
+              0
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2000 | 4000 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-05",
+            "operands": [
+              0,
+              5
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n| \n| \n| \n| \n| \n| \n| \n| \n| \n| \n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-00",
+            "operands": [
+              5,
+              0
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-\n|2",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-06",
+            "operands": [
+              0,
+              6
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-00",
+            "operands": [
+              6,
+              0
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 200\n| 2000 | 40\n|-\n| 200",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-01",
+            "operands": [
+              1,
+              1
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-02",
+            "operands": [
+              1,
+              2
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-01",
+            "operands": [
+              2,
+              1
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:right&quot;| \n| sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-05",
+            "operands": [
+              1,
+              5
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|-\n|2007",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-01",
+            "operands": [
+              5,
+              1
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|200\n|2005\n|2005\n|-\n|2007\n|2007\n|2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-06",
+            "operands": [
+              1,
+              6
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-01",
+            "operands": [
+              6,
+              1
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50\n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-07",
+            "operands": [
+              1,
+              7
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-01",
+            "operands": [
+              7,
+              1
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2000 | 4005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-09",
+            "operands": [
+              1,
+              9
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | Monday (b. col",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-01",
+            "operands": [
+              9,
+              1
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | Monday (Hex: #",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-02",
+            "operands": [
+              2,
+              2
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "|-\n|200\n|2000 || np.nd|| np.nd|| np.ndash\n|-\n| scope=&quot;row&qu",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-04",
+            "operands": [
+              2,
+              4
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-02",
+            "operands": [
+              4,
+              2
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | The total of the first of the",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-05",
+            "operands": [
+              2,
+              5
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-02",
+            "operands": [
+              5,
+              2
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; || style=",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-06",
+            "operands": [
+              2,
+              6
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50\n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-02",
+            "operands": [
+              6,
+              2
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | Christian\n|-\n| scope=&quot;row&quot; | Mon\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-07",
+            "operands": [
+              2,
+              7
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center&quot; | sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-02",
+            "operands": [
+              7,
+              2
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-03",
+            "operands": [
+              3,
+              3
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-04",
+            "operands": [
+              3,
+              4
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-03",
+            "operands": [
+              4,
+              3
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2000 | 4005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-05",
+            "operands": [
+              3,
+              5
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-03",
+            "operands": [
+              5,
+              3
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color: #0070",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-07",
+            "operands": [
+              3,
+              7
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-03",
+            "operands": [
+              7,
+              3
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,4,406\n|-\n| 2005\n| style=&quot;background-color: #",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-08",
+            "operands": [
+              3,
+              8
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-03",
+            "operands": [
+              8,
+              3
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2007\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-09",
+            "operands": [
+              3,
+              9
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center&quot; | sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-03",
+            "operands": [
+              9,
+              3
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; || style=",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-05",
+            "operands": [
+              4,
+              5
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 2005\n| 200\n| 2000 || 5 |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-04",
+            "operands": [
+              5,
+              4
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2007\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-06",
+            "operands": [
+              4,
+              6
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-04",
+            "operands": [
+              6,
+              4
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2005\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-05",
+            "operands": [
+              5,
+              5
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|200\n|2005\n|2005\n|-\n|2007\n|2007\n|2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-08",
+            "operands": [
+              5,
+              8
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01|||Premier League||||||||\n|-\n|200",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-05",
+            "operands": [
+              8,
+              5
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-09",
+            "operands": [
+              5,
+              9
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | Monday (Hex: #",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-05",
+            "operands": [
+              9,
+              5
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 2005\n| 200\n| 2000 || 5 |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-07",
+            "operands": [
+              6,
+              7
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 2005\n| 200\n| 2000 || 5 |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-06",
+            "operands": [
+              7,
+              6
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2000 | 4005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-08",
+            "operands": [
+              6,
+              8
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "|-\n|200/200|| Monday | Christian | Christian Britain the Britain the British of the British",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-06",
+            "operands": [
+              8,
+              6
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01|||Premier League||||||||\n|-\n|200",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-09",
+            "operands": [
+              6,
+              9
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50\n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-06",
+            "operands": [
+              9,
+              6
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50.5\n|-\n| scope=&quot;row&qu",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-08",
+            "operands": [
+              7,
+              8
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50.5\n|-\n| scope=&quot;row&qu",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-07",
+            "operands": [
+              8,
+              7
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-09",
+            "operands": [
+              7,
+              9
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,406\n|-\n| 2008\n| 2005\n| 200\n| 2000 || 5 |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-07",
+            "operands": [
+              9,
+              7
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|2005\n|2005\n|-\n| scope=&quot;row&quot; | 2",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-09",
+            "operands": [
+              8,
+              9
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | Mondon || Monday\n|-\n| scope=&quot;row&quot; |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-08",
+            "operands": [
+              9,
+              8
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2008/01|||Premier League||||||||\n|-\n|200",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-09",
+            "operands": [
+              9,
+              9
+            ],
+            "expected_sum": 18,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | Christian\n|-\n| scope=&quot;row&quot; | Mon\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color\n|-\n|": 3,
+          "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:right&quot;| \n| sty": 2,
+          "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2000 | 5 ||": 2,
+          "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005": 1,
+          "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;": 1
+        },
+        "traces": [
+          {
+            "id": "TOOL-VAL-00-02",
+            "operands": [
+              0,
+              2
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:right&quot;| \n| sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-00",
+            "operands": [
+              2,
+              0
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-00-07",
+            "operands": [
+              0,
+              7
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-00",
+            "operands": [
+              7,
+              0
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2000 | 4005 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-00-09",
+            "operands": [
+              0,
+              9
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:right&quot;| \n| sty",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-00",
+            "operands": [
+              9,
+              0
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2000 | 5 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-01-03",
+            "operands": [
+              1,
+              3
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2007\n|2005\n|-\n|2007",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-01",
+            "operands": [
+              3,
+              1
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color\n|-\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-09",
+            "operands": [
+              2,
+              9
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50\n|-\n| scope=&quot;row&quot",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-02",
+            "operands": [
+              9,
+              2
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2000 | 5 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-06",
+            "operands": [
+              3,
+              6
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color\n|-\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-06-03",
+            "operands": [
+              6,
+              3
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2005\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-07",
+            "operands": [
+              4,
+              7
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-04",
+            "operands": [
+              7,
+              4
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|200\n|2000 || 3,4,406\n|-\n| 2005\n| style=&quot;background-color: #",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-09",
+            "operands": [
+              4,
+              9
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n|200\n|2000 || np.nd|| np.nd|| day\n|-\n| scope=&quot;row&quot; |",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-04",
+            "operands": [
+              9,
+              4
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color\n|-\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-07",
+            "operands": [
+              7,
+              7
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|2005\n|-\n|2005\n|2005\n|-\n|2007\n| 2005\n| 2005\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-08-08",
+            "operands": [
+              8,
+              8
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2005\n|-\n|2005\n|2005\n|2007\n|-",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||": 3,
+          "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;": 2,
+          "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2007\n|": 2,
+          "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2000 | 5 || 5 || 5 || 5 ||": 2,
+          "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | The total of the first of the": 2
+        },
+        "traces": [
+          {
+            "id": "TOOL-TES-00-08",
+            "operands": [
+              0,
+              8
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2005\n| 2005\n|-\n| 2005\n| 2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-00",
+            "operands": [
+              8,
+              0
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2008/01|||Premier League||||||||\n|-\n|200",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-04",
+            "operands": [
+              1,
+              4
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-01",
+            "operands": [
+              4,
+              1
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-08",
+            "operands": [
+              1,
+              8
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2000 | 5 || 5 || 5 || 5 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-01",
+            "operands": [
+              8,
+              1
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | The total of the first of the",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-03",
+            "operands": [
+              2,
+              3
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n|200\n|2000 || np.nd|| np.nd|| np.ndash\n|-\n| scope=&quot;row&qu",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-03-02",
+            "operands": [
+              3,
+              2
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot;row&quot; | The total of the first of the",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-08",
+            "operands": [
+              2,
+              8
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n| style=&quot;background-color: #00706; color: #00733;",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-02",
+            "operands": [
+              8,
+              2
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2007\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-04",
+            "operands": [
+              4,
+              4
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-08",
+            "operands": [
+              4,
+              8
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n|200\n|200\n|-\n|2005\n|2005\n|-\n|2005\n| 2005\n| 2005\n|-\n| 2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-04",
+            "operands": [
+              8,
+              4
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-06",
+            "operands": [
+              5,
+              6
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2005\n|-\n|2005\n|2005\n|-\n|2005",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-05",
+            "operands": [
+              6,
+              5
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| 50.5\n|-\n| scope=&quot;row&qu",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-07",
+            "operands": [
+              5,
+              7
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n|200\n|-\n|200\n|-\n|2005\n|200\n|2005\n|2005\n|-\n|2007\n|2007\n|2007\n|",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-07-05",
+            "operands": [
+              7,
+              5
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n|200\n|-\n|2005\n|-\n|2005\n| 2005\n| 2000 | 5 || 5 || 5 || 5 ||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-06",
+            "operands": [
+              6,
+              6
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third || third || third |||",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 5,
+      "safe_non_tool_rate": 1.0,
+      "malformed_or_spurious_tool_calls": 0,
+      "traces": [
+        {
+          "prompt": "What is the capital of France?",
+          "raw": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|2007\n|-\n|2007\n|2006\n|2005\n|-",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Who wrote Hamlet?",
+          "raw": "|-\n|200/200||Premier League||\n|-\n|200\n|2005/01||| third = ||2005\n|-\n|200",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Add some numbers please.",
+          "raw": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center&quot; | sty",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Calculate without numbers.",
+          "raw": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; || style=",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Run bash command ls -la",
+          "raw": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;text-align:center; color: #0070",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        }
+      ]
+    },
+    "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+  },
+  "condition_a_direct": {
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "11": 25,
+          "9": 21,
+          "3": 18
+        },
+        "traces": [
+          {
+            "id": "TOOL-TRA-00-00",
+            "operands": [
+              0,
+              0
+            ],
+            "expected_sum": 0,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-01",
+            "operands": [
+              0,
+              1
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-00",
+            "operands": [
+              1,
+              0
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-03",
+            "operands": [
+              0,
+              3
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-00",
+            "operands": [
+              3,
+              0
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-04",
+            "operands": [
+              0,
+              4
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-00",
+            "operands": [
+              4,
+              0
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-05",
+            "operands": [
+              0,
+              5
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-00",
+            "operands": [
+              5,
+              0
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-06",
+            "operands": [
+              0,
+              6
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-00",
+            "operands": [
+              6,
+              0
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-01",
+            "operands": [
+              1,
+              1
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-02",
+            "operands": [
+              1,
+              2
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-01",
+            "operands": [
+              2,
+              1
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-05",
+            "operands": [
+              1,
+              5
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-01",
+            "operands": [
+              5,
+              1
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-06",
+            "operands": [
+              1,
+              6
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-01",
+            "operands": [
+              6,
+              1
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-07",
+            "operands": [
+              1,
+              7
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-01",
+            "operands": [
+              7,
+              1
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-09",
+            "operands": [
+              1,
+              9
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-01",
+            "operands": [
+              9,
+              1
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-02",
+            "operands": [
+              2,
+              2
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-04",
+            "operands": [
+              2,
+              4
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-02",
+            "operands": [
+              4,
+              2
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-05",
+            "operands": [
+              2,
+              5
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-02",
+            "operands": [
+              5,
+              2
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-06",
+            "operands": [
+              2,
+              6
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-02",
+            "operands": [
+              6,
+              2
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-07",
+            "operands": [
+              2,
+              7
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-02",
+            "operands": [
+              7,
+              2
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-03",
+            "operands": [
+              3,
+              3
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-04",
+            "operands": [
+              3,
+              4
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-03",
+            "operands": [
+              4,
+              3
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-05",
+            "operands": [
+              3,
+              5
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-03",
+            "operands": [
+              5,
+              3
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-07",
+            "operands": [
+              3,
+              7
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-03",
+            "operands": [
+              7,
+              3
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-08",
+            "operands": [
+              3,
+              8
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-03",
+            "operands": [
+              8,
+              3
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-09",
+            "operands": [
+              3,
+              9
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-03",
+            "operands": [
+              9,
+              3
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-05",
+            "operands": [
+              4,
+              5
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-04",
+            "operands": [
+              5,
+              4
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-06",
+            "operands": [
+              4,
+              6
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-04",
+            "operands": [
+              6,
+              4
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-05",
+            "operands": [
+              5,
+              5
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-08",
+            "operands": [
+              5,
+              8
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-05",
+            "operands": [
+              8,
+              5
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-09",
+            "operands": [
+              5,
+              9
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-05",
+            "operands": [
+              9,
+              5
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-07",
+            "operands": [
+              6,
+              7
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-06",
+            "operands": [
+              7,
+              6
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-08",
+            "operands": [
+              6,
+              8
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-06",
+            "operands": [
+              8,
+              6
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-09",
+            "operands": [
+              6,
+              9
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-06",
+            "operands": [
+              9,
+              6
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-08",
+            "operands": [
+              7,
+              8
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-07",
+            "operands": [
+              8,
+              7
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-09",
+            "operands": [
+              7,
+              9
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-07",
+            "operands": [
+              9,
+              7
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-09",
+            "operands": [
+              8,
+              9
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-08",
+            "operands": [
+              9,
+              8
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-09",
+            "operands": [
+              9,
+              9
+            ],
+            "expected_sum": 18,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "11": 11,
+          "3": 5,
+          "9": 2
+        },
+        "traces": [
+          {
+            "id": "TOOL-VAL-00-02",
+            "operands": [
+              0,
+              2
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-00",
+            "operands": [
+              2,
+              0
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-00-07",
+            "operands": [
+              0,
+              7
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-00",
+            "operands": [
+              7,
+              0
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-00-09",
+            "operands": [
+              0,
+              9
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-00",
+            "operands": [
+              9,
+              0
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-01-03",
+            "operands": [
+              1,
+              3
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-01",
+            "operands": [
+              3,
+              1
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-09",
+            "operands": [
+              2,
+              9
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-02",
+            "operands": [
+              9,
+              2
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-06",
+            "operands": [
+              3,
+              6
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-06-03",
+            "operands": [
+              6,
+              3
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-07",
+            "operands": [
+              4,
+              7
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-04",
+            "operands": [
+              7,
+              4
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-09",
+            "operands": [
+              4,
+              9
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-04",
+            "operands": [
+              9,
+              4
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-07",
+            "operands": [
+              7,
+              7
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-08-08",
+            "operands": [
+              8,
+              8
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 0,
+        "valid_tool_syntax_rate": 0.0,
+        "correct_tool_selection_rate": 0.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 0,
+        "runtime_execution_rate": 0.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "9": 8,
+          "11": 6,
+          "3": 4
+        },
+        "traces": [
+          {
+            "id": "TOOL-TES-00-08",
+            "operands": [
+              0,
+              8
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-00",
+            "operands": [
+              8,
+              0
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-04",
+            "operands": [
+              1,
+              4
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-01",
+            "operands": [
+              4,
+              1
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-08",
+            "operands": [
+              1,
+              8
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-01",
+            "operands": [
+              8,
+              1
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-03",
+            "operands": [
+              2,
+              3
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-03-02",
+            "operands": [
+              3,
+              2
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-08",
+            "operands": [
+              2,
+              8
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "3",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-02",
+            "operands": [
+              8,
+              2
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-04",
+            "operands": [
+              4,
+              4
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-08",
+            "operands": [
+              4,
+              8
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-04",
+            "operands": [
+              8,
+              4
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-06",
+            "operands": [
+              5,
+              6
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-05",
+            "operands": [
+              6,
+              5
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-07",
+            "operands": [
+              5,
+              7
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "11",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-07-05",
+            "operands": [
+              7,
+              5
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-06",
+            "operands": [
+              6,
+              6
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "9",
+            "validation_status": "MALFORMED_JSON",
+            "tool_result": null,
+            "tool_executed": false,
+            "correct_args": false,
+            "final_response": "",
+            "end_to_end_success": false
+          }
+        ]
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 5,
+      "safe_non_tool_rate": 1.0,
+      "malformed_or_spurious_tool_calls": 0,
+      "traces": [
+        {
+          "prompt": "What is the capital of France?",
+          "raw": "9",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Who wrote Hamlet?",
+          "raw": "11",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Add some numbers please.",
+          "raw": "9",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Calculate without numbers.",
+          "raw": "11",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        },
+        {
+          "prompt": "Run bash command ls -la",
+          "raw": "9",
+          "status": "MALFORMED_JSON",
+          "safe": true
+        }
+      ]
+    },
+    "checkpoint_path": "experiments\\batch91_94_tool_calling_comparator\\experiments\\condition_a_direct_step_100.pt",
+    "checkpoint_sha256": "97c21db79ac763720b2a62e130c3df1f4808ee3a46c14bc365dfdbeaeb21633d",
+    "history": [
+      {
+        "step": 1,
+        "loss": 6.3297
+      },
+      {
+        "step": 25,
+        "loss": 0.2422
+      },
+      {
+        "step": 50,
+        "loss": 0.1927
+      },
+      {
+        "step": 75,
+        "loss": 0.2222
+      },
+      {
+        "step": 100,
+        "loss": 0.1582
+      }
+    ]
+  },
+  "condition_b_tool_calling": {
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 64,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_arguments_rate": 0.0156,
+        "runtime_execution_count": 64,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 6,
+        "end_to_end_success_rate": 0.0938,
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}": 59,
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}": 5
+        },
+        "traces": [
+          {
+            "id": "TOOL-TRA-00-00",
+            "operands": [
+              0,
+              0
+            ],
+            "expected_sum": 0,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-01",
+            "operands": [
+              0,
+              1
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-00",
+            "operands": [
+              1,
+              0
+            ],
+            "expected_sum": 1,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-03",
+            "operands": [
+              0,
+              3
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-00",
+            "operands": [
+              3,
+              0
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-04",
+            "operands": [
+              0,
+              4
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-00",
+            "operands": [
+              4,
+              0
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-05",
+            "operands": [
+              0,
+              5
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-00",
+            "operands": [
+              5,
+              0
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-00-06",
+            "operands": [
+              0,
+              6
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-00",
+            "operands": [
+              6,
+              0
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-01",
+            "operands": [
+              1,
+              1
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": true,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-02",
+            "operands": [
+              1,
+              2
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-01",
+            "operands": [
+              2,
+              1
+            ],
+            "expected_sum": 3,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-05",
+            "operands": [
+              1,
+              5
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-01",
+            "operands": [
+              5,
+              1
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-06",
+            "operands": [
+              1,
+              6
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-06-01",
+            "operands": [
+              6,
+              1
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-01-07",
+            "operands": [
+              1,
+              7
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-01",
+            "operands": [
+              7,
+              1
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-01-09",
+            "operands": [
+              1,
+              9
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-01",
+            "operands": [
+              9,
+              1
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-02",
+            "operands": [
+              2,
+              2
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-04",
+            "operands": [
+              2,
+              4
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-02",
+            "operands": [
+              4,
+              2
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-05",
+            "operands": [
+              2,
+              5
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-05-02",
+            "operands": [
+              5,
+              2
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-02-06",
+            "operands": [
+              2,
+              6
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-02",
+            "operands": [
+              6,
+              2
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-02-07",
+            "operands": [
+              2,
+              7
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-02",
+            "operands": [
+              7,
+              2
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-03",
+            "operands": [
+              3,
+              3
+            ],
+            "expected_sum": 6,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-04",
+            "operands": [
+              3,
+              4
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-04-03",
+            "operands": [
+              4,
+              3
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-TRA-03-05",
+            "operands": [
+              3,
+              5
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-03",
+            "operands": [
+              5,
+              3
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-07",
+            "operands": [
+              3,
+              7
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-03",
+            "operands": [
+              7,
+              3
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-08",
+            "operands": [
+              3,
+              8
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-03",
+            "operands": [
+              8,
+              3
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-03-09",
+            "operands": [
+              3,
+              9
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-03",
+            "operands": [
+              9,
+              3
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-05",
+            "operands": [
+              4,
+              5
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-04",
+            "operands": [
+              5,
+              4
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-04-06",
+            "operands": [
+              4,
+              6
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-04",
+            "operands": [
+              6,
+              4
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-05",
+            "operands": [
+              5,
+              5
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-08",
+            "operands": [
+              5,
+              8
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-05",
+            "operands": [
+              8,
+              5
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-05-09",
+            "operands": [
+              5,
+              9
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-05",
+            "operands": [
+              9,
+              5
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-07",
+            "operands": [
+              6,
+              7
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-06",
+            "operands": [
+              7,
+              6
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-08",
+            "operands": [
+              6,
+              8
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-06",
+            "operands": [
+              8,
+              6
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-06-09",
+            "operands": [
+              6,
+              9
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-06",
+            "operands": [
+              9,
+              6
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-08",
+            "operands": [
+              7,
+              8
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-07",
+            "operands": [
+              8,
+              7
+            ],
+            "expected_sum": 15,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-07-09",
+            "operands": [
+              7,
+              9
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-07",
+            "operands": [
+              9,
+              7
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-08-09",
+            "operands": [
+              8,
+              9
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-08",
+            "operands": [
+              9,
+              8
+            ],
+            "expected_sum": 17,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TRA-09-09",
+            "operands": [
+              9,
+              9
+            ],
+            "expected_sum": 18,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 2,
+        "end_to_end_success_rate": 0.1111,
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}": 16,
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}": 2
+        },
+        "traces": [
+          {
+            "id": "TOOL-VAL-00-02",
+            "operands": [
+              0,
+              2
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-00",
+            "operands": [
+              2,
+              0
+            ],
+            "expected_sum": 2,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-00-07",
+            "operands": [
+              0,
+              7
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-VAL-07-00",
+            "operands": [
+              7,
+              0
+            ],
+            "expected_sum": 7,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": true
+          },
+          {
+            "id": "TOOL-VAL-00-09",
+            "operands": [
+              0,
+              9
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "validation_status": "SUCCESS",
+            "tool_result": 10,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCAL:",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-00",
+            "operands": [
+              9,
+              0
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-01-03",
+            "operands": [
+              1,
+              3
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-01",
+            "operands": [
+              3,
+              1
+            ],
+            "expected_sum": 4,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-02-09",
+            "operands": [
+              2,
+              9
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-02",
+            "operands": [
+              9,
+              2
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-03-06",
+            "operands": [
+              3,
+              6
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-06-03",
+            "operands": [
+              6,
+              3
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-07",
+            "operands": [
+              4,
+              7
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-04",
+            "operands": [
+              7,
+              4
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-04-09",
+            "operands": [
+              4,
+              9
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-09-04",
+            "operands": [
+              9,
+              4
+            ],
+            "expected_sum": 13,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-07-07",
+            "operands": [
+              7,
+              7
+            ],
+            "expected_sum": 14,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-VAL-08-08",
+            "operands": [
+              8,
+              8
+            ],
+            "expected_sum": 16,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          }
+        ]
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_arguments_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}": 18
+        },
+        "traces": [
+          {
+            "id": "TOOL-TES-00-08",
+            "operands": [
+              0,
+              8
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-00",
+            "operands": [
+              8,
+              0
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-04",
+            "operands": [
+              1,
+              4
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-01",
+            "operands": [
+              4,
+              1
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-01-08",
+            "operands": [
+              1,
+              8
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-01",
+            "operands": [
+              8,
+              1
+            ],
+            "expected_sum": 9,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-03",
+            "operands": [
+              2,
+              3
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-03-02",
+            "operands": [
+              3,
+              2
+            ],
+            "expected_sum": 5,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-02-08",
+            "operands": [
+              2,
+              8
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-02",
+            "operands": [
+              8,
+              2
+            ],
+            "expected_sum": 10,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-04",
+            "operands": [
+              4,
+              4
+            ],
+            "expected_sum": 8,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-04-08",
+            "operands": [
+              4,
+              8
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-08-04",
+            "operands": [
+              8,
+              4
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-06",
+            "operands": [
+              5,
+              6
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-05",
+            "operands": [
+              6,
+              5
+            ],
+            "expected_sum": 11,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-05-07",
+            "operands": [
+              5,
+              7
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-07-05",
+            "operands": [
+              7,
+              5
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          },
+          {
+            "id": "TOOL-TES-06-06",
+            "operands": [
+              6,
+              6
+            ],
+            "expected_sum": 12,
+            "raw_tool_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "validation_status": "SUCCESS",
+            "tool_result": 2,
+            "tool_executed": true,
+            "correct_args": false,
+            "final_response": "The answer is 7.\n{\"result\": 9, \"status\": \"SUCCESS\"",
+            "end_to_end_success": false
+          }
+        ]
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 0,
+      "safe_non_tool_rate": 0.0,
+      "malformed_or_spurious_tool_calls": 5,
+      "traces": [
+        {
+          "prompt": "What is the capital of France?",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Who wrote Hamlet?",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Add some numbers please.",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Calculate without numbers.",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Run bash command ls -la",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+          "status": "SUCCESS",
+          "safe": false
+        }
+      ]
+    },
+    "checkpoint_path": "experiments\\batch91_94_tool_calling_comparator\\experiments\\condition_b_tool_calling_step_100.pt",
+    "checkpoint_sha256": "65eb913bbed9c855f17eb07fabfb5ff6a30843d472f467ac37a11d6731505b41",
+    "history": [
+      {
+        "step": 1,
+        "loss": 5.9041
+      },
+      {
+        "step": 25,
+        "loss": 0.279
+      },
+      {
+        "step": 50,
+        "loss": 0.1448
+      },
+      {
+        "step": 75,
+        "loss": 0.2107
+      },
+      {
+        "step": 100,
+        "loss": 0.1967
+      }
+    ]
+  }
+}
