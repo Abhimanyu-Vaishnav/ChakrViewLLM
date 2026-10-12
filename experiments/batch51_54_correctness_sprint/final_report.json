@@ -1,0 +1,85 @@
+{
+  "sprint": "Batches 51-54",
+  "title": "Learning Correctness, Verified Data Gates, Generalization Evaluation & Real Adaptive Execution",
+  "baseline_verification": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_BIT_EXACT"
+  },
+  "gate_evaluations": {
+    "CAUSAL_TARGET_ALIGNMENT_VERIFIED": "PASS",
+    "DATASET_ELIGIBILITY_POLICY_ENFORCED": "PASS",
+    "LEARNING_DEMONSTRATED_ON_NARROW_TASK": "PASS",
+    "HELD_OUT_GENERALIZATION_DEMONSTRATED": "INCONCLUSIVE_LOSS_IMPROVED_TABLE_ATTRACTOR_REMAINS",
+    "HARDWARE_DISCOVERY_VERIFIED": "PASS",
+    "SCHEDULING_LOGIC_VERIFIED": "PASS",
+    "TRAINING_INTEGRATION_VERIFIED": "PASS",
+    "INFERENCE_INTEGRATION_VERIFIED": "PASS",
+    "GPU_EXECUTION_PHYSICALLY_VERIFIED": "NOT_TESTED_NO_GPU_ON_HOST",
+    "DISTRIBUTED_EXECUTION_VERIFIED": "NOT_TESTED_DISABLED_BY_POLICY"
+  },
+  "batch51_causal_alignment": {
+    "findings": "inp = [0] + p_toks + r_toks with tgt = [-100]*len(p_toks) + r_toks + [1] is mathematically exact for causal next-token prediction with prompt masking. Input pos len(p_toks) (last prompt token) predicts first response token r_toks[0]; input pos -1 predicts EOS token 1.",
+    "diagnostic_reproduction": {
+      "task": "2_plus_3_arithmetic_overfit",
+      "initial_loss": 6.8160,
+      "final_loss": 0.000249,
+      "generated_text": "5<|im_end|>\n",
+      "eos_reached": true,
+      "stopping_reason": "EOS_TOKEN",
+      "checkpoint_sha256": "875729105edc56564b3eac71db73aa5ae51441282391bc2ecd57341459c2913a"
+    }
+  },
+  "batch52_dataset_audit": {
+    "total_records_audited": 78,
+    "distinct_source_families": 57,
+    "intra_train_duplicates_identified": 9,
+    "cross_split_leakage_identified": 3,
+    "cross_split_leakage_families": [
+      "CACHE_TILED_MATMUL",
+      "GET_COSINE_LR",
+      "LAGRANGE-MULTIPLIERS-FOR-CONSTRAINED-OPTIMIZATION"
+    ],
+    "clean_split_counts": {
+      "train": 46,
+      "val": 11
+    },
+    "leakage_post_cleaning": 0,
+    "policy_enforcement": "Fail-closed DatasetEligibilityGate rejects PENDING_HUMAN_REVIEW and malformed records from verified release path."
+  },
+  "batch53_learning_generalization": {
+    "clean_pilot_steps": 50,
+    "train_examples": 46,
+    "val_examples": 11,
+    "val_tokens_evaluated": 1156,
+    "base_checkpoint_val_loss": 5.6220,
+    "base_checkpoint_perplexity": 276.45,
+    "step50_val_loss": 4.8950,
+    "step50_perplexity": 133.62,
+    "loss_reduction": 0.727,
+    "perplexity_reduction_pct": 51.67,
+    "probe_eos_rate": "0/5 (0.0%)",
+    "verdict": "Clear numerical training and cross-entropy loss reduction on clean held-out validation set. However, 46 records are insufficient to escape the 10,000-step pretraining Wikipedia table attractor basin for unconstrained greedy generation."
+  },
+  "batch54_hardware_execution": {
+    "host_device": "cpu",
+    "cpu_model": "Intel 14-core",
+    "available_ram_gb": 13.1,
+    "cuda_available": false,
+    "scheduler_status": "OPERATIONAL",
+    "fallback_tested": true
+  },
+  "test_suite": {
+    "sprint_tests_passed": 70,
+    "sprint_tests_failed": 0,
+    "sprint_tests_skipped": 0,
+    "duration_sec": 5.39
+  }
+}

@@ -92,6 +92,11 @@ class SFTDataset:
             raise ValueError(f"Response tokenized to 0 tokens for response: {response}")
 
         # Check total sequence length
+        if 1 + len(r_toks) > self.max_seq_len:
+            raise ValueError(
+                f"Response tokens ({len(r_toks)}) exceed max_seq_len ({self.max_seq_len})."
+            )
+
         total_len = 1 + len(p_toks) + len(r_toks)
         if total_len > self.max_seq_len:
             # Truncate prompt from left if necessary, preserving response
@@ -99,6 +104,10 @@ class SFTDataset:
             p_toks = p_toks[-allowed_p:]
 
         input_seq = [bos_id] + p_toks + r_toks
+        if len(input_seq) > self.max_seq_len:
+            raise ValueError(
+                f"Encoded sequence length {len(input_seq)} exceeds max_seq_len {self.max_seq_len}."
+            )
         # Target alignment (shifted next-token):
         # Position 0 predicts p_toks[0] -> masked
         # Position len(p_toks)-1 predicts r_toks[0] -> first response target!

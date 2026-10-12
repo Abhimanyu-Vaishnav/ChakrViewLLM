@@ -1,0 +1,149 @@
+{
+  "checkpoint": "experiments/batch51_54_correctness_sprint/learning_experiment/pilot_run/sft_checkpoint_step_50.pt",
+  "validation_metrics": {
+    "dataset_path": "experiments\\batch51_54_correctness_sprint\\data\\val_clean.jsonl",
+    "dataset_sha256": "24fab3669a66fe7cae84d290bfc8b0ef7be0b1f5fc5d95adc23212b3fbc81483",
+    "total_records": 11,
+    "evaluated_records": 11,
+    "skipped_records": 0,
+    "total_active_tokens": 1156,
+    "mean_token_loss": 4.895,
+    "perplexity": 133.62,
+    "records": [
+      {
+        "example_id": "CAND-CODE-ASSERT-HEADS-DIVISIBILITY",
+        "active_tokens": 15,
+        "loss": 4.7551,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-CODE-COMPUTE-CROSS-ENTROPY",
+        "active_tokens": 80,
+        "loss": 6.0503,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CODE-IMPL-06-PREFIXTRIENODE",
+        "active_tokens": 239,
+        "loss": 4.1229,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CODE-IMPL-02-QUICKSORT_DETERMINISTIC",
+        "active_tokens": 168,
+        "loss": 4.5645,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-SYS-MOD-OUT-OF-ORDER-E-01",
+        "active_tokens": 64,
+        "loss": 5.8476,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-SYS-THESIS-STOCHASTIC-GRADIENT-DESCENT-WITH-ADAMW-01",
+        "active_tokens": 93,
+        "loss": 5.3238,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-SKT-SUTRA-935F6F77",
+        "active_tokens": 70,
+        "loss": 4.8122,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "CAND-HI-COMP-TOKENIZER",
+        "active_tokens": 39,
+        "loss": 5.178,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "MATH-THM-34-LAW-OF-LARGE-NUMBERS",
+        "active_tokens": 56,
+        "loss": 4.1328,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "MATH-THM-43-POINCAR--INEQUALITY-IN-SOBOLEV-SPACES",
+        "active_tokens": 60,
+        "loss": 4.5399,
+        "status": "EVALUATED",
+        "error_message": null
+      },
+      {
+        "example_id": "RSN-PROC-01-INCIDENT-RESPONSE--HIGH-MEMORY-FRAGMENTATION",
+        "active_tokens": 272,
+        "loss": 5.2908,
+        "status": "EVALUATED",
+        "error_message": null
+      }
+    ]
+  },
+  "probe_results": [
+    {
+      "probe_id": "probe_arithmetic_single_digit",
+      "task_category": "deterministic_arithmetic",
+      "prompt": "<|im_start|>user\nWhat is 2 + 3?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "5",
+      "generated_text": "|-\n|200/200||Andy || Christian | Christian || Christi",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_python_syntax_divisibility",
+      "task_category": "python_syntax_completion",
+      "prompt": "<|im_start|>user\nHow do you check that d_model divides evenly by the number of attention heads in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "assert d_model % n_heads == 0",
+      "generated_text": "|-\n| scope=&quot;row&quot; | The total number of the word of the word of the word of ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_instruction_reversal",
+      "task_category": "short_instruction_following",
+      "prompt": "<|im_start|>user\nRepeat only the word 'ChakrView' and nothing else.<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "ChakrView",
+      "generated_text": "|-\n| scope=&quot;row&quot; | The total number of the word of the word of the word of ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_factual_definition_pre_rmsnorm",
+      "task_category": "corpus_grounded_factual_recall",
+      "prompt": "<|im_start|>user\nWhat is Pre-RMSNorm?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "Pre-RMSNorm",
+      "generated_text": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot;backgro",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    },
+    {
+      "probe_id": "probe_code_cross_entropy_definition",
+      "task_category": "corpus_grounded_code_definition",
+      "prompt": "<|im_start|>user\nHow is cross entropy loss computed for a single target index in Python?<|im_end|>\n<|im_start|>assistant\n",
+      "expected_output_hint": "def compute_cross_entropy",
+      "generated_text": "|-\n|200/01||Premier League||Premier of the total number of the total number of the total number ",
+      "generated_tokens": 40,
+      "eos_reached": false,
+      "empty_output": false,
+      "exact_match": false
+    }
+  ]
+}
