@@ -1,0 +1,102 @@
+{
+  "batch": "Batch 42 Master Sprint",
+  "timestamp_utc": "2026-10-11T14:58:12Z",
+  "branch": "dev/v0.6-v0.7-validation",
+  "initial_head": "b271cf009f01cb93b4fd731ef07f31a602cd1ab5",
+  "final_head": "5f1cac2",
+  "working_tree_status": "CLEAN (except preserved user modification chakrview/runtime/session.py)",
+  "preserved_user_modification": {
+    "path": "chakrview/runtime/session.py",
+    "status": "MODIFIED_UNCOMMITTED",
+    "reason": "Preserved uncommitted per founder instruction; integrates ConversationTemplate ChatML formatting."
+  },
+  "statuses": {
+    "EVALUATION_RELIABLE": "PASS",
+    "RUNTIME_TRAINING_ALIGNED": "PASS",
+    "BASELINE_PRESERVED": "PASS",
+    "COMMITS_VERIFIED": "PASS",
+    "MAIN_MERGE_READY": "NOT_READY"
+  },
+  "canonical_invariants": {
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "layers": 6,
+    "d_model": 192,
+    "heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "fresh_init_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_INVARIANT"
+  },
+  "batch41_commit_hashes": {
+    "ffcda17": "ffcda178c536639b971b4f7476e50e2a640706a6",
+    "46d1538": "46d1538ba500b5f0f508634fc6d7b5f64152a3d1",
+    "1282268": "12822687e06294f58357b33f2e8f9c16127310d6",
+    "13e9ea0": "13e9ea04979f19c9876b4486a1848cb26f85270b",
+    "b271cf0": "b271cf009f01cb93b4fd731ef07f31a602cd1ab5"
+  },
+  "batch42_commits_created": [
+    {
+      "commit_hash": "97cc273",
+      "message": "docs(batch41): add final report and manifest for Batch 41",
+      "files": [
+        "experiments/batch41_evaluation_git/final_report.json",
+        "experiments/batch41_evaluation_git/final_report.md"
+      ]
+    },
+    {
+      "commit_hash": "5f1cac2",
+      "message": "feat(evaluation): add reusable DeterministicEvaluator, probe suite, and Batch 42 tests",
+      "files": [
+        "experiments/batch42_reproducible_evaluation/evaluation/evaluator.py",
+        "experiments/batch42_reproducible_evaluation/evaluation/benchmark_probes.json",
+        "experiments/batch42_reproducible_evaluation/evaluation/eval_base_checkpoint.json",
+        "experiments/batch42_reproducible_evaluation/evaluation/eval_batch40_checkpoint.json",
+        "experiments/batch42_reproducible_evaluation/evaluation/eval_batch41_checkpoint.json",
+        "tests/test_batch42_evaluation_harness.py"
+      ]
+    }
+  ],
+  "evaluation_summary": {
+    "evaluator_class": "DeterministicEvaluator",
+    "validation_dataset": "experiments/batch41_evaluation_git/val_aligned.jsonl",
+    "validation_dataset_sha256": "900b84784eec03dcaae898622c1db4ea63ef6ec989c420b98bc9ce48ea5ba3f8",
+    "records_evaluated": 7,
+    "records_skipped": 0,
+    "active_tokens": 195,
+    "checkpoint_results": {
+      "base_step_10000": {
+        "loss": 7.4781,
+        "perplexity": 1768.81
+      },
+      "batch40_step_20": {
+        "loss": 7.2557,
+        "perplexity": 1416.17
+      },
+      "batch41_aligned_step_20": {
+        "loss": 6.0563,
+        "perplexity": 426.79
+      }
+    }
+  },
+  "capability_findings": {
+    "loss_reduction": "Demonstrated on held-out validation tokens (-1.42 cross-entropy reduction)",
+    "generative_capability": "NOT_DEMONSTRATED (Greedy decoding remains caught in pretraining table/arithmetic repetitive text across all 5 probes; EOS rate = 0%)",
+    "training_decision": "STOP_TRAINING (Dataset scale of 46 records cannot break pretraining priors; expanding dataset with non-duplicative dialogue and procedure records is prerequisite)"
+  },
+  "tests": {
+    "regression_tests_total": 53,
+    "passed": 53,
+    "failed": 0,
+    "skipped": 0
+  },
+  "main_merge_readiness_assessment": {
+    "status": "NOT_READY",
+    "reasons": [
+      "chakrview/runtime/session.py remains uncommitted pending explicit founder approval.",
+      "Model output under greedy decoding has not yet achieved conversational coherence or EOS termination.",
+      "Dataset scale remains small (39 train, 7 val) and needs expansion across unrepresented domains before main merge."
+    ]
+  }
+}
