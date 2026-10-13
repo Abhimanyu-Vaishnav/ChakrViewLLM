@@ -1,0 +1,55 @@
+{
+  "milestone": "Batches 211–220: Relational Knowledge Learning, Exact-Value Binding, and Generalization Validation",
+  "generated_at": "2026-10-13T14:45:00Z",
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.8",
+    "torch": "2.7.0+cpu",
+    "device": "cpu"
+  },
+  "canonical_model": {
+    "architecture": "ChakrMicro",
+    "parameters": 3443136,
+    "d_model": 192,
+    "layers": 6,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "intact_unmodified"
+  },
+  "dataset": {
+    "generator": "experiments/batch211_220_relational_learning/data/generate_relational_corpus.py",
+    "manifest": "experiments/batch211_220_relational_learning/data/relational_corpus_manifest.json",
+    "total_records": 10000,
+    "train_records": 6360,
+    "val_records": 1097,
+    "test_records": 2543,
+    "entity_clusters": 14,
+    "held_out_leakage": "0.0%"
+  },
+  "trained_checkpoints": [
+    {
+      "name": "relational_pointer_head_step1000.pt",
+      "path": "experiments/batch211_220_relational_learning/checkpoints/relational_pointer_head_step1000.pt",
+      "architecture": "ChakrPointerHead",
+      "d_model": 192,
+      "d_proj": 64,
+      "parameters": 24961,
+      "train_loss_start": 9.5091,
+      "train_loss_final": 4.3136,
+      "canonical_weights_modified": false
+    }
+  ],
+  "reports": [
+    "reports/initial_audit.md",
+    "reports/task_contract.md",
+    "reports/data_and_leakage_audit.md",
+    "reports/baseline_results.json",
+    "reports/training_results.json",
+    "reports/generalization_results.json",
+    "reports/runtime_regression_results.json",
+    "reports/failure_analysis.md",
+    "reports/milestone_summary.md"
+  ]
+}

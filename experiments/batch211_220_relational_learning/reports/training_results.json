@@ -1,0 +1,33 @@
+{
+  "milestone": "Batch 216: Trained Relational Pointer Head Evaluation",
+  "training_examples": 200,
+  "epochs": 3,
+  "training_time_sec": 7.8,
+  "loss_history": [
+    {
+      "epoch": 1,
+      "avg_loss": 9.5091
+    },
+    {
+      "epoch": 2,
+      "avg_loss": 5.5874
+    },
+    {
+      "epoch": 3,
+      "avg_loss": 4.3136
+    }
+  ],
+  "test_sample_size": 100,
+  "test_results": {
+    "trained_pointer_greedy": {
+      "correct": 7,
+      "total": 100,
+      "exact_match_rate": 0.07
+    },
+    "trained_pointer_constrained_trie": {
+      "correct": 47,
+      "total": 100,
+      "exact_match_rate": 0.47
+    }
+  }
+}

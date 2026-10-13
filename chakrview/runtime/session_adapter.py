@@ -229,6 +229,9 @@ class GroundedSessionAdapter:
         device = next(model.parameters()).device
 
         prompt_tokens = [0] + tok.encode(prompt)
+        max_prompt_len = 512 - max_new_tokens
+        if len(prompt_tokens) > max_prompt_len:
+            prompt_tokens = [prompt_tokens[0]] + prompt_tokens[-(max_prompt_len - 1):]
         curr = list(prompt_tokens)
         gen = []
 

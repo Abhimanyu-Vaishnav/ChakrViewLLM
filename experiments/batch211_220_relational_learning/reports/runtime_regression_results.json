@@ -1,0 +1,81 @@
+{
+  "milestone": "Batch 219: Integrated Runtime Regression & Robustness",
+  "timestamp": "2026-10-13T14:40:00Z",
+  "total_cases": 8,
+  "passed_cases": 8,
+  "pass_rate": 1.0,
+  "cases": [
+    {
+      "id": "tc1_direct_extraction",
+      "query": "What is the boiling point of Nitrogen?",
+      "origin": "deterministic_extractor",
+      "answer": "-196 C",
+      "is_supported": true,
+      "latency_ms": 2.69,
+      "passed": true
+    },
+    {
+      "id": "tc2_retrieval_and_pointer",
+      "query": "What is the orbital period of Jupiter?",
+      "origin": "constrained_trie",
+      "answer": "4333 days",
+      "is_supported": true,
+      "latency_ms": 49.17,
+      "passed": true
+    },
+    {
+      "id": "tc3_conflicting_evidence",
+      "query": "What is boiling point of water?",
+      "origin": "deterministic_extractor",
+      "answer": "Conflicting evidence detected in context: values found include '100 C', '99 C'.",
+      "is_supported": false,
+      "latency_ms": 1.93,
+      "passed": true
+    },
+    {
+      "id": "tc4_unanswerable_abstention",
+      "query": "What is the mass of Pluto?",
+      "origin": "deterministic_extractor",
+      "answer": "Not mentioned in context.",
+      "is_supported": false,
+      "latency_ms": 2.02,
+      "passed": true
+    },
+    {
+      "id": "tc5_multi_turn_history",
+      "query": "What did we talk about previously?",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n| scope",
+      "is_supported": false,
+      "latency_ms": 490.87,
+      "passed": true
+    },
+    {
+      "id": "tc6_malformed_empty_context",
+      "query": "What is the atomic number of Helium?",
+      "origin": "deterministic_extractor",
+      "answer": "Not mentioned in context.",
+      "is_supported": false,
+      "latency_ms": 3.22,
+      "passed": true
+    },
+    {
+      "id": "tc7_oversized_query",
+      "query": "query query query query query query query query query query ",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-",
+      "is_supported": true,
+      "latency_ms": 744.5,
+      "passed": true
+    },
+    {
+      "id": "tc8_disabled_pointer_fallback",
+      "query": "What is the capital of France?",
+      "origin": "deterministic_extractor",
+      "answer": "Paris",
+      "is_supported": true,
+      "latency_ms": 3.71,
+      "passed": true
+    }
+  ]
+}
