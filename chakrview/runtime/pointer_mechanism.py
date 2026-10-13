@@ -46,12 +46,18 @@ class ChakrPointerHead(nn.Module):
         input_ids: torch.Tensor,
         vocab_logits: torch.Tensor,
         context_mask: torch.Tensor,
+        query_mask: Optional[torch.Tensor] = None,
+        disentangle_query_overlap: bool = True,
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         hidden_states: [B, T, d_model] from base model pre-norm
         input_ids: [B, T] token IDs corresponding to hidden_states
         vocab_logits: [B, T, vocab_size] from base model lm_head
         context_mask: [B, T] boolean tensor (True for valid context tokens to copy from, False otherwise)
+        query_mask: Optional [B, T] boolean tensor (True for query tokens). Used to penalize copying entity tokens
+                    that merely duplicate question terms when distinct relation value candidates exist.
+        disentangle_query_overlap: If True and query_mask is given, applies a soft damping factor to context tokens
+                                  whose exact IDs appear in the question.
 
         Returns:
             final_probs: [B, T, vocab_size] normalized probability distribution
@@ -70,6 +76,22 @@ class ChakrPointerHead(nn.Module):
         # context_mask shape is [B, T], expand to [B, 1, T] for broadcasting across query steps
         mask_expanded = context_mask.unsqueeze(1).expand(B, T, T)
         scores = scores.masked_fill(~mask_expanded, -1e9)
+
+        # Disentangled Query Overlap Adjustment:
+        # If query_mask is present, identify context tokens whose IDs overlap with question tokens.
+        # Apply a calibrated soft penalty (-3.0 in logit space) to question-echo tokens to favor relation values.
+        if disentangle_query_overlap and query_mask is not None:
+            # Construct boolean mask of shape [B, T] where context token ID is also in question
+            overlap_mask = torch.zeros(B, T, dtype=torch.bool, device=hidden_states.device)
+            for b_idx in range(B):
+                q_ids_set = set(input_ids[b_idx, query_mask[b_idx]].tolist())
+                # Disentangle only non-stopwords / alphanumeric tokens
+                for pos_idx in range(T):
+                    if context_mask[b_idx, pos_idx] and input_ids[b_idx, pos_idx].item() in q_ids_set:
+                        overlap_mask[b_idx, pos_idx] = True
+            
+            overlap_expanded = overlap_mask.unsqueeze(1).expand(B, T, T)
+            scores = scores - 3.5 * overlap_expanded.float()
 
         pointer_attn = F.softmax(scores, dim=-1)  # [B, T, T]
         # Clean NaNs if a row has zero valid context tokens
@@ -121,6 +143,8 @@ def decode_pointer_greedy(
     prompt_ids: List[int],
     context_start: int,
     context_end: int,
+    query_start: Optional[int] = None,
+    query_end: Optional[int] = None,
     max_new_tokens: int = 16,
     eos_token_ids: Tuple[int, ...] = (1, 3),
     device: Optional[torch.device] = None,
@@ -151,8 +175,15 @@ def decode_pointer_greedy(
                 c_mask[idx] = True
             mask_t = torch.tensor([c_mask], dtype=torch.bool, device=device)
 
+            q_mask_t = None
+            if query_start is not None and query_end is not None:
+                q_mask = [False] * T
+                for idx in range(min(query_start, T), min(query_end, T)):
+                    q_mask[idx] = True
+                q_mask_t = torch.tensor([q_mask], dtype=torch.bool, device=device)
+
             vocab_logits, hidden_states = model(x, return_hidden_states=True)
-            final_probs, attn, gate = pointer_head(hidden_states, x, vocab_logits, mask_t)
+            final_probs, attn, gate = pointer_head(hidden_states, x, vocab_logits, mask_t, query_mask=q_mask_t)
 
             probs_step = final_probs[0, -1, :]
             gate_val = gate[0, -1, 0].item()
@@ -182,6 +213,8 @@ def decode_pointer_beam(
     prompt_ids: List[int],
     context_start: int,
     context_end: int,
+    query_start: Optional[int] = None,
+    query_end: Optional[int] = None,
     beam_width: int = 3,
     max_new_tokens: int = 16,
     eos_token_ids: Tuple[int, ...] = (1, 3),
@@ -201,6 +234,8 @@ def decode_pointer_beam(
             prompt_ids=prompt_ids,
             context_start=context_start,
             context_end=context_end,
+            query_start=query_start,
+            query_end=query_end,
             max_new_tokens=max_new_tokens,
             eos_token_ids=eos_token_ids,
             device=device,
@@ -229,8 +264,15 @@ def decode_pointer_beam(
                     c_mask[idx] = True
                 mask_t = torch.tensor([c_mask], dtype=torch.bool, device=device)
 
+                q_mask_t = None
+                if query_start is not None and query_end is not None:
+                    q_mask = [False] * T
+                    for idx in range(min(query_start, T), min(query_end, T)):
+                        q_mask[idx] = True
+                    q_mask_t = torch.tensor([q_mask], dtype=torch.bool, device=device)
+
                 vocab_logits, hidden_states = model(x, return_hidden_states=True)
-                final_probs, _, gate = pointer_head(hidden_states, x, vocab_logits, mask_t)
+                final_probs, _, gate = pointer_head(hidden_states, x, vocab_logits, mask_t, query_mask=q_mask_t)
 
                 probs_step = final_probs[0, -1, :]
                 gate_val = gate[0, -1, 0].item()

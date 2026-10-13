@@ -1,0 +1,48 @@
+{
+  "milestone": "Batches 191-200: Query-Aware Pointer Learning, Constrained Decoding, End-to-End Grounded Conversation",
+  "starting_commit": "124317e",
+  "branch": "dev/v0.6-v0.7-validation",
+  "canonical_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "unique_parameter_count": 3443136,
+    "model_intact": true
+  },
+  "protected_files": {
+    "chakrview/runtime/session.py": "preserved_untouched"
+  },
+  "deliverables": {
+    "runtime_code": [
+      "chakrview/runtime/pointer_mechanism.py",
+      "chakrview/runtime/constrained_decoder.py"
+    ],
+    "benchmark_scripts": [
+      "experiments/batch191_200_grounded_conversation/run_query_aware_training.py",
+      "experiments/batch191_200_grounded_conversation/run_constrained_decoding_eval.py",
+      "experiments/batch191_200_grounded_conversation/run_multiturn_benchmark.py",
+      "experiments/batch191_200_grounded_conversation/run_recovery_resource_eval.py",
+      "experiments/batch191_200_grounded_conversation/run_final_evaluation.py"
+    ],
+    "reports": [
+      "experiments/batch191_200_grounded_conversation/reports/initial_audit.md",
+      "experiments/batch191_200_grounded_conversation/reports/query_overlap_diagnostics.json",
+      "experiments/batch191_200_grounded_conversation/reports/relation_binding_data_audit.md",
+      "experiments/batch191_200_grounded_conversation/reports/query_aware_pointer_training.json",
+      "experiments/batch191_200_grounded_conversation/reports/constrained_decoding_results.json",
+      "experiments/batch191_200_grounded_conversation/reports/answer_verification_contract.md",
+      "experiments/batch191_200_grounded_conversation/reports/multiturn_grounded_benchmark.json",
+      "experiments/batch191_200_grounded_conversation/reports/recovery_and_resource_tests.json",
+      "experiments/batch191_200_grounded_conversation/reports/final_evaluation.json",
+      "experiments/batch191_200_grounded_conversation/reports/failure_analysis.md",
+      "experiments/batch191_200_grounded_conversation/reports/milestone_summary.md"
+    ]
+  },
+  "verification_status": {
+    "canonical_checkpoint_verified": true,
+    "query_overlap_bias_fixed": true,
+    "constrained_decoding_verified": true,
+    "multiturn_benchmark_passed": true,
+    "recovery_resource_passed": true,
+    "full_regression_passed": true
+  }
+}

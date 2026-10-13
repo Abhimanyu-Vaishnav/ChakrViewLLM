@@ -1,0 +1,67 @@
+{
+  "milestone": "Batch 197: Multi-Turn Grounded Conversation Benchmark",
+  "total_turns": 10,
+  "passed_turns": 10,
+  "all_passed": true,
+  "turns": [
+    {
+      "turn": 1,
+      "input": "Ingest Hydrogen doc",
+      "status": "registered",
+      "passed": true
+    },
+    {
+      "turn": 2,
+      "query": "What is the atomic number of Hydrogen?",
+      "ans": "1",
+      "passed": true
+    },
+    {
+      "turn": 3,
+      "query": "What is its symbol?",
+      "ans": "H",
+      "passed": true
+    },
+    {
+      "turn": 4,
+      "query": "What is the atomic number of Lithium?",
+      "ans": "3",
+      "passed": true
+    },
+    {
+      "turn": 5,
+      "type": "synthesis_corroboration",
+      "result": "1",
+      "passed": true
+    },
+    {
+      "turn": 6,
+      "type": "conflict_rejection",
+      "status": "failed",
+      "passed": true
+    },
+    {
+      "turn": 7,
+      "type": "ungrounded_abstention",
+      "abstained": true,
+      "passed": true
+    },
+    {
+      "turn": 8,
+      "type": "cross_session_isolation",
+      "history_len": 0,
+      "passed": true
+    },
+    {
+      "turn": 9,
+      "type": "process_restart_recovery",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "turn": 10,
+      "type": "idempotent_reexecution",
+      "passed": true
+    }
+  ]
+}

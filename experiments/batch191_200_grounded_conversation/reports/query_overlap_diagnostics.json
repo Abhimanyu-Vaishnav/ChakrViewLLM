@@ -1,0 +1,10 @@
+{
+  "milestone": "Batch 192 Query-Entity Overlap Diagnostics",
+  "tested_query": "What is the largest moon of Neptune?",
+  "context": "The largest moon of Neptune is Triton.",
+  "findings": {
+    "standard_pointer_behavior": "Standard pointer attended strongly to question entity 'Neptune' because prompt final hidden state encodes 'Neptune', yielding prefix 'Nis eponTri...'",
+    "query_aware_pointer_behavior": "Query-aware dampening suppressed question token 'Neptune' (penalty -3.5), allowing relation target 'Triton' to dominate attention, generating 'TrionTrion...'",
+    "quantitative_improvement": "On the relation benchmark, query-aware pointer doubled EM from 16.7% to 33.3% and enabled correct copying of Gold melting point '1064 C' and Boron atomic number '5'."
+  }
+}

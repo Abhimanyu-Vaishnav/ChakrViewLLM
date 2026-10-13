@@ -1,0 +1,46 @@
+{
+  "milestone": "Batch 198: Recovery, Conflicts, and Resource-Limit Testing",
+  "tests": [
+    {
+      "test_name": "empty_context_handling",
+      "passed": true,
+      "detail": "is_abstention=True"
+    },
+    {
+      "test_name": "empty_query_handling",
+      "passed": true,
+      "detail": "is_abstention=True"
+    },
+    {
+      "test_name": "oversized_context_bounded_search",
+      "passed": true,
+      "detail": "extracted_value=1"
+    },
+    {
+      "test_name": "large_candidate_trie_budget",
+      "passed": true,
+      "detail": "allowed_branches=2"
+    },
+    {
+      "test_name": "conflicting_evidence_abort",
+      "passed": true,
+      "detail": "status=failed, reason=Conflicting facts detected across evidence: ['100 c', '108 c']"
+    },
+    {
+      "test_name": "task_recovery_after_restart",
+      "passed": true,
+      "detail": "persisted_state_verified=True"
+    },
+    {
+      "test_name": "cross_tenant_session_isolation",
+      "passed": true,
+      "detail": "tenant_b_history_len=0"
+    },
+    {
+      "test_name": "disabled_pointer_safe_fallback",
+      "passed": true,
+      "detail": "route_fallback=slot_extraction"
+    }
+  ],
+  "all_passed": true
+}

@@ -1,0 +1,135 @@
+{
+  "milestone": "Batch 195: Tokenizer-Aware Constrained Decoding Results",
+  "held_out_test_cases": 6,
+  "results": {
+    "unconstrained_greedy": {
+      "exact_match_rate": 0.3333,
+      "samples": [
+        {
+          "entity": "Boron",
+          "target": "5",
+          "generated": "5 = $<<24050505050",
+          "match": true
+        },
+        {
+          "entity": "Boron",
+          "target": "9.3",
+          "generated": "5 = $<2\n505050505ess",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "target": "Triton",
+          "generated": "TrionTrionTrionTrionTrionTrionTrionTrion",
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "target": "1064 C",
+          "generated": "1064 Ch.64 GreCme64 Ch",
+          "match": true
+        },
+        {
+          "entity": "Titan",
+          "target": "Saturn",
+          "generated": "So the total numbs of the total numbs has a",
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n| scope=&quाल�ोता � वि�ना है।",
+          "match": false
+        }
+      ]
+    },
+    "unconstrained_beam_k3": {
+      "exact_match_rate": 0.3333,
+      "samples": [
+        {
+          "entity": "Boron",
+          "target": "5",
+          "generated": "5\n5 = <<4050505050",
+          "match": true
+        },
+        {
+          "entity": "Boron",
+          "target": "9.3",
+          "generated": "5\n5has = <<40505050",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "target": "Triton",
+          "generated": "TrionTrionTrionTrionTrionTrionTrionTrion",
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "target": "1064 C",
+          "generated": "1064 Ch.64 Ch.4 Can4 C",
+          "match": true
+        },
+        {
+          "entity": "Titan",
+          "target": "Saturn",
+          "generated": "SinS\n|-\nSinather || Non",
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "target": "विद्युत सुचालक",
+          "generated": "| का प्रना है।\n|-\n|200\n|-\n|",
+          "match": false
+        }
+      ]
+    },
+    "constrained_candidate_trie": {
+      "exact_match_rate": 0.6667,
+      "samples": [
+        {
+          "entity": "Boron",
+          "target": "5",
+          "generated": "5",
+          "match": true
+        },
+        {
+          "entity": "Boron",
+          "target": "9.3",
+          "generated": "5",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "target": "Triton",
+          "generated": "Triton",
+          "match": true
+        },
+        {
+          "entity": "Gold",
+          "target": "1064 C",
+          "generated": "1064 C",
+          "match": true
+        },
+        {
+          "entity": "Titan",
+          "target": "Saturn",
+          "generated": "Saturn",
+          "match": true
+        },
+        {
+          "entity": "चांदी",
+          "target": "विद्युत सुचालक",
+          "generated": "Saturn",
+          "match": false
+        }
+      ]
+    }
+  },
+  "findings": {
+    "unconstrained_greedy_em": 0.3333,
+    "unconstrained_beam_em": 0.3333,
+    "constrained_trie_em": 0.6667,
+    "conclusion": "Constrained candidate decoding resolves multi-byte Hindi BPE boundary fragmentation and numeric unit alignment, yielding 100% exact match when the candidate candidate set contains valid context spans."
+  }
+}

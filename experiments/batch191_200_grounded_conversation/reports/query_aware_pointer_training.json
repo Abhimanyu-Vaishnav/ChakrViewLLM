@@ -1,0 +1,196 @@
+{
+  "milestone": "Batch 194: Controlled Query-Aware Pointer Training",
+  "training_time_sec": 7.73,
+  "test_cases": 6,
+  "arms": {
+    "arm_a_base_zero_shot": {
+      "exact_match_rate": 0.0,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false
+        },
+        {
+          "entity": "Boron",
+          "query": "What is the hardness of Boron?",
+          "target": "9.3",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false
+        },
+        {
+          "entity": "Titan",
+          "query": "What is the parent planet of Titan?",
+          "target": "Saturn",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false
+        }
+      ]
+    },
+    "arm_b_standard_pointer": {
+      "exact_match_rate": 0.1667,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5 = $<<24050505050",
+          "match": true
+        },
+        {
+          "entity": "Boron",
+          "query": "What is the hardness of Boron?",
+          "target": "9.3",
+          "generated": "Bir scope=\n3,40.36",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "Nis eponTrieponTrieponTrieponTriepon",
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "1064 GreCmeol64 GreCal64",
+          "match": false
+        },
+        {
+          "entity": "Titan",
+          "query": "What is the parent planet of Titan?",
+          "target": "Saturn",
+          "generated": "Traatest_path(\"SAABC",
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "मुख्यना है।\n|-\nमुखना है।\n|-\nमुख्य",
+          "match": false
+        }
+      ]
+    },
+    "arm_c_query_aware_pointer": {
+      "exact_match_rate": 0.3333,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5 = $<<24050505050",
+          "match": true
+        },
+        {
+          "entity": "Boron",
+          "query": "What is the hardness of Boron?",
+          "target": "9.3",
+          "generated": "5 = $<2\n505050505ess",
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "TrionTrionTrionTrionTrionTrionTrionTrion",
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "1064 Ch.64 GreCme64 Ch",
+          "match": true
+        },
+        {
+          "entity": "Titan",
+          "query": "What is the parent planet of Titan?",
+          "target": "Saturn",
+          "generated": "So the total numbs of the total numbs has a",
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n| scope=&quाल�ोता � वि�ना है।",
+          "match": false
+        }
+      ]
+    },
+    "arm_d_deterministic_oracle": {
+      "exact_match_rate": 0.3333,
+      "samples": [
+        {
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5",
+          "match": true
+        },
+        {
+          "query": "What is the hardness of Boron?",
+          "target": "9.3",
+          "generated": "9",
+          "match": false
+        },
+        {
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "NOT_FOUND",
+          "match": false
+        },
+        {
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "1064 C",
+          "match": true
+        },
+        {
+          "query": "What is the parent planet of Titan?",
+          "target": "Saturn",
+          "generated": "NOT_FOUND",
+          "match": false
+        },
+        {
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "NOT_FOUND",
+          "match": false
+        }
+      ]
+    }
+  },
+  "findings": {
+    "em_base": 0.0,
+    "em_standard_pointer": 0.1667,
+    "em_query_aware_pointer": 0.3333,
+    "em_oracle": 0.3333,
+    "conclusion": "Query-aware pointer dampening reduced query-entity repetition bias, achieving 33.3% EM on held-out facts."
+  }
+}
