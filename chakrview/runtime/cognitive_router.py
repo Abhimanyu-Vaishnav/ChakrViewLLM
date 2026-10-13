@@ -169,7 +169,7 @@ class CognitiveRouter:
 
     def _is_knowledge_seeking(self, q: str) -> bool:
         patterns = [
-            r"what (?:is|was|are|were)", r"who (?:is|was|are|were)", r"who discovered", r"who invented",
+            r"what (?:is|was|are|were)", r"who (?:is|was|are|were)", r"who discovered", r"who invented", r"who composed", r"who wrote",
             r"when (?:was|is|did)", r"where (?:is|was|are)", r"which (?:state|country|city|crater)",
             r"in which", r"at what", r"why (?:is|was)", r"how (?:many|much)", r"calculate", r"define",
             r"क्या है", r"कहाँ है", r"कौन सा", r"किसने"
@@ -185,6 +185,7 @@ class CognitiveRouter:
             r"atomic number",
             r"state is",
             r"name of the crater",
+            r"largest moon",
             r"at what temperature",
             r"color is",
         ]

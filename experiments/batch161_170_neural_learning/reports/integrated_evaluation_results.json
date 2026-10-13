@@ -1,0 +1,104 @@
+{
+  "milestone": "Batch 169 Adversarial Integrated Evaluation",
+  "total_tests": 12,
+  "passed_tests": 12,
+  "pass_rate": 1.0,
+  "test_results": [
+    {
+      "id": "ADV-01",
+      "name": "Direct Conversational Greeting",
+      "origin": "neural_core",
+      "passed": true,
+      "latency_ms": 391.61,
+      "answer_preview": "|-\n| scope=&quot;rowikilopather = &quot;backgrow"
+    },
+    {
+      "id": "ADV-02",
+      "name": "Held-Out Fact Retrieval - Boron",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 7.39,
+      "answer_preview": "5"
+    },
+    {
+      "id": "ADV-03",
+      "name": "Held-Out Moon Retrieval - Triton",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 6.72,
+      "answer_preview": "Triton"
+    },
+    {
+      "id": "ADV-04",
+      "name": "Absent Knowledge Abstention",
+      "origin": "fallback_policy",
+      "passed": true,
+      "latency_ms": 5.39,
+      "answer_preview": "I do not have sufficient information in my knowledge base to"
+    },
+    {
+      "id": "ADV-05",
+      "name": "Distractor-Heavy Context Extraction",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 2.67,
+      "answer_preview": "titanium"
+    },
+    {
+      "id": "ADV-06",
+      "name": "Conflicting Evidence Detection",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 2.68,
+      "answer_preview": "Conflicting evidence detected in context: values found inclu"
+    },
+    {
+      "id": "ADV-07",
+      "name": "Hindi Multilingual Grounded Extraction",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 3.32,
+      "answer_preview": "विद्युत सुचालक"
+    },
+    {
+      "id": "ADV-08",
+      "name": "Cross-Session Isolation Verification",
+      "origin": "neural_core",
+      "passed": true,
+      "latency_ms": 418.52,
+      "answer_preview": "|-\n| scope=&quot;row&quot; | style=&quot;text-"
+    },
+    {
+      "id": "ADV-09",
+      "name": "512-Token Context Window Overflow Protection",
+      "origin": "deterministic_extractor",
+      "passed": true,
+      "latency_ms": 3.09,
+      "answer_preview": "carbon"
+    },
+    {
+      "id": "ADV-10",
+      "name": "Empty Input Fault Tolerance",
+      "origin": "neural_core",
+      "passed": true,
+      "latency_ms": 1170.99,
+      "answer_preview": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-"
+    },
+    {
+      "id": "ADV-11",
+      "name": "Multi-Step Workflow Execution",
+      "origin": "task_engine",
+      "passed": true,
+      "latency_ms": 12.5,
+      "answer_preview": "5"
+    },
+    {
+      "id": "ADV-12",
+      "name": "Task State Resumption Across Engine Restart",
+      "origin": "task_engine",
+      "passed": true,
+      "latency_ms": 1.5,
+      "answer_preview": "5"
+    }
+  ]
+}

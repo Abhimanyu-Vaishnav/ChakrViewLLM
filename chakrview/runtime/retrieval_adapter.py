@@ -60,6 +60,7 @@ class RetrievalAdapter:
         embedding_dim: int = 64,
         lexical_weight: float = 0.5,
         semantic_weight: float = 0.5,
+        embedding_provider: Optional[EmbeddingProvider] = None,
     ) -> None:
         self.min_score_threshold = min_score_threshold
         self.embedding_dim = embedding_dim
@@ -67,7 +68,7 @@ class RetrievalAdapter:
         self.semantic_weight = semantic_weight
 
         self.lex_index = BM25KnowledgeIndex()
-        self.embed_provider = DeterministicHashEmbeddingProvider(dimension=embedding_dim)
+        self.embed_provider = embedding_provider or DeterministicHashEmbeddingProvider(dimension=embedding_dim)
         self.vec_index = InMemoryVectorIndex()
         self.retriever = HybridRetriever(
             lexical_index=self.lex_index,
@@ -136,6 +137,9 @@ class RetrievalAdapter:
         for cand in candidates:
             raw_lex = cand.metadata.get("raw_lexical_score", 0.0)
             if self.embed_provider.provider_id.startswith("deterministic_hash") and raw_lex <= 0.0:
+                continue
+            # For learned embeddings, require higher semantic confidence if lexical match is completely absent
+            if raw_lex <= 0.0 and cand.score < 0.88:
                 continue
 
             if cand.score < self.min_score_threshold:

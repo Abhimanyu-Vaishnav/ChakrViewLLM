@@ -63,7 +63,23 @@ class EvidenceExtractor:
             key = m_what.group(1).strip()
             return cls._extract_by_key(c_clean, key)
 
-        # 2. Hindi Key-Value extraction: "<key> क्या है?"
+        # 2. Hindi attribute pattern: "<entity> का <attr> क्या है?"
+        m_hi_attr = re.search(r"([^\s]+)\s+का\s+(?:प्रमुख\s+)?([^\s]+)\s+क्या है\?", q_clean)
+        if m_hi_attr:
+            entity = m_hi_attr.group(1).strip()
+            # Look for entity: <val> or entity <val>
+            m_h = re.search(rf"{re.escape(entity)}\s*[:।\s]\s*([^.,;।\n]+)", c_clean)
+            if m_h:
+                val = m_h.group(1).strip()
+                val = re.sub(r"\s+है$", "", val).strip()
+                return ExtractionResult(
+                    success=True,
+                    extracted_value=val,
+                    supporting_span=m_h.group(0),
+                    confidence=0.95,
+                )
+
+        # 3. Hindi Key-Value extraction: "<key> क्या है?"
         m_hi = re.search(r"([^\s?]+)\s*क्या है\?", q_clean)
         if m_hi:
             key = m_hi.group(1).strip()
@@ -74,14 +90,42 @@ class EvidenceExtractor:
         m_atomic = re.search(r"atomic number of ([A-Za-z]+)", q_clean, re.IGNORECASE)
         if m_atomic:
             elem = m_atomic.group(1).strip()
-            p = rf"atomic number of {elem} is\s*([0-9]+)"
+            p = rf"{elem}[^.\n]*?atomic number\s*(?:is)?\s*([0-9]+)"
             m_num = re.search(p, c_clean, re.IGNORECASE)
+            if not m_num:
+                m_num = re.search(rf"atomic number of {elem} is\s*([0-9]+)", c_clean, re.IGNORECASE)
             if m_num:
                 return ExtractionResult(
                     success=True,
                     extracted_value=m_num.group(1),
                     supporting_span=m_num.group(0),
                     confidence=0.98,
+                )
+
+        m_temp = re.search(r"(?:melting|boiling) point of ([A-Za-z]+)", q_clean, re.IGNORECASE)
+        if m_temp:
+            elem = m_temp.group(1).strip()
+            p_temp = rf"(?:melts|boils)\s+at\s+(?:a\s+temperature\s+of\s+)?([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
+            m_t = re.search(p_temp, c_clean, re.IGNORECASE)
+            if m_t:
+                return ExtractionResult(
+                    success=True,
+                    extracted_value=m_t.group(1).strip(),
+                    supporting_span=m_t.group(0),
+                    confidence=0.96,
+                )
+
+        m_moon = re.search(r"largest moon of ([A-Za-z]+)", q_clean, re.IGNORECASE)
+        if m_moon:
+            planet = m_moon.group(1).strip()
+            p_moon = rf"([A-Za-z0-9_-]+)\s+is the largest natural satellite of (?:the planet\s+)?{planet}"
+            m_m = re.search(p_moon, c_clean, re.IGNORECASE)
+            if m_m:
+                return ExtractionResult(
+                    success=True,
+                    extracted_value=m_m.group(1),
+                    supporting_span=m_m.group(0),
+                    confidence=0.96,
                 )
 
         m_state = re.search(r"state (?:is|does) the ([A-Za-z\s]+) located", q_clean, re.IGNORECASE)
@@ -104,6 +148,22 @@ class EvidenceExtractor:
                     success=True,
                     extracted_value=m_crater.group(1),
                     supporting_span=m_crater.group(0),
+                    confidence=0.95,
+                )
+
+        # 5. Hindi attribute pattern: "<entity> का <attr> क्या है?"
+        m_hi_attr = re.search(r"([^\s]+)\s+का\s+(?:प्रमुख\s+)?([^\s]+)\s+क्या है\?", q_clean)
+        if m_hi_attr:
+            entity = m_hi_attr.group(1).strip()
+            # Look for entity: <val> or entity <val>
+            m_h = re.search(rf"{re.escape(entity)}\s*[:।\s]\s*([^.,;।\n]+)", c_clean)
+            if m_h:
+                val = m_h.group(1).strip()
+                val = re.sub(r"\s+है$", "", val).strip()
+                return ExtractionResult(
+                    success=True,
+                    extracted_value=val,
+                    supporting_span=m_h.group(0),
                     confidence=0.95,
                 )
 

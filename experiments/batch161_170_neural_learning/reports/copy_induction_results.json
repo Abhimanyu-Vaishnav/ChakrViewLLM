@@ -1,0 +1,71 @@
+{
+  "milestone": "Batch 166 Controlled Neural Copy-Induction Pilot",
+  "training_time_sec": 19.28,
+  "held_out_test_cases": 4,
+  "arm_b_control_zero_shot": {
+    "exact_match_rate": 0.0,
+    "samples": [
+      {
+        "entity": "Boron",
+        "query": "What is the atomic number of Boron?",
+        "target": "5",
+        "generated": "|-\n| scope=&quot;rowi",
+        "match": false
+      },
+      {
+        "entity": "Neptune",
+        "query": "What is the largest moon of Neptune?",
+        "target": "Triton",
+        "generated": "|-\n|-\n| scope=&quot;",
+        "match": false
+      },
+      {
+        "entity": "Gold",
+        "query": "What is the melting point of Gold?",
+        "target": "1064 C",
+        "generated": "|-\n| scope=&quot;row&",
+        "match": false
+      },
+      {
+        "entity": "चांदी",
+        "query": "चांदी का प्रमुख गुण क्या है?",
+        "target": "विद्युत सुचालक",
+        "generated": "|-\n|200\n|-\n|200\n|-",
+        "match": false
+      }
+    ]
+  },
+  "arm_a_copy_sft": {
+    "exact_match_rate": 0.0,
+    "samples": [
+      {
+        "entity": "Boron",
+        "query": "What is the atomic number of Boron?",
+        "target": "5",
+        "generated": "78 C<|im_end|>>2<|im",
+        "match": false
+      },
+      {
+        "entity": "Neptune",
+        "query": "What is the largest moon of Neptune?",
+        "target": "Triton",
+        "generated": "Ganymede<|im_end|>>_en",
+        "match": false
+      },
+      {
+        "entity": "Gold",
+        "query": "What is the melting point of Gold?",
+        "target": "1064 C",
+        "generated": "3<|im_end|>>2<|im_en",
+        "match": false
+      },
+      {
+        "entity": "चांदी",
+        "query": "चांदी का प्रमुख गुण क्या है?",
+        "target": "विद्युत सुचालक",
+        "generated": "हाइड्रोजन<|im_end|>>2",
+        "match": false
+      }
+    ]
+  }
+}
