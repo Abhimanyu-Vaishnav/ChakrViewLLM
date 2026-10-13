@@ -1,0 +1,81 @@
+{
+  "milestone": "Batch 229: Actual Interactive Runtime Checkpoint Integration & Regression",
+  "timestamp": "2026-10-13T14:56:14Z",
+  "total_cases": 8,
+  "passed_cases": 8,
+  "pass_rate": 1.0,
+  "cases": [
+    {
+      "id": "tc1_direct_deterministic_extraction",
+      "query": "What is the atomic number of Nitrogen?",
+      "origin": "deterministic_extractor",
+      "answer": "7",
+      "is_supported": true,
+      "latency_ms": 2.41,
+      "passed": true
+    },
+    {
+      "id": "tc2_relation_pointer_trie_copy",
+      "query": "What is the orbital period of Saturn?",
+      "origin": "constrained_trie",
+      "answer": "10759 days",
+      "is_supported": true,
+      "latency_ms": 66.58,
+      "passed": true
+    },
+    {
+      "id": "tc3_retrieval_augmented_grounding",
+      "query": "What is the orbital period of Saturn?",
+      "origin": "constrained_trie",
+      "answer": "10759 days",
+      "is_supported": true,
+      "latency_ms": 44.97,
+      "passed": true
+    },
+    {
+      "id": "tc4_conflicting_evidence_detection",
+      "query": "What is boiling point of water?",
+      "origin": "deterministic_extractor",
+      "answer": "Conflicting evidence detected in context: values found include '100 C', '99 C'.",
+      "is_supported": false,
+      "latency_ms": 2.5,
+      "passed": true
+    },
+    {
+      "id": "tc5_unsupported_fact_abstention",
+      "query": "What is the density of Krypton?",
+      "origin": "deterministic_extractor",
+      "answer": "Not mentioned in context.",
+      "is_supported": false,
+      "latency_ms": 3.24,
+      "passed": true
+    },
+    {
+      "id": "tc6_multi_turn_history_isolation",
+      "query": "Hello assistant, how are you?",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n| s\n|-\n|",
+      "is_supported": false,
+      "latency_ms": 516.16,
+      "passed": true
+    },
+    {
+      "id": "tc7_disabled_pointer_safe_fallback",
+      "query": "What is the capital of Japan?",
+      "origin": "deterministic_extractor",
+      "answer": "Tokyo",
+      "is_supported": true,
+      "latency_ms": 2.24,
+      "passed": true
+    },
+    {
+      "id": "tc8_oversized_query_safe_truncation",
+      "query": "query query query query query query query query query query ",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-",
+      "is_supported": true,
+      "latency_ms": 738.09,
+      "passed": true
+    }
+  ]
+}

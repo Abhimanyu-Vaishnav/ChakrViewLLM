@@ -1,0 +1,62 @@
+{
+  "milestone": "Batches 221–230: Relation-Aware Pointer Scoring, Multilingual Span Alignment, and Independent Generalization Audit",
+  "generated_at": "2026-10-13T14:57:00Z",
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.8",
+    "torch": "2.7.0+cpu",
+    "device": "cpu"
+  },
+  "canonical_model": {
+    "architecture": "ChakrMicro",
+    "parameters": 3443136,
+    "d_model": 192,
+    "layers": 6,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "intact_unmodified"
+  },
+  "frozen_test_manifest": {
+    "path": "experiments/batch221_230_pointer_generalization/data/frozen_test_manifest_100.json",
+    "sha256": "f345670a7b49ed1fd17b9c700fbcf468e597ee3035e50278dc439dbfdc0fd7aa",
+    "total_records": 100,
+    "zero_leakage_entities": true
+  },
+  "trained_checkpoints": [
+    {
+      "name": "relation_aware_pointer_step1000.pt",
+      "path": "experiments/batch221_230_pointer_generalization/checkpoints/relation_aware_pointer_step1000.pt",
+      "architecture": "ChakrRelationPointerHead",
+      "d_model": 192,
+      "d_proj": 64,
+      "d_rel": 32,
+      "parameters": 37249,
+      "loss_history": [3.8103, 3.0996, 2.9238],
+      "held_out_exact_match": "62/100 (62.0%)"
+    },
+    {
+      "name": "control_pointer_step1000.pt",
+      "path": "experiments/batch221_230_pointer_generalization/checkpoints/control_pointer_step1000.pt",
+      "architecture": "ChakrPointerHead",
+      "d_model": 192,
+      "d_proj": 64,
+      "parameters": 24961,
+      "loss_history": [3.8063, 3.1249, 2.9277],
+      "held_out_exact_match": "56/100 (56.0%)"
+    }
+  ],
+  "reports": [
+    "reports/initial_audit.md",
+    "reports/evaluation_contract.md",
+    "reports/data_and_leakage_audit.md",
+    "reports/multilingual_failure_analysis.md",
+    "reports/baseline_results.json",
+    "reports/relation_aware_training_results.json",
+    "reports/generalization_results.json",
+    "reports/runtime_regression_results.json",
+    "reports/failure_analysis.md",
+    "reports/milestone_summary.md"
+  ]
+}

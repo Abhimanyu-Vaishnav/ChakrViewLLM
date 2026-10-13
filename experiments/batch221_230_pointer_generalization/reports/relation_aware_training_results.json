@@ -1,0 +1,83 @@
+{
+  "milestone": "Batch 225: Controlled Experimental Arms on Frozen Test Manifest",
+  "timestamp": "2026-10-13T14:54:19Z",
+  "frozen_test_manifest_sha256": "f345670a7b49ed1fd17b9c700fbcf468e597ee3035e50278dc439dbfdc0fd7aa",
+  "total_test_items": 100,
+  "training_epochs": 3,
+  "training_samples": 250,
+  "relation_head_loss_history": [
+    3.8103,
+    3.0996,
+    2.9238
+  ],
+  "control_head_loss_history": [
+    3.8063,
+    3.1249,
+    2.9277
+  ],
+  "arms": [
+    {
+      "arm": "Arm A1: Frozen Pointer (Greedy)",
+      "mode": "greedy_pointer",
+      "total": 100,
+      "exact_match_count": 8,
+      "exact_match_rate": 0.08,
+      "distractor_confusions": 19,
+      "avg_latency_ms": 58.82
+    },
+    {
+      "arm": "Arm A2: Frozen Pointer (TokenTrie)",
+      "mode": "trie",
+      "total": 100,
+      "exact_match_count": 53,
+      "exact_match_rate": 0.53,
+      "distractor_confusions": 25,
+      "avg_latency_ms": 54.55
+    },
+    {
+      "arm": "Arm B1: Relation-Aware Pointer (Greedy)",
+      "mode": "greedy_pointer",
+      "total": 100,
+      "exact_match_count": 8,
+      "exact_match_rate": 0.08,
+      "distractor_confusions": 16,
+      "avg_latency_ms": 65.07
+    },
+    {
+      "arm": "Arm B2: Relation-Aware Pointer (TokenTrie)",
+      "mode": "trie",
+      "total": 100,
+      "exact_match_count": 62,
+      "exact_match_rate": 0.62,
+      "distractor_confusions": 21,
+      "avg_latency_ms": 63.18
+    },
+    {
+      "arm": "Arm C: Control Pointer (TokenTrie)",
+      "mode": "trie",
+      "total": 100,
+      "exact_match_count": 56,
+      "exact_match_rate": 0.56,
+      "distractor_confusions": 26,
+      "avg_latency_ms": 64.06
+    },
+    {
+      "arm": "Arm D: Deterministic Slot Extractor",
+      "mode": "deterministic_slot",
+      "total": 100,
+      "exact_match_count": 48,
+      "exact_match_rate": 0.48,
+      "distractor_confusions": 0,
+      "avg_latency_ms": 0.14
+    },
+    {
+      "arm": "Arm E: BM25 Lexical Grounding",
+      "mode": "bm25",
+      "total": 100,
+      "exact_match_count": 68,
+      "exact_match_rate": 0.68,
+      "distractor_confusions": 6,
+      "avg_latency_ms": 0.0
+    }
+  ]
+}
