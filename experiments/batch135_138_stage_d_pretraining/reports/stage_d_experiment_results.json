@@ -1,0 +1,88 @@
+{
+  "benchmark": "Batch 135-138 Stage D Pretraining Revival",
+  "device": "cpu",
+  "steps": 100,
+  "tokens_processed": 51200,
+  "elapsed_seconds": 9.5,
+  "throughput_tok_per_sec": 5388.9,
+  "stage_d_checkpoint": "experiments\\batch135_138_stage_d_pretraining\\checkpoints\\stage_d_pilot\\stage_d_pretrained_step100.pt",
+  "stage_d_sha256": "2fc72f93ed1253806abf55090fce906b317dad806e77f1d5717ea4f80c4c344b",
+  "canonical_baseline": {
+    "checkpoint": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "validation": {
+      "loss": 3.255,
+      "perplexity": 25.92,
+      "tokens_evaluated": 7680
+    },
+    "test": {
+      "loss": 3.1511,
+      "perplexity": 23.36,
+      "tokens_evaluated": 7680
+    },
+    "continuations": {
+      "english": {
+        "prompt": "The development of modern science began with",
+        "generated": "in the world of the world. \n\nThe remaining the word of the world of the world of the",
+        "full_text": "The development of modern science began with in the world of the world. \n\nThe remaining the word of the world of the world of the"
+      },
+      "code": {
+        "prompt": "def binary_search(arr, target):",
+        "generated": "\"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+        "full_text": "def binary_search(arr, target): \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no"
+      },
+      "reasoning": {
+        "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+        "generated": "points in the centre of the city of the city of the city of the city of the city of the",
+        "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the centre of the city of the city of the city of the city of the city of the"
+      },
+      "hindi": {
+        "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+        "generated": "\u0930\u093e\u091c\u094d\u092f \u0915\u093e \u0905\u092a\u0928\u0940 \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930\u0940\u092f \u0915\u094d\u0937\u0947\u0924\u094d\u0930 \u0915\u0947 \u092c\u093e\u0926 \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u092e\u093e\u0928\u093e \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u0907",
+        "full_text": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923 \u0930\u093e\u091c\u094d\u092f \u0915\u093e \u0905\u092a\u0928\u0940 \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930\u0940\u092f \u0915\u094d\u0937\u0947\u0924\u094d\u0930 \u0915\u0947 \u092c\u093e\u0926 \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u092e\u093e\u0928\u093e \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u0907"
+      }
+    }
+  },
+  "stage_d_pretrained": {
+    "checkpoint": "experiments\\batch135_138_stage_d_pretraining\\checkpoints\\stage_d_pilot\\stage_d_pretrained_step100.pt",
+    "sha256": "2fc72f93ed1253806abf55090fce906b317dad806e77f1d5717ea4f80c4c344b",
+    "validation": {
+      "loss": 3.3806,
+      "perplexity": 29.39,
+      "tokens_evaluated": 7680
+    },
+    "test": {
+      "loss": 3.2712,
+      "perplexity": 26.34,
+      "tokens_evaluated": 7680
+    },
+    "continuations": {
+      "english": {
+        "prompt": "The development of modern science began with",
+        "generated": "in the first of the first of the first of the first of the first of the first of the",
+        "full_text": "The development of modern science began with in the first of the first of the first of the first of the first of the first of the"
+      },
+      "code": {
+        "prompt": "def binary_search(arr, target):",
+        "generated": "\"\"\"\n    if not None:\n        if self._conversion_conversion(\"\\n\")\n        if not",
+        "full_text": "def binary_search(arr, target): \"\"\"\n    if not None:\n        if self._conversion_conversion(\"\\n\")\n        if not"
+      },
+      "reasoning": {
+        "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+        "generated": "points in the centron. The first of the centre of the centre of the cent",
+        "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the centron. The first of the centre of the centre of the cent"
+      },
+      "hindi": {
+        "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+        "generated": "\u0930\u093e\u091c\u094d\u092f \u0915\u093e \u092a\u0941\u0924\u094d\u0930 \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \ufffd",
+        "full_text": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923 \u0930\u093e\u091c\u094d\u092f \u0915\u093e \u092a\u0941\u0924\u094d\u0930 \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \u0926\u094b \ufffd"
+      }
+    }
+  },
+  "comparison": {
+    "val_loss_diff": 0.1256,
+    "test_loss_diff": 0.1201,
+    "val_ppl_diff": 3.47,
+    "test_ppl_diff": 2.98
+  }
+}
