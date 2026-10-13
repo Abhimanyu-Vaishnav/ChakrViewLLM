@@ -1,0 +1,55 @@
+{
+  "milestone": "Batches 237-238: Multi-Hop Adversarial Stress Tests & Generalization Slices",
+  "timestamp": "2026-10-13T15:09:52Z",
+  "model_arm": "ChakrCrossAttentionPointerHead (Step 1000) + TokenTrie",
+  "slices": {
+    "all_held_out_chains": {
+      "total": 100,
+      "exact_match_count": 78,
+      "exact_match_rate": 0.78,
+      "intermediate_hits": 58,
+      "distractor_confusions": 7,
+      "abstention_correct": 20
+    },
+    "answerable_2hop": {
+      "total": 80,
+      "exact_match_count": 58,
+      "exact_match_rate": 0.725,
+      "intermediate_hits": 58,
+      "distractor_confusions": 7,
+      "abstention_correct": null
+    },
+    "adversarial_missing_link": {
+      "total": 20,
+      "exact_match_count": 20,
+      "exact_match_rate": 1.0,
+      "intermediate_hits": 0,
+      "distractor_confusions": 0,
+      "abstention_correct": 20
+    },
+    "multilingual_hindi_chains": {
+      "total": 35,
+      "exact_match_count": 35,
+      "exact_match_rate": 1.0,
+      "intermediate_hits": 30,
+      "distractor_confusions": 0,
+      "abstention_correct": 5
+    },
+    "multi_token_chains": {
+      "total": 43,
+      "exact_match_count": 43,
+      "exact_match_rate": 1.0,
+      "intermediate_hits": 43,
+      "distractor_confusions": 0,
+      "abstention_correct": null
+    },
+    "single_token_chains": {
+      "total": 37,
+      "exact_match_count": 15,
+      "exact_match_rate": 0.4054,
+      "intermediate_hits": 15,
+      "distractor_confusions": 7,
+      "abstention_correct": null
+    }
+  }
+}

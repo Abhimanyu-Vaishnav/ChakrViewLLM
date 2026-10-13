@@ -1,0 +1,81 @@
+{
+  "milestone": "Batch 239: Multi-Hop Interactive Runtime Checkpoint Integration & Regression",
+  "timestamp": "2026-10-13T15:10:29Z",
+  "total_cases": 8,
+  "passed_cases": 8,
+  "pass_rate": 1.0,
+  "cases": [
+    {
+      "id": "tc1_direct_multi_document_hop",
+      "query": "What is the orbital period of the natural satellite of Earth",
+      "origin": "constrained_trie",
+      "answer": "27.3 days",
+      "is_supported": true,
+      "latency_ms": 200.09,
+      "passed": true
+    },
+    {
+      "id": "tc2_retrieval_multi_document_grounding",
+      "query": "What is the atomic number of Hydrogen?",
+      "origin": "deterministic_extractor",
+      "answer": "1",
+      "is_supported": true,
+      "latency_ms": 3.51,
+      "passed": true
+    },
+    {
+      "id": "tc3_missing_link_abstention",
+      "query": "What is the orbital radius of unknown moon of Pluto?",
+      "origin": "deterministic_extractor",
+      "answer": "Not mentioned in context.",
+      "is_supported": false,
+      "latency_ms": 2.88,
+      "passed": true
+    },
+    {
+      "id": "tc4_contradictory_evidence_detection",
+      "query": "What is boiling point of water?",
+      "origin": "deterministic_extractor",
+      "answer": "Conflicting evidence detected in context: values found include '100 C', '95 C'.",
+      "is_supported": false,
+      "latency_ms": 3.63,
+      "passed": true
+    },
+    {
+      "id": "tc5_multi_turn_dialogue_isolation",
+      "query": "Hello assistant, how are you?",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-",
+      "is_supported": false,
+      "latency_ms": 1399.96,
+      "passed": true
+    },
+    {
+      "id": "tc6_unsupported_out_of_domain_abstention",
+      "query": "What is the secret launch code of Area 51?",
+      "origin": "deterministic_extractor",
+      "answer": "Not mentioned in context.",
+      "is_supported": false,
+      "latency_ms": 5.36,
+      "passed": true
+    },
+    {
+      "id": "tc7_disabled_pointer_fallback",
+      "query": "What is the capital of France?",
+      "origin": "deterministic_extractor",
+      "answer": "Paris",
+      "is_supported": true,
+      "latency_ms": 8.37,
+      "passed": true
+    },
+    {
+      "id": "tc8_oversized_query_safe_truncation",
+      "query": "query query query query query query query query query query ",
+      "origin": "neural_core",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-\n|-",
+      "is_supported": true,
+      "latency_ms": 3066.39,
+      "passed": true
+    }
+  ]
+}

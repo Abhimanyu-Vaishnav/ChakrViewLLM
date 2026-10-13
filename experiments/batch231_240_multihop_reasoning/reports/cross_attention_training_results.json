@@ -1,0 +1,68 @@
+{
+  "milestone": "Batches 234-236: Transparent Multi-Hop Baselines & Cross-Attention Results",
+  "timestamp": "2026-10-13T15:07:12Z",
+  "manifest_sha256": "b70b38a880e307be77d5eaa1df68bd86b977ad67a2f9d13a79e4b1b7e0939016",
+  "total_test_items": 100,
+  "cross_attention_loss_history": [
+    4.2287,
+    3.5542,
+    3.372
+  ],
+  "arms": [
+    {
+      "arm": "Arm A: Frozen Relation-Aware Pointer (TokenTrie)",
+      "mode": "trie",
+      "total": 100,
+      "exact_match_count": 50,
+      "exact_match_rate": 0.5,
+      "intermediate_hits": 30,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 419.22
+    },
+    {
+      "arm": "Arm B1: Cross-Attention Pointer (Greedy)",
+      "mode": "greedy_pointer",
+      "total": 100,
+      "exact_match_count": 33,
+      "exact_match_rate": 0.33,
+      "intermediate_hits": 13,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 446.78
+    },
+    {
+      "arm": "Arm B2: Cross-Attention Pointer (TokenTrie)",
+      "mode": "trie",
+      "total": 100,
+      "exact_match_count": 78,
+      "exact_match_rate": 0.78,
+      "intermediate_hits": 58,
+      "distractor_confusions": 7,
+      "abstention_correct": 20,
+      "avg_latency_ms": 387.94
+    },
+    {
+      "arm": "Arm C: Deterministic Slot Extractor",
+      "mode": "deterministic_graph",
+      "total": 100,
+      "exact_match_count": 20,
+      "exact_match_rate": 0.2,
+      "intermediate_hits": 0,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 0.14
+    },
+    {
+      "arm": "Arm D: BM25 Lexical Grounding",
+      "mode": "bm25",
+      "total": 100,
+      "exact_match_count": 55,
+      "exact_match_rate": 0.55,
+      "intermediate_hits": 35,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 0.03
+    }
+  ]
+}
