@@ -10,6 +10,7 @@ Features:
 """
 from __future__ import annotations
 
+from dataclasses import dataclass
 import math
 from typing import Dict, List, Optional, Tuple, Any
 import torch
@@ -96,3 +97,174 @@ class ChakrPointerHead(nn.Module):
         final_probs = (1.0 - gate) * vocab_probs + gate * copy_probs
 
         return final_probs, pointer_attn, gate
+
+
+@dataclass
+class BeamHypothesis:
+    """Represents an active search hypothesis in pointer beam decoding."""
+    token_ids: List[int]
+    log_prob: float
+    token_sources: List[str]  # "copy", "vocab", or "mixture"
+    completed: bool = False
+
+    @property
+    def score(self) -> float:
+        """Length-normalized log-probability score."""
+        length = max(len(self.token_ids), 1)
+        # Standard length penalty alpha = 0.7
+        return self.log_prob / (length ** 0.7)
+
+
+def decode_pointer_greedy(
+    model: nn.Module,
+    pointer_head: ChakrPointerHead,
+    prompt_ids: List[int],
+    context_start: int,
+    context_end: int,
+    max_new_tokens: int = 16,
+    eos_token_ids: Tuple[int, ...] = (1, 3),
+    device: Optional[torch.device] = None,
+) -> Tuple[List[int], List[str]]:
+    """
+    Greedy decoding using ChakrPointerHead.
+    Returns:
+        (generated_token_ids, token_attribution_list)
+    """
+    if device is None:
+        device = torch.device("cpu")
+
+    curr_tokens = list(prompt_ids)
+    gen_tokens: List[int] = []
+    attributions: List[str] = []
+
+    model.eval()
+    pointer_head.eval()
+
+    with torch.no_grad():
+        for _ in range(max_new_tokens):
+            x = torch.tensor([curr_tokens], dtype=torch.long, device=device)
+            T = x.shape[1]
+
+            # Build context mask
+            c_mask = [False] * T
+            for idx in range(min(context_start, T), min(context_end, T)):
+                c_mask[idx] = True
+            mask_t = torch.tensor([c_mask], dtype=torch.bool, device=device)
+
+            vocab_logits, hidden_states = model(x, return_hidden_states=True)
+            final_probs, attn, gate = pointer_head(hidden_states, x, vocab_logits, mask_t)
+
+            probs_step = final_probs[0, -1, :]
+            gate_val = gate[0, -1, 0].item()
+
+            next_tok = int(torch.argmax(probs_step).item())
+            if next_tok in eos_token_ids:
+                break
+
+            # Attribution
+            if gate_val > 0.6:
+                source = "copy"
+            elif gate_val < 0.2:
+                source = "vocab"
+            else:
+                source = "mixture"
+
+            gen_tokens.append(next_tok)
+            attributions.append(source)
+            curr_tokens.append(next_tok)
+
+    return gen_tokens, attributions
+
+
+def decode_pointer_beam(
+    model: nn.Module,
+    pointer_head: ChakrPointerHead,
+    prompt_ids: List[int],
+    context_start: int,
+    context_end: int,
+    beam_width: int = 3,
+    max_new_tokens: int = 16,
+    eos_token_ids: Tuple[int, ...] = (1, 3),
+    device: Optional[torch.device] = None,
+) -> Tuple[List[int], List[str]]:
+    """
+    Bounded Beam Search for ChakrPointerHead.
+    Supports beam_width=1 (equivalent to greedy) and beam_width > 1.
+    """
+    if device is None:
+        device = torch.device("cpu")
+
+    if beam_width <= 1:
+        return decode_pointer_greedy(
+            model=model,
+            pointer_head=pointer_head,
+            prompt_ids=prompt_ids,
+            context_start=context_start,
+            context_end=context_end,
+            max_new_tokens=max_new_tokens,
+            eos_token_ids=eos_token_ids,
+            device=device,
+        )
+
+    model.eval()
+    pointer_head.eval()
+
+    beams: List[BeamHypothesis] = [BeamHypothesis(token_ids=[], log_prob=0.0, token_sources=[], completed=False)]
+
+    with torch.no_grad():
+        for step in range(max_new_tokens):
+            all_candidates: List[BeamHypothesis] = []
+
+            for hyp in beams:
+                if hyp.completed:
+                    all_candidates.append(hyp)
+                    continue
+
+                full_seq = list(prompt_ids) + hyp.token_ids
+                x = torch.tensor([full_seq], dtype=torch.long, device=device)
+                T = x.shape[1]
+
+                c_mask = [False] * T
+                for idx in range(min(context_start, T), min(context_end, T)):
+                    c_mask[idx] = True
+                mask_t = torch.tensor([c_mask], dtype=torch.bool, device=device)
+
+                vocab_logits, hidden_states = model(x, return_hidden_states=True)
+                final_probs, _, gate = pointer_head(hidden_states, x, vocab_logits, mask_t)
+
+                probs_step = final_probs[0, -1, :]
+                gate_val = gate[0, -1, 0].item()
+
+                log_probs = torch.log(probs_step + 1e-12)
+                topk_log_probs, topk_indices = torch.topk(log_probs, k=beam_width)
+
+                for k_idx in range(beam_width):
+                    tok_id = int(topk_indices[k_idx].item())
+                    tok_log_p = float(topk_log_probs[k_idx].item())
+
+                    is_eos = tok_id in eos_token_ids
+                    if gate_val > 0.6:
+                        src = "copy"
+                    elif gate_val < 0.2:
+                        src = "vocab"
+                    else:
+                        src = "mixture"
+
+                    cand = BeamHypothesis(
+                        token_ids=hyp.token_ids if is_eos else hyp.token_ids + [tok_id],
+                        log_prob=hyp.log_prob + tok_log_p,
+                        token_sources=hyp.token_sources if is_eos else hyp.token_sources + [src],
+                        completed=is_eos,
+                    )
+                    all_candidates.append(cand)
+
+            # Prune to top beam_width
+            all_candidates.sort(key=lambda h: h.score, reverse=True)
+            beams = all_candidates[:beam_width]
+
+            if all(h.completed for h in beams):
+                break
+
+    best_beam = max(beams, key=lambda h: h.score)
+    return best_beam.token_ids, best_beam.token_sources
+

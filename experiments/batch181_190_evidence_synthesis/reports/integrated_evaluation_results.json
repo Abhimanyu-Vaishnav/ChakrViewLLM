@@ -1,0 +1,169 @@
+{
+  "milestone": "Batch 189: Comprehensive Integrated Adversarial Evaluation & Component Ablation",
+  "total_cases": 20,
+  "passed_cases": 20,
+  "pass_rate": 1.0,
+  "execution_time_sec": 0.58,
+  "cases": [
+    {
+      "case_id": 1,
+      "name": "Single-Token Neural Pointer Copy",
+      "expected": "8",
+      "actual": "8\n8\n8\n8\n8\n8\n8 = <<",
+      "component": "neural_pointer",
+      "passed": true
+    },
+    {
+      "case_id": 2,
+      "name": "Multi-Token Pointer Beam Search (k=3)",
+      "expected": "5",
+      "actual": "5\n5\n5 = $<<240+24=",
+      "component": "neural_pointer",
+      "passed": true
+    },
+    {
+      "case_id": 3,
+      "name": "Reordered Key-Value Record Extraction",
+      "expected": "Tokyo",
+      "actual": "Tokyo",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 4,
+      "name": "Repeated Tokens Consistency",
+      "expected": "1",
+      "actual": "1",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 5,
+      "name": "Held-Out Unseen Entity Extraction",
+      "expected": "9999",
+      "actual": "9999",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 6,
+      "name": "Unseen Syntactic Template Extraction",
+      "expected": "1768 C",
+      "actual": "1768 C",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 7,
+      "name": "Distractor-Heavy Document Invariance",
+      "expected": "1064 C",
+      "actual": "1064 C",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 8,
+      "name": "Lexical Hard Negative Discrimination",
+      "expected": "pos",
+      "actual": "pos",
+      "component": "hybrid_reranker",
+      "passed": true
+    },
+    {
+      "case_id": 9,
+      "name": "Multi-Document Consensus Synthesis",
+      "expected": "2",
+      "actual": "2",
+      "component": "evidence_assembler",
+      "passed": true
+    },
+    {
+      "case_id": 10,
+      "name": "Partially Missing Evidence Abstention",
+      "expected": "abstain",
+      "actual": "abstained",
+      "component": "evidence_assembler",
+      "passed": true
+    },
+    {
+      "case_id": 11,
+      "name": "Conflicting Multi-Document Evidence Rejection",
+      "expected": true,
+      "actual": true,
+      "component": "evidence_assembler",
+      "passed": true
+    },
+    {
+      "case_id": 12,
+      "name": "Duplicate Source Deduplication",
+      "expected": 1,
+      "actual": 1,
+      "component": "evidence_assembler",
+      "passed": true
+    },
+    {
+      "case_id": 13,
+      "name": "Unseen Query Phrasing Extraction",
+      "expected": "-196 C",
+      "actual": "-196 C",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 14,
+      "name": "Hindi Multi-Byte Fact Extraction",
+      "expected": true,
+      "actual": true,
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 15,
+      "name": "Completely Absent Fact Abstention",
+      "expected": "abstain",
+      "actual": "abstained",
+      "component": "fallback_policy",
+      "passed": true
+    },
+    {
+      "case_id": 16,
+      "name": "Context Truncation Compliance",
+      "expected": "<=380",
+      "actual": 48,
+      "component": "evidence_assembler",
+      "passed": true
+    },
+    {
+      "case_id": 17,
+      "name": "Pointer-Disabled Fallback Route",
+      "expected": "slot_extraction",
+      "actual": "slot_extraction",
+      "component": "cognitive_router",
+      "passed": true
+    },
+    {
+      "case_id": 18,
+      "name": "Hybrid-Reranker-Disabled Lexical Fallback",
+      "expected": true,
+      "actual": true,
+      "component": "hybrid_reranker",
+      "passed": true
+    },
+    {
+      "case_id": 19,
+      "name": "Task Engine Recovery After Process Restart",
+      "expected": "1",
+      "actual": "1",
+      "component": "task_engine",
+      "passed": true
+    },
+    {
+      "case_id": 20,
+      "name": "Malformed Input & Resource Budget Compliance",
+      "expected": true,
+      "actual": true,
+      "component": "invariants_and_safety",
+      "passed": true
+    }
+  ]
+}

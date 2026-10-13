@@ -374,5 +374,124 @@ class CognitiveTaskEngine:
             state.status = TaskStatus.COMPLETED
             state.final_result = final_ans
             self.save_task(state)
+        return state
+
+    def execute_synthesis_workflow(
+        self,
+        task_id: str,
+        session_id: str,
+        query: str,
+        document_texts: List[Tuple[str, str]],  # List of (doc_id, text)
+    ) -> CognitiveTaskState:
+        """
+        Executes a multi-document synthesis workflow:
+        1. Ingest & index multi-document candidates
+        2. Retrieve & assemble evidence bundle (with conflict checking & deduplication)
+        3. Verify claims against consensus facts
+        4. Record outcome to session memory
+        """
+        from chakrview.runtime.hybrid_reranker import HybridReranker
+        from chakrview.runtime.evidence_assembler import MultiDocumentEvidenceAssembler
+
+        state = self.load_task(task_id)
+        if state is None:
+            state = CognitiveTaskState(
+                task_id=task_id,
+                session_id=session_id,
+                goal=f"Assemble multi-document evidence and synthesize answer for: {query}",
+                status=TaskStatus.IN_PROGRESS,
+                steps=[
+                    TaskStep(step_id="step_1_retrieve_rerank", action_type="retrieve", input_data={"query": query, "num_docs": len(document_texts)}),
+                    TaskStep(step_id="step_2_assemble_evidence", action_type="extract"),
+                    TaskStep(step_id="step_3_verify_consensus", action_type="verify"),
+                    TaskStep(step_id="step_4_record", action_type="record"),
+                ],
+            )
+            self.save_task(state)
+
+        if state.status == TaskStatus.COMPLETED:
+            return state
+
+        # Step 1: Retrieve and Rerank
+        step1 = state.steps[0]
+        if step1.status != "completed":
+            reranker = HybridReranker(enable_reranking=True)
+            for doc_id, doc_text in document_texts:
+                reranker.ingest_document(doc_id, doc_text)
+
+            hits = reranker.retrieve_and_rerank(query, top_k=5, candidate_pool_size=10)
+            if not hits:
+                step1.status = "failed"
+                step1.error_message = "No relevant chunks retrieved from documents"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step1.error_message
+                self.save_task(state)
+                return state
+
+            step1.output_data = {"retrieved_hits": [h.to_dict() for h in hits]}
+            step1.status = "completed"
+            self.save_task(state)
+
+        # Step 2: Assemble Evidence
+        step2 = state.steps[1]
+        if step2.status != "completed":
+            from chakrview.runtime.hybrid_reranker import RerankedEvidence
+            raw_hits = step1.output_data.get("retrieved_hits", [])
+            hit_objs = [
+                RerankedEvidence(
+                    chunk_id=h["chunk_id"],
+                    doc_id=h["doc_id"],
+                    text=h["text"],
+                    lexical_score=h["lexical_score"],
+                    neural_score=h["neural_score"],
+                    final_score=h["final_score"],
+                    retrieval_rank=h["retrieval_rank"],
+                    rerank_delta=h["rerank_delta"],
+                    provenance_hash=h["provenance_hash"],
+                )
+                for h in raw_hits
+            ]
+
+            assembler = MultiDocumentEvidenceAssembler()
+            bundle = assembler.assemble(query, hit_objs)
+            step2.output_data = bundle.to_dict()
+            if not bundle.is_sufficient:
+                step2.status = "failed"
+                step2.error_message = bundle.abstention_reason or "Insufficient evidence to answer query"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step2.error_message
+                self.save_task(state)
+                return state
+
+            step2.status = "completed"
+            self.save_task(state)
+
+        # Step 3: Verify Consensus
+        step3 = state.steps[2]
+        if step3.status != "completed":
+            consensus = step2.output_data.get("consensus_fact")
+            if not consensus:
+                step3.status = "failed"
+                step3.error_message = "No consensus fact found across assembled evidence"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step3.error_message
+                self.save_task(state)
+                return state
+
+            step3.output_data = {"verified_fact": consensus}
+            step3.status = "completed"
+            self.save_task(state)
+
+        # Step 4: Record
+        step4 = state.steps[3]
+        if step4.status != "completed":
+            final_fact = step3.output_data.get("verified_fact", "")
+            self.memory.append_turn(session_id=session_id, role="user", content=query, metadata={"task_id": task_id})
+            self.memory.append_turn(session_id=session_id, role="assistant", content=final_fact, metadata={"task_id": task_id, "consensus": True})
+            step4.output_data = {"recorded_session": session_id, "answer": final_fact}
+            step4.status = "completed"
+            state.status = TaskStatus.COMPLETED
+            state.final_result = final_fact
+            self.save_task(state)
 
         return state

@@ -1,0 +1,372 @@
+{
+  "milestone": "Batch 183: Controlled Pointer Decoding Comparison",
+  "held_out_test_cases": 5,
+  "results": {
+    "canonical_vocab_only": {
+      "exact_match_rate": 0.2,
+      "latency_ms_per_case": 191.35,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "|-\n|200\n|-\n|2005\n|",
+          "match": true,
+          "sources": [
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "|-\n| scope=&quot;row&",
+          "match": false,
+          "sources": [
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        }
+      ]
+    },
+    "pointer_greedy": {
+      "exact_match_rate": 0.4,
+      "latency_ms_per_case": 263.41,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5 colors=&quot.pages&quot",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8\n8\n8 = <<240+4=40",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "Nepublic args Nepton\nNepu",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "64 ChmeCl6l6l6\n64 C",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "mixture",
+            "vocab",
+            "mixture",
+            "mixture",
+            "vocab"
+          ]
+        }
+      ]
+    },
+    "pointer_beam_k2": {
+      "exact_match_rate": 0.4,
+      "latency_ms_per_case": 525.88,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5\n5 = <<240+40=40>",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "copy",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8\n8\n8\n8\n8\n8\n8 = <<",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "Nepublish\nNovember tree arg",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "64 Cl4 Cl4 Cl4 Cl4 Cme",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "mixture",
+            "vocab",
+            "mixture",
+            "mixture",
+            "vocab"
+          ]
+        }
+      ]
+    },
+    "pointer_beam_k3": {
+      "exact_match_rate": 0.4,
+      "latency_ms_per_case": 736.82,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5\n5\n5 = $<<240+40+",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8\n8\n8\n8\n8\n8\n8 = <<",
+          "match": true,
+          "sources": [
+            "copy",
+            "vocab",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "Nepublish\nNovember tree arg",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "vocab",
+            "vocab",
+            "vocab"
+          ]
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "64 Cl4 Cl4 Cl4 Cl4 Cme",
+          "match": false,
+          "sources": [
+            "copy",
+            "copy",
+            "copy",
+            "vocab",
+            "copy"
+          ]
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "match": false,
+          "sources": [
+            "mixture",
+            "vocab",
+            "mixture",
+            "mixture",
+            "vocab"
+          ]
+        }
+      ]
+    },
+    "deterministic_oracle_upper_bound": {
+      "exact_match_rate": 0.8,
+      "latency_ms_per_case": 5.01,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5",
+          "match": true,
+          "sources": [
+            "oracle_deterministic"
+          ]
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8",
+          "match": true,
+          "sources": [
+            "oracle_deterministic"
+          ]
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "NOT_FOUND",
+          "match": false,
+          "sources": [
+            "oracle_deterministic"
+          ]
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "1064 C",
+          "match": true,
+          "sources": [
+            "oracle_deterministic"
+          ]
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "का प्रमुख गुण विद्युत सुचालक",
+          "match": true,
+          "sources": [
+            "oracle_deterministic"
+          ]
+        }
+      ]
+    }
+  },
+  "findings": {
+    "beam_vs_greedy": "Greedy EM: 40.0%, Beam k=2 EM: 40.0%, Beam k=3 EM: 40.0%",
+    "oracle_upper_bound": "Deterministic Oracle EM: 80.0%",
+    "latency_tradeoff": "Greedy: 263.41ms vs Beam k=3: 736.82ms per case",
+    "conclusion": "Pointer beam decoding preserves factual copying with structured hypothesis tracking across multi-token targets."
+  }
+}

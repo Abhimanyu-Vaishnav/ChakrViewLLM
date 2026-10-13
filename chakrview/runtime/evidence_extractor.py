@@ -58,12 +58,26 @@ class EvidenceExtractor:
             )
 
         # 1. English Key-Value extraction: "What is <key> of <entity>?" or "What is <key>?"
-        m_attr_of = re.search(r"What (?:is|was|are|were) (?:the\s+)?([A-Za-z0-9_-]+)\s+of\s+([A-Za-z0-9_-]+)\?", q_clean, re.IGNORECASE)
+        m_attr_of = re.search(r"What (?:is|was|are|were) (?:the\s+)?([A-Za-z0-9_-]+)\s+of\s+(?:the\s+)?([A-Za-z0-9_\s-]+)\?", q_clean, re.IGNORECASE)
         if m_attr_of:
             attr = m_attr_of.group(1).strip()
             entity = m_attr_of.group(2).strip()
+            # Check reordered table pattern: Property: <attr> | Entity: <entity> | Value: <val>
+            p_table = rf"(?:Property|Key):\s*{re.escape(attr)}\s*\|\s*Entity:\s*{re.escape(entity)}\s*\|\s*Value:\s*([^|.\n]+)"
+            m_tab = re.search(p_table, c_clean, re.IGNORECASE)
+            if not m_tab:
+                p_table2 = rf"Entity:\s*{re.escape(entity)}\s*\|\s*(?:Property|Key):\s*{re.escape(attr)}\s*\|\s*Value:\s*([^|.\n]+)"
+                m_tab = re.search(p_table2, c_clean, re.IGNORECASE)
+            if m_tab:
+                return ExtractionResult(
+                    success=True,
+                    extracted_value=m_tab.group(1).strip(),
+                    supporting_span=m_tab.group(0),
+                    confidence=0.98,
+                )
+
             # Try: "The <attr> of <entity> is <val>" or "<entity> has <attr> <val>" or "<entity> ... <attr> ... <val>"
-            p_cand = rf"(?:the\s+)?{re.escape(attr)}\s+of\s+{re.escape(entity)}\s+(?:is|was|=)\s*([^.,;\n]+)"
+            p_cand = rf"(?:the\s+)?{re.escape(attr)}\s+of\s+(?:the\s+)?{re.escape(entity)}\s+(?:is|was|=)\s*([^.,;\n]+)"
             m_c = re.search(p_cand, c_clean, re.IGNORECASE)
             if not m_c:
                 p_cand2 = rf"{re.escape(entity)}[^.\n]*?{re.escape(attr)}\s*(?:is|:|=)?\s*([^.,;\n]+)"
@@ -121,14 +135,17 @@ class EvidenceExtractor:
                     confidence=0.98,
                 )
 
-        m_temp = re.search(r"(?:melting|boiling) point of ([A-Za-z]+)", q_clean, re.IGNORECASE)
+        m_temp = re.search(r"(?:melting|boiling) point of (?:the\s+)?([A-Za-z0-9_\s-]+)\?", q_clean, re.IGNORECASE)
         if m_temp:
             elem = m_temp.group(1).strip()
-            p_temp = rf"{elem}[^.\n]*?(?:melting|boiling) point\s*(?:is)?\s*([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
+            p_temp = rf"(?:the\s+)?(?:measured\s+)?(?:melting|boiling) point\s+(?:of\s+(?:the\s+)?{re.escape(elem)}\s+)?(?:is|was|=)\s*([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
             m_t = re.search(p_temp, c_clean, re.IGNORECASE)
             if not m_t:
-                p_temp2 = rf"(?:melts|boils)\s+at\s+(?:a\s+temperature\s+of\s+)?([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
+                p_temp2 = rf"{elem}[^.\n]*?(?:melting|boiling) point\s*(?:is)?\s*([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
                 m_t = re.search(p_temp2, c_clean, re.IGNORECASE)
+            if not m_t:
+                p_temp3 = rf"(?:melts|boils)\s+at\s+(?:a\s+temperature\s+of\s+)?([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
+                m_t = re.search(p_temp3, c_clean, re.IGNORECASE)
             if m_t:
                 return ExtractionResult(
                     success=True,

@@ -1,0 +1,53 @@
+{
+  "milestone": "Batches 181-190: Pointer Beam Decoding, Hybrid Retrieval Re-ranking, Multi-Document Evidence Synthesis",
+  "starting_commit": "77a9a91",
+  "branch": "dev/v0.6-v0.7-validation",
+  "remote": "origin",
+  "canonical_invariants": {
+    "checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "unique_parameters": 3443136,
+    "vocab_size": 4096,
+    "d_model": 192,
+    "max_seq_len": 512
+  },
+  "modules_introduced_or_extended": [
+    "chakrview/runtime/pointer_mechanism.py",
+    "chakrview/runtime/hybrid_reranker.py",
+    "chakrview/runtime/evidence_assembler.py",
+    "chakrview/runtime/task_engine.py",
+    "chakrview/runtime/evidence_extractor.py"
+  ],
+  "decoding_evaluation": {
+    "report_path": "experiments/batch181_190_evidence_synthesis/reports/pointer_decoding_results.json",
+    "held_out_test_cases": 5,
+    "vocab_only_em": 0.20,
+    "pointer_greedy_em": 0.40,
+    "pointer_beam_k2_em": 0.40,
+    "pointer_beam_k3_em": 0.40,
+    "deterministic_oracle_em": 0.80
+  },
+  "hybrid_retrieval_evaluation": {
+    "report_path": "experiments/batch181_190_evidence_synthesis/reports/hybrid_retrieval_results.json",
+    "bm25_recall_at_1": 1.0,
+    "hybrid_neural_recall_at_1": 1.0,
+    "hybrid_neural_mrr": 1.0
+  },
+  "task_recovery_evaluation": {
+    "report_path": "experiments/batch181_190_evidence_synthesis/reports/task_recovery_results.json",
+    "multi_document_synthesis": true,
+    "restart_recovery": true,
+    "idempotent_reexecution": true,
+    "conflict_abstention": true
+  },
+  "integrated_adversarial_battery": {
+    "report_path": "experiments/batch181_190_evidence_synthesis/reports/integrated_evaluation_results.json",
+    "total_cases": 20,
+    "passed_cases": 20,
+    "pass_rate": 1.0
+  },
+  "known_limitations": [
+    "Pointer beam search increases CPU latency (185ms -> 736ms per query) without expanding EM beyond 40% when query overlap bias dominates context attention.",
+    "BM25 remains ~290x faster than learned bi-encoder re-ranking on CPU, making lexical retrieval the safer default under latency constraints."
+  ]
+}

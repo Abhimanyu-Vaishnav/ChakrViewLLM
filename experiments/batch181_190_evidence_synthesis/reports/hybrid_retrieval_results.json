@@ -1,0 +1,123 @@
+{
+  "milestone": "Batch 185: Hybrid Retrieval Training and Re-ranking Evaluation",
+  "held_out_queries": 4,
+  "systems": {
+    "bm25_lexical_alone": {
+      "name": "BM25_Lexical_Alone",
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "mean_reciprocal_rank": 1.0,
+      "latency_ms_per_query": 0.03,
+      "samples": [
+        {
+          "query": "What is the atomic number of Boron?",
+          "gold": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "found_rank": 1,
+          "top_hit": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "top_score": 1.0
+        },
+        {
+          "query": "What is the largest moon of Neptune?",
+          "gold": "Triton is the largest natural satellite of the planet Neptun",
+          "found_rank": 1,
+          "top_hit": "Triton is the largest natural satellite of the planet Neptun",
+          "top_score": 1.0
+        },
+        {
+          "query": "What is the melting point of Gold?",
+          "gold": "Pure gold melts at a temperature of 1064 C.",
+          "found_rank": 1,
+          "top_hit": "Pure gold melts at a temperature of 1064 C.",
+          "top_score": 1.0
+        },
+        {
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "gold": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "found_rank": 1,
+          "top_hit": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "top_score": 1.0
+        }
+      ]
+    },
+    "bm25_plus_hash_rerank": {
+      "name": "BM25_plus_DeterministicHash_Rerank",
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "mean_reciprocal_rank": 1.0,
+      "latency_ms_per_query": 0.21,
+      "samples": [
+        {
+          "query": "What is the atomic number of Boron?",
+          "gold": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "found_rank": 1,
+          "top_hit": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "top_score": 0.8921649136356156
+        },
+        {
+          "query": "What is the largest moon of Neptune?",
+          "gold": "Triton is the largest natural satellite of the planet Neptun",
+          "found_rank": 1,
+          "top_hit": "Triton is the largest natural satellite of the planet Neptun",
+          "top_score": 0.9412134267429189
+        },
+        {
+          "query": "What is the melting point of Gold?",
+          "gold": "Pure gold melts at a temperature of 1064 C.",
+          "found_rank": 1,
+          "top_hit": "Pure gold melts at a temperature of 1064 C.",
+          "top_score": 0.8424441389540192
+        },
+        {
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "gold": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "found_rank": 1,
+          "top_hit": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "top_score": 0.8478091443733757
+        }
+      ]
+    },
+    "bm25_plus_neural_rerank": {
+      "name": "BM25_plus_NeuralBiEncoder_Rerank",
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "mean_reciprocal_rank": 1.0,
+      "latency_ms_per_query": 4.3,
+      "samples": [
+        {
+          "query": "What is the atomic number of Boron?",
+          "gold": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "found_rank": 1,
+          "top_hit": "Boron is a metalloid with atomic number 5 and standard atomi",
+          "top_score": 0.9031239469604031
+        },
+        {
+          "query": "What is the largest moon of Neptune?",
+          "gold": "Triton is the largest natural satellite of the planet Neptun",
+          "found_rank": 1,
+          "top_hit": "Triton is the largest natural satellite of the planet Neptun",
+          "top_score": 0.9424746429085138
+        },
+        {
+          "query": "What is the melting point of Gold?",
+          "gold": "Pure gold melts at a temperature of 1064 C.",
+          "found_rank": 1,
+          "top_hit": "Pure gold melts at a temperature of 1064 C.",
+          "top_score": 0.8959472240152936
+        },
+        {
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "gold": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "found_rank": 1,
+          "top_hit": "चांदी सबसे अच्छा विद्युत सुचालक धातु है।",
+          "top_score": 0.9138215610576921
+        }
+      ]
+    }
+  },
+  "findings": {
+    "lexical_alone_mrr": 1.0,
+    "hybrid_neural_mrr": 1.0,
+    "latency_overhead": "BM25: 0.03ms vs Hybrid: 4.3ms",
+    "conclusion": "BM25 candidate generation achieves 100% recall on literal keyword queries. Hybrid neural re-ranking preserves top-1 precision while incorporating dense semantic scores."
+  }
+}
