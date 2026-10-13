@@ -1,0 +1,75 @@
+{
+  "batch": "Batch 147-150",
+  "milestone": "Context Binding, Extractive Learning, Grounded Answers & Safe Session Integration",
+  "base_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+  "base_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "dataset": {
+    "name": "ChakrView Context Binding v0.7",
+    "train_records": 24,
+    "val_records": 8,
+    "test_records": 8,
+    "leakage_status": "DISJOINT (0 hash overlap, 0 prompt overlap)"
+  },
+  "arms": [
+    {
+      "arm_id": "Arm_A_Baseline",
+      "description": "Canonical Step 10,000 without task fine-tuning",
+      "steps": 0,
+      "val_loss": 6.2976,
+      "test_loss": 6.0906,
+      "exact_match_rate": 0.0,
+      "stage_c_raw_loss": 3.3053,
+      "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    {
+      "arm_id": "Arm_B_Direct_SFT",
+      "description": "Direct Constant-LR SFT (60 steps, lr=5e-5)",
+      "steps": 60,
+      "val_loss": 1.3162,
+      "test_loss": 1.4706,
+      "exact_match_rate": 0.0,
+      "stage_c_raw_loss": 3.3558,
+      "checkpoint": "experiments/batch147_150_context_binding/checkpoints/arm_b_binding_sft.pt",
+      "sha256": "14b62ddbadeb2d74e8613a69dfe62972dc4cc0becedf5293a1b754b4c5ed1cf8"
+    },
+    {
+      "arm_id": "Arm_C_Warmup_Cosine_SFT",
+      "description": "Warmup 12 steps + Cosine Decay SFT (60 steps, peak=5e-5, min=5e-6)",
+      "steps": 60,
+      "val_loss": 1.7435,
+      "test_loss": 1.8777,
+      "exact_match_rate": 0.0,
+      "stage_c_raw_loss": 3.3296,
+      "checkpoint": "experiments/batch147_150_context_binding/checkpoints/arm_c_binding_warmup_cosine.pt",
+      "sha256": "58cff9fdec16f6767ee7408c0806b565c2822af312b70684c965602b59f76b2d"
+    },
+    {
+      "arm_id": "Arm_D_Conservative_SFT",
+      "description": "Conservative Low-LR SFT (60 steps, peak=2e-5, min=2e-6, warmup=12)",
+      "steps": 60,
+      "val_loss": 2.9803,
+      "test_loss": 3.0710,
+      "exact_match_rate": 0.0,
+      "stage_c_raw_loss": 3.3135,
+      "checkpoint": "experiments/batch147_150_context_binding/checkpoints/arm_d_binding_conservative.pt",
+      "sha256": "f91d07fb76709c36c2cc292ad1c6c2045ebb1d32722312094db46ad846d7c0d9"
+    },
+    {
+      "arm_id": "Arm_E_Deterministic_Baseline",
+      "description": "Deterministic Key-Value Parser Reference Extractor (Non-Neural)",
+      "steps": 0,
+      "val_loss": null,
+      "test_loss": null,
+      "exact_match_rate": 1.0,
+      "stage_c_raw_loss": null,
+      "checkpoint": null,
+      "sha256": null
+    }
+  ],
+  "verification": {
+    "canonical_baseline_unmutated": true,
+    "resumability_verified": true,
+    "user_session_diff_preserved": true
+  }
+}

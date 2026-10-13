@@ -1,0 +1,563 @@
+{
+  "Arm_A_Baseline": {
+    "validation": {
+      "loss": 6.2976,
+      "perplexity": 543.26,
+      "active_tokens": 118
+    },
+    "test": {
+      "loss": 6.0906,
+      "perplexity": 441.68,
+      "active_tokens": 127
+    },
+    "stage_c_retention": {
+      "raw_stage_c_loss": 3.3053,
+      "raw_stage_c_ppl": 27.26
+    },
+    "test_eval": {
+      "trials": [
+        {
+          "id": "TEST-DIR-01",
+          "category": "unseen_key_direct",
+          "context": "material is diamond.",
+          "query": "What is material?",
+          "expected": "diamond",
+          "generated": "|-\n|200\n|-\n|200\n|-",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-DIST-01",
+          "category": "unseen_distractor_first",
+          "context": "language is Sanskrit. vehicle is bicycle.",
+          "query": "What is language?",
+          "expected": "Sanskrit",
+          "generated": "|-\n|200\n|-\n|200\n|-",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-DIST-02",
+          "category": "unseen_distractor_second",
+          "context": "instrument is sitar. flower is lotus.",
+          "query": "What is flower?",
+          "expected": "lotus",
+          "generated": "|-\n| scope=&quot;row&",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-DIST-03",
+          "category": "unseen_three_kv",
+          "context": "author is Tagore. year is 1913. prize is Nobel.",
+          "query": "What is prize?",
+          "expected": "Nobel",
+          "generated": "|-\n| scope=&quot;row&",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-NL-01",
+          "category": "unseen_natural_sentence",
+          "context": "The spacecraft landed in the crater named Shackleton.",
+          "query": "What was the name of the crater where the spacecraft landed?",
+          "expected": "Shackleton",
+          "generated": "|-\n| scope=&quot;rowi",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-HI-01",
+          "category": "unseen_hindi_kv",
+          "context": "धातु: तांबा। पशु: गाय।",
+          "query": "धातु क्या है?",
+          "expected": "तांबा",
+          "generated": "|-\n| style=&quot;backg",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-NEG-01",
+          "category": "unseen_abstention",
+          "context": "mineral is quartz. continent is Asia.",
+          "query": "What is president?",
+          "expected": "Not mentioned in context.",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-NEG-02",
+          "category": "unseen_abstention",
+          "context": "The meeting was scheduled at Room 104.",
+          "query": "Who attended the meeting?",
+          "expected": "Not mentioned in context.",
+          "generated": "|-\n| scope=&quot;row&",
+          "is_match": false,
+          "terminated_eos": false
+        }
+      ],
+      "exact_match_count": 0,
+      "total_count": 8,
+      "exact_match_rate": 0.0,
+      "abstention_rate": 0.0,
+      "distractor_rate": 0.0
+    },
+    "metadata": {
+      "arm": "Arm A (Canonical Baseline)",
+      "steps": 0
+    }
+  },
+  "Arm_B_Direct_SFT": {
+    "validation": {
+      "loss": 1.3162,
+      "perplexity": 3.73,
+      "active_tokens": 118
+    },
+    "test": {
+      "loss": 1.4706,
+      "perplexity": 4.35,
+      "active_tokens": 127
+    },
+    "stage_c_retention": {
+      "raw_stage_c_loss": 3.3558,
+      "raw_stage_c_ppl": 28.67
+    },
+    "test_eval": {
+      "trials": [
+        {
+          "id": "TEST-DIR-01",
+          "category": "unseen_key_direct",
+          "context": "material is diamond.",
+          "query": "What is material?",
+          "expected": "diamond",
+          "generated": "Monday",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-01",
+          "category": "unseen_distractor_first",
+          "context": "language is Sanskrit. vehicle is bicycle.",
+          "query": "What is language?",
+          "expected": "Sanskrit",
+          "generated": "Monday",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-02",
+          "category": "unseen_distractor_second",
+          "context": "instrument is sitar. flower is lotus.",
+          "query": "What is flower?",
+          "expected": "lotus",
+          "generated": "elements",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-03",
+          "category": "unseen_three_kv",
+          "context": "author is Tagore. year is 1913. prize is Nobel.",
+          "query": "What is prize?",
+          "expected": "Nobel",
+          "generated": "Monday",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NL-01",
+          "category": "unseen_natural_sentence",
+          "context": "The spacecraft landed in the crater named Shackleton.",
+          "query": "What was the name of the crater where the spacecraft landed?",
+          "expected": "Shackleton",
+          "generated": "blue",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-HI-01",
+          "category": "unseen_hindi_kv",
+          "context": "धातु: तांबा। पशु: गाय।",
+          "query": "धातु क्या है?",
+          "expected": "तांबा",
+          "generated": "वर्षा",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NEG-01",
+          "category": "unseen_abstention",
+          "context": "mineral is quartz. continent is Asia.",
+          "query": "What is president?",
+          "expected": "Not mentioned in context.",
+          "generated": "red",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NEG-02",
+          "category": "unseen_abstention",
+          "context": "The meeting was scheduled at Room 104.",
+          "query": "Who attended the meeting?",
+          "expected": "Not mentioned in context.",
+          "generated": "red",
+          "is_match": false,
+          "terminated_eos": true
+        }
+      ],
+      "exact_match_count": 0,
+      "total_count": 8,
+      "exact_match_rate": 0.0,
+      "abstention_rate": 0.0,
+      "distractor_rate": 0.0
+    },
+    "metadata": {
+      "arm": "Arm B (Direct SFT)",
+      "steps": 60,
+      "elapsed_seconds": 3.85,
+      "checkpoint_path": "experiments\\batch147_150_context_binding\\checkpoints\\arm_b_binding_sft.pt",
+      "checkpoint_sha256": "14b62ddbadeb2d74e8613a69dfe62972dc4cc0becedf5293a1b754b4c5ed1cf8",
+      "final_train_loss": 0.807
+    }
+  },
+  "Arm_C_Warmup_Cosine_SFT": {
+    "validation": {
+      "loss": 1.7435,
+      "perplexity": 5.72,
+      "active_tokens": 118
+    },
+    "test": {
+      "loss": 1.8777,
+      "perplexity": 6.54,
+      "active_tokens": 127
+    },
+    "stage_c_retention": {
+      "raw_stage_c_loss": 3.3296,
+      "raw_stage_c_ppl": 27.93
+    },
+    "test_eval": {
+      "trials": [
+        {
+          "id": "TEST-DIR-01",
+          "category": "unseen_key_direct",
+          "context": "material is diamond.",
+          "query": "What is material?",
+          "expected": "diamond",
+          "generated": "Beignment\n|-\nreference",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-01",
+          "category": "unseen_distractor_first",
+          "context": "language is Sanskrit. vehicle is bicycle.",
+          "query": "What is language?",
+          "expected": "Sanskrit",
+          "generated": "Beignment\n|-",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-02",
+          "category": "unseen_distractor_second",
+          "context": "instrument is sitar. flower is lotus.",
+          "query": "What is flower?",
+          "expected": "lotus",
+          "generated": "Beignment\n|-",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-03",
+          "category": "unseen_three_kv",
+          "context": "author is Tagore. year is 1913. prize is Nobel.",
+          "query": "What is prize?",
+          "expected": "Nobel",
+          "generated": "Beeggled = <<\nBCEDI",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-NL-01",
+          "category": "unseen_natural_sentence",
+          "context": "The spacecraft landed in the crater named Shackleton.",
+          "query": "What was the name of the crater where the spacecraft landed?",
+          "expected": "Shackleton",
+          "generated": "Andronia\nAndrone = <",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-HI-01",
+          "category": "unseen_hindi_kv",
+          "context": "धातु: तांबा। पशु: गाय।",
+          "query": "धातु क्या है?",
+          "expected": "तांबा",
+          "generated": "वरी |im_end|>",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NEG-01",
+          "category": "unseen_abstention",
+          "context": "mineral is quartz. continent is Asia.",
+          "query": "What is president?",
+          "expected": "Not mentioned in context.",
+          "generated": "Books\nAndrong\nAnd",
+          "is_match": false,
+          "terminated_eos": false
+        },
+        {
+          "id": "TEST-NEG-02",
+          "category": "unseen_abstention",
+          "context": "The meeting was scheduled at Room 104.",
+          "query": "Who attended the meeting?",
+          "expected": "Not mentioned in context.",
+          "generated": "Beignment\nAndrina is the tot",
+          "is_match": false,
+          "terminated_eos": false
+        }
+      ],
+      "exact_match_count": 0,
+      "total_count": 8,
+      "exact_match_rate": 0.0,
+      "abstention_rate": 0.0,
+      "distractor_rate": 0.0
+    },
+    "metadata": {
+      "arm": "Arm C (Warmup Cosine SFT)",
+      "steps": 60,
+      "elapsed_seconds": 3.61,
+      "checkpoint_path": "experiments\\batch147_150_context_binding\\checkpoints\\arm_c_binding_warmup_cosine.pt",
+      "checkpoint_sha256": "58cff9fdec16f6767ee7408c0806b565c2822af312b70684c965602b59f76b2d",
+      "final_train_loss": 1.2686
+    }
+  },
+  "Arm_D_Conservative_SFT": {
+    "validation": {
+      "loss": 2.9803,
+      "perplexity": 19.69,
+      "active_tokens": 118
+    },
+    "test": {
+      "loss": 3.071,
+      "perplexity": 21.56,
+      "active_tokens": 127
+    },
+    "stage_c_retention": {
+      "raw_stage_c_loss": 3.3135,
+      "raw_stage_c_ppl": 27.48
+    },
+    "test_eval": {
+      "trials": [
+        {
+          "id": "TEST-DIR-01",
+          "category": "unseen_key_direct",
+          "context": "material is diamond.",
+          "query": "What is material?",
+          "expected": "diamond",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-01",
+          "category": "unseen_distractor_first",
+          "context": "language is Sanskrit. vehicle is bicycle.",
+          "query": "What is language?",
+          "expected": "Sanskrit",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-02",
+          "category": "unseen_distractor_second",
+          "context": "instrument is sitar. flower is lotus.",
+          "query": "What is flower?",
+          "expected": "lotus",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-DIST-03",
+          "category": "unseen_three_kv",
+          "context": "author is Tagore. year is 1913. prize is Nobel.",
+          "query": "What is prize?",
+          "expected": "Nobel",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NL-01",
+          "category": "unseen_natural_sentence",
+          "context": "The spacecraft landed in the crater named Shackleton.",
+          "query": "What was the name of the crater where the spacecraft landed?",
+          "expected": "Shackleton",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-HI-01",
+          "category": "unseen_hindi_kv",
+          "context": "धातु: तांबा। पशु: गाय।",
+          "query": "धातु क्या है?",
+          "expected": "तांबा",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NEG-01",
+          "category": "unseen_abstention",
+          "context": "mineral is quartz. continent is Asia.",
+          "query": "What is president?",
+          "expected": "Not mentioned in context.",
+          "generated": "",
+          "is_match": false,
+          "terminated_eos": true
+        },
+        {
+          "id": "TEST-NEG-02",
+          "category": "unseen_abstention",
+          "context": "The meeting was scheduled at Room 104.",
+          "query": "Who attended the meeting?",
+          "expected": "Not mentioned in context.",
+          "generated": "So the total number of the total number of the numb",
+          "is_match": false,
+          "terminated_eos": false
+        }
+      ],
+      "exact_match_count": 0,
+      "total_count": 8,
+      "exact_match_rate": 0.0,
+      "abstention_rate": 0.0,
+      "distractor_rate": 0.0
+    },
+    "metadata": {
+      "arm": "Arm D (Conservative SFT)",
+      "steps": 60,
+      "elapsed_seconds": 4.23,
+      "checkpoint_path": "experiments\\batch147_150_context_binding\\checkpoints\\arm_d_binding_conservative.pt",
+      "checkpoint_sha256": "f91d07fb76709c36c2cc292ad1c6c2045ebb1d32722312094db46ad846d7c0d9",
+      "final_train_loss": 2.4633
+    }
+  },
+  "Arm_E_Deterministic_Baseline": {
+    "metadata": {
+      "arm": "Arm E (Deterministic Extractor)",
+      "method": "regex_heuristic"
+    },
+    "exact_match_count": 8,
+    "total_count": 8,
+    "exact_match_rate": 1.0,
+    "trials": [
+      {
+        "id": "TEST-DIR-01",
+        "context": "material is diamond.",
+        "query": "What is material?",
+        "expected": "diamond",
+        "extracted": "diamond",
+        "is_match": true
+      },
+      {
+        "id": "TEST-DIST-01",
+        "context": "language is Sanskrit. vehicle is bicycle.",
+        "query": "What is language?",
+        "expected": "Sanskrit",
+        "extracted": "Sanskrit",
+        "is_match": true
+      },
+      {
+        "id": "TEST-DIST-02",
+        "context": "instrument is sitar. flower is lotus.",
+        "query": "What is flower?",
+        "expected": "lotus",
+        "extracted": "lotus",
+        "is_match": true
+      },
+      {
+        "id": "TEST-DIST-03",
+        "context": "author is Tagore. year is 1913. prize is Nobel.",
+        "query": "What is prize?",
+        "expected": "Nobel",
+        "extracted": "Nobel",
+        "is_match": true
+      },
+      {
+        "id": "TEST-NL-01",
+        "context": "The spacecraft landed in the crater named Shackleton.",
+        "query": "What was the name of the crater where the spacecraft landed?",
+        "expected": "Shackleton",
+        "extracted": "Shackleton",
+        "is_match": true
+      },
+      {
+        "id": "TEST-HI-01",
+        "context": "धातु: तांबा। पशु: गाय।",
+        "query": "धातु क्या है?",
+        "expected": "तांबा",
+        "extracted": "तांबा",
+        "is_match": true
+      },
+      {
+        "id": "TEST-NEG-01",
+        "context": "mineral is quartz. continent is Asia.",
+        "query": "What is president?",
+        "expected": "Not mentioned in context.",
+        "extracted": "Not mentioned in context.",
+        "is_match": true
+      },
+      {
+        "id": "TEST-NEG-02",
+        "context": "The meeting was scheduled at Room 104.",
+        "query": "Who attended the meeting?",
+        "expected": "Not mentioned in context.",
+        "extracted": "Not mentioned in context.",
+        "is_match": true
+      }
+    ]
+  },
+  "resume_verification": {
+    "status": "PASSED",
+    "loss_match": true
+  },
+  "grounded_qa_pipeline": {
+    "grounded_qa_trials": [
+      {
+        "query": "What is the atomic number of Carbon?",
+        "retrieved_context": "The atomic number of Carbon is 6 and its standard atomic weight is 12.011.",
+        "retrieval_score": 0.8279,
+        "expected_answer": "6",
+        "has_support": true,
+        "neural_generated": "Bird of the total number of the number of the",
+        "deterministic_extracted": "Not mentioned in context.",
+        "deterministic_match": false
+      },
+      {
+        "query": "In which state is the Thar Desert located?",
+        "retrieved_context": "The Thar Desert is located primarily in Rajasthan, India.",
+        "retrieval_score": 0.8157,
+        "expected_answer": "Rajasthan",
+        "has_support": true,
+        "neural_generated": "Bighbooks\nAndronday",
+        "deterministic_extracted": "Not mentioned in context.",
+        "deterministic_match": false
+      },
+      {
+        "query": "Who discovered penicillin?",
+        "retrieved_context": "None",
+        "retrieval_score": 0.0601,
+        "expected_answer": "Not mentioned in context.",
+        "has_support": false,
+        "neural_generated": "Beignment\nAndronia\nA",
+        "deterministic_extracted": "Not mentioned in context.",
+        "deterministic_match": true
+      }
+    ]
+  }
+}
