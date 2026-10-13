@@ -1,0 +1,96 @@
+{
+  "batch": "Batch 139-142",
+  "milestone": "Neural-Core Recovery & Capability Growth",
+  "parent_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+  "parent_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "base_architecture": {
+    "model": "ChakrMicro",
+    "params": 3443136,
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "head_dim": 32,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "initialization_weight_hash_seed42": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "dataset": {
+    "corpus": "Stage C binary shards",
+    "train_shards": 27,
+    "validation_shards": 2,
+    "test_shards": 3,
+    "leakage_status": "DISJOINT (0 document overlap)"
+  },
+  "arms": [
+    {
+      "arm_id": "Arm_A_Baseline",
+      "description": "Canonical Step 10,000 checkpoint without further training",
+      "steps": 0,
+      "tokens": 0,
+      "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "val_loss": 3.2441,
+      "val_ppl": 25.64,
+      "test_loss": 3.0721,
+      "test_ppl": 21.59,
+      "test_code_loss": 2.7540
+    },
+    {
+      "arm_id": "Arm_B_Replicated_Pilot",
+      "description": "Replicated Batch 135-138 pilot (100 steps, constant LR 3e-4, balanced sampling)",
+      "steps": 100,
+      "tokens": 51200,
+      "peak_lr": 0.0003,
+      "min_lr": 0.0003,
+      "warmup_steps": 0,
+      "sampling_mode": "balanced",
+      "checkpoint": "experiments/batch139_142_neural_core_recovery/checkpoints/arm_b_replicated_pilot.pt",
+      "sha256": "585e91500b032d96978a1df50278e4454fb22e8a80c64ebdf009291346b97b07",
+      "val_loss": 3.3643,
+      "val_ppl": 28.91,
+      "test_loss": 3.1936,
+      "test_ppl": 24.38,
+      "test_code_loss": 2.8584
+    },
+    {
+      "arm_id": "Arm_C_Warmup_Cosine_Natural",
+      "description": "Warmup 50 steps (0->1.5e-4) + Cosine Decay to 2e-5 (250 steps, natural uniform sampling)",
+      "steps": 250,
+      "tokens": 128000,
+      "peak_lr": 0.00015,
+      "min_lr": 0.00002,
+      "warmup_steps": 50,
+      "sampling_mode": "natural",
+      "checkpoint": "experiments/batch139_142_neural_core_recovery/checkpoints/arm_c_warmup_cosine_natural.pt",
+      "sha256": "0a3079471348601eabc719d227af3e207d91f799e16502b51e03c45e95de9b47",
+      "val_loss": 3.2534,
+      "val_ppl": 25.88,
+      "test_loss": 3.0896,
+      "test_ppl": 21.97,
+      "test_code_loss": 2.7719
+    },
+    {
+      "arm_id": "Arm_D_Warmup_Cosine_Balanced",
+      "description": "Warmup 50 steps (0->1.5e-4) + Cosine Decay to 2e-5 (250 steps, balanced 50% Indic sampling)",
+      "steps": 250,
+      "tokens": 128000,
+      "peak_lr": 0.00015,
+      "min_lr": 0.00002,
+      "warmup_steps": 50,
+      "sampling_mode": "balanced",
+      "checkpoint": "experiments/batch139_142_neural_core_recovery/checkpoints/arm_d_warmup_cosine_balanced.pt",
+      "sha256": "0631ba654a3f0091251e9a72a9321f0ebeb4a9aaa0625fc22318266c8166d87e",
+      "val_loss": 3.2614,
+      "val_ppl": 26.09,
+      "test_loss": 3.0776,
+      "test_ppl": 21.71,
+      "test_code_loss": 2.7526
+    }
+  ],
+  "verification": {
+    "resumability_verified": true,
+    "canonical_checkpoint_unmutated": true,
+    "user_session_diff_preserved": true
+  }
+}

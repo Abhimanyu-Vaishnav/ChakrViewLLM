@@ -1,0 +1,339 @@
+{
+  "Arm_A_Baseline": {
+    "validation": {
+      "loss": 3.2441,
+      "perplexity": 25.64,
+      "tokens_evaluated": 10240
+    },
+    "test_global": {
+      "loss": 3.0721,
+      "perplexity": 21.59,
+      "tokens_evaluated": 10240
+    },
+    "test_domains": {
+      "english": {
+        "loss": 3.197,
+        "perplexity": 24.46,
+        "tokens_evaluated": 10240
+      },
+      "hindi": {
+        "loss": 3.0569,
+        "perplexity": 21.26,
+        "tokens_evaluated": 10240
+      },
+      "code": {
+        "loss": 2.754,
+        "perplexity": 15.71,
+        "tokens_evaluated": 10240
+      }
+    },
+    "generation": {
+      "prompts": {
+        "english": {
+          "prompt": "The development of modern science began with",
+          "generated": "in the world of the world. \n\nThe remaining the word of the world of the world of the",
+          "full_text": "The development of modern science began with in the world of the world. \n\nThe remaining the word of the world of the world of the",
+          "metrics": {
+            "repetition_3gram": 0.4,
+            "unique_token_ratio": 0.4062
+          }
+        },
+        "code": {
+          "prompt": "def binary_search(arr, target):",
+          "generated": "\"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+          "full_text": "def binary_search(arr, target): \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+          "metrics": {
+            "repetition_3gram": 0.2333,
+            "unique_token_ratio": 0.625
+          }
+        },
+        "reasoning": {
+          "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+          "generated": "points in the centre of the city of the city of the city of the city of the city of the",
+          "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the centre of the city of the city of the city of the city of the city of the",
+          "metrics": {
+            "repetition_3gram": 0.5333,
+            "unique_token_ratio": 0.375
+          }
+        },
+        "hindi": {
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "generated": "राज्य का अपनी महाराष्ट्रीय क्षेत्र के बाद दोनों में माना जाता है।\n\nइ",
+          "full_text": "भारत एक विशाल और विविधतापूर्ण राज्य का अपनी महाराष्ट्रीय क्षेत्र के बाद दोनों में माना जाता है।\n\nइ",
+          "metrics": {
+            "repetition_3gram": 0.0,
+            "unique_token_ratio": 0.9375
+          }
+        }
+      },
+      "global_metrics": {
+        "repetition_3gram": 0.2778,
+        "unique_token_ratio": 0.5391
+      }
+    },
+    "metadata": {
+      "arm": "Arm A (Canonical Baseline)",
+      "checkpoint_path": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+      "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "steps": 0,
+      "tokens_processed": 0
+    }
+  },
+  "Arm_B_Replicated_Pilot": {
+    "validation": {
+      "loss": 3.3643,
+      "perplexity": 28.91,
+      "tokens_evaluated": 10240
+    },
+    "test_global": {
+      "loss": 3.1936,
+      "perplexity": 24.38,
+      "tokens_evaluated": 10240
+    },
+    "test_domains": {
+      "english": {
+        "loss": 3.3059,
+        "perplexity": 27.27,
+        "tokens_evaluated": 10240
+      },
+      "hindi": {
+        "loss": 3.1654,
+        "perplexity": 23.7,
+        "tokens_evaluated": 10240
+      },
+      "code": {
+        "loss": 2.8584,
+        "perplexity": 17.43,
+        "tokens_evaluated": 10240
+      }
+    },
+    "generation": {
+      "prompts": {
+        "english": {
+          "prompt": "The development of modern science began with",
+          "generated": "in the first of the first of the first of the first of the first of the first of the",
+          "full_text": "The development of modern science began with in the first of the first of the first of the first of the first of the first of the",
+          "metrics": {
+            "repetition_3gram": 0.8,
+            "unique_token_ratio": 0.1875
+          }
+        },
+        "code": {
+          "prompt": "def binary_search(arr, target):",
+          "generated": "\"\"\"\n    if not None:\n        if self._conversion_conversion(\"\\n\")\n        if not",
+          "full_text": "def binary_search(arr, target): \"\"\"\n    if not None:\n        if self._conversion_conversion(\"\\n\")\n        if not",
+          "metrics": {
+            "repetition_3gram": 0.1333,
+            "unique_token_ratio": 0.5938
+          }
+        },
+        "reasoning": {
+          "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+          "generated": "points in the centron. The first of the centre of the centre of the cent",
+          "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the centron. The first of the centre of the centre of the cent",
+          "metrics": {
+            "repetition_3gram": 0.3333,
+            "unique_token_ratio": 0.5312
+          }
+        },
+        "hindi": {
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "generated": "राज्य का पुत्र दो दो दो दो दो दो दो दो �",
+          "full_text": "भारत एक विशाल और विविधतापूर्ण राज्य का पुत्र दो दो दो दो दो दो दो दो �",
+          "metrics": {
+            "repetition_3gram": 0.6667,
+            "unique_token_ratio": 0.3125
+          }
+        }
+      },
+      "global_metrics": {
+        "repetition_3gram": 0.4841,
+        "unique_token_ratio": 0.3594
+      }
+    },
+    "metadata": {
+      "arm": "Arm B (Replicated Pilot)",
+      "steps": 100,
+      "tokens_processed": 51200,
+      "elapsed_seconds": 76.22,
+      "throughput_tok_per_sec": 671.7,
+      "checkpoint_path": "experiments\\batch139_142_neural_core_recovery\\checkpoints\\arm_b_replicated_pilot.pt",
+      "checkpoint_sha256": "585e91500b032d96978a1df50278e4454fb22e8a80c64ebdf009291346b97b07",
+      "final_train_loss": 3.151,
+      "final_lr": 0.0003
+    }
+  },
+  "Arm_C_Warmup_Cosine_Natural": {
+    "validation": {
+      "loss": 3.2534,
+      "perplexity": 25.88,
+      "tokens_evaluated": 10240
+    },
+    "test_global": {
+      "loss": 3.0896,
+      "perplexity": 21.97,
+      "tokens_evaluated": 10240
+    },
+    "test_domains": {
+      "english": {
+        "loss": 3.2002,
+        "perplexity": 24.54,
+        "tokens_evaluated": 10240
+      },
+      "hindi": {
+        "loss": 3.072,
+        "perplexity": 21.59,
+        "tokens_evaluated": 10240
+      },
+      "code": {
+        "loss": 2.7719,
+        "perplexity": 15.99,
+        "tokens_evaluated": 10240
+      }
+    },
+    "generation": {
+      "prompts": {
+        "english": {
+          "prompt": "The development of modern science began with",
+          "generated": "to be a list of the world of the world of the world of the world of the world of",
+          "full_text": "The development of modern science began with to be a list of the world of the world of the world of the world of the world of",
+          "metrics": {
+            "repetition_3gram": 0.6333,
+            "unique_token_ratio": 0.3438
+          }
+        },
+        "code": {
+          "prompt": "def binary_search(arr, target):",
+          "generated": "\"\"\"\n    if not None:\n        if not None:\n        if not None:\n            return self._point_",
+          "full_text": "def binary_search(arr, target): \"\"\"\n    if not None:\n        if not None:\n        if not None:\n            return self._point_",
+          "metrics": {
+            "repetition_3gram": 0.3667,
+            "unique_token_ratio": 0.5
+          }
+        },
+        "reasoning": {
+          "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+          "generated": "points in the world of the world of the world of the world of the world of the wor",
+          "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the world of the world of the world of the world of the world of the wor",
+          "metrics": {
+            "repetition_3gram": 0.6667,
+            "unique_token_ratio": 0.3125
+          }
+        },
+        "hindi": {
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "generated": "राज्य में महाराजा महाराजा महाराजा महाद्वीप में महाराजा म",
+          "full_text": "भारत एक विशाल और विविधतापूर्ण राज्य में महाराजा महाराजा महाराजा महाद्वीप में महाराजा म",
+          "metrics": {
+            "repetition_3gram": 0.5,
+            "unique_token_ratio": 0.375
+          }
+        }
+      },
+      "global_metrics": {
+        "repetition_3gram": 0.5556,
+        "unique_token_ratio": 0.3359
+      }
+    },
+    "metadata": {
+      "arm": "Arm C (Warmup+Cosine Natural)",
+      "steps": 250,
+      "tokens_processed": 128000,
+      "elapsed_seconds": 89.39,
+      "throughput_tok_per_sec": 1431.9,
+      "checkpoint_path": "experiments\\batch139_142_neural_core_recovery\\checkpoints\\arm_c_warmup_cosine_natural.pt",
+      "checkpoint_sha256": "0a3079471348601eabc719d227af3e207d91f799e16502b51e03c45e95de9b47",
+      "final_train_loss": 2.5672,
+      "final_lr": 2e-05
+    }
+  },
+  "Arm_D_Warmup_Cosine_Balanced": {
+    "validation": {
+      "loss": 3.2614,
+      "perplexity": 26.09,
+      "tokens_evaluated": 10240
+    },
+    "test_global": {
+      "loss": 3.0776,
+      "perplexity": 21.71,
+      "tokens_evaluated": 10240
+    },
+    "test_domains": {
+      "english": {
+        "loss": 3.2062,
+        "perplexity": 24.69,
+        "tokens_evaluated": 10240
+      },
+      "hindi": {
+        "loss": 3.0586,
+        "perplexity": 21.3,
+        "tokens_evaluated": 10240
+      },
+      "code": {
+        "loss": 2.7526,
+        "perplexity": 15.68,
+        "tokens_evaluated": 10240
+      }
+    },
+    "generation": {
+      "prompts": {
+        "english": {
+          "prompt": "The development of modern science began with",
+          "generated": "in the first of the first of the first of the first of the first of the first of the",
+          "full_text": "The development of modern science began with in the first of the first of the first of the first of the first of the first of the",
+          "metrics": {
+            "repetition_3gram": 0.8,
+            "unique_token_ratio": 0.1875
+          }
+        },
+        "code": {
+          "prompt": "def binary_search(arr, target):",
+          "generated": "print(\"\\n\")\n    print(\"\\n\")\n    print(\"\\n\")\n    print(\"\\n\")",
+          "full_text": "def binary_search(arr, target): print(\"\\n\")\n    print(\"\\n\")\n    print(\"\\n\")\n    print(\"\\n\")",
+          "metrics": {
+            "repetition_3gram": 0.7333,
+            "unique_token_ratio": 0.2188
+          }
+        },
+        "reasoning": {
+          "prompt": "If all mammals are warm-blooded and a whale is a mammal, then",
+          "generated": "points in the show. The first of the shows was the showing the show",
+          "full_text": "If all mammals are warm-blooded and a whale is a mammal, then points in the show. The first of the shows was the showing the show",
+          "metrics": {
+            "repetition_3gram": 0.2,
+            "unique_token_ratio": 0.5625
+          }
+        },
+        "hindi": {
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "generated": "राज्य का अपनी महाना जाता है।\n\nइन्हें भी देखें\n* दोनों �",
+          "full_text": "भारत एक विशाल और विविधतापूर्ण राज्य का अपनी महाना जाता है।\n\nइन्हें भी देखें\n* दोनों �",
+          "metrics": {
+            "repetition_3gram": 0.0,
+            "unique_token_ratio": 0.9062
+          }
+        }
+      },
+      "global_metrics": {
+        "repetition_3gram": 0.4365,
+        "unique_token_ratio": 0.4141
+      }
+    },
+    "metadata": {
+      "arm": "Arm D (Warmup+Cosine Balanced)",
+      "steps": 250,
+      "tokens_processed": 128000,
+      "elapsed_seconds": 101.0,
+      "throughput_tok_per_sec": 1267.3,
+      "checkpoint_path": "experiments\\batch139_142_neural_core_recovery\\checkpoints\\arm_d_warmup_cosine_balanced.pt",
+      "checkpoint_sha256": "0631ba654a3f0091251e9a72a9321f0ebeb4a9aaa0625fc22318266c8166d87e",
+      "final_train_loss": 2.7455,
+      "final_lr": 2e-05
+    }
+  },
+  "resume_verification": {
+    "status": "PASSED",
+    "tested_checkpoint": "experiments\\batch139_142_neural_core_recovery\\checkpoints\\arm_c_warmup_cosine_natural.pt",
+    "loss_match": true
+  }
+}
