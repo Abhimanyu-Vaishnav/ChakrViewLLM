@@ -1,0 +1,348 @@
+{
+  "Arm_A_Baseline": {
+    "val_instruction": {
+      "loss": 5.4594,
+      "perplexity": 234.96,
+      "active_tokens_evaluated": 126
+    },
+    "test_instruction": {
+      "loss": 5.0877,
+      "perplexity": 162.02,
+      "active_tokens_evaluated": 182
+    },
+    "stage_c_retention": {
+      "stage_c_raw_loss": 3.3053,
+      "stage_c_raw_ppl": 27.26,
+      "tokens_evaluated": 5120
+    },
+    "generations": [
+      {
+        "id": "TEST-EN-001",
+        "domain": "english",
+        "query": "What is the capital of Germany?",
+        "expected": "The capital of Germany is Berlin.",
+        "generated": "|-\n|200\n|200\n|2005\n|-\n|2005\n|2005\n|200",
+        "repetition_3gram": 0.6667,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-CODE-001",
+        "domain": "code",
+        "query": "Write a Python function that returns the absolute value of a number.",
+        "expected": "def get_abs(n):\n    return abs(n)",
+        "generated": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=",
+        "repetition_3gram": 0.3,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-MATH-001",
+        "domain": "mathematics",
+        "query": "Calculate: 45 + 55",
+        "expected": "45 + 55 = 100",
+        "generated": "|-\n|200/200||Premier League||\n|-\n|2005/01||",
+        "repetition_3gram": 0.1333,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-HI-001",
+        "domain": "hindi",
+        "query": "भारत का राष्ट्रीय पशु कौन सा है?",
+        "expected": "भारत का राष्ट्रीय पशु बाघ है।",
+        "generated": "|-\n|200\n|200\n|2005\n|-\n|2005\n|-\n|2005",
+        "repetition_3gram": 0.6667,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-001",
+        "domain": "science",
+        "query": "Context: Mitochondria are known as the powerhouses of the cell because they generate most of the chemical energy needed by the cell.\nQuestion: Why are mitochondria called the powerhouses of the cell according to the context?",
+        "expected": "According to the context, mitochondria are called the powerhouses of the cell because they generate most of the chemical energy needed by the cell.",
+        "generated": "|-\n| scope=&quot;rowikilow the first of the first of the son",
+        "repetition_3gram": 0.1333,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-NEG-001",
+        "domain": "science",
+        "query": "Context: Copper is a ductile metal with very high thermal and electrical conductivity.\nQuestion: What is the melting point of copper according to the context?",
+        "expected": "The provided context does not state the melting point of copper.",
+        "generated": "|-\n| scope=&quot;rowikipeople&quot; | classcoul",
+        "repetition_3gram": 0.0667,
+        "terminated_eos": false
+      }
+    ],
+    "metadata": {
+      "arm": "Arm A (Canonical Baseline)",
+      "steps": 0
+    }
+  },
+  "Arm_B_Constant_SFT": {
+    "val_instruction": {
+      "loss": 2.635,
+      "perplexity": 13.94,
+      "active_tokens_evaluated": 126
+    },
+    "test_instruction": {
+      "loss": 2.7641,
+      "perplexity": 15.86,
+      "active_tokens_evaluated": 182
+    },
+    "stage_c_retention": {
+      "stage_c_raw_loss": 3.348,
+      "stage_c_raw_ppl": 28.45,
+      "tokens_evaluated": 5120
+    },
+    "generations": [
+      {
+        "id": "TEST-EN-001",
+        "domain": "english",
+        "query": "What is the capital of Germany?",
+        "expected": "The capital of Germany is Berlin.",
+        "generated": "The total of the number of the Republic of the Republic of the River of the R",
+        "repetition_3gram": 0.3667,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-CODE-001",
+        "domain": "code",
+        "query": "Write a Python function that returns the absolute value of a number.",
+        "expected": "def get_abs(n):\n    return abs(n)",
+        "generated": "def get_end|>",
+        "repetition_3gram": 0.0,
+        "terminated_eos": true
+      },
+      {
+        "id": "TEST-MATH-001",
+        "domain": "mathematics",
+        "query": "Calculate: 45 + 55",
+        "expected": "45 + 55 = 100",
+        "generated": "The total number of the number of the total of the number of the number of the number of the number of the numb",
+        "repetition_3gram": 0.6333,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-HI-001",
+        "domain": "hindi",
+        "query": "भारत का राष्ट्रीय पशु कौन सा है?",
+        "expected": "भारत का राष्ट्रीय पशु बाघ है।",
+        "generated": "जलवायु\nचित्र:\nचित्रकाल दिल्ली माना जाता है।\n|-\n|",
+        "repetition_3gram": 0.0667,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-001",
+        "domain": "science",
+        "query": "Context: Mitochondria are known as the powerhouses of the cell because they generate most of the chemical energy needed by the cell.\nQuestion: Why are mitochondria called the powerhouses of the cell according to the context?",
+        "expected": "According to the context, mitochondria are called the powerhouses of the cell because they generate most of the chemical energy needed by the cell.",
+        "generated": "The total of the number of the water.<|im_enda, which is the first becaus",
+        "repetition_3gram": 0.0,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-NEG-001",
+        "domain": "science",
+        "query": "Context: Copper is a ductile metal with very high thermal and electrical conductivity.\nQuestion: What is the melting point of copper according to the context?",
+        "expected": "The provided context does not state the melting point of copper.",
+        "generated": "The number of the Republic of the Republicend|im_endents = &amp;n",
+        "repetition_3gram": 0.1667,
+        "terminated_eos": false
+      }
+    ],
+    "metadata": {
+      "arm": "Arm B (Constant SFT)",
+      "steps": 50,
+      "elapsed_seconds": 3.6,
+      "checkpoint_path": "experiments\\batch143_146_instruction_learning\\checkpoints\\arm_b_sft_constant.pt",
+      "checkpoint_sha256": "c167deeae9cb0c0335c20bcee1f178dfd02ba430465da01e656f1b799f0f4f60",
+      "final_train_loss": 1.5737
+    }
+  },
+  "Arm_C_Warmup_Cosine_SFT": {
+    "val_instruction": {
+      "loss": 3.0761,
+      "perplexity": 21.67,
+      "active_tokens_evaluated": 126
+    },
+    "test_instruction": {
+      "loss": 3.1184,
+      "perplexity": 22.61,
+      "active_tokens_evaluated": 182
+    },
+    "stage_c_retention": {
+      "stage_c_raw_loss": 3.323,
+      "stage_c_raw_ppl": 27.74,
+      "tokens_evaluated": 5120
+    },
+    "generations": [
+      {
+        "id": "TEST-EN-001",
+        "domain": "english",
+        "query": "What is the capital of Germany?",
+        "expected": "The capital of Germany is Berlin.",
+        "generated": "There are the first of the first of the shows to be the total of the square of the s",
+        "repetition_3gram": 0.2,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-CODE-001",
+        "domain": "code",
+        "query": "Write a Python function that returns the absolute value of a number.",
+        "expected": "def get_abs(n):\n    return abs(n)",
+        "generated": "There are the total number of the number of the number of the number of the number of the number of the numb",
+        "repetition_3gram": 0.6333,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-MATH-001",
+        "domain": "mathematics",
+        "query": "Calculate: 45 + 55",
+        "expected": "45 + 55 = 100",
+        "generated": "Andy is the total of the number of the number of the number of the number of the number of the number",
+        "repetition_3gram": 0.6,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-HI-001",
+        "domain": "hindi",
+        "query": "भारत का राष्ट्रीय पशु कौन सा है?",
+        "expected": "भारत का राष्ट्रीय पशु बाघ है।",
+        "generated": "जलवायु",
+        "repetition_3gram": 0.0,
+        "terminated_eos": true
+      },
+      {
+        "id": "TEST-SCI-001",
+        "domain": "science",
+        "query": "Context: Mitochondria are known as the powerhouses of the cell because they generate most of the chemical energy needed by the cell.\nQuestion: Why are mitochondria called the powerhouses of the cell according to the context?",
+        "expected": "According to the context, mitochondria are called the powerhouses of the cell because they generate most of the chemical energy needed by the cell.",
+        "generated": "The total of the squariul of the show of the show many of the show of the was",
+        "repetition_3gram": 0.3,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-NEG-001",
+        "domain": "science",
+        "query": "Context: Copper is a ductile metal with very high thermal and electrical conductivity.\nQuestion: What is the melting point of copper according to the context?",
+        "expected": "The provided context does not state the melting point of copper.",
+        "generated": "The first of the first of the square millyoum is the stitures of the water",
+        "repetition_3gram": 0.1,
+        "terminated_eos": false
+      }
+    ],
+    "metadata": {
+      "arm": "Arm C (Warmup Cosine SFT)",
+      "steps": 50,
+      "elapsed_seconds": 3.77,
+      "checkpoint_path": "experiments\\batch143_146_instruction_learning\\checkpoints\\arm_c_sft_warmup_cosine.pt",
+      "checkpoint_sha256": "e9794cc537afcee35e534270b94cedc8b52d9237e65efb5b13a5c1d3ce358289",
+      "final_train_loss": 2.3927
+    }
+  },
+  "Arm_D_Conservative_SFT": {
+    "val_instruction": {
+      "loss": 4.0118,
+      "perplexity": 55.25,
+      "active_tokens_evaluated": 126
+    },
+    "test_instruction": {
+      "loss": 3.9069,
+      "perplexity": 49.74,
+      "active_tokens_evaluated": 182
+    },
+    "stage_c_retention": {
+      "stage_c_raw_loss": 3.3101,
+      "stage_c_raw_ppl": 27.39,
+      "tokens_evaluated": 5120
+    },
+    "generations": [
+      {
+        "id": "TEST-EN-001",
+        "domain": "english",
+        "query": "What is the capital of Germany?",
+        "expected": "The capital of Germany is Berlin.",
+        "generated": "So the total number of the number of the number of the number of the number of the number of the number of",
+        "repetition_3gram": 0.7,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-CODE-001",
+        "domain": "code",
+        "query": "Write a Python function that returns the absolute value of a number.",
+        "expected": "def get_abs(n):\n    return abs(n)",
+        "generated": "So the total number of the number of the number of the number of the number of the numb",
+        "repetition_3gram": 0.6,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-MATH-001",
+        "domain": "mathematics",
+        "query": "Calculate: 45 + 55",
+        "expected": "45 + 55 = 100",
+        "generated": "So the total number of the total number of the total number of the total number of the number of the numb",
+        "repetition_3gram": 0.6667,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-HI-001",
+        "domain": "hindi",
+        "query": "भारत का राष्ट्रीय पशु कौन सा है?",
+        "expected": "भारत का राष्ट्रीय पशु बाघ है।",
+        "generated": "Sublication\n|-\n|200\n|200\n|2005\n|2005\n|-\n|2",
+        "repetition_3gram": 0.5,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-001",
+        "domain": "science",
+        "query": "Context: Mitochondria are known as the powerhouses of the cell because they generate most of the chemical energy needed by the cell.\nQuestion: Why are mitochondria called the powerhouses of the cell according to the context?",
+        "expected": "According to the context, mitochondria are called the powerhouses of the cell because they generate most of the chemical energy needed by the cell.",
+        "generated": "#### Chinese is the first of the first number of the first candy of",
+        "repetition_3gram": 0.2,
+        "terminated_eos": false
+      },
+      {
+        "id": "TEST-SCI-NEG-001",
+        "domain": "science",
+        "query": "Context: Copper is a ductile metal with very high thermal and electrical conductivity.\nQuestion: What is the melting point of copper according to the context?",
+        "expected": "The provided context does not state the melting point of copper.",
+        "generated": "So the first of the first of the first of the square of the filexer of the s",
+        "repetition_3gram": 0.3667,
+        "terminated_eos": false
+      }
+    ],
+    "metadata": {
+      "arm": "Arm D (Conservative SFT)",
+      "steps": 50,
+      "elapsed_seconds": 3.64,
+      "checkpoint_path": "experiments\\batch143_146_instruction_learning\\checkpoints\\arm_d_sft_conservative.pt",
+      "checkpoint_sha256": "b5418fdc0c3c0f9a797e0569e378401e2a730dbe824d185fe30da53cb98c97d2",
+      "final_train_loss": 3.4835
+    }
+  },
+  "resume_verification": {
+    "status": "PASSED",
+    "loss_match": true
+  },
+  "grounded_comprehension": {
+    "grounded_comprehension_trials": [
+      {
+        "query": "At what temperature does water boil at sea level?",
+        "retrieved_context": "Water boils at 100 degrees Celsius and freezes at 0 degrees Celsius at sea level.",
+        "retrieval_score": 0.7699,
+        "expected_support": "100 degrees Celsius",
+        "has_support": true,
+        "generated_answer": "The ship of the wiver of the stituppend of the was the show of the son of the",
+        "grounding_status": "SUPPORTED"
+      },
+      {
+        "query": "What is the speed of sound in steel?",
+        "retrieved_context": "Photosynthesis in green plants converts water and carbon dioxide into oxygen and glucose using sunlight.",
+        "retrieval_score": 0.6057,
+        "expected_support": null,
+        "has_support": false,
+        "generated_answer": "Androne = np.arraypeaction = [hex_enday = next_enda",
+        "grounding_status": "INSUFFICIENT_EVIDENCE"
+      }
+    ]
+  }
+}

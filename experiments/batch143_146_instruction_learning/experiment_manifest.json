@@ -1,0 +1,67 @@
+{
+  "batch": "Batch 143-146",
+  "milestone": "Instruction Learning, Grounded Comprehension & Neural-Core Capability Growth",
+  "base_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+  "base_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "dataset": {
+    "train_file": "experiments/batch143_146_instruction_learning/data/instruction_train.jsonl",
+    "train_records": 17,
+    "val_file": "experiments/batch143_146_instruction_learning/data/instruction_val.jsonl",
+    "val_records": 5,
+    "test_file": "experiments/batch143_146_instruction_learning/data/instruction_test.jsonl",
+    "test_records": 6,
+    "leakage": "ZERO (Disjoint prompts, disjoint content hashes)"
+  },
+  "arms": [
+    {
+      "arm_id": "Arm_A_Baseline",
+      "description": "Canonical Step 10,000 without SFT",
+      "steps": 0,
+      "val_instruction_loss": 5.4594,
+      "test_instruction_loss": 5.0877,
+      "stage_c_raw_loss": 3.3053,
+      "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    {
+      "arm_id": "Arm_B_Constant_SFT",
+      "description": "Constant LR SFT (50 steps, lr=5e-5)",
+      "steps": 50,
+      "val_instruction_loss": 2.635,
+      "test_instruction_loss": 2.7641,
+      "stage_c_raw_loss": 3.348,
+      "checkpoint": "experiments/batch143_146_instruction_learning/checkpoints/arm_b_sft_constant.pt",
+      "sha256": "c167deeae9cb0c0335c20bcee1f178dfd02ba430465da01e656f1b799f0f4f60"
+    },
+    {
+      "arm_id": "Arm_C_Warmup_Cosine_SFT",
+      "description": "Warmup 10 steps + Cosine Decay SFT (50 steps, peak=5e-5, min=5e-6)",
+      "steps": 50,
+      "val_instruction_loss": 3.0761,
+      "test_instruction_loss": 3.1184,
+      "stage_c_raw_loss": 3.323,
+      "checkpoint": "experiments/batch143_146_instruction_learning/checkpoints/arm_c_warmup_cosine_sft.pt",
+      "sha256": "e9794cc537afcee35e534270b94cedc8b52d9237e65efb5b13a5c1d3ce358289"
+    },
+    {
+      "arm_id": "Arm_D_Conservative_SFT",
+      "description": "Conservative Low-LR SFT (50 steps, peak=2e-5, min=2e-6, warmup=10)",
+      "steps": 50,
+      "val_instruction_loss": 4.0118,
+      "test_instruction_loss": 3.9069,
+      "stage_c_raw_loss": 3.3101,
+      "checkpoint": "experiments/batch143_146_instruction_learning/checkpoints/arm_d_sft_conservative.pt",
+      "sha256": "b5418fdc0c3c0f9a797e0569e378401e2a730dbe824d185fe30da53cb98c97d2"
+    }
+  ],
+  "grounded_comprehension": {
+    "implemented": true,
+    "retriever": "HybridRetriever (BM25 + DeterministicHashEmbeddingProvider + InMemoryVectorIndex)",
+    "evaluation_trials": 2
+  },
+  "verification": {
+    "canonical_baseline_unmutated": true,
+    "resumability_verified": true,
+    "user_session_diff_preserved": true
+  }
+}
