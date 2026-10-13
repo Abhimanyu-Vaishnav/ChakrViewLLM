@@ -858,6 +858,67 @@ class InteractiveModelSessionCoordinator:
 
         return response_text, metrics, raw_diagnostics_list
 
+    def generate_grounded_turn(
+        self,
+        user_input: str,
+        supplied_context: Optional[str] = None,
+        pointer_head: Optional[Any] = None,
+        retrieval_adapter: Optional[Any] = None,
+        enable_constrained_decoding: bool = True,
+    ) -> Dict[str, Any]:
+        """
+        Execute interactive grounded turn with cognitive routing, pointer copying,
+        constrained Trie candidate decoding, and provenance attribution.
+        """
+        from chakrview.runtime.session_adapter import GroundedSessionAdapter
+        from chakrview.runtime.cognitive_router import CognitiveRouter
+
+        # Build mock inference engine wrapper matching session_adapter interface
+        class _EngineWrapper:
+            def __init__(self, model, tokenizer):
+                self.model = model
+                self.tokenizer = tokenizer
+
+        engine = _EngineWrapper(self.trained_model, self.tokenizer)
+        adapter = GroundedSessionAdapter(
+            inference_engine=engine,
+            retrieval_adapter=retrieval_adapter,
+            memory=None,
+            router=CognitiveRouter(enable_pointer_copy=True),
+            pointer_head=pointer_head,
+            enable_constrained_decoding=enable_constrained_decoding,
+        )
+
+        resp = adapter.execute_turn(
+            session_id=self.session.session_id,
+            user_input=user_input,
+            supplied_context=supplied_context,
+            max_new_tokens=self.gen_config.max_new_tokens,
+        )
+
+        user_tok_count = len(self.tokenizer.encode(user_input, add_bos=False, add_eos=False))
+        ans_tok_count = len(self.tokenizer.encode(resp.answer, add_bos=False, add_eos=False))
+        self.session.add_turn(ConversationRole.USER, user_input, user_tok_count)
+        self.session.add_turn(ConversationRole.ASSISTANT, resp.answer, ans_tok_count)
+
+        self.total_prompts += 1
+        self.total_generated_tokens += ans_tok_count
+        self.total_latencies.append(resp.latency_ms)
+
+        record = {
+            "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "user_input": user_input,
+            "response": resp.answer,
+            "route": resp.route_decision.route.value,
+            "component_origin": resp.component_origin.value,
+            "is_supported": resp.is_supported,
+            "support_explanation": resp.support_explanation,
+            "latency_ms": round(resp.latency_ms, 2),
+            "retrieved_chunks": resp.retrieved_chunks,
+        }
+        self.history.append(record)
+        return record
+
     def compare_prompt(self, prompt: str) -> ComparisonResult:
         """Compare trained model against frozen baseline on prompt."""
         return self.comparator.compare(

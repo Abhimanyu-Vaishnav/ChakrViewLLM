@@ -1,0 +1,41 @@
+{
+  "milestone": "Batch 205: Tokenizer-Aware Constrained Candidate Decoding",
+  "held_out_cases": 4,
+  "exact_match_count": 1,
+  "exact_match_rate": 0.25,
+  "utf8_valid_rate": 1.0,
+  "samples": [
+    {
+      "entity": "Euler number e",
+      "query": "What is the approximate value of Euler number e?",
+      "target": "2.71828",
+      "generated": "and base of natural",
+      "match": false,
+      "utf8_valid": true
+    },
+    {
+      "entity": "चांदी (Silver)",
+      "query": "What is the परमाणु क्रमांक of चांदी?",
+      "target": "47",
+      "generated": "47 है और",
+      "match": true,
+      "utf8_valid": true
+    },
+    {
+      "entity": "चांदी (Silver)",
+      "query": "What is the प्रमुख गुण of चांदी?",
+      "target": "विद्युत सुचालक",
+      "generated": "47 है और",
+      "match": false,
+      "utf8_valid": true
+    },
+    {
+      "entity": "Saturn",
+      "query": "What is the largest moon of Saturn?",
+      "target": "Titan",
+      "generated": "dense nitrogen atmosphere on",
+      "match": false,
+      "utf8_valid": true
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "milestone": "Batches 201-210: Interactive Runtime Integration, Multilingual Relation Binding, and Honest Capability Validation",
+  "starting_commit": "e199c45",
+  "branch": "dev/v0.6-v0.7-validation",
+  "canonical_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "unique_parameter_count": 3443136,
+    "model_intact": true
+  },
+  "protected_files": {
+    "chakrview/runtime/session.py": "preserved_untouched"
+  },
+  "hardware_environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python_version": "3.14.7",
+    "cuda_available": false,
+    "active_device": "cpu"
+  },
+  "deliverables": {
+    "runtime_code": [
+      "chakrview/runtime/cognitive_router.py",
+      "chakrview/runtime/session_adapter.py",
+      "chakrview/runtime/interactive.py",
+      "chakrview/runtime/evidence_extractor.py"
+    ],
+    "benchmark_scripts": [
+      "experiments/batch201_210_runtime_integration/data/generate_multilingual_dataset.py",
+      "experiments/batch201_210_runtime_integration/run_pointer_arms_training.py",
+      "experiments/batch201_210_runtime_integration/run_constrained_decoding_eval.py",
+      "experiments/batch201_210_runtime_integration/run_interactive_runtime_benchmark.py",
+      "experiments/batch201_210_runtime_integration/run_recovery_resource_eval.py",
+      "experiments/batch201_210_runtime_integration/run_evaluation_results.py"
+    ],
+    "reports": [
+      "experiments/batch201_210_runtime_integration/reports/initial_audit.md",
+      "experiments/batch201_210_runtime_integration/reports/runtime_integration.md",
+      "experiments/batch201_210_runtime_integration/reports/data_and_leakage_audit.md",
+      "experiments/batch201_210_runtime_integration/reports/pointer_arms_training_results.json",
+      "experiments/batch201_210_runtime_integration/reports/constrained_decoding_results.json",
+      "experiments/batch201_210_runtime_integration/reports/interactive_runtime_benchmark.json",
+      "experiments/batch201_210_runtime_integration/reports/recovery_and_resource_tests.json",
+      "experiments/batch201_210_runtime_integration/reports/evaluation_results.json",
+      "experiments/batch201_210_runtime_integration/reports/failure_analysis.md",
+      "experiments/batch201_210_runtime_integration/reports/milestone_summary.md"
+    ]
+  },
+  "verification_status": {
+    "canonical_checkpoint_verified": true,
+    "runtime_integration_verified": true,
+    "data_leakage_zero": true,
+    "interactive_benchmark_passed": true,
+    "recovery_resource_passed": true,
+    "regression_suites_passed": true
+  }
+}

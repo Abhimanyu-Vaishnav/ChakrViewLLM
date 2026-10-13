@@ -33,6 +33,7 @@ class RouteType(str, Enum):
 class ComponentOrigin(str, Enum):
     NEURAL_CORE = "neural_core"
     NEURAL_POINTER = "neural_pointer"
+    CONSTRAINED_TRIE = "constrained_trie"
     DETERMINISTIC_EXTRACTOR = "deterministic_extractor"
     HYBRID_RETRIEVER = "hybrid_retriever"
     FALLBACK_POLICY = "fallback_policy"
@@ -193,14 +194,19 @@ class CognitiveRouter:
 
     def _is_slot_query(self, q: str) -> bool:
         patterns = [
+            r"what (?:is|was|are|were) (?:the\s+)?([a-z0-9_\s-]+?)\s+of\s+",
             r"what (?:is|was) ([a-z0-9_-]+)\?",
             r"([^\s?]+)\s*क्या है\?",
+            r"का (?:[^\s?]+)\s*क्या है\?",
             r"value of",
             r"capital of",
             r"atomic number",
+            r"formula of",
+            r"complexity of",
             r"state is",
             r"name of the crater",
             r"largest moon",
+            r"(?:boiling|melting|sublimation)\s+point",
             r"at what temperature",
             r"color is",
         ]

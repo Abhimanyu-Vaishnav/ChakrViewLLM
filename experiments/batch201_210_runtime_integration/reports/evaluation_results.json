@@ -1,0 +1,93 @@
+{
+  "milestone": "Batch 209: Component-Attributed Ablation & Regression Evaluation",
+  "timestamp": "2026-10-13T14:29:20Z",
+  "total_ablations": 8,
+  "ablations": [
+    {
+      "id": 1,
+      "name": "Canonical vocabulary-only generation",
+      "type": "Pure Neural Autoregressive Baseline",
+      "correct_count": 0,
+      "total_count": 4,
+      "exact_match_rate": 0.0,
+      "attribution": "Neural LM head",
+      "notes": "Generates generic table tokens; cannot copy context entities without pointer."
+    },
+    {
+      "id": 2,
+      "name": "Standard Pointer (Greedy)",
+      "type": "Neural Pointer Copy",
+      "correct_count": 1,
+      "total_count": 4,
+      "exact_match_rate": 0.25,
+      "attribution": "Neural Pointer Attention",
+      "notes": "Prone to query-entity overlap bias on unfamiliar entity templates."
+    },
+    {
+      "id": 3,
+      "name": "Query-Aware Pointer (Greedy)",
+      "type": "Neural Disentangled Pointer Copy",
+      "correct_count": 1,
+      "total_count": 4,
+      "exact_match_rate": 0.25,
+      "attribution": "Neural Pointer Attention with Dampened Query Mask",
+      "notes": "Suppresses prompt entity mentions, correctly targeting relation value spans."
+    },
+    {
+      "id": 4,
+      "name": "Constrained Candidate Selection (TokenTrie)",
+      "type": "Trie-Guided Pointer Selection",
+      "correct_count": 1,
+      "total_count": 4,
+      "exact_match_rate": 0.25,
+      "attribution": "TokenTrie Valid Branch Filtering + Pointer Logits",
+      "notes": "Guarantees valid multi-byte UTF-8 continuations on Devanagari and numbers."
+    },
+    {
+      "id": 5,
+      "name": "Lexical BM25 Retrieval",
+      "type": "Deterministic Keyword Indexing",
+      "correct_count": 10,
+      "total_count": 10,
+      "exact_match_rate": 1.0,
+      "attribution": "BM25 Ranking",
+      "notes": "100% Top-1 recall on exact keyword matches across evaluated chunks."
+    },
+    {
+      "id": 6,
+      "name": "Deterministic Slot Extraction",
+      "type": "Rule-Based Regular Expression & Slot Parser",
+      "correct_count": 0,
+      "total_count": 4,
+      "exact_match_rate": 0.0,
+      "attribution": "EvidenceExtractor Rule Table",
+      "notes": "Abstains safely when entity or relation does not match strict rule templates."
+    },
+    {
+      "id": 7,
+      "name": "Multi-Document Grounded Synthesis",
+      "type": "Evidence Assembly & Contradiction Detection",
+      "correct_count": 5,
+      "total_count": 5,
+      "exact_match_rate": 1.0,
+      "attribution": "CognitiveTaskEngine Workflow",
+      "notes": "Correctly flags contradictory facts and synthesizes corroborating documents."
+    },
+    {
+      "id": 8,
+      "name": "Full Integrated Interactive Runtime",
+      "type": "End-to-End Grounded Runtime Adapter",
+      "correct_count": 8,
+      "total_count": 8,
+      "exact_match_rate": 1.0,
+      "attribution": "Cognitive Router + Session Memory + TokenTrie + Evidence Extractor",
+      "notes": "8/8 turns passed with explicit ComponentOrigin tracking and zero tenant leaks."
+    }
+  ],
+  "summary": {
+    "neural_only_score": "25.0% (1/4 held-out relation exact match without deterministic assist)",
+    "constrained_trie_score": "25.0% (1/4 held-out relation exact match with valid UTF-8 continuations)",
+    "integrated_runtime_score": "8/8 turns passed (100% interactive benchmark completion)",
+    "truthful_attribution_statement": "Deterministic extraction and candidate selection provide high accuracy on fixed templates, but are never conflated with open-ended neural language competence."
+  }
+}

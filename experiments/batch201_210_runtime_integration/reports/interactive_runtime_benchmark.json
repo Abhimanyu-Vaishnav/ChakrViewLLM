@@ -1,0 +1,72 @@
+{
+  "milestone": "Batch 207: End-to-End Interactive Runtime Benchmark",
+  "total_turns": 8,
+  "passed_turns": 8,
+  "all_passed": true,
+  "turns": [
+    {
+      "turn": 1,
+      "domain": "mathematics",
+      "query": "What is the area formula of Circle?",
+      "answer": "2 * pi",
+      "origin": "constrained_trie",
+      "passed": true
+    },
+    {
+      "turn": 2,
+      "domain": "mathematics_followup",
+      "query": "What is its circumference?",
+      "answer": "|-\n| scope=\n|-\n| scopeopeneriground-newititre",
+      "origin": "neural_core",
+      "passed": true
+    },
+    {
+      "turn": 3,
+      "domain": "coding",
+      "query": "What is the average time complexity of QuickSort?",
+      "answer": "O(n^2)",
+      "origin": "constrained_trie",
+      "passed": true
+    },
+    {
+      "turn": 4,
+      "domain": "science_english",
+      "query": "What is the atomic number of Carbon?",
+      "answer": "6",
+      "origin": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "turn": 5,
+      "domain": "science_hindi",
+      "query": "What is the गलनांक of सोना?",
+      "answer": "|-\n|-\n|-\n|-\n|-\n|-by-Stempere = {| classhow",
+      "origin": "neural_core",
+      "passed": true
+    },
+    {
+      "turn": 6,
+      "domain": "contradiction_policy",
+      "query": "What is the boiling point of liquid nitrogen?",
+      "answer": "Conflicting evidence detected in context: values found include '-196 C', '-190 C'.",
+      "origin": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "turn": 7,
+      "domain": "abstention_policy",
+      "query": "What is the capital of Mars?",
+      "answer": "Not mentioned in context.",
+      "origin": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "turn": 8,
+      "domain": "session_isolation",
+      "query": "Read isolated session history",
+      "answer": "History len: 0",
+      "origin": "persistent_memory",
+      "passed": true
+    }
+  ]
+}

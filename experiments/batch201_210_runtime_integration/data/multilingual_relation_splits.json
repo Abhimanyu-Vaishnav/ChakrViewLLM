@@ -1,0 +1,253 @@
+{
+  "seed": 42,
+  "total_clusters": 14,
+  "cluster_distribution": {
+    "train_clusters": [
+      "code_python_list",
+      "code_quicksort",
+      "code_rust_ownership",
+      "math_circle",
+      "math_fibonacci",
+      "sci_carbon",
+      "sci_hindi_sona",
+      "sci_jupiter_ganymede"
+    ],
+    "val_clusters": [
+      "code_binary_search",
+      "math_sphere",
+      "sci_copper"
+    ],
+    "test_clusters": [
+      "math_euler",
+      "sci_hindi_chandi",
+      "sci_saturn_titan"
+    ]
+  },
+  "counts": {
+    "train_facts": 13,
+    "val_facts": 6,
+    "test_facts": 4,
+    "total_facts": 23
+  },
+  "leakage_audit": {
+    "train_val_cluster_intersection": 0,
+    "train_test_cluster_intersection": 0,
+    "val_test_cluster_intersection": 0,
+    "zero_leakage_guaranteed": true
+  },
+  "splits": {
+    "train": [
+      {
+        "cluster_id": "math_circle",
+        "domain": "mathematics",
+        "entity": "Circle",
+        "relation": "area formula",
+        "value": "pi * r^2",
+        "context": "For a standard geometric Circle, the area formula is pi * r^2 and circumference is 2 * pi * r.",
+        "query": "What is the area formula of Circle?"
+      },
+      {
+        "cluster_id": "math_circle",
+        "domain": "mathematics",
+        "entity": "Circle",
+        "relation": "circumference",
+        "value": "2 * pi * r",
+        "context": "For a standard geometric Circle, the area formula is pi * r^2 and circumference is 2 * pi * r.",
+        "query": "What is the circumference of Circle?"
+      },
+      {
+        "cluster_id": "math_fibonacci",
+        "domain": "mathematics",
+        "entity": "Fibonacci sequence",
+        "relation": "recurrence relation",
+        "value": "F(n) = F(n-1) + F(n-2)",
+        "context": "The Fibonacci sequence satisfies the recurrence relation F(n) = F(n-1) + F(n-2) with base case F(0)=0.",
+        "query": "What is the recurrence relation of Fibonacci sequence?"
+      },
+      {
+        "cluster_id": "code_quicksort",
+        "domain": "coding",
+        "entity": "QuickSort",
+        "relation": "average time complexity",
+        "value": "O(n log n)",
+        "context": "The sorting algorithm QuickSort has average time complexity O(n log n) and worst-case complexity O(n^2).",
+        "query": "What is the average time complexity of QuickSort?"
+      },
+      {
+        "cluster_id": "code_quicksort",
+        "domain": "coding",
+        "entity": "QuickSort",
+        "relation": "worst-case complexity",
+        "value": "O(n^2)",
+        "context": "The sorting algorithm QuickSort has average time complexity O(n log n) and worst-case complexity O(n^2).",
+        "query": "What is the worst-case complexity of QuickSort?"
+      },
+      {
+        "cluster_id": "code_python_list",
+        "domain": "coding",
+        "entity": "Python list",
+        "relation": "amortized append complexity",
+        "value": "O(1)",
+        "context": "In Python internal implementation, a Python list provides amortized append complexity O(1).",
+        "query": "What is the amortized append complexity of Python list?"
+      },
+      {
+        "cluster_id": "code_rust_ownership",
+        "domain": "coding",
+        "entity": "Rust",
+        "relation": "memory model",
+        "value": "affine ownership type system",
+        "context": "The systems language Rust enforces memory safety using an affine ownership type system without a garbage collector.",
+        "query": "What is the memory model of Rust?"
+      },
+      {
+        "cluster_id": "sci_carbon",
+        "domain": "science",
+        "entity": "Carbon",
+        "relation": "atomic number",
+        "value": "6",
+        "context": "Carbon is a nonmetal with atomic number 6 and sublimation point 3915 K.",
+        "query": "What is the atomic number of Carbon?"
+      },
+      {
+        "cluster_id": "sci_carbon",
+        "domain": "science",
+        "entity": "Carbon",
+        "relation": "sublimation point",
+        "value": "3915 K",
+        "context": "Carbon is a nonmetal with atomic number 6 and sublimation point 3915 K.",
+        "query": "What is the sublimation point of Carbon?"
+      },
+      {
+        "cluster_id": "sci_hindi_sona",
+        "domain": "science",
+        "entity": "सोना (Gold)",
+        "relation": "परमाणु क्रमांक",
+        "value": "79",
+        "context": "सोना एक उत्कृष्ट धातु है जिसका परमाणु क्रमांक 79 है और इसका गलनांक 1064 C है।",
+        "query": "What is the परमाणु क्रमांक of सोना?"
+      },
+      {
+        "cluster_id": "sci_hindi_sona",
+        "domain": "science",
+        "entity": "सोना (Gold)",
+        "relation": "गलनांक",
+        "value": "1064 C",
+        "context": "सोना एक उत्कृष्ट धातु है जिसका परमाणु क्रमांक 79 है और इसका गलनांक 1064 C है।",
+        "query": "What is the गलनांक of सोना?"
+      },
+      {
+        "cluster_id": "sci_jupiter_ganymede",
+        "domain": "science",
+        "entity": "Jupiter",
+        "relation": "largest moon",
+        "value": "Ganymede",
+        "context": "The gas giant Jupiter possesses 95 confirmed moons, of which the largest moon is Ganymede with diameter 5268 km.",
+        "query": "What is the largest moon of Jupiter?"
+      },
+      {
+        "cluster_id": "sci_jupiter_ganymede",
+        "domain": "science",
+        "entity": "Jupiter",
+        "relation": "diameter of Ganymede",
+        "value": "5268 km",
+        "context": "The gas giant Jupiter possesses 95 confirmed moons, of which the largest moon is Ganymede with diameter 5268 km.",
+        "query": "What is the diameter of Ganymede of Jupiter?"
+      }
+    ],
+    "val": [
+      {
+        "cluster_id": "math_sphere",
+        "domain": "mathematics",
+        "entity": "Sphere",
+        "relation": "volume formula",
+        "value": "4/3 * pi * r^3",
+        "context": "In solid geometry, a Sphere has volume formula 4/3 * pi * r^3 and surface area 4 * pi * r^2.",
+        "query": "What is the volume formula of Sphere?"
+      },
+      {
+        "cluster_id": "math_sphere",
+        "domain": "mathematics",
+        "entity": "Sphere",
+        "relation": "surface area",
+        "value": "4 * pi * r^2",
+        "context": "In solid geometry, a Sphere has volume formula 4/3 * pi * r^3 and surface area 4 * pi * r^2.",
+        "query": "What is the surface area of Sphere?"
+      },
+      {
+        "cluster_id": "code_binary_search",
+        "domain": "coding",
+        "entity": "Binary Search",
+        "relation": "worst-case time complexity",
+        "value": "O(log n)",
+        "context": "On sorted arrays, Binary Search exhibits worst-case time complexity O(log n) and auxiliary space O(1).",
+        "query": "What is the worst-case time complexity of Binary Search?"
+      },
+      {
+        "cluster_id": "code_binary_search",
+        "domain": "coding",
+        "entity": "Binary Search",
+        "relation": "auxiliary space",
+        "value": "O(1)",
+        "context": "On sorted arrays, Binary Search exhibits worst-case time complexity O(log n) and auxiliary space O(1).",
+        "query": "What is the auxiliary space of Binary Search?"
+      },
+      {
+        "cluster_id": "sci_copper",
+        "domain": "science",
+        "entity": "Copper",
+        "relation": "atomic number",
+        "value": "29",
+        "context": "Copper is a ductile transition metal with atomic number 29 and melting point 1084.62 C.",
+        "query": "What is the atomic number of Copper?"
+      },
+      {
+        "cluster_id": "sci_copper",
+        "domain": "science",
+        "entity": "Copper",
+        "relation": "melting point",
+        "value": "1084.62 C",
+        "context": "Copper is a ductile transition metal with atomic number 29 and melting point 1084.62 C.",
+        "query": "What is the melting point of Copper?"
+      }
+    ],
+    "test": [
+      {
+        "cluster_id": "math_euler",
+        "domain": "mathematics",
+        "entity": "Euler number e",
+        "relation": "approximate value",
+        "value": "2.71828",
+        "context": "The mathematical constant Euler number e has approximate value 2.71828 and base of natural logarithms.",
+        "query": "What is the approximate value of Euler number e?"
+      },
+      {
+        "cluster_id": "sci_hindi_chandi",
+        "domain": "science",
+        "entity": "चांदी (Silver)",
+        "relation": "परमाणु क्रमांक",
+        "value": "47",
+        "context": "चांदी एक चमकदार धातु है जिसका परमाणु क्रमांक 47 है और यह सर्वोत्तम विद्युत सुचालक है।",
+        "query": "What is the परमाणु क्रमांक of चांदी?"
+      },
+      {
+        "cluster_id": "sci_hindi_chandi",
+        "domain": "science",
+        "entity": "चांदी (Silver)",
+        "relation": "प्रमुख गुण",
+        "value": "विद्युत सुचालक",
+        "context": "चांदी एक चमकदार धातु है जिसका परमाणु क्रमांक 47 है और यह सर्वोत्तम विद्युत सुचालक है।",
+        "query": "What is the प्रमुख गुण of चांदी?"
+      },
+      {
+        "cluster_id": "sci_saturn_titan",
+        "domain": "science",
+        "entity": "Saturn",
+        "relation": "largest moon",
+        "value": "Titan",
+        "context": "The ringed planet Saturn has a dense nitrogen atmosphere on its largest moon Titan.",
+        "query": "What is the largest moon of Saturn?"
+      }
+    ]
+  }
+}

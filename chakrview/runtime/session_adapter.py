@@ -14,6 +14,7 @@ by operating as an external modular runtime adapter without touching session.py.
 """
 from __future__ import annotations
 
+import re
 import time
 from typing import Any, Dict, List, Optional
 
@@ -27,8 +28,10 @@ from chakrview.runtime.cognitive_router import (
     ComponentOrigin,
 )
 from chakrview.runtime.conversation import ConversationTemplate, ChatMessage, Role
+from chakrview.runtime.constrained_decoder import TokenTrie, decode_pointer_constrained
 from chakrview.runtime.evidence_extractor import EvidenceExtractor, ExtractionResult
 from chakrview.runtime.persistent_memory import PersistentSessionMemory, PersistentTurn
+from chakrview.runtime.pointer_mechanism import ChakrPointerHead, decode_pointer_greedy
 from chakrview.runtime.retrieval_adapter import RetrievalAdapter, RetrievedEvidence
 
 
@@ -44,12 +47,16 @@ class GroundedSessionAdapter:
         retrieval_adapter: Optional[RetrievalAdapter] = None,
         memory: Optional[PersistentSessionMemory] = None,
         router: Optional[CognitiveRouter] = None,
+        pointer_head: Optional[Any] = None,
+        enable_constrained_decoding: bool = True,
         default_system_prompt: str = "You are ChakrView, a helpful indigenous AI assistant.",
     ) -> None:
         self.inference_engine = inference_engine
         self.retrieval_adapter = retrieval_adapter or RetrievalAdapter()
         self.memory = memory
         self.router = router or CognitiveRouter()
+        self.pointer_head = pointer_head
+        self.enable_constrained_decoding = enable_constrained_decoding
         self.default_system_prompt = default_system_prompt
 
     def execute_turn(
@@ -106,27 +113,11 @@ class GroundedSessionAdapter:
             self._record_history(session_id, clean_input, answer, resp.component_origin)
             return resp
 
-        # 4. Handle Slot Extraction Route (Deterministic priority when supported)
+        # 4. Evidence Verification & Slot Extraction Gate
         extracted_slots: Dict[str, str] = {}
-        if route_decision.requires_slot_extraction and active_context:
+        if (route_decision.requires_slot_extraction or route_decision.route == RouteType.POINTER_COPY) and active_context:
             ext_res = EvidenceExtractor.extract_slot(active_context, clean_input)
-            if ext_res.success:
-                answer = ext_res.extracted_value
-                extracted_slots["primary_slot"] = answer
-                resp = GroundedResponse(
-                    query=clean_input,
-                    answer=answer,
-                    route_decision=route_decision,
-                    component_origin=ComponentOrigin.DETERMINISTIC_EXTRACTOR,
-                    retrieved_chunks=[c.to_dict() for c in retrieved_chunks],
-                    extracted_slots=extracted_slots,
-                    is_supported=True,
-                    support_explanation=f"Exact match extracted from span: '{ext_res.supporting_span}'",
-                    latency_ms=(time.perf_counter() - t0) * 1000,
-                )
-                self._record_history(session_id, clean_input, answer, resp.component_origin)
-                return resp
-            elif ext_res.has_conflicts:
+            if ext_res.has_conflicts:
                 conflict_str = ", ".join(f"'{v}'" for v in ext_res.conflicting_values)
                 answer = f"Conflicting evidence detected in context: values found include {conflict_str}."
                 resp = GroundedResponse(
@@ -142,18 +133,57 @@ class GroundedSessionAdapter:
                 self._record_history(session_id, clean_input, answer, resp.component_origin)
                 return resp
             elif ext_res.is_abstention:
-                answer = "Not mentioned in context."
+                # If queried entity is completely absent from context, abstain immediately
+                # Extract possible entity from query e.g. "of Mars?" -> "Mars"
+                m_ent = re.search(r"\b(?:of|for|in|about)\s+([A-Za-z0-9_-]+)", clean_input, re.IGNORECASE)
+                entity_absent = (m_ent and m_ent.group(1).lower() not in active_context.lower())
+                if entity_absent or (self.pointer_head is None or route_decision.route != RouteType.POINTER_COPY):
+                    answer = "Not mentioned in context."
+                    resp = GroundedResponse(
+                        query=clean_input,
+                        answer=answer,
+                        route_decision=route_decision,
+                        component_origin=ComponentOrigin.DETERMINISTIC_EXTRACTOR,
+                        retrieved_chunks=[c.to_dict() for c in retrieved_chunks],
+                        is_supported=False,
+                        support_explanation="Queried entity or attribute is not present in provided context",
+                        latency_ms=(time.perf_counter() - t0) * 1000,
+                    )
+                    self._record_history(session_id, clean_input, answer, resp.component_origin)
+                    return resp
+            elif ext_res.success:
+                answer = ext_res.extracted_value
+                extracted_slots["primary_slot"] = answer
                 resp = GroundedResponse(
                     query=clean_input,
                     answer=answer,
                     route_decision=route_decision,
                     component_origin=ComponentOrigin.DETERMINISTIC_EXTRACTOR,
                     retrieved_chunks=[c.to_dict() for c in retrieved_chunks],
-                    is_supported=False,
-                    support_explanation="Queried attribute is not present in provided context",
+                    extracted_slots=extracted_slots,
+                    is_supported=True,
+                    support_explanation=f"Exact match extracted from span: '{ext_res.supporting_span}'",
                     latency_ms=(time.perf_counter() - t0) * 1000,
                 )
                 self._record_history(session_id, clean_input, answer, resp.component_origin)
+                return resp
+
+        # 4.5. Handle Neural Pointer Copy Route (when context is present and unextracted)
+        if route_decision.route == RouteType.POINTER_COPY and active_context and self.pointer_head is not None:
+            pointer_ans, pointer_origin = self._generate_pointer(clean_input, active_context, max_new_tokens=max_new_tokens)
+            if pointer_ans:
+                resp = GroundedResponse(
+                    query=clean_input,
+                    answer=pointer_ans,
+                    route_decision=route_decision,
+                    component_origin=pointer_origin,
+                    retrieved_chunks=[c.to_dict() for c in retrieved_chunks],
+                    extracted_slots=extracted_slots,
+                    is_supported=True,
+                    support_explanation=f"Generated via neural pointer mechanism ({pointer_origin.value}) conditioned on context",
+                    latency_ms=(time.perf_counter() - t0) * 1000,
+                )
+                self._record_history(session_id, clean_input, pointer_ans, resp.component_origin)
                 return resp
 
         # 5. Neural Generation Route (DIRECT_CHAT or CONTEXT_QA fallback)
@@ -214,6 +244,67 @@ class GroundedSessionAdapter:
 
         raw = tok.decode(gen, errors="replace")
         return raw.replace("<|im_end|>", "").strip()
+
+    def _generate_pointer(self, query: str, context: str, max_new_tokens: int = 16) -> Tuple[str, ComponentOrigin]:
+        tok = self.inference_engine.tokenizer
+        model = self.inference_engine.model
+        device = next(model.parameters()).device
+
+        prompt = f"Context: {context}\nQuestion: {query}\nAnswer:"
+        prompt_ids = [0] + tok.encode(prompt)
+        ctx_prefix = [0] + tok.encode("Context: ")
+        context_start = len(ctx_prefix)
+        context_end = context_start + len(tok.encode(context))
+
+        q_marker = tok.encode("\nQuestion: ")
+        query_start = context_end + len(q_marker)
+        query_end = query_start + len(tok.encode(query))
+
+        origin = ComponentOrigin.NEURAL_POINTER
+
+        # If constrained decoding enabled, build candidate token sequences from context spans
+        if self.enable_constrained_decoding:
+            words = [w.strip(".,;:?!'\"") for w in context.split() if len(w.strip(".,;:?!'\"")) > 0]
+            candidate_seqs = [tok.encode(w) for w in words]
+            # Add multi-word ngrams up to 3 words
+            words_raw = context.split()
+            for n in (2, 3):
+                for i in range(len(words_raw) - n + 1):
+                    span = " ".join(words_raw[i:i+n]).strip(".,;:?!'\"")
+                    if span:
+                        candidate_seqs.append(tok.encode(span))
+
+            if candidate_seqs:
+                gen_tokens, _ = decode_pointer_constrained(
+                    model=model,
+                    pointer_head=self.pointer_head,
+                    prompt_ids=prompt_ids,
+                    context_start=context_start,
+                    context_end=context_end,
+                    candidate_token_sequences=candidate_seqs,
+                    query_start=query_start,
+                    query_end=query_end,
+                    max_new_tokens=max_new_tokens,
+                    device=device,
+                )
+                ans = tok.decode(gen_tokens, errors="replace").strip()
+                if ans:
+                    return ans, ComponentOrigin.CONSTRAINED_TRIE
+
+        # Unconstrained greedy pointer decoding
+        gen_tokens, _ = decode_pointer_greedy(
+            model=model,
+            pointer_head=self.pointer_head,
+            prompt_ids=prompt_ids,
+            context_start=context_start,
+            context_end=context_end,
+            query_start=query_start,
+            query_end=query_end,
+            max_new_tokens=max_new_tokens,
+            device=device,
+        )
+        ans = tok.decode(gen_tokens, errors="replace").strip()
+        return ans, origin
 
     def _record_history(self, session_id: str, user_q: str, assistant_ans: str, origin: ComponentOrigin) -> None:
         if self.memory:

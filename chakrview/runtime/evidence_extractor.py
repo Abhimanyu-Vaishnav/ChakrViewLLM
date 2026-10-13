@@ -146,6 +146,21 @@ class EvidenceExtractor:
             if not m_t:
                 p_temp3 = rf"(?:melts|boils)\s+at\s+(?:a\s+temperature\s+of\s+)?([0-9.-]+\s*(?:C|degrees\s*Celsius|K))"
                 m_t = re.search(p_temp3, c_clean, re.IGNORECASE)
+            all_temps = re.findall(p_temp, c_clean, re.IGNORECASE)
+            if not all_temps:
+                all_temps = re.findall(p_temp2, c_clean, re.IGNORECASE)
+            if not all_temps:
+                all_temps = re.findall(p_temp3, c_clean, re.IGNORECASE)
+            unique_temps = list(dict.fromkeys(t.strip() for t in all_temps if t.strip()))
+            if len(unique_temps) > 1:
+                return ExtractionResult(
+                    success=False,
+                    extracted_value=unique_temps[0],
+                    supporting_span=m_t.group(0) if m_t else c_clean[:50],
+                    confidence=0.50,
+                    has_conflicts=True,
+                    conflicting_values=unique_temps,
+                )
             if m_t:
                 return ExtractionResult(
                     success=True,

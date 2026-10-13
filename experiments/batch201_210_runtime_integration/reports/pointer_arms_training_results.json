@@ -1,0 +1,142 @@
+{
+  "training_time_sec": 2.51,
+  "held_out_cases": 4,
+  "arms": {
+    "arm_a_vocab_only": {
+      "exact_match_count": 0,
+      "exact_match_rate": 0.0,
+      "samples": [
+        {
+          "entity": "Euler number e",
+          "query": "What is the approximate value of Euler number e?",
+          "target": "2.71828",
+          "generated": "* 2005 x",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the परमाणु क्रमांक of चांदी?",
+          "target": "47",
+          "generated": "इन्�",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "इन्ह",
+          "match": false
+        },
+        {
+          "entity": "Saturn",
+          "query": "What is the largest moon of Saturn?",
+          "target": "Titan",
+          "generated": "Step-by",
+          "match": false
+        }
+      ]
+    },
+    "arm_b_standard_pointer": {
+      "exact_match_count": 1,
+      "exact_match_rate": 0.25,
+      "samples": [
+        {
+          "entity": "Euler number e",
+          "query": "What is the approximate value of Euler number e?",
+          "target": "2.71828",
+          "generated": "72222222",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the परमाणु क्रमांक of चांदी?",
+          "target": "47",
+          "generated": "47777777",
+          "match": true
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "47777777",
+          "match": false
+        },
+        {
+          "entity": "Saturn",
+          "query": "What is the largest moon of Saturn?",
+          "target": "Titan",
+          "generated": "rathape rat",
+          "match": false
+        }
+      ]
+    },
+    "arm_c_query_aware_pointer": {
+      "exact_match_count": 1,
+      "exact_match_rate": 0.25,
+      "samples": [
+        {
+          "entity": "Euler number e",
+          "query": "What is the approximate value of Euler number e?",
+          "target": "2.71828",
+          "generated": "72222222",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the परमाणु क्रमांक of चांदी?",
+          "target": "47",
+          "generated": "47777777",
+          "match": true
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "47777777",
+          "match": false
+        },
+        {
+          "entity": "Saturn",
+          "query": "What is the largest moon of Saturn?",
+          "target": "Titan",
+          "generated": "denanitroham rat",
+          "match": false
+        }
+      ]
+    },
+    "arm_d_deterministic_oracle": {
+      "exact_match_count": 0,
+      "exact_match_rate": 0.0,
+      "samples": [
+        {
+          "entity": "Euler number e",
+          "query": "What is the approximate value of Euler number e?",
+          "target": "2.71828",
+          "generated": "Not mentioned in context.",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the परमाणु क्रमांक of चांदी?",
+          "target": "47",
+          "generated": "Not mentioned in context.",
+          "match": false
+        },
+        {
+          "entity": "चांदी (Silver)",
+          "query": "What is the प्रमुख गुण of चांदी?",
+          "target": "विद्युत सुचालक",
+          "generated": "Not mentioned in context.",
+          "match": false
+        },
+        {
+          "entity": "Saturn",
+          "query": "What is the largest moon of Saturn?",
+          "target": "Titan",
+          "generated": "Not mentioned in context.",
+          "match": false
+        }
+      ]
+    }
+  }
+}
