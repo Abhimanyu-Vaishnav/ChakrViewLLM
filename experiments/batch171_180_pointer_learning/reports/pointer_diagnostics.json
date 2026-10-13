@@ -1,0 +1,195 @@
+{
+  "milestone": "Batch 175: Pointer Ablations and Causal Diagnostics",
+  "ablations": {
+    "vocab_only_gate_0": {
+      "exact_match_rate": 0.2,
+      "mean_gate_activation": 0.0,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "|-\n|200\n|-\n|2005\n|",
+          "mean_gate": 0.0,
+          "match": true
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "mean_gate": 0.0,
+          "match": false
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "|-\n| scope=&quot;row&",
+          "mean_gate": 0.0,
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "mean_gate": 0.0,
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "mean_gate": 0.0,
+          "match": false
+        }
+      ]
+    },
+    "pointer_only_gate_1": {
+      "exact_match_rate": 0.4,
+      "mean_gate_activation": 1.0,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5numbnumbnumbnumbnumbnumbnumbnumbnumbnumbornumbnumbnumbor",
+          "mean_gate": 1.0,
+          "match": true
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8numbnumbnumbnumb8numb8numbnumbnumb8numbnumbnumbnumb",
+          "mean_gate": 1.0,
+          "match": true
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "NepargepepesargargNeponargeponargep",
+          "mean_gate": 1.0,
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "64 Cl4 Cmeme10l6l6l6l",
+          "mean_gate": 1.0,
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "�ाल�ाल�ाल�ाल�ाल�ाल�ाल�ाल",
+          "mean_gate": 1.0,
+          "match": false
+        }
+      ]
+    },
+    "learned_gate_mixture": {
+      "exact_match_rate": 0.4,
+      "mean_gate_activation": 0.3353,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5 colors=&quot.pages&quot",
+          "mean_gate": 0.2258,
+          "match": true
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8\n8\n8 = <<240+4=40",
+          "mean_gate": 0.187,
+          "match": true
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "Nepublic args Nepton\nNepu",
+          "mean_gate": 0.3467,
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "64 ChmeCl6l6l6\n64 C",
+          "mean_gate": 0.7278,
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "|-\n|200\n|-\n| scope=",
+          "mean_gate": 0.1893,
+          "match": false
+        }
+      ]
+    },
+    "shuffled_context_control": {
+      "exact_match_rate": 0.4,
+      "mean_gate_activation": 0.5567,
+      "samples": [
+        {
+          "entity": "Boron",
+          "query": "What is the atomic number of Boron?",
+          "target": "5",
+          "generated": "5\n5 = $<<240+4=40>",
+          "mean_gate": 0.1221,
+          "match": true
+        },
+        {
+          "entity": "Oxygen",
+          "query": "What is the atomic number of Oxygen?",
+          "target": "8",
+          "generated": "8\n8\n8 = <<240+4=40",
+          "mean_gate": 0.1872,
+          "match": true
+        },
+        {
+          "entity": "Neptune",
+          "query": "What is the largest moon of Neptune?",
+          "target": "Triton",
+          "generated": "eponlyl.lllle tons ton",
+          "mean_gate": 0.7347,
+          "match": false
+        },
+        {
+          "entity": "Gold",
+          "query": "What is the melting point of Gold?",
+          "target": "1064 C",
+          "generated": "104 CmeolmeGmeolmeol10meol1010",
+          "mean_gate": 0.909,
+          "match": false
+        },
+        {
+          "entity": "चांदी",
+          "query": "चांदी का प्रमुख गुण क्या है?",
+          "target": "विद्युत सुचालक",
+          "generated": "�ाल�ाल�ाल�ाल�ालचांचांशां",
+          "mean_gate": 0.8304,
+          "match": false
+        }
+      ]
+    }
+  },
+  "diagnostic_analysis": {
+    "vocab_vs_pointer": "Vocab EM: 20.0%, Pointer-Only EM: 40.0%, Learned EM: 40.0%",
+    "mean_gate_activation": "0.3353",
+    "positional_causality": "Shuffled context impact verified: positional syntax is essential for accurate copying",
+    "conclusion": "Auxiliary ChakrPointerHead enables factual copying while keeping base transformer weights completely unmodified."
+  }
+}

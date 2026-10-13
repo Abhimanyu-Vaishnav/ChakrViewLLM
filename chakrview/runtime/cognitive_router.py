@@ -23,6 +23,7 @@ from typing import Any, Dict, List, Optional, Tuple
 class RouteType(str, Enum):
     DIRECT_CHAT = "direct_chat"
     CONTEXT_QA = "context_qa"
+    POINTER_COPY = "pointer_copy"
     KNOWLEDGE_RETRIEVAL = "knowledge_retrieval"
     SLOT_EXTRACTION = "slot_extraction"
     INSUFFICIENT_EVIDENCE = "insufficient_evidence"
@@ -31,6 +32,7 @@ class RouteType(str, Enum):
 
 class ComponentOrigin(str, Enum):
     NEURAL_CORE = "neural_core"
+    NEURAL_POINTER = "neural_pointer"
     DETERMINISTIC_EXTRACTOR = "deterministic_extractor"
     HYBRID_RETRIEVER = "hybrid_retriever"
     FALLBACK_POLICY = "fallback_policy"
@@ -81,9 +83,11 @@ class CognitiveRouter:
         self,
         retrieval_threshold: float = 0.20,
         enable_slot_extraction: bool = True,
+        enable_pointer_copy: bool = False,
     ) -> None:
         self.retrieval_threshold = retrieval_threshold
         self.enable_slot_extraction = enable_slot_extraction
+        self.enable_pointer_copy = enable_pointer_copy
 
     def classify_route(
         self,
@@ -96,6 +100,17 @@ class CognitiveRouter:
 
         # 1. If explicit context is already supplied with the query
         if supplied_context and supplied_context.strip():
+            # Check if pointer copy route is explicitly enabled
+            if self.enable_pointer_copy and self._is_slot_query(q_lower):
+                return RouteDecision(
+                    route=RouteType.POINTER_COPY,
+                    reason="Experimental neural pointer copying enabled for context query",
+                    confidence=0.85,
+                    decision_method="policy_rule",
+                    requires_retrieval=False,
+                    requires_slot_extraction=True,
+                    metadata={"has_supplied_context": True, "pointer_copy": True},
+                )
             # Check if query seeks a structured attribute / key
             if self.enable_slot_extraction and self._is_slot_query(q_lower):
                 return RouteDecision(

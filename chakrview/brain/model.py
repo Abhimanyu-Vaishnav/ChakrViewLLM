@@ -55,7 +55,8 @@ class ChakrMicro(nn.Module):
         input_ids: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         kv_cache: Optional[Any] = None,
-    ) -> torch.Tensor:
+        return_hidden_states: bool = False,
+    ) -> Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:
         """
         Forward pass from token IDs to next-token logits.
         
@@ -83,10 +84,12 @@ class ChakrMicro(nn.Module):
             x = layer(x, attention_mask=attention_mask, kv_cache=kv_cache, layer_idx=i)
             
         # 3. Final Pre-RMSNorm: [B, T, d_model]
-        x = self.final_norm(x)
+        h = self.final_norm(x)
         
         # 4. Tied projection to vocabulary logits: [B, T, vocab_size]
-        logits = self.lm_head(x)
+        logits = self.lm_head(h)
+        if return_hidden_states:
+            return logits, h
         return logits
 
     def prefill(

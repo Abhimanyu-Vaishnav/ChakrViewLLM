@@ -1,0 +1,169 @@
+{
+  "milestone": "Batch 179: Full Regression and Adversarial Evaluation",
+  "total_cases": 20,
+  "passed_cases": 20,
+  "pass_rate": 1.0,
+  "execution_time_sec": 0.01,
+  "cases": [
+    {
+      "case_id": 1,
+      "name": "Neural Direct Generation Routing",
+      "expected": "direct_chat",
+      "actual": "direct_chat",
+      "component": "neural_core",
+      "passed": true
+    },
+    {
+      "case_id": 2,
+      "name": "Neural Pointer Copy Model Checkpoint",
+      "expected": true,
+      "actual": true,
+      "component": "neural_pointer",
+      "passed": true
+    },
+    {
+      "case_id": 3,
+      "name": "Learned Retrieval Margin Calibration (>0.20)",
+      "expected": true,
+      "actual": true,
+      "component": "learned_bi_encoder",
+      "passed": true
+    },
+    {
+      "case_id": 4,
+      "name": "Deterministic Hash Baseline Determinism",
+      "expected": true,
+      "actual": true,
+      "component": "hybrid_retriever",
+      "passed": true
+    },
+    {
+      "case_id": 5,
+      "name": "Deterministic Slot Extraction",
+      "expected": "Paris",
+      "actual": "Paris",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 6,
+      "name": "Evidence Abstention on Missing Fact",
+      "expected": false,
+      "actual": false,
+      "component": "fallback_policy",
+      "passed": true
+    },
+    {
+      "case_id": 7,
+      "name": "Conflicting Evidence Detection",
+      "expected": true,
+      "actual": true,
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 8,
+      "name": "Multi-Token Extraction",
+      "expected": true,
+      "actual": true,
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 9,
+      "name": "Unseen Entity Zero-Shot Extraction",
+      "expected": "999",
+      "actual": "999",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 10,
+      "name": "Reordered Record Extraction",
+      "expected": true,
+      "actual": true,
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 11,
+      "name": "Distractor-Heavy Context Invariance",
+      "expected": "1064 C",
+      "actual": "1064 C",
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 12,
+      "name": "Hindi Fact Extraction",
+      "expected": true,
+      "actual": true,
+      "component": "deterministic_extractor",
+      "passed": true
+    },
+    {
+      "case_id": 13,
+      "name": "Multi-Step Workflow Execution",
+      "expected": "completed with result 3",
+      "actual": "completed: 3",
+      "component": "CognitiveTaskEngine",
+      "passed": true
+    },
+    {
+      "case_id": 14,
+      "name": "Cross-Session Memory Isolation",
+      "expected": true,
+      "actual": true,
+      "component": "PersistentSessionMemory",
+      "passed": true
+    },
+    {
+      "case_id": 15,
+      "name": "State Recovery After Engine Restart",
+      "expected": true,
+      "actual": true,
+      "component": "CognitiveTaskEngine",
+      "passed": true
+    },
+    {
+      "case_id": 16,
+      "name": "Idempotent Re-Execution Invariance",
+      "expected": true,
+      "actual": true,
+      "component": "CognitiveTaskEngine",
+      "passed": true
+    },
+    {
+      "case_id": 17,
+      "name": "Empty / Malformed Input Handling",
+      "expected": false,
+      "actual": false,
+      "component": "fallback_policy",
+      "passed": true
+    },
+    {
+      "case_id": 18,
+      "name": "Context Length Limit Compliance (max_seq_len == 512)",
+      "expected": 512,
+      "actual": 512,
+      "component": "ChakrMicroConfig",
+      "passed": true
+    },
+    {
+      "case_id": 19,
+      "name": "Bounded Pointer Memory Footprint (<30k parameters)",
+      "expected": "<30000",
+      "actual": 24961,
+      "component": "ChakrPointerHead",
+      "passed": true
+    },
+    {
+      "case_id": 20,
+      "name": "Safe Fallback on Pointer Route Disablement",
+      "expected": "slot_extraction",
+      "actual": "slot_extraction",
+      "component": "deterministic_extractor",
+      "passed": true
+    }
+  ]
+}

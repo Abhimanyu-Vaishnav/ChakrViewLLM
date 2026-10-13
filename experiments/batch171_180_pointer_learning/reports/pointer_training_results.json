@@ -1,0 +1,86 @@
+{
+  "milestone": "Batch 174 Controlled Neural Pointer Training Experiment",
+  "trainable_pointer_parameters": 24961,
+  "training_time_sec": 12.39,
+  "held_out_test_cases": 5,
+  "arm_a_baseline_zero_shot": {
+    "exact_match_rate": 0.2,
+    "samples": [
+      {
+        "entity": "Boron",
+        "query": "What is the atomic number of Boron?",
+        "target": "5",
+        "generated": "|-\n|200\n|-\n|2005\n|",
+        "match": true
+      },
+      {
+        "entity": "Oxygen",
+        "query": "What is the atomic number of Oxygen?",
+        "target": "8",
+        "generated": "|-\n|200\n|-\n| scope=",
+        "match": false
+      },
+      {
+        "entity": "Neptune",
+        "query": "What is the largest moon of Neptune?",
+        "target": "Triton",
+        "generated": "|-\n| scope=&quot;row&",
+        "match": false
+      },
+      {
+        "entity": "Gold",
+        "query": "What is the melting point of Gold?",
+        "target": "1064 C",
+        "generated": "|-\n|200\n|-\n| scope=",
+        "match": false
+      },
+      {
+        "entity": "चांदी",
+        "query": "चांदी का प्रमुख गुण क्या है?",
+        "target": "विद्युत सुचालक",
+        "generated": "|-\n|200\n|-\n| scope=",
+        "match": false
+      }
+    ]
+  },
+  "arm_c_auxiliary_pointer": {
+    "exact_match_rate": 0.4,
+    "samples": [
+      {
+        "entity": "Boron",
+        "query": "What is the atomic number of Boron?",
+        "target": "5",
+        "generated": "5 colors=&quot.pages&quot",
+        "match": true
+      },
+      {
+        "entity": "Oxygen",
+        "query": "What is the atomic number of Oxygen?",
+        "target": "8",
+        "generated": "8\n8\n8 = <<240+4=40",
+        "match": true
+      },
+      {
+        "entity": "Neptune",
+        "query": "What is the largest moon of Neptune?",
+        "target": "Triton",
+        "generated": "Nepublic args Nepton\nNepu",
+        "match": false
+      },
+      {
+        "entity": "Gold",
+        "query": "What is the melting point of Gold?",
+        "target": "1064 C",
+        "generated": "64 ChmeCl6l6l6\n64 C",
+        "match": false
+      },
+      {
+        "entity": "चांदी",
+        "query": "चांदी का प्रमुख गुण क्या है?",
+        "target": "विद्युत सुचालक",
+        "generated": "|-\n|200\n|-\n| scope=",
+        "match": false
+      }
+    ]
+  }
+}

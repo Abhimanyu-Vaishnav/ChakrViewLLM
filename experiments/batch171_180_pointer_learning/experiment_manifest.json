@@ -1,0 +1,48 @@
+{
+  "milestone": "Batches 171-180: Experimental Pointer Copying, Neural Learning Diagnostics, Adaptive Cognitive Execution",
+  "starting_commit": "9669f90",
+  "branch": "dev/v0.6-v0.7-validation",
+  "remote": "origin",
+  "canonical_invariants": {
+    "checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "base_parameters": 3443136,
+    "vocab_size": 4096,
+    "d_model": 192,
+    "max_seq_len": 512
+  },
+  "experimental_modules": {
+    "pointer_head": {
+      "class": "ChakrPointerHead",
+      "trainable_parameters": 24961,
+      "checkpoint_path": "experiments/batch171_180_pointer_learning/checkpoints/pointer_head_arm_c.pt",
+      "held_out_test_em": 0.40,
+      "mean_gate_activation": 0.3353
+    },
+    "improved_bi_encoder": {
+      "class": "ChakrBiEncoder",
+      "trainable_parameters": 456704,
+      "checkpoint_path": "experiments/batch171_180_pointer_learning/checkpoints/improved_bi_encoder.pt",
+      "loss": "InfoNCE In-Batch Symmetric Contrastive",
+      "separation_margin": 0.2521
+    }
+  },
+  "data_provenance": {
+    "dataset_name": "ChakrView_Controlled_Pointer_Copy_Benchmark_v1",
+    "split_manifest": "experiments/batch171_180_pointer_learning/data/split_manifest.json",
+    "train_sha256": "f8d1dea6bf1e47a3febee51449b63d5fcd22715628efa2933854d18776151c58",
+    "val_sha256": "3eea2da4f7313af61763f70c074fc6b89627bb5488c1a0c650914569d326632f",
+    "test_sha256": "ea9f88330bda13767b70608bd6ebc85edeee831b5fde20e1fc40c96e2b622c40"
+  },
+  "integrated_adversarial_battery": {
+    "total_cases": 20,
+    "passed_cases": 20,
+    "pass_rate": 1.0,
+    "report_path": "experiments/batch171_180_pointer_learning/reports/integrated_evaluation_results.json"
+  },
+  "known_limitations": [
+    "Multi-token pointer generation requires greedy autoregressive decoding; beam search is not yet implemented.",
+    "Learned Bi-Encoder is still slower (9.2ms) than deterministic hash baseline (0.5ms) on CPU.",
+    "ChakrPointerHead is an experimental option behind enable_pointer_copy=True and not yet the unconditional default."
+  ]
+}

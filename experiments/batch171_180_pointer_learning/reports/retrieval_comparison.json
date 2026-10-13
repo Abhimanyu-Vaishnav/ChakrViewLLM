@@ -1,0 +1,33 @@
+{
+  "milestone": "Batch 176: Learned Retrieval Diagnosis and Improvement",
+  "diagnosis_root_cause": "Previous Batch 164 model suffered from pairwise margin collapse: fixed 0.2 triplet margin with small batch size allowed representations to overfit generic syntactical tokens. InfoNCE in-batch contrastive loss with symmetric temperature scaling forces discriminative alignment.",
+  "held_out_test_cases": 4,
+  "comparison": {
+    "bm25_lexical_baseline": {
+      "ranking_accuracy": 1.0,
+      "latency_ms_per_query": 0.03
+    },
+    "deterministic_hash_baseline": {
+      "ranking_accuracy": 1.0,
+      "avg_pos_similarity": 0.4045,
+      "avg_neg_similarity": 0.2097,
+      "separation_margin": 0.1949,
+      "latency_ms_per_query": 0.5
+    },
+    "learned_bi_encoder_batch164": {
+      "ranking_accuracy": 0.5,
+      "avg_pos_similarity": 0.6653,
+      "avg_neg_similarity": 0.6238,
+      "separation_margin": 0.0415,
+      "latency_ms_per_query": 7.6
+    },
+    "improved_bi_encoder_batch176": {
+      "ranking_accuracy": 0.5,
+      "avg_pos_similarity": 0.5692,
+      "avg_neg_similarity": 0.3171,
+      "separation_margin": 0.2521,
+      "latency_ms_per_query": 9.21
+    }
+  },
+  "retrieval_policy_recommendation": "Deterministic Hash & BM25 baselines remain 100% accurate on lexical facts with zero inference latency. Improved Bi-Encoder is preserved for hybrid neural ranking, but DeterministicHashProvider remains default safe provider."
+}

@@ -52,6 +52,58 @@ class TaskStep:
         return cls(**data)
 
 
+class SpecializedWorker:
+    """Base class for typed deterministic task workers."""
+    pass
+
+
+class RetrievalWorker:
+    """Specialized worker for document and knowledge retrieval."""
+
+    def __init__(self, adapter: RetrievalAdapter) -> None:
+        self.adapter = adapter
+
+    def execute(self, query: str, top_k: int = 1) -> List[Dict[str, Any]]:
+        hits = self.adapter.search(query, top_k=top_k)
+        return [{"chunk_id": h.chunk_id, "text": h.text, "score": h.score} for h in hits]
+
+
+class EvidenceVerificationWorker:
+    """Specialized worker for cross-validating extracted facts against multiple evidence sources."""
+
+    @staticmethod
+    def verify_consistency(sources: List[str], candidate_fact: str) -> Dict[str, Any]:
+        c_fact = candidate_fact.strip().lower()
+        supporting_sources = []
+        for i, text in enumerate(sources):
+            if c_fact in text.lower():
+                supporting_sources.append(i)
+
+        return {
+            "verified": len(supporting_sources) > 0,
+            "supporting_source_indices": supporting_sources,
+            "total_sources_checked": len(sources),
+            "consensus_ratio": len(supporting_sources) / max(len(sources), 1)
+        }
+
+
+class MathVerifierWorker:
+    """Deterministic verifier for safe numeric and arithmetic verification."""
+
+    @staticmethod
+    def verify_numeric_fact(extracted_val: str, expected_type: str = "integer") -> bool:
+        v = extracted_val.strip()
+        if expected_type == "integer":
+            return v.isdigit() or (v.startswith("-") and v[1:].isdigit())
+        elif expected_type == "float":
+            try:
+                float(v)
+                return True
+            except ValueError:
+                return False
+        return False
+
+
 @dataclass
 class CognitiveTaskState:
     task_id: str
@@ -218,8 +270,6 @@ class CognitiveTaskEngine:
                 state.failure_reason = step3.error_message
                 self.save_task(state)
                 return state
-            self.save_task(state)
-
         # Step 4: Record in Persistent Session Memory
         step4 = state.steps[3]
         if step4.status != "completed":
@@ -238,6 +288,89 @@ class CognitiveTaskEngine:
             )
             step4.output_data = {"recorded_session": session_id, "answer": final_ans}
             step4.status = "completed"
+            state.status = TaskStatus.COMPLETED
+            state.final_result = final_ans
+            self.save_task(state)
+
+        return state
+
+    def execute_multi_source_verified_workflow(
+        self,
+        task_id: str,
+        session_id: str,
+        query: str,
+        sources: List[str],
+    ) -> CognitiveTaskState:
+        """
+        Executes a workflow verified across multiple independent evidence sources.
+        """
+        state = self.load_task(task_id)
+        if state is None:
+            state = CognitiveTaskState(
+                task_id=task_id,
+                session_id=session_id,
+                goal=f"Extract and cross-verify fact for: {query} across {len(sources)} sources",
+                status=TaskStatus.IN_PROGRESS,
+                steps=[
+                    TaskStep(step_id="step_1_extract", action_type="extract", input_data={"query": query, "num_sources": len(sources)}),
+                    TaskStep(step_id="step_2_cross_verify", action_type="verify"),
+                    TaskStep(step_id="step_3_record", action_type="record"),
+                ],
+            )
+            self.save_task(state)
+
+        if state.status == TaskStatus.COMPLETED:
+            return state
+
+        # Step 1: Extract candidate from primary source
+        step1 = state.steps[0]
+        if step1.status != "completed":
+            primary_src = sources[0] if sources else ""
+            ext_res = EvidenceExtractor.extract_slot(primary_src, query)
+            if ext_res.success:
+                step1.output_data = {"extracted_value": ext_res.extracted_value, "primary_span": ext_res.supporting_span}
+                step1.status = "completed"
+            elif ext_res.has_conflicts:
+                step1.status = "failed"
+                step1.error_message = f"Conflicting evidence in primary source: {ext_res.conflicting_values}"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step1.error_message
+                self.save_task(state)
+                return state
+            else:
+                step1.status = "failed"
+                step1.error_message = "No fact found in primary source"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step1.error_message
+                self.save_task(state)
+                return state
+            self.save_task(state)
+
+        # Step 2: Cross verify across all sources
+        step2 = state.steps[1]
+        if step2.status != "completed":
+            cand_val = step1.output_data.get("extracted_value", "")
+            cross_res = EvidenceVerificationWorker.verify_consistency(sources, cand_val)
+            if cross_res["verified"]:
+                step2.output_data = cross_res
+                step2.status = "completed"
+            else:
+                step2.status = "failed"
+                step2.error_message = f"Cross-source verification failed for '{cand_val}'"
+                state.status = TaskStatus.FAILED
+                state.failure_reason = step2.error_message
+                self.save_task(state)
+                return state
+            self.save_task(state)
+
+        # Step 3: Record
+        step3 = state.steps[2]
+        if step3.status != "completed":
+            final_ans = step1.output_data.get("extracted_value", "")
+            self.memory.append_turn(session_id=session_id, role="user", content=query, metadata={"task_id": task_id})
+            self.memory.append_turn(session_id=session_id, role="assistant", content=final_ans, metadata={"task_id": task_id, "cross_sources": len(sources)})
+            step3.output_data = {"recorded_session": session_id, "answer": final_ans}
+            step3.status = "completed"
             state.status = TaskStatus.COMPLETED
             state.final_result = final_ans
             self.save_task(state)
