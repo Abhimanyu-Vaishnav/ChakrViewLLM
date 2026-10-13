@@ -1,0 +1,883 @@
+{
+  "benchmark": "Batch 131-134 Relational Rule Induction (RRI-1)",
+  "train_records": 100,
+  "test_records": 45,
+  "steps": 150,
+  "batch_size": 4,
+  "lr": 0.0003,
+  "seed": 42,
+  "armA_canonical_base": {
+    "name": "rri_armA_canonical_base",
+    "checkpoint": "experiments\\batch131_134_mission_alignment_audit\\checkpoints\\rri_armA_canonical_base_step150.pt",
+    "checkpoint_sha256": "c33d3e18a6826be2db17478b8e69e6f2223e9c6bf92aff9b7cb296dae4523d50",
+    "total_count": 45,
+    "total_correct": 19,
+    "overall_accuracy": 0.4222,
+    "category_summary": {
+      "familiar_combinations": {
+        "count": 10,
+        "correct": 3,
+        "accuracy": 0.3
+      },
+      "heldout_entities": {
+        "count": 10,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "test_negative_control": {
+        "count": 10,
+        "correct": 10,
+        "accuracy": 1.0
+      },
+      "unseen_combinations": {
+        "count": 15,
+        "correct": 6,
+        "accuracy": 0.4
+      }
+    },
+    "per_example": [
+      {
+        "id": "TEST-FAMILIAR-00",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: F=P, C=Q QUERY: C ANSWER: ",
+        "expected": "Q",
+        "prediction": "U",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-01",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: B=Q, F=U QUERY: B ANSWER: ",
+        "expected": "Q",
+        "prediction": "U",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-02",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=N, H=S QUERY: H ANSWER: ",
+        "expected": "S",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-03",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: D=N, A=S QUERY: A ANSWER: ",
+        "expected": "S",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-04",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: E=R, B=M QUERY: E ANSWER: ",
+        "expected": "R",
+        "prediction": "M",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-05",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=P, C=S QUERY: C ANSWER: ",
+        "expected": "S",
+        "prediction": "S",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-06",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=Q, H=N QUERY: A ANSWER: ",
+        "expected": "Q",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-07",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: F=Q, C=S QUERY: C ANSWER: ",
+        "expected": "S",
+        "prediction": "S",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-08",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: B=T, D=R QUERY: D ANSWER: ",
+        "expected": "R",
+        "prediction": "R",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-09",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: H=T, B=M QUERY: H ANSWER: ",
+        "expected": "T",
+        "prediction": "M",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-00",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to P - F maps to S LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "S",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-01",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to S - D maps to R LOOKUP: G RESULT: ",
+        "expected": "S",
+        "prediction": "R",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-02",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - B maps to Q LOOKUP: B RESULT: ",
+        "expected": "Q",
+        "prediction": "Q",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-03",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - G maps to Q LOOKUP: A RESULT: ",
+        "expected": "T",
+        "prediction": "Q",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-04",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - F maps to T - C maps to U LOOKUP: C RESULT: ",
+        "expected": "U",
+        "prediction": "T",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-05",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to Q - E maps to U LOOKUP: G RESULT: ",
+        "expected": "Q",
+        "prediction": "Q",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-06",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to M - D maps to Q LOOKUP: G RESULT: ",
+        "expected": "M",
+        "prediction": "Q",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-07",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to P - F maps to T LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "T",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-08",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - C maps to M - E maps to Q LOOKUP: E RESULT: ",
+        "expected": "Q",
+        "prediction": "Q",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-09",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - H maps to N LOOKUP: H RESULT: ",
+        "expected": "N",
+        "prediction": "N",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-10",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - C maps to R - A maps to Q LOOKUP: C RESULT: ",
+        "expected": "R",
+        "prediction": "Q",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-11",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - H maps to S - C maps to T LOOKUP: C RESULT: ",
+        "expected": "T",
+        "prediction": "S",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-12",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - E maps to T - G maps to P LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "T",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-13",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - H maps to M - A maps to P LOOKUP: H RESULT: ",
+        "expected": "M",
+        "prediction": "M",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-14",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - B maps to M - G maps to T LOOKUP: B RESULT: ",
+        "expected": "M",
+        "prediction": "M",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-00",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: W ANSWER: ",
+        "expected": "Y",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-01",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: X RESULT: ",
+        "expected": "Z",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-02",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is W? Answer: ",
+        "expected": "Y",
+        "prediction": "R",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-03",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: X ANSWER: ",
+        "expected": "Z",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-04",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: W RESULT: ",
+        "expected": "Y",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-05",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is X? Answer: ",
+        "expected": "Z",
+        "prediction": "T",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-06",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: W ANSWER: ",
+        "expected": "Y",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-07",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: X RESULT: ",
+        "expected": "Z",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-08",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is W? Answer: ",
+        "expected": "Y",
+        "prediction": "R",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-09",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: X ANSWER: ",
+        "expected": "Z",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-NEG-00",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: A=M, B=N QUERY: Z ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-01",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: C=P, D=Q QUERY: X ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-02",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "BINDINGS: - E maps to R LOOKUP: missing RESULT: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-03",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Given pairs (G:T). What is unknown? Answer: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-04",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: H=U QUERY: none ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-05",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "What is the capital of France?",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-06",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Explain quantum entanglement.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-07",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Calculate 12 + 15.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-08",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Write a poem about trees.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-09",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Perform lookup on empty dictionary.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      }
+    ]
+  },
+  "armB_copy_init": {
+    "name": "rri_armB_copy_init",
+    "checkpoint": "experiments\\batch131_134_mission_alignment_audit\\checkpoints\\rri_armB_copy_init_step150.pt",
+    "checkpoint_sha256": "7d787be99fa3438c4fc5f4655ed72c5a52b041d6b4318941c79b24eff9cffcc8",
+    "total_count": 45,
+    "total_correct": 22,
+    "overall_accuracy": 0.4889,
+    "category_summary": {
+      "familiar_combinations": {
+        "count": 10,
+        "correct": 5,
+        "accuracy": 0.5
+      },
+      "heldout_entities": {
+        "count": 10,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "test_negative_control": {
+        "count": 10,
+        "correct": 10,
+        "accuracy": 1.0
+      },
+      "unseen_combinations": {
+        "count": 15,
+        "correct": 7,
+        "accuracy": 0.4667
+      }
+    },
+    "per_example": [
+      {
+        "id": "TEST-FAMILIAR-00",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: F=P, C=Q QUERY: C ANSWER: ",
+        "expected": "Q",
+        "prediction": "S",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-01",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: B=Q, F=U QUERY: B ANSWER: ",
+        "expected": "Q",
+        "prediction": "Q",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-02",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=N, H=S QUERY: H ANSWER: ",
+        "expected": "S",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-03",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: D=N, A=S QUERY: A ANSWER: ",
+        "expected": "S",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-04",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: E=R, B=M QUERY: E ANSWER: ",
+        "expected": "R",
+        "prediction": "M",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-05",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=P, C=S QUERY: C ANSWER: ",
+        "expected": "S",
+        "prediction": "S",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-06",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: A=Q, H=N QUERY: A ANSWER: ",
+        "expected": "Q",
+        "prediction": "N",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-FAMILIAR-07",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: F=Q, C=S QUERY: C ANSWER: ",
+        "expected": "S",
+        "prediction": "S",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-08",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: B=T, D=R QUERY: D ANSWER: ",
+        "expected": "R",
+        "prediction": "R",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-FAMILIAR-09",
+        "category": "familiar_combinations",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: H=T, B=M QUERY: H ANSWER: ",
+        "expected": "T",
+        "prediction": "T",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-00",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to P - F maps to S LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "S",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-01",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to S - D maps to R LOOKUP: G RESULT: ",
+        "expected": "S",
+        "prediction": "R",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-02",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - B maps to Q LOOKUP: B RESULT: ",
+        "expected": "Q",
+        "prediction": "U",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-03",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - G maps to Q LOOKUP: A RESULT: ",
+        "expected": "T",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-04",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - F maps to T - C maps to U LOOKUP: C RESULT: ",
+        "expected": "U",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-05",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to Q - E maps to U LOOKUP: G RESULT: ",
+        "expected": "Q",
+        "prediction": "Q",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-06",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to M - D maps to Q LOOKUP: G RESULT: ",
+        "expected": "M",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-07",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - G maps to P - F maps to T LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "P",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-08",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - C maps to M - E maps to Q LOOKUP: E RESULT: ",
+        "expected": "Q",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-09",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - A maps to T - H maps to N LOOKUP: H RESULT: ",
+        "expected": "N",
+        "prediction": "N",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-10",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - C maps to R - A maps to Q LOOKUP: C RESULT: ",
+        "expected": "R",
+        "prediction": "R",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-11",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - H maps to S - C maps to T LOOKUP: C RESULT: ",
+        "expected": "T",
+        "prediction": "T",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-12",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - E maps to T - G maps to P LOOKUP: G RESULT: ",
+        "expected": "P",
+        "prediction": "P",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-13",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - H maps to M - A maps to P LOOKUP: H RESULT: ",
+        "expected": "M",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-UNSEEN-COMBO-14",
+        "category": "unseen_combinations",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - B maps to M - G maps to T LOOKUP: B RESULT: ",
+        "expected": "M",
+        "prediction": "M",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-00",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: W ANSWER: ",
+        "expected": "Y",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-01",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: X RESULT: ",
+        "expected": "Z",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-02",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is W? Answer: ",
+        "expected": "Y",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-03",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: X ANSWER: ",
+        "expected": "Z",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-04",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: W RESULT: ",
+        "expected": "Y",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-05",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is X? Answer: ",
+        "expected": "Z",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-06",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: W ANSWER: ",
+        "expected": "Y",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-07",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "BINDINGS: - W maps to Y - X maps to Z LOOKUP: X RESULT: ",
+        "expected": "Z",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-08",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "Given pairs (W:Y) and (X:Z). What is W? Answer: ",
+        "expected": "Y",
+        "prediction": "P",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-HELDOUT-ENTITIES-09",
+        "category": "heldout_entities",
+        "is_routable": true,
+        "prompt_snippet": "CONTEXT: W=Y, X=Z QUERY: X ANSWER: ",
+        "expected": "Z",
+        "prediction": "UNKNOWN",
+        "exact_match": false
+      },
+      {
+        "id": "TEST-NEG-00",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: A=M, B=N QUERY: Z ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-01",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: C=P, D=Q QUERY: X ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-02",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "BINDINGS: - E maps to R LOOKUP: missing RESULT: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-03",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Given pairs (G:T). What is unknown? Answer: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-04",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "CONTEXT: H=U QUERY: none ANSWER: ",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-05",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "What is the capital of France?",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-06",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Explain quantum entanglement.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-07",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Calculate 12 + 15.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-08",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Write a poem about trees.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      },
+      {
+        "id": "TEST-NEG-09",
+        "category": "test_negative_control",
+        "is_routable": false,
+        "prompt_snippet": "Perform lookup on empty dictionary.",
+        "expected": "UNKNOWN",
+        "prediction": "UNKNOWN",
+        "exact_match": true
+      }
+    ]
+  }
+}
