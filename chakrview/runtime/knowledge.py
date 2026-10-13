@@ -543,10 +543,17 @@ class BM25KnowledgeIndex(KnowledgeIndex):
         self._df: Dict[str, int] = {}
         self._total_doc_len: int = 0
 
-    @staticmethod
-    def _tokenize(text: str) -> List[str]:
-        """Deterministic term extraction."""
-        return re.findall(r"\b[a-zA-Z0-9_-]+\b", text.lower())
+    STOPWORDS = {
+        "the", "a", "an", "is", "are", "was", "were", "in", "on", "at", "to", "for",
+        "of", "and", "or", "who", "what", "where", "when", "why", "how", "it", "its"
+    }
+
+    @classmethod
+    def _tokenize(cls, text: str) -> List[str]:
+        """Deterministic term extraction supporting Unicode, filtering basic stopwords."""
+        words = [w.lower() for w in re.findall(r"\w+", text, flags=re.UNICODE)]
+        filtered = [w for w in words if w not in cls.STOPWORDS]
+        return filtered if filtered else words
 
     def add_chunks(self, chunks: List[KnowledgeChunk]) -> int:
         added = 0
