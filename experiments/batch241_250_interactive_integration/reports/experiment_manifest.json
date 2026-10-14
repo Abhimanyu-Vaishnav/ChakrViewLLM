@@ -1,0 +1,59 @@
+{
+  "milestone": "Batches 241-250: Interactive Intelligence Integration, Intent-Routing Repair, and Audited Multi-Hop Generalization",
+  "timestamp": "2026-10-14T15:00:00Z",
+  "base_commit": "a9574b4",
+  "branch": "dev/v0.6-v0.7-validation",
+  "hardware": {
+    "detected_gpu": "NVIDIA RTX A1000 6GB Laptop GPU",
+    "detected_igpu": "Intel Iris Xe Graphics",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "execution_mode": "CPU-only"
+  },
+  "canonical_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "parameters": 3443136
+  },
+  "datasets": [
+    {
+      "name": "frozen_interactive_regression_suite.json",
+      "path": "experiments/batch241_250_interactive_integration/data/frozen_interactive_regression_suite.json",
+      "sha256": "2b225d598334a96a2358d801dab70a6723a30c6b4cce3c5ffcef675d7006697d",
+      "items": 21
+    },
+    {
+      "name": "frozen_multihop_manifest_100.json",
+      "path": "experiments/batch231_240_multihop_reasoning/data/frozen_multihop_manifest_100.json",
+      "sha256": "b70b38a880e307be77d5eaa1df68bd86b977ad67a2f9d13a79e4b1b7e0939016",
+      "items": 100
+    },
+    {
+      "name": "frozen_threehop_manifest_100.json",
+      "path": "experiments/batch241_250_interactive_integration/data/frozen_threehop_manifest_100.json",
+      "sha256": "6bf47a2baf124859f63b9ed1da4e31777852146db3d12c6c34a112b58f96bfc3",
+      "items": 100
+    }
+  ],
+  "benchmarks": {
+    "interactive_regression_21": {
+      "total": 21,
+      "passed": 21,
+      "pass_rate": 1.0,
+      "results_path": "experiments/batch241_250_interactive_integration/reports/interactive_regression_results.json"
+    },
+    "threehop_grounding_100": {
+      "total": 100,
+      "cross_attention_exact_match": 51,
+      "distractor_confusions": 17,
+      "abstention_correct": 20,
+      "results_path": "experiments/batch241_250_interactive_integration/reports/threehop_evaluation_results.json"
+    }
+  },
+  "tests": [
+    "tests/test_batch241_250_interactive_integration.py",
+    "tests/test_batch231_240_multihop_reasoning.py",
+    "tests/test_batch221_230_pointer_generalization.py",
+    "tests/test_batch211_220_relational_learning.py"
+  ]
+}

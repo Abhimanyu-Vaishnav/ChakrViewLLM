@@ -1,0 +1,41 @@
+{
+  "milestone": "Batch 248: Three-Hop Grounding and Evidence Integrity",
+  "timestamp": "2026-10-14T15:07:38Z",
+  "manifest_sha256": "6bf47a2baf124859f63b9ed1da4e31777852146db3d12c6c34a112b58f96bfc3",
+  "total_test_items": 100,
+  "arms": [
+    {
+      "arm": "Arm A: Cross-Attention Pointer (TokenTrie)",
+      "mode": "cross_attn_trie",
+      "total": 100,
+      "exact_match_count": 51,
+      "exact_match_rate": 0.51,
+      "intermediate_hits": 31,
+      "distractor_confusions": 17,
+      "abstention_correct": 20,
+      "avg_latency_ms": 269.63
+    },
+    {
+      "arm": "Arm B: Deterministic Extractor",
+      "mode": "deterministic",
+      "total": 100,
+      "exact_match_count": 20,
+      "exact_match_rate": 0.2,
+      "intermediate_hits": 0,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 0.08
+    },
+    {
+      "arm": "Arm C: BM25 Lexical Grounding",
+      "mode": "bm25",
+      "total": 100,
+      "exact_match_count": 100,
+      "exact_match_rate": 1.0,
+      "intermediate_hits": 80,
+      "distractor_confusions": 0,
+      "abstention_correct": 20,
+      "avg_latency_ms": 0.02
+    }
+  ]
+}
