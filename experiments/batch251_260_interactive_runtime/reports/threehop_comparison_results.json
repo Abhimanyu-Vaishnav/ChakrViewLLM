@@ -1,0 +1,34 @@
+{
+  "milestone": "Batch 256: Three-Hop Intermediate Supervision & Regularization",
+  "timestamp": "2026-10-14T20:04:20Z",
+  "manifest_sha256": "6bf47a2baf124859f63b9ed1da4e31777852146db3d12c6c34a112b58f96bfc3",
+  "training_loss_history": [
+    4.4392,
+    3.4851,
+    3.292
+  ],
+  "baseline": {
+    "arm": "Baseline: Cross-Attention Pointer (Batch 236 CKPT)",
+    "mode": "cross_attn_trie",
+    "total": 100,
+    "exact_match_count": 51,
+    "exact_match_rate": 0.51,
+    "intermediate_hits": 42,
+    "distractor_confusions": 17,
+    "abstention_correct": 20,
+    "avg_latency_ms": 711.91
+  },
+  "proposed": {
+    "arm": "Proposed: Intermediate-Supervised Cross-Attention Pointer",
+    "mode": "cross_attn_trie",
+    "total": 100,
+    "exact_match_count": 51,
+    "exact_match_rate": 0.51,
+    "intermediate_hits": 31,
+    "distractor_confusions": 0,
+    "abstention_correct": 20,
+    "avg_latency_ms": 950.69
+  },
+  "delta_em": 0,
+  "delta_confusions": -17
+}

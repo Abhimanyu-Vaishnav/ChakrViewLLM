@@ -316,15 +316,27 @@ class CognitiveRouter:
         if re.search(r"\b(?:what\s+is\s+(?:a\s+|the\s+)?ram|explain\s+ram|define\s+ram|ram\s+stand\s+for)\b", q_lower):
             return "ram"
 
-        # Mars capital (false premise)
+        # Euler's number e
+        if re.search(r"\b(?:value\s+of\s+e|what\s+is\s+(?:the\s+value\s+of\s+)?e)\b", q_lower):
+            return "e_constant"
+
+        # Celestial body capital (false premise)
         if re.search(r"\b(?:capital(?:\s+city)?\s+of\s+(?:planet\s+)?mars|mars\s+capital)\b", q_lower):
             return "capital_of_mars"
+        if re.search(r"\b(?:capital(?:\s+city)?\s+of\s+(?:planet\s+|the\s+)?(?:sun|moon|jupiter))\b", q_lower):
+            return "capital_of_celestial"
 
         # Photosynthesis (Hindi/Hinglish or English explanation)
         if re.search(r"\bphotosynthesis\b", q_lower):
             if re.search(r"\b(?:hindi|samjhao|batao|mein)\b", q_lower):
                 return "photosynthesis_hindi"
             return "photosynthesis"
+
+        # Evaporation (Hindi/Hinglish)
+        if re.search(r"\bevaporation\b", q_lower):
+            if re.search(r"\b(?:hindi|samjhao|batao|mein)\b", q_lower):
+                return "evaporation_hindi"
+            return "evaporation"
 
         return None
 

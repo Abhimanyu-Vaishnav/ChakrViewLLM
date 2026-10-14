@@ -1,0 +1,61 @@
+{
+  "milestone": "Batches 251-260: End-to-End Interactive Runtime Validation, Three-Hop Grounding Improvements, and Safe Hardware Acceleration",
+  "timestamp": "2026-10-14T20:22:00+05:30",
+  "branch": "dev/v0.6-v0.7-validation",
+  "parent_commit": "9cc3795d50429f37df91cff205081726a330cf93",
+  "canonical_baseline": {
+    "model": "ChakrMicro",
+    "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "parameter_count": 3443136,
+    "delta_w": 0,
+    "status": "FROZEN_IMMUTABLE"
+  },
+  "hardware_environment": {
+    "physical_gpu": "NVIDIA RTX A1000 6GB Laptop GPU",
+    "driver_version": "597.16",
+    "cuda_hardware_support": "13.2",
+    "active_python": "Python 3.14.7",
+    "active_pytorch": "2.14.0+cpu",
+    "torch_cuda_available": false,
+    "execution_mode": "CPU_ONLY_SAFE_GOVERNANCE",
+    "gpu_claims": "NONE"
+  },
+  "interactive_console_audit": {
+    "runner": "experiments/batch251_260_interactive_runtime/run_console_evaluation.py",
+    "total_cases": 30,
+    "passed_cases": 30,
+    "pass_rate": 1.0,
+    "dispatched_routes": [
+      "CALCULATOR_TOOL",
+      "CONCEPT_DEFINITION",
+      "CODE_GENERATION",
+      "USER_IDENTITY_ASSERTION",
+      "USER_IDENTITY_QUERY"
+    ],
+    "results_artifact": "experiments/batch251_260_interactive_runtime/reports/interactive_console_results.json"
+  },
+  "threehop_grounding_audit": {
+    "manifest": "experiments/batch241_250_interactive_integration/data/frozen_threehop_manifest_100.json",
+    "manifest_sha256": "6bf47a2baf124859f63b9ed1da4e31777852146db3d12c6c34a112b58f96bfc3",
+    "baseline_checkpoint": "experiments/batch231_240_multihop_reasoning/checkpoints/cross_attention_pointer_step1000.pt",
+    "proposed_checkpoint": "experiments/batch251_260_interactive_runtime/checkpoints/threehop_supervised_pointer.pt",
+    "baseline_em": "51/100 (51.0%)",
+    "proposed_em": "51/100 (51.0%)",
+    "baseline_distractor_confusions": 17,
+    "proposed_distractor_confusions": 0,
+    "confusion_reduction": "100.0%",
+    "adversarial_reordered_em": "48/80 (60.0%) vs baseline 37/80 (46.25%)",
+    "comparison_artifact": "experiments/batch251_260_interactive_runtime/reports/threehop_comparison_results.json",
+    "adversarial_artifact": "experiments/batch251_260_interactive_runtime/reports/threehop_adversarial_results.json"
+  },
+  "regression_suites": {
+    "batch251_260_interactive_runtime": "5/5 passed",
+    "batch241_250_interactive_integration": "6/6 passed",
+    "batch231_240_multihop_reasoning": "5/5 passed",
+    "batch221_230_pointer_generalization": "5/5 passed",
+    "batch211_220_relational_learning": "5/5 passed",
+    "founder_manual_suite": "15/15 passed",
+    "total_automated_tests": "26/26 passed (100.0%)"
+  }
+}

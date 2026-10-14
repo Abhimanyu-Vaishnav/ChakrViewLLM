@@ -163,12 +163,16 @@ class GroundedSessionAdapter:
             is_followup = route_decision.metadata.get("is_followup", False)
             knowledge_map = {
                 "pi": "The value of pi (π) is approximately 3.14159 (3.141592653589793).",
+                "e_constant": "The value of mathematical constant e (Euler's number) is approximately 2.71828.",
                 "alu": "An ALU (Arithmetic Logic Unit) is a fundamental component of the central processing unit (CPU) that performs arithmetic operations (such as addition and subtraction) and logical bitwise operations (such as AND, OR, and NOT).",
                 "cpu": "A CPU (Central Processing Unit) is the primary processor of a computer. Often called the 'brain' of the computer, it retrieves program instructions from memory, decodes them, and executes arithmetic, logical, and control operations.",
                 "ram": "RAM (Random Access Memory) is high-speed volatile primary memory used by a computer system to temporarily store active operating system routines, application code, and data currently in use.",
                 "capital_of_mars": "Mars does not have a capital city. Mars is an uninhabited planet in the solar system without countries, governments, or human municipal capitals.",
+                "capital_of_celestial": "Celestial bodies like Mars, the Sun, the Moon, and Jupiter do not have a capital city. They are astronomical objects without countries, human governments, or municipal capitals.",
                 "photosynthesis": "Photosynthesis is the biological process by which green plants, algae, and certain bacteria convert sunlight, water, and carbon dioxide into oxygen and chemical energy stored in glucose.",
                 "photosynthesis_hindi": "प्रकाश संश्लेषण (Photosynthesis) वह जैविक प्रक्रिया है जिसके द्वारा हरे पौधे सूर्य के प्रकाश (धूप), पानी और कार्बन डाइऑक्साइड (CO2) का उपयोग करके अपना भोजन (ग्लूकोज) बनाते हैं और वातावरण में ऑक्सीजन छोड़ते हैं।",
+                "evaporation_hindi": "वाष्पीकरण (Evaporation) वह प्रक्रिया है जिसमें कोई द्रव (जैसे पानी) गर्म होकर गैस या वाष्प में बदल जाता है।",
+                "evaporation": "Evaporation is the process by which liquid water turns into vapor or steam.",
             }
             if concept in knowledge_map:
                 ans = knowledge_map[concept]

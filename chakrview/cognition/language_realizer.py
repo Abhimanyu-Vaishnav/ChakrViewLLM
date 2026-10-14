@@ -107,23 +107,64 @@ class ConversationalTurn:
     timestamp: float = 0.0
 
 
+@dataclass
+class DiscourseEntity:
+    entity: str
+    entity_type: str  # "person", "place", "concept", "object"
+    turn_index: int
+    timestamp: float = field(default_factory=time.time)
+    provenance: str = "conversational_turn"
+
+
 class ConversationalContextTracker:
     """
     Maintains bounded multi-turn conversational context for reference resolution.
-    Explicitly tracks ephemeral session memory and links to user profile memory.
+    Explicitly tracks ephemeral session memory, an inspectable discourse entity stack,
+    and links to user profile memory.
     """
 
     def __init__(self, max_turns: int = 6):
         self.max_turns = max_turns
         self.history: List[ConversationalTurn] = []
         self.user_profile = UserProfileMemory()
+        self.entity_stack: List[DiscourseEntity] = []
 
     def record_turn(self, turn: ConversationalTurn) -> None:
         self.history.append(turn)
         if len(self.history) > self.max_turns:
             self.history = self.history[-self.max_turns:]
+        if turn.active_subject:
+            self.push_entity(turn.active_subject, entity_type="general", provenance="turn_subject")
+
+    def push_entity(self, entity: str, entity_type: str = "general", provenance: str = "direct") -> None:
+        clean_ent = entity.strip()
+        if not clean_ent or clean_ent.lower() in ("unknown", "none", "it", "he", "she", "they", "user"):
+            return
+        # Move to top of stack if existing, else append
+        self.entity_stack = [e for e in self.entity_stack if e.entity.lower() != clean_ent.lower()]
+        self.entity_stack.append(DiscourseEntity(
+            entity=clean_ent,
+            entity_type=entity_type,
+            turn_index=len(self.history),
+            timestamp=time.time(),
+            provenance=provenance
+        ))
+        if len(self.entity_stack) > 10:
+            self.entity_stack = self.entity_stack[-10:]
+
+    def get_recent_entities(self, limit: int = 5) -> List[DiscourseEntity]:
+        return list(reversed(self.entity_stack))[:limit]
+
+    def resolve_reference(self, pronoun_or_term: str) -> Optional[str]:
+        p = pronoun_or_term.strip().lower()
+        if not self.entity_stack:
+            return None
+        # Return most recently activated discourse entity
+        return self.entity_stack[-1].entity
 
     def get_latest_subject(self) -> Optional[str]:
+        if self.entity_stack:
+            return self.entity_stack[-1].entity
         for turn in reversed(self.history):
             if turn.active_subject:
                 return turn.active_subject
@@ -138,6 +179,7 @@ class ConversationalContextTracker:
     def clear(self) -> None:
         self.history.clear()
         self.user_profile.clear()
+        self.entity_stack.clear()
 
 
 class LanguageClassifier:
@@ -536,4 +578,6 @@ class LanguageRealizer:
                 return f"I do not have verified evidence to answer this factually. Preserving honest abstention."
 
         # Default fallback
+        if any(marker in raw_text.lower() for marker in ("predict", "lottery", "secret", "future", "recipe", "?")):
+            return "I do not have sufficient verifiable evidence or predictive capability to address this inquiry. Preserving honest abstention."
         return f"Acknowledged input: '{raw_text}'."

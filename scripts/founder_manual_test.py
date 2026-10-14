@@ -58,6 +58,9 @@ from chakrview.cognition.v040_candidate.memory_reasoning_bridge import (
     MemoryReasoningBridge,
     MemoryBeliefRecord,
 )
+from chakrview.runtime.cognitive_router import CognitiveRouter, RouteType, ComponentOrigin
+from chakrview.runtime.session_adapter import GroundedSessionAdapter
+from chakrview.runtime.persistent_memory import PersistentSessionMemory
 from chakrview.cognition.v040_candidate.hierarchical_planner import (
     HierarchicalPlanner,
     HierarchicalPlan,
@@ -129,6 +132,8 @@ class ChakrViewRuntimeSession:
         self.hardware_diagnostics = HardwareDiagnostics.get_summary(
             self.hardware_env, self.resource_budget
         )
+        self.router = CognitiveRouter()
+        self.adapter = GroundedSessionAdapter(inference_engine=None)
 
     def process_input(
         self,
@@ -174,7 +179,7 @@ class ChakrViewRuntimeSession:
 
         # Check for user identity query first
         is_identity_query = bool(re.search(
-            r"\b(?:what\s+is\s+my\s+name|mera\s+naam\s+kya\s+hai|remind\s+me\s+what\s+my\s+name\s+is|can\s+you\s+remind\s+me\s+what\s+my\s+name\s+is|mera\s+naam\s+kya)\b",
+            r"\b(?:what\s+is\s+my\s+name|mera\s+naam\s+kya\s+hai|remind\s+me\s+what\s+my\s+name\s+is|can\s+you\s+remind\s+me\s+what\s+my\s+name\s+is|mera\s+naam\s+kya|recall\s+user\s+name|recall\s+my\s+name)\b",
             raw_text,
             re.IGNORECASE,
         )) or intent == ConversationalIntent.USER_IDENTITY_QUERY
@@ -257,6 +262,52 @@ class ChakrViewRuntimeSession:
         target_relation: Optional[str] = None
         resolved_value: Optional[str] = None
         plan_details: Optional[str] = None
+
+        # 0. Check CognitiveRouter for specialized execution pathways (arithmetic tool, code synthesis, verified definitions, honest abstention)
+        route_decision = self.router.classify_route(raw_text)
+        if route_decision.route in (RouteType.CALCULATOR_TOOL, RouteType.CODE_GENERATION, RouteType.CONCEPT_DEFINITION, RouteType.INSUFFICIENT_EVIDENCE):
+            adapter_resp = self.adapter.execute_turn(self.current_task_id, raw_text)
+            decision = "CALCULATED" if route_decision.route == RouteType.CALCULATOR_TOOL else (
+                "CODE_SYNTHESIZED" if route_decision.route == RouteType.CODE_GENERATION else (
+                    "ABSTAIN" if route_decision.route == RouteType.INSUFFICIENT_EVIDENCE else "ANSWER"
+                )
+            )
+            confidence = route_decision.confidence
+            strategy = adapter_resp.component_origin.value.upper()
+            evidence_status = adapter_resp.support_explanation
+            memory_status = "SESSION_TRACKED"
+            semantic_repr = f"({route_decision.route.value.upper()}) --> [{adapter_resp.component_origin.value}]"
+            natural_response = adapter_resp.answer
+
+            # Record turn in conversational context tracker
+            concept_name = route_decision.metadata.get("concept") or route_decision.metadata.get("expression")
+            self.context_tracker.record_turn(
+                ConversationalTurn(
+                    user_input=raw_text,
+                    detected_language=lang_tag,
+                    detected_intent=intent,
+                    active_subject=concept_name,
+                    active_attribute="CALCULATION_OR_DEFINITION",
+                    active_value=natural_response,
+                    system_response=natural_response,
+                    timestamp=time.time(),
+                )
+            )
+
+            return {
+                "input": raw_text,
+                "detected_language": lang_tag.value,
+                "intent": route_decision.route.value.upper(),
+                "semantic_representation": semantic_repr,
+                "decision": decision,
+                "confidence": confidence,
+                "evidence_status": evidence_status,
+                "memory_status": memory_status,
+                "strategy": strategy,
+                "component_origin": adapter_resp.component_origin.value,
+                "final_response": natural_response,
+                "natural_response": natural_response,
+            }
 
         # Check for unknown / fictitious entities (Zorvax, Atlantis, etc.)
         unknown_entities = ["zorvax", "zorvax-917", "atlantis", "kavix", "eryndor", "norlath", "zethra"]
