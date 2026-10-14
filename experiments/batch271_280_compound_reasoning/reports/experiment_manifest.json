@@ -1,0 +1,44 @@
+{
+  "milestone": "Batches 271-280",
+  "protocol_version": "v2.0_robust_bounded",
+  "generated_at": "2026-10-14T20:50:00Z",
+  "canonical_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "parameters": 3443136
+  },
+  "scoring_protocol": {
+    "implementation_file": "chakrview/runtime/robust_scoring.py",
+    "exact_number_regex": "(?<!\\d){expected}(?!\\d)",
+    "code_validation": "ast.parse + sandboxed_subprocess_timeout_3s",
+    "abstention_validation": "explicit_premise_rejection_keywords"
+  },
+  "manifests": {
+    "prior_development_exposed": {
+      "path": "experiments/batch261_270_open_ended_generalization/data/sealed_heldout_manifest_120.json",
+      "exposure_status": "development_exposed",
+      "items": 120
+    },
+    "fresh_heldout_evaluation": {
+      "path": "experiments/batch271_280_compound_reasoning/data/fresh_evaluation_manifest_200.json",
+      "sha256": "7a73ae13e36541f6bd0ced0eda7984b859cb504fdaa38ab3000e3bea9751002c",
+      "items": 200,
+      "seeds": [101, 202, 303],
+      "exposure_status": "independent_heldout"
+    }
+  },
+  "benchmark_summary": {
+    "Arm_A_neural_core_unassisted": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 200,
+      "latency_ms": 205.26
+    },
+    "Arm_E_full_runtime_assisted": {
+      "accuracy": 0.87,
+      "correct": 174,
+      "total": 200,
+      "latency_ms": 13.14
+    }
+  }
+}

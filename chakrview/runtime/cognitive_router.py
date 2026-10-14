@@ -265,10 +265,18 @@ class CognitiveRouter:
     def _extract_math_expression(self, q: str) -> Optional[str]:
         """
         Extract clean arithmetic expression if query is an arithmetic request.
-        Handles direct symbolic expressions ('What is 25 + 37?', '100 * 4')
-        as well as verbal operations ('Subtract 36 from 78', 'Compute sum of 62 and 14', 'Multiply 12 by 5').
+        Handles multi-step compound arithmetic, unit conversions, verbal math, and symbolic expressions.
         """
         q_strip = q.strip()
+
+        # 0. Check CompoundArithmeticEngine for multi-step or unit conversions
+        from chakrview.runtime.compound_arithmetic import CompoundArithmeticEngine
+        comp_res = CompoundArithmeticEngine.evaluate_query(q_strip)
+        if comp_res is not None:
+            if comp_res.is_success:
+                return comp_res.formatted_output
+            else:
+                return f"ERROR: {comp_res.formatted_output}"
 
         # 1. Check verbal subtraction: "Subtract Y from X" -> "X - Y"
         m_sub = re.search(r"\bsubtract\s+(\d+(?:\.\d+)?)\s+from\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)

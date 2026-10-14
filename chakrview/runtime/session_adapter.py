@@ -80,8 +80,34 @@ class GroundedSessionAdapter:
 
         # 1.5 Handle Specialized Non-Retrieval Deterministic/Tool Routes
         if route_decision.route == RouteType.CALCULATOR_TOOL:
-            calc = CalculatorTool()
             expr = route_decision.metadata.get("expression", "")
+            if expr.startswith("ERROR:"):
+                resp = GroundedResponse(
+                    query=clean_input,
+                    answer=f"Calculation error: {expr[6:].strip()}",
+                    route_decision=route_decision,
+                    component_origin=ComponentOrigin.CALCULATOR_TOOL,
+                    is_supported=False,
+                    support_explanation="Calculation failed constraints",
+                    latency_ms=(time.perf_counter() - t0) * 1000,
+                )
+                self._record_history(session_id, clean_input, resp.answer, resp.component_origin)
+                return resp
+
+            if re.search(r"[a-zA-Z]", expr) or (re.search(r"^\d+(?:\.\d+)?$", expr.strip())):
+                resp = GroundedResponse(
+                    query=clean_input,
+                    answer=expr.strip(),
+                    route_decision=route_decision,
+                    component_origin=ComponentOrigin.CALCULATOR_TOOL,
+                    is_supported=True,
+                    support_explanation=f"Evaluated compound arithmetic / unit conversion: '{expr}'",
+                    latency_ms=(time.perf_counter() - t0) * 1000,
+                )
+                self._record_history(session_id, clean_input, resp.answer, resp.component_origin)
+                return resp
+
+            calc = CalculatorTool()
             calc_res = calc.execute(expression=expr)
             if calc_res.success:
                 ans_str = str(calc_res.output)

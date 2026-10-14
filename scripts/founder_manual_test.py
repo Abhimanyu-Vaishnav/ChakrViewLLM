@@ -134,6 +134,8 @@ class ChakrViewRuntimeSession:
         )
         self.router = CognitiveRouter()
         self.adapter = GroundedSessionAdapter(inference_engine=None)
+        from chakrview.runtime.research_workflow import PermissionGatedResearchWorkflow
+        self.research_workflow = PermissionGatedResearchWorkflow()
 
     def process_input(
         self,
@@ -307,6 +309,24 @@ class ChakrViewRuntimeSession:
                 "component_origin": adapter_resp.component_origin.value,
                 "final_response": natural_response,
                 "natural_response": natural_response,
+            }
+
+        # Check if user explicitly requests internet research or web lookup
+        if re.search(r"\b(?:search\s+(?:the\s+)?web|look\s+up\s+online|research\s+online|internet\s+research)\b", raw_text, re.IGNORECASE):
+            r_resp = self.research_workflow.execute_research_flow(self.current_task_id, raw_text)
+            return {
+                "input": raw_text,
+                "detected_language": lang_tag.value,
+                "intent": "GOVERNED_RESEARCH",
+                "semantic_representation": f"(RESEARCH_STATE) --> [{r_resp.state.value}]",
+                "decision": "PERMISSION_GATED_RESEARCH",
+                "confidence": 0.90,
+                "evidence_status": r_resp.status_message,
+                "memory_status": "SESSION_TRACKED",
+                "strategy": "PERMISSION_GATED_WORKFLOW",
+                "component_origin": "governed_research_workflow",
+                "final_response": r_resp.status_message if r_resp.requires_user_action else r_resp.answer,
+                "natural_response": r_resp.status_message if r_resp.requires_user_action else r_resp.answer,
             }
 
         # Check for unknown / fictitious entities (Zorvax, Atlantis, etc.)
