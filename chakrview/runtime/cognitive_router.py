@@ -265,10 +265,33 @@ class CognitiveRouter:
     def _extract_math_expression(self, q: str) -> Optional[str]:
         """
         Extract clean arithmetic expression if query is an arithmetic request.
-        Examples: 'What is 25 + 37?', 'Calculate 100 * (4 + 6)', '50 / 2', '25 + 37'
+        Handles direct symbolic expressions ('What is 25 + 37?', '100 * 4')
+        as well as verbal operations ('Subtract 36 from 78', 'Compute sum of 62 and 14', 'Multiply 12 by 5').
         """
         q_strip = q.strip()
-        # Remove prefix like 'What is', 'Calculate', 'Compute', 'Evaluate', 'Solve'
+
+        # 1. Check verbal subtraction: "Subtract Y from X" -> "X - Y"
+        m_sub = re.search(r"\bsubtract\s+(\d+(?:\.\d+)?)\s+from\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)
+        if m_sub:
+            return f"{m_sub.group(2)} - {m_sub.group(1)}"
+
+        # 2. Check verbal addition: "sum of X and Y" / "X plus Y"
+        m_add = re.search(r"\b(?:sum\s+of|add)\s+(\d+(?:\.\d+)?)\s+(?:and|to|\+)\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)
+        if m_add:
+            return f"{m_add.group(1)} + {m_add.group(2)}"
+        m_plus = re.search(r"\b(\d+(?:\.\d+)?)\s+plus\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)
+        if m_plus:
+            return f"{m_plus.group(1)} + {m_plus.group(2)}"
+
+        # 3. Check verbal multiplication: "Multiply X by Y" / "X times Y"
+        m_mul = re.search(r"\bmultiply\s+(\d+(?:\.\d+)?)\s+by\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)
+        if m_mul:
+            return f"{m_mul.group(1)} * {m_mul.group(2)}"
+        m_times = re.search(r"\b(\d+(?:\.\d+)?)\s+times\s+(\d+(?:\.\d+)?)\b", q_strip, re.IGNORECASE)
+        if m_times:
+            return f"{m_times.group(1)} * {m_times.group(2)}"
+
+        # 4. Standard symbolic expression extraction
         prefix_pattern = r"^(?:what\s+is\s+(?:the\s+(?:result|value|sum|product)\s+of\s+)?|calculate\s+|compute\s+|evaluate\s+|solve\s+)"
         cleaned = re.sub(prefix_pattern, "", q_strip, flags=re.IGNORECASE).strip()
         cleaned = cleaned.rstrip("?").strip()
@@ -320,10 +343,10 @@ class CognitiveRouter:
         if re.search(r"\b(?:value\s+of\s+e|what\s+is\s+(?:the\s+value\s+of\s+)?e)\b", q_lower):
             return "e_constant"
 
-        # Celestial body capital (false premise)
-        if re.search(r"\b(?:capital(?:\s+city)?\s+of\s+(?:planet\s+)?mars|mars\s+capital)\b", q_lower):
-            return "capital_of_mars"
-        if re.search(r"\b(?:capital(?:\s+city)?\s+of\s+(?:planet\s+|the\s+)?(?:sun|moon|jupiter))\b", q_lower):
+        # Celestial body false premises (capitals, prime ministers, presidents, kings of planets/stars)
+        if re.search(r"\b(?:capital(?:\s+city)?|prime\s+minister|president|king|queen|government|ruler)\s+(?:of\s+)?(?:the\s+|planet\s+)?(mars|sun|the\s+sun|moon|the\s+moon|jupiter|saturn|venus|titan)\b", q_lower):
+            if "mars" in q_lower and "capital" in q_lower:
+                return "capital_of_mars"
             return "capital_of_celestial"
 
         # Photosynthesis (Hindi/Hinglish or English explanation)
@@ -343,14 +366,15 @@ class CognitiveRouter:
     def _extract_followup_concept(self, q: str) -> Optional[str]:
         """
         Detect conversational follow-up questions referencing a concept.
-        Examples: 'and What about ALU', 'what about CPU?', 'and how about pi?'
+        Examples: 'and What about ALU', 'what about CPU?', 'What does it mean for MOSFET Transistor?'
         """
         q_lower = q.lower().strip()
-        m_follow = re.search(r"^(?:and\s+)?(?:what|how)\s+about\s+(?:an?\s+|the\s+)?([a-z0-9_-]+)", q_lower)
+        m_follow = re.search(r"^(?:and\s+)?(?:what|how)\s+about\s+(?:an?\s+|the\s+)?([a-z0-9_\- ]+?)(?:\?|$)", q_lower)
         if m_follow:
-            subj = m_follow.group(1).strip()
-            if subj in ("alu", "cpu", "pi", "ram", "mars"):
-                return "alu" if subj == "alu" else ("cpu" if subj == "cpu" else subj)
+            return m_follow.group(1).strip()
+        m_mean = re.search(r"what\s+does\s+it\s+mean\s+for\s+([a-z0-9_\- ]+?)(?:\?|$)", q_lower)
+        if m_mean:
+            return m_mean.group(1).strip()
         return None
 
     def _is_greeting_or_meta(self, q: str) -> bool:

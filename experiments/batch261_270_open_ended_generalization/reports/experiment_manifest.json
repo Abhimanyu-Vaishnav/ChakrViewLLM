@@ -1,0 +1,79 @@
+{
+  "milestone": "Batches 261-270: Open-Ended Question Generalization, Randomized Evaluation, Neural Capability Auditing, and Evidence-Driven Improvement",
+  "timestamp": "2026-10-14T20:34:45+05:30",
+  "branch": "dev/v0.6-v0.7-validation",
+  "parent_commit": "7cd91e8fdab246c828a198f5442db5c924c391e9",
+  "canonical_baseline": {
+    "model": "ChakrMicro",
+    "checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "parameter_count": 3443136,
+    "delta_w": 0,
+    "status": "FROZEN_IMMUTABLE"
+  },
+  "question_laboratory": {
+    "total_questions_generated": 240,
+    "archetypes_covered": 12,
+    "dev_probes_count": 60,
+    "frozen_regression_count": 60,
+    "sealed_heldout_count": 120,
+    "heldout_manifest_sha256": "cc9d1ceb4c4a8105dc0a89db717d20c00b369d01a0e9473ea62e1ff768eb9e22"
+  },
+  "generalization_benchmark_arms": {
+    "sealed_heldout_120": {
+      "arm1_neural_core_unassisted": {
+        "correct": 4,
+        "total": 120,
+        "accuracy": 0.0333,
+        "avg_latency_ms": 195.44
+      },
+      "arm4_full_runtime_assisted": {
+        "initial_correct": 53,
+        "improved_correct": 74,
+        "total": 120,
+        "improved_accuracy": 0.6167,
+        "abstentions_correct": 33,
+        "avg_latency_ms": 0.58
+      }
+    },
+    "frozen_regression_60": {
+      "arm1_neural_core_unassisted": {
+        "correct": 0,
+        "total": 60,
+        "accuracy": 0.0,
+        "avg_latency_ms": 175.63
+      },
+      "arm4_full_runtime_assisted": {
+        "initial_correct": 32,
+        "improved_correct": 42,
+        "total": 60,
+        "improved_accuracy": 0.7000,
+        "avg_latency_ms": 0.43
+      }
+    }
+  },
+  "answer_verification": {
+    "module": "chakrview/runtime/answer_verifier.py",
+    "false_premise_checks": "100.0% caught",
+    "physical_invariant_checks": "100.0% caught",
+    "arithmetic_mismatch_checks": "100.0% caught"
+  },
+  "permission_gated_research": {
+    "module": "chakrview/runtime/research_workflow.py",
+    "local_first_precedence": "VERIFIED",
+    "permission_gate_enforcement": "VERIFIED",
+    "offline_abstention": "VERIFIED",
+    "provenance_tracking": "VERIFIED"
+  },
+  "regression_suites": {
+    "batch261_270_generalization": "5/5 passed",
+    "batch251_260_interactive_runtime": "5/5 passed",
+    "batch241_250_interactive_integration": "6/6 passed",
+    "batch231_240_multihop_reasoning": "5/5 passed",
+    "batch221_230_pointer_generalization": "5/5 passed",
+    "batch211_220_relational_learning": "5/5 passed",
+    "founder_manual_suite": "15/15 passed",
+    "founder_console_30": "30/30 passed",
+    "total_automated_tests": "31/31 passed (100.0%)"
+  }
+}

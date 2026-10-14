@@ -189,6 +189,19 @@ class GroundedSessionAdapter:
                 )
                 self._record_history(session_id, clean_input, ans, resp.component_origin)
                 return resp
+            else:
+                ans = f"I do not have verified built-in knowledge defining '{concept}'. Preserving honest abstention."
+                resp = GroundedResponse(
+                    query=clean_input,
+                    answer=ans,
+                    route_decision=route_decision,
+                    component_origin=ComponentOrigin.SYSTEM_KNOWLEDGE,
+                    is_supported=False,
+                    support_explanation=f"Concept '{concept}' not present in verified system knowledge",
+                    latency_ms=(time.perf_counter() - t0) * 1000,
+                )
+                self._record_history(session_id, clean_input, ans, resp.component_origin)
+                return resp
 
         if route_decision.route == RouteType.CODE_GENERATION:
             # Deterministic, verified synthesis for 2-input addition Python program

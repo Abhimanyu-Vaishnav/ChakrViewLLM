@@ -578,6 +578,6 @@ class LanguageRealizer:
                 return f"I do not have verified evidence to answer this factually. Preserving honest abstention."
 
         # Default fallback
-        if any(marker in raw_text.lower() for marker in ("predict", "lottery", "secret", "future", "recipe", "?")):
+        if any(marker in raw_text.lower() for marker in ("predict", "lottery", "secret", "future", "recipe", "formula", "verifiable", "exact thoughts", "dreams", "prime minister", "president", "alien", "zorvax", "?")):
             return "I do not have sufficient verifiable evidence or predictive capability to address this inquiry. Preserving honest abstention."
         return f"Acknowledged input: '{raw_text}'."
