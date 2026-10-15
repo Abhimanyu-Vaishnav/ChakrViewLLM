@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-10-15 18:07:33",
+  "total_test_items": 33,
+  "baseline_pipeline": {
+    "syntax_validity": "33/33 (100.0%)",
+    "exact_plan_match": "0/33 (0.0%)"
+  },
+  "improved_topology_pipeline": {
+    "syntax_validity": "33/33 (100.0%)",
+    "exact_plan_match": "12/33 (36.4%)"
+  },
+  "causal_evaluation": {
+    "passed": "6/10 (60.0%)",
+    "cases": [
+      {
+        "desc": "Change operand 600 -> 750",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=5*750} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Change operand 5 -> 8",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=8*600} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Swap operands 600*5 -> 5*600",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=5*600} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Repeated number 14",
+        "passed": false,
+        "generated_plan": "GOAL: clarification_needed | STEP 0: clarification | none | args={missing=@slot2} | deps=[] | CLARIFICATION: NEEDED | <END_PLAN>"
+      },
+      {
+        "desc": "Large number 1024",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=8/1024} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+16} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Divide operation",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=800/4} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0-15} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Hinglish phrasing",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=600*5} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Missing account ID",
+        "passed": true,
+        "generated_plan": "GOAL: clarification_needed | STEP 0: clarification | none | args={reason=account_id} | deps=[] | CLARIFICATION: NEEDED | <END_PLAN>"
+      },
+      {
+        "desc": "Missing auth signature",
+        "passed": true,
+        "generated_plan": "GOAL: clarification_needed | STEP 0: clarification | none | args={reason=auth_signature} | deps=[] | CLARIFICATION: NEEDED | <END_PLAN>"
+      },
+      {
+        "desc": "Independent 3rd operand preservation",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=5*600} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+99} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      }
+    ]
+  }
+}
