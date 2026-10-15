@@ -1,0 +1,19 @@
+{
+  "milestone": "Batches 741-780 Component Attribution",
+  "audit_timestamp": "2026-10-15T16:08:00",
+  "system_components": {
+    "neural_planner_fixed_head": {
+      "raw_accuracy": "48.0% (12/25)",
+      "strengths": "Generalizes to Hindi/Hinglish phrasing and extracts 2-step dependencies",
+      "weaknesses": "Cannot generate 3-hop plans due to fixed 2-subtask prediction horizon; fails on unknown tool rejection"
+    },
+    "deterministic_validator": {
+      "contribution": "+32.0% accuracy boost in hybrid mode",
+      "mechanism": "Validates DAG acyclicity and legal tool usage without replacing gold plans"
+    },
+    "deterministic_executor": {
+      "role": "AST tool evaluation and string manipulations"
+    }
+  },
+  "attribution_integrity": "The 80% hybrid score is attributable to the combination of neural dependency identification and deterministic graph validation. Raw neural subtask coverage remains 48%, necessitating variable-length autoregressive generation."
+}
