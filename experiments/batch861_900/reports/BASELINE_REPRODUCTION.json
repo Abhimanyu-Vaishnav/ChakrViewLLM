@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-15 17:21:00",
+  "total_items": 70,
+  "frozen_benchmark_sha256": "cabf7daa3c6e453de1ad06e99c801fbba9b669f2130746a7b34bf022cd21ec2a",
+  "systems_evaluated": {
+    "sys1_base_unconstrained": {
+      "syntax_validity": "37/70 (52.9%)",
+      "clean_eos": "37/70 (52.9%)",
+      "exact_plan_match": "6/70 (8.6%)"
+    },
+    "sys2_base_constrained": {
+      "syntax_validity": "37/70 (52.9%)",
+      "clean_eos": "37/70 (52.9%)",
+      "exact_plan_match": "6/70 (8.6%)"
+    },
+    "sys3_pointer_unconstrained": {
+      "syntax_validity": "34/70 (48.6%)",
+      "clean_eos": "39/70 (55.7%)",
+      "exact_plan_match": "6/70 (8.6%)"
+    },
+    "sys4_pointer_constrained": {
+      "syntax_validity": "32/70 (45.7%)",
+      "clean_eos": "32/70 (45.7%)",
+      "exact_plan_match": "6/70 (8.6%)"
+    }
+  },
+  "argument_fidelity_audit": {
+    "exact_copy_rate": "0/42 (0.0%)",
+    "primary_cause": "Subword BPE fragmentation where multi-digit numbers are truncated or split by intervening grammar transitions."
+  },
+  "reproduction_status": "CONFIRMED"
+}

@@ -1,0 +1,85 @@
+{
+  "causal_pass_rate": "7/10 (70.0%)",
+  "interventions": [
+    {
+      "id": 1,
+      "desc": "Change one operand (600 -> 750)",
+      "predicted_span": "14",
+      "confidence": 0.123,
+      "type": "NUMBER",
+      "success": false
+    },
+    {
+      "id": 2,
+      "desc": "Swap operand order (600 * 5 -> 5 * 600)",
+      "predicted_span": "14",
+      "confidence": 0.1082,
+      "type": "NUMBER",
+      "success": false
+    },
+    {
+      "id": 3,
+      "desc": "Replace repeated occurrence (14 -> 28)",
+      "predicted_span": "14",
+      "confidence": 0.1434,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 4,
+      "desc": "Change string phrase",
+      "predicted_span": "A",
+      "confidence": 0.5696,
+      "type": "STRING",
+      "success": false
+    },
+    {
+      "id": 5,
+      "desc": "Remove required argument",
+      "predicted_span": "invoice for rec_1 without",
+      "confidence": 0.083,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 6,
+      "desc": "Add irrelevant number (Page 42)",
+      "predicted_span": "600",
+      "confidence": 0.8144,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 7,
+      "desc": "Misleading number in quotes ('100')",
+      "predicted_span": "600",
+      "confidence": 0.8155,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 8,
+      "desc": "Operation change (* -> /)",
+      "predicted_span": "600 / 5",
+      "confidence": 0.0689,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 9,
+      "desc": "Hindi / Hinglish phrasing",
+      "predicted_span": "600 aur 5",
+      "confidence": 0.0841,
+      "type": "NUMBER",
+      "success": true
+    },
+    {
+      "id": 10,
+      "desc": "Increase chain length (2step -> 3step)",
+      "predicted_span": "600",
+      "confidence": 0.8107,
+      "type": "NUMBER",
+      "success": true
+    }
+  ]
+}
