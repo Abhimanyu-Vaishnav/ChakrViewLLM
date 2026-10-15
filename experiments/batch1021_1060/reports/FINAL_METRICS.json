@@ -1,0 +1,907 @@
+{
+  "total_questions": 50,
+  "correct_answers_or_abstentions": 50,
+  "accuracy_pct": 100.0,
+  "citation_validity_count": 38,
+  "citation_support_count": 38,
+  "total_citations_evaluated": 38,
+  "correct_abstentions": "8/8",
+  "correct_refutations": "4/4",
+  "correct_followups": "7/7",
+  "latency_median_ms": 0.46,
+  "latency_p95_ms": 0.87,
+  "details": [
+    {
+      "id": 1,
+      "category": "direct_lookup",
+      "query": "What is the hidden dimension of ChakrMicro?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8834930116763118
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 5.84
+    },
+    {
+      "id": 2,
+      "category": "direct_lookup",
+      "query": "How many attention heads does ChakrMicro feature?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8672412598800775
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 1.24
+    },
+    {
+      "id": 3,
+      "category": "direct_lookup",
+      "query": "What is the vocabulary size of ChakrMicro?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8798699163293284
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 4,
+      "category": "direct_lookup",
+      "query": "What encryption standard is used for in-transit communication?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 737,
+          "exact_text": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.",
+          "confidence": 0.869556377913916
+        }
+      ],
+      "answer": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys. [Source: security_policy.md (char 0-737)]",
+      "latency_ms": 0.58
+    },
+    {
+      "id": 5,
+      "category": "direct_lookup",
+      "query": "What is the monthly cost of the Professional Tier subscription?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8505261580042281
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.53
+    },
+    {
+      "id": 6,
+      "category": "direct_lookup",
+      "query": "On which day of the month are enterprise invoices generated?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8442462239452834
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.72
+    },
+    {
+      "id": 7,
+      "category": "direct_lookup",
+      "query": "What is the maximum response time for P1 severity incidents?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 653,
+          "end_char": 974,
+          "exact_text": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes.",
+          "confidence": 0.8680629320976445
+        }
+      ],
+      "answer": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes. [Source: billing_terms.md (char 653-974)]",
+      "latency_ms": 0.52
+    },
+    {
+      "id": 8,
+      "category": "direct_lookup",
+      "query": "What is the Recovery Time Objective (RTO) for disaster recovery?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 605,
+          "end_char": 898,
+          "exact_text": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes.",
+          "confidence": 0.8960638693984551
+        }
+      ],
+      "answer": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes. [Source: incident_sop.md (char 605-898)]",
+      "latency_ms": 0.59
+    },
+    {
+      "id": 9,
+      "category": "direct_lookup",
+      "query": "How frequently are system state snapshots taken?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 605,
+          "end_char": 898,
+          "exact_text": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes.",
+          "confidence": 0.8545322559653082
+        }
+      ],
+      "answer": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes. [Source: incident_sop.md (char 605-898)]",
+      "latency_ms": 0.49
+    },
+    {
+      "id": 10,
+      "category": "direct_lookup",
+      "query": "What versioning standard does ChakrView follow?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "release_guide.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 790,
+          "exact_text": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution.",
+          "confidence": 0.8806284269308031
+        }
+      ],
+      "answer": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution. [Source: release_guide.md (char 0-790)]",
+      "latency_ms": 0.54
+    },
+    {
+      "id": 11,
+      "category": "numeric_extraction",
+      "query": "How many parameters does ChakrMicro have in total?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8682944161876281
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.6
+    },
+    {
+      "id": 12,
+      "category": "numeric_extraction",
+      "query": "What is the context window ceiling of ChakrMicro?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8777308147364673
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.48
+    },
+    {
+      "id": 13,
+      "category": "numeric_extraction",
+      "query": "How many transformer layers are in ChakrMicro v0.6?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8623176525450229
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.45
+    },
+    {
+      "id": 14,
+      "category": "numeric_extraction",
+      "query": "What is the minimum RAM required for CPU inference?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 698,
+          "end_char": 1152,
+          "exact_text": "models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. Hardware and Runtime Adapters\nChakrMicro is engineered to execute across heterogeneous compute tiers:\n- CPU Execution: Utilizes quantized int8 operations and PyTorch AVX2/AVX-512 vectorization.\n- GPU Acceleration: Supports CUDA execution with automatic precision switching (FP16/BF16).\n- Memory Ceiling: Minimum RAM required for CPU inference is 1.5 GB.",
+          "confidence": 0.8
+        }
+      ],
+      "answer": "models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. Hardware and Runtime Adapters\nChakrMicro is engineered to execute across heterogeneous compute tiers:\n- CPU Execution: Utilizes quantized int8 operations and PyTorch AVX2/AVX-512 vectorization.\n- GPU Acceleration: Supports CUDA execution with automatic precision switching (FP16/BF16).\n- Memory Ceiling: Minimum RAM required for CPU inference is 1.5 GB. [Source: architecture_spec.md (char 698-1152)]",
+      "latency_ms": 0.47
+    },
+    {
+      "id": 15,
+      "category": "numeric_extraction",
+      "query": "After how many seconds do OAuth2 authentication tokens expire?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 737,
+          "exact_text": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.",
+          "confidence": 0.8938102614309597
+        }
+      ],
+      "answer": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys. [Source: security_policy.md (char 0-737)]",
+      "latency_ms": 0.51
+    },
+    {
+      "id": 16,
+      "category": "numeric_extraction",
+      "query": "What is the late payment annualized interest surcharge?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8664359377481357
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 17,
+      "category": "numeric_extraction",
+      "query": "What is the target uptime SLA percentage?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 653,
+          "end_char": 974,
+          "exact_text": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes.",
+          "confidence": 0.8722001535728585
+        }
+      ],
+      "answer": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes. [Source: billing_terms.md (char 653-974)]",
+      "latency_ms": 0.41
+    },
+    {
+      "id": 18,
+      "category": "numeric_extraction",
+      "query": "What is the Recovery Point Objective (RPO) in disaster recovery?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 605,
+          "end_char": 898,
+          "exact_text": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes.",
+          "confidence": 0.9056301449991521
+        }
+      ],
+      "answer": "ost-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots\n- System state snapshots are taken every 6 hours and stored in an offsite immutable object store.\n- Recovery Time Objective (RTO) is 30 minutes.\n- Recovery Point Objective (RPO) is 15 minutes. [Source: incident_sop.md (char 605-898)]",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 19,
+      "category": "negation_policy",
+      "query": "Are administrative or root commands allowed in the sandbox?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 737,
+          "exact_text": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.",
+          "confidence": 0.8324687485878106
+        }
+      ],
+      "answer": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys. [Source: security_policy.md (char 0-737)]",
+      "latency_ms": 0.42
+    },
+    {
+      "id": 20,
+      "category": "negation_policy",
+      "query": "Are arbitrary shell commands allowed in the sandbox?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 737,
+          "exact_text": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.",
+          "confidence": 0.8601332191221818
+        }
+      ],
+      "answer": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys. [Source: security_policy.md (char 0-737)]",
+      "latency_ms": 0.4
+    },
+    {
+      "id": 21,
+      "category": "negation_policy",
+      "query": "Is Python 3.9 supported in ChakrView releases?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "release_guide.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 790,
+          "exact_text": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution.",
+          "confidence": 0.8444126302355044
+        }
+      ],
+      "answer": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution. [Source: release_guide.md (char 0-790)]",
+      "latency_ms": 0.4
+    },
+    {
+      "id": 22,
+      "category": "negation_policy",
+      "query": "What happens to unauthenticated requests without OAuth2 tokens?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 737,
+          "exact_text": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.",
+          "confidence": 0.8569142747200237
+        }
+      ],
+      "answer": "# Operational Security & Sandbox Policy\n\n## 1. Subprocess Isolation\nAll tool executions, terminal commands, and python scratch evaluations run inside an isolated OS subprocess sandbox.\nDirect execution of arbitrary root or administrative commands is permanently forbidden.\n\n## 2. Authentication Requirements\nProduction databases require Multi-Factor Authentication (MFA) and cryptographically signed OAuth2 tokens.\nTokens expire after exactly 3600 seconds (1 hour). Unauthenticated requests are immediately terminated with status code 401.\n\n## 3. Data Protection and Encryption\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys. [Source: security_policy.md (char 0-737)]",
+      "latency_ms": 0.43
+    },
+    {
+      "id": 23,
+      "category": "negation_policy",
+      "query": "Are external web scraping packages allowed in the core runtime?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "release_guide.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 790,
+          "exact_text": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution.",
+          "confidence": 0.8673511672420993
+        }
+      ],
+      "answer": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution. [Source: release_guide.md (char 0-790)]",
+      "latency_ms": 0.43
+    },
+    {
+      "id": 24,
+      "category": "negation_policy",
+      "query": "What billing credit is given if uptime drops below 99.9%?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 653,
+          "end_char": 974,
+          "exact_text": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes.",
+          "confidence": 0.9145569134137919
+        }
+      ],
+      "answer": "Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.\n- Downtime Compensation: If monthly uptime drops below 99.9%, a 15% billing credit is applied to the subsequent invoice.\n- Maximum Support Response Time: P1 severity incidents require engineer response within 15 minutes. [Source: billing_terms.md (char 653-974)]",
+      "latency_ms": 0.43
+    },
+    {
+      "id": 25,
+      "category": "negation_policy",
+      "query": "Within how many hours must post-mortems be published after incident resolution?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 705,
+          "exact_text": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots",
+          "confidence": 0.8943945967773173
+        }
+      ],
+      "answer": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots [Source: incident_sop.md (char 0-705)]",
+      "latency_ms": 0.47
+    },
+    {
+      "id": 26,
+      "category": "follow_up",
+      "query": "How many layers does that model have?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8842747247176346
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.44
+    },
+    {
+      "id": 27,
+      "category": "follow_up",
+      "query": "What file permissions protect session histories in that security policy?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "security_policy.md",
+          "chunk_index": 0,
+          "start_char": 637,
+          "end_char": 817,
+          "exact_text": "3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.\n- User session histories stored on disk are restricted to permission mode 0600.",
+          "confidence": 0.6728571651568098
+        }
+      ],
+      "answer": "3 with AES-256-GCM.\n- At-rest persistence uses transparent disk encryption with rotating HMAC keys.\n- User session histories stored on disk are restricted to permission mode 0600. [Source: security_policy.md (char 637-817)]",
+      "latency_ms": 0.57
+    },
+    {
+      "id": 28,
+      "category": "follow_up",
+      "query": "How many concurrent worker processes are included in that tier?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8818527022941035
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.53
+    },
+    {
+      "id": 29,
+      "category": "follow_up",
+      "query": "How many workers does that plan include?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.812945335273915
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.49
+    },
+    {
+      "id": 30,
+      "category": "follow_up",
+      "query": "Who is paged immediately for that event?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 705,
+          "exact_text": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots",
+          "confidence": 0.8669065251380953
+        }
+      ],
+      "answer": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots [Source: incident_sop.md (char 0-705)]",
+      "latency_ms": 0.49
+    },
+    {
+      "id": 31,
+      "category": "follow_up",
+      "query": "Who is paged if no acknowledgment is received within 5 minutes for that incident?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 705,
+          "exact_text": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots",
+          "confidence": 0.8840606963766633
+        }
+      ],
+      "answer": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots [Source: incident_sop.md (char 0-705)]",
+      "latency_ms": 0.69
+    },
+    {
+      "id": 32,
+      "category": "follow_up",
+      "query": "What causes a major version bump in that policy?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "release_guide.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 790,
+          "exact_text": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution.",
+          "confidence": 0.8620443870553155
+        }
+      ],
+      "answer": "# Deployment and Release Pipeline Guide\n\n## 1. Release Versioning\nChakrView adheres to Semantic Versioning (SemVer 2.0.0).\nMajor version bumps occur upon breaking changes to the Python API or tokenizer vocabulary.\nMinor versions introduce backwards-compatible features such as new retrievers or cache algorithms.\n\n## 2. Supported Python Versions\nChakrView strictly requires Python 3.10 through Python 3.14. Python 3.9 and older versions are officially unsupported and deprecated.\n\n## 3. Dependency Pinning Policy\n- Core dependencies (torch, numpy) are pinned to minimum verified LTS versions.\n- External web scraping packages and unverified cloud vector libraries are forbidden in the core runtime.\n- Build artifacts are verified against pre-computed SHA-256 digests prior to distribution. [Source: release_guide.md (char 0-790)]",
+      "latency_ms": 0.87
+    },
+    {
+      "id": 33,
+      "category": "multi_doc",
+      "query": "What is the Starter Tier monthly fee in billing terms?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8811144545015663
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.66
+    },
+    {
+      "id": 34,
+      "category": "multi_doc",
+      "query": "What is the annual contract cost for a Dedicated Cluster?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "billing_terms.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 753,
+          "exact_text": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes.",
+          "confidence": 0.8336802469795265
+        }
+      ],
+      "answer": "# Enterprise Billing Terms & Service Level Agreement\n\n## 1. Subscription Tiers\nChakrView Enterprise is billed per active compute node.\n- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster: Custom annual contract starting at $12,000 per year.\n\n## 2. Invoicing and Payment Terms\nInvoices are generated on the 1st day of each calendar month.\nPayment terms are strictly Net 30 days from invoice issuance date.\nLate payments incur an annualized interest surcharge of 8.5% compounded monthly.\n\n## 3. Service Level Agreement (SLA)\n- Availability Target: 99.95% uptime for hosted orchestration control planes. [Source: billing_terms.md (char 0-753)]",
+      "latency_ms": 0.52
+    },
+    {
+      "id": 35,
+      "category": "multi_doc",
+      "query": "What defines a Severity 2 incident in the SOP?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 705,
+          "exact_text": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots",
+          "confidence": 0.859915699365275
+        }
+      ],
+      "answer": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots [Source: incident_sop.md (char 0-705)]",
+      "latency_ms": 0.62
+    },
+    {
+      "id": 36,
+      "category": "multi_doc",
+      "query": "What defines a Severity 3 incident in the SOP?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "incident_sop.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 705,
+          "exact_text": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots",
+          "confidence": 0.8653053651504268
+        }
+      ],
+      "answer": "# Incident Management Standard Operating Procedure\n\n## 1. Incident Severity Definitions\n- Severity 1 (Critical): Total outage of local inference or unrecoverable session state corruption.\n- Severity 2 (Major): Retrieval latency degradation exceeding 500ms or partial tool sandbox failures.\n- Severity 3 (Minor): Non-blocking UI glitch or metric logging omission.\n\n## 2. Escalation Paths\n- For Severity 1 events, the primary on-call engineer must be paged immediately via PagerDuty.\n- If no acknowledgment is received within 5 minutes, secondary escalation pages the engineering director.\n- Post-incident post-mortems must be published within 48 hours of resolution.\n\n## 3. Disaster Recovery and Snapshots [Source: incident_sop.md (char 0-705)]",
+      "latency_ms": 0.49
+    },
+    {
+      "id": 37,
+      "category": "multi_doc",
+      "query": "Where is the tokenizer model file located?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8806275129973461
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 38,
+      "category": "multi_doc",
+      "query": "What special tokens are reserved in the tokenizer?",
+      "expected_type": "ANSWER",
+      "decision": "ANSWER",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "architecture_spec.md",
+          "chunk_index": 0,
+          "start_char": 0,
+          "end_char": 798,
+          "exact_text": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4.",
+          "confidence": 0.8311588264393031
+        }
+      ],
+      "answer": "# ChakrView Architecture & Neural Core Specification\n\n## 1. Overview\nChakrView is an indigenous modular AI platform. The neural core, ChakrMicro, is an autoregressive causal decoder transformer designed for local inference and training without external API dependencies.\n\n## 2. Transformer Topology\nChakrMicro v0.6 features:\n- Hidden dimension: 384\n- Attention heads: 6\n- Feed-forward dimension: 1536\n- Transformer layers: 6\n- Vocabulary size: 4096 tokens\n- Maximum context window: 512 tokens\n- Parameter count: 14.8 million parameters\n\n## 3. Tokenizer\nChakrView utilizes a custom BPE (Byte-Pair Encoding) tokenizer trained directly from raw domain corpora. The tokenizer model file is located at `models/tokenizer.json`. Special reserved tokens include `<unk>`, `<s>`, `</s>`, and `<pad>`.\n\n## 4. [Source: architecture_spec.md (char 0-798)]",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 39,
+      "category": "abstention",
+      "query": "What was the GDP of France in 2023?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.4
+    },
+    {
+      "id": 40,
+      "category": "abstention",
+      "query": "Who won the ICC Cricket World Cup in 2011?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.41
+    },
+    {
+      "id": 41,
+      "category": "abstention",
+      "query": "What is the average temperature on Neptune in Celsius?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.42
+    },
+    {
+      "id": 42,
+      "category": "abstention",
+      "query": "What are the corporate tax rates for Delaware LLCs in 2025?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.44
+    },
+    {
+      "id": 43,
+      "category": "abstention",
+      "query": "How many horsepower does a Tesla Model S Plaid produce?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.46
+    },
+    {
+      "id": 44,
+      "category": "abstention",
+      "query": "What is the recipe for authentic Neapolitan pizza dough?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.43
+    },
+    {
+      "id": 45,
+      "category": "abstention",
+      "query": "What is the stock price of Apple on NASDAQ right now?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.42
+    },
+    {
+      "id": 46,
+      "category": "abstention",
+      "query": "Who is the current Prime Minister of New Zealand?",
+      "expected_type": "ABSTAIN",
+      "decision": "ABSTAIN",
+      "passed": true,
+      "citations": [],
+      "answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+      "latency_ms": 0.43
+    },
+    {
+      "id": 47,
+      "category": "false_premise_refutation",
+      "query": "What is the capital city of Mars?",
+      "expected_type": "REFUTE",
+      "decision": "REFUTE",
+      "passed": true,
+      "citations": [],
+      "answer": "Contradiction detected: Mars is an uninhabited celestial body without human governments or municipal capitals.",
+      "latency_ms": 0.01
+    },
+    {
+      "id": 48,
+      "category": "false_premise_refutation",
+      "query": "Who was the Prime Minister of India in 1920?",
+      "expected_type": "REFUTE",
+      "decision": "REFUTE",
+      "passed": true,
+      "citations": [],
+      "answer": "Contradiction detected: The Republic of India and the constitutional office of the Prime Minister were established in August 1947; no Prime Minister existed prior to 1947.",
+      "latency_ms": 0.01
+    },
+    {
+      "id": 49,
+      "category": "false_premise_refutation",
+      "query": "Calculate the result of dividing 100 by zero",
+      "expected_type": "REFUTE",
+      "decision": "REFUTE",
+      "passed": true,
+      "citations": [],
+      "answer": "Contradiction detected: Division by zero is mathematically undefined.",
+      "latency_ms": 0.0
+    },
+    {
+      "id": 50,
+      "category": "false_premise_refutation",
+      "query": "What is the municipal government of the Moon called?",
+      "expected_type": "REFUTE",
+      "decision": "REFUTE",
+      "passed": true,
+      "citations": [],
+      "answer": "Contradiction detected: Moon is an uninhabited celestial body without human governments or municipal capitals.",
+      "latency_ms": 0.0
+    }
+  ]
+}

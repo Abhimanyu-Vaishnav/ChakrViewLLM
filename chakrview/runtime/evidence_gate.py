@@ -112,7 +112,7 @@ class EvidenceGovernedAnsweringGate:
             )
 
         # 1b. Mathematical domain errors (division by zero)
-        if re.search(r"\b(?:dividing\s+.*?\s+by\s+0|divide\s+by\s+zero|\/\s*0(?!\.))\b", q_lower):
+        if re.search(r"\b(?:dividing\s+.*?\s+by\s+(?:0|zero)|divide\s+by\s+(?:0|zero)|\/\s*0(?!\.))\b", q_lower):
             elapsed = (time.perf_counter() - t0) * 1000.0
             return GovernedResponse(
                 query=q_clean,

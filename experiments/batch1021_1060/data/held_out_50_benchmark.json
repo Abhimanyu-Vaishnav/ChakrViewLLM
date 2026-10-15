@@ -1,0 +1,409 @@
+[
+  {
+    "id": 1,
+    "category": "direct_lookup",
+    "query": "What is the hidden dimension of ChakrMicro?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "384"
+  },
+  {
+    "id": 2,
+    "category": "direct_lookup",
+    "query": "How many attention heads does ChakrMicro feature?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 3,
+    "category": "direct_lookup",
+    "query": "What is the vocabulary size of ChakrMicro?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "4096"
+  },
+  {
+    "id": 4,
+    "category": "direct_lookup",
+    "query": "What encryption standard is used for in-transit communication?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "TLS 1.3"
+  },
+  {
+    "id": 5,
+    "category": "direct_lookup",
+    "query": "What is the monthly cost of the Professional Tier subscription?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "450"
+  },
+  {
+    "id": 6,
+    "category": "direct_lookup",
+    "query": "On which day of the month are enterprise invoices generated?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "1st"
+  },
+  {
+    "id": 7,
+    "category": "direct_lookup",
+    "query": "What is the maximum response time for P1 severity incidents?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 8,
+    "category": "direct_lookup",
+    "query": "What is the Recovery Time Objective (RTO) for disaster recovery?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "30 minutes"
+  },
+  {
+    "id": 9,
+    "category": "direct_lookup",
+    "query": "How frequently are system state snapshots taken?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "6 hours"
+  },
+  {
+    "id": 10,
+    "category": "direct_lookup",
+    "query": "What versioning standard does ChakrView follow?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "Semantic Versioning"
+  },
+  {
+    "id": 11,
+    "category": "numeric_extraction",
+    "query": "How many parameters does ChakrMicro have in total?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "14.8 million"
+  },
+  {
+    "id": 12,
+    "category": "numeric_extraction",
+    "query": "What is the context window ceiling of ChakrMicro?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "512"
+  },
+  {
+    "id": 13,
+    "category": "numeric_extraction",
+    "query": "How many transformer layers are in ChakrMicro v0.6?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 14,
+    "category": "numeric_extraction",
+    "query": "What is the minimum RAM required for CPU inference?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "1.5 GB"
+  },
+  {
+    "id": 15,
+    "category": "numeric_extraction",
+    "query": "After how many seconds do OAuth2 authentication tokens expire?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "3600"
+  },
+  {
+    "id": 16,
+    "category": "numeric_extraction",
+    "query": "What is the late payment annualized interest surcharge?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "8.5%"
+  },
+  {
+    "id": 17,
+    "category": "numeric_extraction",
+    "query": "What is the target uptime SLA percentage?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "99.95%"
+  },
+  {
+    "id": 18,
+    "category": "numeric_extraction",
+    "query": "What is the Recovery Point Objective (RPO) in disaster recovery?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 19,
+    "category": "negation_policy",
+    "query": "Are administrative or root commands allowed in the sandbox?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "forbidden"
+  },
+  {
+    "id": 20,
+    "category": "negation_policy",
+    "query": "Are arbitrary shell commands allowed in the sandbox?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "forbidden"
+  },
+  {
+    "id": 21,
+    "category": "negation_policy",
+    "query": "Is Python 3.9 supported in ChakrView releases?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "unsupported"
+  },
+  {
+    "id": 22,
+    "category": "negation_policy",
+    "query": "What happens to unauthenticated requests without OAuth2 tokens?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "terminated"
+  },
+  {
+    "id": 23,
+    "category": "negation_policy",
+    "query": "Are external web scraping packages allowed in the core runtime?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "forbidden"
+  },
+  {
+    "id": 24,
+    "category": "negation_policy",
+    "query": "What billing credit is given if uptime drops below 99.9%?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "15%"
+  },
+  {
+    "id": 25,
+    "category": "negation_policy",
+    "query": "Within how many hours must post-mortems be published after incident resolution?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "48 hours"
+  },
+  {
+    "id": 26,
+    "category": "follow_up",
+    "context_query": "What is the hidden dimension of ChakrMicro?",
+    "query": "How many layers does that model have?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 27,
+    "category": "follow_up",
+    "context_query": "What encryption standard is used for in-transit communication?",
+    "query": "What file permissions protect session histories in that security policy?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "0600"
+  },
+  {
+    "id": 28,
+    "category": "follow_up",
+    "context_query": "What is the monthly cost of the Starter Tier subscription?",
+    "query": "How many concurrent worker processes are included in that tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "2"
+  },
+  {
+    "id": 29,
+    "category": "follow_up",
+    "context_query": "What is the cost of the Professional Tier subscription?",
+    "query": "How many workers does that plan include?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "8"
+  },
+  {
+    "id": 30,
+    "category": "follow_up",
+    "context_query": "What is Severity 1 in the incident SOP?",
+    "query": "Who is paged immediately for that event?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "on-call"
+  },
+  {
+    "id": 31,
+    "category": "follow_up",
+    "context_query": "What is the primary on-call escalation in the incident SOP?",
+    "query": "Who is paged if no acknowledgment is received within 5 minutes for that incident?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "director"
+  },
+  {
+    "id": 32,
+    "category": "follow_up",
+    "context_query": "What versioning standard does ChakrView follow?",
+    "query": "What causes a major version bump in that policy?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "breaking"
+  },
+  {
+    "id": 33,
+    "category": "multi_doc",
+    "query": "What is the Starter Tier monthly fee in billing terms?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "150"
+  },
+  {
+    "id": 34,
+    "category": "multi_doc",
+    "query": "What is the annual contract cost for a Dedicated Cluster?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "12,000"
+  },
+  {
+    "id": 35,
+    "category": "multi_doc",
+    "query": "What defines a Severity 2 incident in the SOP?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "500ms"
+  },
+  {
+    "id": 36,
+    "category": "multi_doc",
+    "query": "What defines a Severity 3 incident in the SOP?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "glitch"
+  },
+  {
+    "id": 37,
+    "category": "multi_doc",
+    "query": "Where is the tokenizer model file located?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "models/tokenizer.json"
+  },
+  {
+    "id": 38,
+    "category": "multi_doc",
+    "query": "What special tokens are reserved in the tokenizer?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "<unk>"
+  },
+  {
+    "id": 39,
+    "category": "abstention",
+    "query": "What was the GDP of France in 2023?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 40,
+    "category": "abstention",
+    "query": "Who won the ICC Cricket World Cup in 2011?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 41,
+    "category": "abstention",
+    "query": "What is the average temperature on Neptune in Celsius?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 42,
+    "category": "abstention",
+    "query": "What are the corporate tax rates for Delaware LLCs in 2025?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 43,
+    "category": "abstention",
+    "query": "How many horsepower does a Tesla Model S Plaid produce?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 44,
+    "category": "abstention",
+    "query": "What is the recipe for authentic Neapolitan pizza dough?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 45,
+    "category": "abstention",
+    "query": "What is the stock price of Apple on NASDAQ right now?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 46,
+    "category": "abstention",
+    "query": "Who is the current Prime Minister of New Zealand?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 47,
+    "category": "false_premise_refutation",
+    "query": "What is the capital city of Mars?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "uninhabited celestial body"
+  },
+  {
+    "id": 48,
+    "category": "false_premise_refutation",
+    "query": "Who was the Prime Minister of India in 1920?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "August 1947"
+  },
+  {
+    "id": 49,
+    "category": "false_premise_refutation",
+    "query": "Calculate the result of dividing 100 by zero",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "Division by zero"
+  },
+  {
+    "id": 50,
+    "category": "false_premise_refutation",
+    "query": "What is the municipal government of the Moon called?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "uninhabited celestial body"
+  }
+]
