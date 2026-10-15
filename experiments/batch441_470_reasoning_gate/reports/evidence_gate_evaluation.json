@@ -1,0 +1,67 @@
+{
+  "total_queries": 6,
+  "correct_decisions": 6,
+  "gate_accuracy": 1.0,
+  "details": [
+    {
+      "query": "What is the capital of Mars?",
+      "expected_decision": "REFUTE",
+      "actual_decision": "REFUTE",
+      "expected_verdict": "CONTRADICTED",
+      "actual_verdict": "CONTRADICTED",
+      "content": "Mars is an uninhabited terrestrial planet without human governments or municipal capitals.",
+      "origin": "fallback_policy",
+      "is_correct": true
+    },
+    {
+      "query": "Calculate the value of dividing 42 by 0.",
+      "expected_decision": "REFUTE",
+      "actual_decision": "REFUTE",
+      "expected_verdict": "CONTRADICTED",
+      "actual_verdict": "CONTRADICTED",
+      "content": "Division by zero is undefined in elementary arithmetic.",
+      "origin": "calculator_tool",
+      "is_correct": true
+    },
+    {
+      "query": "Who was the prime minister of India in the year 1750?",
+      "expected_decision": "REFUTE",
+      "actual_decision": "REFUTE",
+      "expected_verdict": "CONTRADICTED",
+      "actual_verdict": "CONTRADICTED",
+      "content": "The Republic of India and the office of the Prime Minister were established in 1947; no Prime Minister existed in the 18th century.",
+      "origin": "fallback_policy",
+      "is_correct": true
+    },
+    {
+      "query": "What is 14 plus 28?",
+      "expected_decision": "TOOL_DELEGATE",
+      "actual_decision": "TOOL_DELEGATE",
+      "expected_verdict": "SUPPORTED",
+      "actual_verdict": "SUPPORTED",
+      "content": "42",
+      "origin": "calculator_tool",
+      "is_correct": true
+    },
+    {
+      "query": "The FPGA operating clock frequency is verified at 450 MHz.",
+      "expected_decision": "ALLOW",
+      "actual_decision": "ALLOW",
+      "expected_verdict": "SUPPORTED",
+      "actual_verdict": "SUPPORTED",
+      "content": "The FPGA operating clock frequency is strictly verified at 450 MHz.",
+      "origin": "hybrid_retriever",
+      "is_correct": true
+    },
+    {
+      "query": "Write a Python function to compute the square of x.",
+      "expected_decision": "ALLOW",
+      "actual_decision": "ALLOW",
+      "expected_verdict": "SUPPORTED",
+      "actual_verdict": "SUPPORTED",
+      "content": "def square(x):\n    return x * x",
+      "origin": "neural_core",
+      "is_correct": true
+    }
+  ]
+}

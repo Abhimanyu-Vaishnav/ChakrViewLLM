@@ -1,0 +1,67 @@
+{
+  "accuracy": 33.33333333333333,
+  "total": 6,
+  "passed": 2,
+  "cases": [
+    {
+      "query": "Could you tell me the name of the capital city on the planet Mars?",
+      "expected_decision": "REFUTE",
+      "actual_decision": "ABSTAIN",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "content": "Insufficient verified evidence to answer this claim.",
+      "reasoning": "Honest abstention: Query has no supporting local documents or verified tools.",
+      "passed": false,
+      "type": "paraphrased_false_premise"
+    },
+    {
+      "query": "Compute what happens when dividing 9999 by zero",
+      "expected_decision": "REFUTE",
+      "actual_decision": "ABSTAIN",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "content": "Insufficient verified evidence to answer this claim.",
+      "reasoning": "Honest abstention: Query has no supporting local documents or verified tools.",
+      "passed": false,
+      "type": "division_by_zero"
+    },
+    {
+      "query": "Chandrayaan-3 was launched by NASA in the year 2020.",
+      "expected_decision": "REFUTE",
+      "actual_decision": "ABSTAIN",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "content": "Insufficient verified evidence to answer this claim.",
+      "reasoning": "Honest abstention: Query has no supporting local documents or verified tools.",
+      "passed": false,
+      "type": "contradiction_rejection"
+    },
+    {
+      "query": "On what date did the Chandrayaan-3 lander touch down near the lunar south pole?",
+      "expected_decision": "ALLOW",
+      "actual_decision": "ALLOW",
+      "verdict": "SUPPORTED",
+      "content": "The Chandrayaan-3 lunar lander successfully touched down near the south pole of the Moon on August 23, 2023.",
+      "reasoning": "Claim is supported by verified text in document 'chandrayaan_mission.txt'.",
+      "passed": true,
+      "type": "supported_evidence"
+    },
+    {
+      "query": "What was the exact temperature in Vladivostok at 3:15 AM on October 12, 1912?",
+      "expected_decision": "ABSTAIN",
+      "actual_decision": "ABSTAIN",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "content": "Insufficient verified evidence to answer this claim.",
+      "reasoning": "Honest abstention: Query has no supporting local documents or verified tools.",
+      "passed": true,
+      "type": "honest_abstention"
+    },
+    {
+      "query": "Calculate the value of (25 * 4) + 17",
+      "expected_decision": "TOOL_DELEGATE",
+      "actual_decision": "ABSTAIN",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "content": "Insufficient verified evidence to answer this claim.",
+      "reasoning": "Honest abstention: Query has no supporting local documents or verified tools.",
+      "passed": false,
+      "type": "arithmetic_delegation"
+    }
+  ]
+}

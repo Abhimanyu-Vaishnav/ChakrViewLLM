@@ -1,0 +1,65 @@
+{
+  "reference_candidate": {
+    "checkpoint": "experiments\\batch411_440_paraphrase\\checkpoints\\candidate_step150_paraphrase_augmented.pt",
+    "heldout_scratchpad_rate": 0.0,
+    "heldout_paraphrase_rate": 0.65,
+    "diagnostic_retention_rate": 0.6667
+  },
+  "scratchpad_candidate": {
+    "checkpoint": "experiments\\batch441_470_reasoning_gate\\checkpoints\\candidate_step150_scratchpad_reasoning.pt",
+    "sha256": "72784a614b2e669242aae1d67adf4e474f186178c18d4ec25070e78378b19759",
+    "heldout_scratchpad_rate": 0.5,
+    "heldout_paraphrase_rate": 0.7,
+    "diagnostic_retention_rate": 0.6667,
+    "scratchpad_details": [
+      {
+        "id": "sp_test_001",
+        "prompt": "Question: Calculate (14 plus 28) minus 10.\nReasoning:\n",
+        "expected": "32",
+        "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "sp_test_002",
+        "prompt": "Question: What is 7 multiplied by 6 minus 10?\nReasoning:\n",
+        "expected": "32",
+        "generated": "Step 1: 7 * 6 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "sp_test_003",
+        "prompt": "Question: Calculate the square of (3 plus 5).\nReasoning:\n",
+        "expected": "64",
+        "generated": "Step 1: 3 + 5 = 8.\nStep 2: 8 * 8 = 64.\nFinal Answer: 64",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "sp_test_004",
+        "prompt": "Question: In a triangle, if two angles are 60 and 70 degrees, what is the third angle?\nReasoning:\n",
+        "expected": "50",
+        "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+        "exact_match": false,
+        "eos_reached": false
+      },
+      {
+        "id": "sp_test_005",
+        "prompt": "Question: Calculate (25 plus 15) minus 10.\nReasoning:\n",
+        "expected": "30",
+        "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "sp_test_006",
+        "prompt": "Question: What is 6 multiplied by 6 minus 6?\nReasoning:\n",
+        "expected": "30",
+        "generated": "Step 1: 7 * 6 = 4.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+        "exact_match": false,
+        "eos_reached": true
+      }
+    ]
+  }
+}
