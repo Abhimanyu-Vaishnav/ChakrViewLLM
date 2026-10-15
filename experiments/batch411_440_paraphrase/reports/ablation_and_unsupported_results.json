@@ -1,0 +1,33 @@
+{
+  "candidate": "candidate_step150_paraphrase_augmented",
+  "unsupported_prompt_eval": [
+    {
+      "id": "unsupp_001",
+      "query": "What is the capital of Mars?",
+      "prompt": "Question: What is the capital of Mars?\nAnswer:",
+      "nature": "false_premise",
+      "generated_neural": "42",
+      "eos_reached": true,
+      "hallucinated": true
+    },
+    {
+      "id": "unsupp_002",
+      "query": "Calculate the value of dividing 42 by 0.",
+      "prompt": "Question: Calculate the value of dividing 42 by 0.\nAnswer:",
+      "nature": "undefined_math",
+      "generated_neural": "42",
+      "eos_reached": true,
+      "hallucinated": true
+    },
+    {
+      "id": "unsupp_003",
+      "query": "Who was the prime minister of India in the year 1750?",
+      "prompt": "Question: Who was the prime minister of India in the year 1750?\nAnswer:",
+      "nature": "anachronism",
+      "generated_neural": "42",
+      "eos_reached": true,
+      "hallucinated": true
+    }
+  ],
+  "hallucination_rate_on_unsupported": 1.0
+}

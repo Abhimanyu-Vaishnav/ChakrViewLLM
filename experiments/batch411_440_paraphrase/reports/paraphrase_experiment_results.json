@@ -1,0 +1,211 @@
+{
+  "reference_candidate": {
+    "checkpoint": "experiments\\batch381_410_integrity\\checkpoints\\candidate_step150_corrected_eos.pt",
+    "heldout_paraphrase_exact_rate": 0.55,
+    "heldout_compositional_exact_rate": 0.25,
+    "diagnostic_retention_exact_rate": 0.8
+  },
+  "augmented_candidate": {
+    "checkpoint": "experiments\\batch411_440_paraphrase\\checkpoints\\candidate_step150_paraphrase_augmented.pt",
+    "sha256": "b8b82aaf2b713ea73ff4337a1db7a5b2cce7efd24ae875c70934b2555e0c48b0",
+    "heldout_paraphrase_exact_rate": 0.65,
+    "heldout_compositional_exact_rate": 0.0,
+    "diagnostic_retention_exact_rate": 0.6667,
+    "paraphrase_details": [
+      {
+        "id": "heldout_math_add_14_28_001",
+        "prompt": "Compute the sum of fourteen and twenty eight.\nAnswer:",
+        "expected": "42",
+        "generated": "180",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_math_add_14_28_002",
+        "prompt": "Find the total value when 28 is added to 14:\nValue:",
+        "expected": "42",
+        "generated": "42",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_math_sub_50_18_003",
+        "prompt": "What remains when you take 18 away from 50?\nAnswer:",
+        "expected": "32",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_math_sub_50_18_004",
+        "prompt": "Evaluate the difference between fifty and eighteen:\nDifference:",
+        "expected": "32",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_math_mul_7_6_005",
+        "prompt": "Find the multiplication of seven and six.\nAnswer:",
+        "expected": "42",
+        "generated": "42",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_math_mul_7_6_006",
+        "prompt": "What is the mathematical product of 6 and 7?\nProduct:",
+        "expected": "42",
+        "generated": "42",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_arch_alu_007",
+        "prompt": "What circuit in a CPU combines arithmetic operations with logic gates?\nAnswer:",
+        "expected": "Arithmetic Logic Unit (ALU)",
+        "generated": "Arithmetic Logic Unit (ALU)",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_arch_alu_008",
+        "prompt": "Name the primary compute hardware engine located inside a central processor core.\nAnswer:",
+        "expected": "Arithmetic Logic Unit (ALU)",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_arch_dma_009",
+        "prompt": "In microprocessor design, what does the abbreviation DMA represent?\nAnswer:",
+        "expected": "Direct Memory Access",
+        "generated": "Direct Memory Access",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_arch_dma_010",
+        "prompt": "What hardware feature allows I/O devices to bypass the CPU when writing to RAM?\nAnswer:",
+        "expected": "Direct Memory Access",
+        "generated": "Arithmetic Logic Unit (ALU)",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_code_square_011",
+        "prompt": "Create a Python function named square that squares its input argument x.\nCode:\n",
+        "expected": "def square(x):\n    return x * x",
+        "generated": "def square(x):\n    return x * x",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_code_square_012",
+        "prompt": "Write a clean Python implementation that computes x raised to the power of two.\nCode:\n",
+        "expected": "def square(x):\n    return x * x",
+        "generated": "def is_even(n):\n    return n % 2 == 0",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_code_is_even_013",
+        "prompt": "Write a Python function to test whether an integer n is an even number.\nCode:\n",
+        "expected": "def is_even(n):\n    return n % 2 == 0",
+        "generated": "def is_even(n):\n    return n % 2 == 0",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_code_is_even_014",
+        "prompt": "Define def is_even(n) returning boolean evaluation of n modulo 2 equality to zero.\nCode:\n",
+        "expected": "def is_even(n):\n    return n % 2 == 0",
+        "generated": "def is_even(n):\n    return n % 2 == 0",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_sci_triangle_015",
+        "prompt": "What is the total degree measurement when you sum all three interior angles of a triangle?\nAnswer:",
+        "expected": "180",
+        "generated": "180",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_sci_triangle_016",
+        "prompt": "Calculate the interior angle summation for a planar triangle in degrees.\nAnswer:",
+        "expected": "180",
+        "generated": "180",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_hindi_capital_017",
+        "prompt": "भारतीय गणराज्य की राष्ट्रीय राजधानी कौन सा शहर है?\nउत्तर:",
+        "expected": "नई दिल्ली",
+        "generated": "नई दिल्ली",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_hindi_capital_018",
+        "prompt": "भारत देश का शासन केंद्र और राजधानी क्या कहलाती है?\nउत्तर:",
+        "expected": "नई दिल्ली",
+        "generated": "पूर्व",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_hindi_sun_east_019",
+        "prompt": "पृथ्वी पर सूर्य किस दिशा की ओर से निकलता है?\nउत्तर:",
+        "expected": "पूर्व",
+        "generated": "पूर्व",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "heldout_hindi_sun_east_020",
+        "prompt": "सूर्य के निकलने की भौगोलिक दिशा बताइए।\nउत्तर:",
+        "expected": "पूर्व",
+        "generated": "पूर्व",
+        "exact_match": true,
+        "eos_reached": true
+      }
+    ],
+    "compositional_details": [
+      {
+        "id": "comp_001",
+        "prompt": "Question: Calculate the square of (3 plus 5).\nAnswer:",
+        "expected": "64",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "comp_002",
+        "prompt": "Question: What is 7 multiplied by 6 minus 10?\nAnswer:",
+        "expected": "32",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "comp_003",
+        "prompt": "Question: Calculate (14 plus 28) minus 10.\nAnswer:",
+        "expected": "32",
+        "generated": "42",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "comp_004",
+        "prompt": "Question: In a triangle, if two angles are 60 and 70 degrees, what is the third angle?\nAnswer:",
+        "expected": "50",
+        "generated": "180",
+        "exact_match": false,
+        "eos_reached": true
+      }
+    ]
+  }
+}
