@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-10-15 17:57:33",
+  "total_benchmark_items": 70,
+  "configurations": {
+    "Config_A_Base_AR": {
+      "syntax_validity": "37/70 (52.9%)",
+      "exact_plan_match": "6/70 (8.6%)",
+      "slot_correctness": "6/70 (8.6%)"
+    },
+    "Config_B_Span_Raw": {
+      "syntax_validity": "49/70 (70.0%)",
+      "exact_plan_match": "0/70 (0.0%)",
+      "slot_correctness": "23/70 (32.9%)"
+    },
+    "Config_C_Unified_Fusion": {
+      "syntax_validity": "70/70 (100.0%)",
+      "exact_plan_match": "2/70 (2.9%)",
+      "slot_correctness": "3/70 (4.3%)"
+    },
+    "Config_D_Oracle_Struct_Pred_Span": {
+      "syntax_validity": "70/70 (100.0%)",
+      "exact_plan_match": "0/70 (0.0%)",
+      "slot_correctness": "23/70 (32.9%)"
+    },
+    "Config_E_Pred_Struct_Oracle_Span": {
+      "syntax_validity": "70/70 (100.0%)",
+      "exact_plan_match": "2/70 (2.9%)",
+      "slot_correctness": "70/70 (100.0%)"
+    },
+    "Config_F_Oracle_Struct_Oracle_Span": {
+      "syntax_validity": "70/70 (100.0%)",
+      "exact_plan_match": "70/70 (100.0%)",
+      "slot_correctness": "70/70 (100.0%)"
+    }
+  },
+  "causal_eval": {
+    "passed": "4/10 (40.0%)",
+    "cases": [
+      {
+        "desc": "Change operand 600 -> 750",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=14*14} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Change operand 5 -> 8",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=600*600} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+600} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Swap operands 600*5 -> 5*600",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=14*14} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Repeated number 14",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=14 * 5 and then add 14*14 * 5 and then add 14} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14 * 5 and then add 14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Large number 1024",
+        "passed": true,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=1024*1024} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+1024} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Text transformation",
+        "passed": false,
+        "generated_plan": "GOAL: text_transform_chain | STEP 0: text_transform | text_utility | args={text='Consensus Ledger Unique 6',op=strip} | deps=[] | STEP 1: text_transform | text_utility | args={text=$0,op=uppercase} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "Missing escrow ID",
+        "passed": true,
+        "generated_plan": "GOAL: clarification_needed | STEP 0: clarification | none | args={reason=escrow_settlement_id} | deps=[] | CLARIFICATION: NEEDED | <END_PLAN>"
+      },
+      {
+        "desc": "Missing token",
+        "passed": true,
+        "generated_plan": "GOAL: clarification_needed | STEP 0: clarification | none | args={reason=access_auth_token} | deps=[] | CLARIFICATION: NEEDED | <END_PLAN>"
+      },
+      {
+        "desc": "Hindi phrasing",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=14*14} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0+14} | deps=[0] | CLARIFICATION: NONE | <END_PLAN>"
+      },
+      {
+        "desc": "4-step arithmetic",
+        "passed": false,
+        "generated_plan": "GOAL: compound_arithmetic | STEP 0: tool_call | calculator | args={expr=2+2} | deps=[] | STEP 1: tool_call | calculator | args={expr=$0*2} | deps=[0] | STEP 2: tool_call | calculator | args={expr=$1-2} | deps=[1] | STEP 3: tool_call | calculator | args={expr=$2/2} | deps=[2] | CLARIFICATION: NONE | <END_PLAN>"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-10-15 17:49:00",
+  "starting_head_commit": "673df79b8b758baaaa4de91b335022f37505bce0",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "baseline_metrics": {
+    "total_benchmark_items": 70,
+    "token_pointer_model": {
+      "syntax_validity": "32/70 (45.7%)",
+      "exact_plan_match": "6/70 (8.6%)",
+      "slot_correctness": "6/70 (8.6%)"
+    },
+    "span_grounding_model": {
+      "syntax_validity": "49/70 (70.0%)",
+      "exact_plan_match": "0/70 (0.0%)",
+      "slot_correctness": "23/70 (32.9%)"
+    },
+    "diagnostic_oracle_bound": {
+      "syntax_validity": "70/70 (100.0%)",
+      "exact_plan_match": "70/70 (100.0%)",
+      "slot_correctness": "70/70 (100.0%)"
+    }
+  },
+  "pipeline_diagnosis": "Disconnection between neural span extractor and causal autoregressive DSL decoder; abstract plan representation with fused slot binding is required."
+}
