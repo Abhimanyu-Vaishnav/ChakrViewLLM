@@ -1,0 +1,90 @@
+{
+  "candidate": "candidate_step150_corrected_eos",
+  "total_fresh_items": 8,
+  "direct_exact_match_rate": 1.0,
+  "paraphrase_exact_match_rate": 0.3333333333333333,
+  "compositional_exact_match_rate": 0.5,
+  "clean_termination_rate": 1.0,
+  "details": [
+    {
+      "id": "para_math_direct",
+      "type": "direct",
+      "domain": "math",
+      "query": "What is 14 plus 28?",
+      "expected": "42",
+      "generated": "42",
+      "exact_match": true,
+      "eos_reached": true
+    },
+    {
+      "id": "para_math_variant",
+      "type": "paraphrase",
+      "domain": "math",
+      "query": "Compute the sum of fourteen and twenty eight.",
+      "expected": "42",
+      "generated": "Arithmetic Logic Unit (ALU)",
+      "exact_match": false,
+      "eos_reached": true
+    },
+    {
+      "id": "para_arch_direct",
+      "type": "direct",
+      "domain": "architecture",
+      "query": "What does DMA stand for in computer systems?",
+      "expected": "Direct Memory Access",
+      "generated": "Direct Memory Access",
+      "exact_match": true,
+      "eos_reached": true
+    },
+    {
+      "id": "para_arch_variant",
+      "type": "paraphrase",
+      "domain": "architecture",
+      "query": "In microprocessor design, what does the abbreviation DMA represent?",
+      "expected": "Direct Memory Access",
+      "generated": "Direct Memory Access",
+      "exact_match": true,
+      "eos_reached": true
+    },
+    {
+      "id": "para_hindi_direct",
+      "type": "direct",
+      "domain": "hindi",
+      "query": "भारत की राजधानी क्या है?",
+      "expected": "नई दिल्ली",
+      "generated": "नई दिल्ली",
+      "exact_match": true,
+      "eos_reached": true
+    },
+    {
+      "id": "para_hindi_variant",
+      "type": "paraphrase",
+      "domain": "hindi",
+      "query": "भारतीय गणराज्य की राष्ट्रीय राजधानी कौन सा शहर है?",
+      "expected": "नई दिल्ली",
+      "generated": "पूर्व",
+      "exact_match": false,
+      "eos_reached": true
+    },
+    {
+      "id": "comp_unseen_1",
+      "type": "compositional",
+      "domain": "unseen_transfer",
+      "query": "What circuit in a CPU combines arithmetic operations with logic gates?",
+      "expected": "Arithmetic Logic Unit (ALU)",
+      "generated": "Arithmetic Logic Unit (ALU)",
+      "exact_match": true,
+      "eos_reached": true
+    },
+    {
+      "id": "comp_unseen_2",
+      "type": "compositional",
+      "domain": "unseen_transfer",
+      "query": "What is 7 multiplied by 6 minus 10?",
+      "expected": "32",
+      "generated": "42",
+      "exact_match": false,
+      "eos_reached": true
+    }
+  ]
+}

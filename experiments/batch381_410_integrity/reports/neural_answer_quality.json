@@ -1,0 +1,213 @@
+{
+  "canonical_baseline": {
+    "exact_match_rate": 0.0,
+    "clean_termination_rate": 0.0,
+    "domain_scores": {
+      "mathematics": {
+        "total": 4,
+        "exact": 0,
+        "clean": 0
+      },
+      "computer_architecture": {
+        "total": 3,
+        "exact": 0,
+        "clean": 0
+      },
+      "coding": {
+        "total": 2,
+        "exact": 0,
+        "clean": 0
+      },
+      "science": {
+        "total": 2,
+        "exact": 0,
+        "clean": 0
+      },
+      "hindi": {
+        "total": 2,
+        "exact": 0,
+        "clean": 0
+      },
+      "unseen_composition": {
+        "total": 2,
+        "exact": 0,
+        "clean": 0
+      }
+    }
+  },
+  "candidate_corrected": {
+    "checkpoint_path": "experiments\\batch381_410_integrity\\checkpoints\\candidate_step150_corrected_eos.pt",
+    "sha256": "27812873dde718485e70825d7be101ede2d1f54d8dd60e3f6a169c51e91a8f9e",
+    "exact_match_rate": 0.8,
+    "clean_termination_rate": 1.0,
+    "domain_scores": {
+      "mathematics": {
+        "total": 4,
+        "exact": 3,
+        "clean": 4
+      },
+      "computer_architecture": {
+        "total": 3,
+        "exact": 3,
+        "clean": 3
+      },
+      "coding": {
+        "total": 2,
+        "exact": 2,
+        "clean": 2
+      },
+      "science": {
+        "total": 2,
+        "exact": 2,
+        "clean": 2
+      },
+      "hindi": {
+        "total": 2,
+        "exact": 2,
+        "clean": 2
+      },
+      "unseen_composition": {
+        "total": 2,
+        "exact": 0,
+        "clean": 2
+      }
+    },
+    "details": [
+      {
+        "id": "math_001",
+        "domain": "mathematics",
+        "query": "What is 14 plus 28?",
+        "expected": "42",
+        "generated": "42",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "math_002",
+        "domain": "mathematics",
+        "query": "What is 50 minus 18?",
+        "expected": "32",
+        "generated": "32",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "math_003",
+        "domain": "mathematics",
+        "query": "What is 7 multiplied by 6?",
+        "expected": "42",
+        "generated": "42",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "math_004",
+        "domain": "mathematics",
+        "query": "Calculate (10 plus 5) multiplied by 2.",
+        "expected": "30",
+        "generated": "Direct Memory Access",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "arch_001",
+        "domain": "computer_architecture",
+        "query": "What component of the CPU executes arithmetic and logic operations?",
+        "expected": "Arithmetic Logic Unit (ALU)",
+        "generated": "Arithmetic Logic Unit (ALU)",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "arch_002",
+        "domain": "computer_architecture",
+        "query": "What does DMA stand for in computer systems?",
+        "expected": "Direct Memory Access",
+        "generated": "Direct Memory Access",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "arch_003",
+        "domain": "computer_architecture",
+        "query": "What memory level sits between the L1 cache and main RAM?",
+        "expected": "L2 and L3 Cache",
+        "generated": "L2 and L3 Cache",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "code_001",
+        "domain": "coding",
+        "query": "Write a Python function to compute the square of x.",
+        "expected": "def square(x):\n    return x * x",
+        "generated": "def square(x):\n    return x * x",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "code_002",
+        "domain": "coding",
+        "query": "Write a Python function is_even(n) that returns True if n is even.",
+        "expected": "def is_even(n):\n    return n % 2 == 0",
+        "generated": "def is_even(n):\n    return n % 2 == 0",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "sci_001",
+        "domain": "science",
+        "query": "What is the sum of interior angles in a triangle in degrees?",
+        "expected": "180",
+        "generated": "180",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "sci_002",
+        "domain": "science",
+        "query": "Who formulated the universal law of gravitation?",
+        "expected": "Sir Isaac Newton",
+        "generated": "Sir Isaac Newton",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "hindi_001",
+        "domain": "hindi",
+        "query": "सूर्य किस दिशा से उगता है?",
+        "expected": "पूर्व",
+        "generated": "पूर्व",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "hindi_002",
+        "domain": "hindi",
+        "query": "भारत की राजधानी क्या है?",
+        "expected": "नई दिल्ली",
+        "generated": "नई दिल्ली",
+        "exact_match": true,
+        "eos_reached": true
+      },
+      {
+        "id": "unseen_001",
+        "domain": "unseen_composition",
+        "query": "What memory component is used by Neuromorphic hardware to emulate biological synapses?",
+        "expected": "Memristor",
+        "generated": "Arithmetic Logic Unit (ALU)",
+        "exact_match": false,
+        "eos_reached": true
+      },
+      {
+        "id": "unseen_002",
+        "domain": "unseen_composition",
+        "query": "Calculate the square of (3 plus 5).",
+        "expected": "64",
+        "generated": "32",
+        "exact_match": false,
+        "eos_reached": true
+      }
+    ]
+  }
+}
