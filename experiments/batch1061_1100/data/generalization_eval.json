@@ -1,0 +1,492 @@
+[
+  {
+    "id": 1,
+    "category": "paraphrase",
+    "query": "What is the feedforward layer size inside ChakrMicro transformer blocks?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "1536"
+  },
+  {
+    "id": 2,
+    "category": "paraphrase",
+    "query": "Where is the custom vocabulary file stored on the filesystem?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "models/tokenizer.json"
+  },
+  {
+    "id": 3,
+    "category": "paraphrase",
+    "query": "What vectorization instruction sets optimize CPU calculations?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "AVX2"
+  },
+  {
+    "id": 4,
+    "category": "paraphrase",
+    "query": "What precision modes does GPU CUDA processing support?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "FP16"
+  },
+  {
+    "id": 5,
+    "category": "paraphrase",
+    "query": "What cryptographic protocol encrypts database keys at rest?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "HMAC"
+  },
+  {
+    "id": 6,
+    "category": "paraphrase",
+    "query": "What is the base annual pricing for a Dedicated Cluster installation?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "12,000"
+  },
+  {
+    "id": 7,
+    "category": "paraphrase",
+    "query": "What credit is deducted if monthly platform availability falls under 99.9%?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "15%"
+  },
+  {
+    "id": 8,
+    "category": "paraphrase",
+    "query": "What latency threshold classifies a system slowdown as Severity 2?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "500ms"
+  },
+  {
+    "id": 9,
+    "category": "paraphrase",
+    "query": "Within what timeframe must incident root cause reviews be distributed?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "48 hours"
+  },
+  {
+    "id": 10,
+    "category": "paraphrase",
+    "query": "What Python versions are officially certified for ChakrView deployments?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "Python 3.10 through Python 3.14"
+  },
+  {
+    "id": 11,
+    "category": "synonyms",
+    "query": "How many layers are in the neural model?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 12,
+    "category": "synonyms",
+    "query": "What is the maximum context length?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "512"
+  },
+  {
+    "id": 13,
+    "category": "synonyms",
+    "query": "What special tokens are defined in the tokenizer?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "<unk>"
+  },
+  {
+    "id": 14,
+    "category": "synonyms",
+    "query": "What permission bits protect stored user session logs?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "0600"
+  },
+  {
+    "id": 15,
+    "category": "synonyms",
+    "query": "What are the payment terms in days for corporate invoices?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "30 days"
+  },
+  {
+    "id": 16,
+    "category": "synonyms",
+    "query": "What is the promised service uptime percentage?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "99.95%"
+  },
+  {
+    "id": 17,
+    "category": "synonyms",
+    "query": "Who is notified if an on-call engineer ignores a page for 5 minutes?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "director"
+  },
+  {
+    "id": 18,
+    "category": "synonyms",
+    "query": "What release changes justify incrementing a minor version number?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "backwards-compatible"
+  },
+  {
+    "id": 19,
+    "category": "negation_exception",
+    "query": "Can users execute arbitrary shell scripts directly outside the sandbox?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "forbidden"
+  },
+  {
+    "id": 20,
+    "category": "negation_exception",
+    "query": "Are unauthenticated database queries accepted by the system?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "terminated"
+  },
+  {
+    "id": 21,
+    "category": "negation_exception",
+    "query": "Is Python 3.9 accepted in the supported deployment configuration?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "unsupported"
+  },
+  {
+    "id": 22,
+    "category": "negation_exception",
+    "query": "Can external unverified cloud vector libraries be incorporated into the core?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "forbidden"
+  },
+  {
+    "id": 23,
+    "category": "negation_exception",
+    "query": "Does the Starter Tier include priority telemetry features?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "Professional Tier"
+  },
+  {
+    "id": 24,
+    "category": "negation_exception",
+    "query": "Is an outage of local inference classified as a minor incident?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "Severity 1"
+  },
+  {
+    "id": 25,
+    "category": "negation_exception",
+    "query": "Are backup snapshots kept in the same local cluster without offsite replication?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "offsite"
+  },
+  {
+    "id": 26,
+    "category": "negation_exception",
+    "query": "Does ChakrView allow unpinned core dependencies in production builds?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "pinned"
+  },
+  {
+    "id": 27,
+    "category": "follow_up",
+    "context_query": "What is the parameter volume of ChakrMicro?",
+    "query": "What is the context window ceiling of that model?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "512"
+  },
+  {
+    "id": 28,
+    "category": "follow_up",
+    "context_query": "What is the context window ceiling of ChakrMicro?",
+    "query": "How many transformer layers does it have?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 29,
+    "category": "follow_up",
+    "context_query": "What encryption standard protects network traffic?",
+    "query": "What symmetric cipher algorithm is used with it?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "AES-256-GCM"
+  },
+  {
+    "id": 30,
+    "category": "follow_up",
+    "context_query": "What is the cost of the Professional Tier subscription?",
+    "query": "How many concurrent workers are permitted on that tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "8"
+  },
+  {
+    "id": 31,
+    "category": "follow_up",
+    "context_query": "How frequently are system state snapshots captured?",
+    "query": "Where are those snapshots archived?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "offsite"
+  },
+  {
+    "id": 32,
+    "category": "follow_up",
+    "context_query": "What is the Recovery Time Objective (RTO)?",
+    "query": "What is the Recovery Point Objective for that procedure?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 33,
+    "category": "follow_up",
+    "context_query": "What is Severity 2 in the SOP?",
+    "query": "What latency threshold triggers that incident rating?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "500ms"
+  },
+  {
+    "id": 34,
+    "category": "follow_up",
+    "context_query": "What versioning scheme does the project use?",
+    "query": "What kind of changes cause a major version bump in it?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "breaking"
+  },
+  {
+    "id": 35,
+    "category": "follow_up",
+    "context_query": "What Python versions are officially supported?",
+    "query": "What is the status of Python 3.9 in that guide?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "unsupported"
+  },
+  {
+    "id": 36,
+    "category": "follow_up",
+    "context_query": "What digest algorithm verifies release artifacts?",
+    "query": "Are those pre-computed digests verified prior to distribution?",
+    "expected_type": "ANSWER",
+    "expected_source": "release_guide.md",
+    "expected_substring": "SHA-256"
+  },
+  {
+    "id": 37,
+    "category": "multi_doc",
+    "query": "What is the Starter Tier monthly fee in billing terms?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "150"
+  },
+  {
+    "id": 38,
+    "category": "multi_doc",
+    "query": "What is the monthly cost of the Professional Tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "450"
+  },
+  {
+    "id": 39,
+    "category": "multi_doc",
+    "query": "What is the annual rate for a Dedicated Cluster?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "12,000"
+  },
+  {
+    "id": 40,
+    "category": "multi_doc",
+    "query": "What defines a Severity 1 critical incident?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "Total outage"
+  },
+  {
+    "id": 41,
+    "category": "multi_doc",
+    "query": "What defines a Severity 3 minor incident?",
+    "expected_type": "ANSWER",
+    "expected_source": "incident_sop.md",
+    "expected_substring": "glitch"
+  },
+  {
+    "id": 42,
+    "category": "multi_doc",
+    "query": "What is the minimum RAM ceiling for CPU inference?",
+    "expected_type": "ANSWER",
+    "expected_source": "architecture_spec.md",
+    "expected_substring": "1.5 GB"
+  },
+  {
+    "id": 43,
+    "category": "multi_doc",
+    "query": "What token expiration time applies to OAuth2 requests?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_policy.md",
+    "expected_substring": "3600"
+  },
+  {
+    "id": 44,
+    "category": "multi_doc",
+    "query": "What is the response time guarantee for P1 incidents in enterprise support?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_terms.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 45,
+    "category": "abstention",
+    "query": "What was the GDP of the United Kingdom in 2023?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 46,
+    "category": "abstention",
+    "query": "What is the capital city of Japan?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 47,
+    "category": "abstention",
+    "query": "What is the speed of sound in dry air at 20 degrees Celsius?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 48,
+    "category": "abstention",
+    "query": "Who is the CEO of Microsoft Corporation?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 49,
+    "category": "abstention",
+    "query": "How many cylinders are in a Ferrari V12 engine?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 50,
+    "category": "abstention",
+    "query": "What is the population density of Singapore per square kilometer?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 51,
+    "category": "abstention",
+    "query": "What is the recipe for sourdough starter bread?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 52,
+    "category": "abstention",
+    "query": "What is the melting temperature of titanium in Kelvin?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 53,
+    "category": "abstention",
+    "query": "How many gold medals did Norway win at the 2022 Winter Olympics?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 54,
+    "category": "abstention",
+    "query": "What is the average depth of the Pacific Ocean in meters?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": "could not find sufficient"
+  },
+  {
+    "id": 55,
+    "category": "false_premise",
+    "query": "What is the capital city of Venus?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "uninhabited celestial body"
+  },
+  {
+    "id": 56,
+    "category": "false_premise",
+    "query": "What is the municipal government of Jupiter called?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "uninhabited celestial body"
+  },
+  {
+    "id": 57,
+    "category": "false_premise",
+    "query": "Who was the Prime Minister of India in the year 1930?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "August 1947"
+  },
+  {
+    "id": 58,
+    "category": "false_premise",
+    "query": "Who was the Prime Minister of India in 1890?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "August 1947"
+  },
+  {
+    "id": 59,
+    "category": "false_premise",
+    "query": "What is the capital city of Saturn?",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "uninhabited celestial body"
+  },
+  {
+    "id": 60,
+    "category": "false_premise",
+    "query": "Calculate the mathematical result of dividing 500 by zero",
+    "expected_type": "REFUTE",
+    "expected_source": null,
+    "expected_substring": "Division by zero"
+  }
+]

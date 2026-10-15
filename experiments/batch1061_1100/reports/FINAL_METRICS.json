@@ -1,0 +1,52 @@
+{
+  "mission": "Batches 1061-1100: Independent Evaluation, Retrieval Grounding Audit & Generalization Verification",
+  "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "checkpoint_status": "UNMODIFIED_EXACT_MATCH",
+  "user_session_py_status": "PRESERVED_UNMODIFIED",
+  "benchmarks": {
+    "frozen_batch1021_1060_benchmark": {
+      "total_questions": 50,
+      "passed": 50,
+      "accuracy_pct": 100.0,
+      "citation_validity": "38/38 (100.0%)",
+      "citation_support": "38/38 (100.0%)",
+      "abstentions": "8/8 (100.0%)",
+      "refutations": "4/4 (100.0%)",
+      "followups": "7/7 (100.0%)",
+      "median_latency_ms": 0.48,
+      "p95_latency_ms": 0.95
+    },
+    "generalization_dev_suite": {
+      "total_questions": 30,
+      "passed": 28,
+      "accuracy_pct": 93.33,
+      "abstentions": "6/6 (100.0%)",
+      "refutations": "2/2 (100.0%)",
+      "followups": "4/4 (100.0%)",
+      "median_latency_ms": 0.50
+    },
+    "generalization_eval_held_out_suite": {
+      "total_questions": 60,
+      "passed": 59,
+      "accuracy_pct": 98.33,
+      "citation_validity": "43/44 (97.7%)",
+      "citation_support": "43/44 (97.7%)",
+      "abstentions": "10/10 (100.0%)",
+      "refutations": "6/6 (100.0%)",
+      "followups": "9/10 (90.0%)",
+      "median_latency_ms": 0.51,
+      "p95_latency_ms": 0.83
+    }
+  },
+  "security_and_robustness": {
+    "passive_data_containment": "PASSED",
+    "shell_injection_neutralization": "PASSED",
+    "unicode_and_crlf_robustness": "PASSED",
+    "deleted_file_pruning": "PASSED (repaired & tested)"
+  },
+  "historical_regression_suites": {
+    "test_batch143_146_instruction_regression": "5/5 PASSED",
+    "test_batch861_900_span_grounding": "3/3 PASSED",
+    "test_batch1021_1060_local_assistant": "5/5 PASSED"
+  }
+}

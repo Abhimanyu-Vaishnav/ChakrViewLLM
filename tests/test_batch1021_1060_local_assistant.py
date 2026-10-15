@@ -69,3 +69,29 @@ def test_multi_turn_followup(sample_assistant):
     assert resp2.decision == "ANSWER"
     assert "6 layers" in resp2.answer
     assert "system_spec.md" in resp2.answer
+
+
+def test_deleted_document_pruning_on_reindex():
+    with tempfile.TemporaryDirectory() as tmpdir:
+        d = Path(tmpdir)
+        doc1 = d / "doc1.md"
+        doc1.write_text("# Doc 1\nAlpha value is 100.\n", encoding="utf-8")
+        doc2 = d / "doc2.md"
+        doc2.write_text("# Doc 2\nBeta value is 200.\n", encoding="utf-8")
+
+        assistant = LocalKnowledgeAssistant()
+        assistant.ingest_directory(d)
+        assert len(assistant.list_indexed_documents()) == 2
+
+        # Delete doc2 from filesystem and re-ingest directory
+        os.remove(doc2)
+        assistant.ingest_directory(d)
+
+        docs = assistant.list_indexed_documents()
+        assert len(docs) == 1
+        assert docs[0]["doc_id"] == "doc1.md"
+
+        # Querying deleted content now abstains
+        resp = assistant.ask("What is Beta quantity for doc2?")
+        assert resp.decision == "ABSTAIN"
+

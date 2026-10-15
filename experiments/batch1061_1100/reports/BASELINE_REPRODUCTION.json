@@ -1,0 +1,35 @@
+{
+  "reproduction_timestamp": "2026-10-15T19:12:00+05:30",
+  "reproduced_commit": "1a188fe",
+  "environment": {
+    "python_version": "3.14.7",
+    "python_path": "D:\\Project\\ChakrView\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false
+  },
+  "canonical_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "observed_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "status": "VERIFIED_EXACT_MATCH"
+  },
+  "benchmark_manifest": {
+    "corpus_chunks_indexed": 9,
+    "total_questions": 50,
+    "benchmark_sha256": "f1dea040b72841fa9a45f9f1b555d00e7745209c35b889aa3e1115a7aab0e3d0"
+  },
+  "reproduced_results": {
+    "command_executed": "$env:PYTHONPATH='.'; .\\.venv\\Scripts\\python.exe experiments/batch1021_1060/run_evaluation.py",
+    "exit_code": 0,
+    "passed": 50,
+    "total": 50,
+    "accuracy_pct": 100.0,
+    "abstentions": "8/8",
+    "refutations": "4/4",
+    "followups": "7/7",
+    "latency_median_ms": 0.44,
+    "latency_p95_ms": 0.83
+  },
+  "discrepancies_vs_reported": "None. The exact benchmark evaluation script reproduced 50/50 passed with 0.44ms median latency."
+}

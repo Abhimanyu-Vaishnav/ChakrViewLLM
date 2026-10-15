@@ -159,16 +159,28 @@ class LocalKnowledgeAssistant:
         return len(new_chunks)
 
     def ingest_directory(self, dir_path: Path | str, extensions: Tuple[str, ...] = (".txt", ".md")) -> int:
-        """Ingests all matching documents in a directory."""
+        """Ingests all matching documents in a directory and prunes deleted files."""
         d = Path(dir_path).resolve()
         if not d.exists() or not d.is_dir():
             raise NotADirectoryError(f"Directory not found: {d}")
 
+        current_files = set()
         total_chunks = 0
         for root, _, files in os.walk(d):
             for f in files:
                 if any(f.lower().endswith(ext) for ext in extensions):
-                    total_chunks += self.ingest_document(Path(root) / f)
+                    file_p = (Path(root) / f).resolve()
+                    current_files.add(file_p.name)
+                    total_chunks += self.ingest_document(file_p)
+
+        # Prune documents that were deleted from this directory
+        deleted_docs = [doc_id for doc_id, meta in self.doc_metadata.items() if Path(meta.file_path).parent == d and doc_id not in current_files]
+        if deleted_docs:
+            for doc_id in deleted_docs:
+                del self.doc_metadata[doc_id]
+            self.chunks = [c for c in self.chunks if c.doc_id not in deleted_docs]
+            self._rebuild_indices()
+
         return total_chunks
 
     def list_indexed_documents(self) -> List[Dict[str, Any]]:
