@@ -1,0 +1,26 @@
+{
+  "milestone": "Batches 661-700 Architecture Attribution",
+  "audit_timestamp": "2026-10-15T13:53:00",
+  "architecture_components": {
+    "neural_component": {
+      "role": "Anaphora detection & candidate span identification",
+      "model": "ChakrSpanPointerModel / Pattern classification",
+      "parameters": 30000000,
+      "pure_neural_reasoning_claimed": false
+    },
+    "deterministic_resolver": {
+      "role": "Session memory traversal & antecedent candidate matching",
+      "module": "chakrview.runtime.context_resolver.ContextReferenceResolver",
+      "strategy": "Reverse turn scan with metadata/numeric filtering and ordinal selection"
+    },
+    "deterministic_tool_execution": {
+      "role": "Safe arithmetic AST evaluation & string manipulation",
+      "modules": ["CalculatorTool", "TextUtilityTool"]
+    },
+    "governance_and_abstention": {
+      "role": "Refusal to hallucinate when antecedents are absent or ambiguous",
+      "policy": "anaphora_abstention_policy returning ComponentOrigin.FALLBACK_POLICY"
+    }
+  },
+  "attribution_declaration": "All reported 100% multi-turn accuracies reflect the integrated hybrid pipeline and NOT black-box neural arithmetic generation. Deterministic code executed the actual arithmetic and retrieved exact stored strings."
+}
