@@ -1,0 +1,33 @@
+{
+  "milestone": "Batches 821-860: Baseline Reproduction & Audit",
+  "audit_timestamp": "2026-10-15T16:54:00",
+  "base_commit": "c0d13bc",
+  "branch": "dev/v0.6-v0.7-validation",
+  "canonical_step10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "candidate_step300_seed101_sha256": "74cdb1403673c9680e1ae5c261ed218726c1675fa3ffb495e47498e159408837",
+  "frozen_benchmark_sha256": "cabf7daa3c6e453de1ad06e99c801fbba9b669f2130746a7b34bf022cd21ec2a",
+  "reproduced_metrics": {
+    "frozen_benchmark_n": 70,
+    "system_a_fixed_head_accuracy": 52.9,
+    "system_b_unconstrained_ar_syntax": 52.9,
+    "system_b_unconstrained_ar_exact": 8.6,
+    "system_c_grammar_constrained_ar_syntax": 60.0,
+    "system_c_grammar_constrained_ar_exact": 8.6,
+    "unsupported_action_rejection": 100.0,
+    "exact_argument_copy_accuracy": 0.0,
+    "math_operand_copy_accuracy": 0.0,
+    "text_phrase_copy_accuracy": 0.0
+  },
+  "latency_profile_reproduced": {
+    "device": "NVIDIA RTX A1000 Laptop GPU",
+    "unconstrained_p50_ms": 664.18,
+    "constrained_p50_ms": 2329.00,
+    "overhead_factor": 3.51
+  },
+  "regression_tests": {
+    "total": 40,
+    "passed": 40,
+    "failed": 0
+  },
+  "status": "BASELINE_REPRODUCED_AND_AUDITED"
+}

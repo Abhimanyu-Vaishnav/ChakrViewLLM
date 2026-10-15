@@ -1,0 +1,49 @@
+{
+  "milestone": "Batches 821-860: Neural Pointer-Generator & Efficient Grammar Planning",
+  "audit_timestamp": "2026-10-15T17:13:00",
+  "base_commit": "c0d13bc",
+  "branch": "dev/v0.6-v0.7-validation",
+  "canonical_step10000_hash_verified": true,
+  "canonical_step10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "frozen_benchmark_sha256": "cabf7daa3c6e453de1ad06e99c801fbba9b669f2130746a7b34bf022cd21ec2a",
+  "checkpoints": {
+    "candidate_step300_seed42_pointer": "95594aa712a2ca07b8a53c1f016334aa77ff0a2ba1a0c8b3e85292881bb595db",
+    "candidate_step300_seed101_pointer": "8c201639d6ec9908cf0d1645e3d74c0e64c398322ea3fe91a5dbfe0c325f54aa",
+    "candidate_step300_fixedgate_pointer": "a93557457788b901a1cf4c4cb831fdbcfcf2ce611a134812a32cbe005b4104c8"
+  },
+  "comparative_metrics": {
+    "system_1_base_unconstrained": {
+      "syntax_validity": 52.9,
+      "exact_plan_match": 8.6
+    },
+    "system_2_base_constrained": {
+      "syntax_validity": 52.9,
+      "exact_plan_match": 8.6
+    },
+    "system_3_pointer_unconstrained": {
+      "syntax_validity": 48.6,
+      "exact_plan_match": 8.6
+    },
+    "system_4_pointer_constrained": {
+      "syntax_validity": 45.7,
+      "exact_plan_match": 8.6,
+      "step0_argument_match": 8.6
+    }
+  },
+  "argument_copy_results": {
+    "reproduced_baseline_copy": 0.0,
+    "pointer_learned_copy_exact": 8.6,
+    "verdict": "Learned pointer mechanism partially activates prompt token probabilities (e.g. copying 6 from 600) but suffers from subword BPE misalignment across multi-digit numbers."
+  },
+  "decoder_optimization": {
+    "per_step_masking_latency_base_ms": 8.888,
+    "per_step_masking_latency_optimized_ms": 6.210,
+    "latency_speedup_percent": 30.1
+  },
+  "regression_tests": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "duration_seconds": 5.68
+  }
+}

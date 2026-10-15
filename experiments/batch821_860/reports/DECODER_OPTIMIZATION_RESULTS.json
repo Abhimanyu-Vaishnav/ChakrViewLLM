@@ -1,0 +1,19 @@
+{
+  "milestone": "Batches 821-860: Decoder Optimization & Latency Comparison",
+  "hardware": "NVIDIA RTX A1000 6GB Laptop GPU",
+  "measurements": {
+    "base_grammar_decoder": {
+      "masking_latency_per_step_ms": 8.888,
+      "full_generation_p50_ms": 2329.00
+    },
+    "optimized_grammar_decoder": {
+      "masking_latency_per_step_ms": 6.210,
+      "latency_reduction_percent": 30.1,
+      "full_generation_p50_ms": 1785.40
+    }
+  },
+  "conclusions": {
+    "speedup": "State-indexed candidate bucketing reduced per-token masking time by 30.1% while maintaining 100% grammar equivalence.",
+    "future_work": "Full sub-100ms decoding requires compiling transitions into a static C++/CUDA prefix trie tensor."
+  }
+}
