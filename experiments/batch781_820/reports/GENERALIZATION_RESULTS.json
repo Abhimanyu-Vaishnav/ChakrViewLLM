@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-10-15 16:46:23",
+  "total_frozen_test_items": 70,
+  "frozen_benchmark_sha256": "cabf7daa3c6e453de1ad06e99c801fbba9b669f2130746a7b34bf022cd21ec2a",
+  "comparison_systems": {
+    "System_A_Fixed_Head_Baseline": {
+      "successes": 37,
+      "accuracy": 52.9,
+      "limitation": "Architecturally truncated at H=2 steps; 0% on >=3 steps."
+    },
+    "System_B_Unconstrained_Autoregressive": {
+      "clean_eos_rate": 52.9,
+      "syntax_validity_rate": 52.9,
+      "dag_validity_rate": 52.9,
+      "exact_plan_match_rate": 8.6
+    },
+    "System_C_Grammar_Constrained_Autoregressive": {
+      "clean_eos_rate": 60.0,
+      "syntax_validity_rate": 60.0,
+      "dag_validity_rate": 60.0,
+      "exact_plan_match_rate": 8.6
+    }
+  },
+  "per_length_breakdown": {
+    "2": {
+      "total": 25,
+      "fixed_head": 25,
+      "uncons_valid": 19,
+      "cons_valid": 19,
+      "cons_exact": 0
+    },
+    "3": {
+      "total": 21,
+      "fixed_head": 0,
+      "uncons_valid": 6,
+      "cons_valid": 6,
+      "cons_exact": 0
+    },
+    "4": {
+      "total": 12,
+      "fixed_head": 0,
+      "uncons_valid": 0,
+      "cons_valid": 5,
+      "cons_exact": 0
+    },
+    "1": {
+      "total": 12,
+      "fixed_head": 12,
+      "uncons_valid": 12,
+      "cons_valid": 12,
+      "cons_exact": 6
+    }
+  },
+  "per_family_breakdown": {
+    "math_2step": {
+      "total": 15,
+      "fixed_head": 15,
+      "uncons_valid": 15,
+      "cons_valid": 15,
+      "cons_exact": 0
+    },
+    "math_3step": {
+      "total": 15,
+      "fixed_head": 0,
+      "uncons_valid": 0,
+      "cons_valid": 0,
+      "cons_exact": 0
+    },
+    "math_4step": {
+      "total": 12,
+      "fixed_head": 0,
+      "uncons_valid": 0,
+      "cons_valid": 5,
+      "cons_exact": 0
+    },
+    "text_chain": {
+      "total": 10,
+      "fixed_head": 10,
+      "uncons_valid": 4,
+      "cons_valid": 4,
+      "cons_exact": 0
+    },
+    "clarification": {
+      "total": 6,
+      "fixed_head": 6,
+      "uncons_valid": 6,
+      "cons_valid": 6,
+      "cons_exact": 0
+    },
+    "unsupported": {
+      "total": 6,
+      "fixed_head": 6,
+      "uncons_valid": 6,
+      "cons_valid": 6,
+      "cons_exact": 6
+    },
+    "hindi_multistep": {
+      "total": 6,
+      "fixed_head": 0,
+      "uncons_valid": 6,
+      "cons_valid": 6,
+      "cons_exact": 0
+    }
+  }
+}

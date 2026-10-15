@@ -1,0 +1,31 @@
+{
+  "milestone": "Batches 781-820: Latency & Throughput Benchmark",
+  "benchmark_date": "2026-10-15T16:48:00",
+  "hardware": {
+    "device": "NVIDIA RTX A1000 6GB Laptop GPU",
+    "cuda_version": "12.6",
+    "torch_version": "2.14.1+cu126"
+  },
+  "benchmark_protocol": {
+    "batch_size": 1,
+    "warmup_runs": 3,
+    "measurement_runs": 10,
+    "max_new_tokens": 150
+  },
+  "results": {
+    "unconstrained_decoding": {
+      "p50_latency_ms": 664.18,
+      "p95_latency_ms": 691.69,
+      "mean_tokens_generated": 120.0,
+      "tokens_per_second": 180.7
+    },
+    "grammar_constrained_decoding": {
+      "p50_latency_ms": 2329.00,
+      "p95_latency_ms": 2567.38,
+      "mean_tokens_generated": 120.0,
+      "tokens_per_second": 51.5,
+      "overhead_factor": 3.51
+    }
+  },
+  "analysis": "Grammar-constrained logit masking introduces an overhead factor of ~3.5x due to prefix trie verification across all 4,096 vocabulary tokens at each generation step. In exchange, syntax validity improves from 52.9% to 60.0% on the frozen benchmark and 100% on valid step productions."
+}

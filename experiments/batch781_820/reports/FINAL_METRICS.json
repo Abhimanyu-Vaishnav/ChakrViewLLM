@@ -1,0 +1,68 @@
+{
+  "milestone": "Batches 781-820: Grammar-Constrained Autoregressive Planning & Exact Argument Copying",
+  "audit_timestamp": "2026-10-15T16:49:00",
+  "branch": "dev/v0.6-v0.7-validation",
+  "canonical_step10000_hash_verified": true,
+  "canonical_step10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "frozen_benchmark": {
+    "total_items": 70,
+    "sha256": "cabf7daa3c6e453de1ad06e99c801fbba9b669f2130746a7b34bf022cd21ec2a",
+    "prompt_leakage": "0.0% (verified disjoint)"
+  },
+  "candidate_checkpoints": {
+    "seed_42": {
+      "path": "experiments/batch781_820/checkpoints/candidate_step300_seed42_grammar_planner.pt",
+      "sha256": "e3f2fbb2d2e0aa82992daeb48e821953d69d9404cfd13f0d95e0ddd9478ed4e8"
+    },
+    "seed_101": {
+      "path": "experiments/batch781_820/checkpoints/candidate_step300_seed101_grammar_planner.pt",
+      "sha256": "74cdb1403673c9680e1ae5c261ed218726c1675fa3ffb495e47498e159408837"
+    }
+  },
+  "benchmark_metrics": {
+    "fixed_head_baseline": {
+      "overall_accuracy": 52.9,
+      "step_1_accuracy": 100.0,
+      "step_2_accuracy": 100.0,
+      "step_3_accuracy": 0.0,
+      "step_4_accuracy": 0.0
+    },
+    "unconstrained_autoregressive": {
+      "clean_eos_rate": 52.9,
+      "syntax_validity_rate": 52.9,
+      "dag_validity_rate": 52.9,
+      "exact_plan_match_rate": 8.6
+    },
+    "grammar_constrained_autoregressive": {
+      "clean_eos_rate": 60.0,
+      "syntax_validity_rate": 60.0,
+      "dag_validity_rate": 60.0,
+      "exact_plan_match_rate": 8.6,
+      "step_1_syntax_validity": 100.0,
+      "step_2_syntax_validity": 76.0,
+      "step_3_syntax_validity": 28.6,
+      "step_4_syntax_validity": 41.7
+    }
+  },
+  "argument_fidelity": {
+    "math_operand_copy_accuracy": 0.0,
+    "text_phrase_copy_accuracy": 0.0,
+    "overall_copy_accuracy": 0.0
+  },
+  "safety_and_adversarial": {
+    "unsupported_action_rejection": 100.0,
+    "zero_arbitrary_code_execution": true,
+    "cyclic_dependencies_blocked": true
+  },
+  "regression_suite": {
+    "total_tests": 40,
+    "passed": 40,
+    "failed": 0,
+    "duration_seconds": 4.34
+  },
+  "latency": {
+    "device": "NVIDIA RTX A1000 Laptop GPU",
+    "unconstrained_p50_ms": 664.18,
+    "constrained_p50_ms": 2329.00
+  }
+}

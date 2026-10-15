@@ -1,0 +1,56 @@
+{
+  "milestone": "Batches 781-820: Baseline Reproduction",
+  "audit_date": "2026-10-15T16:22:00",
+  "repository": "ChakrView",
+  "branch": "dev/v0.6-v0.7-validation",
+  "starting_commit": "9d6e810",
+  "canonical_step10000_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "candidate_step250_autoregressive_planner_sha256": "38db3d09668bdb980fc72c76da17398d2267644ca698a58a1e6f10d1d392628c",
+  "held_out_benchmark_n": 30,
+  "reproduced_metrics": {
+    "single_turn_baseline": {
+      "successes": 7,
+      "total": 30,
+      "accuracy": 23.3
+    },
+    "fixed_head_baseline": {
+      "successes": 13,
+      "total": 30,
+      "accuracy": 43.3
+    },
+    "autoregressive_dsl_raw": {
+      "successes": 8,
+      "total": 30,
+      "accuracy": 26.7
+    },
+    "autoregressive_dsl_hybrid": {
+      "successes": 8,
+      "total": 30,
+      "accuracy": 26.7
+    },
+    "clean_eos_rate": {
+      "successes": 8,
+      "total": 30,
+      "rate": 26.7,
+      "note": "22/30 generations suffered from token drift or missing terminal <END_PLAN> marker before hitting token limit"
+    },
+    "syntax_validity_rate": {
+      "successes": 8,
+      "total": 30,
+      "rate": 26.7
+    },
+    "unsupported_action_rejection": {
+      "dedicated_subset_n": 4,
+      "rejections": 4,
+      "rate": 100.0,
+      "note": "All unauthorized tools were blocked by validation or generated as unsupported"
+    }
+  },
+  "diagnostics": {
+    "1step_accuracy": "70.0% (7/10)",
+    "2step_accuracy": "10.0% (1/10)",
+    "3step_accuracy": "0.0% (0/5)",
+    "4step_accuracy": "0.0% (0/5)",
+    "root_cause": "Token-level punctuation and delimiter drift during unconstrained greedy sampling breaks EBNF grammar in steps >= 2."
+  }
+}

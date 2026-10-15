@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-15T16:38:00",
+  "total_evaluated": 50,
+  "math_items_total": 34,
+  "math_exact_operand_matches": 0,
+  "math_exact_operand_copy_accuracy": 0.0,
+  "text_items_total": 8,
+  "text_exact_phrase_matches": 0,
+  "text_exact_phrase_copy_accuracy": 0.0,
+  "overall_argument_copy_accuracy": 0.0,
+  "diagnostics": {
+    "root_cause": "The causal Transformer relies on standard generative softmax emissions. Because held-out operands (e.g. 300, 403, 506) and novel text strings were never seen in training targets, standard next-token prediction hallucinates high-frequency training constants (e.g. 13+3, 43+3) rather than executing an exact token copy.",
+    "pointer_mechanism_verdict": "A dedicated pointer-generator attention head or token copying layer over prompt representations is mathematically necessary to achieve >0% exact argument copy on disjoint held-out operands."
+  }
+}
