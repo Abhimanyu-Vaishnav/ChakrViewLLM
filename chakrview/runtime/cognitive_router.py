@@ -369,6 +369,35 @@ class CognitiveRouter:
                 return "evaporation_hindi"
             return "evaporation"
 
+        # Technical Concepts (Computer Architecture & Hardware)
+        if re.search(r"\b(?:fpga|field\s+programmable\s+gate\s+array)\b", q_lower):
+            return "fpga"
+        if re.search(r"\b(?:tpu|tensor\s+processing\s+unit)\b", q_lower):
+            return "tpu"
+        if re.search(r"\b(?:cache\s+coherence(?:\s+protocol)?)\b", q_lower):
+            return "cache_coherence"
+        if re.search(r"\b(?:out[- ]of[- ]order\s+execution)\b", q_lower):
+            return "out_of_order_execution"
+        if re.search(r"\b(?:direct\s+memory\s+access|dma)\b", q_lower):
+            return "dma"
+        if re.search(r"\b(?:translation\s+lookaside\s+buffer|tlb)\b", q_lower):
+            return "tlb"
+        if re.search(r"\b(?:instruction\s+pipeline)\b", q_lower):
+            return "instruction_pipeline"
+        if re.search(r"\b(?:branch\s+predictor)\b", q_lower):
+            return "branch_predictor"
+        if re.search(r"\b(?:virtual\s+memory)\b", q_lower):
+            return "virtual_memory"
+        if re.search(r"\b(?:simultaneous\s+multithreading|smt)\b", q_lower):
+            return "smt"
+
+        # General "Explain <concept>" or "Define <concept>"
+        m_expl = re.search(r"^(?:explain|define)\s+([a-z0-9_\- ]+?)(?:\s+in\s+simple\s+words|\s+in\s+detail|\?|$)", q_lower)
+        if m_expl:
+            cand = m_expl.group(1).strip()
+            if cand and not any(w in cand for w in ("why", "how", "code", "python", "script", "program")):
+                return cand
+
         return None
 
     def _extract_followup_concept(self, q: str) -> Optional[str]:

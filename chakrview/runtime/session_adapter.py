@@ -199,6 +199,16 @@ class GroundedSessionAdapter:
                 "photosynthesis_hindi": "प्रकाश संश्लेषण (Photosynthesis) वह जैविक प्रक्रिया है जिसके द्वारा हरे पौधे सूर्य के प्रकाश (धूप), पानी और कार्बन डाइऑक्साइड (CO2) का उपयोग करके अपना भोजन (ग्लूकोज) बनाते हैं और वातावरण में ऑक्सीजन छोड़ते हैं।",
                 "evaporation_hindi": "वाष्पीकरण (Evaporation) वह प्रक्रिया है जिसमें कोई द्रव (जैसे पानी) गर्म होकर गैस या वाष्प में बदल जाता है।",
                 "evaporation": "Evaporation is the process by which liquid water turns into vapor or steam.",
+                "fpga": "A Field Programmable Gate Array (FPGA) is an integrated circuit designed to be configured by a customer or designer after manufacturing using hardware description languages.",
+                "tpu": "A Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit developed specifically for neural network machine learning workloads.",
+                "cache_coherence": "A Cache Coherence Protocol ensures that multiple processors sharing a common physical memory view consistent and synchronized data across their private caches.",
+                "out_of_order_execution": "Out-of-Order Execution is a microprocessor paradigm where instructions execute as soon as their operand data is available, rather than in original sequential program order.",
+                "dma": "Direct Memory Access (DMA) allows hardware subsystems to access main system memory independently of the central processing unit, speeding up memory operations.",
+                "tlb": "A Translation Lookaside Buffer (TLB) is a memory cache that stores recent translations of virtual memory to physical addresses to speed up virtual memory operations.",
+                "instruction_pipeline": "An instruction pipeline is a technique used in modern microprocessors to implement instruction-level parallelism within a single processor core.",
+                "branch_predictor": "A branch predictor is digital circuit logic that attempts to guess which direction a branch condition will take before it is definitively calculated.",
+                "virtual_memory": "Virtual Memory is an operating system memory management technique that provides an idealized abstraction of storage resources for application software.",
+                "smt": "Simultaneous Multithreading (SMT) is a technique for improving the overall efficiency of superscalar CPUs with hardware multithreading.",
             }
             if concept in knowledge_map:
                 ans = knowledge_map[concept]

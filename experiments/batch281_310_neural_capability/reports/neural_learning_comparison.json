@@ -1,0 +1,253 @@
+{
+  "milestone": "Batches 281-310: Neural Capability Training and Generalization",
+  "timestamp": "2026-10-15T09:58:12Z",
+  "canonical_baseline": {
+    "checkpoint": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "val_loss": 8.4447,
+    "val_ppl": 4650.19,
+    "test_loss": 8.3141,
+    "test_ppl": 4081.2,
+    "exact_match_rate": 0.0,
+    "concept_match_rate": 0.0,
+    "clean_termination_rate": 0.0,
+    "retention": [
+      {
+        "domain": "english",
+        "prompt": "The development of modern science began with",
+        "continuation": "in the world of the world. \n\nThe remaining the word of the world of the world of the",
+        "repetition_3gram": 0.4
+      },
+      {
+        "domain": "code",
+        "prompt": "def binary_search(arr, target):",
+        "continuation": "\"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+        "repetition_3gram": 0.2333
+      },
+      {
+        "domain": "hindi",
+        "prompt": "भारत एक विशाल और विविधतापूर्ण",
+        "continuation": "राज्य का अपनी महाराष्ट्रीय क्षेत्र के बाद दोनों में माना जाता है।\n\nइ",
+        "repetition_3gram": 0.0
+      }
+    ],
+    "sample_generations": [
+      {
+        "id": "tech_08",
+        "query": "Explain Virtual Memory in simple words.",
+        "expected": "Virtual Memory is an operating system memory management technique that provides an idealized abstraction of storage resources for application software.",
+        "generated": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third ||",
+        "clean_generated": "|-\n|200/200||Premier League||\n|-\n|2005/01||| third ||",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "code_03",
+        "query": "What is the difference between a list and a tuple in Python?",
+        "expected": "In Python, lists are mutable collections enclosed in brackets, while tuples are immutable collections enclosed in parentheses.",
+        "generated": "|-\n| scope=&quot;row&quot; | Monday\n|-\n| scope=&quot;",
+        "clean_generated": "|-\n| scope=&quot;row&quot; | Monday\n|-\n| scope=&quot;",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "tech_00",
+        "query": "Explain Field Programmable Gate Array in simple words.",
+        "expected": "A Field Programmable Gate Array (FPGA) is an integrated circuit designed to be configured by a customer or designer after manufacturing using hardware description languages.",
+        "generated": "|-\n|200\n|-\n|200\n|-\n|2007\n| scope=&quot;row&quot; |",
+        "clean_generated": "|-\n|200\n|-\n|200\n|-\n|2007\n| scope=&quot;row&quot; |",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "tech_03",
+        "query": "Explain Out-of-Order Execution in simple words.",
+        "expected": "Out-of-Order Execution is a microprocessor paradigm where instructions execute as soon as their operand data is available, rather than in original sequential program order.",
+        "generated": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2007\n|2007\n|-\n|2",
+        "clean_generated": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2007\n|2007\n|-\n|2",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "code_00",
+        "query": "What does the len() function do in Python?",
+        "expected": "In Python, the len() function returns the number of items or elements in an object such as a list, tuple, or string.",
+        "generated": "|-\n|200\n|-\n| scope=&quot;row&quot; | Monday\n| Monda",
+        "clean_generated": "|-\n|200\n|-\n| scope=&quot;row&quot; | Monday\n| Monda",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      }
+    ]
+  },
+  "trained_candidate": {
+    "checkpoint": "experiments\\batch281_310_neural_capability\\checkpoints\\chakrmicro_capability_candidate_step70.pt",
+    "checkpoint_sha256": "3b6b98b821a0c1e73aa18cae25ffc866e027b6c40acd6fdb4673e25b02b6c2fe",
+    "train_meta": {
+      "steps": 70,
+      "initial_loss": 7.8553,
+      "final_loss": 4.2653,
+      "train_time_sec": 2.57,
+      "loss_history": [
+        7.8553,
+        7.757,
+        7.3194,
+        8.8796,
+        7.6518,
+        7.889,
+        8.1378,
+        6.2598,
+        5.4323,
+        5.8022,
+        7.8636,
+        6.9832,
+        6.9592,
+        6.1632,
+        5.7124,
+        5.5644,
+        7.2181,
+        4.8609,
+        4.189,
+        7.2098,
+        3.8866,
+        4.1321,
+        3.8362,
+        2.8866,
+        4.5508,
+        4.901,
+        5.2269,
+        5.6362,
+        2.5671,
+        2.7321,
+        3.1255,
+        5.6635,
+        3.9934,
+        4.2315,
+        4.3414,
+        3.3396,
+        3.3648,
+        5.5266,
+        2.6746,
+        2.6719,
+        5.687,
+        2.2355,
+        2.6188,
+        2.4972,
+        1.5556,
+        3.0867,
+        3.6836,
+        4.1476,
+        4.6402,
+        1.8379,
+        1.82,
+        2.0905,
+        4.7504,
+        2.8445,
+        3.1362,
+        3.6673,
+        2.5264,
+        2.4201,
+        4.7893,
+        2.0393,
+        1.9886,
+        5.0667,
+        1.6013,
+        2.1515,
+        2.0427,
+        1.1694,
+        2.4452,
+        3.2508,
+        3.7786,
+        4.2653
+      ]
+    },
+    "val_loss": 5.9164,
+    "val_ppl": 371.06,
+    "test_loss": 5.8067,
+    "test_ppl": 332.52,
+    "exact_match_rate": 0.0,
+    "concept_match_rate": 0.0,
+    "clean_termination_rate": 0.6,
+    "retention": [
+      {
+        "domain": "english",
+        "prompt": "The development of modern science began with",
+        "continuation": "in the land is a list of the worlof is a list of the worlof is a list of the worlof is",
+        "repetition_3gram": 0.5667
+      },
+      {
+        "domain": "code",
+        "prompt": "def binary_search(arr, target):",
+        "continuation": "\"\"\"\n    >>> dp = imen|_d>",
+        "repetition_3gram": 0.0
+      },
+      {
+        "domain": "hindi",
+        "prompt": "भारत एक विशाल और विविधतापूर्ण",
+        "continuation": "ीत � किया।\n\nइन्हें भी देखें\n* फ़िल्म �ेज़ी\n* �",
+        "repetition_3gram": 0.0333
+      }
+    ],
+    "sample_generations": [
+      {
+        "id": "tech_08",
+        "query": "Explain Virtual Memory in simple words.",
+        "expected": "Virtual Memory is an operating system memory management technique that provides an idealized abstraction of storage resources for application software.",
+        "generated": "scope=&quot;row&quot;|_d>",
+        "clean_generated": "scope=&quot;row&quot;|_d>",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": true
+      },
+      {
+        "id": "code_03",
+        "query": "What is the difference between a list and a tuple in Python?",
+        "expected": "In Python, lists are mutable collections enclosed in brackets, while tuples are immutable collections enclosed in parentheses.",
+        "generated": "scope=&quot;row&quot;|\nscopepe=&quot;row&quot;|\n|-\n| row",
+        "clean_generated": "scope=&quot;row&quot;|\nscopepe=&quot;row&quot;|\n|-\n| row",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "tech_00",
+        "query": "Explain Field Programmable Gate Array in simple words.",
+        "expected": "A Field Programmable Gate Array (FPGA) is an integrated circuit designed to be configured by a customer or designer after manufacturing using hardware description languages.",
+        "generated": "scope=&quot;row&quot;|\nscopepe=&quot;row&quot;|\n|-\n| sty",
+        "clean_generated": "scope=&quot;row&quot;|\nscopepe=&quot;row&quot;|\n|-\n| sty",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": false
+      },
+      {
+        "id": "tech_03",
+        "query": "Explain Out-of-Order Execution in simple words.",
+        "expected": "Out-of-Order Execution is a microprocessor paradigm where instructions execute as soon as their operand data is available, rather than in original sequential program order.",
+        "generated": "scope=&quot;row&quot;|_d>",
+        "clean_generated": "scope=&quot;row&quot;|_d>",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": true
+      },
+      {
+        "id": "code_00",
+        "query": "What does the len() function do in Python?",
+        "expected": "In Python, the len() function returns the number of items or elements in an object such as a list, tuple, or string.",
+        "generated": "scope=&quot;row&quot;|_d>",
+        "clean_generated": "scope=&quot;row&quot;|_d>",
+        "exact_match": false,
+        "concept_match": false,
+        "clean_termination": true
+      }
+    ]
+  },
+  "comparison_delta": {
+    "val_loss_delta": -2.5283,
+    "test_loss_delta": -2.5074,
+    "concept_match_delta": 0.0,
+    "clean_termination_delta": 0.6
+  }
+}

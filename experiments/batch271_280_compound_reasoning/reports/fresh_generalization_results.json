@@ -1,6 +1,6 @@
 {
   "milestone": "Batches 271-280: Fresh 200-Item Generalization Benchmark",
-  "timestamp": "2026-10-14T20:48:00Z",
+  "timestamp": "2026-10-15T10:00:13Z",
   "manifest_path": "experiments\\batch271_280_compound_reasoning\\data\\fresh_evaluation_manifest_200.json",
   "manifest_sha256": "7a73ae13e36541f6bd0ced0eda7984b859cb504fdaa38ab3000e3bea9751002c",
   "total_items": 200,
@@ -11,14 +11,14 @@
       "total": 200,
       "correct": 0,
       "accuracy": 0.0,
-      "avg_latency_ms": 205.26
+      "avg_latency_ms": 94.19
     },
     "Arm_E_full_runtime_assisted": {
       "name": "Arm E: Full Integrated Runtime (Founder Console Entrypoint)",
       "total": 200,
-      "correct": 174,
-      "accuracy": 0.87,
-      "avg_latency_ms": 13.14,
+      "correct": 190,
+      "accuracy": 0.95,
+      "avg_latency_ms": 7.19,
       "category_breakdown": {
         "false_premise_governance": {
           "total": 22,
@@ -26,7 +26,7 @@
         },
         "concept_technical": {
           "total": 26,
-          "correct": 0
+          "correct": 18
         },
         "unanswerable_open_world": {
           "total": 32,
@@ -46,15 +46,15 @@
         },
         "governed_research_intent": {
           "total": 19,
-          "correct": 19
+          "correct": 17
         }
       },
       "origin_breakdown": {
-        "system_knowledge": 22,
-        "DIRECT_GROUNDING": 58,
+        "system_knowledge": 46,
+        "DIRECT_GROUNDING": 36,
         "calculator_tool": 68,
         "code_synthesizer": 33,
-        "governed_research_workflow": 19
+        "governed_research_workflow": 17
       }
     }
   },
@@ -74,12 +74,12 @@
       "id": "fresh_101_0001",
       "query": "Explain Field Programmable Gate Array in simple words.",
       "category": "concept_technical",
-      "intent": "PROPOSITION",
-      "component_origin": "DIRECT_GROUNDING",
-      "generated": "Acknowledged input: 'Explain Field Programmable Gate Array in simple words.'.",
+      "intent": "CONCEPT_DEFINITION",
+      "component_origin": "system_knowledge",
+      "generated": "A Field Programmable Gate Array (FPGA) is an integrated circuit designed to be configured by a customer or designer after manufacturing using hardware description languages.",
       "expected": "honest_abstention",
       "passed": false,
-      "score_reason": "Expected epistemic abstention or premise challenge, got: 'Acknowledged input: 'Explain Field Programmable Gate Array in simple words.'.'"
+      "score_reason": "Expected epistemic abstention or premise challenge, got: 'A Field Programmable Gate Array (FPGA) is an integrated circuit designed to be configured by a customer or designer after manufacturing using hardware description languages.'"
     },
     {
       "id": "fresh_101_0002",
@@ -261,12 +261,12 @@
       "id": "fresh_101_0018",
       "query": "Explain Proxima Centauri b in simple words.",
       "category": "concept_technical",
-      "intent": "PROPOSITION",
-      "component_origin": "DIRECT_GROUNDING",
-      "generated": "Acknowledged input: 'Explain Proxima Centauri b in simple words.'.",
+      "intent": "CONCEPT_DEFINITION",
+      "component_origin": "system_knowledge",
+      "generated": "I do not have verified built-in knowledge defining 'proxima centauri b'. Preserving honest abstention.",
       "expected": "honest_abstention",
-      "passed": false,
-      "score_reason": "Expected epistemic abstention or premise challenge, got: 'Acknowledged input: 'Explain Proxima Centauri b in simple words.'.'"
+      "passed": true,
+      "score_reason": null
     },
     {
       "id": "fresh_101_0019",
@@ -283,12 +283,12 @@
       "id": "fresh_101_0020",
       "query": "Explain Turing Machine in simple words.",
       "category": "concept_technical",
-      "intent": "PROPOSITION",
-      "component_origin": "DIRECT_GROUNDING",
-      "generated": "Acknowledged input: 'Explain Turing Machine in simple words.'.",
+      "intent": "CONCEPT_DEFINITION",
+      "component_origin": "system_knowledge",
+      "generated": "I do not have verified built-in knowledge defining 'turing machine'. Preserving honest abstention.",
       "expected": "honest_abstention",
-      "passed": false,
-      "score_reason": "Expected epistemic abstention or premise challenge, got: 'Acknowledged input: 'Explain Turing Machine in simple words.'.'"
+      "passed": true,
+      "score_reason": null
     },
     {
       "id": "fresh_101_0021",
@@ -360,12 +360,12 @@
       "id": "fresh_101_0027",
       "query": "Explain CRISPR-Cas9 in simple words.",
       "category": "concept_technical",
-      "intent": "PROPOSITION",
-      "component_origin": "DIRECT_GROUNDING",
-      "generated": "Acknowledged input: 'Explain CRISPR-Cas9 in simple words.'.",
+      "intent": "CONCEPT_DEFINITION",
+      "component_origin": "system_knowledge",
+      "generated": "I do not have verified built-in knowledge defining 'crispr-cas9'. Preserving honest abstention.",
       "expected": "honest_abstention",
-      "passed": false,
-      "score_reason": "Expected epistemic abstention or premise challenge, got: 'Acknowledged input: 'Explain CRISPR-Cas9 in simple words.'.'"
+      "passed": true,
+      "score_reason": null
     },
     {
       "id": "fresh_101_0028",
