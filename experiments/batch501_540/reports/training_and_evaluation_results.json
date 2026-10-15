@@ -1,0 +1,2058 @@
+{
+  "baseline_candidate": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch441_470_reasoning_gate\\checkpoints\\candidate_step150_scratchpad_reasoning.pt",
+    "compositional_60": {
+      "total": 60,
+      "exact_matches": 5,
+      "exact_match_rate": 0.08333333333333333,
+      "clean_eos_rate": 0.8333333333333334,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "cat_a_familiar_format_unseen_operands": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_b_novel_expression_structures": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_c_unseen_surface_wording": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_d_composed_operations": {
+          "total": 10,
+          "exact_matches": 1,
+          "valid_steps": 0
+        },
+        "cat_e_symbolic_rule_chains": {
+          "total": 10,
+          "exact_matches": 1,
+          "valid_steps": 0
+        },
+        "cat_f_single_step_controls": {
+          "total": 10,
+          "exact_matches": 3,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "test_cat_a_000",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (55 plus 37) minus 14.\nReasoning:\n",
+          "expected": "78",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_001",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (56 plus 38) minus 21.\nReasoning:\n",
+          "expected": "73",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_002",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (60 plus 50) minus 21.\nReasoning:\n",
+          "expected": "89",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_003",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (83 plus 39) minus 13.\nReasoning:\n",
+          "expected": "109",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_004",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (81 plus 34) minus 27.\nReasoning:\n",
+          "expected": "88",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_005",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 12 multiplied by 7 minus 21?\nReasoning:\n",
+          "expected": "63",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_006",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 11 multiplied by 7 minus 22?\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 7 * 6 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_007",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 10 multiplied by 9 minus 16?\nReasoning:\n",
+          "expected": "74",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_008",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 10 multiplied by 8 minus 12?\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_009",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 12 multiplied by 9 minus 20?\nReasoning:\n",
+          "expected": "88",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_000",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (78 - 39) + 24.\nReasoning:\n",
+          "expected": "63",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_001",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (83 - 50) + 22.\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 14 + 28 = 28.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_002",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (70 - 50) + 23.\nReasoning:\n",
+          "expected": "43",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_003",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (73 - 32) + 20.\nReasoning:\n",
+          "expected": "61",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_004",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (77 - 32) + 23.\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_005",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (81 - 35) + 22.\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 14 + 28 = 28.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_006",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (78 - 42) + 25.\nReasoning:\n",
+          "expected": "61",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_007",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (88 - 40) + 14.\nReasoning:\n",
+          "expected": "62",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_008",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (80 - 37) + 12.\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 14 + 28 = 28.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_009",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (81 - 32) + 24.\nReasoning:\n",
+          "expected": "73",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_000",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (96 plus 29) and then subtract 14.\nReasoning:\n",
+          "expected": "111",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_001",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (101 plus 20) and then subtract 11.\nReasoning:\n",
+          "expected": "110",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_002",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (99 plus 21) and then subtract 14.\nReasoning:\n",
+          "expected": "106",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 42 - 10 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_003",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (95 plus 21) and then subtract 10.\nReasoning:\n",
+          "expected": "106",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_004",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (95 plus 24) and then subtract 7.\nReasoning:\n",
+          "expected": "112",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_005",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (98 plus 19) and then subtract 8.\nReasoning:\n",
+          "expected": "109",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_006",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (87 plus 17) and then subtract 19.\nReasoning:\n",
+          "expected": "85",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 42 - 10 = 28.\nFinal Answer: 28",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_007",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (101 plus 18) and then subtract 14.\nReasoning:\n",
+          "expected": "105",
+          "generated": "Step 1: 14 + 28 = 28.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_008",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (90 plus 21) and then subtract 6.\nReasoning:\n",
+          "expected": "105",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_009",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (107 plus 26) and then subtract 11.\nReasoning:\n",
+          "expected": "122",
+          "generated": "Step 1: 14 + 28 = 42.\nStep 2: 42 - 10 = 32.\nFinal Answer: 32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_000",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 7)?\nReasoning:\n",
+          "expected": "144",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_001",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 4)?\nReasoning:\n",
+          "expected": "81",
+          "generated": "Step 1: 8 * 5 = 40.\nStep 2: 40 - 12 = 28.\nFinal Answer: 64",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_002",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (7 + 6)?\nReasoning:\n",
+          "expected": "169",
+          "generated": "Step 1: 3 + 5 = 8.\nStep 2: 8 * 8 = 64.\nFinal Answer: 64",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_003",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 6)?\nReasoning:\n",
+          "expected": "121",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_004",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (7 + 5)?\nReasoning:\n",
+          "expected": "144",
+          "generated": "Step 1: 3 + 5 = 8.\nStep 2: 8 * 8 = 64.\nFinal Answer: 64",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_005",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 62 and 92 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "26",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_006",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 59 and 89 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "32",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_007",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 67 and 64 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "49",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_008",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 61 and 63 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "56",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_009",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 68 and 94 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "18",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 + 70 = 90 degrees.\nStep 3: 180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_e_000",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 26, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "36",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_001",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 22, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "32",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 - 130 = 50 degrees.\nStep 3: 180 - 1",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_e_002",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 31, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "41",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_003",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 23, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "33",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 - 130 = 50 degrees.\nStep 3: 180 - 1",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_e_004",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 43, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "53",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_005",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 15, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "25",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 - 130 = 50 degrees.\nStep 3: 180 - 1",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_e_006",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 23, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "33",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_007",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 20, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "30",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 - 130 = 50 degrees.\nStep 3: 180 - 1",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_e_008",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 21, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "31",
+          "generated": "Step 1: 42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_009",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 18, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "28",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 60 - 130 = 50 degrees.\nStep 3: 180 - 1",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_f_000",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 14 plus 28?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_001",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 7 multiplied by 6.\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_002",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 50 minus 18?\nAnswer:",
+          "expected": "32",
+          "generated": "32",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_003",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 8 times 5.\nAnswer:",
+          "expected": "40",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_004",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 20 plus 15?\nAnswer:",
+          "expected": "35",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_005",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 9 multiplied by 4.\nAnswer:",
+          "expected": "36",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_006",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 60 plus 70?\nAnswer:",
+          "expected": "130",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_007",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 180 minus 130.\nAnswer:",
+          "expected": "50",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_008",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 3 plus 5?\nAnswer:",
+          "expected": "8",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_009",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 8 multiplied by 8.\nAnswer:",
+          "expected": "64",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    },
+    "paraphrase_20": {
+      "total": 20,
+      "exact_matches": 14,
+      "exact_match_rate": 0.7,
+      "clean_eos_rate": 0.95,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "default": {
+          "total": 20,
+          "exact_matches": 14,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "heldout_math_add_14_28_001",
+          "category": "default",
+          "prompt": "Compute the sum of fourteen and twenty eight.\nAnswer:",
+          "expected": "42",
+          "generated": "180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_add_14_28_002",
+          "category": "default",
+          "prompt": "Find the total value when 28 is added to 14:\nValue:",
+          "expected": "42",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_sub_50_18_003",
+          "category": "default",
+          "prompt": "What remains when you take 18 away from 50?\nAnswer:",
+          "expected": "32",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_sub_50_18_004",
+          "category": "default",
+          "prompt": "Evaluate the difference between fifty and eighteen:\nDifference:",
+          "expected": "32",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "heldout_math_mul_7_6_005",
+          "category": "default",
+          "prompt": "Find the multiplication of seven and six.\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_mul_7_6_006",
+          "category": "default",
+          "prompt": "What is the mathematical product of 6 and 7?\nProduct:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_alu_007",
+          "category": "default",
+          "prompt": "What circuit in a CPU combines arithmetic operations with logic gates?\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_alu_008",
+          "category": "default",
+          "prompt": "Name the primary compute hardware engine located inside a central processor core.\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_dma_009",
+          "category": "default",
+          "prompt": "In microprocessor design, what does the abbreviation DMA represent?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_dma_010",
+          "category": "default",
+          "prompt": "What hardware feature allows I/O devices to bypass the CPU when writing to RAM?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_square_011",
+          "category": "default",
+          "prompt": "Create a Python function named square that squares its input argument x.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def square(x):\n    return x * x",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_square_012",
+          "category": "default",
+          "prompt": "Write a clean Python implementation that computes x raised to the power of two.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_is_even_013",
+          "category": "default",
+          "prompt": "Write a Python function to test whether an integer n is an even number.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_is_even_014",
+          "category": "default",
+          "prompt": "Define def is_even(n) returning boolean evaluation of n modulo 2 equality to zero.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_sci_triangle_015",
+          "category": "default",
+          "prompt": "What is the total degree measurement when you sum all three interior angles of a triangle?\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_sci_triangle_016",
+          "category": "default",
+          "prompt": "Calculate the interior angle summation for a planar triangle in degrees.\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_capital_017",
+          "category": "default",
+          "prompt": "\u092d\u093e\u0930\u0924\u0940\u092f \u0917\u0923\u0930\u093e\u091c\u094d\u092f \u0915\u0940 \u0930\u093e\u0937\u094d\u091f\u094d\u0930\u0940\u092f \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094c\u0928 \u0938\u093e \u0936\u0939\u0930 \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_capital_018",
+          "category": "default",
+          "prompt": "\u092d\u093e\u0930\u0924 \u0926\u0947\u0936 \u0915\u093e \u0936\u093e\u0938\u0928 \u0915\u0947\u0902\u0926\u094d\u0930 \u0914\u0930 \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094d\u092f\u093e \u0915\u0939\u0932\u093e\u0924\u0940 \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_sun_east_019",
+          "category": "default",
+          "prompt": "\u092a\u0943\u0925\u094d\u0935\u0940 \u092a\u0930 \u0938\u0942\u0930\u094d\u092f \u0915\u093f\u0938 \u0926\u093f\u0936\u093e \u0915\u0940 \u0913\u0930 \u0938\u0947 \u0928\u093f\u0915\u0932\u0924\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_sun_east_020",
+          "category": "default",
+          "prompt": "\u0938\u0942\u0930\u094d\u092f \u0915\u0947 \u0928\u093f\u0915\u0932\u0928\u0947 \u0915\u0940 \u092d\u094c\u0917\u094b\u0932\u093f\u0915 \u0926\u093f\u0936\u093e \u092c\u0924\u093e\u0907\u090f\u0964\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    },
+    "diagnostic_15": {
+      "total": 15,
+      "exact_matches": 10,
+      "exact_match_rate": 0.6666666666666666,
+      "clean_eos_rate": 1.0,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "default": {
+          "total": 15,
+          "exact_matches": 10,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "math_001",
+          "category": "default",
+          "prompt": "Question: What is 14 plus 28?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_002",
+          "category": "default",
+          "prompt": "Question: What is 50 minus 18?\nAnswer:",
+          "expected": "32",
+          "generated": "32",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_003",
+          "category": "default",
+          "prompt": "Question: What is 7 multiplied by 6?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_004",
+          "category": "default",
+          "prompt": "Question: Calculate (10 plus 5) multiplied by 2.\nAnswer:",
+          "expected": "30",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_001",
+          "category": "default",
+          "prompt": "Question: What component of the CPU executes arithmetic and logic operations?\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_002",
+          "category": "default",
+          "prompt": "Question: What does DMA stand for in computer systems?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_003",
+          "category": "default",
+          "prompt": "Question: What memory level sits between the L1 cache and main RAM?\nAnswer:",
+          "expected": "L2 and L3 Cache",
+          "generated": "Direct Memory Access",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "code_001",
+          "category": "default",
+          "prompt": "Write a Python function to compute the square of x.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def square(x):\n    return x * x",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "code_002",
+          "category": "default",
+          "prompt": "Write a Python function is_even(n) that returns True if n is even.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "sci_001",
+          "category": "default",
+          "prompt": "Question: What is the sum of interior angles in a triangle in degrees?\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "sci_002",
+          "category": "default",
+          "prompt": "Question: Who formulated the universal law of gravitation?\nAnswer:",
+          "expected": "Sir Isaac Newton",
+          "generated": "Direct Memory Access",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "hindi_001",
+          "category": "default",
+          "prompt": "\u092a\u094d\u0930\u0936\u094d\u0928: \u0938\u0942\u0930\u094d\u092f \u0915\u093f\u0938 \u0926\u093f\u0936\u093e \u0938\u0947 \u0909\u0917\u0924\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "hindi_002",
+          "category": "default",
+          "prompt": "\u092a\u094d\u0930\u0936\u094d\u0928: \u092d\u093e\u0930\u0924 \u0915\u0940 \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094d\u092f\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "unseen_001",
+          "category": "default",
+          "prompt": "Question: What memory component is used by Neuromorphic hardware to emulate biological synapses?\nAnswer:",
+          "expected": "Memristor",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "unseen_002",
+          "category": "default",
+          "prompt": "Question: Calculate the square of (3 plus 5).\nAnswer:",
+          "expected": "64",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    }
+  },
+  "trained_candidate": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch501_540\\checkpoints\\candidate_step200_compositional_rule.pt",
+    "sha256": "b18e69ebf4f0b396465af3c323f38bcfa84d5a38eabbd4a4220a10d6bfafee98",
+    "training_steps": 200,
+    "elapsed_seconds": 6.45,
+    "best_val_loss": 1.2142,
+    "compositional_60": {
+      "total": 60,
+      "exact_matches": 4,
+      "exact_match_rate": 0.06666666666666667,
+      "clean_eos_rate": 0.9666666666666667,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "cat_a_familiar_format_unseen_operands": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_b_novel_expression_structures": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_c_unseen_surface_wording": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_d_composed_operations": {
+          "total": 10,
+          "exact_matches": 1,
+          "valid_steps": 0
+        },
+        "cat_e_symbolic_rule_chains": {
+          "total": 10,
+          "exact_matches": 0,
+          "valid_steps": 0
+        },
+        "cat_f_single_step_controls": {
+          "total": 10,
+          "exact_matches": 3,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "test_cat_a_000",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (55 plus 37) minus 14.\nReasoning:\n",
+          "expected": "78",
+          "generated": "Step 1: 24 + 2 = 20.\nStep 2: 32 + 2 = 7.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_001",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (56 plus 38) minus 21.\nReasoning:\n",
+          "expected": "73",
+          "generated": "Step 1: 27 + 2 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_002",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (60 plus 50) minus 21.\nReasoning:\n",
+          "expected": "89",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 27 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_003",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (83 plus 39) minus 13.\nReasoning:\n",
+          "expected": "109",
+          "generated": "Step 1: 24 + 2 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_004",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: Calculate (81 plus 34) minus 27.\nReasoning:\n",
+          "expected": "88",
+          "generated": "Step 1: 24 + 2 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_005",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 12 multiplied by 7 minus 21?\nReasoning:\n",
+          "expected": "63",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 20 + 2 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_006",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 11 multiplied by 7 minus 22?\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 20 + 2 = 18.\nFinal Answer: 9",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_007",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 10 multiplied by 9 minus 16?\nReasoning:\n",
+          "expected": "74",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 20 + 2 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_008",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 10 multiplied by 8 minus 12?\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 20 + 2 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_a_009",
+          "category": "cat_a_familiar_format_unseen_operands",
+          "prompt": "Question: What is 12 multiplied by 9 minus 20?\nReasoning:\n",
+          "expected": "88",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 20 + 2 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_000",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (78 - 39) + 24.\nReasoning:\n",
+          "expected": "63",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 32 + 7 = 18.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_001",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (83 - 50) + 22.\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 18.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_002",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (70 - 50) + 23.\nReasoning:\n",
+          "expected": "43",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_003",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (73 - 32) + 20.\nReasoning:\n",
+          "expected": "61",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 18.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_004",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (77 - 32) + 23.\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 18.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_005",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (81 - 35) + 22.\nReasoning:\n",
+          "expected": "68",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_006",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (78 - 42) + 25.\nReasoning:\n",
+          "expected": "61",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 32 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_007",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (88 - 40) + 14.\nReasoning:\n",
+          "expected": "62",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 32 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_008",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (80 - 37) + 12.\nReasoning:\n",
+          "expected": "55",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 38 + 7 = 7.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_b_009",
+          "category": "cat_b_novel_expression_structures",
+          "prompt": "Question: Calculate (81 - 32) + 24.\nReasoning:\n",
+          "expected": "73",
+          "generated": "Step 1: 3 * 5 = 20.\nStep 2: 38 + 7 = 18.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_000",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (96 plus 29) and then subtract 14.\nReasoning:\n",
+          "expected": "111",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 2 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_001",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (101 plus 20) and then subtract 11.\nReasoning:\n",
+          "expected": "110",
+          "generated": "Step 1: 27 + 2 = 20.\nStep 2: 32 + 7 = 28.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_002",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (99 plus 21) and then subtract 14.\nReasoning:\n",
+          "expected": "106",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 10 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_003",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (95 plus 21) and then subtract 10.\nReasoning:\n",
+          "expected": "106",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 10 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_004",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (95 plus 24) and then subtract 7.\nReasoning:\n",
+          "expected": "112",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 27 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_005",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (98 plus 19) and then subtract 8.\nReasoning:\n",
+          "expected": "109",
+          "generated": "Step 1: 24 + 2 = 20.\nStep 2: 27 + 3 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_006",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (87 plus 17) and then subtract 19.\nReasoning:\n",
+          "expected": "85",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 27 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_007",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (101 plus 18) and then subtract 14.\nReasoning:\n",
+          "expected": "105",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 10 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_008",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (90 plus 21) and then subtract 6.\nReasoning:\n",
+          "expected": "105",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 10 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_c_009",
+          "category": "cat_c_unseen_surface_wording",
+          "prompt": "Question: Compute (107 plus 26) and then subtract 11.\nReasoning:\n",
+          "expected": "122",
+          "generated": "Step 1: 27 + 12 = 20.\nStep 2: 27 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_000",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 7)?\nReasoning:\n",
+          "expected": "144",
+          "generated": "Step 1: 4 * 4 = 3.\nStep 2: 32 + 3 = 3.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_001",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 4)?\nReasoning:\n",
+          "expected": "81",
+          "generated": "Step 1: 4 * 4 = 3.\nStep 2: 32 + 3 = 3.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_002",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (7 + 6)?\nReasoning:\n",
+          "expected": "169",
+          "generated": "Step 1: 4 * 4 = 3.\nStep 2: 32 + 3 = 3.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_003",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (5 + 6)?\nReasoning:\n",
+          "expected": "121",
+          "generated": "Step 1: 4 * 4 = 3.\nStep 2: 32 + 3 = 3.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_004",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: What is the square of (7 + 5)?\nReasoning:\n",
+          "expected": "144",
+          "generated": "Step 1: 4 * 4 = 3.\nStep 2: 32 + 3 = 3.\nFinal Answer: 7",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_005",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 62 and 92 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "26",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 40 + 7 = 7.\nStep 2: 180 + 7 = 7.",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_006",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 59 and 89 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "32",
+          "generated": "Step 1: Total angle sum of a triangle is 180 degrees.\nStep 2: 180 + 7 = 7.\nStep 2: 180 + 7 = 70",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": false
+        },
+        {
+          "id": "test_cat_d_007",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 67 and 64 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "49",
+          "generated": "Step 1: 4 * 3 = 20.\nStep 2: 32 - 7 = 18.\nFinal Answer: 9",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_008",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 61 and 63 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "56",
+          "generated": "Step 1: 4 * 3 = 20.\nStep 2: 32 - 7 = 18.\nFinal Answer: 9",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_d_009",
+          "category": "cat_d_composed_operations",
+          "prompt": "Question: A triangle has two angles measuring 68 and 94 degrees. What is the remaining angle?\nReasoning:\n",
+          "expected": "18",
+          "generated": "Step 1: 4 * 3 = 20.\nStep 2: 32 - 7 = 18.\nFinal Answer: 9",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_000",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 26, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "36",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 180 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_001",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 22, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "32",
+          "generated": "Step 1: 4 * 5 = 18.\nStep 2: 18 + 7 = 18.\nFinal Answer: 9",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_002",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 31, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "41",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 180 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_003",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 23, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "33",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 10 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_004",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 43, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "53",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 180 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_005",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 15, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "25",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_006",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 23, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "33",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 180 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_007",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 20, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "30",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_008",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: If Alpha equals 21, and Beta is Alpha plus 5, and Gamma is Beta plus 5, what is Gamma?\nReasoning:\n",
+          "expected": "31",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 180 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_e_009",
+          "category": "cat_e_symbolic_rule_chains",
+          "prompt": "Question: Given Alpha = 18, Beta = Alpha + 5, and Gamma = Beta + 5, compute the value of Gamma.\nReasoning:\n",
+          "expected": "28",
+          "generated": "Step 1: 4 * 5 = 20.\nStep 2: 18 + 7 = 18.\nFinal Answer: 18",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_000",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 14 plus 28?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_001",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 7 multiplied by 6.\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_002",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 50 minus 18?\nAnswer:",
+          "expected": "32",
+          "generated": "32",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_003",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 8 times 5.\nAnswer:",
+          "expected": "40",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_004",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 20 plus 15?\nAnswer:",
+          "expected": "35",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_005",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 9 multiplied by 4.\nAnswer:",
+          "expected": "36",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_006",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 60 plus 70?\nAnswer:",
+          "expected": "130",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_007",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 180 minus 130.\nAnswer:",
+          "expected": "50",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_008",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: What is 3 plus 5?\nAnswer:",
+          "expected": "8",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "test_cat_f_009",
+          "category": "cat_f_single_step_controls",
+          "prompt": "Question: Calculate 8 multiplied by 8.\nAnswer:",
+          "expected": "64",
+          "generated": "42",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    },
+    "paraphrase_20": {
+      "total": 20,
+      "exact_matches": 15,
+      "exact_match_rate": 0.75,
+      "clean_eos_rate": 1.0,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "default": {
+          "total": 20,
+          "exact_matches": 15,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "heldout_math_add_14_28_001",
+          "category": "default",
+          "prompt": "Compute the sum of fourteen and twenty eight.\nAnswer:",
+          "expected": "42",
+          "generated": "180",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_add_14_28_002",
+          "category": "default",
+          "prompt": "Find the total value when 28 is added to 14:\nValue:",
+          "expected": "42",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_sub_50_18_003",
+          "category": "default",
+          "prompt": "What remains when you take 18 away from 50?\nAnswer:",
+          "expected": "32",
+          "generated": "32",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_sub_50_18_004",
+          "category": "default",
+          "prompt": "Evaluate the difference between fifty and eighteen:\nDifference:",
+          "expected": "32",
+          "generated": "Step 1: 32 - 12 = 10.\nFinal Answer: 9",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_mul_7_6_005",
+          "category": "default",
+          "prompt": "Find the multiplication of seven and six.\nAnswer:",
+          "expected": "42",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_math_mul_7_6_006",
+          "category": "default",
+          "prompt": "What is the mathematical product of 6 and 7?\nProduct:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_alu_007",
+          "category": "default",
+          "prompt": "What circuit in a CPU combines arithmetic operations with logic gates?\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_alu_008",
+          "category": "default",
+          "prompt": "Name the primary compute hardware engine located inside a central processor core.\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_dma_009",
+          "category": "default",
+          "prompt": "In microprocessor design, what does the abbreviation DMA represent?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_arch_dma_010",
+          "category": "default",
+          "prompt": "What hardware feature allows I/O devices to bypass the CPU when writing to RAM?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_square_011",
+          "category": "default",
+          "prompt": "Create a Python function named square that squares its input argument x.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def square(x):\n    return x * x",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_square_012",
+          "category": "default",
+          "prompt": "Write a clean Python implementation that computes x raised to the power of two.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_is_even_013",
+          "category": "default",
+          "prompt": "Write a Python function to test whether an integer n is an even number.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_code_is_even_014",
+          "category": "default",
+          "prompt": "Define def is_even(n) returning boolean evaluation of n modulo 2 equality to zero.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_sci_triangle_015",
+          "category": "default",
+          "prompt": "What is the total degree measurement when you sum all three interior angles of a triangle?\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_sci_triangle_016",
+          "category": "default",
+          "prompt": "Calculate the interior angle summation for a planar triangle in degrees.\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_capital_017",
+          "category": "default",
+          "prompt": "\u092d\u093e\u0930\u0924\u0940\u092f \u0917\u0923\u0930\u093e\u091c\u094d\u092f \u0915\u0940 \u0930\u093e\u0937\u094d\u091f\u094d\u0930\u0940\u092f \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094c\u0928 \u0938\u093e \u0936\u0939\u0930 \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_capital_018",
+          "category": "default",
+          "prompt": "\u092d\u093e\u0930\u0924 \u0926\u0947\u0936 \u0915\u093e \u0936\u093e\u0938\u0928 \u0915\u0947\u0902\u0926\u094d\u0930 \u0914\u0930 \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094d\u092f\u093e \u0915\u0939\u0932\u093e\u0924\u0940 \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_sun_east_019",
+          "category": "default",
+          "prompt": "\u092a\u0943\u0925\u094d\u0935\u0940 \u092a\u0930 \u0938\u0942\u0930\u094d\u092f \u0915\u093f\u0938 \u0926\u093f\u0936\u093e \u0915\u0940 \u0913\u0930 \u0938\u0947 \u0928\u093f\u0915\u0932\u0924\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "heldout_hindi_sun_east_020",
+          "category": "default",
+          "prompt": "\u0938\u0942\u0930\u094d\u092f \u0915\u0947 \u0928\u093f\u0915\u0932\u0928\u0947 \u0915\u0940 \u092d\u094c\u0917\u094b\u0932\u093f\u0915 \u0926\u093f\u0936\u093e \u092c\u0924\u093e\u0907\u090f\u0964\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    },
+    "diagnostic_15": {
+      "total": 15,
+      "exact_matches": 10,
+      "exact_match_rate": 0.6666666666666666,
+      "clean_eos_rate": 1.0,
+      "valid_steps_rate": 0.0,
+      "categories": {
+        "default": {
+          "total": 15,
+          "exact_matches": 10,
+          "valid_steps": 0
+        }
+      },
+      "details": [
+        {
+          "id": "math_001",
+          "category": "default",
+          "prompt": "Question: What is 14 plus 28?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_002",
+          "category": "default",
+          "prompt": "Question: What is 50 minus 18?\nAnswer:",
+          "expected": "32",
+          "generated": "32",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_003",
+          "category": "default",
+          "prompt": "Question: What is 7 multiplied by 6?\nAnswer:",
+          "expected": "42",
+          "generated": "42",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "math_004",
+          "category": "default",
+          "prompt": "Question: Calculate (10 plus 5) multiplied by 2.\nAnswer:",
+          "expected": "30",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_001",
+          "category": "default",
+          "prompt": "Question: What component of the CPU executes arithmetic and logic operations?\nAnswer:",
+          "expected": "Arithmetic Logic Unit (ALU)",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_002",
+          "category": "default",
+          "prompt": "Question: What does DMA stand for in computer systems?\nAnswer:",
+          "expected": "Direct Memory Access",
+          "generated": "Direct Memory Access",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "arch_003",
+          "category": "default",
+          "prompt": "Question: What memory level sits between the L1 cache and main RAM?\nAnswer:",
+          "expected": "L2 and L3 Cache",
+          "generated": "Direct Memory Access",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "code_001",
+          "category": "default",
+          "prompt": "Write a Python function to compute the square of x.\nCode:\n",
+          "expected": "def square(x):\n    return x * x",
+          "generated": "def square(x):\n    return x * x",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "code_002",
+          "category": "default",
+          "prompt": "Write a Python function is_even(n) that returns True if n is even.\nCode:\n",
+          "expected": "def is_even(n):\n    return n % 2 == 0",
+          "generated": "def is_even(n):\n    return n % 2 == 0",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "sci_001",
+          "category": "default",
+          "prompt": "Question: What is the sum of interior angles in a triangle in degrees?\nAnswer:",
+          "expected": "180",
+          "generated": "180",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "sci_002",
+          "category": "default",
+          "prompt": "Question: Who formulated the universal law of gravitation?\nAnswer:",
+          "expected": "Sir Isaac Newton",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "hindi_001",
+          "category": "default",
+          "prompt": "\u092a\u094d\u0930\u0936\u094d\u0928: \u0938\u0942\u0930\u094d\u092f \u0915\u093f\u0938 \u0926\u093f\u0936\u093e \u0938\u0947 \u0909\u0917\u0924\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u092a\u0942\u0930\u094d\u0935",
+          "generated": "\u092a\u0942\u0930\u094d\u0935",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "hindi_002",
+          "category": "default",
+          "prompt": "\u092a\u094d\u0930\u0936\u094d\u0928: \u092d\u093e\u0930\u0924 \u0915\u0940 \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0915\u094d\u092f\u093e \u0939\u0948?\n\u0909\u0924\u094d\u0924\u0930:",
+          "expected": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "generated": "\u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940",
+          "final_match": true,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "unseen_001",
+          "category": "default",
+          "prompt": "Question: What memory component is used by Neuromorphic hardware to emulate biological synapses?\nAnswer:",
+          "expected": "Memristor",
+          "generated": "Arithmetic Logic Unit (ALU)",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        },
+        {
+          "id": "unseen_002",
+          "category": "default",
+          "prompt": "Question: Calculate the square of (3 plus 5).\nAnswer:",
+          "expected": "64",
+          "generated": "32",
+          "final_match": false,
+          "trace_valid": false,
+          "eos_reached": true
+        }
+      ]
+    }
+  }
+}
