@@ -83,16 +83,23 @@ class LocalKnowledgeAssistant:
         storage_dir: Optional[Path | str] = None,
         chunk_size: int = 800,
         chunk_overlap: int = 100,
+        embedding_provider: Optional[Any] = None,
+        extract_concise_span: bool = False,
     ):
         self.storage_dir = Path(storage_dir) if storage_dir else None
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
+        self.embedding_provider = embedding_provider
+        self.extract_concise_span = extract_concise_span
         self.doc_metadata: Dict[str, IndexedDocumentMetadata] = {}
         self.chunks: List[DocumentChunk] = []
         
-        # Hybrid retriever combining BM25 lexical and deterministic vector search
+        # Hybrid retriever combining BM25 lexical and vector search
         self.lexical_index = BM25KnowledgeIndex()
-        self.retriever = HybridRetriever(lexical_index=self.lexical_index)
+        self.retriever = HybridRetriever(
+            lexical_index=self.lexical_index,
+            embedding_provider=self.embedding_provider,
+        )
         
         # Claim verifier for logical consistency and contradiction checks
         self.verifier = ClaimVerificationEngine(self.chunks)
@@ -105,7 +112,10 @@ class LocalKnowledgeAssistant:
     def _rebuild_indices(self) -> None:
         """Rebuilds the retrieval and verification indexes from current chunks."""
         self.lexical_index = BM25KnowledgeIndex()
-        self.retriever = HybridRetriever(lexical_index=self.lexical_index)
+        self.retriever = HybridRetriever(
+            lexical_index=self.lexical_index,
+            embedding_provider=self.embedding_provider,
+        )
         
         k_chunks = []
         for c in self.chunks:
@@ -271,17 +281,23 @@ class LocalKnowledgeAssistant:
             doc_id = best_cand.source_id
             start_char = best_cand.metadata.get("start_char", 0)
             end_char = best_cand.metadata.get("end_char", len(best_cand.text))
+            answer_text = best_cand.text.strip()
+
+            if self.extract_concise_span:
+                # Extract the most salient sentence / unit within the chunk
+                c_start, c_end, c_span = self._extract_concise_span(best_cand.text, start_char, end_char, resolved_query)
+                start_char, end_char, answer_text = c_start, c_end, c_span
 
             citation_item = {
                 "doc_id": doc_id,
                 "chunk_index": best_cand.metadata.get("chunk_index", 0),
                 "start_char": start_char,
                 "end_char": end_char,
-                "exact_text": best_cand.text.strip(),
+                "exact_text": answer_text,
                 "confidence": best_cand.score,
             }
             citations = [citation_item]
-            answer = f"{best_cand.text.strip()} [Source: {doc_id} (char {start_char}-{end_char})]"
+            answer = f"{answer_text} [Source: {doc_id} (char {start_char}-{end_char})]"
             decision_str = "ANSWER"
             confidence = round(best_cand.score, 3)
 
@@ -308,3 +324,105 @@ class LocalKnowledgeAssistant:
     def reset_conversation(self):
         """Clears current conversation history while preserving indexed documents."""
         self.conversation_turns.clear()
+
+    @staticmethod
+    def _extract_concise_span(chunk_raw: str, chunk_start: int, chunk_end: int, query: str) -> Tuple[int, int, str]:
+        """
+        Extracts the most evidence-precise unit (sentence/bullet) from a retrieved chunk
+        while maintaining exact character slice alignment with the source document.
+        """
+        lines = chunk_raw.splitlines(keepends=True)
+        raw_units = []
+        pos = 0
+        curr_unit: List[str] = []
+        curr_start = -1
+
+        for line in lines:
+            stripped = line.strip()
+            line_start = pos
+            pos += len(line)
+
+            if not stripped:
+                if curr_unit:
+                    u_text = "".join(curr_unit).strip()
+                    raw_units.append((curr_start, curr_start + len("".join(curr_unit).rstrip()), u_text))
+                    curr_unit = []
+                    curr_start = -1
+                continue
+
+            if stripped.startswith("- ") or stripped.startswith("* "):
+                if curr_unit:
+                    u_text = "".join(curr_unit).strip()
+                    raw_units.append((curr_start, curr_start + len("".join(curr_unit).rstrip()), u_text))
+                    curr_unit = []
+                curr_start = line_start + line.find(stripped)
+                curr_unit.append(line)
+            elif stripped.startswith("#"):
+                # Heading line stands strictly alone
+                if curr_unit:
+                    u_text = "".join(curr_unit).strip()
+                    raw_units.append((curr_start, curr_start + len("".join(curr_unit).rstrip()), u_text))
+                    curr_unit = []
+                h_start = line_start + line.find(stripped)
+                raw_units.append((h_start, h_start + len(stripped), stripped))
+                curr_start = -1
+            else:
+                if curr_start == -1:
+                    curr_start = line_start + line.find(stripped)
+                curr_unit.append(line)
+
+        if curr_unit:
+            u_text = "".join(curr_unit).strip()
+            raw_units.append((curr_start, curr_start + len("".join(curr_unit).rstrip()), u_text))
+
+        if not raw_units:
+            return chunk_start, chunk_end, chunk_raw.strip()
+
+        q_norm = query.lower().replace("-", " ").replace("/", " ").replace("feedforward", "feed forward")
+        stops = {
+            "what", "when", "where", "which", "who", "whom", "this", "that", "these", "those",
+            "from", "with", "about", "into", "the", "a", "an", "is", "was", "are", "were",
+            "in", "on", "at", "by", "for", "and", "or", "to", "of", "how", "many", "much",
+            "does", "did", "do", "can", "are", "total", "doe"
+        }
+        q_tokens = [w.rstrip("s") for w in re.findall(r"\b[a-zA-Z0-9_\.]{2,}\b|\b\d+(?:\.\d+)?\b", q_norm) if w not in stops]
+        q_token_set = set(q_tokens)
+
+        scored = []
+        for idx, (u_s, u_e, u_t) in enumerate(raw_units):
+            ut_norm = u_t.lower().replace("-", " ").replace("/", " ")
+            ut_tokens = set([w.rstrip("s") for w in re.findall(r"\b[a-zA-Z0-9_\.]{2,}\b|\b\d+(?:\.\d+)?\b", ut_norm)])
+            overlap = q_token_set.intersection(ut_tokens)
+            score = len(overlap) * 4.0
+            for i in range(len(q_tokens) - 1):
+                if f"{q_tokens[i]} {q_tokens[i+1]}" in ut_norm:
+                    score += 6.0
+            # Heading penalty: titles and headers are rarely the exact evidence answer
+            if u_t.startswith("#"):
+                score *= 0.25
+            # Number / specific fact bonus
+            if re.search(r"\b\d+(?:\.\d+)?%?\b", u_t):
+                score += 3.0
+            scored.append((score, idx, u_s, u_e, u_t))
+
+        scored.sort(key=lambda x: (x[0], -x[1]), reverse=True)
+        if not scored or scored[0][0] <= 0:
+            return chunk_start, chunk_end, chunk_raw.strip()
+
+        best_idx = scored[0][1]
+        start_idx = best_idx
+        end_idx = best_idx
+        if raw_units[best_idx][2].startswith("- "):
+            if best_idx + 1 < len(raw_units) and raw_units[best_idx + 1][2].startswith("- "):
+                end_idx = best_idx + 1
+            elif best_idx > 0 and raw_units[best_idx - 1][2].startswith("- "):
+                start_idx = best_idx - 1
+
+        min_s = raw_units[start_idx][0]
+        max_e = raw_units[end_idx][1]
+
+        abs_start = chunk_start + min_s
+        abs_end = chunk_start + max_e
+        concise_text = chunk_raw[min_s:max_e].strip()
+        return abs_start, abs_end, concise_text
+
