@@ -32,13 +32,21 @@ python -m chakrverify.cli --docs path/to/spec.txt --claim "Operating clock frequ
 
 ### Verify Multiple Documents Against a Batch of Claims
 ```bash
-python -m chakrverify.cli --docs doc1.txt doc2.txt --batch claims.json --output verification_report.json
+### Multi-Hop Relational Chain Verification
+```bash
+python -m chakrverify.cli --docs doc1.txt doc2.txt --multihop \
+  --start-entity "ArcticPro" \
+  --relation "fabricated by" \
+  --target-claim "operates in Dresden Germany" \
+  --bridges "Semiconductor Foundry Seven" \
+  --output multihop_report.json
 ```
 
 ---
 
 ## 3. Python API Integration
 
+### Single-Hop Verification
 ```python
 from chakrverify.core import ClaimVerificationEngine, VerificationVerdict
 
@@ -51,10 +59,30 @@ print(result.citations[0].exact_text)
 print(result.citations[0].start_char, result.citations[0].end_char)
 ```
 
+### Multi-Hop Chain Verification
+```python
+from chakrverify.core import MultiHopVerificationEngine, VerificationVerdict
+
+engine = MultiHopVerificationEngine()
+engine.add_document("chip_spec.txt")
+engine.add_document("foundry_audit.txt")
+
+result = engine.verify_multi_hop_claim(
+    start_entity="ArcticPro",
+    intermediate_relation="fabricated by",
+    target_claim="operates in Dresden Germany",
+    candidate_bridges=["Semiconductor Foundry Seven"]
+)
+print(result.verdict)  # VerificationVerdict.SUPPORTED
+for hop in result.hops:
+    print(f"Hop {hop.hop_index}: {hop.target_entity} ({hop.source_doc_id}) -> {hop.passage}")
+```
+
 ---
 
 ## 4. Limitations & Truthful Disclaimers
 
 1. **Alpha Status:** This is a testable prototype intended for enterprise verification workflows and legal/compliance diligence.
-2. **Not Hallucination-Proof:** While grounded in source text, complex semantic transformations or implied logic may require additional neural pointer supervision.
-3. **Supported Formats:** UTF-8 text files (`.txt`, `.md`). PDF ingestion requires pre-extraction to plain text.
+2. **Multi-Hop Chains:** Currently evaluates explicit 2-hop entity/relation chains. N-hop graph cycles and ambiguous coreferences require candidate bridge constraints or pointer scoring.
+3. **Not Hallucination-Proof:** While grounded in source text, complex semantic transformations or implied logic may require additional neural pointer supervision.
+4. **Supported Formats:** UTF-8 text files (`.txt`, `.md`). PDF ingestion requires pre-extraction to plain text.

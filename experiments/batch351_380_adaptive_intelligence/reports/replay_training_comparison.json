@@ -1,0 +1,154 @@
+{
+  "canonical_baseline": {
+    "val_loss": 8.5618,
+    "unseen_ent_loss": 8.0865,
+    "unseen_tmp_loss": 8.3576,
+    "exact_match_rate": 0.0,
+    "clean_term_rate": 0.0,
+    "retention": [
+      {
+        "domain": "english",
+        "prompt": "The development of modern science began with",
+        "continuation": "in the world of the world. \n\nThe remaining the word of the world of the world of the",
+        "repetition_3gram": 0.4
+      },
+      {
+        "domain": "code",
+        "prompt": "def binary_search(arr, target):",
+        "continuation": "\"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+        "repetition_3gram": 0.2333
+      },
+      {
+        "domain": "hindi",
+        "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+        "continuation": "\u0930\u093e\u091c\u094d\u092f \u0915\u093e \u0905\u092a\u0928\u0940 \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930\u0940\u092f \u0915\u094d\u0937\u0947\u0924\u094d\u0930 \u0915\u0947 \u092c\u093e\u0926 \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u092e\u093e\u0928\u093e \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u0907",
+        "repetition_3gram": 0.0
+      }
+    ]
+  },
+  "reference_step150": {
+    "val_loss": 5.1739,
+    "unseen_ent_loss": 4.4785,
+    "unseen_tmp_loss": 4.414,
+    "exact_match_rate": 0.0,
+    "clean_term_rate": 0.85,
+    "retention": [
+      {
+        "domain": "english",
+        "prompt": "The development of modern science began with",
+        "continuation": "in the worof is ioin the worona is ie to may be ie to make the cron is ie to",
+        "repetition_3gram": 0.1667
+      },
+      {
+        "domain": "code",
+        "prompt": "def binary_search(arr, target):",
+        "continuation": "\"\"\"\n    >>> queue.leftmod()",
+        "repetition_3gram": 0.0
+      },
+      {
+        "domain": "hindi",
+        "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+        "continuation": "\u0902 \u0915\u0930 \ufffd\u0928\u094d\u091f\u0928\u0930 \u0914\u0930 \ufffd\u0939\u0932t; \u0926\u093f\u092f\u093e \ufffd\u093e\u0964\n\n\u0907\u0928\u094d\u0939\u0947\u0902 \ufffd-\u092a\u0925\u093e \ufffd\u093f\u0938\u094d\u091f\u0930 \u0915\u0947 \ufffd",
+        "repetition_3gram": 0.0
+      }
+    ]
+  },
+  "arms": {
+    "replay_0pct": {
+      "checkpoint_path": "experiments\\batch351_380_adaptive_intelligence\\checkpoints\\candidate_replay_0pct.pt",
+      "sha256": "b4d27855d405d140b0d0f0ca8b6593a41d86352d6de13449f99952edabd07744",
+      "val_loss": 5.1878,
+      "unseen_ent_loss": 4.4773,
+      "unseen_tmp_loss": 4.3584,
+      "exact_match_rate": 0.0,
+      "clean_term_rate": 1.0,
+      "avg_repetition_3gram": 0.0444,
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": "in the land is imenside st.|\nFile:Londus is 0.|\nFile:cental st",
+          "repetition_3gram": 0.1333
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "\"\"\"\n    >>> queue.leftmod()",
+          "repetition_3gram": 0.0
+        },
+        {
+          "domain": "hindi",
+          "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+          "continuation": "\u0902 \u0915\u093e \ufffd\u093e\u0924\u093e \u0939\u0948\u0964\n\n\ufffd\u0935\u093e \u091c<imen|_d>",
+          "repetition_3gram": 0.0
+        }
+      ],
+      "final_train_loss": 1.5451,
+      "elapsed_seconds": 4.32
+    },
+    "replay_5pct": {
+      "checkpoint_path": "experiments\\batch351_380_adaptive_intelligence\\checkpoints\\candidate_replay_5pct.pt",
+      "sha256": "c21b05c195cfe59ef4a8a0892926ad7d224d5092dc982d8cbf4cac75ea4fcd38",
+      "val_loss": 5.2016,
+      "unseen_ent_loss": 4.4764,
+      "unseen_tmp_loss": 4.4601,
+      "exact_match_rate": 0.0,
+      "clean_term_rate": 1.0,
+      "avg_repetition_3gram": 0.2148,
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": "in the land is a list of the worona is used to may be seed the worona is used to may",
+          "repetition_3gram": 0.2667
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "p = _d>\n    p = _df(imen_d>",
+          "repetition_3gram": 0.2778
+        },
+        {
+          "domain": "hindi",
+          "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+          "continuation": "\u0940\u0924\u093f\u0915\u093e \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u0907\u0928\u094d\u0939\u0947\u0902 \u092d\u0940 \u0926\u0947\u0916\u0947\u0902\n* \ufffd\u0921\u094d\u0921\u0940 (\u0907\u0928\u094d\u0939)",
+          "repetition_3gram": 0.1
+        }
+      ],
+      "final_train_loss": 2.6877,
+      "elapsed_seconds": 4.85
+    },
+    "replay_10pct": {
+      "checkpoint_path": "experiments\\batch351_380_adaptive_intelligence\\checkpoints\\candidate_replay_10pct.pt",
+      "sha256": "284413e7ecf3e729530b36da37b5a26284dd413cefbfd569f0aa68041ed3f3ac",
+      "val_loss": 5.2439,
+      "unseen_ent_loss": 4.5415,
+      "unseen_tmp_loss": 4.4537,
+      "exact_match_rate": 0.0,
+      "clean_term_rate": 1.0,
+      "avg_repetition_3gram": 0.0778,
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": ". The large cannot be seed the worst of the worof the world of the world of the l",
+          "repetition_3gram": 0.2
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "\"\"\"\n    >>> queue.left.right(imen|_d>",
+          "repetition_3gram": 0.0
+        },
+        {
+          "domain": "hindi",
+          "prompt": "\u092d\u093e\u0930\u0924 \u090f\u0915 \u0935\u093f\u0936\u093e\u0932 \u0914\u0930 \u0935\u093f\u0935\u093f\u0927\u0924\u093e\u092a\u0942\u0930\u094d\u0923",
+          "continuation": "\u0930\u093e\u091c\u094d\u092f \u0915\u093e \ufffd\u093e\u092e\u093f\u0932 \u0939\u0948\u0964\n\n\u0907\u0928\u094d\u0939\u0947\u0902 \u092d\u0940 \u0926\u0947\u0916\u0947\u0902\n* \u092b\u093c\u093f\u0932\u094d\u092e\n* \ufffd\u0921\u0935\u093e\ufffd",
+          "repetition_3gram": 0.0333
+        }
+      ],
+      "final_train_loss": 1.7677,
+      "elapsed_seconds": 4.81
+    }
+  }
+}
