@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-10-15 13:48:22",
+  "total_demonstrations": 5,
+  "all_passed": true,
+  "demonstrations": [
+    {
+      "name": "arithmetic_chain",
+      "turn_1": "Calculate 17 * 23",
+      "turn_1_output": "391",
+      "turn_2": "Now multiply that result by 4",
+      "turn_2_output": "1564",
+      "expected_turn_2": "1564",
+      "success": true,
+      "component_origin": "calculator_tool"
+    },
+    {
+      "name": "text_transformation",
+      "turn_1": "Write a phrase 'solar energy for the grid'",
+      "turn_2": "Convert the previous text to uppercase",
+      "turn_2_output": "SOLAR ENERGY FOR THE GRID",
+      "expected_turn_2": "SOLAR ENERGY FOR THE GRID",
+      "success": true,
+      "component_origin": "neural_core"
+    },
+    {
+      "name": "ordinal_disambiguation",
+      "turn_1": "Consider two measurements: 45 and 90.",
+      "turn_2": "Multiply the second value by 2",
+      "turn_2_output": "180",
+      "expected_turn_2": "180",
+      "success": true,
+      "component_origin": "calculator_tool"
+    },
+    {
+      "name": "missing_context_abstention",
+      "turn_1": "Add 12 to the previous answer",
+      "turn_1_output": "Clarification required: Reference detected ('previous answer/result') but conversation history is empty. Please provide the missing value or expression explicitly.",
+      "clarification_requested": true,
+      "success": true,
+      "component_origin": "fallback_policy"
+    },
+    {
+      "name": "session_boundary_isolation",
+      "session_a_secret_turn": "Calculate 50 * 50 -> 2500",
+      "session_b_query": "Now divide that result by 10",
+      "session_b_response": "Clarification required: Reference detected ('previous answer/result') but conversation history is empty. Please provide the missing value or expression explicitly.",
+      "isolation_preserved": true,
+      "success": true
+    }
+  ]
+}

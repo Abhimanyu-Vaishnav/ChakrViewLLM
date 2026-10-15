@@ -1,0 +1,13 @@
+{
+  "train_item_count": 175,
+  "unique_train_ids": 48,
+  "duplicate_train_rows": 127,
+  "minority_oversampling_present": true,
+  "val_item_count": 40,
+  "test_item_count": 59,
+  "train_val_prompt_overlap": 0,
+  "train_test_prompt_overlap": 0,
+  "val_test_prompt_overlap": 0,
+  "zero_leakage_across_splits_verified": true,
+  "audit_finding": "Minority classes in train_span_balanced.jsonl were oversampled by duplicating rows to equalize class representation (25/class), but 0 training prompts appear in validation or frozen test sets."
+}

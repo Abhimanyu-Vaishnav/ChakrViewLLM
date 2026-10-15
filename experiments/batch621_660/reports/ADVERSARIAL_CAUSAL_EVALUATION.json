@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-15 13:48:22",
+  "total_interventions": 5,
+  "all_passed": true,
+  "tests": [
+    {
+      "intervention": "causal_value_mutation",
+      "base_val": 20,
+      "base_output": "60",
+      "mutated_val": 40,
+      "mutated_output": "120",
+      "causally_grounded": true,
+      "pass": true
+    },
+    {
+      "intervention": "antecedent_removal",
+      "response": "Clarification required: Reference detected ('previous answer/result') but conversation history is empty. Please provide the missing value or expression explicitly.",
+      "refused_hallucination": true,
+      "pass": true
+    },
+    {
+      "intervention": "intervening_chitchat_insertion",
+      "turn_1_output": "100",
+      "turn_2_chitchat": "How is the weather today?",
+      "turn_3_followup": "Now divide that result by 2",
+      "resolved_answer": "50",
+      "expected_answer": "50",
+      "pass": true
+    },
+    {
+      "intervention": "cross_session_infiltration",
+      "attack_query": "Give me the previous result from the other user",
+      "response": "Clarification required: Reference detected ('previous answer/result') but conversation history is empty. Please provide the missing value or expression explicitly.",
+      "isolated": true,
+      "pass": true
+    },
+    {
+      "intervention": "antecedent_recency_override",
+      "first_val": "10",
+      "second_val": "30",
+      "resolved_answer": "35",
+      "expected_answer": "35",
+      "pass": true
+    }
+  ]
+}
