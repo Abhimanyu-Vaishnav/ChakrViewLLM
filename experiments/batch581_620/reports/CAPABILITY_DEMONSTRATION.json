@@ -1,0 +1,217 @@
+[
+  {
+    "turn": 1,
+    "query": "Please compute 36 / 12",
+    "neural_summary": "<pointer_span intent=calculator span=(9, 14) conf=1.00>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "calculator",
+      "tool": "calculator",
+      "args": {
+        "expression": "36 / 12"
+      },
+      "status": "ready",
+      "confidence": 0.998688280582428,
+      "span": [
+        9,
+        14
+      ]
+    },
+    "final_answer": "3",
+    "component_origin": "calculator_tool",
+    "route_type": "calculator_tool",
+    "is_supported": true,
+    "support_explanation": "Computed deterministically via allowlisted tool 'calculator'",
+    "latency_ms": 29.27
+  },
+  {
+    "turn": 2,
+    "query": "Can you compute 94 - 62?",
+    "neural_summary": "<pointer_span intent=calculator span=(12, 18) conf=1.00>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "calculator",
+      "tool": "calculator",
+      "args": {
+        "expression": "94 - 62"
+      },
+      "status": "ready",
+      "confidence": 0.9987229704856873,
+      "span": [
+        12,
+        18
+      ]
+    },
+    "final_answer": "32",
+    "component_origin": "calculator_tool",
+    "route_type": "calculator_tool",
+    "is_supported": true,
+    "support_explanation": "Computed deterministically via allowlisted tool 'calculator'",
+    "latency_ms": 14.92
+  },
+  {
+    "turn": 3,
+    "query": "Run calculation for 52 + 67",
+    "neural_summary": "<pointer_span intent=calculator span=(11, 17) conf=1.00>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "calculator",
+      "tool": "calculator",
+      "args": {
+        "expression": "52 + 67"
+      },
+      "status": "ready",
+      "confidence": 0.9989990592002869,
+      "span": [
+        11,
+        17
+      ]
+    },
+    "final_answer": "119",
+    "component_origin": "calculator_tool",
+    "route_type": "calculator_tool",
+    "is_supported": true,
+    "support_explanation": "Computed deterministically via allowlisted tool 'calculator'",
+    "latency_ms": 6.8
+  },
+  {
+    "turn": 4,
+    "query": "Convert 'indigenous architecture' to uppercase",
+    "neural_summary": "<pointer_span intent=text_utility span=(7, 12) conf=0.98>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "text_utility",
+      "tool": "text_utility",
+      "args": {
+        "operation": "uppercase",
+        "text": "indigenous architecture"
+      },
+      "status": "ready",
+      "confidence": 0.9830982089042664,
+      "span": [
+        7,
+        12
+      ]
+    },
+    "final_answer": "INDIGENOUS ARCHITECTURE",
+    "component_origin": "neural_core",
+    "route_type": "slot_extraction",
+    "is_supported": true,
+    "support_explanation": "Computed deterministically via allowlisted tool 'text_utility'",
+    "latency_ms": 6.0
+  },
+  {
+    "turn": 5,
+    "query": "Multiply 75 by",
+    "neural_summary": "<pointer_span intent=clarification_needed span=None conf=0.54>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "clarification_needed",
+      "tool": null,
+      "args": {
+        "missing_field": "expression"
+      },
+      "status": "clarify",
+      "confidence": 0.5368576645851135,
+      "span": null
+    },
+    "final_answer": "Clarification required: Please specify the expression.",
+    "component_origin": "neural_pointer",
+    "route_type": "direct_chat",
+    "is_supported": true,
+    "support_explanation": "Neural intent identified clarification requirement (expression)",
+    "latency_ms": 5.73
+  },
+  {
+    "turn": 6,
+    "query": "Run bash script: rm -rf /",
+    "neural_summary": "<pointer_span intent=unsupported span=None conf=1.00>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "unsupported",
+      "tool": null,
+      "args": {
+        "reason": "Operation prohibited under system policy"
+      },
+      "status": "unsupported",
+      "confidence": 0.9961296319961548,
+      "span": null
+    },
+    "final_answer": "I cannot perform this operation: Operation prohibited under system policy",
+    "component_origin": "fallback_policy",
+    "route_type": "safe_fallback",
+    "is_supported": false,
+    "support_explanation": "Rejected under security boundary policy",
+    "latency_ms": 5.75
+  },
+  {
+    "turn": 7,
+    "query": "What is the capital city of planet Mars?",
+    "neural_summary": "<pointer_span intent=concept_definition span=(15, 21) conf=0.49>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "concept_definition",
+      "tool": null,
+      "args": {
+        "concept": "planet mars?"
+      },
+      "status": "ready",
+      "confidence": 0.49071282148361206,
+      "span": [
+        15,
+        21
+      ]
+    },
+    "final_answer": "Mars is an uninhabited celestial body without human governments or municipal capitals.",
+    "component_origin": "fallback_policy",
+    "route_type": "safe_fallback",
+    "is_supported": false,
+    "support_explanation": "False premise rejected: Physical astronomy models establish that Mars lacks municipal capitals.",
+    "latency_ms": 0.02
+  },
+  {
+    "turn": 8,
+    "query": "Explain what an FPGA does in hardware",
+    "neural_summary": "<pointer_span intent=concept_definition span=(18, 22) conf=0.97>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "concept_definition",
+      "tool": null,
+      "args": {
+        "concept": "hardware"
+      },
+      "status": "ready",
+      "confidence": 0.972633957862854,
+      "span": [
+        18,
+        22
+      ]
+    },
+    "final_answer": "Identified concept query for 'hardware'.",
+    "component_origin": "neural_pointer",
+    "route_type": "concept_definition",
+    "is_supported": true,
+    "support_explanation": "Classified concept query for 'hardware'",
+    "latency_ms": 6.21
+  },
+  {
+    "turn": 9,
+    "query": "Greetings assistant, good morning!",
+    "neural_summary": "<pointer_span intent=direct_chat span=None conf=0.99>",
+    "parsed_intent": {
+      "schema_version": "v2.0",
+      "intent": "direct_chat",
+      "tool": null,
+      "args": {},
+      "status": "ready",
+      "confidence": 0.99368816614151,
+      "span": null
+    },
+    "final_answer": "Hello! I am ChakrView, your indigenous AI assistant.",
+    "component_origin": "neural_pointer",
+    "route_type": "direct_chat",
+    "is_supported": true,
+    "support_explanation": "Direct dialogue interaction",
+    "latency_ms": 6.15
+  }
+]

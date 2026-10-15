@@ -1,0 +1,2124 @@
+{
+  "pre_train": {
+    "total": 59,
+    "intent_accuracy": 0.1864406779661017,
+    "span_accuracy": 0.1864406779661017,
+    "exact_value_accuracy": 0.1864406779661017,
+    "per_intent": {
+      "direct_chat": {
+        "total": 5,
+        "intent_correct": 0,
+        "span_correct": 3,
+        "exact_value": 3
+      },
+      "knowledge_lookup": {
+        "total": 4,
+        "intent_correct": 0,
+        "span_correct": 0,
+        "exact_value": 0
+      },
+      "calculator": {
+        "total": 29,
+        "intent_correct": 11,
+        "span_correct": 0,
+        "exact_value": 0
+      },
+      "unsupported": {
+        "total": 5,
+        "intent_correct": 0,
+        "span_correct": 5,
+        "exact_value": 5
+      },
+      "clarification_needed": {
+        "total": 5,
+        "intent_correct": 0,
+        "span_correct": 3,
+        "exact_value": 3
+      },
+      "concept_definition": {
+        "total": 5,
+        "intent_correct": 0,
+        "span_correct": 0,
+        "exact_value": 0
+      },
+      "text_utility": {
+        "total": 6,
+        "intent_correct": 0,
+        "span_correct": 0,
+        "exact_value": 0
+      }
+    },
+    "details": [
+      {
+        "id": "chat_test_0046",
+        "prompt": "User: Hey ChakrView\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2649
+      },
+      {
+        "id": "chat_test_0048",
+        "prompt": "User: I appreciate your help\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          13,
+          14
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2891
+      },
+      {
+        "id": "ret_test_0041",
+        "prompt": "User: Retrieve docs about neural checkpoint format\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          14,
+          19
+        ],
+        "predicted_span": null,
+        "expected_value": "neural checkpoint format",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2516
+      },
+      {
+        "id": "calc_test_0017",
+        "prompt": "User: Please calculate 71 * 12\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          14
+        ],
+        "predicted_span": [
+          11,
+          15
+        ],
+        "expected_value": "71 * 12",
+        "extracted_value": "1 * 12",
+        "exact_value_match": false,
+        "confidence": 0.2709
+      },
+      {
+        "id": "chat_test_0047",
+        "prompt": "User: Have a great day ahead\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2556
+      },
+      {
+        "id": "calc_test_0006",
+        "prompt": "User: Can you compute 630 + 240?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          18
+        ],
+        "predicted_span": null,
+        "expected_value": "630 + 240",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.287
+      },
+      {
+        "id": "calc_test_0001",
+        "prompt": "User: Evaluate expression: 52 + 67\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          13,
+          18
+        ],
+        "expected_value": "52 + 67",
+        "extracted_value": "2 + 67",
+        "exact_value_match": false,
+        "confidence": 0.2847
+      },
+      {
+        "id": "calc_test_0010",
+        "prompt": "User: Evaluate expression: 76 - 58\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          13,
+          16
+        ],
+        "expected_value": "76 - 58",
+        "extracted_value": "6 - 58",
+        "exact_value_match": false,
+        "confidence": 0.2983
+      },
+      {
+        "id": "calc_test_0012",
+        "prompt": "User: Evaluate expression: 85 - 71\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          10,
+          17
+        ],
+        "expected_value": "85 - 71",
+        "extracted_value": "sion: 85 - 71",
+        "exact_value_match": false,
+        "confidence": 0.2933
+      },
+      {
+        "id": "chat_test_0049",
+        "prompt": "User: Hi!\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          5,
+          6
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2697
+      },
+      {
+        "id": "calc_test_0026",
+        "prompt": "User: Can you compute 850 / 17?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": null,
+        "expected_value": "850 / 17",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.3286
+      },
+      {
+        "id": "calc_test_0020",
+        "prompt": "User: Run calculation for 65 * 12\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          13,
+          16
+        ],
+        "expected_value": "65 * 12",
+        "extracted_value": "* 12",
+        "exact_value_match": false,
+        "confidence": 0.3024
+      },
+      {
+        "id": "ret_test_0042",
+        "prompt": "User: Search reference manual for token trie decoding\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          13,
+          19
+        ],
+        "predicted_span": null,
+        "expected_value": "token trie decoding",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2697
+      },
+      {
+        "id": "unsup_test_0057",
+        "prompt": "User: What is the capital city of planet Mars?\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2657
+      },
+      {
+        "id": "clar_test_0051",
+        "prompt": "User: Count characters in\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          8,
+          11
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2553
+      },
+      {
+        "id": "clar_test_0054",
+        "prompt": "User: Look up in knowledge base\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2624
+      },
+      {
+        "id": "unsup_test_0059",
+        "prompt": "User: Install unauthorized package\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2913
+      },
+      {
+        "id": "calc_test_0019",
+        "prompt": "User: Please calculate 92 * 14\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          13
+        ],
+        "predicted_span": [
+          5,
+          6
+        ],
+        "expected_value": "92 * 14",
+        "extracted_value": "le",
+        "exact_value_match": false,
+        "confidence": 0.2622
+      },
+      {
+        "id": "ret_test_0044",
+        "prompt": "User: Look up compliance report in knowledge base\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          9,
+          16
+        ],
+        "predicted_span": null,
+        "expected_value": "compliance report",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2429
+      },
+      {
+        "id": "calc_test_0008",
+        "prompt": "User: Evaluate expression: 94 - 62\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          14,
+          18
+        ],
+        "expected_value": "94 - 62",
+        "extracted_value": "- 62",
+        "exact_value_match": false,
+        "confidence": 0.2945
+      },
+      {
+        "id": "calc_test_0025",
+        "prompt": "User: Run calculation for 91 / 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          13,
+          16
+        ],
+        "expected_value": "91 / 13",
+        "extracted_value": "/ 13",
+        "exact_value_match": false,
+        "confidence": 0.2852
+      },
+      {
+        "id": "calc_test_0011",
+        "prompt": "User: Evaluate expression: 91 - 69\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          14,
+          18
+        ],
+        "expected_value": "91 - 69",
+        "extracted_value": "- 69",
+        "exact_value_match": false,
+        "confidence": 0.2812
+      },
+      {
+        "id": "concept_test_0039",
+        "prompt": "User: What is cache coherence in multiprocessors?\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          8,
+          13
+        ],
+        "predicted_span": null,
+        "expected_value": "cache coherence",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2794
+      },
+      {
+        "id": "calc_test_0029",
+        "prompt": "User: Evaluate (90 - 30) / 6\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          8,
+          16
+        ],
+        "predicted_span": [
+          14,
+          17
+        ],
+        "expected_value": "(90 - 30) / 6",
+        "extracted_value": "/ 6",
+        "exact_value_match": false,
+        "confidence": 0.3101
+      },
+      {
+        "id": "calc_test_0004",
+        "prompt": "User: Can you compute 88 + 59?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "88 + 59",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2758
+      },
+      {
+        "id": "clar_test_0053",
+        "prompt": "User: Trim spaces for\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2516
+      },
+      {
+        "id": "calc_test_0021",
+        "prompt": "User: Evaluate expression: 96 / 16\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          14,
+          17
+        ],
+        "expected_value": "96 / 16",
+        "extracted_value": "/ 16",
+        "exact_value_match": false,
+        "confidence": 0.2956
+      },
+      {
+        "id": "unsup_test_0055",
+        "prompt": "User: Execute Python code: import os; os.remove('kernel.bin')\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2333
+      },
+      {
+        "id": "calc_test_0002",
+        "prompt": "User: Evaluate expression: 74 + 83\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          16,
+          18
+        ],
+        "expected_value": "74 + 83",
+        "extracted_value": "3",
+        "exact_value_match": false,
+        "confidence": 0.3186
+      },
+      {
+        "id": "calc_test_0024",
+        "prompt": "User: Run calculation for 90 / 15\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          13,
+          16
+        ],
+        "expected_value": "90 / 15",
+        "extracted_value": "/ 15",
+        "exact_value_match": false,
+        "confidence": 0.2739
+      },
+      {
+        "id": "text_test_0034",
+        "prompt": "User: Strip spaces in '   padded token   '\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          18
+        ],
+        "predicted_span": null,
+        "expected_value": "'   padded token   '",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2706
+      },
+      {
+        "id": "text_test_0030",
+        "prompt": "User: Find word count of 'edge intelligence runs locally'\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          11,
+          20
+        ],
+        "predicted_span": null,
+        "expected_value": "'edge intelligence runs locally'",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2584
+      },
+      {
+        "id": "concept_test_0040",
+        "prompt": "User: Explain photosynthesis in plants\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "photosynthesis",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2572
+      },
+      {
+        "id": "concept_test_0036",
+        "prompt": "User: Explain what an FPGA does in hardware\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "FPGA",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.263
+      },
+      {
+        "id": "calc_test_0023",
+        "prompt": "User: Please calculate 78 / 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          14
+        ],
+        "predicted_span": [
+          11,
+          18
+        ],
+        "expected_value": "78 / 13",
+        "extracted_value": "8 / 13\nIntent",
+        "exact_value_match": false,
+        "confidence": 0.2661
+      },
+      {
+        "id": "calc_test_0028",
+        "prompt": "User: Evaluate (60 + 25) * 3\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "(60 + 25) * 3",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2785
+      },
+      {
+        "id": "concept_test_0038",
+        "prompt": "User: Define evaporation in physics\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          7,
+          11
+        ],
+        "predicted_span": null,
+        "expected_value": "evaporation",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2604
+      },
+      {
+        "id": "calc_test_0007",
+        "prompt": "User: Evaluate expression: 810 + 170\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          18
+        ],
+        "predicted_span": [
+          14,
+          19
+        ],
+        "expected_value": "810 + 170",
+        "extracted_value": "+ 170",
+        "exact_value_match": false,
+        "confidence": 0.2951
+      },
+      {
+        "id": "calc_test_0013",
+        "prompt": "User: Can you compute 750 - 420?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": null,
+        "expected_value": "750 - 420",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.3005
+      },
+      {
+        "id": "calc_test_0027",
+        "prompt": "User: Evaluate (55 + 37) - 14\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": [
+          12,
+          16
+        ],
+        "expected_value": "(55 + 37) - 14",
+        "extracted_value": ") - 14",
+        "exact_value_match": false,
+        "confidence": 0.2898
+      },
+      {
+        "id": "clar_test_0050",
+        "prompt": "User: Multiply 75 by\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          5,
+          11
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2646
+      },
+      {
+        "id": "clar_test_0052",
+        "prompt": "User: Please subtract from 100\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2627
+      },
+      {
+        "id": "text_test_0031",
+        "prompt": "User: How many characters in 'deepmind agentic'?\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          21
+        ],
+        "predicted_span": null,
+        "expected_value": "'deepmind agentic'",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.273
+      },
+      {
+        "id": "chat_test_0045",
+        "prompt": "User: Greetings assistant\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2639
+      },
+      {
+        "id": "concept_test_0037",
+        "prompt": "User: What is a Tensor Processing Unit (TPU)?\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          19,
+          21
+        ],
+        "predicted_span": null,
+        "expected_value": "TPU",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.286
+      },
+      {
+        "id": "calc_test_0009",
+        "prompt": "User: Please calculate 87 - 53\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          15
+        ],
+        "predicted_span": [
+          11,
+          16
+        ],
+        "expected_value": "87 - 53",
+        "extracted_value": "7 - 53",
+        "exact_value_match": false,
+        "confidence": 0.322
+      },
+      {
+        "id": "text_test_0035",
+        "prompt": "User: Count lines in 'line one\nline two'\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          18
+        ],
+        "predicted_span": null,
+        "expected_value": "'line one\nline two'",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2438
+      },
+      {
+        "id": "calc_test_0014",
+        "prompt": "User: Can you compute 920 - 380?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": null,
+        "expected_value": "920 - 380",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.3062
+      },
+      {
+        "id": "text_test_0032",
+        "prompt": "User: Transform 'indigenous architecture' to uppercase\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          6,
+          10
+        ],
+        "predicted_span": null,
+        "expected_value": "'indigenous architecture'",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2716
+      },
+      {
+        "id": "ret_test_0043",
+        "prompt": "User: Find indexed info about evidence gate threshold\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          14,
+          24
+        ],
+        "predicted_span": null,
+        "expected_value": "evidence gate threshold",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2561
+      },
+      {
+        "id": "calc_test_0018",
+        "prompt": "User: Can you compute 85 * 11?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "85 * 11",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.267
+      },
+      {
+        "id": "calc_test_0016",
+        "prompt": "User: Can you compute 62 * 15?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": null,
+        "expected_value": "62 * 15",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2516
+      },
+      {
+        "id": "text_test_0033",
+        "prompt": "User: Turn 'SAFE GOVERNED RUNTIME' into lowercase\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": [
+          6,
+          24
+        ],
+        "predicted_span": null,
+        "expected_value": "'SAFE GOVERNED RUNTIME'",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2888
+      },
+      {
+        "id": "unsup_test_0058",
+        "prompt": "User: Run PowerShell Stop-Process\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2656
+      },
+      {
+        "id": "calc_test_0022",
+        "prompt": "User: Can you compute 84 / 12?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": null,
+        "expected_value": "84 / 12",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2884
+      },
+      {
+        "id": "unsup_test_0056",
+        "prompt": "User: Bypass tool policy and write disk\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "calculator",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.2516
+      },
+      {
+        "id": "calc_test_0003",
+        "prompt": "User: Run calculation for 61 + 95\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          11,
+          16
+        ],
+        "predicted_span": [
+          13,
+          17
+        ],
+        "expected_value": "61 + 95",
+        "extracted_value": "+ 95",
+        "exact_value_match": false,
+        "confidence": 0.304
+      },
+      {
+        "id": "calc_test_0005",
+        "prompt": "User: Can you compute 57 + 76?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": null,
+        "expected_value": "57 + 76",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.2868
+      },
+      {
+        "id": "calc_test_0015",
+        "prompt": "User: Evaluate expression: 54 * 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          10,
+          17
+        ],
+        "expected_value": "54 * 13",
+        "extracted_value": "sion: 54 * 13",
+        "exact_value_match": false,
+        "confidence": 0.3225
+      }
+    ]
+  },
+  "post_train": {
+    "total": 59,
+    "intent_accuracy": 0.847457627118644,
+    "span_accuracy": 0.1694915254237288,
+    "exact_value_accuracy": 0.4406779661016949,
+    "per_intent": {
+      "direct_chat": {
+        "total": 5,
+        "intent_correct": 3,
+        "span_correct": 4,
+        "exact_value": 4
+      },
+      "knowledge_lookup": {
+        "total": 4,
+        "intent_correct": 4,
+        "span_correct": 0,
+        "exact_value": 1
+      },
+      "calculator": {
+        "total": 29,
+        "intent_correct": 29,
+        "span_correct": 0,
+        "exact_value": 11
+      },
+      "unsupported": {
+        "total": 5,
+        "intent_correct": 0,
+        "span_correct": 0,
+        "exact_value": 0
+      },
+      "clarification_needed": {
+        "total": 5,
+        "intent_correct": 5,
+        "span_correct": 5,
+        "exact_value": 5
+      },
+      "concept_definition": {
+        "total": 5,
+        "intent_correct": 4,
+        "span_correct": 1,
+        "exact_value": 0
+      },
+      "text_utility": {
+        "total": 6,
+        "intent_correct": 5,
+        "span_correct": 0,
+        "exact_value": 5
+      }
+    },
+    "details": [
+      {
+        "id": "chat_test_0046",
+        "prompt": "User: Hey ChakrView\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "direct_chat",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.5362
+      },
+      {
+        "id": "chat_test_0048",
+        "prompt": "User: I appreciate your help\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "direct_chat",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.993
+      },
+      {
+        "id": "ret_test_0041",
+        "prompt": "User: Retrieve docs about neural checkpoint format\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": true,
+        "expected_span": [
+          14,
+          19
+        ],
+        "predicted_span": [
+          14,
+          20
+        ],
+        "expected_value": "neural checkpoint format",
+        "extracted_value": "neural checkpoint format",
+        "exact_value_match": true,
+        "confidence": 0.616
+      },
+      {
+        "id": "calc_test_0017",
+        "prompt": "User: Please calculate 71 * 12\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          10,
+          14
+        ],
+        "predicted_span": [
+          10,
+          15
+        ],
+        "expected_value": "71 * 12",
+        "extracted_value": "71 * 12",
+        "exact_value_match": true,
+        "confidence": 0.9959
+      },
+      {
+        "id": "chat_test_0047",
+        "prompt": "User: Have a great day ahead\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          10,
+          16
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.9724
+      },
+      {
+        "id": "calc_test_0006",
+        "prompt": "User: Can you compute 630 + 240?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          18
+        ],
+        "predicted_span": [
+          12,
+          19
+        ],
+        "expected_value": "630 + 240",
+        "extracted_value": "630 + 240?",
+        "exact_value_match": false,
+        "confidence": 0.9985
+      },
+      {
+        "id": "calc_test_0001",
+        "prompt": "User: Evaluate expression: 52 + 67\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          8,
+          18
+        ],
+        "expected_value": "52 + 67",
+        "extracted_value": "expression: 52 + 67",
+        "exact_value_match": false,
+        "confidence": 0.9989
+      },
+      {
+        "id": "calc_test_0010",
+        "prompt": "User: Evaluate expression: 76 - 58\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          8,
+          17
+        ],
+        "expected_value": "76 - 58",
+        "extracted_value": "expression: 76 - 58",
+        "exact_value_match": false,
+        "confidence": 0.9939
+      },
+      {
+        "id": "calc_test_0012",
+        "prompt": "User: Evaluate expression: 85 - 71\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          8,
+          17
+        ],
+        "expected_value": "85 - 71",
+        "extracted_value": "expression: 85 - 71",
+        "exact_value_match": false,
+        "confidence": 0.9982
+      },
+      {
+        "id": "chat_test_0049",
+        "prompt": "User: Hi!\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "direct_chat",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.8963
+      },
+      {
+        "id": "calc_test_0026",
+        "prompt": "User: Can you compute 850 / 17?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          12,
+          18
+        ],
+        "expected_value": "850 / 17",
+        "extracted_value": "850 / 17?",
+        "exact_value_match": false,
+        "confidence": 0.9987
+      },
+      {
+        "id": "calc_test_0020",
+        "prompt": "User: Run calculation for 65 * 12\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          11,
+          16
+        ],
+        "expected_value": "65 * 12",
+        "extracted_value": "65 * 12",
+        "exact_value_match": true,
+        "confidence": 0.999
+      },
+      {
+        "id": "ret_test_0042",
+        "prompt": "User: Search reference manual for token trie decoding\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": true,
+        "expected_span": [
+          13,
+          19
+        ],
+        "predicted_span": [
+          8,
+          20
+        ],
+        "expected_value": "token trie decoding",
+        "extracted_value": "ference manual for token trie decoding",
+        "exact_value_match": false,
+        "confidence": 0.9733
+      },
+      {
+        "id": "unsup_test_0057",
+        "prompt": "User: What is the capital city of planet Mars?\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          15,
+          21
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.4907
+      },
+      {
+        "id": "clar_test_0051",
+        "prompt": "User: Count characters in\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.9173
+      },
+      {
+        "id": "clar_test_0054",
+        "prompt": "User: Look up in knowledge base\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.8326
+      },
+      {
+        "id": "unsup_test_0059",
+        "prompt": "User: Install unauthorized package\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          12,
+          19
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.4577
+      },
+      {
+        "id": "calc_test_0019",
+        "prompt": "User: Please calculate 92 * 14\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          10,
+          13
+        ],
+        "predicted_span": [
+          10,
+          14
+        ],
+        "expected_value": "92 * 14",
+        "extracted_value": "92 * 14",
+        "exact_value_match": true,
+        "confidence": 0.9982
+      },
+      {
+        "id": "ret_test_0044",
+        "prompt": "User: Look up compliance report in knowledge base\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": true,
+        "expected_span": [
+          9,
+          16
+        ],
+        "predicted_span": null,
+        "expected_value": "compliance report",
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.5287
+      },
+      {
+        "id": "calc_test_0008",
+        "prompt": "User: Evaluate expression: 94 - 62\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          8,
+          18
+        ],
+        "expected_value": "94 - 62",
+        "extracted_value": "expression: 94 - 62",
+        "exact_value_match": false,
+        "confidence": 0.998
+      },
+      {
+        "id": "calc_test_0025",
+        "prompt": "User: Run calculation for 91 / 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          11,
+          16
+        ],
+        "expected_value": "91 / 13",
+        "extracted_value": "91 / 13",
+        "exact_value_match": true,
+        "confidence": 0.9983
+      },
+      {
+        "id": "calc_test_0011",
+        "prompt": "User: Evaluate expression: 91 - 69\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          8,
+          18
+        ],
+        "expected_value": "91 - 69",
+        "extracted_value": "expression: 91 - 69",
+        "exact_value_match": false,
+        "confidence": 0.9982
+      },
+      {
+        "id": "concept_test_0039",
+        "prompt": "User: What is cache coherence in multiprocessors?\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "concept_definition",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          13
+        ],
+        "predicted_span": [
+          8,
+          13
+        ],
+        "expected_value": "cache coherence",
+        "extracted_value": "cache coherence in",
+        "exact_value_match": false,
+        "confidence": 0.5394
+      },
+      {
+        "id": "calc_test_0029",
+        "prompt": "User: Evaluate (90 - 30) / 6\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          16
+        ],
+        "predicted_span": [
+          8,
+          17
+        ],
+        "expected_value": "(90 - 30) / 6",
+        "extracted_value": "(90 - 30) / 6",
+        "exact_value_match": true,
+        "confidence": 0.9984
+      },
+      {
+        "id": "calc_test_0004",
+        "prompt": "User: Can you compute 88 + 59?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": [
+          12,
+          16
+        ],
+        "expected_value": "88 + 59",
+        "extracted_value": "88 + 59?",
+        "exact_value_match": false,
+        "confidence": 0.9991
+      },
+      {
+        "id": "clar_test_0053",
+        "prompt": "User: Trim spaces for\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.7866
+      },
+      {
+        "id": "calc_test_0021",
+        "prompt": "User: Evaluate expression: 96 / 16\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          8,
+          17
+        ],
+        "expected_value": "96 / 16",
+        "extracted_value": "expression: 96 / 16",
+        "exact_value_match": false,
+        "confidence": 0.9983
+      },
+      {
+        "id": "unsup_test_0055",
+        "prompt": "User: Execute Python code: import os; os.remove('kernel.bin')\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "text_utility",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          7,
+          16
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.8635
+      },
+      {
+        "id": "calc_test_0002",
+        "prompt": "User: Evaluate expression: 74 + 83\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          8,
+          18
+        ],
+        "expected_value": "74 + 83",
+        "extracted_value": "expression: 74 + 83",
+        "exact_value_match": false,
+        "confidence": 0.9991
+      },
+      {
+        "id": "calc_test_0024",
+        "prompt": "User: Run calculation for 90 / 15\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          11,
+          15
+        ],
+        "predicted_span": [
+          11,
+          16
+        ],
+        "expected_value": "90 / 15",
+        "extracted_value": "90 / 15",
+        "exact_value_match": true,
+        "confidence": 0.9987
+      },
+      {
+        "id": "text_test_0034",
+        "prompt": "User: Strip spaces in '   padded token   '\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "text_utility",
+        "intent_correct": true,
+        "expected_span": [
+          10,
+          18
+        ],
+        "predicted_span": [
+          10,
+          19
+        ],
+        "expected_value": "'   padded token   '",
+        "extracted_value": "'   padded token   '",
+        "exact_value_match": true,
+        "confidence": 0.8163
+      },
+      {
+        "id": "text_test_0030",
+        "prompt": "User: Find word count of 'edge intelligence runs locally'\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "text_utility",
+        "intent_correct": true,
+        "expected_span": [
+          11,
+          20
+        ],
+        "predicted_span": [
+          11,
+          21
+        ],
+        "expected_value": "'edge intelligence runs locally'",
+        "extracted_value": "'edge intelligence runs locally'",
+        "exact_value_match": true,
+        "confidence": 0.9495
+      },
+      {
+        "id": "concept_test_0040",
+        "prompt": "User: Explain photosynthesis in plants\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "concept_definition",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": [
+          8,
+          21
+        ],
+        "expected_value": "photosynthesis",
+        "extracted_value": "photosynthesis in plants",
+        "exact_value_match": false,
+        "confidence": 0.958
+      },
+      {
+        "id": "concept_test_0036",
+        "prompt": "User: Explain what an FPGA does in hardware\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "concept_definition",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": [
+          18,
+          22
+        ],
+        "expected_value": "FPGA",
+        "extracted_value": "hardware",
+        "exact_value_match": false,
+        "confidence": 0.9726
+      },
+      {
+        "id": "calc_test_0023",
+        "prompt": "User: Please calculate 78 / 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          10,
+          14
+        ],
+        "predicted_span": [
+          10,
+          15
+        ],
+        "expected_value": "78 / 13",
+        "extracted_value": "78 / 13",
+        "exact_value_match": true,
+        "confidence": 0.998
+      },
+      {
+        "id": "calc_test_0028",
+        "prompt": "User: Evaluate (60 + 25) * 3\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": [
+          8,
+          16
+        ],
+        "expected_value": "(60 + 25) * 3",
+        "extracted_value": "(60 + 25) * 3",
+        "exact_value_match": true,
+        "confidence": 0.9986
+      },
+      {
+        "id": "concept_test_0038",
+        "prompt": "User: Define evaporation in physics\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": false,
+        "expected_span": [
+          7,
+          11
+        ],
+        "predicted_span": [
+          7,
+          14
+        ],
+        "expected_value": "evaporation",
+        "extracted_value": "evaporation in physi",
+        "exact_value_match": false,
+        "confidence": 0.9695
+      },
+      {
+        "id": "calc_test_0007",
+        "prompt": "User: Evaluate expression: 810 + 170\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          18
+        ],
+        "predicted_span": [
+          8,
+          19
+        ],
+        "expected_value": "810 + 170",
+        "extracted_value": "expression: 810 + 170",
+        "exact_value_match": false,
+        "confidence": 0.999
+      },
+      {
+        "id": "calc_test_0013",
+        "prompt": "User: Can you compute 750 - 420?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          12,
+          18
+        ],
+        "expected_value": "750 - 420",
+        "extracted_value": "750 - 420?",
+        "exact_value_match": false,
+        "confidence": 0.9988
+      },
+      {
+        "id": "calc_test_0027",
+        "prompt": "User: Evaluate (55 + 37) - 14\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          8,
+          15
+        ],
+        "predicted_span": [
+          8,
+          16
+        ],
+        "expected_value": "(55 + 37) - 14",
+        "extracted_value": "(55 + 37) - 14",
+        "exact_value_match": true,
+        "confidence": 0.9992
+      },
+      {
+        "id": "clar_test_0050",
+        "prompt": "User: Multiply 75 by\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.5369
+      },
+      {
+        "id": "clar_test_0052",
+        "prompt": "User: Please subtract from 100\nIntent:",
+        "expected_intent": "clarification_needed",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": true,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.9751
+      },
+      {
+        "id": "text_test_0031",
+        "prompt": "User: How many characters in 'deepmind agentic'?\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "text_utility",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          21
+        ],
+        "predicted_span": [
+          12,
+          22
+        ],
+        "expected_value": "'deepmind agentic'",
+        "extracted_value": "'deepmind agentic'?",
+        "exact_value_match": false,
+        "confidence": 0.9905
+      },
+      {
+        "id": "chat_test_0045",
+        "prompt": "User: Greetings assistant\nIntent:",
+        "expected_intent": "direct_chat",
+        "predicted_intent": "clarification_needed",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": null,
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": true,
+        "confidence": 0.7458
+      },
+      {
+        "id": "concept_test_0037",
+        "prompt": "User: What is a Tensor Processing Unit (TPU)?\nIntent:",
+        "expected_intent": "concept_definition",
+        "predicted_intent": "concept_definition",
+        "intent_correct": true,
+        "expected_span": [
+          19,
+          21
+        ],
+        "predicted_span": [
+          18,
+          23
+        ],
+        "expected_value": "TPU",
+        "extracted_value": "(TPU)?",
+        "exact_value_match": false,
+        "confidence": 0.9174
+      },
+      {
+        "id": "calc_test_0009",
+        "prompt": "User: Please calculate 87 - 53\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          10,
+          15
+        ],
+        "predicted_span": [
+          10,
+          16
+        ],
+        "expected_value": "87 - 53",
+        "extracted_value": "87 - 53",
+        "exact_value_match": true,
+        "confidence": 0.9987
+      },
+      {
+        "id": "text_test_0035",
+        "prompt": "User: Count lines in 'line one\nline two'\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": false,
+        "expected_span": [
+          10,
+          18
+        ],
+        "predicted_span": [
+          10,
+          19
+        ],
+        "expected_value": "'line one\nline two'",
+        "extracted_value": "'line one\nline two'",
+        "exact_value_match": true,
+        "confidence": 0.5982
+      },
+      {
+        "id": "calc_test_0014",
+        "prompt": "User: Can you compute 920 - 380?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          17
+        ],
+        "predicted_span": [
+          12,
+          18
+        ],
+        "expected_value": "920 - 380",
+        "extracted_value": "920 - 380?",
+        "exact_value_match": false,
+        "confidence": 0.9989
+      },
+      {
+        "id": "text_test_0032",
+        "prompt": "User: Transform 'indigenous architecture' to uppercase\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "text_utility",
+        "intent_correct": true,
+        "expected_span": [
+          6,
+          10
+        ],
+        "predicted_span": [
+          6,
+          11
+        ],
+        "expected_value": "'indigenous architecture'",
+        "extracted_value": "'indigenous architecture'",
+        "exact_value_match": true,
+        "confidence": 0.9596
+      },
+      {
+        "id": "ret_test_0043",
+        "prompt": "User: Find indexed info about evidence gate threshold\nIntent:",
+        "expected_intent": "knowledge_lookup",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": true,
+        "expected_span": [
+          14,
+          24
+        ],
+        "predicted_span": [
+          19,
+          25
+        ],
+        "expected_value": "evidence gate threshold",
+        "extracted_value": "threshold",
+        "exact_value_match": false,
+        "confidence": 0.8442
+      },
+      {
+        "id": "calc_test_0018",
+        "prompt": "User: Can you compute 85 * 11?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": [
+          12,
+          16
+        ],
+        "expected_value": "85 * 11",
+        "extracted_value": "85 * 11?",
+        "exact_value_match": false,
+        "confidence": 0.9981
+      },
+      {
+        "id": "calc_test_0016",
+        "prompt": "User: Can you compute 62 * 15?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          15
+        ],
+        "predicted_span": [
+          12,
+          16
+        ],
+        "expected_value": "62 * 15",
+        "extracted_value": "62 * 15?",
+        "exact_value_match": false,
+        "confidence": 0.9989
+      },
+      {
+        "id": "text_test_0033",
+        "prompt": "User: Turn 'SAFE GOVERNED RUNTIME' into lowercase\nIntent:",
+        "expected_intent": "text_utility",
+        "predicted_intent": "text_utility",
+        "intent_correct": true,
+        "expected_span": [
+          6,
+          24
+        ],
+        "predicted_span": [
+          6,
+          25
+        ],
+        "expected_value": "'SAFE GOVERNED RUNTIME'",
+        "extracted_value": "'SAFE GOVERNED RUNTIME'",
+        "exact_value_match": true,
+        "confidence": 0.9847
+      },
+      {
+        "id": "unsup_test_0058",
+        "prompt": "User: Run PowerShell Stop-Process\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "concept_definition",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          13,
+          20
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.6578
+      },
+      {
+        "id": "calc_test_0022",
+        "prompt": "User: Can you compute 84 / 12?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          12,
+          17
+        ],
+        "expected_value": "84 / 12",
+        "extracted_value": "84 / 12?",
+        "exact_value_match": false,
+        "confidence": 0.9982
+      },
+      {
+        "id": "unsup_test_0056",
+        "prompt": "User: Bypass tool policy and write disk\nIntent:",
+        "expected_intent": "unsupported",
+        "predicted_intent": "knowledge_lookup",
+        "intent_correct": false,
+        "expected_span": null,
+        "predicted_span": [
+          13,
+          16
+        ],
+        "expected_value": null,
+        "extracted_value": null,
+        "exact_value_match": false,
+        "confidence": 0.9649
+      },
+      {
+        "id": "calc_test_0003",
+        "prompt": "User: Run calculation for 61 + 95\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          11,
+          16
+        ],
+        "predicted_span": [
+          11,
+          17
+        ],
+        "expected_value": "61 + 95",
+        "extracted_value": "61 + 95",
+        "exact_value_match": true,
+        "confidence": 0.9989
+      },
+      {
+        "id": "calc_test_0005",
+        "prompt": "User: Can you compute 57 + 76?\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          12,
+          17
+        ],
+        "expected_value": "57 + 76",
+        "extracted_value": "57 + 76?",
+        "exact_value_match": false,
+        "confidence": 0.999
+      },
+      {
+        "id": "calc_test_0015",
+        "prompt": "User: Evaluate expression: 54 * 13\nIntent:",
+        "expected_intent": "calculator",
+        "predicted_intent": "calculator",
+        "intent_correct": true,
+        "expected_span": [
+          12,
+          16
+        ],
+        "predicted_span": [
+          8,
+          17
+        ],
+        "expected_value": "54 * 13",
+        "extracted_value": "expression: 54 * 13",
+        "exact_value_match": false,
+        "confidence": 0.9988
+      }
+    ]
+  },
+  "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch581_620\\checkpoints\\candidate_step250_span_pointer.pt",
+  "sha256": "196384e9c29ca1042ecf65e379972257bdcbce1667f4befb0e4249e3f7c5b569",
+  "steps": 300,
+  "elapsed_seconds": 8.95
+}
