@@ -1,0 +1,43 @@
+{
+  "milestone": "Batches 701-740 Decision Provenance Audit",
+  "audit_timestamp": "2026-10-15T14:16:00",
+  "decision_points": [
+    {
+      "decision": "Goal & Subtask Extraction",
+      "mechanism": "Regex pattern matching in HierarchicalDialoguePlanner.plan_user_goal",
+      "classification": "deterministic_rule",
+      "neural_contribution": "0.0%"
+    },
+    {
+      "decision": "Dependency Graph Edge Binding",
+      "mechanism": "Hardcoded DAG link definitions (e.g. dependencies=['st_01'])",
+      "classification": "deterministic_rule",
+      "neural_contribution": "0.0%"
+    },
+    {
+      "decision": "Dynamic Intermediate Binding",
+      "mechanism": "String interpolation in topological evaluator",
+      "classification": "deterministic_rule",
+      "neural_contribution": "0.0%"
+    },
+    {
+      "decision": "Calculation Execution",
+      "mechanism": "CalculatorTool (Python AST eval)",
+      "classification": "external_tool_result",
+      "neural_contribution": "0.0%"
+    },
+    {
+      "decision": "Text Transformation",
+      "mechanism": "TextUtilityTool (Python string methods)",
+      "classification": "external_tool_result",
+      "neural_contribution": "0.0%"
+    },
+    {
+      "decision": "Clarification on Missing Information",
+      "mechanism": "Regex guard checking missing percentage token",
+      "classification": "fallback_policy",
+      "neural_contribution": "0.0%"
+    }
+  ],
+  "mission_mandate": "The Batch 661-700 8/8 planning benchmark relies entirely on deterministic heuristics for graph creation. Batches 701-740 must evaluate whether ChakrMicro can learn neural subtask decomposition and dependency prediction directly."
+}
