@@ -1,0 +1,68 @@
+{
+  "milestone": "Batches 316-322: Dataset Integrity and Leakage Audit",
+  "created_at": "2026-10-15",
+  "splits": {
+    "train": {
+      "count": 38,
+      "path": "experiments\\batch311_350_neural_generalization\\data\\generalization_train.jsonl",
+      "sha256": "5a3d8fc1fa2713dd3976c68f1a4afc20292700bd6e45c2cc80781957b65d26c1"
+    },
+    "val": {
+      "count": 10,
+      "path": "experiments\\batch311_350_neural_generalization\\data\\generalization_val.jsonl",
+      "sha256": "20b9133c30d5402b40fa8eaa379e8e410f79af214f8c2799e01cf303bfb48b6d"
+    },
+    "held_out_unseen_entities": {
+      "count": 20,
+      "path": "experiments\\batch311_350_neural_generalization\\data\\heldout_unseen_entities.jsonl",
+      "sha256": "45cc31713ef6983ab3b4e0111fb396ad333c975e47b021edcf9862c6146c4081"
+    },
+    "held_out_unseen_templates": {
+      "count": 6,
+      "path": "experiments\\batch311_350_neural_generalization\\data\\heldout_unseen_templates.jsonl",
+      "sha256": "79f2e87e667252cf082e4485491e0aa93bb8357425cf0553fe4a4e37acd058fd"
+    }
+  },
+  "leakage_audits": {
+    "held_out_unseen_entities": {
+      "total_test_items": 20,
+      "exact_query_leakage": 0,
+      "exact_answer_leakage": 2,
+      "leakage_rate": 0.05,
+      "details": [
+        {
+          "id": "test_unseen_ent_016",
+          "query": "Context: city is Kyoto. country is Japan.\nQuestion: What is currency?",
+          "query_leaked": false,
+          "answer_leaked": true
+        },
+        {
+          "id": "test_unseen_ent_017",
+          "query": "Context: animal is cheetah. biome is savannah.\nQuestion: What is ocean?",
+          "query_leaked": false,
+          "answer_leaked": true
+        }
+      ]
+    },
+    "held_out_unseen_templates": {
+      "total_test_items": 6,
+      "exact_query_leakage": 0,
+      "exact_answer_leakage": 2,
+      "leakage_rate": 0.1667,
+      "details": [
+        {
+          "id": "test_unseen_tmpl_002",
+          "query": "Calculate the product when 15 is multiplied with 8.",
+          "query_leaked": false,
+          "answer_leaked": true
+        },
+        {
+          "id": "test_unseen_tmpl_003",
+          "query": "Compute the sum of 45 and 55, then subtract 20.",
+          "query_leaked": false,
+          "answer_leaked": true
+        }
+      ]
+    }
+  }
+}

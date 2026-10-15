@@ -1,0 +1,417 @@
+{
+  "milestone": "Batches 323-330: Controlled Neural Training & Generalization Comparison",
+  "timestamp": "2026-10-15T10:26:24Z",
+  "canonical_baseline": {
+    "checkpoint": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "val_loss": {
+      "loss": 8.5618,
+      "perplexity": 5228.32,
+      "active_tokens": 432
+    },
+    "unseen_entities_loss": {
+      "loss": 8.0865,
+      "perplexity": 3250.38,
+      "active_tokens": 658
+    },
+    "unseen_templates_loss": {
+      "loss": 8.3576,
+      "perplexity": 4262.4,
+      "active_tokens": 202
+    },
+    "generation_unseen_entities": {
+      "total": 20,
+      "exact_matches": 0,
+      "exact_match_rate": 0.0,
+      "clean_terminations": 0,
+      "clean_termination_rate": 0.0,
+      "samples": [
+        {
+          "id": "test_unseen_ent_000",
+          "query": "Explain Neuromorphic Computing in simple words.",
+          "expected": "Neuromorphic Computing refers to computer engineering architectures physically modeled after biological neural networks and synapses.",
+          "generated": "|-\n|200\n|-\n|200\n|-\n|2005\n|-\n|2005\n|2007",
+          "exact_match": false,
+          "clean_termination": false
+        },
+        {
+          "id": "test_unseen_ent_001",
+          "query": "Explain Memristor in simple words.",
+          "expected": "A memristor is a non-volatile electronic memory component that regulates the flow of electrical current in a circuit and remembers the amount of charge that previously flowed through it.",
+          "generated": "|-\n|200/200||Premier League||\n|-\n|2005/01|||Premi",
+          "exact_match": false,
+          "clean_termination": false
+        },
+        {
+          "id": "test_unseen_ent_002",
+          "query": "Explain Superconducting Qubit in simple words.",
+          "expected": "A superconducting qubit is a physical quantum computing component based on Josephson junctions operating at cryogenic temperatures.",
+          "generated": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot",
+          "exact_match": false,
+          "clean_termination": false
+        },
+        {
+          "id": "test_unseen_ent_003",
+          "query": "Explain High Bandwidth Memory in simple words.",
+          "expected": "High Bandwidth Memory (HBM) is a high-speed computer memory interface using stacked DRAM dies connected through silicon interposers.",
+          "generated": "|-\n| scope=&quot;row&quot; | \n|-\n| scope=&quot",
+          "exact_match": false,
+          "clean_termination": false
+        },
+        {
+          "id": "test_unseen_ent_004",
+          "query": "What is the square of 16?",
+          "expected": "The square of 16 is 256.",
+          "generated": "|-\n| scope=&quot;row&quot; | \n|-\n| style=&quot",
+          "exact_match": false,
+          "clean_termination": false
+        }
+      ]
+    },
+    "retention": [
+      {
+        "domain": "english",
+        "prompt": "The development of modern science began with",
+        "continuation": "in the world of the world. \n\nThe remaining the word of the world of the world of the",
+        "repetition_3gram": 0.4
+      },
+      {
+        "domain": "code",
+        "prompt": "def binary_search(arr, target):",
+        "continuation": "\"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if no",
+        "repetition_3gram": 0.2333
+      },
+      {
+        "domain": "hindi",
+        "prompt": "भारत एक विशाल और विविधतापूर्ण",
+        "continuation": "राज्य का अपनी महाराष्ट्रीय क्षेत्र के बाद दोनों में माना जाता है।\n\nइ",
+        "repetition_3gram": 0.0
+      }
+    ]
+  },
+  "candidates": {
+    "candidate_step70": {
+      "checkpoint": "experiments\\batch311_350_neural_generalization\\checkpoints\\candidate_step70.pt",
+      "sha256": "e52d10c643203e3b243747449dd125fe431d72fd0554c143b3bda8240798b89e",
+      "steps": 70,
+      "train_meta": {
+        "steps": 70,
+        "warmup_steps": 15,
+        "initial_loss": 9.1557,
+        "final_loss": 3.0839,
+        "train_time_sec": 2.36,
+        "loss_history_sampled": [
+          9.1557,
+          8.2749,
+          6.1886,
+          3.5203,
+          3.7323,
+          3.1779,
+          3.001,
+          4.9199,
+          2.4035,
+          2.6879
+        ]
+      },
+      "val_loss": {
+        "loss": 5.3643,
+        "perplexity": 213.63,
+        "active_tokens": 432
+      },
+      "unseen_entities_loss": {
+        "loss": 4.691,
+        "perplexity": 108.96,
+        "active_tokens": 658
+      },
+      "unseen_templates_loss": {
+        "loss": 4.8308,
+        "perplexity": 125.32,
+        "active_tokens": 202
+      },
+      "generation_unseen_entities": {
+        "total": 20,
+        "exact_matches": 0,
+        "exact_match_rate": 0.0,
+        "clean_terminations": 20,
+        "clean_termination_rate": 1.0,
+        "samples": [
+          {
+            "id": "test_unseen_ent_000",
+            "query": "Explain Neuromorphic Computing in simple words.",
+            "expected": "Neuromorphic Computing refers to computer engineering architectures physically modeled after biological neural networks and synapses.",
+            "generated": "is a ioof ivis <imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_001",
+            "query": "Explain Memristor in simple words.",
+            "expected": "A memristor is a non-volatile electronic memory component that regulates the flow of electrical current in a circuit and remembers the amount of charge that previously flowed through it.",
+            "generated": "l>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_002",
+            "query": "Explain Superconducting Qubit in simple words.",
+            "expected": "A superconducting qubit is a physical quantum computing component based on Josephson junctions operating at cryogenic temperatures.",
+            "generated": "l>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_003",
+            "query": "Explain High Bandwidth Memory in simple words.",
+            "expected": "High Bandwidth Memory (HBM) is a high-speed computer memory interface using stacked DRAM dies connected through silicon interposers.",
+            "generated": "l>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_004",
+            "query": "What is the square of 16?",
+            "expected": "The square of 16 is 256.",
+            "generated": "is 4<imen|\n <imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          }
+        ]
+      },
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": "in the real real real green. The real number of the real number of a real real gre",
+          "repetition_3gram": 0.3333
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "\"\"\"\n    if not _d>> dd>\n    imen_d>",
+          "repetition_3gram": 0.05
+        },
+        {
+          "domain": "hindi",
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "continuation": "िका �वित्या �विद्यालय एवं �मतः अस्ति ।\n\nइन्ह्",
+          "repetition_3gram": 0.0
+        }
+      ]
+    },
+    "candidate_step150": {
+      "checkpoint": "experiments\\batch311_350_neural_generalization\\checkpoints\\candidate_step150.pt",
+      "sha256": "b6725ce7a4095fe0c551e0b236256d18b55ebd055a865e2f5150e73036384759",
+      "steps": 150,
+      "train_meta": {
+        "steps": 150,
+        "warmup_steps": 25,
+        "initial_loss": 9.1557,
+        "final_loss": 1.2274,
+        "train_time_sec": 5.15,
+        "loss_history_sampled": [
+          9.1557,
+          7.4454,
+          4.3155,
+          5.6726,
+          3.9112,
+          4.5174,
+          3.2259,
+          2.578,
+          3.5427,
+          1.3254
+        ]
+      },
+      "val_loss": {
+        "loss": 5.1739,
+        "perplexity": 176.61,
+        "active_tokens": 432
+      },
+      "unseen_entities_loss": {
+        "loss": 4.4785,
+        "perplexity": 88.1,
+        "active_tokens": 658
+      },
+      "unseen_templates_loss": {
+        "loss": 4.414,
+        "perplexity": 82.6,
+        "active_tokens": 202
+      },
+      "generation_unseen_entities": {
+        "total": 20,
+        "exact_matches": 0,
+        "exact_match_rate": 0.0,
+        "clean_terminations": 17,
+        "clean_termination_rate": 0.85,
+        "samples": [
+          {
+            "id": "test_unseen_ent_000",
+            "query": "Explain Neuromorphic Computing in simple words.",
+            "expected": "Neuromorphic Computing refers to computer engineering architectures physically modeled after biological neural networks and synapses.",
+            "generated": "a ie is 0<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_001",
+            "query": "Explain Memristor in simple words.",
+            "expected": "A memristor is a non-volatile electronic memory component that regulates the flow of electrical current in a circuit and remembers the amount of charge that previously flowed through it.",
+            "generated": "Fist ina a a deed the ioof is 0<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_002",
+            "query": "Explain Superconducting Qubit in simple words.",
+            "expected": "A superconducting qubit is a physical quantum computing component based on Josephson junctions operating at cryogenic temperatures.",
+            "generated": "Fist of io<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_003",
+            "query": "Explain High Bandwidth Memory in simple words.",
+            "expected": "High Bandwidth Memory (HBM) is a high-speed computer memory interface using stacked DRAM dies connected through silicon interposers.",
+            "generated": "a ie is 0<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_004",
+            "query": "What is the square of 16?",
+            "expected": "The square of 16 is 256.",
+            "generated": "a is 0<imensided 4>",
+            "exact_match": false,
+            "clean_termination": true
+          }
+        ]
+      },
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": "in the worof is ioin the worona is ie to may be ie to make the cron is ie to",
+          "repetition_3gram": 0.1667
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "\"\"\"\n    >>> queue.leftmod()",
+          "repetition_3gram": 0.0
+        },
+        {
+          "domain": "hindi",
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "continuation": "ं कर �न्टनर और �हलt; दिया �ा।\n\nइन्हें �-पथा �िस्टर के �",
+          "repetition_3gram": 0.0
+        }
+      ]
+    },
+    "candidate_step300": {
+      "checkpoint": "experiments\\batch311_350_neural_generalization\\checkpoints\\candidate_step300.pt",
+      "sha256": "a3828b8c4686e9bc77169f4e3de11c41505f720410e974ffeb7a05fb0467c431",
+      "steps": 300,
+      "train_meta": {
+        "steps": 300,
+        "warmup_steps": 30,
+        "initial_loss": 9.1557,
+        "final_loss": 1.2247,
+        "train_time_sec": 10.85,
+        "loss_history_sampled": [
+          9.1557,
+          4.4555,
+          3.9593,
+          3.2178,
+          3.2624,
+          1.2687,
+          0.838,
+          1.8477,
+          0.3648,
+          0.5728
+        ]
+      },
+      "val_loss": {
+        "loss": 5.3521,
+        "perplexity": 211.05,
+        "active_tokens": 432
+      },
+      "unseen_entities_loss": {
+        "loss": 4.5758,
+        "perplexity": 97.1,
+        "active_tokens": 658
+      },
+      "unseen_templates_loss": {
+        "loss": 4.2276,
+        "perplexity": 68.55,
+        "active_tokens": 202
+      },
+      "generation_unseen_entities": {
+        "total": 20,
+        "exact_matches": 0,
+        "exact_match_rate": 0.0,
+        "clean_terminations": 16,
+        "clean_termination_rate": 0.8,
+        "samples": [
+          {
+            "id": "test_unseen_ent_000",
+            "query": "Explain Neuromorphic Computing in simple words.",
+            "expected": "Neuromorphic Computing refers to computer engineering architectures physically modeled after biological neural networks and synapses.",
+            "generated": "Fid pen Lt ened the oogggggggw<imen|\nrased tkis  pus  is 0<",
+            "exact_match": false,
+            "clean_termination": false
+          },
+          {
+            "id": "test_unseen_ent_001",
+            "query": "Explain Memristor in simple words.",
+            "expected": "A memristor is a non-volatile electronic memory component that regulates the flow of electrical current in a circuit and remembers the amount of charge that previously flowed through it.",
+            "generated": "Fid pen the b.|\n|-alikia |\nFid ale tion: Quikiis x.|_drst recent l",
+            "exact_match": false,
+            "clean_termination": false
+          },
+          {
+            "id": "test_unseen_ent_002",
+            "query": "Explain Superconducting Qubit in simple words.",
+            "expected": "A superconducting qubit is a physical quantum computing component based on Josephson junctions operating at cryogenic temperatures.",
+            "generated": "Fid pen Lt ened the processor uitof is 0<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_003",
+            "query": "Explain High Bandwidth Memory in simple words.",
+            "expected": "High Bandwidth Memory (HBM) is a high-speed computer memory interface using stacked DRAM dies connected through silicon interposers.",
+            "generated": "Fid pe<imen|\nn riend makes a aneris 0<imen|_d>",
+            "exact_match": false,
+            "clean_termination": true
+          },
+          {
+            "id": "test_unseen_ent_004",
+            "query": "What is the square of 16?",
+            "expected": "The square of 16 is 256.",
+            "generated": "scope<imen|\n\n_d>",
+            "exact_match": false,
+            "clean_termination": true
+          }
+        ]
+      },
+      "retention": [
+        {
+          "domain": "english",
+          "prompt": "The development of modern science began with",
+          "continuation": "in the land is imenside in the worof canis deed by the worof c.|\nAziggg",
+          "repetition_3gram": 0.0667
+        },
+        {
+          "domain": "code",
+          "prompt": "def binary_search(arr, target):",
+          "continuation": "\"\"\"\n    >>> queue.leftmod()",
+          "repetition_3gram": 0.0
+        },
+        {
+          "domain": "hindi",
+          "prompt": "भारत एक विशाल और विविधतापूर्ण",
+          "continuation": "ीते � सत्रत सत्रत सत्रत सत्रिता �नाने का �मत �िल्र�",
+          "repetition_3gram": 0.25
+        }
+      ]
+    }
+  }
+}
