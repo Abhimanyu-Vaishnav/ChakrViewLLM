@@ -1,0 +1,62 @@
+{
+  "total": 5,
+  "passed": 5,
+  "accuracy": 100.0,
+  "results": [
+    {
+      "id": "e2e_001",
+      "query": "What is the capital city on Mars?",
+      "expected_origin": "fallback_policy",
+      "actual_origin": "fallback_policy",
+      "answer": "Mars is an uninhabited celestial body without human governments or municipal capitals.",
+      "is_supported": false,
+      "support_explanation": "False premise rejected: Physical astronomy models establish that Mars lacks municipal capitals.",
+      "latency_ms": 6.218800001079217,
+      "passed": true
+    },
+    {
+      "id": "e2e_002",
+      "query": "Calculate dividing 100 by 0.",
+      "expected_origin": "calculator_tool",
+      "actual_origin": "calculator_tool",
+      "answer": "Division by zero is mathematically undefined.",
+      "is_supported": false,
+      "support_explanation": "Mathematical domain error: Division by zero rejected.",
+      "latency_ms": 0.3792000061366707,
+      "passed": true
+    },
+    {
+      "id": "e2e_003",
+      "query": "Calculate 14 plus 28.",
+      "expected_origin": "calculator_tool",
+      "actual_origin": "calculator_tool",
+      "answer": "42",
+      "is_supported": true,
+      "support_explanation": "Computed deterministically via CalculatorTool: 14 + 28 = 42",
+      "latency_ms": 0.2463000128045678,
+      "passed": true
+    },
+    {
+      "id": "e2e_004",
+      "query": "What is an ALU?",
+      "expected_origin": "system_knowledge",
+      "actual_origin": "system_knowledge",
+      "answer": "An ALU (Arithmetic Logic Unit) is a fundamental component of the central processing unit (CPU) that performs arithmetic operations (such as addition and subtraction) and logical bitwise operations (such as AND, OR, and NOT).",
+      "is_supported": true,
+      "support_explanation": "Derived from verified core system knowledge definition for 'alu'",
+      "latency_ms": 0.12700000661425292,
+      "passed": true
+    },
+    {
+      "id": "e2e_005",
+      "query": "My name is Rajesh.",
+      "expected_origin": "session_memory",
+      "actual_origin": "session_memory",
+      "answer": "Hello Rajesh! I have remembered your name.",
+      "is_supported": true,
+      "support_explanation": "Saved user attribute 'user_name'='Rajesh' in persistent session memory",
+      "latency_ms": 0.03359999391250312,
+      "passed": true
+    }
+  ]
+}

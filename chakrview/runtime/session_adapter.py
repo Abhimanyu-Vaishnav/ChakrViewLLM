@@ -32,6 +32,7 @@ from chakrview.runtime.constrained_decoder import TokenTrie, decode_pointer_cons
 from chakrview.runtime.evidence_extractor import EvidenceExtractor, ExtractionResult
 from chakrview.runtime.persistent_memory import PersistentSessionMemory, PersistentTurn
 from chakrview.runtime.pointer_mechanism import ChakrPointerHead, decode_pointer_greedy
+from chakrview.runtime.evidence_gate import EvidenceGovernedAnsweringGate, GateDecision
 from chakrview.runtime.retrieval_adapter import RetrievalAdapter, RetrievedEvidence
 from chakrview.runtime.tools import CalculatorTool
 
@@ -39,7 +40,7 @@ from chakrview.runtime.tools import CalculatorTool
 class GroundedSessionAdapter:
     """
     Two-Tier Cognitive Session Adapter orchestrating neural generation,
-    retrieval, deterministic slot extraction, and multi-turn persistence.
+    retrieval, deterministic slot extraction, evidence governance, and multi-turn persistence.
     """
 
     def __init__(
@@ -51,6 +52,7 @@ class GroundedSessionAdapter:
         pointer_head: Optional[Any] = None,
         enable_constrained_decoding: bool = True,
         default_system_prompt: str = "You are ChakrView, a helpful indigenous AI assistant.",
+        evidence_gate: Optional[EvidenceGovernedAnsweringGate] = None,
     ) -> None:
         self.inference_engine = inference_engine
         self.retrieval_adapter = retrieval_adapter or RetrievalAdapter()
@@ -59,6 +61,7 @@ class GroundedSessionAdapter:
         self.pointer_head = pointer_head
         self.enable_constrained_decoding = enable_constrained_decoding
         self.default_system_prompt = default_system_prompt
+        self.evidence_gate = evidence_gate or EvidenceGovernedAnsweringGate(router=self.router)
 
     def execute_turn(
         self,
@@ -77,6 +80,34 @@ class GroundedSessionAdapter:
             supplied_context=supplied_context,
             has_knowledge_index=has_knowledge,
         )
+
+        # 1.2 Evidence Gate Pre-Flight Interception
+        # Intercepts false premises (REFUTE), mathematical errors, or indexed doc verification
+        gate_res = self.evidence_gate.process_query(clean_input)
+        if gate_res.decision == GateDecision.REFUTE:
+            resp = GroundedResponse(
+                query=clean_input,
+                answer=gate_res.content,
+                route_decision=route_decision,
+                component_origin=gate_res.origin,
+                is_supported=False,
+                support_explanation=gate_res.reasoning,
+                latency_ms=(time.perf_counter() - t0) * 1000,
+            )
+            self._record_history(session_id, clean_input, resp.answer, resp.component_origin)
+            return resp
+        elif gate_res.decision == GateDecision.TOOL_DELEGATE and route_decision.route == RouteType.CALCULATOR_TOOL:
+            resp = GroundedResponse(
+                query=clean_input,
+                answer=gate_res.content,
+                route_decision=route_decision,
+                component_origin=gate_res.origin,
+                is_supported=True,
+                support_explanation=gate_res.reasoning,
+                latency_ms=(time.perf_counter() - t0) * 1000,
+            )
+            self._record_history(session_id, clean_input, resp.answer, resp.component_origin)
+            return resp
 
         # 1.5 Handle Specialized Non-Retrieval Deterministic/Tool Routes
         if route_decision.route == RouteType.CALCULATOR_TOOL:
