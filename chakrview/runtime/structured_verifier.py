@@ -153,43 +153,61 @@ class StructuredVerifier:
 
         # Lines or bullet points in chunk text
         lines = [line.strip() for line in chunk_text.splitlines() if line.strip()]
+        
+        # Exact symbol match (e.g. 'b', 'k1', 'tls')
+        is_symbol = len(attribute.strip()) <= 3 or attribute.strip().lower() in ("b parameter", "k1 parameter", "tls")
+        
         for line in lines:
             line_lower = line.lower()
-            # Attribute words (keywords like 'k1', 'b', 'price', 'port', 'diameter', 'heartbeat', 'retention')
-            a_words = [w for w in re.findall(r"\b[a-zA-Z0-9_\.-]+\b", a_lower) if len(w) >= 1]
-            # Must match at least 60% of attribute words or a specific identifier like 'k1', 'b'
-            matched_words = [w for w in a_words if w in line_lower]
-            if len(matched_words) >= max(1, int(len(a_words) * 0.5)):
-                # If entity is also in this line or nearby, prioritize it
-                # Extract value following colon or dash
-                # Patterns:
-                # - "parameter k1: 1.5."
-                # - "Starter Tier: $150 per month, includes up to 2 concurrent worker processes."
-                # - "TCP port 8443."
-                # - "diameter: 16 distributed participant nodes."
-                
-                # Check for "Attribute: Value"
-                if ":" in line:
-                    parts = line.split(":", 1)
-                    prefix = parts[0].strip()
-                    suffix = parts[1].strip()
+            
+            # 1. Check for Exact Symbol Attributes (e.g. 'b parameter' or 'k1 parameter')
+            if "b parameter" in a_lower or a_lower == "b":
+                m_b = re.search(r"\bparameter\s+b:\s*([0-9.]+)", line, re.I)
+                if not m_b:
+                    m_b = re.search(r"\bb:\s*([0-9.]+)", line, re.I)
+                if m_b:
+                    return m_b.group(1).strip(), line
 
-                    # Avoid treating markdown headers like "# BM25 Lexical Knowledge Index" as attribute lines
-                    if prefix.startswith("#"):
-                        continue
+            if "k1 parameter" in a_lower or a_lower == "k1":
+                m_k1 = re.search(r"\bparameter\s+k1:\s*([0-9.]+)", line, re.I)
+                if not m_k1:
+                    m_k1 = re.search(r"\bk1:\s*([0-9.]+)", line, re.I)
+                if m_k1:
+                    return m_k1.group(1).strip(), line
 
+            # 2. Check for TLS attribute
+            if a_lower == "tls":
+                m_tls = re.search(r"\b(tls\s+[0-9.]+)\b", line, re.I)
+                if m_tls:
+                    return m_tls.group(1).strip(), line
+
+            # 3. Check for specific Tier Headers (e.g. 'Professional Tier', 'Starter Tier')
+            if ":" in line:
+                parts = line.split(":", 1)
+                prefix = parts[0].strip().lstrip("-* ").strip()
+                suffix = parts[1].strip()
+
+                if not prefix.startswith("#"):
                     prefix_lower = prefix.lower()
-                    # Check if attribute keywords match prefix closely
-                    if all(w in prefix_lower for w in a_words) or (len(a_words) > 1 and sum(1 for w in a_words if w in prefix_lower) >= 2):
-                        # Extract first number/currency/unit from suffix
+                    # Check if attribute or entity matches prefix
+                    if a_lower in prefix_lower or prefix_lower in a_lower:
                         m_val = re.search(r"([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", suffix)
                         if m_val:
                             return m_val.group(1).strip(), line
 
-                # Check if attribute is in line and followed by colon or value
-                m_after = re.search(rf"(?:{'|'.join(re.escape(w) for w in a_words)}).*?[:=-]\s*([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", line, re.I)
-                if m_after:
-                    return m_after.group(1).strip(), line
+            # 4. Check for prepositional pattern e.g. "timeout of 60 seconds"
+            # Never run general preposition matching for single-letter or symbol attributes like 'b parameter'
+            if not is_symbol and not line.startswith("#"):
+                a_words = [w for w in re.findall(r"\b[a-zA-Z0-9_\.-]+\b", a_lower) if len(w) >= 2]
+                if a_words and all(w in line_lower for w in a_words):
+                    m_prep = re.search(rf"(?:{'|'.join(re.escape(w) for w in a_words)}).*?\b(?:of|is|at|to)\s*([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", line, re.I)
+                    if m_prep:
+                        return m_prep.group(1).strip(), line
+                    
+                    # Check after colon or dash
+                    m_after = re.search(rf"(?:{'|'.join(re.escape(w) for w in a_words)}).*?[:=-]\s*([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", line, re.I)
+                    if m_after:
+                        return m_after.group(1).strip(), line
 
         return None
 

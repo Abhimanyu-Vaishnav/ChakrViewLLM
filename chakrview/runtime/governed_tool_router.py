@@ -28,6 +28,11 @@ from chakrview.runtime.conversation_state import (
     ToolResultType,
     ReferenceResolutionResult,
 )
+from chakrview.runtime.oci_container_backend import (
+    OciContainerBackend,
+    ContainerExecutionRequest,
+    ContainerExecutionStatus,
+)
 
 
 class CanonicalRoute(str, Enum):
@@ -35,6 +40,7 @@ class CanonicalRoute(str, Enum):
     CALCULATOR = "CALCULATOR"
     KNOWLEDGE_RETRIEVAL = "KNOWLEDGE_RETRIEVAL"
     STRUCTURED_VERIFICATION = "STRUCTURED_VERIFICATION"
+    CONTAINER_EXECUTION = "CONTAINER_EXECUTION"
     ABSTAIN = "ABSTAIN"
     ERROR = "ERROR"
 
@@ -73,11 +79,13 @@ class GovernedToolRouter:
         verifier: Optional[StructuredVerifier] = None,
         knowledge_assistant: Optional[Any] = None,
         state_manager: Optional[ConversationStateManager] = None,
+        container_backend: Optional[OciContainerBackend] = None,
     ) -> None:
         self.calculator = calculator or SafeCalculator()
         self.verifier = verifier or StructuredVerifier()
         self.assistant = knowledge_assistant
         self.state_manager = state_manager or ConversationStateManager()
+        self.container_backend = container_backend or OciContainerBackend()
 
     @staticmethod
     def extract_arithmetic_expression(query: str) -> Optional[str]:
@@ -150,7 +158,7 @@ class GovernedToolRouter:
         """
         q = query.strip()
         # Look for verification cues
-        is_verify = bool(re.search(r"\b(verify|is it true|is the|check whether|does the|confirm)\b", q, re.I))
+        is_verify = bool(re.search(r"\b(verify|is it true|is the|check whether|check if|does the|confirm)\b", q, re.I))
         if not is_verify:
             return None
 
@@ -333,7 +341,53 @@ class GovernedToolRouter:
                 latency_ms=elapsed,
             )
 
-        # 4. Check for Out-of-Domain Unknowns / Honest Abstention
+        # 4. Check for Explicit Authorized Code Execution Requests
+        if re.search(r"\b(?:run|execute)\s+(?:python|code|script)\b", q_lower) or q_clean.startswith("```python"):
+            code_body = q_clean
+            m_code = re.search(r"```(?:python)?\s*([\s\S]*?)\s*```", q_clean)
+            if m_code:
+                code_body = m_code.group(1).strip()
+            else:
+                code_body = re.sub(r"^(?:run|execute)\s+(?:python|code|script)[:\s]*", "", q_clean, flags=re.I).strip()
+
+            req = ContainerExecutionRequest(
+                task_id=request_id,
+                code=code_body,
+            )
+            c_res = self.container_backend.execute(req)
+            elapsed = (time.perf_counter() - t0) * 1000.0
+
+            if c_res.status == ContainerExecutionStatus.SUCCESS:
+                return RoutingDecision(
+                    request_id=request_id,
+                    query=q_clean,
+                    route=CanonicalRoute.CONTAINER_EXECUTION,
+                    selection_reason="Authorized code executed in isolated OCI container.",
+                    validated_arguments={"task_id": request_id, "image": req.image},
+                    execution_status="SUCCESS",
+                    validation_status="VALIDATED",
+                    result_payload=c_res.stdout,
+                    component_origin="oci_container_backend",
+                    final_response=c_res.stdout,
+                    latency_ms=elapsed,
+                )
+            else:
+                return RoutingDecision(
+                    request_id=request_id,
+                    query=q_clean,
+                    route=CanonicalRoute.CONTAINER_EXECUTION,
+                    selection_reason=f"Container execution blocked or failed: {c_res.status.value}",
+                    validated_arguments={"task_id": request_id, "status": c_res.status.value},
+                    execution_status="FAILED",
+                    validation_status="REJECTED",
+                    result_payload=None,
+                    component_origin="oci_container_backend",
+                    abstention_reason=c_res.status.value,
+                    final_response=f"Container Execution Error ({c_res.status.value}): {c_res.error}",
+                    latency_ms=elapsed,
+                )
+
+        # 5. Check for Out-of-Domain Unknowns / Honest Abstention
         ood_topics = ["mars", "jupiter", "saturn", "moon", "sun", "speed of light", "atomic mass", "cherry orchard", "sydney opera"]
         if any(topic in q_lower for topic in ood_topics):
             elapsed = (time.perf_counter() - t0) * 1000.0
