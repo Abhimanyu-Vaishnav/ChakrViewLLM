@@ -1,0 +1,959 @@
+{
+  "manifest_version": "1.0.0",
+  "audit_milestone": "batch1901_1940",
+  "corpus_name": "independent_source_disjoint_benchmark",
+  "description": "Strictly source-disjoint, template-independent evaluation corpus constructed without synthetic template generation or overlapping files from Batch 1861 training.",
+  "total_documents": 88,
+  "total_tokens": 11110,
+  "domain_summary": {
+    "sanskrit": {
+      "doc_count": 12,
+      "token_count": 2796,
+      "char_count": 4871,
+      "sources": [
+        "sanskrit.txt",
+        "sanskrit_classics.txt"
+      ]
+    },
+    "hindi": {
+      "doc_count": 29,
+      "token_count": 3191,
+      "char_count": 9791,
+      "sources": [
+        "hindi_computing.txt",
+        "hindi_foundation.txt",
+        "hindi_dialogue.txt",
+        "hindi_science_culture.txt"
+      ]
+    },
+    "mathematics": {
+      "doc_count": 16,
+      "token_count": 2633,
+      "char_count": 5748,
+      "sources": [
+        "numbers_dataset.txt",
+        "numbers.txt",
+        "math_formulas.txt",
+        "numbers_foundation.txt"
+      ]
+    },
+    "code": {
+      "doc_count": 7,
+      "token_count": 488,
+      "char_count": 1693,
+      "sources": [
+        "code_python.txt",
+        "code_configs.txt",
+        "code.txt"
+      ]
+    },
+    "prose": {
+      "doc_count": 9,
+      "token_count": 727,
+      "char_count": 3138,
+      "sources": [
+        "mixed_foundation.txt"
+      ]
+    },
+    "technical": {
+      "doc_count": 8,
+      "token_count": 817,
+      "char_count": 2943,
+      "sources": [
+        "english_systems.txt",
+        "mixed_multilingual.txt"
+      ]
+    },
+    "hinglish": {
+      "doc_count": 7,
+      "token_count": 458,
+      "char_count": 1928,
+      "sources": [
+        "hinglish_tech.txt",
+        "hinglish.txt"
+      ]
+    }
+  },
+  "documents": [
+    {
+      "doc_id": "indep_sanskrit_0001",
+      "domain": "sanskrit",
+      "source_file": "sanskrit_classics.txt",
+      "source_path": "data\\raw\\sanskrit\\sanskrit_classics.txt",
+      "char_count": 391,
+      "token_count": 174,
+      "sha256": "749cf5313a434565e78ce89d35c532c6a8b1442c7153e10469cf487c335f62e3",
+      "text": "ॐ सह नाववतु। सह नौ भुनक्तु। सह वीर्यं करवावहै। तेजस्वि नावधीतमस्तु मा विद्विषावहै। ॐ शान्तिः शान्तिः शान्तिः॥\nसत्यमेव जयते नानृतं सत्येन पन्था विततो देवयानः। येनाक्रमन्त्यृषयो ह्याप्तकामा यत्र तत् सत्यस्य परमं निधानम्॥\nविद्या ददाति विनयं विनयाद् याति पात्रताम्। पात्रत्वाद् धनमाप्नोति धनाद् धर्मं ततः सुखम्॥\nअष्टाध्यायी पाणिनेः व्याकरणस्य आधारशिला अस्ति। यत्र माहेश्वरसूत्राणि चतुर्दश सन्ति।"
+    },
+    {
+      "doc_id": "indep_sanskrit_0002",
+      "domain": "sanskrit",
+      "source_file": "sanskrit_classics.txt",
+      "source_path": "data\\raw\\sanskrit\\sanskrit_classics.txt",
+      "char_count": 376,
+      "token_count": 196,
+      "sha256": "1c79eb730384628e9b2592b316d1f3d4682a1e2efa7ecad482ee43acf696c58f",
+      "text": "अ इ उ ण्। ऋ ऌ क्। ए ओ ङ्। ऐ औ च्। ह य व र ट्। लँ ण्। ञ म ङ ण न म्। झ भ ञ्। घ ढ ध ष्। ज ब ग ड द श्। ख फ छ ठ थ च ट त व्। क प य्। श ष स र्। ह ल्।\nउद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः। न हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः॥\nअहिंसा परमो धर्मस्तथाऽहिंसा परं दमः। अहिंसा परमं दानमहिंसा परमं तपः॥\nयदा यदा हि धर्मस्य ग्लानिर्भवति भारत। अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0003",
+      "domain": "sanskrit",
+      "source_file": "sanskrit_classics.txt",
+      "source_path": "data\\raw\\sanskrit\\sanskrit_classics.txt",
+      "char_count": 360,
+      "token_count": 185,
+      "sha256": "80af9c7e81d1ccd7278d97c7bbe6819a11f6dde28667f77a6bad713811b99224",
+      "text": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥\nसर्वधर्मान्परित्यज्य मामेकं शरणं व्रज। अहं त्वा सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥\nसत्त्वं रजस्तम इति गुणाः प्रकृतिसंभवाः। निबध्नन्ति महाबाहो देहे देहिनमव्ययम्॥\nदग्धं बीजं न रोहति। बुद्धस्य वचनं कल्याणकारी। उष्ट्रः मरुभूमौ भ्रमति। कार्त्तिकेयः सेनापतिः। वाग्देवी भारती नमस्कृत्य।"
+    },
+    {
+      "doc_id": "indep_sanskrit_0004",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 357,
+      "token_count": 207,
+      "sha256": "4c8d6c495e03372c552d77f6ce7e1b5e8b741cd559ede24e8367d2f850dc9675",
+      "text": "सत्यमेव जयते नानृतं सत्येन पन्था विततो देवयानः। येनाक्रमन्त्यृषयो ह्याप्तकामा यत्र तत् सत्यस्य परमं निधानम्॥\nउद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः। न हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः॥\nयदा यदा हि धर्मस्य ग्लानिर्भवति भारत। अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥\nसर्वधर्मान्परित्यज्य मामेकं शरणं व्रज। अहं त्वा सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0005",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 443,
+      "token_count": 282,
+      "sha256": "1ac2e407dbd9e13f821c7af15764326ebc2eb5114fb29cfe48461f1d4af6e666",
+      "text": "संस्कृत वाङ्मयम् [माहेश्वर सूत्राणि (पाणिनि) प्रपाठक #09]: अइउण्। ऋऌक्। एओङ्। ऐऔच्। हयवरट्। लँण्। ञमङणनम्। झभञ्। घढधष्। जबगडदश्। खफछठथचटतव्। कपय्। शषसर्। हल्॥\nपाणिनीय व्याकरण सूत्रम् [सूत्र #01]: वृद्धिरादैच् (१.१.१) - आत् ऐच् च वृद्धिसंज्ञः स्यात्। यथा आ, ऐ, औ इति वर्णाः वृद्धिपदवाच्याः भवन्ति।\nसदाचार विचार सूत्रम् [अनुवाक #006]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #06)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0006",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 440,
+      "token_count": 261,
+      "sha256": "35c8aed30fe58c3a93cb21651b8ebe144b1314ceb6c6d086559b27cf0f041672",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #008]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #08)॥\nसदाचार विचार सूत्रम् [अनुवाक #010]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #10)॥\nसदाचार विचार सूत्रम् [अनुवाक #016]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #16)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0007",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 440,
+      "token_count": 264,
+      "sha256": "e935858e642c02bc6b74594f7a36225810129e2d3fb307f504679c37186779ff",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #042]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #42)॥\nसदाचार विचार सूत्रम् [अनुवाक #064]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #64)॥\nसदाचार विचार सूत्रम् [अनुवाक #065]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #65)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0008",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 440,
+      "token_count": 263,
+      "sha256": "37a4ef78d584fc1c3a543b3328388c60a7424bc36fc0ea7036873f004e967bd2",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #075]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #75)॥\nसदाचार विचार सूत्रम् [अनुवाक #083]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #83)॥\nसदाचार विचार सूत्रम् [अनुवाक #092]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #92)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0009",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 443,
+      "token_count": 261,
+      "sha256": "6ecd72da6a7a652b04e7b6d5994e22e74369e1a099ac15b4200467f7727e7eab",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #100]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #100)॥\nसदाचार विचार सूत्रम् [अनुवाक #117]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #117)॥\nसदाचार विचार सूत्रम् [अनुवाक #120]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #120)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0010",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 443,
+      "token_count": 263,
+      "sha256": "0b4c68f695a04cbcf4d41833f0514ffcfec422e3689bcc64d958429f251d73ad",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #139]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #139)॥\nसदाचार विचार सूत्रम् [अनुवाक #140]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #140)॥\nसदाचार विचार सूत्रम् [अनुवाक #174]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #174)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0011",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 443,
+      "token_count": 265,
+      "sha256": "d9c8452039e17c9cf01b85aaef0b98484329f17895105bac765593d4f67c0f0a",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #178]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #178)॥\nसदाचार विचार सूत्रम् [अनुवाक #180]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #180)॥\nसदाचार विचार सूत्रम् [अनुवाक #188]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #188)॥"
+    },
+    {
+      "doc_id": "indep_sanskrit_0012",
+      "domain": "sanskrit",
+      "source_file": "sanskrit.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\sanskrit.txt",
+      "char_count": 295,
+      "token_count": 175,
+      "sha256": "db1bfe72c8350f6e1377951687a8ba6233b9daffb151989d44219bdc88cdad7a",
+      "text": "सदाचार विचार सूत्रम् [अनुवाक #202]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #202)॥\nसदाचार विचार सूत्रम् [अनुवाक #213]: सत्यं ब्रूयात् प्रियं ब्रूयात् न ब्रूयात् सत्यमप्रियम्। प्रियं च नानृतं ब्रूयात् एष धर्मः सनातनः (प्रकरण #213)॥"
+    },
+    {
+      "doc_id": "indep_hindi_0013",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 376,
+      "token_count": 81,
+      "sha256": "db7b630be4214f4163b6e771d3107c1f29c9800fb4ce0162e864cf0fc625f4ab",
+      "text": "नमस्ते दुनिया। चक्रव्यूह एक स्वदेशी कृत्रिम बुद्धिमत्ता परियोजना है।\nइस प्रणाली का मुख्य उद्देश्य कम संसाधनों वाले कंप्यूटरों पर भाषा मॉडल को कुशलतापूर्वक चलाना है।\nभारतीय भाषाओं में डिजिटल ज्ञान का विस्तार करना हमारे अनुसंधान का केंद्रीय लक्ष्य है।\nहिंदी एक समृद्ध और प्राचीन भाषा है जिसकी लिपि देवनागरी है।\nदेवनागरी लिपि में स्वर और व्यंजन मिलकर अक्षरों का निर्माण करते हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0014",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 322,
+      "token_count": 130,
+      "sha256": "e85108fb321c6f5e78faae43599bcd16a06477bb66b9d70378fee7d0ddeaaade",
+      "text": "प्रत्येक व्यंजन में अंतर्निहित 'अ' स्वर होता है जिसे हलंत लगाकर हटाया जा सकता है।\nमात्राएँ जैसे आ, इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ व्यंजनों के साथ जुड़कर नए रूप धारण करती हैं।\nसंयुक्त अक्षर दो या दो से अधिक व्यंजनों के मेल से बनते हैं जैसे क्ष, त्र, ज्ञ, श्र।\nसंस्कृत के श्लोक और सूक्तियाँ ज्ञान का अनंत भंडार प्रस्तुत करती हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0015",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 348,
+      "token_count": 100,
+      "sha256": "4376c1d85c0e846f035ed4d4e457ccb98ae222a4c5379d2da91fc3b0e6a7c902",
+      "text": "ॐ नमः शिवाय। सत्यमेव जयते नानृतम्। वसुधैव कुटुम्बकम्।\nविज्ञान और प्रौद्योगिकी के क्षेत्र में भारत का योगदान निरंतर बढ़ रहा है।\nकंप्यूटर विज्ञान में एल्गोरिदम और डेटा संरचनाएं अत्यंत महत्वपूर्ण घटक हैं।\nस्मृति प्रबंधन और प्रोसेसर का इष्टतम उपयोग मॉडल की गति को कई गुना बढ़ा देता है।\nइंटेल प्रोसेसर और लैपटॉप जीपीयू पर मॉडल का परीक्षण किया जा रहा है।"
+    },
+    {
+      "doc_id": "indep_hindi_0016",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 322,
+      "token_count": 95,
+      "sha256": "91fa4bd30c094a2bf9af2f4adb2bbbae6872368dcd28da56477099e5c00fc33f",
+      "text": "स्थानीय हार्डवेयर पर बिना इंटरनेट के काम करने वाली प्रणाली डेटा सुरक्षा सुनिश्चित करती है।\nग्रामीण और दूरदराज के क्षेत्रों में कम बिजली पर चलने वाले उपकरण अत्यंत उपयोगी सिद्ध होंगे।\nभाषा मॉडल को सीखने के लिए बड़े और संतुलित डेटा संग्रह की आवश्यकता होती है।\nटोकनाइज़र शब्द और अक्षरों को संख्याओं में बदलने का कार्य करता है।"
+    },
+    {
+      "doc_id": "indep_hindi_0017",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 388,
+      "token_count": 136,
+      "sha256": "04d28d95252960224366bdf449ff966c3f85258db43ae728556a8ba3134c4c91",
+      "text": "यदि टोकनाइज़र हिंदी शब्दों को बहुत छोटे टुकड़ों में तोड़ता है, तो मॉडल की क्षमता घट जाती है।\nइसलिए स्वदेशी टोकनाइज़र का निर्माण हमारी सर्वोच्च प्राथमिकता है।\nदेवनागरी वर्णमाला में क, ख, ग, घ, ङ, च, छ, ज, झ, ञ, ट, ठ, ड, ढ, ण शामिल हैं।\nत, थ, द, ध, न, प, फ, ब, भ, म, य, र, ल, व, श, ष, स, ह भी वर्णमाला के मुख्य अंग हैं।\nअनुस्वार और विसर्ग जैसे चिह्न ध्वनियों को सूक्ष्म भेद प्रदान करते हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0018",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 359,
+      "token_count": 146,
+      "sha256": "456bb644d561f19daa7391a7b66798faaf6d004b67a611b33bedc261e2983c09",
+      "text": "चंद्रबिंदु नासिक्य स्वर का प्रतीक है जैसे आँख, चाँद, गाँव, माँ।\nनुक्ता अन्य भाषाओं से आए शब्दों को सही उच्चारण देने के लिए प्रयोग किया जाता है जैसे ज़मीन, फ़िल्म।\nमौसम आज बहुत सुहावना है और आकाश में घने बादल छाए हुए हैं।\nहिमालय पर्वत भारत के उत्तर में प्रहरी की भाँति खड़ा है।\nगंगा, यमुना, ब्रह्मपुत्र, नर्मदा, गोदावरी और कावेरी भारत की जीवनदायिनी नदियाँ हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0019",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 355,
+      "token_count": 95,
+      "sha256": "ce59c26139887efbec2dbb4aae3ae9eb333c51412ea8dff3cfc95c7eb629a44c",
+      "text": "कृषि, उद्योग, शिक्षा और स्वास्थ्य सभी क्षेत्रों में नवाचार की आवश्यकता है।\nछात्रों को मातृभाषा में तकनीकी शिक्षा मिलने से उनकी रचनात्मकता में वृद्धि होती है।\nगणित के सूत्र और भौतिकी के नियम प्रकृति की भाषा को व्यक्त करते हैं।\nचक्रव्यूह मॉडल की संरचना सरल और पारदर्शी रखी गई है।\nइस मॉडल में भार साझाकरण तकनीक का उपयोग किया गया है ताकि मेमोरी की बचत हो सके।"
+    },
+    {
+      "doc_id": "indep_hindi_0020",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 342,
+      "token_count": 121,
+      "sha256": "8338f885499141cb48e923a16e36e452fdbae2a729ed510c1b8380b34c89de19",
+      "text": "मल्टी-हेड अटेंशन और रोटरी पोज़िशनल एम्बेडिंग इस वास्तुकला के प्रमुख घटक हैं।\nहमारा उद्देश्य एक ऐसा मॉडल बनाना है जो प्रत्येक भारतीय के लिए सुलभ और उपयोगी हो।\nज्ञान का प्रकाश सभी अंधकारों को दूर करने की शक्ति रखता है।\nपरिश्रम और निरंतर अभ्यास से किसी भी कठिन लक्ष्य को प्राप्त किया जा सकता है।\nचक्रव्यूह परियोजना निरंतर प्रगति की ओर अग्रसर है।"
+    },
+    {
+      "doc_id": "indep_hindi_0021",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 358,
+      "token_count": 146,
+      "sha256": "64b9321d6d3c2c96e0380ae0949687247cb8b09c91841f2a2e03e65933b0c51e",
+      "text": "सफलता का मूल मंत्र अनुशासन, समर्पण और सत्यनिष्ठा है।\nयह हिंदी भाषा का एक प्रतिनिधि परीक्षण संग्रह है जो टोकनाइज़र के मूल्यांकन हेतु तैयार किया गया है।\nभारतीय दर्शन में न्याय, वैशेषिक, सांख्य, योग, मीमांसा और वेदांत षड्दर्शन कहलाते हैं।\nऋग्वेद, यजुर्वेद, सामवेद और अथर्ववेद चार प्रमुख वेद हैं।\nउपनिषद, आरण्यक और ब्राह्मण ग्रंथ वैदिक साहित्य के अमूल्य अंग हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0022",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 357,
+      "token_count": 125,
+      "sha256": "8bc801ab430eb02d9b04a27a990d768a4bc0a9168abb617652b473e1d8c9700f",
+      "text": "महाभारत और रामायण भारतीय संस्कृति के अमर महाकाव्य हैं।\nअर्थशास्त्र में कौटिल्य ने राज्यव्यवस्था, कराधान, न्याय प्रणाली और विदेश नीति का सूक्ष्म विवेचन किया है।\nचरक संहिता और सुश्रुत संहिता प्राचीन भारतीय आयुर्विज्ञान और शल्यक्रिया के प्रमाणिक ग्रंथ हैं।\nआर्यभट्ट ने खगोल विज्ञान में शून्य की संकल्पना और पृथ्वी के घूर्णन का गणितीय विश्लेषण प्रस्तुत किया था।"
+    },
+    {
+      "doc_id": "indep_hindi_0023",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 358,
+      "token_count": 134,
+      "sha256": "946cab3aca826e2cd9c14d7385d88646e3db5dc2ccf80aa7437b9d7ca88de196",
+      "text": "भास्कराचार्य ने लीलावती और सिद्धांत शिरोमणि में बीजगणित और कैलकुलस के बीज बोए थे।\nवाराहमिहिर ने पंचसिद्धांतिका में ज्योतिष और नक्षत्र गणना का गूढ़ ज्ञान दिया।\nप्राचीन भारत में नालंदा, तक्षशिला और वल्लभी अंतरराष्ट्रीय शिक्षा और अनुसंधान के प्रमुख केंद्र थे।\nभारत की भाषाई विविधता अद्वितीय है जहाँ सैकड़ों भाषाएँ और बोलियाँ प्रेमपूर्वक सहअस्तित्व में रहती हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0024",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 389,
+      "token_count": 128,
+      "sha256": "64d0f8d2f15111c2c9503355526958f7484af74f3b22ba8ad281d146efce719d",
+      "text": "संविधान की आठवीं अनुसूची में बाईस भाषाओं को आधिकारिक मान्यता दी गई है।\nअनेकता में एकता ही भारत की सबसे बड़ी शक्ति और पहचान है।\nडिजिटल भारत अभियान के अंतर्गत प्रशासनिक सेवाएं इंटरनेट के माध्यम से सीधे नागरिकों तक पहुँच रही हैं।\nई-गवर्नेंस से पारदर्शिता बढ़ती है और भ्रष्टाचार पर प्रभावी रोक लगती है।\nस्टार्टअप और उद्यमिता के क्षेत्र में युवा वैज्ञानिक और इंजीनियर नई ऊंचाइयों को छू रहे हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0025",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 372,
+      "token_count": 117,
+      "sha256": "cd8b7ee63afcd980a900e8137be93b9c3a2433a594d6fa8566af17e4d82c32d7",
+      "text": "कृत्रिम बुद्धिमत्ता का उपयोग कृषि में फसल रोगों की पहचान और मौसम के पूर्वानुमान में किया जा रहा है।\nस्वास्थ्य सेवाओं में एआई रोग निदान और टेलीमेडिसिन के माध्यम से दूरदराज के गाँवों तक पहुँच रही है।\nसौर ऊर्जा और नवीकरणीय ऊर्जा स्रोतों का विकास पर्यावरण संरक्षण के लिए अनिवार्य है।\nजल संरक्षण और वर्षा जल संचयन आने वाली पीढ़ियों के सुरक्षित भविष्य के लिए आवश्यक कर्तव्य हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0026",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 347,
+      "token_count": 110,
+      "sha256": "3dd775f4a7581efa782dabd0afd7bfebcf6365a1a3b1668e8605f1ed421bf73f",
+      "text": "वनों की कटाई रोकने और वृक्षारोपण को बढ़ावा देने से जैव विविधता की रक्षा होती है।\nस्वच्छ भारत अभियान ने स्वच्छता और स्वास्थ्य के प्रति जन-जागरूकता में क्रांतिकारी परिवर्तन लाया है।\nराष्ट्रीय शिक्षा नीति मातृभाषा में शिक्षण और प्रयोगात्मक अधिगम पर विशेष बल देती है।\nअनुसंधान और विकास में निरंतर निवेश किए बिना कोई भी राष्ट्र आत्मनिर्भर नहीं बन सकता।"
+    },
+    {
+      "doc_id": "indep_hindi_0027",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 338,
+      "token_count": 107,
+      "sha256": "ca66be8c4e82c12e7c2b648d99596ef7e8b1efcf7b977ab938b4d4c0aca45832",
+      "text": "चक्रव्यूह परियोजना तकनीकी संप्रभुता और स्वदेशी नवाचार का एक विनम्र प्रयास है।\nहमारा विश्वास है कि ज्ञान किसी भौगोलिक सीमा या भाषा विशेष तक सीमित नहीं होना चाहिए।\nमातृभाषा में संवाद और चिंतन मनुष्य के बौद्धिक विकास का सबसे स्वाभाविक मार्ग है।\nआधुनिक कंप्यूटर युग में भारतीय भाषाओं के लिए सक्षम एल्गोरिदम तैयार करना एक राष्ट्रीय दायित्व है।"
+    },
+    {
+      "doc_id": "indep_hindi_0028",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 381,
+      "token_count": 128,
+      "sha256": "8a943ee20c75c5a35013d7c5c4659b3ec94758b9461b99a2b9c63aed2f7414f2",
+      "text": "इस शोध संग्रह में प्रत्येक वाक्य को सावधानीपूर्वक चुना गया है ताकि टोकनाइज़र की क्षमता का सर्वांगीण परीक्षण हो सके।\nविराम चिह्न, योजक चिह्न, प्रश्नवाचक और विस्मयादिबोधक चिह्नों का संतुलित प्रयोग किया गया है।\nसंख्याओं और तिथियों का देवनागरी तथा अंतरराष्ट्रीय अंकों में समुचित समन्वय किया गया है।\nतकनीकी शब्दावली और शास्त्रीय भाषा के शब्दों का सामंजस्य इस संग्रह को विशिष्ट बनाता है।"
+    },
+    {
+      "doc_id": "indep_hindi_0029",
+      "domain": "hindi",
+      "source_file": "hindi_foundation.txt",
+      "source_path": "data\\raw\\hindi\\hindi_foundation.txt",
+      "char_count": 114,
+      "token_count": 46,
+      "sha256": "f3b2665229444f6b8b367c1008170cf49d018ec14b2137bfe0dc3f96bbc47a66",
+      "text": "आशा है कि यह शोध सामग्री चक्रव्यूह भाषा मॉडल के विकास में मील का पत्थर सिद्ध होगी।\nजय हिंद। जय भारत। सत्यमेव जयते।"
+    },
+    {
+      "doc_id": "indep_hindi_0030",
+      "domain": "hindi",
+      "source_file": "hindi_science_culture.txt",
+      "source_path": "data\\raw\\hindi\\hindi_science_culture.txt",
+      "char_count": 361,
+      "token_count": 108,
+      "sha256": "882a10cfbffce1aa42f5fa117697b647f0113728ab4fae02afd650b50bd73636",
+      "text": "विज्ञान और प्रौद्योगिकी का मुख्य उद्देश्य मानव जीवन को सरल, समृद्ध और ज्ञानवर्धक बनाना है।\nभारत का खगोल विज्ञान और गणित का इतिहास अत्यंत प्राचीन और गौरवशाली रहा है।\nसूर्य सिद्धांत, खगोल शास्त्र और त्रिकोणमिति में भारतीय विद्वानों के योगदान को विश्वभर में मान्यता प्राप्त है।\nभाषा केवल संवाद का साधन नहीं है, बल्कि यह संस्कृति, दर्शन और मानवीय सोच की वाहक भी है।"
+    },
+    {
+      "doc_id": "indep_hindi_0031",
+      "domain": "hindi",
+      "source_file": "hindi_science_culture.txt",
+      "source_path": "data\\raw\\hindi\\hindi_science_culture.txt",
+      "char_count": 421,
+      "token_count": 136,
+      "sha256": "7e176b949e22397a5d7bbb653a3af446ada7224af6a117417dcc0879962c1d7f",
+      "text": "आधुनिक समय में डिजिटल संचार के विस्तार के कारण विभिन्न भाषाओं का एक दूसरे के साथ सम्मिश्रण तेजी से बढ़ रहा है।\nशिक्षा में मातृभाषा का प्रयोग बच्चों के मानसिक विकास और रचनात्मक सोच को बढ़ावा देता है।\nकंप्यूटर और मोबाइल फोन में देवनागरी लिपि के सुगम प्रयोग के लिए यूनिकोड मानकीकरण ने महत्वपूर्ण भूमिका निभाई है।\nकौशाम्बी, त्र्यंबकेश्वर, कुंडलियाँ, पूँछ, अँधेरा और ऋग्वेद जैसे जटिल शब्द देवनागरी की विशिष्टता को दर्शाते हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0032",
+      "domain": "hindi",
+      "source_file": "hindi_science_culture.txt",
+      "source_path": "data\\raw\\hindi\\hindi_science_culture.txt",
+      "char_count": 319,
+      "token_count": 107,
+      "sha256": "89a6ebf1b1c8875bc1360e9140a94707bd234ad2593aa8e682baa252b4ba1372",
+      "text": "संयुक्त व्यंजनों का निर्माण हलंत के माध्यम से होता है, जहां दो या दो से अधिक व्यंजन मिलकर एक नया रूप धारण करते हैं।\nप्रकृति के संरक्षण और सतत विकास के लिए वैज्ञानिक अनुसंधान और पारंपरिक ज्ञान का समन्वय अत्यंत आवश्यक है।\nकृत्रिम तंत्रिका नेटवर्क मानव मस्तिष्क के न्यूरॉन्स की कार्यप्रणाली से प्रेरित होकर कार्य करते हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0033",
+      "domain": "hindi",
+      "source_file": "hindi_science_culture.txt",
+      "source_path": "data\\raw\\hindi\\hindi_science_culture.txt",
+      "char_count": 288,
+      "token_count": 91,
+      "sha256": "ddb8e8c337960aedb19e084a0aa9afbfa06ac210e353828211b88469ed0c8de5",
+      "text": "स्मृति, ध्यान और तर्क करने की क्षमता किसी भी बुद्धिमान संज्ञानात्मक प्रणाली के प्रमुख घटक होते हैं।\nस्वदेशी अनुसंधान परियोजनाओं से देश के युवा वैज्ञानिकों और इंजीनियरों को नए अवसर प्राप्त होते हैं।\nडिजिटल युग में सूचना की सुरक्षा और डेटा गोपनीयता संप्रभुता के महत्वपूर्ण पहलू बन चुके हैं।"
+    },
+    {
+      "doc_id": "indep_hindi_0034",
+      "domain": "hindi",
+      "source_file": "hindi_dialogue.txt",
+      "source_path": "data\\raw\\hindi\\hindi_dialogue.txt",
+      "char_count": 365,
+      "token_count": 124,
+      "sha256": "ba713224e0f3f26d5698e4e4386799d9f7e7508d9fdc6acc3455cf772a073dd1",
+      "text": "नमस्ते, आप आज कैसे हैं? मैं आपकी क्या सहायता कर सकता हूँ?\nमुझे कंप्यूटर प्रोग्रामिंग और मशीन लर्निंग के बारे में बुनियादी जानकारी चाहिए।\nनिश्चय ही! प्रोग्रामिंग कंप्यूटर को निर्देश देने की एक व्यवस्थित कला है।\nपायथन भाषा सीखने में बहुत सरल है और डेटा विज्ञान में इसका सर्वाधिक उपयोग किया जाता है।\nक्या हम कम क्षमता वाले लैपटॉप पर भी एआई मॉडल का परीक्षण कर सकते हैं?"
+    },
+    {
+      "doc_id": "indep_hindi_0035",
+      "domain": "hindi",
+      "source_file": "hindi_dialogue.txt",
+      "source_path": "data\\raw\\hindi\\hindi_dialogue.txt",
+      "char_count": 349,
+      "token_count": 119,
+      "sha256": "91d2aa41a3a66f0acd3b0ab4b37913a922582f6224e2544ff0e48402c307acdf",
+      "text": "हाँ, बिल्कुल! चक्रव्यूह का माइक्रो मॉडल विशेष रूप से साधारण सीपीयू के लिए ही डिज़ाइन किया गया है।\nइसमें केवल 34 लाख पैरामीटर हैं और यह बहुत कम रैम में भी तीव्र गति से काम करता है।\nटोकनाइजेशन की प्रक्रिया में प्रत्येक शब्द या उप-शब्द को एक अद्वितीय पहचान संख्या दी जाती है।\nइससे मॉडल भाषा के व्याकरण और शब्दों के आपसी संबंधों को आसानी से समझ सकता है।"
+    },
+    {
+      "doc_id": "indep_hindi_0036",
+      "domain": "hindi",
+      "source_file": "hindi_dialogue.txt",
+      "source_path": "data\\raw\\hindi\\hindi_dialogue.txt",
+      "char_count": 164,
+      "token_count": 57,
+      "sha256": "48227541fb71783aac4f99605a26682512a8bed594913221cf3f373810593cca",
+      "text": "आपका बहुत-बहुत धन्यवाद, यह जानकारी मेरे लिए अत्यंत उपयोगी और प्रेरणादायक है।\nशुभकामनाएं! निरंतर अभ्यास और अध्ययन से आप इस क्षेत्र में उत्कृष्ट सफलता प्राप्त करेंगे।"
+    },
+    {
+      "doc_id": "indep_hindi_0037",
+      "domain": "hindi",
+      "source_file": "hindi_computing.txt",
+      "source_path": "data\\raw\\hindi\\hindi_computing.txt",
+      "char_count": 392,
+      "token_count": 109,
+      "sha256": "3586d0071e794aab4bc0f2e67619a64118b3be388e5bf0e16ae90e3226db105b",
+      "text": "चक्रव्यूह एक स्वदेशी कृत्रिम बुद्धिमत्ता अनुसंधान परियोजना है जिसका उद्देश्य कम संसाधनों वाले कंप्यूटरों पर चलने वाला तंत्रिका मस्तिष्क विकसित करना है।\nयह प्रणाली बिना किसी पूर्व-प्रशिक्षित मॉडल या विदेशी सॉफ्टवेयर भार के पूर्णतः स्वतंत्र रूप से बनाई जा रही है।\nकंप्यूटर विज्ञान में टोकनाइज़र वह महत्वपूर्ण माध्यम है जो साधारण मानवीय भाषा को गणितीय संख्याओं और वेक्टरों में परिवर्तित करता है।"
+    },
+    {
+      "doc_id": "indep_hindi_0038",
+      "domain": "hindi",
+      "source_file": "hindi_computing.txt",
+      "source_path": "data\\raw\\hindi\\hindi_computing.txt",
+      "char_count": 336,
+      "token_count": 82,
+      "sha256": "83e19cbb1c6926620666716c1a40b9a15311566ae4210f1987fd0ad3523f0dc2",
+      "text": "देवनागरी लिपि में स्वर, व्यंजन, मात्राएं और संयुक्त अक्षर भाषा की संरचना को अत्यंत समृद्ध और वैज्ञानिक बनाते हैं।\nजब कोई बड़ा भाषा मॉडल वाक्य का निर्माण करता है, तो वह पिछले शब्दों के आधार पर अगले सबसे संभावित शब्द का अनुमान लगाता है।\nभारतीय भाषाओं की भाषाई विविधता को डिजिटल दुनिया में समान और प्रभावी प्रतिनिधित्व मिलना अति आवश्यक है।"
+    },
+    {
+      "doc_id": "indep_hindi_0039",
+      "domain": "hindi",
+      "source_file": "hindi_computing.txt",
+      "source_path": "data\\raw\\hindi\\hindi_computing.txt",
+      "char_count": 423,
+      "token_count": 140,
+      "sha256": "2bdf3c63ce83c552e70e1c5ba8282278f43c9365441e74f2b5d6f39cbab9e160",
+      "text": "कम मेमोरी और कम बिजली खपत वाले उपकरणों पर भाषा मॉडल चलाना एक महत्वपूर्ण वैज्ञानिक और तकनीकी चुनौती है।\nसूचना प्रौद्योगिकी के युग में अपनी भाषा और संस्कृति का संरक्षण तकनीकी आत्मनिर्भरता से ही संभव हो सकता है।\nगणितीय गणनाओं और कलन विधियों की सटीकता किसी भी सफल कम्प्यूटेशनल प्रणाली की मजबूत आधारशिला होती है।\nप्राचीन भारतीय गणितज्ञों जैसे आर्यभट्ट, ब्रह्मगुप्त और भास्कराचार्य ने शून्य और दशमलव प्रणाली का प्रतिपादन किया था।"
+    },
+    {
+      "doc_id": "indep_hindi_0040",
+      "domain": "hindi",
+      "source_file": "hindi_computing.txt",
+      "source_path": "data\\raw\\hindi\\hindi_computing.txt",
+      "char_count": 331,
+      "token_count": 92,
+      "sha256": "85a016ba9141c307f5fa521ab9b4bab0780a7cc75deda412939bd87f8c72c0b1",
+      "text": "प्रकृति और विज्ञान के नियमों का गहन अध्ययन हमें नई तकनीकों के अनुसंधान और विकास की ओर अग्रसर करता है।\nस्वदेशी तकनीक का निर्माण केवल आत्मनिर्भरता ही नहीं बल्कि हमारी बौद्धिक और तकनीकी संप्रभुता का भी प्रतीक है।\nकृत्रिम बुद्धिमत्ता के मॉडल को प्रशिक्षित करने के लिए उच्च गुणवत्ता वाले डेटासेट और संतुलित शब्दावली की आवश्यकता होती है।"
+    },
+    {
+      "doc_id": "indep_hindi_0041",
+      "domain": "hindi",
+      "source_file": "hindi_computing.txt",
+      "source_path": "data\\raw\\hindi\\hindi_computing.txt",
+      "char_count": 216,
+      "token_count": 81,
+      "sha256": "a50e33cddc909478fafcfb658a4901dee684f4cd8f25c5f071674bbd5e1b6a88",
+      "text": "ऑटोरेग्रेसिव डिकोडर भाषा मॉडल प्रत्येक चरण पर एक टोकन उत्पन्न करता है और उसे पिछले संदर्भ के साथ जोड़ता है।\nसमानांतर कंप्यूटिंग के लिए सीपीयू के एसआईएमडी रजिस्टरों का कुशल उपयोग मेमोरी बैंडविड्थ की खपत को कम करता है।"
+    },
+    {
+      "doc_id": "indep_mathematics_0042",
+      "domain": "mathematics",
+      "source_file": "math_formulas.txt",
+      "source_path": "data\\raw\\mathematics\\math_formulas.txt",
+      "char_count": 340,
+      "token_count": 75,
+      "sha256": "2436d8141c0001f73a4f26bd77b042865e89c3774703524e80feecdf1a7cffb8",
+      "text": "f(x) = (1 / (sigma * sqrt(2 * pi))) * exp(- (x - mu)^2 / (2 * sigma^2))\nRoPE(q, m) = [q_0 * cos(m * theta) - q_1 * sin(m * theta), q_0 * sin(m * theta) + q_1 * cos(m * theta)]\nRMSNorm(u) = (u / sqrt(mean(u^2) + epsilon)) * gamma\nAttention(Q, K, V) = softmax(Q * K^T / sqrt(d_k) + M) * V\nSwiGLU(x) = (Swish(x * W_gate) * (x * W_up)) * W_down"
+    },
+    {
+      "doc_id": "indep_mathematics_0043",
+      "domain": "mathematics",
+      "source_file": "math_formulas.txt",
+      "source_path": "data\\raw\\mathematics\\math_formulas.txt",
+      "char_count": 330,
+      "token_count": 130,
+      "sha256": "000453e3a6f0d4881957b311e68ff84c719d80910d60b8d93a3ab6b931c35549",
+      "text": "Swish(z) = z * sigmoid(z) = z / (1 + exp(-z))\nLoss(theta) = - (1 / N) * sum(log p(y_t | x_{<t}))\nsum_{i=1}^{n} i = n * (n + 1) / 2\nlim_{x -> 0} (sin(x) / x) = 1\nint_{0}^{inf} e^{-x^2} dx = sqrt(pi) / 2\nalpha + beta <= gamma * delta\nnabla^2 psi + (8 * pi^2 * m / h^2) * (E - V) * psi = 0\ne^{i * theta} = cos(theta) + i * sin(theta)"
+    },
+    {
+      "doc_id": "indep_mathematics_0044",
+      "domain": "mathematics",
+      "source_file": "numbers_dataset.txt",
+      "source_path": "data\\raw\\numbers\\numbers_dataset.txt",
+      "char_count": 328,
+      "token_count": 162,
+      "sha256": "2617c0ec77d6f26dda2e8c4ccbf93483e81388f2de5f1d237243cb679a962045",
+      "text": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20\n99 100 101 999 1000 1001 9999 10000 2026 2027 2030\n123456789 987654321 112233445566778899 1234567890\n3.14159265358979323846 2.718281828459045 1.41421356237\n0.000001 0.000000001 99.999% 12.5% 0.05% -42 -100 -273.15 +1024 +65536\n1.23e-10 6.022e+23 2.99792e8 6.626e-34 1.602e-19"
+    },
+    {
+      "doc_id": "indep_mathematics_0045",
+      "domain": "mathematics",
+      "source_file": "numbers_dataset.txt",
+      "source_path": "data\\raw\\numbers\\numbers_dataset.txt",
+      "char_count": 307,
+      "token_count": 94,
+      "sha256": "5eaddd872ea1970cf65ed16908175b6ece78f7006a1e6db5a017aa18b731f1fe",
+      "text": "+91-9876543210 +1-800-555-0199 +44-20-7946-0958\n₹50000 ₹1,00,000 ₹10,00,000 $1000 $99.99 €500 £250 ¥10000\n2026-09-26 2026-09-26T14:04:22+05:30 12:45:59 23:59:59 00:00:00\n192.168.1.1 127.0.0.1 10.0.0.1 255.255.255.0\nv0.1.0 v1.0.0-rc1 v2.4.5\n123 + 456 = 579\n9999 * 8888 = 88871112\n(123 + 456) / 7 = 82.7142857"
+    },
+    {
+      "doc_id": "indep_mathematics_0046",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 366,
+      "token_count": 148,
+      "sha256": "f856f483799fad6ea2a1b396ee9dd0230a2e322738ba068e60e461f3598b8dc7",
+      "text": "1234567890\n20260926\n₹50000\n13.14159\n13900H\n2026-09-26\n12:45:30\n192.168.1.1:8080\n₹1,25,000.75\n+91-98765-43210\n3.141592653589793\n2.718281828459045\n1.618033988749895\n6.02214076e23\n6.62607015e-34\n0x1A2B3C4D\n0b11010101\n1000000000\n99.999%\n-42.50\n$100.00\n€85.50\n£75.20\n¥14000\n4096 / 512 = 8\n1024 * 1024 = 1048576\n35.0% + 25.0% + 15.0% + 10.0% + 10.0% + 3.0% + 2.0% = 100.0%"
+    },
+    {
+      "doc_id": "indep_mathematics_0047",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 364,
+      "token_count": 120,
+      "sha256": "0a63394d150d1d4e138ba1f032bda90c7dd2cfda4bc0460ce374e19ed7e334ed",
+      "text": "Model parameters: 3443136 (approximately 3.44M)\nContext window: 512 tokens, Embedding dim: 192, Heads: 6, Head dim: 32\nBatch size: 16, Sequence length: 512, Gradient steps: 100000\nCoordinates: 28.6139° N, 77.2090° E\nPIN Code: 110001, 400001, 560001, 700001\nSerial number: CV-2026-X99-001248-INTEL\nLatency measurements: 12.4ms, 15.8ms, 18.2ms, 22.1ms (mean: 17.1ms)"
+    },
+    {
+      "doc_id": "indep_mathematics_0048",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 320,
+      "token_count": 118,
+      "sha256": "8ae2691187878e236ed6319479692e481f21848c574f88b3fc8907d29d16d00f",
+      "text": "Throughput: 42.5 tokens/sec, 68.2 tokens/sec, 105.4 tokens/sec\nFinancial Ledger: Account #4829-1029-3847 balance is ₹4,58,920.50 with interest rate 6.85%.\nTimestamp log: 2026-09-26T12:34:56.789Z [INFO] Thread #14 completed task in 0.0042 seconds.\nMAC Address: 00:1A:2B:3C:4D:5E on interface eth0 (MTU 1500, duplex full)."
+    },
+    {
+      "doc_id": "indep_mathematics_0049",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 377,
+      "token_count": 151,
+      "sha256": "76be27e69e0635161607935bae30f98e381817dd2bdf427a370300b5321bdb32",
+      "text": "Hexadecimal dump: 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\nPrime numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97\nFibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181\nStatistical distribution: Mean = 50.2, Median = 49.8, Mode = 50.0, StdDev = 4.12, Variance = 16.97"
+    },
+    {
+      "doc_id": "indep_mathematics_0050",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 360,
+      "token_count": 127,
+      "sha256": "ec29ad195035635ba409dda1e4f0d75836c12615d294d3532df3d6e98382edc3",
+      "text": "Power metrics: TDP = 45W, Max Turbo = 115W, Idle = 8.5W, Battery = 72Wh (estimated life: 6.5 hours).\nResolution: 1920x1080 @ 144Hz, 2560x1440 @ 120Hz, 3840x2160 @ 60Hz.\nRAM allocation: Free = 18432 MB, Buffers = 2048 MB, Cached = 8192 MB, Available = 26624 MB.\nSensor readings: Temperature = 42.8°C, Humidity = 58.4%, Pressure = 1013.25 hPa, Altitude = 216.5m."
+    },
+    {
+      "doc_id": "indep_mathematics_0051",
+      "domain": "mathematics",
+      "source_file": "numbers_foundation.txt",
+      "source_path": "data\\raw\\numbers\\numbers_foundation.txt",
+      "char_count": 334,
+      "token_count": 107,
+      "sha256": "4058c185adb9e77fad820805076d11a1bea4d41e9de28d43a11b52c7ea3fa4dd",
+      "text": "Tax brackets: 0-3L (0%), 3-6L (5%), 6-9L (10%), 9-12L (15%), 12-15L (20%), >15L (30%).\nEquation solver: 2x + 5y = 20, 3x - 2y = 11 => x = 5.0, y = 2.0.\nFloating point representations: IEEE-754 FP32 (1 sign + 8 exponent + 23 mantissa), FP16 (1 + 5 + 10), BF16 (1 + 8 + 7).\nINT8 quantization scale factor: s = 0.0078431, zero_point = 0."
+    },
+    {
+      "doc_id": "indep_mathematics_0052",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 370,
+      "token_count": 194,
+      "sha256": "3510234a1ab90f32e232559a3fbed3caaf30a891b3746bc439c429d4765f9a04",
+      "text": "3.14159265358979323846 2.718281828459045 1.41421356237\n2026-09-26\n₹1,25,000.75\n0b11010101\nCoordinates: 28.6139° N, 77.2090° E\nHexadecimal dump: 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\nStatistical distribution: Mean = 50.2, Median = 49.8, Mode = 50.0, StdDev = 4.12, Variance = 16.97\n| Transaction ID | Timestamp (UTC) | Description | Amount | Currency | Status |"
+    },
+    {
+      "doc_id": "indep_mathematics_0053",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 418,
+      "token_count": 256,
+      "sha256": "197447c0f80d9bafd4122788602220cae6c0dfffc7e3fdb882d420a4b6a8f60e",
+      "text": "| TXN-2026-0105 | 2026-09-06T07:25:00Z | Cloud Storage Cluster Node 5 | 413.25 | USD ($) | VERIFIED |\n| TXN-2026-0008 | 2026-09-09T08:44:00Z | Hardware Node Infrastructure Tier 8 | 13702.50 | INR (₹) | VERIFIED |\n| TXN-2026-0114 | 2026-09-15T10:58:00Z | Cloud Storage Cluster Node 14 | 525.75 | USD ($) | VERIFIED |\n| TXN-2026-0116 | 2026-09-17T08:32:00Z | Cloud Storage Cluster Node 16 | 550.75 | USD ($) | VERIFIED |"
+    },
+    {
+      "doc_id": "indep_mathematics_0054",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 420,
+      "token_count": 255,
+      "sha256": "e802a095ec7244a106ddee028d4a739ba5e1f6866bce3dc443ef98ffbe2a7529",
+      "text": "| TXN-2026-0117 | 2026-09-18T19:49:00Z | Cloud Storage Cluster Node 17 | 563.25 | USD ($) | VERIFIED |\n| TXN-2026-0125 | 2026-09-26T11:05:00Z | Cloud Storage Cluster Node 25 | 663.25 | USD ($) | VERIFIED |\n| TXN-2026-0135 | 2026-09-08T01:55:00Z | Cloud Storage Cluster Node 35 | 788.25 | USD ($) | VERIFIED |\n| TXN-2026-0045 | 2026-09-18T03:45:00Z | Hardware Node Infrastructure Tier 45 | 19261.75 | INR (₹) | VERIFIED |"
+    },
+    {
+      "doc_id": "indep_mathematics_0055",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 414,
+      "token_count": 251,
+      "sha256": "104a3036653c8362d8bdc6a34ae65e4b2b47bb533dab2f5ac4af7952c4b3495e",
+      "text": "| TXN-2026-0147 | 2026-09-20T13:19:00Z | Cloud Storage Cluster Node 47 | 938.25 | USD ($) | VERIFIED |\n| TXN-2026-0153 | 2026-09-26T07:01:00Z | Cloud Storage Cluster Node 53 | 1013.25 | USD ($) | VERIFIED |\n| TXN-2026-0160 | 2026-09-05T12:00:00Z | Cloud Storage Cluster Node 60 | 1100.75 | USD ($) | VERIFIED |\n| TXN-2026-0164 | 2026-09-09T08:08:00Z | Cloud Storage Cluster Node 64 | 1150.75 | USD ($) | VERIFIED |"
+    },
+    {
+      "doc_id": "indep_mathematics_0056",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 327,
+      "token_count": 200,
+      "sha256": "dd0af0397e80ede32fd7462a4f7ada8b354cd4b5264e49dde8cc8d95797fe59e",
+      "text": "| TXN-2026-0069 | 2026-09-14T03:57:00Z | Hardware Node Infrastructure Tier 69 | 22867.75 | INR (₹) | VERIFIED |\n| TXN-2026-0071 | 2026-09-16T17:23:00Z | Hardware Node Infrastructure Tier 71 | 23168.25 | INR (₹) | VERIFIED |\n| TXN-2026-0171 | 2026-09-16T13:07:00Z | Cloud Storage Cluster Node 71 | 1238.25 | USD ($) | VERIFIED |"
+    },
+    {
+      "doc_id": "indep_mathematics_0057",
+      "domain": "mathematics",
+      "source_file": "numbers.txt",
+      "source_path": "data\\processed\\stage_b\\validation\\numbers.txt",
+      "char_count": 373,
+      "token_count": 245,
+      "sha256": "741af5743c0f6ece564494879bad09c1d362f866453bb882ec364e05a9288013",
+      "text": "| TXN-2026-0075 | 2026-09-20T21:15:00Z | Hardware Node Infrastructure Tier 75 | 23769.25 | INR (₹) | VERIFIED |\n| Mumbai (District 3) | Maharashtra | 12445373 | 89.7% | 17 | 19.0760° N, 72.8777° E |\n| Varanasi (District 3) | Uttar Pradesh | 1201491 | 75.6% | 84 | 25.3176° N, 82.9739° E |\n| Chennai (District 3) | Tamil Nadu | 7091000 | 90.2% | 9 | 13.0827° N, 80.2707° E |"
+    },
+    {
+      "doc_id": "indep_code_0058",
+      "domain": "code",
+      "source_file": "code_configs.txt",
+      "source_path": "data\\raw\\code\\code_configs.txt",
+      "char_count": 330,
+      "token_count": 117,
+      "sha256": "dbdeaf6f95f80fa2b0efad5be4592c7aaf5950253f5e8761633ee9d8ccd0f737",
+      "text": "{\n\"project\": \"ChakrView\",\n\"version\": \"0.1.0\",\n\"architecture\": {\n\"model_name\": \"Chakr-Micro\",\n\"d_model\": 192,\n\"layers\": 6,\n\"heads\": 6,\n\"head_dim\": 32,\n\"ffn_dim\": 512,\n\"max_context\": 512,\n\"vocab_size\": 4096,\n\"weight_tying\": true,\n\"bias\": false,\n\"norm\": \"Pre-RMSNorm\",\n\"positional_encoding\": \"RoPE\"\n},\n\"special_tokens\": {\n\"<BOS>\": 0,"
+    },
+    {
+      "doc_id": "indep_code_0059",
+      "domain": "code",
+      "source_file": "code_configs.txt",
+      "source_path": "data\\raw\\code\\code_configs.txt",
+      "char_count": 26,
+      "token_count": 17,
+      "sha256": "3b1c11de267fead3ad34d5c359094df8139bd17b67220e30a5f68c6e55d0b02c",
+      "text": "\"<EOS>\": 1,\n\"<PAD>\": 2\n}\n}"
+    },
+    {
+      "doc_id": "indep_code_0060",
+      "domain": "code",
+      "source_file": "code_python.txt",
+      "source_path": "data\\raw\\code\\code_python.txt",
+      "char_count": 387,
+      "token_count": 86,
+      "sha256": "b185e65e86800515ed619c1825d4a6211ceaa36a5f94d54a8dc148725b4dae29",
+      "text": "import math\nfrom typing import Dict, List, Optional, Tuple, Final\nclass SimpleMultiHeadAttention:\ndef __init__(self, d_model: int = 192, n_heads: int = 6) -> None:\nassert d_model % n_heads == 0, 'd_model must divide evenly by n_heads'\nself.d_model = d_model\nself.n_heads = n_heads\nself.d_head = d_model // n_heads\ndef compute_scaled_scores(self, q: List[float], k: List[float]) -> float:"
+    },
+    {
+      "doc_id": "indep_code_0061",
+      "domain": "code",
+      "source_file": "code_python.txt",
+      "source_path": "data\\raw\\code\\code_python.txt",
+      "char_count": 361,
+      "token_count": 85,
+      "sha256": "3d37c68bef9701e74f9f66e658c9679ba3e34752885efb9ac3c113390b0cdab9",
+      "text": "dot_product = sum(qi * ki for qi, ki in zip(q, k))\nscale = 1.0 / math.sqrt(self.d_head)\nreturn dot_product * scale\ndef compute_softmax(logits: List[float]) -> List[float]:\nmax_val = max(logits)\nexps = [math.exp(x - max_val) for x in logits]\nsum_exps = sum(exps)\nreturn [val / sum_exps for val in exps]\ndef calculate_entropy(probabilities: List[float]) -> float:"
+    },
+    {
+      "doc_id": "indep_code_0062",
+      "domain": "code",
+      "source_file": "code_python.txt",
+      "source_path": "data\\raw\\code\\code_python.txt",
+      "char_count": 150,
+      "token_count": 37,
+      "sha256": "25bae30507d6483850f8704ec6583c417ba99b30d9d6723b138474107959690d",
+      "text": "return -sum(p * math.log2(p) for p in probabilities if p > 0.0)\n# Assert architectural invariants\nassert SimpleMultiHeadAttention(192, 6).d_head == 32"
+    },
+    {
+      "doc_id": "indep_code_0063",
+      "domain": "code",
+      "source_file": "code.txt",
+      "source_path": "data\\validation\\code.txt",
+      "char_count": 335,
+      "token_count": 113,
+      "sha256": "a3369e651e57272f504d93eec13a31879078d9294f39903b8f3f6ab887e3868e",
+      "text": "\"norm\": \"Pre-RMSNorm\",\n\"<BOS>\": 0,\nint compare_tokens(const void* a, const void* b) {\nset -euo pipefail\necho \"Starting ChakrView validation pipeline...\"\nGROUP BY u.user_id, u.username\nwhile low <= high:\nif len(arr) <= 1:\npivot = arr[len(arr) // 2]\nmiddle = [x for x in arr if x == pivot]\nfor b in byte_sequence:\nnode.is_terminal = True"
+    },
+    {
+      "doc_id": "indep_code_0064",
+      "domain": "code",
+      "source_file": "code.txt",
+      "source_path": "data\\validation\\code.txt",
+      "char_count": 104,
+      "token_count": 33,
+      "sha256": "35f45ab74ce0999ebd2a42219dcc5eba1cbac98be015625d7fab8700b802e5b7",
+      "text": "break\ncurr_len += 1\nif node.is_terminal:\nbest_id = node.token_id\n};\nscale = 1.0 / math.sqrt(self.d_head)"
+    },
+    {
+      "doc_id": "indep_prose_0065",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 378,
+      "token_count": 67,
+      "sha256": "64722870420cfbcd6ea120331df902777df12734146462699465fd03c5bcaff5",
+      "text": "mujhe Python mein एक function banana hai jo memory optimize kare.\nChakrView ka neural core Pre-RMSNorm तकनीक ka upayog karta hai.\nमॉडल की inference latency मापने के लिए hum time.perf_counter() का प्रयोग करते हैं।\nPython script ko execute करने के लिए terminal mein pytest command run karein.\nDevanagari script ke words ko BPE tokenization mein subwords mein divide kiya jata hai."
+    },
+    {
+      "doc_id": "indep_prose_0066",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 369,
+      "token_count": 105,
+      "sha256": "3ed9c8b2fb4ae9e6620b18cde446c88f2e1bacfe953493b1a2ac24a79a2f5fa4",
+      "text": "हमारे research project का name ChakrView-चक्रव्यूह रखा गया है।\nइस model mein total parameters lagbhag 3.44 Million hain.\nRTX A1000 laptop GPU par matrix multiplication काफी तेज गति से execute hota hai.\nटोकनाइज़र को lossless hona chahiye taki decode(encode(text)) == text हमेशा true rahe.\nagar user <BOS> literal type kare toh usko special token ID 0 nahi milna chahiye."
+    },
+    {
+      "doc_id": "indep_prose_0067",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 325,
+      "token_count": 73,
+      "sha256": "35a37fd017c20a4d8b552503ff276911243585e228148de78801e144dffe22ee",
+      "text": "CPU cache hierarchy mein L1, L2 aur L3 cache ki bandwidth kaafi critical hoti hai.\nchalo ek function likhte hain jo UTF-8 bytes ko scan kare aur tokens return kare.\nYeh research prototype indigenous AI development ke liye ek solid foundation banata hai.\nहमारा target hai ki Hindi fertility rate 1.8 tokens per word se kam ho."
+    },
+    {
+      "doc_id": "indep_prose_0068",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 378,
+      "token_count": 86,
+      "sha256": "af852cdd1c8fe5ade81efa160befc39b8a356281c6d589bf83a2b8bb84e4b3bc",
+      "text": "Indian languages jaise Bengali, Tamil aur Marathi ke liye bhi support extend kiya jayega.\nमॉडल के architecture mein SwiGLU activation aur RoPE positional embeddings use hue hain.\nWeight tying feature ki wajah se embedding matrix aur output head shared weights use karte hain.\nkisi bhi exception ya runtime error ko gracefully handle karna software engineering ka basic rule hai."
+    },
+    {
+      "doc_id": "indep_prose_0069",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 423,
+      "token_count": 105,
+      "sha256": "a35ecce6909bfe0f8a795d7d30f8028f4890e078bc36d00a279982f1ad482362",
+      "text": "यह mixed corpus code-switching patterns ko test karne ke liye design kiya gaya hai.\nDevanagari text ko encode karte waqt raw UTF-8 bytes represent kiye jaate hain.\nyadi model input mein English words jaise \"attention\" ya \"transformer\" aate hain, toh unhe Latin subwords mein map kiya jata hai.\ncomputer science ke concepts jaise \"binary search tree\" aur \"recursion\" ko Hindi vyakhya ke saath samjhana kaafi useful hota hai."
+    },
+    {
+      "doc_id": "indep_prose_0070",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 334,
+      "token_count": 85,
+      "sha256": "4fc87011309a1c05ab043682e092cfb947ac2f4511f69a2d26811ecbe1f9a4ee",
+      "text": "एक algorithm ka time complexity O(N log N) hai jabki space complexity O(1) hai.\nhumne PyTorch aur TensorFlow jaise heavy dependencies ko abhi install nahi kiya hai.\nbina kisi external library ke pure Python mein BPE tokenizer implement kiya gaya hai.\nyeh approach bare-metal C aur microcontroller ports ke liye extremely portable hai."
+    },
+    {
+      "doc_id": "indep_prose_0071",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 321,
+      "token_count": 71,
+      "sha256": "70d28e70d700d376fb42d0f2ce724e90635986654d38437960a501e64a53e0fb",
+      "text": "जब आप git status run karte hain, tab working directory clean honi chahiye.\nunit test suite mein 85 tests already pass ho chuke hain bina kisi failure ke.\nहार्डवेयर विनिर्देश (hardware specification) mein Intel Core i9-13900H processor shamil hai.\nis processor mein 14 physical cores aur 20 logical threads available hain."
+    },
+    {
+      "doc_id": "indep_prose_0072",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 328,
+      "token_count": 76,
+      "sha256": "5bde8e24f3735def6be3df6d541511a026fa1f097cebd510c1a2fe6d6c5bb709",
+      "text": "RAM capacity 32 GB hai jo local training aur inference ke liye paryapt (sufficient) hai.\nGPU acceleration ke liye NVIDIA RTX A1000 with 6GB VRAM use ho raha hai.\ndata preprocessing pipeline mein corpus validation aur duplicate filtering zaroori steps hain.\nचक्रव्यूह मॉडल ke har component ko mathematically verify kiya gaya hai."
+    },
+    {
+      "doc_id": "indep_prose_0073",
+      "domain": "prose",
+      "source_file": "mixed_foundation.txt",
+      "source_path": "data\\raw\\mixed\\mixed_foundation.txt",
+      "char_count": 282,
+      "token_count": 59,
+      "sha256": "d237036f3d6803560c01508b7b6c95db7900791e9e90e4a6389aae3c882510cf",
+      "text": "bilingual text generation mein transition boundaries par koi extra whitespace insert nahi hona chahiye.\nagar text \"Python mein एक function\" hai toh decode ke baad exact wahi string wapas aani chahiye.\nyeh test case bilingual code-switching robust verification ka praman (proof) hai."
+    },
+    {
+      "doc_id": "indep_technical_0074",
+      "domain": "technical",
+      "source_file": "mixed_multilingual.txt",
+      "source_path": "data\\raw\\mixed\\mixed_multilingual.txt",
+      "char_count": 364,
+      "token_count": 135,
+      "sha256": "160408c27346e8e8c7d7aac061247a96bd4a54f849338d047a41ffad40286e68",
+      "text": "ChakrView (चक्रव्यूह) v0.1: Indigenous AI language model designed specifically for low-resource CPUs.\nThe sacred Sanskrit aphorism 'सत्यमेव जयते' translates to 'Truth alone triumphs' in modern English.\nIn 2026, we test ₹50,000 edge hardware using Python 3.14 on Windows 11 and Ubuntu Linux.\nनमस्ते (Namaste) -> Hello -> Bonjour -> Hola -> Привет -> مرحبا -> こんにちは."
+    },
+    {
+      "doc_id": "indep_technical_0075",
+      "domain": "technical",
+      "source_file": "mixed_multilingual.txt",
+      "source_path": "data\\raw\\mixed\\mixed_multilingual.txt",
+      "char_count": 411,
+      "token_count": 134,
+      "sha256": "1cb83e76ec45afddbf5892dffebcb485b71054bd3d47027415ef2096de063154",
+      "text": "Mathematical identity: ∀x ∈ ℝ, e^{iπ} + 1 = 0, combining analysis, geometry, and arithmetic.\nDevanagari numerals: ०, १, २, ३, ४, ५, ६, ७, ८, ९ compared with Western Arabic numerals: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.\nTesting combining characters: a + ̈ = ä, e + ́ = é, o + ̂ = ô with lossless byte-level reconstruction.\nMixed currency transaction: ₹1,00,000 INR equivalent to approximately $1,200 USD and €1,100 EUR."
+    },
+    {
+      "doc_id": "indep_technical_0076",
+      "domain": "technical",
+      "source_file": "mixed_multilingual.txt",
+      "source_path": "data\\raw\\mixed\\mixed_multilingual.txt",
+      "char_count": 333,
+      "token_count": 138,
+      "sha256": "9808022abef6ee760ad687aed0762b89d225136327321d88f2a407372da0aa6c",
+      "text": "Complex Devanagari test: कौशाम्बी, त्र्यंबकेश्वर, कुंडलियाँ, पूँछ, अँधेरा, ऋग्वेद, ॐ.\nClassical Sanskrit conjuncts: सत्त्व, दग्ध, बुद्ध, उष्ट्र, कार्त्तिकेय, वाग्देवी.\nZero-width characters: क्‍ष (half-ka with ZWJ) versus क्‌ष (virama with ZWNJ).\nEmoji sequences: 👨👩👧👦 (family), 👩💻 (technologist), 👍🏽 (skin tone), 🇮🇳 (national flag)."
+    },
+    {
+      "doc_id": "indep_hinglish_0077",
+      "domain": "hinglish",
+      "source_file": "hinglish_tech.txt",
+      "source_path": "data\\raw\\hinglish\\hinglish_tech.txt",
+      "char_count": 403,
+      "token_count": 84,
+      "sha256": "8200c000bb7f77004f3ae38ac2bba270ba997148b07079e70044fd35cb0f4994",
+      "text": "bhai mujhe ek lightweight indigenous AI model develop karna hai jo low-spec CPU par smoothly run kare.\nkya ChakrView bina discrete GPU ke sirf Intel ya AMD processor par inferencing kar sakta hai?\nha bilkul, iska hidden dimension 192 hai aur context length 512 tokens tak tightly bound hai.\ntokenizer ka kaam text ko byte tokens mein split karna hota hai taaki lossless reconstruction guarantee ho sake."
+    },
+    {
+      "doc_id": "indep_hinglish_0078",
+      "domain": "hinglish",
+      "source_file": "hinglish_tech.txt",
+      "source_path": "data\\raw\\hinglish\\hinglish_tech.txt",
+      "char_count": 321,
+      "token_count": 75,
+      "sha256": "da4a1bc62d677a20caf8c400d74274dea166c331ec36b4c74ebd9696aa3343b1",
+      "text": "agar vocab size 4096 select karein toh embedding matrix ka exact size 4096 cross 192 parameters hoga.\nmujhe lagta hai ki Hindi aur English dono ke liye byte-level BPE sabse practical aur balanced choice hai.\npehle hum synthetic benchmarks par learnability verify karenge uske baad actual language pre-training start hogi."
+    },
+    {
+      "doc_id": "indep_hinglish_0079",
+      "domain": "hinglish",
+      "source_file": "hinglish_tech.txt",
+      "source_path": "data\\raw\\hinglish\\hinglish_tech.txt",
+      "char_count": 327,
+      "token_count": 73,
+      "sha256": "7477dca7b31a1ebb015c526b7cba1cb0401ff3f2b9ef16818cc555e7d997909a",
+      "text": "code test suite mein saare unit tests completely green pass ho rahe hain bina kisi assertion failure ke.\naaj hum Step 3 ka empirical tokenizer benchmark execute kar rahe hain taaki measurable evidence collect ho.\nkoi bhi architectural assumption guess work par nahi lena hai, sab kuch benchmark numbers se justify hona chahiye."
+    },
+    {
+      "doc_id": "indep_hinglish_0080",
+      "domain": "hinglish",
+      "source_file": "hinglish_tech.txt",
+      "source_path": "data\\raw\\hinglish\\hinglish_tech.txt",
+      "char_count": 324,
+      "token_count": 82,
+      "sha256": "15c288d87d65fc02a922c3ee48a4c55ae9de0c4cae808cae322750d62b2c41c3",
+      "text": "RAM consumption aur CPU clock cycles optimize karke hum purane 28nm processors par bhi testing perform karenge.\nyeh project open source principles aur indigenous technology ki foundational philosophy par based hai.\nagar quantization implement karein toh INT8 weights ka memory footprint lagbhag 3.44 MB tak reduce ho jayega."
+    },
+    {
+      "doc_id": "indep_hinglish_0081",
+      "domain": "hinglish",
+      "source_file": "hinglish_tech.txt",
+      "source_path": "data\\raw\\hinglish\\hinglish_tech.txt",
+      "char_count": 113,
+      "token_count": 24,
+      "sha256": "db197a9cb50ef36fcf2fd4493a2e9f6dd4ee3bd9fb28f0fc15be3d2c150bfdae",
+      "text": "kisi bhi modern neural network mein attention mechanism token-to-token relationships ko deeply capture karta hai."
+    },
+    {
+      "doc_id": "indep_hinglish_0082",
+      "domain": "hinglish",
+      "source_file": "hinglish.txt",
+      "source_path": "data\\validation\\hinglish.txt",
+      "char_count": 331,
+      "token_count": 91,
+      "sha256": "b3f634f6140342961767e0ef67de5d7af94484a7ed0e050827617419e0e2e785",
+      "text": "haan bilkul, ChakrView ko low resource systems ke liye hi design kiya gaya hai.\nterminal mein jaakar pytest command run karo aur saare tests verify karo.\nkabhi bhi unwanted temporary files ko master branch par push mat karna.\nmujhe lagta hai ki Hindi aur English dono ke liye byte-level BPE sabse practical aur balanced choice hai."
+    },
+    {
+      "doc_id": "indep_hinglish_0083",
+      "domain": "hinglish",
+      "source_file": "hinglish.txt",
+      "source_path": "data\\validation\\hinglish.txt",
+      "char_count": 109,
+      "token_count": 29,
+      "sha256": "d2692333f18eae30d25f94560ea9816c3aebd33c4c8e8797d2852c0269aeec14",
+      "text": "agar quantization implement karein toh INT8 weights ka memory footprint lagbhag 3.44 MB tak reduce ho jayega."
+    },
+    {
+      "doc_id": "indep_technical_0084",
+      "domain": "technical",
+      "source_file": "english_systems.txt",
+      "source_path": "data\\raw\\english\\english_systems.txt",
+      "char_count": 392,
+      "token_count": 87,
+      "sha256": "bcf3fdbf9a6bb2b4357d1fa0730a360e72bb15eff1b66e02903ee910153d6ca6",
+      "text": "The overarching objective of this foundational project is to explore whether cognitive abilities can be realized on constrained hardware.\nModern computing systems frequently encounter severe memory bandwidth bottlenecks during autoregressive sequence decoding.\nWhen a transformer model evaluates next-token probabilities, every weight tensor must be retrieved from main memory into registers."
+    },
+    {
+      "doc_id": "indep_technical_0085",
+      "domain": "technical",
+      "source_file": "english_systems.txt",
+      "source_path": "data\\raw\\english\\english_systems.txt",
+      "char_count": 396,
+      "token_count": 89,
+      "sha256": "24ef155d1043783e3e1338aaf27b804900b1c96bd328cd112c480249b62ff1be",
+      "text": "Therefore, quantizing model weights from 32-bit floating point to 8-bit or 4-bit integers directly improves operational throughput.\nVectorized single-instruction multiple-data (SIMD) instruction sets such as AVX2, AVX-512, and ARM NEON allow parallel arithmetic.\nBy aligning attention head dimensions to multiples of vector register widths, matrix multiplication loops eliminate padding overhead."
+    },
+    {
+      "doc_id": "indep_technical_0086",
+      "domain": "technical",
+      "source_file": "english_systems.txt",
+      "source_path": "data\\raw\\english\\english_systems.txt",
+      "char_count": 395,
+      "token_count": 100,
+      "sha256": "09a0e0d8b6ca48126ca904f2837a9b09a512f2d8364f183dbcd661280f9f71cc",
+      "text": "Language tokenization forms the critical mathematical bridge connecting raw digital text with continuous embedding manifolds.\nA byte-level byte-pair encoding tokenizer guarantees that any sequence of raw octets can be processed without out-of-vocabulary tokens.\nTheoretical computer science demonstrates that deterministic algorithms yield reproducible results across diverse hardware platforms."
+    },
+    {
+      "doc_id": "indep_technical_0087",
+      "domain": "technical",
+      "source_file": "english_systems.txt",
+      "source_path": "data\\raw\\english\\english_systems.txt",
+      "char_count": 393,
+      "token_count": 87,
+      "sha256": "9ebbffaca500e8839fc0a93024bf814c548bb2fa074eeed6bf96d686000285b8",
+      "text": "The trade-off between vocabulary size, token fertility, and embedding parameter footprint is a central axis of micro-model design.\nWe prioritize mathematical rigor, transparent verification, and empirical measurement before commencing neural network training.\nKnowledge is represented through hierarchical computational transformations, from discrete byte tokens to deep associative manifolds."
+    },
+    {
+      "doc_id": "indep_technical_0088",
+      "domain": "technical",
+      "source_file": "english_systems.txt",
+      "source_path": "data\\raw\\english\\english_systems.txt",
+      "char_count": 259,
+      "token_count": 47,
+      "sha256": "85f783b135dc5b8613cf8aa128188c7e829b8f3058878c7a7f5212b2d77ace3d",
+      "text": "The processor cache hierarchy consists of high-speed L1 instruction and data caches, intermediate L2 caches, and shared L3 caches.\nDesigning neural architectures that respect cache locality is vital when deploying models on legacy or low-cost microprocessors."
+    }
+  ]
+}
