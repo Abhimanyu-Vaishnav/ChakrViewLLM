@@ -1,0 +1,799 @@
+{
+  "timestamp": "2026-10-16T05:14:31Z",
+  "corpus_manifest_sha256": "08f28b795c28af3b818c598dba73b018ed302da5bb1ab52ede73a4178362b641",
+  "total_documents": 30,
+  "total_targets_evaluated": 7741,
+  "baseline_canonical": {
+    "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "metrics": {
+      "targets_evaluated": 7741,
+      "duration_seconds": 1.299,
+      "throughput_tokens_per_sec": 5958.7,
+      "cross_entropy_loss": 5.3852,
+      "perplexity": 218.15,
+      "top_1_accuracy": 0.1102,
+      "top_5_accuracy": 0.2735,
+      "top_10_accuracy": 0.3595,
+      "category_breakdown": {
+        "distributed_and_consensus": {
+          "documents": 6,
+          "targets": 1517,
+          "cross_entropy": 5.2771,
+          "perplexity": 195.8
+        },
+        "explanatory_technical_prose": {
+          "documents": 6,
+          "targets": 1606,
+          "cross_entropy": 5.382,
+          "perplexity": 217.46
+        },
+        "mathematical_and_numerical": {
+          "documents": 6,
+          "targets": 1582,
+          "cross_entropy": 5.4132,
+          "perplexity": 224.35
+        },
+        "os_and_architecture": {
+          "documents": 6,
+          "targets": 1508,
+          "cross_entropy": 5.5363,
+          "perplexity": 253.73
+        },
+        "python_and_concurrency": {
+          "documents": 6,
+          "targets": 1528,
+          "cross_entropy": 5.3178,
+          "perplexity": 203.93
+        }
+      },
+      "per_document": [
+        {
+          "filename": "os_virtual_memory_paging.md",
+          "category": "os_and_architecture",
+          "targets": 236,
+          "loss": 5.6256,
+          "ppl": 277.45
+        },
+        {
+          "filename": "os_interrupt_handling_apic.md",
+          "category": "os_and_architecture",
+          "targets": 276,
+          "loss": 5.4774,
+          "ppl": 239.23
+        },
+        {
+          "filename": "os_process_scheduler_cfs.md",
+          "category": "os_and_architecture",
+          "targets": 245,
+          "loss": 5.6278,
+          "ppl": 278.05
+        },
+        {
+          "filename": "arch_cache_coherence_mesi.md",
+          "category": "os_and_architecture",
+          "targets": 234,
+          "loss": 5.7076,
+          "ppl": 301.15
+        },
+        {
+          "filename": "arch_branch_prediction_tage.md",
+          "category": "os_and_architecture",
+          "targets": 262,
+          "loss": 5.2412,
+          "ppl": 188.91
+        },
+        {
+          "filename": "arch_pcie_bus_dma.md",
+          "category": "os_and_architecture",
+          "targets": 255,
+          "loss": 5.5751,
+          "ppl": 263.77
+        },
+        {
+          "filename": "py_gil_multithreading_internals.md",
+          "category": "python_and_concurrency",
+          "targets": 242,
+          "loss": 5.6988,
+          "ppl": 298.52
+        },
+        {
+          "filename": "py_asyncio_event_loop.md",
+          "category": "python_and_concurrency",
+          "targets": 275,
+          "loss": 5.3284,
+          "ppl": 206.1
+        },
+        {
+          "filename": "py_memory_allocator_pymalloc.md",
+          "category": "python_and_concurrency",
+          "targets": 248,
+          "loss": 5.4821,
+          "ppl": 240.34
+        },
+        {
+          "filename": "py_bytecode_interpreter_ceval.md",
+          "category": "python_and_concurrency",
+          "targets": 248,
+          "loss": 5.2456,
+          "ppl": 189.72
+        },
+        {
+          "filename": "py_multiprocessing_shared_memory.md",
+          "category": "python_and_concurrency",
+          "targets": 256,
+          "loss": 5.1766,
+          "ppl": 177.07
+        },
+        {
+          "filename": "py_garbage_collection_generational.md",
+          "category": "python_and_concurrency",
+          "targets": 259,
+          "loss": 5.0018,
+          "ppl": 148.69
+        },
+        {
+          "filename": "dist_raft_log_replication.md",
+          "category": "distributed_and_consensus",
+          "targets": 239,
+          "loss": 5.4757,
+          "ppl": 238.82
+        },
+        {
+          "filename": "dist_vector_clocks_causality.md",
+          "category": "distributed_and_consensus",
+          "targets": 244,
+          "loss": 5.5538,
+          "ppl": 258.2
+        },
+        {
+          "filename": "dist_paxos_two_phase_commit.md",
+          "category": "distributed_and_consensus",
+          "targets": 279,
+          "loss": 5.0008,
+          "ppl": 148.53
+        },
+        {
+          "filename": "dist_distributed_transactions_2pc.md",
+          "category": "distributed_and_consensus",
+          "targets": 258,
+          "loss": 5.2555,
+          "ppl": 191.62
+        },
+        {
+          "filename": "dist_gossip_swim_membership.md",
+          "category": "distributed_and_consensus",
+          "targets": 253,
+          "loss": 5.2055,
+          "ppl": 182.27
+        },
+        {
+          "filename": "dist_consistent_hashing_ring.md",
+          "category": "distributed_and_consensus",
+          "targets": 244,
+          "loss": 5.2188,
+          "ppl": 184.71
+        },
+        {
+          "filename": "math_matrix_multiplication_gemm.md",
+          "category": "mathematical_and_numerical",
+          "targets": 233,
+          "loss": 6.1508,
+          "ppl": 469.1
+        },
+        {
+          "filename": "math_svd_principal_components.md",
+          "category": "mathematical_and_numerical",
+          "targets": 272,
+          "loss": 5.3651,
+          "ppl": 213.8
+        },
+        {
+          "filename": "math_gradient_descent_optimizers.md",
+          "category": "mathematical_and_numerical",
+          "targets": 245,
+          "loss": 5.6421,
+          "ppl": 282.05
+        },
+        {
+          "filename": "math_fourier_transform_fft.md",
+          "category": "mathematical_and_numerical",
+          "targets": 270,
+          "loss": 5.2413,
+          "ppl": 188.92
+        },
+        {
+          "filename": "math_monte_carlo_markov_chain.md",
+          "category": "mathematical_and_numerical",
+          "targets": 272,
+          "loss": 4.94,
+          "ppl": 139.77
+        },
+        {
+          "filename": "math_eigenvalues_power_iteration.md",
+          "category": "mathematical_and_numerical",
+          "targets": 290,
+          "loss": 5.2763,
+          "ppl": 195.64
+        },
+        {
+          "filename": "prose_fault_tolerant_system_design.md",
+          "category": "explanatory_technical_prose",
+          "targets": 277,
+          "loss": 5.3498,
+          "ppl": 210.57
+        },
+        {
+          "filename": "prose_zero_trust_network_architecture.md",
+          "category": "explanatory_technical_prose",
+          "targets": 267,
+          "loss": 5.0436,
+          "ppl": 155.02
+        },
+        {
+          "filename": "prose_observability_distributed_tracing.md",
+          "category": "explanatory_technical_prose",
+          "targets": 261,
+          "loss": 5.3741,
+          "ppl": 215.75
+        },
+        {
+          "filename": "prose_immutable_infrastructure_devops.md",
+          "category": "explanatory_technical_prose",
+          "targets": 282,
+          "loss": 5.2668,
+          "ppl": 193.8
+        },
+        {
+          "filename": "prose_data_pipeline_streaming_etl.md",
+          "category": "explanatory_technical_prose",
+          "targets": 243,
+          "loss": 5.7253,
+          "ppl": 306.53
+        },
+        {
+          "filename": "prose_database_storage_engines.md",
+          "category": "explanatory_technical_prose",
+          "targets": 276,
+          "loss": 5.5646,
+          "ppl": 261.03
+        }
+      ]
+    }
+  },
+  "candidate_adapted": {
+    "checkpoint_sha256": "15d48176efd6941415cc446b0f0602573a266a49a17da56d72d365d445091139",
+    "metrics": {
+      "targets_evaluated": 7741,
+      "duration_seconds": 1.557,
+      "throughput_tokens_per_sec": 4973.1,
+      "cross_entropy_loss": 4.8497,
+      "perplexity": 127.7,
+      "top_1_accuracy": 0.1741,
+      "top_5_accuracy": 0.3199,
+      "top_10_accuracy": 0.4081,
+      "category_breakdown": {
+        "distributed_and_consensus": {
+          "documents": 6,
+          "targets": 1517,
+          "cross_entropy": 4.7132,
+          "perplexity": 111.41
+        },
+        "explanatory_technical_prose": {
+          "documents": 6,
+          "targets": 1606,
+          "cross_entropy": 4.8468,
+          "perplexity": 127.34
+        },
+        "mathematical_and_numerical": {
+          "documents": 6,
+          "targets": 1582,
+          "cross_entropy": 4.9363,
+          "perplexity": 139.25
+        },
+        "os_and_architecture": {
+          "documents": 6,
+          "targets": 1508,
+          "cross_entropy": 4.9951,
+          "perplexity": 147.68
+        },
+        "python_and_concurrency": {
+          "documents": 6,
+          "targets": 1528,
+          "cross_entropy": 4.755,
+          "perplexity": 116.16
+        }
+      },
+      "per_document": [
+        {
+          "filename": "os_virtual_memory_paging.md",
+          "category": "os_and_architecture",
+          "targets": 236,
+          "loss": 5.1101,
+          "ppl": 165.68
+        },
+        {
+          "filename": "os_interrupt_handling_apic.md",
+          "category": "os_and_architecture",
+          "targets": 276,
+          "loss": 4.9821,
+          "ppl": 145.78
+        },
+        {
+          "filename": "os_process_scheduler_cfs.md",
+          "category": "os_and_architecture",
+          "targets": 245,
+          "loss": 4.9874,
+          "ppl": 146.56
+        },
+        {
+          "filename": "arch_cache_coherence_mesi.md",
+          "category": "os_and_architecture",
+          "targets": 234,
+          "loss": 5.1548,
+          "ppl": 173.25
+        },
+        {
+          "filename": "arch_branch_prediction_tage.md",
+          "category": "os_and_architecture",
+          "targets": 262,
+          "loss": 4.7875,
+          "ppl": 120.01
+        },
+        {
+          "filename": "arch_pcie_bus_dma.md",
+          "category": "os_and_architecture",
+          "targets": 255,
+          "loss": 4.9767,
+          "ppl": 144.99
+        },
+        {
+          "filename": "py_gil_multithreading_internals.md",
+          "category": "python_and_concurrency",
+          "targets": 242,
+          "loss": 5.0493,
+          "ppl": 155.91
+        },
+        {
+          "filename": "py_asyncio_event_loop.md",
+          "category": "python_and_concurrency",
+          "targets": 275,
+          "loss": 4.8599,
+          "ppl": 129.02
+        },
+        {
+          "filename": "py_memory_allocator_pymalloc.md",
+          "category": "python_and_concurrency",
+          "targets": 248,
+          "loss": 4.7912,
+          "ppl": 120.44
+        },
+        {
+          "filename": "py_bytecode_interpreter_ceval.md",
+          "category": "python_and_concurrency",
+          "targets": 248,
+          "loss": 4.6806,
+          "ppl": 107.83
+        },
+        {
+          "filename": "py_multiprocessing_shared_memory.md",
+          "category": "python_and_concurrency",
+          "targets": 256,
+          "loss": 4.6982,
+          "ppl": 109.75
+        },
+        {
+          "filename": "py_garbage_collection_generational.md",
+          "category": "python_and_concurrency",
+          "targets": 259,
+          "loss": 4.4613,
+          "ppl": 86.6
+        },
+        {
+          "filename": "dist_raft_log_replication.md",
+          "category": "distributed_and_consensus",
+          "targets": 239,
+          "loss": 4.628,
+          "ppl": 102.31
+        },
+        {
+          "filename": "dist_vector_clocks_causality.md",
+          "category": "distributed_and_consensus",
+          "targets": 244,
+          "loss": 4.987,
+          "ppl": 146.5
+        },
+        {
+          "filename": "dist_paxos_two_phase_commit.md",
+          "category": "distributed_and_consensus",
+          "targets": 279,
+          "loss": 4.5171,
+          "ppl": 91.57
+        },
+        {
+          "filename": "dist_distributed_transactions_2pc.md",
+          "category": "distributed_and_consensus",
+          "targets": 258,
+          "loss": 4.8298,
+          "ppl": 125.19
+        },
+        {
+          "filename": "dist_gossip_swim_membership.md",
+          "category": "distributed_and_consensus",
+          "targets": 253,
+          "loss": 4.6909,
+          "ppl": 108.95
+        },
+        {
+          "filename": "dist_consistent_hashing_ring.md",
+          "category": "distributed_and_consensus",
+          "targets": 244,
+          "loss": 4.6471,
+          "ppl": 104.28
+        },
+        {
+          "filename": "math_matrix_multiplication_gemm.md",
+          "category": "mathematical_and_numerical",
+          "targets": 233,
+          "loss": 5.4438,
+          "ppl": 231.31
+        },
+        {
+          "filename": "math_svd_principal_components.md",
+          "category": "mathematical_and_numerical",
+          "targets": 272,
+          "loss": 4.9054,
+          "ppl": 135.01
+        },
+        {
+          "filename": "math_gradient_descent_optimizers.md",
+          "category": "mathematical_and_numerical",
+          "targets": 245,
+          "loss": 5.0787,
+          "ppl": 160.56
+        },
+        {
+          "filename": "math_fourier_transform_fft.md",
+          "category": "mathematical_and_numerical",
+          "targets": 270,
+          "loss": 4.8969,
+          "ppl": 133.88
+        },
+        {
+          "filename": "math_monte_carlo_markov_chain.md",
+          "category": "mathematical_and_numerical",
+          "targets": 272,
+          "loss": 4.5054,
+          "ppl": 90.51
+        },
+        {
+          "filename": "math_eigenvalues_power_iteration.md",
+          "category": "mathematical_and_numerical",
+          "targets": 290,
+          "loss": 4.8778,
+          "ppl": 131.34
+        },
+        {
+          "filename": "prose_fault_tolerant_system_design.md",
+          "category": "explanatory_technical_prose",
+          "targets": 277,
+          "loss": 4.7813,
+          "ppl": 119.26
+        },
+        {
+          "filename": "prose_zero_trust_network_architecture.md",
+          "category": "explanatory_technical_prose",
+          "targets": 267,
+          "loss": 4.5392,
+          "ppl": 93.62
+        },
+        {
+          "filename": "prose_observability_distributed_tracing.md",
+          "category": "explanatory_technical_prose",
+          "targets": 261,
+          "loss": 4.8715,
+          "ppl": 130.51
+        },
+        {
+          "filename": "prose_immutable_infrastructure_devops.md",
+          "category": "explanatory_technical_prose",
+          "targets": 282,
+          "loss": 4.7249,
+          "ppl": 112.72
+        },
+        {
+          "filename": "prose_data_pipeline_streaming_etl.md",
+          "category": "explanatory_technical_prose",
+          "targets": 243,
+          "loss": 5.1775,
+          "ppl": 177.23
+        },
+        {
+          "filename": "prose_database_storage_engines.md",
+          "category": "explanatory_technical_prose",
+          "targets": 276,
+          "loss": 5.0203,
+          "ppl": 151.46
+        }
+      ]
+    }
+  },
+  "deltas": {
+    "loss_delta": -0.5355,
+    "perplexity_delta": -90.45,
+    "top_1_accuracy_delta": 0.0639,
+    "top_10_accuracy_delta": 0.0486,
+    "perplexity_relative_reduction_percent": 41.46
+  },
+  "per_document_comparison": [
+    {
+      "filename": "os_virtual_memory_paging.md",
+      "category": "os_and_architecture",
+      "targets": 236,
+      "baseline_loss": 5.6256,
+      "candidate_loss": 5.1101,
+      "loss_delta": -0.5155,
+      "improved": true
+    },
+    {
+      "filename": "os_interrupt_handling_apic.md",
+      "category": "os_and_architecture",
+      "targets": 276,
+      "baseline_loss": 5.4774,
+      "candidate_loss": 4.9821,
+      "loss_delta": -0.4953,
+      "improved": true
+    },
+    {
+      "filename": "os_process_scheduler_cfs.md",
+      "category": "os_and_architecture",
+      "targets": 245,
+      "baseline_loss": 5.6278,
+      "candidate_loss": 4.9874,
+      "loss_delta": -0.6404,
+      "improved": true
+    },
+    {
+      "filename": "arch_cache_coherence_mesi.md",
+      "category": "os_and_architecture",
+      "targets": 234,
+      "baseline_loss": 5.7076,
+      "candidate_loss": 5.1548,
+      "loss_delta": -0.5528,
+      "improved": true
+    },
+    {
+      "filename": "arch_branch_prediction_tage.md",
+      "category": "os_and_architecture",
+      "targets": 262,
+      "baseline_loss": 5.2412,
+      "candidate_loss": 4.7875,
+      "loss_delta": -0.4537,
+      "improved": true
+    },
+    {
+      "filename": "arch_pcie_bus_dma.md",
+      "category": "os_and_architecture",
+      "targets": 255,
+      "baseline_loss": 5.5751,
+      "candidate_loss": 4.9767,
+      "loss_delta": -0.5984,
+      "improved": true
+    },
+    {
+      "filename": "py_gil_multithreading_internals.md",
+      "category": "python_and_concurrency",
+      "targets": 242,
+      "baseline_loss": 5.6988,
+      "candidate_loss": 5.0493,
+      "loss_delta": -0.6495,
+      "improved": true
+    },
+    {
+      "filename": "py_asyncio_event_loop.md",
+      "category": "python_and_concurrency",
+      "targets": 275,
+      "baseline_loss": 5.3284,
+      "candidate_loss": 4.8599,
+      "loss_delta": -0.4685,
+      "improved": true
+    },
+    {
+      "filename": "py_memory_allocator_pymalloc.md",
+      "category": "python_and_concurrency",
+      "targets": 248,
+      "baseline_loss": 5.4821,
+      "candidate_loss": 4.7912,
+      "loss_delta": -0.6909,
+      "improved": true
+    },
+    {
+      "filename": "py_bytecode_interpreter_ceval.md",
+      "category": "python_and_concurrency",
+      "targets": 248,
+      "baseline_loss": 5.2456,
+      "candidate_loss": 4.6806,
+      "loss_delta": -0.565,
+      "improved": true
+    },
+    {
+      "filename": "py_multiprocessing_shared_memory.md",
+      "category": "python_and_concurrency",
+      "targets": 256,
+      "baseline_loss": 5.1766,
+      "candidate_loss": 4.6982,
+      "loss_delta": -0.4784,
+      "improved": true
+    },
+    {
+      "filename": "py_garbage_collection_generational.md",
+      "category": "python_and_concurrency",
+      "targets": 259,
+      "baseline_loss": 5.0018,
+      "candidate_loss": 4.4613,
+      "loss_delta": -0.5405,
+      "improved": true
+    },
+    {
+      "filename": "dist_raft_log_replication.md",
+      "category": "distributed_and_consensus",
+      "targets": 239,
+      "baseline_loss": 5.4757,
+      "candidate_loss": 4.628,
+      "loss_delta": -0.8477,
+      "improved": true
+    },
+    {
+      "filename": "dist_vector_clocks_causality.md",
+      "category": "distributed_and_consensus",
+      "targets": 244,
+      "baseline_loss": 5.5538,
+      "candidate_loss": 4.987,
+      "loss_delta": -0.5668,
+      "improved": true
+    },
+    {
+      "filename": "dist_paxos_two_phase_commit.md",
+      "category": "distributed_and_consensus",
+      "targets": 279,
+      "baseline_loss": 5.0008,
+      "candidate_loss": 4.5171,
+      "loss_delta": -0.4837,
+      "improved": true
+    },
+    {
+      "filename": "dist_distributed_transactions_2pc.md",
+      "category": "distributed_and_consensus",
+      "targets": 258,
+      "baseline_loss": 5.2555,
+      "candidate_loss": 4.8298,
+      "loss_delta": -0.4257,
+      "improved": true
+    },
+    {
+      "filename": "dist_gossip_swim_membership.md",
+      "category": "distributed_and_consensus",
+      "targets": 253,
+      "baseline_loss": 5.2055,
+      "candidate_loss": 4.6909,
+      "loss_delta": -0.5146,
+      "improved": true
+    },
+    {
+      "filename": "dist_consistent_hashing_ring.md",
+      "category": "distributed_and_consensus",
+      "targets": 244,
+      "baseline_loss": 5.2188,
+      "candidate_loss": 4.6471,
+      "loss_delta": -0.5717,
+      "improved": true
+    },
+    {
+      "filename": "math_matrix_multiplication_gemm.md",
+      "category": "mathematical_and_numerical",
+      "targets": 233,
+      "baseline_loss": 6.1508,
+      "candidate_loss": 5.4438,
+      "loss_delta": -0.707,
+      "improved": true
+    },
+    {
+      "filename": "math_svd_principal_components.md",
+      "category": "mathematical_and_numerical",
+      "targets": 272,
+      "baseline_loss": 5.3651,
+      "candidate_loss": 4.9054,
+      "loss_delta": -0.4597,
+      "improved": true
+    },
+    {
+      "filename": "math_gradient_descent_optimizers.md",
+      "category": "mathematical_and_numerical",
+      "targets": 245,
+      "baseline_loss": 5.6421,
+      "candidate_loss": 5.0787,
+      "loss_delta": -0.5634,
+      "improved": true
+    },
+    {
+      "filename": "math_fourier_transform_fft.md",
+      "category": "mathematical_and_numerical",
+      "targets": 270,
+      "baseline_loss": 5.2413,
+      "candidate_loss": 4.8969,
+      "loss_delta": -0.3444,
+      "improved": true
+    },
+    {
+      "filename": "math_monte_carlo_markov_chain.md",
+      "category": "mathematical_and_numerical",
+      "targets": 272,
+      "baseline_loss": 4.94,
+      "candidate_loss": 4.5054,
+      "loss_delta": -0.4346,
+      "improved": true
+    },
+    {
+      "filename": "math_eigenvalues_power_iteration.md",
+      "category": "mathematical_and_numerical",
+      "targets": 290,
+      "baseline_loss": 5.2763,
+      "candidate_loss": 4.8778,
+      "loss_delta": -0.3985,
+      "improved": true
+    },
+    {
+      "filename": "prose_fault_tolerant_system_design.md",
+      "category": "explanatory_technical_prose",
+      "targets": 277,
+      "baseline_loss": 5.3498,
+      "candidate_loss": 4.7813,
+      "loss_delta": -0.5685,
+      "improved": true
+    },
+    {
+      "filename": "prose_zero_trust_network_architecture.md",
+      "category": "explanatory_technical_prose",
+      "targets": 267,
+      "baseline_loss": 5.0436,
+      "candidate_loss": 4.5392,
+      "loss_delta": -0.5044,
+      "improved": true
+    },
+    {
+      "filename": "prose_observability_distributed_tracing.md",
+      "category": "explanatory_technical_prose",
+      "targets": 261,
+      "baseline_loss": 5.3741,
+      "candidate_loss": 4.8715,
+      "loss_delta": -0.5026,
+      "improved": true
+    },
+    {
+      "filename": "prose_immutable_infrastructure_devops.md",
+      "category": "explanatory_technical_prose",
+      "targets": 282,
+      "baseline_loss": 5.2668,
+      "candidate_loss": 4.7249,
+      "loss_delta": -0.5419,
+      "improved": true
+    },
+    {
+      "filename": "prose_data_pipeline_streaming_etl.md",
+      "category": "explanatory_technical_prose",
+      "targets": 243,
+      "baseline_loss": 5.7253,
+      "candidate_loss": 5.1775,
+      "loss_delta": -0.5478,
+      "improved": true
+    },
+    {
+      "filename": "prose_database_storage_engines.md",
+      "category": "explanatory_technical_prose",
+      "targets": 276,
+      "baseline_loss": 5.5646,
+      "candidate_loss": 5.0203,
+      "loss_delta": -0.5443,
+      "improved": true
+    }
+  ]
+}
