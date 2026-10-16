@@ -1,0 +1,68 @@
+{
+  "mission": "batch1941_1980",
+  "evaluation_set": "source_disjoint_corpus.json",
+  "total_documents": 88,
+  "methodology": {
+    "resampling_unit": "paired_document_id",
+    "n_resamples": 10000,
+    "random_seed": 42,
+    "quantile_method": "empirical_sorted_percentile",
+    "sign_convention": "delta = candidate_loss - canonical_loss (negative delta indicates candidate improvement)"
+  },
+  "token_weighted_estimand": {
+    "cpt_balanced_seed_42": {
+      "point_estimate_token_weighted_delta": -0.2012,
+      "ci_95_lower": -0.2782,
+      "ci_95_upper": -0.1321,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_123": {
+      "point_estimate_token_weighted_delta": -0.2004,
+      "ci_95_lower": -0.2821,
+      "ci_95_upper": -0.1272,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_999": {
+      "point_estimate_token_weighted_delta": -0.2097,
+      "ci_95_lower": -0.2877,
+      "ci_95_upper": -0.14,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_42_300steps": {
+      "point_estimate_token_weighted_delta": -0.0834,
+      "ci_95_lower": -0.1668,
+      "ci_95_upper": 0.0005,
+      "point_estimate_inside_ci": true
+    }
+  },
+  "macro_document_estimand": {
+    "cpt_balanced_seed_42": {
+      "point_estimate_macro_delta": -0.3088,
+      "ci_95_lower": -0.3918,
+      "ci_95_upper": -0.2307,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_123": {
+      "point_estimate_macro_delta": -0.3132,
+      "ci_95_lower": -0.3993,
+      "ci_95_upper": -0.232,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_999": {
+      "point_estimate_macro_delta": -0.3179,
+      "ci_95_lower": -0.4016,
+      "ci_95_upper": -0.239,
+      "point_estimate_inside_ci": true
+    },
+    "cpt_balanced_seed_42_300steps": {
+      "point_estimate_macro_delta": -0.1763,
+      "ci_95_lower": -0.2537,
+      "ci_95_upper": -0.1,
+      "point_estimate_inside_ci": true
+    }
+  },
+  "inconsistency_diagnosis": {
+    "root_cause": "The Batch 1901 report juxtaposed token-weighted point estimates (e.g. -0.2012 for Seed 42) with document-level unweighted bootstrap confidence intervals ([-0.3915, -0.2279]). The document macro delta was actually -0.3088, which lies directly within [-0.3918, -0.2307].",
+    "status": "RESOLVED_AND_CORRECTED"
+  }
+}
