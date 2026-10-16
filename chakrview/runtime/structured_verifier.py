@@ -171,18 +171,23 @@ class StructuredVerifier:
                 # Check for "Attribute: Value"
                 if ":" in line:
                     parts = line.split(":", 1)
-                    prefix = parts[0].lower()
+                    prefix = parts[0].strip()
                     suffix = parts[1].strip()
 
-                    # Check if attribute keywords match prefix
-                    if any(w in prefix for w in a_words):
+                    # Avoid treating markdown headers like "# BM25 Lexical Knowledge Index" as attribute lines
+                    if prefix.startswith("#"):
+                        continue
+
+                    prefix_lower = prefix.lower()
+                    # Check if attribute keywords match prefix closely
+                    if all(w in prefix_lower for w in a_words) or (len(a_words) > 1 and sum(1 for w in a_words if w in prefix_lower) >= 2):
                         # Extract first number/currency/unit from suffix
                         m_val = re.search(r"([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", suffix)
                         if m_val:
                             return m_val.group(1).strip(), line
 
-                # Check if attribute is in line and followed by number
-                m_after = re.search(rf"(?:{'|'.join(re.escape(w) for w in a_words)}).*?([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", line, re.I)
+                # Check if attribute is in line and followed by colon or value
+                m_after = re.search(rf"(?:{'|'.join(re.escape(w) for w in a_words)}).*?[:=-]\s*([\$€£]?\d+(?:\.\d+)?(?:\s*[a-zA-Z%]+)?)", line, re.I)
                 if m_after:
                     return m_after.group(1).strip(), line
 

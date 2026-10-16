@@ -23,6 +23,11 @@ from chakrview.runtime.structured_verifier import (
     VerificationRecord,
     VerificationVerdict,
 )
+from chakrview.runtime.conversation_state import (
+    ConversationStateManager,
+    ToolResultType,
+    ReferenceResolutionResult,
+)
 
 
 class CanonicalRoute(str, Enum):
@@ -67,10 +72,12 @@ class GovernedToolRouter:
         calculator: Optional[SafeCalculator] = None,
         verifier: Optional[StructuredVerifier] = None,
         knowledge_assistant: Optional[Any] = None,
+        state_manager: Optional[ConversationStateManager] = None,
     ) -> None:
         self.calculator = calculator or SafeCalculator()
         self.verifier = verifier or StructuredVerifier()
         self.assistant = knowledge_assistant
+        self.state_manager = state_manager or ConversationStateManager()
 
     @staticmethod
     def extract_arithmetic_expression(query: str) -> Optional[str]:
@@ -215,7 +222,13 @@ class GovernedToolRouter:
 
         return None
 
-    def route_request(self, query: str, request_id: str = "req_default") -> RoutingDecision:
+    def route_request(
+        self,
+        query: str,
+        request_id: str = "req_default",
+        conversation_id: str = "conv_default",
+        tenant_id: str = "default_tenant",
+    ) -> RoutingDecision:
         t0 = time.perf_counter()
         q_clean = query.strip()
         q_lower = q_clean.lower()
@@ -237,17 +250,40 @@ class GovernedToolRouter:
                 latency_ms=elapsed,
             )
 
-        # 2. Check for Arithmetic / Mathematical Calculation
-        expr = self.extract_arithmetic_expression(q_clean)
+        # 2. Check for Multi-Turn Anaphoric Reference Resolution (e.g. 'divide that by 4', 'add 50 to the result')
+        ref_res = self.state_manager.resolve_reference(
+            q_clean, conversation_id=conversation_id, tenant_id=tenant_id, target_result_type=ToolResultType.NUMERIC
+        )
+
+        effective_query = q_clean
+        selection_reason_prefix = ""
+        if ref_res.resolved and ref_res.resolved_expression:
+            effective_query = ref_res.resolved_expression
+            selection_reason_prefix = f"Multi-turn reference resolved ({ref_res.reason}). "
+
+        # 3. Check for Arithmetic / Mathematical Calculation
+        expr = self.extract_arithmetic_expression(effective_query)
         if expr:
             calc_res = self.calculator.evaluate(expr)
             elapsed = (time.perf_counter() - t0) * 1000.0
             if calc_res.success:
+                # Record result in state manager for future multi-turn chaining
+                self.state_manager.record_tool_result(
+                    conversation_id=conversation_id,
+                    tool_id="calculator",
+                    operation="evaluate",
+                    arguments={"expression": expr},
+                    result=calc_res.result,
+                    result_type=ToolResultType.NUMERIC,
+                    success=True,
+                    tenant_id=tenant_id,
+                    provenance={"request_id": request_id, "query": q_clean},
+                )
                 return RoutingDecision(
                     request_id=request_id,
                     query=q_clean,
                     route=CanonicalRoute.CALCULATOR,
-                    selection_reason=f"Arithmetic expression identified: '{expr}'.",
+                    selection_reason=f"{selection_reason_prefix}Arithmetic expression identified: '{expr}'.",
                     validated_arguments={"expression": expr, "normalized": calc_res.normalized_expression},
                     execution_status="SUCCESS",
                     validation_status="VALIDATED",
@@ -261,7 +297,7 @@ class GovernedToolRouter:
                     request_id=request_id,
                     query=q_clean,
                     route=CanonicalRoute.ERROR,
-                    selection_reason=f"Arithmetic syntax or domain error: {calc_res.error_message}",
+                    selection_reason=f"{selection_reason_prefix}Arithmetic syntax or domain error: {calc_res.error_message}",
                     validated_arguments={"expression": expr},
                     execution_status="FAILED",
                     validation_status="REJECTED",
