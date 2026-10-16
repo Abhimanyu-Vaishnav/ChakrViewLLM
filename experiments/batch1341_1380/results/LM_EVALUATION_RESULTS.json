@@ -1,0 +1,1217 @@
+{
+  "timestamp": "2026-10-16T04:47:18Z",
+  "checkpoint": {
+    "path": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "step": 10000,
+    "architecture": "ChakrMicro",
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "vocab_size": 4096,
+    "max_seq_len": 512,
+    "total_parameters": 4229568,
+    "tied_parameters": 3443136
+  },
+  "dataset_split": {
+    "train_documents_count": 25,
+    "test_documents_count": 27,
+    "train_tokens": 3212,
+    "test_tokens": 3456
+  },
+  "unigram_metadata": {
+    "train_tokens_counted": 3212,
+    "unique_tokens_in_train": 699,
+    "vocab_coverage": 0.1707,
+    "top_5_frequent_tokens": [
+      {
+        "token_id": 13,
+        "token_str": "\n",
+        "count": 159
+      },
+      {
+        "token_id": 817,
+        "token_str": "- ",
+        "count": 84
+      },
+      {
+        "token_id": 38,
+        "token_str": "#",
+        "count": 73
+      },
+      {
+        "token_id": 35,
+        "token_str": " ",
+        "count": 71
+      },
+      {
+        "token_id": 49,
+        "token_str": ".",
+        "count": 67
+      }
+    ]
+  },
+  "evaluation_results": {
+    "total_test_documents": 27,
+    "total_target_tokens_evaluated": 3456,
+    "metrics_summary": {
+      "uniform_random_baseline": {
+        "cross_entropy_loss": 8.3178,
+        "perplexity": 4096,
+        "top_1_accuracy": 0.000244,
+        "top_5_accuracy": 0.001221,
+        "top_10_accuracy": 0.002441
+      },
+      "training_unigram_baseline": {
+        "cross_entropy_loss": 6.6266,
+        "perplexity": 754.93,
+        "top_1_accuracy": 0.048,
+        "top_5_accuracy": 0.136,
+        "top_10_accuracy": 0.1921
+      },
+      "chakrmicro_checkpoint_step_10000": {
+        "cross_entropy_loss": 5.063,
+        "perplexity": 158.07,
+        "top_1_accuracy": 0.1285,
+        "top_5_accuracy": 0.307,
+        "top_10_accuracy": 0.4039
+      }
+    },
+    "category_breakdown": {
+      "billing": {
+        "documents_count": 4,
+        "tokens_count": 580,
+        "model_cross_entropy": 4.8618,
+        "model_perplexity": 129.26,
+        "unigram_cross_entropy": 6.6274,
+        "unigram_perplexity": 755.52
+      },
+      "compute": {
+        "documents_count": 5,
+        "tokens_count": 591,
+        "model_cross_entropy": 5.2336,
+        "model_perplexity": 187.47,
+        "unigram_cross_entropy": 6.6394,
+        "unigram_perplexity": 764.67
+      },
+      "network": {
+        "documents_count": 5,
+        "tokens_count": 585,
+        "model_cross_entropy": 5.0182,
+        "model_perplexity": 151.14,
+        "unigram_cross_entropy": 6.4812,
+        "unigram_perplexity": 652.74
+      },
+      "security": {
+        "documents_count": 5,
+        "tokens_count": 671,
+        "model_cross_entropy": 5.1501,
+        "model_perplexity": 172.46,
+        "unigram_cross_entropy": 6.6692,
+        "unigram_perplexity": 787.78
+      },
+      "sop": {
+        "documents_count": 4,
+        "tokens_count": 549,
+        "model_cross_entropy": 5.1777,
+        "model_perplexity": 177.27,
+        "unigram_cross_entropy": 6.7682,
+        "unigram_perplexity": 869.78
+      },
+      "storage": {
+        "documents_count": 4,
+        "tokens_count": 480,
+        "model_cross_entropy": 4.8976,
+        "model_perplexity": 133.97,
+        "unigram_cross_entropy": 6.5656,
+        "unigram_perplexity": 710.24
+      }
+    },
+    "per_document_results": [
+      {
+        "doc_id": "billing_refund_policy.md",
+        "category": "billing",
+        "tokens_evaluated": 142,
+        "model_loss": 4.7036,
+        "model_ppl": 110.34,
+        "unigram_loss": 6.647,
+        "unigram_ppl": 770.49
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "category": "billing",
+        "tokens_evaluated": 151,
+        "model_loss": 5.0423,
+        "model_ppl": 154.82,
+        "unigram_loss": 6.7701,
+        "unigram_ppl": 871.39
+      },
+      {
+        "doc_id": "billing_subscription_tiers.md",
+        "category": "billing",
+        "tokens_evaluated": 142,
+        "model_loss": 4.9629,
+        "model_ppl": 143.0,
+        "unigram_loss": 6.7282,
+        "unigram_ppl": 835.66
+      },
+      {
+        "doc_id": "billing_support_tiers.md",
+        "category": "billing",
+        "tokens_evaluated": 145,
+        "model_loss": 4.7299,
+        "model_ppl": 113.29,
+        "unigram_loss": 6.3609,
+        "unigram_ppl": 578.75
+      },
+      {
+        "doc_id": "compute_kernel_fusion.md",
+        "category": "compute",
+        "tokens_evaluated": 113,
+        "model_loss": 5.2973,
+        "model_ppl": 199.8,
+        "unigram_loss": 6.6411,
+        "unigram_ppl": 765.97
+      },
+      {
+        "doc_id": "compute_memory_bus.md",
+        "category": "compute",
+        "tokens_evaluated": 121,
+        "model_loss": 6.007,
+        "model_ppl": 406.27,
+        "unigram_loss": 6.6999,
+        "unigram_ppl": 812.31
+      },
+      {
+        "doc_id": "compute_quantization.md",
+        "category": "compute",
+        "tokens_evaluated": 131,
+        "model_loss": 5.3941,
+        "model_ppl": 220.09,
+        "unigram_loss": 6.7046,
+        "unigram_ppl": 816.15
+      },
+      {
+        "doc_id": "compute_scheduler.md",
+        "category": "compute",
+        "tokens_evaluated": 105,
+        "model_loss": 4.7524,
+        "model_ppl": 115.86,
+        "unigram_loss": 6.5908,
+        "unigram_ppl": 728.35
+      },
+      {
+        "doc_id": "compute_telemetry.md",
+        "category": "compute",
+        "tokens_evaluated": 121,
+        "model_loss": 4.6447,
+        "model_ppl": 104.04,
+        "unigram_loss": 6.5491,
+        "unigram_ppl": 698.65
+      },
+      {
+        "doc_id": "network_gateway_api.md",
+        "category": "network",
+        "tokens_evaluated": 125,
+        "model_loss": 5.0865,
+        "model_ppl": 161.83,
+        "unigram_loss": 6.4319,
+        "unigram_ppl": 621.36
+      },
+      {
+        "doc_id": "network_load_balancer.md",
+        "category": "network",
+        "tokens_evaluated": 118,
+        "model_loss": 5.0812,
+        "model_ppl": 160.97,
+        "unigram_loss": 6.6891,
+        "unigram_ppl": 803.62
+      },
+      {
+        "doc_id": "network_mesh_topology.md",
+        "category": "network",
+        "tokens_evaluated": 130,
+        "model_loss": 5.2744,
+        "model_ppl": 195.27,
+        "unigram_loss": 6.4188,
+        "unigram_ppl": 613.28
+      },
+      {
+        "doc_id": "network_socket_tuning.md",
+        "category": "network",
+        "tokens_evaluated": 108,
+        "model_loss": 4.8627,
+        "model_ppl": 129.37,
+        "unigram_loss": 6.4685,
+        "unigram_ppl": 644.52
+      },
+      {
+        "doc_id": "network_vpn_tunnel.md",
+        "category": "network",
+        "tokens_evaluated": 104,
+        "model_loss": 4.706,
+        "model_ppl": 110.61,
+        "unigram_loss": 6.3956,
+        "unigram_ppl": 599.2
+      },
+      {
+        "doc_id": "security_key_management.md",
+        "category": "security",
+        "tokens_evaluated": 127,
+        "model_loss": 5.2348,
+        "model_ppl": 187.69,
+        "unigram_loss": 6.621,
+        "unigram_ppl": 750.73
+      },
+      {
+        "doc_id": "security_role_rbac.md",
+        "category": "security",
+        "tokens_evaluated": 116,
+        "model_loss": 5.2181,
+        "model_ppl": 184.59,
+        "unigram_loss": 6.7272,
+        "unigram_ppl": 834.78
+      },
+      {
+        "doc_id": "security_sandbox_isolation.md",
+        "category": "security",
+        "tokens_evaluated": 126,
+        "model_loss": 5.3576,
+        "model_ppl": 212.22,
+        "unigram_loss": 6.806,
+        "unigram_ppl": 903.25
+      },
+      {
+        "doc_id": "security_threat_model.md",
+        "category": "security",
+        "tokens_evaluated": 152,
+        "model_loss": 4.9002,
+        "model_ppl": 134.32,
+        "unigram_loss": 6.6571,
+        "unigram_ppl": 778.27
+      },
+      {
+        "doc_id": "security_vulnerability_sla.md",
+        "category": "security",
+        "tokens_evaluated": 150,
+        "model_loss": 5.1049,
+        "model_ppl": 164.83,
+        "unigram_loss": 6.5626,
+        "unigram_ppl": 708.14
+      },
+      {
+        "doc_id": "sop_log_rotation.md",
+        "category": "sop",
+        "tokens_evaluated": 104,
+        "model_loss": 5.1393,
+        "model_ppl": 170.6,
+        "unigram_loss": 6.5728,
+        "unigram_ppl": 715.36
+      },
+      {
+        "doc_id": "sop_release_checklist.md",
+        "category": "sop",
+        "tokens_evaluated": 153,
+        "model_loss": 5.2085,
+        "model_ppl": 182.83,
+        "unigram_loss": 6.8476,
+        "unigram_ppl": 941.59
+      },
+      {
+        "doc_id": "sop_release_versioning.md",
+        "category": "sop",
+        "tokens_evaluated": 136,
+        "model_loss": 5.1526,
+        "model_ppl": 172.87,
+        "unigram_loss": 6.8414,
+        "unigram_ppl": 935.83
+      },
+      {
+        "doc_id": "sop_runtime_environments.md",
+        "category": "sop",
+        "tokens_evaluated": 156,
+        "model_loss": 5.1949,
+        "model_ppl": 180.34,
+        "unigram_loss": 6.7569,
+        "unigram_ppl": 859.95
+      },
+      {
+        "doc_id": "storage_compaction.md",
+        "category": "storage",
+        "tokens_evaluated": 122,
+        "model_loss": 4.6323,
+        "model_ppl": 102.75,
+        "unigram_loss": 6.411,
+        "unigram_ppl": 608.53
+      },
+      {
+        "doc_id": "storage_disk_engine.md",
+        "category": "storage",
+        "tokens_evaluated": 110,
+        "model_loss": 5.3141,
+        "model_ppl": 203.19,
+        "unigram_loss": 6.618,
+        "unigram_ppl": 748.47
+      },
+      {
+        "doc_id": "storage_sqlite_schema.md",
+        "category": "storage",
+        "tokens_evaluated": 143,
+        "model_loss": 4.8102,
+        "model_ppl": 122.76,
+        "unigram_loss": 6.6685,
+        "unigram_ppl": 787.22
+      },
+      {
+        "doc_id": "storage_vector_index.md",
+        "category": "storage",
+        "tokens_evaluated": 105,
+        "model_loss": 4.8886,
+        "model_ppl": 132.77,
+        "unigram_loss": 6.5502,
+        "unigram_ppl": 699.35
+      }
+    ],
+    "prediction_samples": [
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 0,
+        "context": "#",
+        "actual_next_token_id": 35,
+        "actual_next_token_str": " ",
+        "actual_token_prob": 0.14094,
+        "actual_in_top1": false,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 38,
+            "token_str": "#",
+            "prob": 0.3202
+          },
+          {
+            "token_id": 265,
+            "token_str": "  ",
+            "prob": 0.3096
+          },
+          {
+            "token_id": 35,
+            "token_str": " ",
+            "prob": 0.1409
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 8,
+        "context": "Refund and Early ",
+        "actual_next_token_id": 70,
+        "actual_next_token_str": "C",
+        "actual_token_prob": 0.03547,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 79,
+            "token_str": "L",
+            "prob": 0.0857
+          },
+          {
+            "token_id": 80,
+            "token_str": "M",
+            "prob": 0.0566
+          },
+          {
+            "token_id": 83,
+            "token_str": "P",
+            "prob": 0.0525
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 16,
+        "context": "ancellation Policy",
+        "actual_next_token_id": 13,
+        "actual_next_token_str": "\n",
+        "actual_token_prob": 0.32384,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.3238
+          },
+          {
+            "token_id": 276,
+            "token_str": ", ",
+            "prob": 0.193
+          },
+          {
+            "token_id": 558,
+            "token_str": ", and ",
+            "prob": 0.0449
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 24,
+        "context": "\n## 1. C",
+        "actual_next_token_id": 286,
+        "actual_next_token_str": "an",
+        "actual_token_prob": 0.02437,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 107,
+            "token_str": "h",
+            "prob": 0.188
+          },
+          {
+            "token_id": 49,
+            "token_str": ".",
+            "prob": 0.0678
+          },
+          {
+            "token_id": 280,
+            "token_str": "ar",
+            "prob": 0.0367
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 32,
+        "context": "cellation Terms",
+        "actual_next_token_id": 13,
+        "actual_next_token_str": "\n",
+        "actual_token_prob": 0.64612,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.6461
+          },
+          {
+            "token_id": 300,
+            "token_str": "ch",
+            "prob": 0.016
+          },
+          {
+            "token_id": 364,
+            "token_str": "o ",
+            "prob": 0.013
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 40,
+        "context": "- Monthly plan",
+        "actual_next_token_id": 526,
+        "actual_next_token_str": "s: ",
+        "actual_token_prob": 3e-05,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 377,
+            "token_str": "et",
+            "prob": 0.1585
+          },
+          {
+            "token_id": 289,
+            "token_str": "t ",
+            "prob": 0.1473
+          },
+          {
+            "token_id": 839,
+            "token_str": "ts ",
+            "prob": 0.1187
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 48,
+        "context": "Cancellation eff",
+        "actual_next_token_id": 368,
+        "actual_next_token_str": "ec",
+        "actual_token_prob": 0.74232,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 368,
+            "token_str": "ec",
+            "prob": 0.7423
+          },
+          {
+            "token_id": 111,
+            "token_str": "l",
+            "prob": 0.0196
+          },
+          {
+            "token_id": 392,
+            "token_str": "er ",
+            "prob": 0.0188
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 56,
+        "context": "tive at end of current ",
+        "actual_next_token_id": 1322,
+        "actual_next_token_str": "bil",
+        "actual_token_prob": 0.00024,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 115,
+            "token_str": "p",
+            "prob": 0.0336
+          },
+          {
+            "token_id": 287,
+            "token_str": "re",
+            "prob": 0.0213
+          },
+          {
+            "token_id": 770,
+            "token_str": "of ",
+            "prob": 0.0188
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 64,
+        "context": "ling cycle without pror",
+        "actual_next_token_id": 1170,
+        "actual_next_token_str": "ated ",
+        "actual_token_prob": 0.00103,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 119,
+            "token_str": "t",
+            "prob": 0.2075
+          },
+          {
+            "token_id": 2407,
+            "token_str": "tan",
+            "prob": 0.0474
+          },
+          {
+            "token_id": 106,
+            "token_str": "g",
+            "prob": 0.0462
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 72,
+        "context": "refund.\n- A",
+        "actual_next_token_id": 113,
+        "actual_next_token_str": "n",
+        "actual_token_prob": 0.23043,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 113,
+            "token_str": "n",
+            "prob": 0.2304
+          },
+          {
+            "token_id": 117,
+            "token_str": "r",
+            "prob": 0.0707
+          },
+          {
+            "token_id": 120,
+            "token_str": "u",
+            "prob": 0.0659
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 80,
+        "context": "nual plans: 30-d",
+        "actual_next_token_id": 100,
+        "actual_next_token_str": "a",
+        "actual_token_prob": 0.15789,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 100,
+            "token_str": "a",
+            "prob": 0.1579
+          },
+          {
+            "token_id": 363,
+            "token_str": "es",
+            "prob": 0.0452
+          },
+          {
+            "token_id": 120,
+            "token_str": "u",
+            "prob": 0.0406
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 88,
+        "context": "y money-back ",
+        "actual_next_token_id": 118,
+        "actual_next_token_str": "s",
+        "actual_token_prob": 0.00676,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 354,
+            "token_str": "and ",
+            "prob": 0.0916
+          },
+          {
+            "token_id": 43,
+            "token_str": "(",
+            "prob": 0.0871
+          },
+          {
+            "token_id": 770,
+            "token_str": "of ",
+            "prob": 0.0689
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 96,
+        "context": "atisfaction guarantee ",
+        "actual_next_token_id": 1097,
+        "actual_next_token_str": "from ",
+        "actual_token_prob": 0.01452,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 43,
+            "token_str": "(",
+            "prob": 0.1042
+          },
+          {
+            "token_id": 770,
+            "token_str": "of ",
+            "prob": 0.0717
+          },
+          {
+            "token_id": 354,
+            "token_str": "and ",
+            "prob": 0.0447
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 104,
+        "context": "initial contract sign",
+        "actual_next_token_id": 791,
+        "actual_next_token_str": "atu",
+        "actual_token_prob": 0.00179,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 327,
+            "token_str": "al ",
+            "prob": 0.0935
+          },
+          {
+            "token_id": 830,
+            "token_str": "ific",
+            "prob": 0.0595
+          },
+          {
+            "token_id": 288,
+            "token_str": "al",
+            "prob": 0.0585
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 112,
+        "context": "re.\n- Dispute ",
+        "actual_next_token_id": 432,
+        "actual_next_token_str": "res",
+        "actual_token_prob": 3e-05,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 770,
+            "token_str": "of ",
+            "prob": 0.1327
+          },
+          {
+            "token_id": 43,
+            "token_str": "(",
+            "prob": 0.0593
+          },
+          {
+            "token_id": 589,
+            "token_str": "is ",
+            "prob": 0.0443
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 120,
+        "context": "olution window: W",
+        "actual_next_token_id": 357,
+        "actual_next_token_str": "ri",
+        "actual_token_prob": 0.02878,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 291,
+            "token_str": "or",
+            "prob": 0.1574
+          },
+          {
+            "token_id": 108,
+            "token_str": "i",
+            "prob": 0.0773
+          },
+          {
+            "token_id": 280,
+            "token_str": "ar",
+            "prob": 0.0559
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 128,
+        "context": "tten notice required ",
+        "actual_next_token_id": 527,
+        "actual_next_token_str": "with",
+        "actual_token_prob": 0.00132,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 473,
+            "token_str": "to ",
+            "prob": 0.0611
+          },
+          {
+            "token_id": 356,
+            "token_str": "in ",
+            "prob": 0.0434
+          },
+          {
+            "token_id": 559,
+            "token_str": "the ",
+            "prob": 0.0297
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_refund_policy.md",
+        "position": 136,
+        "context": "in 60 days of in",
+        "actual_next_token_id": 774,
+        "actual_next_token_str": "vo",
+        "actual_token_prob": 0.00685,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 1549,
+            "token_str": "clu",
+            "prob": 0.1025
+          },
+          {
+            "token_id": 48,
+            "token_str": "-",
+            "prob": 0.0917
+          },
+          {
+            "token_id": 103,
+            "token_str": "d",
+            "prob": 0.0427
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 0,
+        "context": "#",
+        "actual_next_token_id": 35,
+        "actual_next_token_str": " ",
+        "actual_token_prob": 0.14094,
+        "actual_in_top1": false,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 38,
+            "token_str": "#",
+            "prob": 0.3202
+          },
+          {
+            "token_id": 265,
+            "token_str": "  ",
+            "prob": 0.3096
+          },
+          {
+            "token_id": 35,
+            "token_str": " ",
+            "prob": 0.1409
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 8,
+        "context": "Service Level Agree",
+        "actual_next_token_id": 915,
+        "actual_next_token_str": "ment ",
+        "actual_token_prob": 0.00115,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.211
+          },
+          {
+            "token_id": 276,
+            "token_str": ", ",
+            "prob": 0.0652
+          },
+          {
+            "token_id": 324,
+            "token_str": ": ",
+            "prob": 0.052
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 16,
+        "context": "Availability Target",
+        "actual_next_token_id": 118,
+        "actual_next_token_str": "s",
+        "actual_token_prob": 0.0053,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 276,
+            "token_str": ", ",
+            "prob": 0.065
+          },
+          {
+            "token_id": 301,
+            "token_str": "y ",
+            "prob": 0.046
+          },
+          {
+            "token_id": 392,
+            "token_str": "er ",
+            "prob": 0.0403
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 24,
+        "context": "\n\n## 1. ",
+        "actual_next_token_id": 88,
+        "actual_next_token_str": "U",
+        "actual_token_prob": 0.00644,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 566,
+            "token_str": "19",
+            "prob": 0.1414
+          },
+          {
+            "token_id": 53,
+            "token_str": "2",
+            "prob": 0.0518
+          },
+          {
+            "token_id": 54,
+            "token_str": "3",
+            "prob": 0.0454
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 32,
+        "context": "ptime Guarantees",
+        "actual_next_token_id": 13,
+        "actual_next_token_str": "\n",
+        "actual_token_prob": 0.9439,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.9439
+          },
+          {
+            "token_id": 324,
+            "token_str": ": ",
+            "prob": 0.0142
+          },
+          {
+            "token_id": 47,
+            "token_str": ",",
+            "prob": 0.0045
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 40,
+        "context": "- Platform availabili",
+        "actual_next_token_id": 1352,
+        "actual_next_token_str": "ty ",
+        "actual_token_prob": 0.54908,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 1352,
+            "token_str": "ty ",
+            "prob": 0.5491
+          },
+          {
+            "token_id": 838,
+            "token_str": "ty",
+            "prob": 0.2102
+          },
+          {
+            "token_id": 119,
+            "token_str": "t",
+            "prob": 0.0359
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 48,
+        "context": "target: 99.95%",
+        "actual_next_token_id": 35,
+        "actual_next_token_str": " ",
+        "actual_token_prob": 0.25133,
+        "actual_in_top1": false,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.5351
+          },
+          {
+            "token_id": 35,
+            "token_str": " ",
+            "prob": 0.2513
+          },
+          {
+            "token_id": 420,
+            "token_str": " (",
+            "prob": 0.0361
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 56,
+        "context": "monthly uptime for ",
+        "actual_next_token_id": 572,
+        "actual_next_token_str": "ho",
+        "actual_token_prob": 0.00429,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 559,
+            "token_str": "the ",
+            "prob": 0.2111
+          },
+          {
+            "token_id": 303,
+            "token_str": "a ",
+            "prob": 0.076
+          },
+          {
+            "token_id": 104,
+            "token_str": "e",
+            "prob": 0.0166
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 64,
+        "context": "sted control planes.",
+        "actual_next_token_id": 13,
+        "actual_next_token_str": "\n",
+        "actual_token_prob": 0.52514,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.5251
+          },
+          {
+            "token_id": 35,
+            "token_str": " ",
+            "prob": 0.2596
+          },
+          {
+            "token_id": 41,
+            "token_str": "&",
+            "prob": 0.051
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 72,
+        "context": "- Downtime finan",
+        "actual_next_token_id": 825,
+        "actual_next_token_str": "ci",
+        "actual_token_prob": 0.01661,
+        "actual_in_top1": false,
+        "actual_in_top5": false,
+        "actual_in_top10": false,
+        "model_top_3_predictions": [
+          {
+            "token_id": 761,
+            "token_str": "ce ",
+            "prob": 0.1931
+          },
+          {
+            "token_id": 102,
+            "token_str": "c",
+            "prob": 0.106
+          },
+          {
+            "token_id": 272,
+            "token_str": "s ",
+            "prob": 0.0653
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 80,
+        "context": "al credit: 15%",
+        "actual_next_token_id": 35,
+        "actual_next_token_str": " ",
+        "actual_token_prob": 0.69012,
+        "actual_in_top1": true,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 35,
+            "token_str": " ",
+            "prob": 0.6901
+          },
+          {
+            "token_id": 13,
+            "token_str": "\n",
+            "prob": 0.0416
+          },
+          {
+            "token_id": 1606,
+            "token_str": " A",
+            "prob": 0.0224
+          }
+        ]
+      },
+      {
+        "doc_id": "billing_sla_commitments.md",
+        "position": 88,
+        "context": "billing credit ap",
+        "actual_next_token_id": 115,
+        "actual_next_token_str": "p",
+        "actual_token_prob": 0.25302,
+        "actual_in_top1": false,
+        "actual_in_top5": true,
+        "actual_in_top10": true,
+        "model_top_3_predictions": [
+          {
+            "token_id": 551,
+            "token_str": "pe",
+            "prob": 0.358
+          },
+          {
+            "token_id": 115,
+            "token_str": "p",
+            "prob": 0.253
+          },
+          {
+            "token_id": 1273,
+            "token_str": "pend",
+            "prob": 0.024
+          }
+        ]
+      }
+    ]
+  }
+}
