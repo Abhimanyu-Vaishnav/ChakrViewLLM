@@ -1,0 +1,1213 @@
+{
+  "manifest_version": "2.0.0",
+  "description": "Expanded multi-domain corpus for Batch 1861-1900 scaling and validation study",
+  "total_documents": 132,
+  "split_counts": {
+    "train": 60,
+    "val": 24,
+    "test_held_out": 48
+  },
+  "token_counts": {
+    "train_tokens": 17381,
+    "test_held_out_tokens": 12527,
+    "control_train_tokens": 20782
+  },
+  "domains": [
+    "prose",
+    "technical",
+    "mathematics",
+    "code",
+    "propositions",
+    "hinglish"
+  ],
+  "documents": [
+    {
+      "doc_id": "exp_doc_prose_0001",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 165,
+      "sha256": "22a2d333559932aaa54cbc1a082af4d564e7227b683c2ec5bc1abcdb4e05e582",
+      "text": "Data structures and algorithms form the bedrock of computational efficiency and software performance engineering.\nA hash table provides expected constant-time operations for lookups, insertions, and deletions under uniform hashing assumptions.\nBinary search trees and balanced red-black trees guarantee logarithmic worst-case search times for ordered collections of keys.\nIn natural language processing, the byte-pair encoding algorithm iteratively replaces the most frequent byte pairs with novel tokens.\nThis compression technique balances sequence length reduction against the memory required to store the vocabulary lookup table.\nLinear algebra routines implemented in BLAS libraries utilize loop unrolling, register blocking, and cache tiling to"
+    },
+    {
+      "doc_id": "exp_doc_prose_0002",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 181,
+      "sha256": "626c8175376d1ab025550d4acd322a542396d9a61d9e924616990ad8e853d597",
+      "text": "ions.\nBranch target buffers and two-level adaptive branch predictors minimize pipeline stall penalties.\nModern out-of-order execution engines employ reservation stations, reorder buffers, and register renaming.\nMemory hierarchies balance capacity, latency, and cost through multi-tiered caching mechanisms.\nLevel 1 instruction and data caches provide sub-nanosecond access for frequently referenced memory lines.\nLevel 2 caches bridge the gap between fast core caches and large shared last-level caches.\nLevel 3 caches span all physical cores on modern multi-core processors, buffering dozens of megabytes.\nCache coherence protocols such as MESI and MOESI ensure uniform memory views across parallel execution threads.\nTranslation lookaside buffers a"
+    },
+    {
+      "doc_id": "exp_doc_prose_0003",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 199,
+      "sha256": "074090f530bcb4e856d0609f19c2b16dcf5fd8607b70311a835d532e36cb1e20",
+      "text": "hundred fifty-five is natively represented as a foundational primitive.\nSpecial tokens include Beginning of Sequence, End of Sequence, and Padding.\nThe unknown token has been completely eliminated from the architecture to ensure information preservation.\nBenchmarking on local hardware measures latency, memory bandwidth, cache misses, and power consumption.\nIntel Core processors with Performance and Efficient hybrid cores provide high multi-threaded throughput.\nDedicated Laptop GPUs accelerate tensor contractions and matrix multiplications.\nQuantization strategies such as INT8 and INT4 lower storage requirements and reduce memory bus pressure.\nSoftware engineering discipline mandates automated testing, reproducible pipelines, and strict veri"
+    },
+    {
+      "doc_id": "exp_doc_prose_0004",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 183,
+      "sha256": "38a755c6d6f3c766a1bb65832b8509f44293f14b60444191e8469b3f4bdf30c9",
+      "text": "saturate hardware.\nMemory-bound operations exhibit low arithmetic intensity, meaning the processor spends more cycles waiting for memory than computing.\nCompute-bound operations, by contrast, keep the arithmetic logic units fully saturated with matrix multiplication operations.\nOperating systems manage virtual memory through page tables, translating virtual addresses to physical RAM addresses via the MMU.\nCache misses and translation lookaside buffer (TLB) evictions introduce substantial latency penalties in memory-intensive workloads.\nCompiler optimizations such as instruction reordering, dead code elimination, and auto-vectorization improve machine code efficiency.\nDeterministic systems engineering ensures that identical inputs and confi"
+    },
+    {
+      "doc_id": "exp_doc_prose_0005",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 176,
+      "sha256": "72c561fa8d835a34f2d0d0afee858ea1ffc5fdcf5f810a2fa3312597d270bd18",
+      "text": "ChakrView is an indigenous artificial intelligence research project designed for extreme hardware efficiency.\nThe primary goal is to build small, high-performance neural models that run locally on low-resource hardware.\nModern language models often require massive datacenters and hundreds of gigabytes of VRAM.\nIn contrast, ChakrView optimizes for laptops, older personal computers, and edge embedded devices.\nThe neural core is built as a decoder-only causal transformer architecture.\nKey components include Pre-RMSNorm for numerical stability during deep forward passes.\nRotary Position Embedding encodes relative token positions without requiring absolute position lookups.\nSwiGLU activation replaces traditional ReLU and GELU to improve represen"
+    },
+    {
+      "doc_id": "exp_doc_prose_0006",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 216,
+      "sha256": "22924f38accaf973e3b786ff68da1a20de06d7a6764189637285b56ac1b3460c",
+      "text": "ccelerate virtual-to-physical address translations by caching page table entries.\nVirtual memory allows processes to operate within isolated address spaces protected by hardware privilege rings.\nOperating system schedulers allocate CPU execution slices based on process priority, affinity, and latency targets.\nContext switching incurs overhead as registers, floating point states, and memory maps must be saved and restored.\nDirect memory access controllers offload bulk data transfers between peripheral devices and system memory.\nNon-volatile solid-state drives communicate over PCIe lanes using the NVMe interface protocol.\nHigh-bandwidth memory stacks DRAM dies vertically to achieve terabytes per second of memory throughput.\nVector processing"
+    },
+    {
+      "doc_id": "exp_doc_prose_0007",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 182,
+      "sha256": "13082ee143ea79e7b1b632fe2974029514917d85640464304e0d6b0e9f45b075",
+      "text": "fication.\nEvery module is isolated and validated with unit tests before integration into the master framework.\nDocumentation records design decisions, trade-offs, empirical observations, and architectural constraints.\nThe project emphasizes scientific transparency, reproducibility, and indigenous technological self-reliance.\nContinuous integration verifies code quality, test pass rates, and format compliance.\nMathematical analysis of algorithmic complexity ensures that inference scales linearly with sequence length.\nEdge computing brings intelligence directly to the user without dependency on cloud providers.\nPrivacy and security are inherently maintained when computations remain entirely local on device storage.\nThis concludes the English"
+    },
+    {
+      "doc_id": "exp_doc_prose_0008",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 185,
+      "sha256": "d296b980f69a97eca3d4a5238b6ccbc036fd4954a7fda250e2ca632843f97d11",
+      "text": "tational capacity.\nBias-free linear projections eliminate unnecessary additive parameters across all dense layers.\nWeight tying binds the input token embedding table directly to the final unembedding projection layer.\nThis weight tying significantly reduces memory footprint, especially on resource-constrained microprocessors.\nThe context window of the Micro model is fixed at 512 tokens for rapid inference.\nAttention heads compute multi-head self-attention without key-value grouped sharing in version 0.1.\nA custom Byte-Level Byte Pair Encoding tokenizer bridges raw Unicode text and the embedding vectors.\nLossless round-trip reconstruction guarantees that no characters or bytes are corrupted during encoding.\nEvery byte value from zero to two"
+    },
+    {
+      "doc_id": "exp_doc_prose_0009",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 200,
+      "sha256": "61329b47a1c4465c598693d6c26fa2281490515446372d1c5ae80583d23071a1",
+      "text": "technical and conversational corpus for the ChakrView tokenizer benchmark.\nComputer systems hierarchy begins at the physical transistor level and progresses through logic gates.\nArithmetic logic units perform additions, subtractions, bitwise conjunctions, and shifts.\nInstruction set architectures define the contract between compiler toolchains and processor silicon.\nRISC-V represents an open, modular instruction set architecture designed for modern workloads.\nRegister files store intermediate operands with single-cycle access latency.\nPipelining divides instruction execution into fetch, decode, execute, memory access, and writeback stages.\nHazard detection units resolve data dependencies, structural collisions, and control branch mispredict"
+    },
+    {
+      "doc_id": "exp_doc_prose_0010",
+      "domain": "prose",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 192,
+      "sha256": "ae28106040e96c199b00ebf2a9a92d93040cfffd5caa3994b0f4e6763e7cf7f6",
+      "text": "s.\nDatabase management systems implement ACID properties using write-ahead logging and multi-version concurrency control.\nB-trees and log-structured merge trees organize on-disk records for logarithmic search and sequential writes.\nQuery optimizers construct relational algebra execution plans based on cost estimates and cardinality statistics.\nNetwork communication relies on packet-switched architectures defined by the Internet Protocol suite.\nTransmission Control Protocol provides reliable, ordered, and error-checked byte stream delivery.\nUser Datagram Protocol enables low-latency communication for real-time streaming and telemetry.\nApplication protocols such as HTTP/2 and HTTP/3 introduce multiplexing, header compression, and QUIC transpo"
+    },
+    {
+      "doc_id": "exp_doc_prose_0011",
+      "domain": "prose",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 198,
+      "sha256": "80463a74face2cc56588ef6c2ad3a8659927c6ef2bb0a279e62d246fa2f5a5ff",
+      "text": "units and SIMD extensions execute identical operations across wide data lanes simultaneously.\nMatrix multiply units accelerate deep learning inference by performing tensor dot products in hardware.\nCompiler optimization passes unroll loops, eliminate dead code, inline functions, and vectorize computations.\nGarbage collection algorithms reclaim dynamically allocated memory through reference counting or tracing.\nMemory safety vulnerabilities such as buffer overflows, use-after-free, and double frees compromise system security.\nCryptographic primitives like SHA-256, AES-GCM, and elliptic curve signatures secure communication channels.\nDistributed consensus protocols like Raft and Paxos ensure state machine replication across unreliable network"
+    },
+    {
+      "doc_id": "exp_doc_prose_0012",
+      "domain": "prose",
+      "split": "val",
+      "char_count": 734,
+      "token_count": 194,
+      "sha256": "41c40fa435f50c1105ca63edaba4831ae757f36141991e96c86e05ecf057d069",
+      "text": "rt.\nSoftware design patterns emphasize loose coupling, high cohesion, and separation of concerns.\nModular monoliths and microservices represent contrasting approaches to distributed system decomposition.\nEvent-driven architectures decouple producers from consumers using message brokers and event streams.\nAsynchronous programming models utilize promises, futures, and event loops to handle non-blocking input and output.\nStatic typing detects semantic inconsistencies at compile time, reducing production defect density.\nFormal verification uses mathematical methods to prove program correctness against rigorous specifications.\nIndigenous software development cultivates local expertise, technical autonomy, and national resilience."
+    },
+    {
+      "doc_id": "exp_doc_prose_0013",
+      "domain": "prose",
+      "split": "val",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0014",
+      "domain": "prose",
+      "split": "val",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0015",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0016",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0017",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0018",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0019",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0020",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0021",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_prose_0022",
+      "domain": "prose",
+      "split": "test_held_out",
+      "char_count": 116,
+      "token_count": 32,
+      "sha256": "59b958133c19689a60880617cba84254795f3d391e2fa604da232e5b50a87d38",
+      "text": "Domain prose indigenous system text specifications verifying architecture standards for ChakrView milestone batches."
+    },
+    {
+      "doc_id": "exp_doc_technical_0023",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 288,
+      "sha256": "611f6a3209759ef51b82dcf0eb3b820122a8c8602a8069414bd1d19db190d20b",
+      "text": "nerate magnetic fields and vice-versa, allowing self-sustaining electromagnetic radiation. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #037).\nEmpirical Science Series [Electromagnetic Field Propagation Lesson 38]: Maxwell's curl equations demonstrate that changing electric fields generate magnetic fields and vice-versa, allowing self-sustaining electromagnetic radiation. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #038).\nEmpirical Science Series [Electromagnetic Field Propagation Lesson 39]: Maxwell's curl equations demonstrate that changing electric fields generate magnetic fields and vice-versa, allowing self-s"
+    },
+    {
+      "doc_id": "exp_doc_technical_0024",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 748,
+      "token_count": 249,
+      "sha256": "f69d3e1698babe96654308bd0175d86af8eceac9f40dd5b368007846e78cf34f",
+      "text": "basic blocks, replacing duplicates with cached temporary variables. Interprocedural analysis analyzes whole-program call graphs to inline performance-critical functions.\nCompiler Engineering [Pass: Common Subexpression Elimination Spec 06]: The compiler pass identifies redundant arithmetic computations across basic blocks, replacing duplicates with cached temporary variables. Vectorization passes convert scalar loops into SIMD vector instructions automatically.\nCompiler Engineering [Pass: Register Allocation via Graph Coloring Spec 01]: The compiler pass models variable live ranges as interference graphs, assigning minimal physical processor registers without spilling. Formal type checkers verify sound type safety before intermediate code"
+    },
+    {
+      "doc_id": "exp_doc_technical_0025",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 254,
+      "sha256": "be6ed743031ed3485d5f471e1a7c723570578849a1ac6d69b5130e5a50b46389",
+      "text": "-architecture Performance Analysis [Observation 0162]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module memory control Scenario 10]: The memory controller scheduler reorders read and write memory transactions to optimize DRAM bank conflict overhead and command bus utilization while executing recursive graph traversal and shortest path search.\nMicro-architecture Performance Analysis [Observation 0164]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module memory control Scenario 11]: The memory controller scheduler reorders read a"
+    },
+    {
+      "doc_id": "exp_doc_technical_0026",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 283,
+      "sha256": "e6b022bd6ce69e28f94edbd69b617918e82d02f4ce0761f8691619260e500896",
+      "text": "re Guide 04]: defines a one-to-many dependency where state modifications notify all registered listener objects automatically without tight coupling. Interface segregation ensures client modules depend solely on methods they actually consume.\nSoftware Architecture Patterns [Observer Pattern Architecture Guide 05]: defines a one-to-many dependency where state modifications notify all registered listener objects automatically without tight coupling. Open-closed principle allows feature expansion through inheritance or composition without modifying validated code.\nSoftware Architecture Patterns [Observer Pattern Architecture Guide 06]: defines a one-to-many dependency where state modifications notify all registered listener objects automatical"
+    },
+    {
+      "doc_id": "exp_doc_technical_0027",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 288,
+      "sha256": "9caf740802006dbf694f00f5b00019b959b5d85294a20a0944398e606af0f031",
+      "text": "states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #031).\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 32]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B * ln(Omega), connecting microscopic states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #032).\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 33]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B * ln(Omega), connecting microscopic states to macrosco"
+    },
+    {
+      "doc_id": "exp_doc_technical_0028",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 290,
+      "sha256": "008fa128406f9d7c4cc4aa3976410d89728db654aa5e747340c3ff5ca71c20b6",
+      "text": "rostates: S = k_B * ln(Omega), connecting microscopic states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #025).\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 26]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B * ln(Omega), connecting microscopic states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #026).\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 27]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B"
+    },
+    {
+      "doc_id": "exp_doc_technical_0029",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 288,
+      "sha256": "0087004cac66239d0cf91a5dfeb7d2d1744dd63c7db82d1b314410c0671c150f",
+      "text": "Service Mesh and Envoy Proxy Spec 06]: manages inter-service communication, mutual TLS authentication, circuit breaking, and distributed tracing across microservice architectures. Horizontal pod autoscalers monitor custom metric thresholds to adjust worker capacity ahead of traffic surges.\nCloud Infrastructure & Virtualization [Serverless Function Runtimes Spec 01]: instantiates ephemeral compute containers on-demand in milliseconds, scaling dynamically from zero to thousands of concurrent event invocations. High availability is sustained through automated health checks, replica set healing, and rolling deployment strategies.\nCloud Infrastructure & Virtualization [Serverless Function Runtimes Spec 02]: instantiates ephemeral compute contain"
+    },
+    {
+      "doc_id": "exp_doc_technical_0030",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 276,
+      "sha256": "7e7f5ce09fed6e754facf3b1193ea1f8a821b4876e5556af995ab56f27b5e53b",
+      "text": "s: Lexical Analysis & Token Stream Processing Spec 03]: The compiler pass converts raw source characters into typed token streams, stripping non-semantic whitespace and commentary. Profile-guided optimization (PGO) collects branch statistics to prioritize hot code layout.\nCompiler Engineering [Pass: Lexical Analysis & Token Stream Processing Spec 04]: The compiler pass converts raw source characters into typed token streams, stripping non-semantic whitespace and commentary. Constant folding evaluates compile-time deterministic arithmetic at build time.\nCompiler Engineering [Pass: Lexical Analysis & Token Stream Processing Spec 05]: The compiler pass converts raw source characters into typed token streams, stripping non-semantic whitespace a"
+    },
+    {
+      "doc_id": "exp_doc_technical_0031",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 254,
+      "sha256": "bb2f657122fec7608e46b943f2d9c41b8b823a9e901831c5902e8afbe6e78cb3",
+      "text": "tecture Performance Analysis [Observation 0342]: The interplay between the power management microcontroller and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module power manageme Scenario 04]: The power management microcontroller adjusts dynamic voltage and frequency scaling domains to optimize performance-per-watt efficiency under varying thermal dissipation across distributed low-latency network packet processing pipelines.\nMicro-architecture Performance Analysis [Observation 0344]: The interplay between the power management microcontroller and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module power manageme Scenario 05]: The power manageme"
+    },
+    {
+      "doc_id": "exp_doc_technical_0032",
+      "domain": "technical",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 252,
+      "sha256": "5f3ee3c38e8b06a1dbab20fea747f3c353d0db3bb32a3fbcf9aefec266beef7b",
+      "text": "g Thesis 04]: enforces autoregressive generation by zeroing future attention weights with negative infinity additive logits. Zero additive bias throughout linear projections reduces memory traffic without diminishing representation power.\nChakrView Core Architecture [Causal Autoregressive Masking Thesis 05]: enforces autoregressive generation by zeroing future attention weights with negative infinity additive logits. FP16 and BF16 representations preserve computational dynamic range while halving memory bandwidth requirements.\nChakrView Core Architecture [Causal Autoregressive Masking Thesis 06]: enforces autoregressive generation by zeroing future attention weights with negative infinity additive logits. Streaming dataset collators read se"
+    },
+    {
+      "doc_id": "exp_doc_technical_0033",
+      "domain": "technical",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 234,
+      "sha256": "97433cdb12c205d330301f4b96e200a18fa0a96bc9cd1ca59f44c87b391252fe",
+      "text": "system and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module direct memory  Scenario 10]: The direct memory access subsystem transfers bulk data blocks between I/O devices and RAM without consuming host CPU compute cycles while executing recursive graph traversal and shortest path search.\nMicro-architecture Performance Analysis [Observation 0236]: The interplay between the direct memory access subsystem and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module direct memory  Scenario 11]: The direct memory access subsystem transfers bulk data blocks between I/O devices and RAM without consuming host CPU compute cycles in low-latency algorithmic"
+    },
+    {
+      "doc_id": "exp_doc_technical_0034",
+      "domain": "technical",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 285,
+      "sha256": "65983d3ec66dbc085548ebe545aa082dc3984b11e17a8a59daac4a4475648e21",
+      "text": "e before triggering expensive flash storage read operations.\nDistributed Systems Deep-Dive [Two-Phase Commit Protocol Article 04]: Under the Two-Phase Commit Protocol, coordinators and participants execute prepare and commit phases to guarantee atomic multi-shard transactions. Heartbeat timeouts and randomized election timers prevent split-brain scenarios in quorum consensus clusters.\nDistributed Systems Deep-Dive [Two-Phase Commit Protocol Article 05]: Under the Two-Phase Commit Protocol, coordinators and participants execute prepare and commit phases to guarantee atomic multi-shard transactions. Idempotent retry semantics and deduplication tokens ensure reliable message delivery over lossy channels.\nDistributed Systems Deep-Dive [Two-Phas"
+    },
+    {
+      "doc_id": "exp_doc_technical_0035",
+      "domain": "technical",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 269,
+      "sha256": "ff41d1f4c2e1754e4fb97853cba2b25698d33efe2b08f09f919464606d06361f",
+      "text": "secrecy and zero-round-trip session resumption. Formal security proofs verify indistinguishability under chosen-ciphertext attack (IND-CCA2).\nChakrView Core Architecture [Rotary Position Embeddings (RoPE) Thesis 01]: rotates pairs of coordinate dimensions by angle proportional to sequence position, encoding relative distance naturally. Careful learning rate warmup schedules stabilize early optimization trajectories across deep transformer stacks.\nChakrView Core Architecture [Rotary Position Embeddings (RoPE) Thesis 02]: rotates pairs of coordinate dimensions by angle proportional to sequence position, encoding relative distance naturally. Gradient clipping prevents destructive parameter updates caused by sudden gradient norm spikes.\nChakrV"
+    },
+    {
+      "doc_id": "exp_doc_technical_0036",
+      "domain": "technical",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 246,
+      "sha256": "c580bc44fdf3a2be9ec3522868915529d85768d255d58acf6e4b4a11fc5fa44e",
+      "text": "Analysis [Observation 0030]: The interplay between the speculative branch predictor and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module speculative br Scenario 04]: The speculative branch predictor evaluates two-level adaptive branch history tables to minimize pipeline flush penalties during conditional jumps across distributed low-latency network packet processing pipelines.\nMicro-architecture Performance Analysis [Observation 0032]: The interplay between the speculative branch predictor and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module speculative br Scenario 05]: The speculative branch predictor evaluates two-level adaptive branch"
+    },
+    {
+      "doc_id": "exp_doc_technical_0037",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 237,
+      "sha256": "8cf8b6b0555864277e2ae317754926e7bdac1853f04842658f9fc85b85d527bb",
+      "text": "s to optimize DRAM bank conflict overhead and command bus utilization under heavy multi-tenant cloud virtualization environments.\nMicro-architecture Performance Analysis [Observation 0156]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module memory control Scenario 07]: The memory controller scheduler reorders read and write memory transactions to optimize DRAM bank conflict overhead and command bus utilization for high-performance parallel scientific simulation clusters.\nMicro-architecture Performance Analysis [Observation 0158]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchma"
+    },
+    {
+      "doc_id": "exp_doc_technical_0038",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 278,
+      "sha256": "d9b594de5af72a534f43e440852b50cf2cad0fa1a244ed5d5480b23c67558a5c",
+      "text": "ientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #008).\nEmpirical Science Series [Chemical Kinetics & Catalysis Lesson 09]: Catalysts lower the activation energy barrier of chemical reactions without being consumed, accelerating forward and reverse reaction rates equally. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #009).\nEmpirical Science Series [Chemical Kinetics & Catalysis Lesson 10]: Catalysts lower the activation energy barrier of chemical reactions without being consumed, accelerating forward and reverse reaction rates equally. Scientific validation requires falsifiable hypotheses and independent experimental rep"
+    },
+    {
+      "doc_id": "exp_doc_technical_0039",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 238,
+      "sha256": "9fcaa783f1bb5141b8a0e47cf06c376fa301b585d793fd11e032bfac968aa578",
+      "text": "nk conflict overhead and command bus utilization under sustained deep learning training workloads.\nMicro-architecture Performance Analysis [Observation 0146]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module memory control Scenario 02]: The memory controller scheduler reorders read and write memory transactions to optimize DRAM bank conflict overhead and command bus utilization during high-throughput asynchronous database transaction processing.\nMicro-architecture Performance Analysis [Observation 0148]: The interplay between the memory controller scheduler and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer"
+    },
+    {
+      "doc_id": "exp_doc_technical_0040",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 285,
+      "sha256": "cc30af478b1e974ad6163f58535cb6368f2f4af0d04065f85a152b225149ed7e",
+      "text": "(Protocol Ref #037).\nEmpirical Science Series [Chemical Kinetics & Catalysis Lesson 38]: Catalysts lower the activation energy barrier of chemical reactions without being consumed, accelerating forward and reverse reaction rates equally. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #038).\nEmpirical Science Series [Chemical Kinetics & Catalysis Lesson 39]: Catalysts lower the activation energy barrier of chemical reactions without being consumed, accelerating forward and reverse reaction rates equally. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #039).\nRobotics Engineering [Forward and Inverse Kinematics Protocol 0"
+    },
+    {
+      "doc_id": "exp_doc_technical_0041",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 219,
+      "sha256": "ff28ad2088ea23a1de3f45eae6420afac1b8ec2c283a69d4a4ecb9c9b6923149",
+      "text": "riable-length x86 or ARM machine instructions into uniform fixed-size internal micro-operations under heavy multi-tenant cloud virtualization environments.\nMicro-architecture Performance Analysis [Observation 0252]: The interplay between the instruction decoding unit and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module instruction de Scenario 07]: The instruction decoding unit translates variable-length x86 or ARM machine instructions into uniform fixed-size internal micro-operations for high-performance parallel scientific simulation clusters.\nMicro-architecture Performance Analysis [Observation 0254]: The interplay between the instruction decoding unit and DRAM latency requires rigorous"
+    },
+    {
+      "doc_id": "exp_doc_technical_0042",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 289,
+      "sha256": "d228e440c9443fb4f26ffe2375ab08419cf252263a750dcc3de46f513faa3094",
+      "text": ").\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 07]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B * ln(Omega), connecting microscopic states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #007).\nEmpirical Science Series [Thermodynamics & Statistical Entropy Lesson 08]: Boltzmann defined entropy as proportional to the natural logarithm of accessible microstates: S = k_B * ln(Omega), connecting microscopic states to macroscopic heat transfer. Scientific validation requires falsifiable hypotheses and independent experimental replication (Protocol Ref #008).\nEmpirical Scien"
+    },
+    {
+      "doc_id": "exp_doc_technical_0043",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 225,
+      "sha256": "a5f83dc442dea2abb91744908beeefe50c7dfa7879b3898d6528028d662e7e1a",
+      "text": "ion.\nComputer Systems Architecture [Module multi-level ca Scenario 08]: The multi-level cache hierarchy enforces directory-based cache coherency protocols to guarantee serial consistency across heterogeneous processor cores within memory-constrained edge device neural inference tasks.\nMicro-architecture Performance Analysis [Observation 0064]: The interplay between the multi-level cache hierarchy and DRAM latency requires rigorous empirical benchmark evaluation.\nComputer Systems Architecture [Module multi-level ca Scenario 09]: The multi-level cache hierarchy enforces directory-based cache coherency protocols to guarantee serial consistency across heterogeneous processor cores during cryptographic hashing and digital signature verification."
+    },
+    {
+      "doc_id": "exp_doc_technical_0044",
+      "domain": "technical",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 308,
+      "sha256": "49369fc3501699b49cb4ca22a4094a1f60cdc77f21f2e4c7effd231b788c11e7",
+      "text": "re, creating equal superpositions and phase inversions. Theoretical bounds require unitary evolution U^dagger * U = I (Quantum Rule #009).\nQuantum Computational Physics [Hadamard and Pauli Quantum Gates Spec 10]: unitary transformation matrices rotate state vectors on the Bloch sphere, creating equal superpositions and phase inversions. Theoretical bounds require unitary evolution U^dagger * U = I (Quantum Rule #010).\nQuantum Computational Physics [Hadamard and Pauli Quantum Gates Spec 11]: unitary transformation matrices rotate state vectors on the Bloch sphere, creating equal superpositions and phase inversions. Theoretical bounds require unitary evolution U^dagger * U = I (Quantum Rule #011).\nQuantum Computational Physics [Hadamard and P"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0045",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 365,
+      "sha256": "06509e533922f4ae4817804c527c2e70c34a03ed28992c8b5c6dd231b88ea9ae",
+      "text": "l conjugate spectrum.\nDerivation 066.3: The matrix norm satisfies ||M_66||_2 = sqrt(lambda_max(M_66^T * M_66)), bounding operator amplification.\nNumerical Check 066: Verification of Frobenius norm ||M_66||_F^2 = Tr(M_66^T * M_66) confirms computational consistency.\nStep 067 in Matrix Analysis: Consider n x n matrix M_67 with trace Tr(M_67) = 134 and determinant det(M_67) = 4490.\nDerivation 067.1: The characteristic equation is det(lambda * I - M_67) = lambda^2 - 134 * lambda + 4490 = 0.\nDerivation 067.2: Roots yield eigenvalues lambda_1,2 = 67 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 067.3: The matrix norm satisfies ||M_67||_2 = sqrt(lambda_max(M_67^T * M_67)), bounding operator amplification.\nNumerical Check 067: Verifi"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0046",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 353,
+      "sha256": "7c560b9e189e66be64f538b082785fff29d8d2563466ba2c4971097974835f18",
+      "text": "real conjugate spectrum.\nDerivation 134.3: The matrix norm satisfies ||M_134||_2 = sqrt(lambda_max(M_134^T * M_134)), bounding operator amplification.\nNumerical Check 134: Verification of Frobenius norm ||M_134||_F^2 = Tr(M_134^T * M_134) confirms computational consistency.\nStep 135 in Matrix Analysis: Consider n x n matrix M_135 with trace Tr(M_135) = 270 and determinant det(M_135) = 18226.\nDerivation 135.1: The characteristic equation is det(lambda * I - M_135) = lambda^2 - 270 * lambda + 18226 = 0.\nDerivation 135.2: Roots yield eigenvalues lambda_1,2 = 135 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 135.3: The matrix norm satisfies ||M_135||_2 = sqrt(lambda_max(M_135^T * M_135)), bounding operator amplification.\nNumerica"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0047",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 337,
+      "sha256": "3fb936bf4aaef64c698cdd41e164533d48f1b54e8b785302df90e6f381875045",
+      "text": "_84^T * M_84)), bounding operator amplification.\nNumerical Check 084: Verification of Frobenius norm ||M_84||_F^2 = Tr(M_84^T * M_84) confirms computational consistency.\nStep 085 in Matrix Analysis: Consider n x n matrix M_85 with trace Tr(M_85) = 170 and determinant det(M_85) = 7226.\nDerivation 085.1: The characteristic equation is det(lambda * I - M_85) = lambda^2 - 170 * lambda + 7226 = 0.\nDerivation 085.2: Roots yield eigenvalues lambda_1,2 = 85 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 085.3: The matrix norm satisfies ||M_85||_2 = sqrt(lambda_max(M_85^T * M_85)), bounding operator amplification.\nNumerical Check 085: Verification of Frobenius norm ||M_85||_F^2 = Tr(M_85^T * M_85) confirms computational consistency.\nSt"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0048",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 254,
+      "sha256": "c64cdaa94d1150c06a87568377d10ce9ccab75de1a12720859cf265a5201684b",
+      "text": "H(P) + D_{KL}(P \\parallel Q)\n\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}\na^2 + b^2 = c^2\ne^{i\\pi} + 1 = 0\nBayes Theorem: P(A|B) = \\frac{P(B|A) P(A)}{P(B)}\nMatrix Multiplication: C_{ij} = \\sum_{k=1}^K A_{ik} B_{kj}\nCosine Similarity: \\text{sim}(u, v) = \\frac{u \\cdot v}{\\|u\\|_2 \\|v\\|_2}\nCauchy-Schwarz Inequality: |\\langle u, v \\rangle|^2 \\le \\langle u, u \\rangle \\cdot \\langle v, v \\rangle\nTriangle Inequality: \\|x + y\\| \\le \\|x\\| + \\|y\\|\nEntropy definition: H(X) = -\\sum_{x \\in \\mathcal{X}} p(x) \\log_2 p(x)\nMutual Information: I(X; Y) = H(X) - H(X|Y) = \\sum_{x,y} p(x,y) \\log \\frac{p(x,y)}{p(x)p(y)}\nTaylor Series Expansion: f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x - a)^n\nStochastic Gradient Descent update: \\theta_{t+1} = \\theta_"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0049",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 346,
+      "sha256": "c039355dd7c52fba8a910a719ffe817bf888523e05c3dd4341e73a25464ef4d0",
+      "text": "teristic equation is det(lambda * I - M_232) = lambda^2 - 464 * lambda + 53825 = 0.\nDerivation 232.2: Roots yield eigenvalues lambda_1,2 = 232 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 232.3: The matrix norm satisfies ||M_232||_2 = sqrt(lambda_max(M_232^T * M_232)), bounding operator amplification.\nNumerical Check 232: Verification of Frobenius norm ||M_232||_F^2 = Tr(M_232^T * M_232) confirms computational consistency.\nStep 233 in Matrix Analysis: Consider n x n matrix M_233 with trace Tr(M_233) = 466 and determinant det(M_233) = 54290.\nDerivation 233.1: The characteristic equation is det(lambda * I - M_233) = lambda^2 - 466 * lambda + 54290 = 0.\nDerivation 233.2: Roots yield eigenvalues lambda_1,2 = 233 +/- i, demonstra"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0050",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 331,
+      "sha256": "00894accff6221dd89cb00442c9da326322fc50850994299bf274a27c49a355c",
+      "text": "T * M_126) confirms computational consistency.\nStep 127 in Matrix Analysis: Consider n x n matrix M_127 with trace Tr(M_127) = 254 and determinant det(M_127) = 16130.\nDerivation 127.1: The characteristic equation is det(lambda * I - M_127) = lambda^2 - 254 * lambda + 16130 = 0.\nDerivation 127.2: Roots yield eigenvalues lambda_1,2 = 127 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 127.3: The matrix norm satisfies ||M_127||_2 = sqrt(lambda_max(M_127^T * M_127)), bounding operator amplification.\nNumerical Check 127: Verification of Frobenius norm ||M_127||_F^2 = Tr(M_127^T * M_127) confirms computational consistency.\nStep 128 in Matrix Analysis: Consider n x n matrix M_128 with trace Tr(M_128) = 256 and determinant det(M_128) ="
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0051",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 338,
+      "sha256": "8c4ba80a714b55570a16706ed4135eadfcc64f11a1de90c512bfe23f14824cef",
+      "text": ")), bounding operator amplification.\nNumerical Check 130: Verification of Frobenius norm ||M_130||_F^2 = Tr(M_130^T * M_130) confirms computational consistency.\nStep 131 in Matrix Analysis: Consider n x n matrix M_131 with trace Tr(M_131) = 262 and determinant det(M_131) = 17162.\nDerivation 131.1: The characteristic equation is det(lambda * I - M_131) = lambda^2 - 262 * lambda + 17162 = 0.\nDerivation 131.2: Roots yield eigenvalues lambda_1,2 = 131 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 131.3: The matrix norm satisfies ||M_131||_2 = sqrt(lambda_max(M_131^T * M_131)), bounding operator amplification.\nNumerical Check 131: Verification of Frobenius norm ||M_131||_F^2 = Tr(M_131^T * M_131) confirms computational consistency"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0052",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 357,
+      "sha256": "a7714a276f4d0ebe41c91f7adfbbc1ef16d947f34bc634e5a0cd9c7421baee1e",
+      "text": "s ||M_36||_2 = sqrt(lambda_max(M_36^T * M_36)), bounding operator amplification.\nNumerical Check 036: Verification of Frobenius norm ||M_36||_F^2 = Tr(M_36^T * M_36) confirms computational consistency.\nStep 037 in Matrix Analysis: Consider n x n matrix M_37 with trace Tr(M_37) = 74 and determinant det(M_37) = 1370.\nDerivation 037.1: The characteristic equation is det(lambda * I - M_37) = lambda^2 - 74 * lambda + 1370 = 0.\nDerivation 037.2: Roots yield eigenvalues lambda_1,2 = 37 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 037.3: The matrix norm satisfies ||M_37||_2 = sqrt(lambda_max(M_37^T * M_37)), bounding operator amplification.\nNumerical Check 037: Verification of Frobenius norm ||M_37||_F^2 = Tr(M_37^T * M_37) confirms"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0053",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 341,
+      "sha256": "372f879961431339ec5aaeb547682ff3b4f01ba724bbcc2db7d9b2f70dc981bc",
+      "text": "138 and determinant det(M_69) = 4762.\nDerivation 069.1: The characteristic equation is det(lambda * I - M_69) = lambda^2 - 138 * lambda + 4762 = 0.\nDerivation 069.2: Roots yield eigenvalues lambda_1,2 = 69 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 069.3: The matrix norm satisfies ||M_69||_2 = sqrt(lambda_max(M_69^T * M_69)), bounding operator amplification.\nNumerical Check 069: Verification of Frobenius norm ||M_69||_F^2 = Tr(M_69^T * M_69) confirms computational consistency.\nStep 070 in Matrix Analysis: Consider n x n matrix M_70 with trace Tr(M_70) = 140 and determinant det(M_70) = 4901.\nDerivation 070.1: The characteristic equation is det(lambda * I - M_70) = lambda^2 - 140 * lambda + 4901 = 0.\nDerivation 070.2: Roots"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0054",
+      "domain": "mathematics",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 352,
+      "sha256": "1c583ebe1be5e90eea11aa61a9845b9d8b5cae0b53e7196ff9784b517b16d1eb",
+      "text": "atrix norm satisfies ||M_106||_2 = sqrt(lambda_max(M_106^T * M_106)), bounding operator amplification.\nNumerical Check 106: Verification of Frobenius norm ||M_106||_F^2 = Tr(M_106^T * M_106) confirms computational consistency.\nStep 107 in Matrix Analysis: Consider n x n matrix M_107 with trace Tr(M_107) = 214 and determinant det(M_107) = 11450.\nDerivation 107.1: The characteristic equation is det(lambda * I - M_107) = lambda^2 - 214 * lambda + 11450 = 0.\nDerivation 107.2: Roots yield eigenvalues lambda_1,2 = 107 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 107.3: The matrix norm satisfies ||M_107||_2 = sqrt(lambda_max(M_107^T * M_107)), bounding operator amplification.\nNumerical Check 107: Verification of Frobenius norm ||M_"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0055",
+      "domain": "mathematics",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 346,
+      "sha256": "96b28c5b218a61045593a0d82c8e68393ddaddcc2c2645aca5d1718438032410",
+      "text": "e matrix norm satisfies ||M_139||_2 = sqrt(lambda_max(M_139^T * M_139)), bounding operator amplification.\nNumerical Check 139: Verification of Frobenius norm ||M_139||_F^2 = Tr(M_139^T * M_139) confirms computational consistency.\nStep 140 in Matrix Analysis: Consider n x n matrix M_140 with trace Tr(M_140) = 280 and determinant det(M_140) = 19601.\nDerivation 140.1: The characteristic equation is det(lambda * I - M_140) = lambda^2 - 280 * lambda + 19601 = 0.\nDerivation 140.2: Roots yield eigenvalues lambda_1,2 = 140 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 140.3: The matrix norm satisfies ||M_140||_2 = sqrt(lambda_max(M_140^T * M_140)), bounding operator amplification.\nNumerical Check 140: Verification of Frobenius norm |"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0056",
+      "domain": "mathematics",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 284,
+      "sha256": "8c136b7f9bc160410358ab77d2a2e1a9d90f43fc65af80d10ee7af49a8dc1c1c",
+      "text": "lue Decomposition (SVD): Applying the result to Euclidean spaces R^d yields immediate geometric bounds on vector projections and norms.\nTheorem Definition [Central Limit Theorem Theorem #10]: The normalized sum of n independent and identically distributed random variables with mean mu and variance sigma^2 converges in distribution to N(0, 1) as n approaches infinity.\nFormal Proof Sketch for Central Limit Theorem: Let the hypothesis hold over the defined algebraic field. We construct the quadratic form or characteristic determinant.\nCorollaries of Central Limit Theorem: Applying the result to Euclidean spaces R^d yields immediate geometric bounds on vector projections and norms.\nTheorem Definition [Bayes' Theorem of Inverse Probability Theor"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0057",
+      "domain": "mathematics",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 339,
+      "sha256": "487ef37c36e9c80d6b6ec7c99006d286e0676b4dab7c2619bc3c22bcda6f3d64",
+      "text": "inant det(M_56) = 3137.\nDerivation 056.1: The characteristic equation is det(lambda * I - M_56) = lambda^2 - 112 * lambda + 3137 = 0.\nDerivation 056.2: Roots yield eigenvalues lambda_1,2 = 56 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 056.3: The matrix norm satisfies ||M_56||_2 = sqrt(lambda_max(M_56^T * M_56)), bounding operator amplification.\nNumerical Check 056: Verification of Frobenius norm ||M_56||_F^2 = Tr(M_56^T * M_56) confirms computational consistency.\nStep 057 in Matrix Analysis: Consider n x n matrix M_57 with trace Tr(M_57) = 114 and determinant det(M_57) = 3250.\nDerivation 057.1: The characteristic equation is det(lambda * I - M_57) = lambda^2 - 114 * lambda + 3250 = 0.\nDerivation 057.2: Roots yield eigenval"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0058",
+      "domain": "mathematics",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 353,
+      "sha256": "03f26df2bb53105fcb629e75904bef08c65d14a11c545ee60d0b5a1df4bcaf20",
+      "text": "650 = 0.\nDerivation 157.2: Roots yield eigenvalues lambda_1,2 = 157 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 157.3: The matrix norm satisfies ||M_157||_2 = sqrt(lambda_max(M_157^T * M_157)), bounding operator amplification.\nNumerical Check 157: Verification of Frobenius norm ||M_157||_F^2 = Tr(M_157^T * M_157) confirms computational consistency.\nStep 158 in Matrix Analysis: Consider n x n matrix M_158 with trace Tr(M_158) = 316 and determinant det(M_158) = 24965.\nDerivation 158.1: The characteristic equation is det(lambda * I - M_158) = lambda^2 - 316 * lambda + 24965 = 0.\nDerivation 158.2: Roots yield eigenvalues lambda_1,2 = 158 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 158.3: The matrix norm satisfi"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0059",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 341,
+      "sha256": "571c445347f9ea9694aac450f19152cf7aaf72f7f893f42ef99b5fdbd99a2f59",
+      "text": "norm ||M_7||_F^2 = Tr(M_7^T * M_7) confirms computational consistency.\nStep 008 in Matrix Analysis: Consider n x n matrix M_8 with trace Tr(M_8) = 16 and determinant det(M_8) = 65.\nDerivation 008.1: The characteristic equation is det(lambda * I - M_8) = lambda^2 - 16 * lambda + 65 = 0.\nDerivation 008.2: Roots yield eigenvalues lambda_1,2 = 8 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 008.3: The matrix norm satisfies ||M_8||_2 = sqrt(lambda_max(M_8^T * M_8)), bounding operator amplification.\nNumerical Check 008: Verification of Frobenius norm ||M_8||_F^2 = Tr(M_8^T * M_8) confirms computational consistency.\nStep 009 in Matrix Analysis: Consider n x n matrix M_9 with trace Tr(M_9) = 18 and determinant det(M_9) = 82.\nDerivat"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0060",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 349,
+      "sha256": "6c06072bae8382e4d101ef4abe38ab87f95f45d0f4d3943ff177bbb932f3cb88",
+      "text": "= lambda^2 - 148 * lambda + 5477 = 0.\nDerivation 074.2: Roots yield eigenvalues lambda_1,2 = 74 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 074.3: The matrix norm satisfies ||M_74||_2 = sqrt(lambda_max(M_74^T * M_74)), bounding operator amplification.\nNumerical Check 074: Verification of Frobenius norm ||M_74||_F^2 = Tr(M_74^T * M_74) confirms computational consistency.\nStep 075 in Matrix Analysis: Consider n x n matrix M_75 with trace Tr(M_75) = 150 and determinant det(M_75) = 5626.\nDerivation 075.1: The characteristic equation is det(lambda * I - M_75) = lambda^2 - 150 * lambda + 5626 = 0.\nDerivation 075.2: Roots yield eigenvalues lambda_1,2 = 75 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 075.3: The matr"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0061",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 347,
+      "sha256": "9e60ac03e4f2e2f5bacb0c8e6596d3fbd6b50a3a06d726c603d22d6f59157715",
+      "text": "equation is det(lambda * I - M_133) = lambda^2 - 266 * lambda + 17690 = 0.\nDerivation 133.2: Roots yield eigenvalues lambda_1,2 = 133 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 133.3: The matrix norm satisfies ||M_133||_2 = sqrt(lambda_max(M_133^T * M_133)), bounding operator amplification.\nNumerical Check 133: Verification of Frobenius norm ||M_133||_F^2 = Tr(M_133^T * M_133) confirms computational consistency.\nStep 134 in Matrix Analysis: Consider n x n matrix M_134 with trace Tr(M_134) = 268 and determinant det(M_134) = 17957.\nDerivation 134.1: The characteristic equation is det(lambda * I - M_134) = lambda^2 - 268 * lambda + 17957 = 0.\nDerivation 134.2: Roots yield eigenvalues lambda_1,2 = 134 +/- i, demonstrating non-"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0062",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 343,
+      "sha256": "452c7ec819f547e9e76dd7044ac5e8026f0e7cfe39766fbc9a1e7b19d1b8b539",
+      "text": "194) = 37637.\nDerivation 194.1: The characteristic equation is det(lambda * I - M_194) = lambda^2 - 388 * lambda + 37637 = 0.\nDerivation 194.2: Roots yield eigenvalues lambda_1,2 = 194 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 194.3: The matrix norm satisfies ||M_194||_2 = sqrt(lambda_max(M_194^T * M_194)), bounding operator amplification.\nNumerical Check 194: Verification of Frobenius norm ||M_194||_F^2 = Tr(M_194^T * M_194) confirms computational consistency.\nStep 195 in Matrix Analysis: Consider n x n matrix M_195 with trace Tr(M_195) = 390 and determinant det(M_195) = 38026.\nDerivation 195.1: The characteristic equation is det(lambda * I - M_195) = lambda^2 - 390 * lambda + 38026 = 0.\nDerivation 195.2: Roots yield eig"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0063",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 337,
+      "sha256": "faa3869caad263b7895dcd6eb50039d765e876d4bba3e7a3725c5cbe53fb8442",
+      "text": "T * M_76) confirms computational consistency.\nStep 077 in Matrix Analysis: Consider n x n matrix M_77 with trace Tr(M_77) = 154 and determinant det(M_77) = 5930.\nDerivation 077.1: The characteristic equation is det(lambda * I - M_77) = lambda^2 - 154 * lambda + 5930 = 0.\nDerivation 077.2: Roots yield eigenvalues lambda_1,2 = 77 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 077.3: The matrix norm satisfies ||M_77||_2 = sqrt(lambda_max(M_77^T * M_77)), bounding operator amplification.\nNumerical Check 077: Verification of Frobenius norm ||M_77||_F^2 = Tr(M_77^T * M_77) confirms computational consistency.\nStep 078 in Matrix Analysis: Consider n x n matrix M_78 with trace Tr(M_78) = 156 and determinant det(M_78) = 6085.\nDerivation"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0064",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 323,
+      "sha256": "b326a78fe918f3c2ba689c09b4a2f6364ac3cf2ae87e963301cdbaee2da12844",
+      "text": "onsistency.\nStep 099 in Matrix Analysis: Consider n x n matrix M_99 with trace Tr(M_99) = 198 and determinant det(M_99) = 9802.\nDerivation 099.1: The characteristic equation is det(lambda * I - M_99) = lambda^2 - 198 * lambda + 9802 = 0.\nDerivation 099.2: Roots yield eigenvalues lambda_1,2 = 99 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 099.3: The matrix norm satisfies ||M_99||_2 = sqrt(lambda_max(M_99^T * M_99)), bounding operator amplification.\nNumerical Check 099: Verification of Frobenius norm ||M_99||_F^2 = Tr(M_99^T * M_99) confirms computational consistency.\nStep 100 in Matrix Analysis: Consider n x n matrix M_100 with trace Tr(M_100) = 200 and determinant det(M_100) = 10001.\nDerivation 100.1: The characteristic equ"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0065",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 350,
+      "sha256": "60a57a4c35358c14374b92226234396007d18aced840e62062b90c6c55b995d1",
+      "text": "= lambda^2 - 474 * lambda + 56170 = 0.\nDerivation 237.2: Roots yield eigenvalues lambda_1,2 = 237 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 237.3: The matrix norm satisfies ||M_237||_2 = sqrt(lambda_max(M_237^T * M_237)), bounding operator amplification.\nNumerical Check 237: Verification of Frobenius norm ||M_237||_F^2 = Tr(M_237^T * M_237) confirms computational consistency.\nStep 238 in Matrix Analysis: Consider n x n matrix M_238 with trace Tr(M_238) = 476 and determinant det(M_238) = 56645.\nDerivation 238.1: The characteristic equation is det(lambda * I - M_238) = lambda^2 - 476 * lambda + 56645 = 0.\nDerivation 238.2: Roots yield eigenvalues lambda_1,2 = 238 +/- i, demonstrating non-real conjugate spectrum.\nDerivation"
+    },
+    {
+      "doc_id": "exp_doc_mathematics_0066",
+      "domain": "mathematics",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 369,
+      "sha256": "2a923d7122cb52fdecf9efee6738abdd3d10a52244b24c17961b809d575beb8e",
+      "text": "ies ||M_62||_2 = sqrt(lambda_max(M_62^T * M_62)), bounding operator amplification.\nNumerical Check 062: Verification of Frobenius norm ||M_62||_F^2 = Tr(M_62^T * M_62) confirms computational consistency.\nStep 063 in Matrix Analysis: Consider n x n matrix M_63 with trace Tr(M_63) = 126 and determinant det(M_63) = 3970.\nDerivation 063.1: The characteristic equation is det(lambda * I - M_63) = lambda^2 - 126 * lambda + 3970 = 0.\nDerivation 063.2: Roots yield eigenvalues lambda_1,2 = 63 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 063.3: The matrix norm satisfies ||M_63||_2 = sqrt(lambda_max(M_63^T * M_63)), bounding operator amplification.\nNumerical Check 063: Verification of Frobenius norm ||M_63||_F^2 = Tr(M_63^T * M_63) conf"
+    },
+    {
+      "doc_id": "exp_doc_code_0067",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 364,
+      "sha256": "a5d576ac759581dc554f60eb439c9377a4cf2e23f6e729fd6e44ed9fc84fef5b",
+      "text": "3, 'heads': 7, 'qkv': qkv_params_v0361, 'ffn': ffn_params_v0361, 'v': 361}\nassert evaluate_tensor_kernel_v0361()['qkv'] > 0, 'Kernel parameter bounds violated for v0361'\ndef evaluate_tensor_kernel_v0362(dim: int = 554, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 362.\"\"\"\n    d_head_v0362: int = 554 // 8\n    d_ff_v0362: int = int(554 * 8 / 3)\n    qkv_params_v0362: int = 3 * 554 * (8 * d_head_v0362)\n    ffn_params_v0362: int = 3 * 554 * d_ff_v0362\n    return {'dim': 554, 'heads': 8, 'qkv': qkv_params_v0362, 'ffn': ffn_params_v0362, 'v': 362}\nassert evaluate_tensor_kernel_v0362()['qkv'] > 0, 'Kernel parameter bounds violated for v0362'\ndef evaluate_tensor_kernel_v0363(dim: int = 555, h"
+    },
+    {
+      "doc_id": "exp_doc_code_0068",
+      "domain": "code",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 340,
+      "sha256": "8ef3e11ce554ca8f2b9f3790c8e54bc42513aa5c9d03aebcb16e9dc725a150aa",
+      "text": "parameter bounds violated for v0245'\ndef evaluate_tensor_kernel_v0246(dim: int = 438, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 246.\"\"\"\n    d_head_v0246: int = 438 // 6\n    d_ff_v0246: int = int(438 * 8 / 3)\n    qkv_params_v0246: int = 3 * 438 * (6 * d_head_v0246)\n    ffn_params_v0246: int = 3 * 438 * d_ff_v0246\n    return {'dim': 438, 'heads': 6, 'qkv': qkv_params_v0246, 'ffn': ffn_params_v0246, 'v': 246}\nassert evaluate_tensor_kernel_v0246()['qkv'] > 0, 'Kernel parameter bounds violated for v0246'\ndef evaluate_tensor_kernel_v0247(dim: int = 439, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 247.\"\"\"\n    d_head_v0247: int"
+    },
+    {
+      "doc_id": "exp_doc_code_0069",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 345,
+      "sha256": "b87227253450bebb2b9de98d81ea37859823ad89977063fd8421caa8f2ad91ed",
+      "text": "ert evaluate_tensor_kernel_v0207()['qkv'] > 0, 'Kernel parameter bounds violated for v0207'\ndef evaluate_tensor_kernel_v0208(dim: int = 400, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 208.\"\"\"\n    d_head_v0208: int = 400 // 10\n    d_ff_v0208: int = int(400 * 8 / 3)\n    qkv_params_v0208: int = 3 * 400 * (10 * d_head_v0208)\n    ffn_params_v0208: int = 3 * 400 * d_ff_v0208\n    return {'dim': 400, 'heads': 10, 'qkv': qkv_params_v0208, 'ffn': ffn_params_v0208, 'v': 208}\nassert evaluate_tensor_kernel_v0208()['qkv'] > 0, 'Kernel parameter bounds violated for v0208'\ndef evaluate_tensor_kernel_v0209(dim: int = 401, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neu"
+    },
+    {
+      "doc_id": "exp_doc_code_0070",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 360,
+      "sha256": "c71c3197b4541111852ddca1daf33183f1286c48eb39519ad4497e4c2c6b8983",
+      "text": "fn_params_v0176, 'v': 176}\nassert evaluate_tensor_kernel_v0176()['qkv'] > 0, 'Kernel parameter bounds violated for v0176'\ndef evaluate_tensor_kernel_v0177(dim: int = 369, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 177.\"\"\"\n    d_head_v0177: int = 369 // 9\n    d_ff_v0177: int = int(369 * 8 / 3)\n    qkv_params_v0177: int = 3 * 369 * (9 * d_head_v0177)\n    ffn_params_v0177: int = 3 * 369 * d_ff_v0177\n    return {'dim': 369, 'heads': 9, 'qkv': qkv_params_v0177, 'ffn': ffn_params_v0177, 'v': 177}\nassert evaluate_tensor_kernel_v0177()['qkv'] > 0, 'Kernel parameter bounds violated for v0177'\ndef evaluate_tensor_kernel_v0178(dim: int = 370, heads: int = 10) -> dict[str, int]:\n    \"\"\"Comput"
+    },
+    {
+      "doc_id": "exp_doc_code_0071",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 333,
+      "sha256": "f1d6220f301379c943efc956f8b363fa4044810b63f9976b0e881c9b15957fed",
+      "text": "int = 308, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 116.\"\"\"\n    d_head_v0116: int = 308 // 8\n    d_ff_v0116: int = int(308 * 8 / 3)\n    qkv_params_v0116: int = 3 * 308 * (8 * d_head_v0116)\n    ffn_params_v0116: int = 3 * 308 * d_ff_v0116\n    return {'dim': 308, 'heads': 8, 'qkv': qkv_params_v0116, 'ffn': ffn_params_v0116, 'v': 116}\nassert evaluate_tensor_kernel_v0116()['qkv'] > 0, 'Kernel parameter bounds violated for v0116'\ndef evaluate_tensor_kernel_v0117(dim: int = 309, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 117.\"\"\"\n    d_head_v0117: int = 309 // 9\n    d_ff_v0117: int = int(309 * 8 / 3)\n    qkv_params_v0117: int"
+    },
+    {
+      "doc_id": "exp_doc_code_0072",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 327,
+      "sha256": "01f9dab63ca5f40d1233cfd2ddbeaeb1dd0510b29e627f8462a10573135a0e8b",
+      "text": "uate_tensor_kernel_v0111()['qkv'] > 0, 'Kernel parameter bounds violated for v0111'\ndef evaluate_tensor_kernel_v0112(dim: int = 304, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 112.\"\"\"\n    d_head_v0112: int = 304 // 10\n    d_ff_v0112: int = int(304 * 8 / 3)\n    qkv_params_v0112: int = 3 * 304 * (10 * d_head_v0112)\n    ffn_params_v0112: int = 3 * 304 * d_ff_v0112\n    return {'dim': 304, 'heads': 10, 'qkv': qkv_params_v0112, 'ffn': ffn_params_v0112, 'v': 112}\nassert evaluate_tensor_kernel_v0112()['qkv'] > 0, 'Kernel parameter bounds violated for v0112'\ndef evaluate_tensor_kernel_v0113(dim: int = 305, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural tran"
+    },
+    {
+      "doc_id": "exp_doc_code_0073",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 364,
+      "sha256": "2f6005b15d8c19ff98164e1e8c7689c85102556644e9352b7187ed12cc631b19",
+      "text": "ff_v0330\n    return {'dim': 522, 'heads': 6, 'qkv': qkv_params_v0330, 'ffn': ffn_params_v0330, 'v': 330}\nassert evaluate_tensor_kernel_v0330()['qkv'] > 0, 'Kernel parameter bounds violated for v0330'\ndef evaluate_tensor_kernel_v0331(dim: int = 523, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 331.\"\"\"\n    d_head_v0331: int = 523 // 7\n    d_ff_v0331: int = int(523 * 8 / 3)\n    qkv_params_v0331: int = 3 * 523 * (7 * d_head_v0331)\n    ffn_params_v0331: int = 3 * 523 * d_ff_v0331\n    return {'dim': 523, 'heads': 7, 'qkv': qkv_params_v0331, 'ffn': ffn_params_v0331, 'v': 331}\nassert evaluate_tensor_kernel_v0331()['qkv'] > 0, 'Kernel parameter bounds violated for v0331'\ndef evaluate_tensor_"
+    },
+    {
+      "doc_id": "exp_doc_code_0074",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 344,
+      "sha256": "ccbbda66a69cfed5ce3e2119f6201847ed348f69af73d163c9c9e2fdd0ef74bd",
+      "text": "ed for v0348'\ndef evaluate_tensor_kernel_v0349(dim: int = 541, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 349.\"\"\"\n    d_head_v0349: int = 541 // 7\n    d_ff_v0349: int = int(541 * 8 / 3)\n    qkv_params_v0349: int = 3 * 541 * (7 * d_head_v0349)\n    ffn_params_v0349: int = 3 * 541 * d_ff_v0349\n    return {'dim': 541, 'heads': 7, 'qkv': qkv_params_v0349, 'ffn': ffn_params_v0349, 'v': 349}\nassert evaluate_tensor_kernel_v0349()['qkv'] > 0, 'Kernel parameter bounds violated for v0349'\ndef evaluate_tensor_kernel_v0350(dim: int = 542, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 350.\"\"\"\n    d_head_v0350: int = 542 // 8\n    d_ff_v03"
+    },
+    {
+      "doc_id": "exp_doc_code_0075",
+      "domain": "code",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 353,
+      "sha256": "d51d90385824b0e65737473f2d5299b46ba2f086a43b58a34f12e95cb9434ae3",
+      "text": "arams_v0128, 'v': 128}\nassert evaluate_tensor_kernel_v0128()['qkv'] > 0, 'Kernel parameter bounds violated for v0128'\ndef evaluate_tensor_kernel_v0129(dim: int = 321, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 129.\"\"\"\n    d_head_v0129: int = 321 // 9\n    d_ff_v0129: int = int(321 * 8 / 3)\n    qkv_params_v0129: int = 3 * 321 * (9 * d_head_v0129)\n    ffn_params_v0129: int = 3 * 321 * d_ff_v0129\n    return {'dim': 321, 'heads': 9, 'qkv': qkv_params_v0129, 'ffn': ffn_params_v0129, 'v': 129}\nassert evaluate_tensor_kernel_v0129()['qkv'] > 0, 'Kernel parameter bounds violated for v0129'\ndef evaluate_tensor_kernel_v0130(dim: int = 322, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute pa"
+    },
+    {
+      "doc_id": "exp_doc_code_0076",
+      "domain": "code",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 374,
+      "sha256": "0ad650f2dac6d2a0c5184477e15e780ba8ffa9a46eec484a5198c1fbfebfa982",
+      "text": "int = int(494 * 8 / 3)\n    qkv_params_v0302: int = 3 * 494 * (8 * d_head_v0302)\n    ffn_params_v0302: int = 3 * 494 * d_ff_v0302\n    return {'dim': 494, 'heads': 8, 'qkv': qkv_params_v0302, 'ffn': ffn_params_v0302, 'v': 302}\nassert evaluate_tensor_kernel_v0302()['qkv'] > 0, 'Kernel parameter bounds violated for v0302'\ndef evaluate_tensor_kernel_v0303(dim: int = 495, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 303.\"\"\"\n    d_head_v0303: int = 495 // 9\n    d_ff_v0303: int = int(495 * 8 / 3)\n    qkv_params_v0303: int = 3 * 495 * (9 * d_head_v0303)\n    ffn_params_v0303: int = 3 * 495 * d_ff_v0303\n    return {'dim': 495, 'heads': 9, 'qkv': qkv_params_v0303, 'ffn': ffn_params_v0303, 'v':"
+    },
+    {
+      "doc_id": "exp_doc_code_0077",
+      "domain": "code",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 351,
+      "sha256": "5663c552790be78540f1381882c689a6e20d739eadc42ead3b907888bac85183",
+      "text": "ict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 82.\"\"\"\n    d_head_v0082: int = 274 // 10\n    d_ff_v0082: int = int(274 * 8 / 3)\n    qkv_params_v0082: int = 3 * 274 * (10 * d_head_v0082)\n    ffn_params_v0082: int = 3 * 274 * d_ff_v0082\n    return {'dim': 274, 'heads': 10, 'qkv': qkv_params_v0082, 'ffn': ffn_params_v0082, 'v': 82}\nassert evaluate_tensor_kernel_v0082()['qkv'] > 0, 'Kernel parameter bounds violated for v0082'\ndef evaluate_tensor_kernel_v0083(dim: int = 275, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 83.\"\"\"\n    d_head_v0083: int = 275 // 11\n    d_ff_v0083: int = int(275 * 8 / 3)\n    qkv_params_v0083: int = 3 * 275 * (11 * d_head_v00"
+    },
+    {
+      "doc_id": "exp_doc_code_0078",
+      "domain": "code",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 364,
+      "sha256": "03c4d8741b9cb1fce7252a9936e9a2d331d21ddad6db2b3f9cbc248351f88609",
+      "text": ", 'qkv': qkv_params_v0046, 'ffn': ffn_params_v0046, 'v': 46}\nassert evaluate_tensor_kernel_v0046()['qkv'] > 0, 'Kernel parameter bounds violated for v0046'\ndef evaluate_tensor_kernel_v0047(dim: int = 239, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 47.\"\"\"\n    d_head_v0047: int = 239 // 11\n    d_ff_v0047: int = int(239 * 8 / 3)\n    qkv_params_v0047: int = 3 * 239 * (11 * d_head_v0047)\n    ffn_params_v0047: int = 3 * 239 * d_ff_v0047\n    return {'dim': 239, 'heads': 11, 'qkv': qkv_params_v0047, 'ffn': ffn_params_v0047, 'v': 47}\nassert evaluate_tensor_kernel_v0047()['qkv'] > 0, 'Kernel parameter bounds violated for v0047'\ndef evaluate_tensor_kernel_v0048(dim: int = 240, heads: int ="
+    },
+    {
+      "doc_id": "exp_doc_code_0079",
+      "domain": "code",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 330,
+      "sha256": "bea76d4edfd2c1f8a832f9678a1593a2103aa745f2a369a9cc64215f5937a3d8",
+      "text": "ounds violated for v0016'\ndef evaluate_tensor_kernel_v0017(dim: int = 209, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 17.\"\"\"\n    d_head_v0017: int = 209 // 11\n    d_ff_v0017: int = int(209 * 8 / 3)\n    qkv_params_v0017: int = 3 * 209 * (11 * d_head_v0017)\n    ffn_params_v0017: int = 3 * 209 * d_ff_v0017\n    return {'dim': 209, 'heads': 11, 'qkv': qkv_params_v0017, 'ffn': ffn_params_v0017, 'v': 17}\nassert evaluate_tensor_kernel_v0017()['qkv'] > 0, 'Kernel parameter bounds violated for v0017'\ndef evaluate_tensor_kernel_v0018(dim: int = 210, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 18.\"\"\"\n    d_head_v0018: int = 210 // 6"
+    },
+    {
+      "doc_id": "exp_doc_code_0080",
+      "domain": "code",
+      "split": "val",
+      "char_count": 300,
+      "token_count": 51,
+      "sha256": "d653adbfd4f67f434489e5e5df4914845eb209d71cafe6fb4a3e8de33bcb0c2d",
+      "text": "def insert(self, byte_sequence: bytes, token_id: int):\n        node = self.root\n        for b in byte_sequence:\n            if b not in node.children:\n                node.children[b] = BPETrieNode()\n            node = node.children[b]\n        node.token_id = token_id\n        node.is_terminal = True"
+    },
+    {
+      "doc_id": "exp_doc_code_0081",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 353,
+      "sha256": "010f65df640036bd103ae949e1c1e40af683d49b25f21433d9a88314aab053bf",
+      "text": "ms_v0053, 'v': 53}\nassert evaluate_tensor_kernel_v0053()['qkv'] > 0, 'Kernel parameter bounds violated for v0053'\ndef evaluate_tensor_kernel_v0054(dim: int = 246, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 54.\"\"\"\n    d_head_v0054: int = 246 // 6\n    d_ff_v0054: int = int(246 * 8 / 3)\n    qkv_params_v0054: int = 3 * 246 * (6 * d_head_v0054)\n    ffn_params_v0054: int = 3 * 246 * d_ff_v0054\n    return {'dim': 246, 'heads': 6, 'qkv': qkv_params_v0054, 'ffn': ffn_params_v0054, 'v': 54}\nassert evaluate_tensor_kernel_v0054()['qkv'] > 0, 'Kernel parameter bounds violated for v0054'\ndef evaluate_tensor_kernel_v0055(dim: int = 247, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter"
+    },
+    {
+      "doc_id": "exp_doc_code_0082",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 334,
+      "sha256": "e3339d33c0b3fd9c42924289cecd9abac94b7f6d2e401dfc0b527bafc1a09aac",
+      "text": "el_v0262()['qkv'] > 0, 'Kernel parameter bounds violated for v0262'\ndef evaluate_tensor_kernel_v0263(dim: int = 455, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 263.\"\"\"\n    d_head_v0263: int = 455 // 11\n    d_ff_v0263: int = int(455 * 8 / 3)\n    qkv_params_v0263: int = 3 * 455 * (11 * d_head_v0263)\n    ffn_params_v0263: int = 3 * 455 * d_ff_v0263\n    return {'dim': 455, 'heads': 11, 'qkv': qkv_params_v0263, 'ffn': ffn_params_v0263, 'v': 263}\nassert evaluate_tensor_kernel_v0263()['qkv'] > 0, 'Kernel parameter bounds violated for v0263'\ndef evaluate_tensor_kernel_v0264(dim: int = 456, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer var"
+    },
+    {
+      "doc_id": "exp_doc_code_0083",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 265,
+      "sha256": "2fff54872cc801302ca149f3770ab9442f5ed6c1eb0209eff84b8ab7906137f4",
+      "text": "gorithm Reference Implementation #05\nclass CausalRMSNorm(torch.nn.Module):\n    \"\"\"Root Mean Square Normalization with frozen epsilon.\"\"\"\n    def __init__(self, dim: int, eps: float = 1e-5) -> None:\n        super().__init__()\n        self.eps = eps\n        self.weight = torch.nn.Parameter(torch.ones(dim))\n    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        variance = x.pow(2).mean(-1, keepdim=True)\n        normalized = x * torch.rsqrt(variance + self.eps)\n        return self.weight * normalized\n# Algorithm Reference Implementation #06\nclass PrefixTrieNode:\n    def __init__(self) -> None:\n        self.children: dict[str, PrefixTrieNode] = {}\n        self.is_terminal: bool = False\nclass PrefixTrieEngine:\n    \"\"\"Fast prefix trie sup"
+    },
+    {
+      "doc_id": "exp_doc_code_0084",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 334,
+      "sha256": "d6598daa97472fbf579593f7929574f638d71da0c713ff7a38dfcb771b7ddc26",
+      "text": "ute parameter sizing for neural transformer layer variant 4.\"\"\"\n    d_head_v0004: int = 196 // 10\n    d_ff_v0004: int = int(196 * 8 / 3)\n    qkv_params_v0004: int = 3 * 196 * (10 * d_head_v0004)\n    ffn_params_v0004: int = 3 * 196 * d_ff_v0004\n    return {'dim': 196, 'heads': 10, 'qkv': qkv_params_v0004, 'ffn': ffn_params_v0004, 'v': 4}\nassert evaluate_tensor_kernel_v0004()['qkv'] > 0, 'Kernel parameter bounds violated for v0004'\ndef evaluate_tensor_kernel_v0005(dim: int = 197, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 5.\"\"\"\n    d_head_v0005: int = 197 // 11\n    d_ff_v0005: int = int(197 * 8 / 3)\n    qkv_params_v0005: int = 3 * 197 * (11 * d_head_v0005)\n    ffn_params_v0005: int"
+    },
+    {
+      "doc_id": "exp_doc_code_0085",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 370,
+      "sha256": "f03d6426567f0244d55003175628ee4973750a2e37f41ba223f38aad574383b4",
+      "text": "_v0306\n    return {'dim': 498, 'heads': 6, 'qkv': qkv_params_v0306, 'ffn': ffn_params_v0306, 'v': 306}\nassert evaluate_tensor_kernel_v0306()['qkv'] > 0, 'Kernel parameter bounds violated for v0306'\ndef evaluate_tensor_kernel_v0307(dim: int = 499, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 307.\"\"\"\n    d_head_v0307: int = 499 // 7\n    d_ff_v0307: int = int(499 * 8 / 3)\n    qkv_params_v0307: int = 3 * 499 * (7 * d_head_v0307)\n    ffn_params_v0307: int = 3 * 499 * d_ff_v0307\n    return {'dim': 499, 'heads': 7, 'qkv': qkv_params_v0307, 'ffn': ffn_params_v0307, 'v': 307}\nassert evaluate_tensor_kernel_v0307()['qkv'] > 0, 'Kernel parameter bounds violated for v0307'\ndef evaluate_tensor_ke"
+    },
+    {
+      "doc_id": "exp_doc_code_0086",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 324,
+      "sha256": "7c335ed2197175eb9796975605e5751b7a73f22c0a610b166a977bd9c2e43b3e",
+      "text": "0214()['qkv'] > 0, 'Kernel parameter bounds violated for v0214'\ndef evaluate_tensor_kernel_v0215(dim: int = 407, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 215.\"\"\"\n    d_head_v0215: int = 407 // 11\n    d_ff_v0215: int = int(407 * 8 / 3)\n    qkv_params_v0215: int = 3 * 407 * (11 * d_head_v0215)\n    ffn_params_v0215: int = 3 * 407 * d_ff_v0215\n    return {'dim': 407, 'heads': 11, 'qkv': qkv_params_v0215, 'ffn': ffn_params_v0215, 'v': 215}\nassert evaluate_tensor_kernel_v0215()['qkv'] > 0, 'Kernel parameter bounds violated for v0215'\ndef evaluate_tensor_kernel_v0216(dim: int = 408, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant"
+    },
+    {
+      "doc_id": "exp_doc_code_0087",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 353,
+      "sha256": "2393ae76e3d34ee544d0036531e5ea40b7bb3bedb71a03162e63763c6ce2434d",
+      "text": "d_ff_v0022\n    return {'dim': 214, 'heads': 10, 'qkv': qkv_params_v0022, 'ffn': ffn_params_v0022, 'v': 22}\nassert evaluate_tensor_kernel_v0022()['qkv'] > 0, 'Kernel parameter bounds violated for v0022'\ndef evaluate_tensor_kernel_v0023(dim: int = 215, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 23.\"\"\"\n    d_head_v0023: int = 215 // 11\n    d_ff_v0023: int = int(215 * 8 / 3)\n    qkv_params_v0023: int = 3 * 215 * (11 * d_head_v0023)\n    ffn_params_v0023: int = 3 * 215 * d_ff_v0023\n    return {'dim': 215, 'heads': 11, 'qkv': qkv_params_v0023, 'ffn': ffn_params_v0023, 'v': 23}\nassert evaluate_tensor_kernel_v0023()['qkv'] > 0, 'Kernel parameter bounds violated for v0023'\ndef evaluate_ten"
+    },
+    {
+      "doc_id": "exp_doc_code_0088",
+      "domain": "code",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 349,
+      "sha256": "3dc9fd770333a78fbe832ecfd438d9d21221bd604cdbfeeae0b5b5f7c3c0d39a",
+      "text": "ute parameter sizing for neural transformer layer variant 202.\"\"\"\n    d_head_v0202: int = 394 // 10\n    d_ff_v0202: int = int(394 * 8 / 3)\n    qkv_params_v0202: int = 3 * 394 * (10 * d_head_v0202)\n    ffn_params_v0202: int = 3 * 394 * d_ff_v0202\n    return {'dim': 394, 'heads': 10, 'qkv': qkv_params_v0202, 'ffn': ffn_params_v0202, 'v': 202}\nassert evaluate_tensor_kernel_v0202()['qkv'] > 0, 'Kernel parameter bounds violated for v0202'\ndef evaluate_tensor_kernel_v0203(dim: int = 395, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 203.\"\"\"\n    d_head_v0203: int = 395 // 11\n    d_ff_v0203: int = int(395 * 8 / 3)\n    qkv_params_v0203: int = 3 * 395 * (11 * d_head_v0203)\n    ffn_params_v020"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0089",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 326,
+      "sha256": "a091720e53a61e86436863e7f59388e25b655352f3b831564754c7daf564d0f3",
+      "text": "c Workflow #033 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #033 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #033 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #033 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #034 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #034 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #034 - Phase Gamma"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0090",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 334,
+      "sha256": "d719d6ab205d374bf93837858eea6c4b35d22de406ee2efee20cac1543efa633",
+      "text": ": Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #076 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #076 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #077 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #077 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #077 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #077 - Phase Delta: Verify gradient n"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0091",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 324,
+      "sha256": "b67d812eacab04ddad6aa97a9bfe979ba13929b0630ecbdf12cfedc6bb2b26d3",
+      "text": "4: Verify connection establishment latency returns to sub-millisecond baseline under sustained attack.\n  Phase 05: Resolution: System absorbed 2.5 million packets per second without connection drop for legitimate users.\nDiagnostic Workflow #001 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #001 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #001 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #001 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #002 - Phase Alpha: Veri"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0092",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 322,
+      "sha256": "183e5b65294b4f6bdfa2e5e06f3ef45017bdea4bbb874b511d0f615a1277c392",
+      "text": "fy input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #002 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #002 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #002 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #003 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #003 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #003 - Phase Gamma: Confirm that RMSNorm denominator"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0093",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 748,
+      "token_count": 338,
+      "sha256": "79bec3a209eab356e0a3ac944342356fb310316dff20f7a5fe2b2df1712acb6e",
+      "text": "-1e9 or -inf values.\nDiagnostic Workflow #130 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #130 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #131 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #131 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #131 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #131 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0094",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 327,
+      "sha256": "8ffdb773d639076bd3a5a929f39872c194eeef41d47ce73bef4264d51dedd172",
+      "text": "events division by zero under zero inputs.\nDiagnostic Workflow #037 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #038 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #038 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #038 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #038 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #039 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0095",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 324,
+      "sha256": "fa60a814f6dff7f4f0525f9535533afa370320f1daee1a2fdfbe906b94189b34",
+      "text": "nostic Workflow #016 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #016 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #016 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #016 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #017 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #017 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #017 - Phase"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0096",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 321,
+      "sha256": "54d736c106152686f14eccbabc1fb93a8a71c1368f3d666a85a64e2c8e4441c3",
+      "text": "rify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #027 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #027 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #027 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #027 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #028 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #028 - Phase Beta: Check that attention mask up"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0097",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 322,
+      "sha256": "5712c1418b4289bbc8179d5a81342f9b9457ffee3c3e0443b12f9b351820e635",
+      "text": "g threshold of 1.0 during backprop pass.\nDiagnostic Workflow #013 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #013 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #013 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #013 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #014 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #014 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0098",
+      "domain": "propositions",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 329,
+      "sha256": "9f85cc2bac00e59c47055b09632c97034095f22f944f1041db1e649130e27247",
+      "text": "1.0 during backprop pass.\nDiagnostic Workflow #064 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #064 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #064 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #064 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #065 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #065 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDia"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0099",
+      "domain": "propositions",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 334,
+      "sha256": "7780ba11e47cc8df0f4d61f188674efd23ee4f0b68b50e43923919f4b49028ce",
+      "text": "s match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #087 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #087 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #087 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #088 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #088 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #088 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0100",
+      "domain": "propositions",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 338,
+      "sha256": "1269aaac547765659224377b186ad3bf553a10138bd60a131f56acf7d9ffa9ad",
+      "text": "alues.\nDiagnostic Workflow #031 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #031 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #032 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #032 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #032 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #032 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnosti"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0101",
+      "domain": "propositions",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 337,
+      "sha256": "5fd122c94aeaf3c7f2d686b69b01ebeb06cef114f7fc7343575b68faf3311495",
+      "text": "tic Workflow #124 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #124 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #124 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #125 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #125 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #125 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #125 -"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0102",
+      "domain": "propositions",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 326,
+      "sha256": "6a3127d4a5aeccb02e9f1524666c08b624f5f6a17cc8ddd74e49641dfb3acc26",
+      "text": "agnostic Workflow #040 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #041 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #041 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #041 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #041 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #042 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #042 -"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0103",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 339,
+      "sha256": "96f32415ef5ce2e377586fdd99b09855b79a0204b9629d572c368bc7d4076880",
+      "text": "w #116 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #116 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #117 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #117 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #117 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #117 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #118 - Phase A"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0104",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 337,
+      "sha256": "c09690a57ede1023a06deb38edbb951f9c1ba1503c4c1106dad4cf54c6381e41",
+      "text": "agnostic Workflow #107 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #107 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #107 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #108 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #108 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #108 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #1"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0105",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 321,
+      "sha256": "761c699b792eb3be201b768631e4e3b5ede004cc49ce175f6f59453036a69dae",
+      "text": "emains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #095 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #095 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #095 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #095 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #096 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #096 - Phase Beta: Check that attention mask upper triangle contain"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0106",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 338,
+      "sha256": "430dd96b796c53701da30e89a66a4989c81398e1a561697ce28d56a5a0455c8c",
+      "text": "ow #008 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #008 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #008 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #009 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #009 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #009 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #009 - Phase Delt"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0107",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 322,
+      "sha256": "8d8645109bf95fee3a46ac6ec2d3e7007b6d22615864b9cdbf0ce03dfc181563",
+      "text": "d of 1.0 during backprop pass.\nDiagnostic Workflow #047 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #047 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #047 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #047 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #048 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #048 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0108",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 322,
+      "sha256": "a7baad9f5e08a4103c5911a9e4d4a70896952e4890668929359a67bed7a7df54",
+      "text": "ase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #101 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #101 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #101 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #102 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #102 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #102 - Phase Gamma: Confirm that RMSNo"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0109",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 329,
+      "sha256": "19891aafd1871acc72b6d66d3f2c66a4b8f2c674e44feb66dae1b45b4494097c",
+      "text": "ator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #136 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #137 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #137 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #137 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #137 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #138 - Phase Alpha: Verify input tensor dimensions match config"
+    },
+    {
+      "doc_id": "exp_doc_propositions_0110",
+      "domain": "propositions",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 337,
+      "sha256": "895d676a917de9028943cb36e2a337c2f107c586e34e98477bdbe9785c994c64",
+      "text": "RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #085 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #086 - Phase Alpha: Verify input tensor dimensions match config d_model=192 and max_seq_len=512.\nDiagnostic Workflow #086 - Phase Beta: Check that attention mask upper triangle contains strictly -1e9 or -inf values.\nDiagnostic Workflow #086 - Phase Gamma: Confirm that RMSNorm denominator epsilon prevents division by zero under zero inputs.\nDiagnostic Workflow #086 - Phase Delta: Verify gradient norm remains below clipping threshold of 1.0 during backprop pass.\nDiagnostic Workflow #087 - Phase Alpha: Verify input tensor dimension"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0111",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 259,
+      "sha256": "ed7624bfda605ac9a712d96052f12fb7dc61bdc967439aac2ab19d27ca7c0334",
+      "text": "arenge taaki matrix multiplication further speed up ho sake.\nDev Log #0374 - Q: Is pipeline mein batch size 374 par CPU cache miss rate kitna measure hua?\nDev Log #0374 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0374 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0375 - Q: Is pipeline mein batch size 375 par CPU cache miss rate kitna measure hua?\nDev Log #0375 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0375 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0112",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 265,
+      "sha256": "8f67ba586e258773a038d3ee6b95a75c2ea94340ae4806cd53df464fda41096f",
+      "text": "147 par CPU cache miss rate kitna measure hua?\nDev Log #0147 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0147 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0148 - Q: Is pipeline mein batch size 148 par CPU cache miss rate kitna measure hua?\nDev Log #0148 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0148 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0149 - Q: Is pipeline mein batch size 149 par CPU cache miss rate kitna measure"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0113",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 264,
+      "sha256": "b9c42751451235c6199c144b1aa1ee7fa66b8a6aeb3edc1c42be29431b1fb4b8",
+      "text": "- Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0211 - Q: Is pipeline mein batch size 211 par CPU cache miss rate kitna measure hua?\nDev Log #0211 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0211 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0212 - Q: Is pipeline mein batch size 212 par CPU cache miss rate kitna measure hua?\nDev Log #0212 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0212 - Fix: Next release mein cache-tiling opti"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0114",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 262,
+      "sha256": "ae117bb1c5064135551121bea527982d0ef8edb5f3a8b39746b60dad25f18466",
+      "text": "setting ke liye kaafi solid performance hai.\nDev Log #0100 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0101 - Q: Is pipeline mein batch size 101 par CPU cache miss rate kitna measure hua?\nDev Log #0101 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0101 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0102 - Q: Is pipeline mein batch size 102 par CPU cache miss rate kitna measure hua?\nDev Log #0102 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance h"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0115",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 258,
+      "sha256": "b8148bce37d2440e1c0ad2ab92fbc431646c1e70a4d483141615602d60fe5f7c",
+      "text": "ing ke liye kaafi solid performance hai.\nDev Log #0032 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0033 - Q: Is pipeline mein batch size 33 par CPU cache miss rate kitna measure hua?\nDev Log #0033 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0033 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0034 - Q: Is pipeline mein batch size 34 par CPU cache miss rate kitna measure hua?\nDev Log #0034 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0116",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 259,
+      "sha256": "8735cf7f388c8e49a803819d9bf4f35317bf050eec02666a59eaffa7ec20801b",
+      "text": "mize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0338 - Q: Is pipeline mein batch size 338 par CPU cache miss rate kitna measure hua?\nDev Log #0338 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0338 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0339 - Q: Is pipeline mein batch size 339 par CPU cache miss rate kitna measure hua?\nDev Log #0339 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0339 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication f"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0117",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 270,
+      "sha256": "c952025e9132207130468327aa3484fa5b65364dbd868fc728bebcfb4fdd2d7a",
+      "text": "tion further speed up ho sake.\nDev Log #0304 - Q: Is pipeline mein batch size 304 par CPU cache miss rate kitna measure hua?\nDev Log #0304 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0304 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0305 - Q: Is pipeline mein batch size 305 par CPU cache miss rate kitna measure hua?\nDev Log #0305 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0305 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #03"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0118",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 266,
+      "sha256": "7f8e8ade93a8868be443c82937854db4dd01e24ecc57748c591d6120e270e010",
+      "text": "Dev Log #0234 - Q: Is pipeline mein batch size 234 par CPU cache miss rate kitna measure hua?\nDev Log #0234 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0234 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0235 - Q: Is pipeline mein batch size 235 par CPU cache miss rate kitna measure hua?\nDev Log #0235 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0235 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0236 - Q: Is pipeline mein batch"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0119",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 749,
+      "token_count": 268,
+      "sha256": "e89a9bfe04f2745959b8b4a668085708a9b039d58c69b12b0b30ceb81294d092",
+      "text": "272 par CPU cache miss rate kitna measure hua?\nDev Log #0272 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0272 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0273 - Q: Is pipeline mein batch size 273 par CPU cache miss rate kitna measure hua?\nDev Log #0273 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0273 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0274 - Q: Is pipeline mein batch size 274 par CPU cache miss rate kitna measure"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0120",
+      "domain": "hinglish",
+      "split": "train",
+      "char_count": 750,
+      "token_count": 264,
+      "sha256": "fcdc69b5558cccf68caff98378e6a9b562b09d54ce80deee4b8f0997972e36e4",
+      "text": "cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0223 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0224 - Q: Is pipeline mein batch size 224 par CPU cache miss rate kitna measure hua?\nDev Log #0224 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0224 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0225 - Q: Is pipeline mein batch size 225 par CPU cache miss rate kitna measure hua?\nDev Log #0225 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0121",
+      "domain": "hinglish",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 264,
+      "sha256": "c2730b8908a7e6546a31bbbc8ba58380ced706a89e2920b5223658d48a133724",
+      "text": "ipeline mein batch size 128 par CPU cache miss rate kitna measure hua?\nDev Log #0128 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0128 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0129 - Q: Is pipeline mein batch size 129 par CPU cache miss rate kitna measure hua?\nDev Log #0129 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0129 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0130 - Q: Is pipeline mein batch size 130 par CPU cache"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0122",
+      "domain": "hinglish",
+      "split": "val",
+      "char_count": 749,
+      "token_count": 160,
+      "sha256": "dc6363465b37ac3b205a2d5c24941a50a1a3596e9c41f58b714681b3ffb2650e",
+      "text": "n karo aur saare tests verify karo.\nDevanagari script ke words ko BPE merges mein kitna space milta hai?\nagar tokenizer acche se train hoga toh fertility rate kafi kam ho jayegi.\nhumein bina internet ke bhi offline inference mil sakti hai.\nCPU par model ki speed kafi acchi aa rahi hai, lagbhag 40 tokens per second.\nchalo ab data preprocessing pipeline ko check karte hain.\nkisi bhi string ko encode karne ke baad exact decode hona zaroori hai.\nagar single byte bhi change hua toh test fail ho jayega.\nisliye lossless tokenization sabse bada architectural invariant hai.\nkya tumne requirements.txt file update kar di hai?\nhaan saare lightweight dependencies setup kar diye hain.\nkal hum model ki training configuration ko finalize karenge.\nchalo ab"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0123",
+      "domain": "hinglish",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 267,
+      "sha256": "d68cbb7d10e1f4fa8925dd38504884a8b504a75523d790ed9738fee8bc79a895",
+      "text": "#0028 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0028 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0029 - Q: Is pipeline mein batch size 29 par CPU cache miss rate kitna measure hua?\nDev Log #0029 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0029 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0030 - Q: Is pipeline mein batch size 30 par CPU cache miss rate kitna measure hua?\nDev Log #0030 - A: Profiler output ke mutabiq L1 cac"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0124",
+      "domain": "hinglish",
+      "split": "val",
+      "char_count": 750,
+      "token_count": 263,
+      "sha256": "f8de73763c624da8175fa3322d51d878770aee1f164c73d13ff097f6763fe91b",
+      "text": "58 - Q: Is pipeline mein batch size 58 par CPU cache miss rate kitna measure hua?\nDev Log #0058 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0058 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0059 - Q: Is pipeline mein batch size 59 par CPU cache miss rate kitna measure hua?\nDev Log #0059 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0059 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0060 - Q: Is pipeline mein batch size 60 par C"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0125",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 258,
+      "sha256": "0455a3742e5642e8d55645a5f8aef60e7c354f944db179ed349dd11340a3c57c",
+      "text": "taaki matrix multiplication further speed up ho sake.\nDev Log #0285 - Q: Is pipeline mein batch size 285 par CPU cache miss rate kitna measure hua?\nDev Log #0285 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0285 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0286 - Q: Is pipeline mein batch size 286 par CPU cache miss rate kitna measure hua?\nDev Log #0286 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0286 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0126",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 749,
+      "token_count": 272,
+      "sha256": "f033fdf6730813bd2ad0ca4229d80978d295e4fc590c669513c2a03319a414d1",
+      "text": "#0045 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0045 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0046 - Q: Is pipeline mein batch size 46 par CPU cache miss rate kitna measure hua?\nDev Log #0046 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0046 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0047 - Q: Is pipeline mein batch size 47 par CPU cache miss rate kitna measure hua?\nDev Log #0047 - A: Profiler output ke mutabiq L1 ca"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0127",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 269,
+      "sha256": "d50eeb6a61aa671e877e31044821e53d0fe8ca27398c9a86cbcb2afab4b30ca8",
+      "text": "Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0293 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0294 - Q: Is pipeline mein batch size 294 par CPU cache miss rate kitna measure hua?\nDev Log #0294 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0294 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0295 - Q: Is pipeline mein batch size 295 par CPU cache miss rate kitna measure hua?\nDev Log #0295 - A: Profiler output ke mutabiq L1 cache hit ra"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0128",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 684,
+      "token_count": 236,
+      "sha256": "46a868ce8a2d1b4b87b859eb243c214da7383c59feb425a82d42996cdbfd2672",
+      "text": "ipeline mein batch size 378 par CPU cache miss rate kitna measure hua?\nDev Log #0378 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0378 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0379 - Q: Is pipeline mein batch size 379 par CPU cache miss rate kitna measure hua?\nDev Log #0379 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0379 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake."
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0129",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 748,
+      "token_count": 267,
+      "sha256": "c25126f316b29b640855f61c2b2b2ceff76d43e8d157957559d1abff79bee2f1",
+      "text": "cache miss rate kitna measure hua?\nDev Log #0026 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0026 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0027 - Q: Is pipeline mein batch size 27 par CPU cache miss rate kitna measure hua?\nDev Log #0027 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0027 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0028 - Q: Is pipeline mein batch size 28 par CPU cache miss rate kitna measure hua?\nDev Log"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0130",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 262,
+      "sha256": "de443340d29d38a22071fd00cd74a00e8a4b5143da76f83e64a7a2d1a0972786",
+      "text": "lication further speed up ho sake.\nDev Log #0005 - Q: Is pipeline mein batch size 5 par CPU cache miss rate kitna measure hua?\nDev Log #0005 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0005 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0006 - Q: Is pipeline mein batch size 6 par CPU cache miss rate kitna measure hua?\nDev Log #0006 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0006 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #00"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0131",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 267,
+      "sha256": "078f4f1410117ee4a8a79be5d120ca39b5ab83b536aa5e149965033f46cda42a",
+      "text": "#0299 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0300 - Q: Is pipeline mein batch size 300 par CPU cache miss rate kitna measure hua?\nDev Log #0300 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0300 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0301 - Q: Is pipeline mein batch size 301 par CPU cache miss rate kitna measure hua?\nDev Log #0301 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0301 - Fix: Next release mein cache-tilin"
+    },
+    {
+      "doc_id": "exp_doc_hinglish_0132",
+      "domain": "hinglish",
+      "split": "test_held_out",
+      "char_count": 750,
+      "token_count": 275,
+      "sha256": "da2ccfeacb4c907df09ff4cc6c783a8346d3b2394fbbf9e645584276e76b1f3e",
+      "text": "ai.\nDev Log #0352 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0353 - Q: Is pipeline mein batch size 353 par CPU cache miss rate kitna measure hua?\nDev Log #0353 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0353 - Fix: Next release mein cache-tiling optimize karenge taaki matrix multiplication further speed up ho sake.\nDev Log #0354 - Q: Is pipeline mein batch size 354 par CPU cache miss rate kitna measure hua?\nDev Log #0354 - A: Profiler output ke mutabiq L1 cache hit rate 96.4% raha, jo low-resource setting ke liye kaafi solid performance hai.\nDev Log #0354 - Fix: Next release mein"
+    }
+  ]
+}

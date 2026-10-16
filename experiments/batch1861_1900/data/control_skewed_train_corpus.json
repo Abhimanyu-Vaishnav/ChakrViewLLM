@@ -1,0 +1,422 @@
+[
+  {
+    "doc_id": "ctrl_skewed_0001",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 356,
+    "text": "d_ff_v0018: int = int(210 * 8 / 3)\n    qkv_params_v0018: int = 3 * 210 * (6 * d_head_v0018)\n    ffn_params_v0018: int = 3 * 210 * d_ff_v0018\n    return {'dim': 210, 'heads': 6, 'qkv': qkv_params_v0018, 'ffn': ffn_params_v0018, 'v': 18}\nassert evaluate_tensor_kernel_v0018()['qkv'] > 0, 'Kernel parameter bounds violated for v0018'\ndef evaluate_tensor_kernel_v0019(dim: int = 211, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 19.\"\"\"\n    d_head_v0019: int = 211 // 7\n    d_ff_v0019: int = int(211 * 8 / 3)\n    qkv_params_v0019: int = 3 * 211 * (7 * d_head_v0019)\n    ffn_params_v0019: int = 3 * 211 * d_ff_v0019\n    return {'dim': 211, 'heads': 7, 'qkv': qkv_params_v0019, 'ffn': ffn_para"
+  },
+  {
+    "doc_id": "ctrl_skewed_0002",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 339,
+    "text": "ms_v0019, 'v': 19}\nassert evaluate_tensor_kernel_v0019()['qkv'] > 0, 'Kernel parameter bounds violated for v0019'\ndef evaluate_tensor_kernel_v0020(dim: int = 212, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 20.\"\"\"\n    d_head_v0020: int = 212 // 8\n    d_ff_v0020: int = int(212 * 8 / 3)\n    qkv_params_v0020: int = 3 * 212 * (8 * d_head_v0020)\n    ffn_params_v0020: int = 3 * 212 * d_ff_v0020\n    return {'dim': 212, 'heads': 8, 'qkv': qkv_params_v0020, 'ffn': ffn_params_v0020, 'v': 20}\nassert evaluate_tensor_kernel_v0020()['qkv'] > 0, 'Kernel parameter bounds violated for v0020'\ndef evaluate_tensor_kernel_v0021(dim: int = 213, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter"
+  },
+  {
+    "doc_id": "ctrl_skewed_0003",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 348,
+    "text": "sizing for neural transformer layer variant 21.\"\"\"\n    d_head_v0021: int = 213 // 9\n    d_ff_v0021: int = int(213 * 8 / 3)\n    qkv_params_v0021: int = 3 * 213 * (9 * d_head_v0021)\n    ffn_params_v0021: int = 3 * 213 * d_ff_v0021\n    return {'dim': 213, 'heads': 9, 'qkv': qkv_params_v0021, 'ffn': ffn_params_v0021, 'v': 21}\nassert evaluate_tensor_kernel_v0021()['qkv'] > 0, 'Kernel parameter bounds violated for v0021'\ndef evaluate_tensor_kernel_v0022(dim: int = 214, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 22.\"\"\"\n    d_head_v0022: int = 214 // 10\n    d_ff_v0022: int = int(214 * 8 / 3)\n    qkv_params_v0022: int = 3 * 214 * (10 * d_head_v0022)\n    ffn_params_v0022: int = 3 * 214 *"
+  },
+  {
+    "doc_id": "ctrl_skewed_0004",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 353,
+    "text": "d_ff_v0022\n    return {'dim': 214, 'heads': 10, 'qkv': qkv_params_v0022, 'ffn': ffn_params_v0022, 'v': 22}\nassert evaluate_tensor_kernel_v0022()['qkv'] > 0, 'Kernel parameter bounds violated for v0022'\ndef evaluate_tensor_kernel_v0023(dim: int = 215, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 23.\"\"\"\n    d_head_v0023: int = 215 // 11\n    d_ff_v0023: int = int(215 * 8 / 3)\n    qkv_params_v0023: int = 3 * 215 * (11 * d_head_v0023)\n    ffn_params_v0023: int = 3 * 215 * d_ff_v0023\n    return {'dim': 215, 'heads': 11, 'qkv': qkv_params_v0023, 'ffn': ffn_params_v0023, 'v': 23}\nassert evaluate_tensor_kernel_v0023()['qkv'] > 0, 'Kernel parameter bounds violated for v0023'\ndef evaluate_ten"
+  },
+  {
+    "doc_id": "ctrl_skewed_0005",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 334,
+    "text": "sor_kernel_v0024(dim: int = 216, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 24.\"\"\"\n    d_head_v0024: int = 216 // 6\n    d_ff_v0024: int = int(216 * 8 / 3)\n    qkv_params_v0024: int = 3 * 216 * (6 * d_head_v0024)\n    ffn_params_v0024: int = 3 * 216 * d_ff_v0024\n    return {'dim': 216, 'heads': 6, 'qkv': qkv_params_v0024, 'ffn': ffn_params_v0024, 'v': 24}\nassert evaluate_tensor_kernel_v0024()['qkv'] > 0, 'Kernel parameter bounds violated for v0024'\ndef evaluate_tensor_kernel_v0025(dim: int = 217, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 25.\"\"\"\n    d_head_v0025: int = 217 // 7\n    d_ff_v0025: int = int(217 * 8 / 3)\n    qk"
+  },
+  {
+    "doc_id": "ctrl_skewed_0006",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 364,
+    "text": "v_params_v0025: int = 3 * 217 * (7 * d_head_v0025)\n    ffn_params_v0025: int = 3 * 217 * d_ff_v0025\n    return {'dim': 217, 'heads': 7, 'qkv': qkv_params_v0025, 'ffn': ffn_params_v0025, 'v': 25}\nassert evaluate_tensor_kernel_v0025()['qkv'] > 0, 'Kernel parameter bounds violated for v0025'\ndef evaluate_tensor_kernel_v0026(dim: int = 218, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 26.\"\"\"\n    d_head_v0026: int = 218 // 8\n    d_ff_v0026: int = int(218 * 8 / 3)\n    qkv_params_v0026: int = 3 * 218 * (8 * d_head_v0026)\n    ffn_params_v0026: int = 3 * 218 * d_ff_v0026\n    return {'dim': 218, 'heads': 8, 'qkv': qkv_params_v0026, 'ffn': ffn_params_v0026, 'v': 26}\nassert evaluate_tensor_kern"
+  },
+  {
+    "doc_id": "ctrl_skewed_0007",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 338,
+    "text": "el_v0026()['qkv'] > 0, 'Kernel parameter bounds violated for v0026'\ndef evaluate_tensor_kernel_v0027(dim: int = 219, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 27.\"\"\"\n    d_head_v0027: int = 219 // 9\n    d_ff_v0027: int = int(219 * 8 / 3)\n    qkv_params_v0027: int = 3 * 219 * (9 * d_head_v0027)\n    ffn_params_v0027: int = 3 * 219 * d_ff_v0027\n    return {'dim': 219, 'heads': 9, 'qkv': qkv_params_v0027, 'ffn': ffn_params_v0027, 'v': 27}\nassert evaluate_tensor_kernel_v0027()['qkv'] > 0, 'Kernel parameter bounds violated for v0027'\ndef evaluate_tensor_kernel_v0028(dim: int = 220, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant"
+  },
+  {
+    "doc_id": "ctrl_skewed_0008",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 347,
+    "text": "28.\"\"\"\n    d_head_v0028: int = 220 // 10\n    d_ff_v0028: int = int(220 * 8 / 3)\n    qkv_params_v0028: int = 3 * 220 * (10 * d_head_v0028)\n    ffn_params_v0028: int = 3 * 220 * d_ff_v0028\n    return {'dim': 220, 'heads': 10, 'qkv': qkv_params_v0028, 'ffn': ffn_params_v0028, 'v': 28}\nassert evaluate_tensor_kernel_v0028()['qkv'] > 0, 'Kernel parameter bounds violated for v0028'\ndef evaluate_tensor_kernel_v0029(dim: int = 221, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 29.\"\"\"\n    d_head_v0029: int = 221 // 11\n    d_ff_v0029: int = int(221 * 8 / 3)\n    qkv_params_v0029: int = 3 * 221 * (11 * d_head_v0029)\n    ffn_params_v0029: int = 3 * 221 * d_ff_v0029\n    return {'dim': 221, 'heads'"
+  },
+  {
+    "doc_id": "ctrl_skewed_0009",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 346,
+    "text": ": 11, 'qkv': qkv_params_v0029, 'ffn': ffn_params_v0029, 'v': 29}\nassert evaluate_tensor_kernel_v0029()['qkv'] > 0, 'Kernel parameter bounds violated for v0029'\ndef evaluate_tensor_kernel_v0030(dim: int = 222, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 30.\"\"\"\n    d_head_v0030: int = 222 // 6\n    d_ff_v0030: int = int(222 * 8 / 3)\n    qkv_params_v0030: int = 3 * 222 * (6 * d_head_v0030)\n    ffn_params_v0030: int = 3 * 222 * d_ff_v0030\n    return {'dim': 222, 'heads': 6, 'qkv': qkv_params_v0030, 'ffn': ffn_params_v0030, 'v': 30}\nassert evaluate_tensor_kernel_v0030()['qkv'] > 0, 'Kernel parameter bounds violated for v0030'\ndef evaluate_tensor_kernel_v0031(dim: int = 223, heads: int ="
+  },
+  {
+    "doc_id": "ctrl_skewed_0010",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 340,
+    "text": "7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 31.\"\"\"\n    d_head_v0031: int = 223 // 7\n    d_ff_v0031: int = int(223 * 8 / 3)\n    qkv_params_v0031: int = 3 * 223 * (7 * d_head_v0031)\n    ffn_params_v0031: int = 3 * 223 * d_ff_v0031\n    return {'dim': 223, 'heads': 7, 'qkv': qkv_params_v0031, 'ffn': ffn_params_v0031, 'v': 31}\nassert evaluate_tensor_kernel_v0031()['qkv'] > 0, 'Kernel parameter bounds violated for v0031'\ndef evaluate_tensor_kernel_v0032(dim: int = 224, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 32.\"\"\"\n    d_head_v0032: int = 224 // 8\n    d_ff_v0032: int = int(224 * 8 / 3)\n    qkv_params_v0032: int = 3 * 224 * (8 * d_head_v0"
+  },
+  {
+    "doc_id": "ctrl_skewed_0011",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 371,
+    "text": "032)\n    ffn_params_v0032: int = 3 * 224 * d_ff_v0032\n    return {'dim': 224, 'heads': 8, 'qkv': qkv_params_v0032, 'ffn': ffn_params_v0032, 'v': 32}\nassert evaluate_tensor_kernel_v0032()['qkv'] > 0, 'Kernel parameter bounds violated for v0032'\ndef evaluate_tensor_kernel_v0033(dim: int = 225, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 33.\"\"\"\n    d_head_v0033: int = 225 // 9\n    d_ff_v0033: int = int(225 * 8 / 3)\n    qkv_params_v0033: int = 3 * 225 * (9 * d_head_v0033)\n    ffn_params_v0033: int = 3 * 225 * d_ff_v0033\n    return {'dim': 225, 'heads': 9, 'qkv': qkv_params_v0033, 'ffn': ffn_params_v0033, 'v': 33}\nassert evaluate_tensor_kernel_v0033()['qkv'] > 0, 'Kernel parameter bound"
+  },
+  {
+    "doc_id": "ctrl_skewed_0012",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 322,
+    "text": "s violated for v0033'\ndef evaluate_tensor_kernel_v0034(dim: int = 226, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 34.\"\"\"\n    d_head_v0034: int = 226 // 10\n    d_ff_v0034: int = int(226 * 8 / 3)\n    qkv_params_v0034: int = 3 * 226 * (10 * d_head_v0034)\n    ffn_params_v0034: int = 3 * 226 * d_ff_v0034\n    return {'dim': 226, 'heads': 10, 'qkv': qkv_params_v0034, 'ffn': ffn_params_v0034, 'v': 34}\nassert evaluate_tensor_kernel_v0034()['qkv'] > 0, 'Kernel parameter bounds violated for v0034'\ndef evaluate_tensor_kernel_v0035(dim: int = 227, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 35.\"\"\"\n    d_head_v0035: int = 227 // 11"
+  },
+  {
+    "doc_id": "ctrl_skewed_0013",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 362,
+    "text": "d_ff_v0035: int = int(227 * 8 / 3)\n    qkv_params_v0035: int = 3 * 227 * (11 * d_head_v0035)\n    ffn_params_v0035: int = 3 * 227 * d_ff_v0035\n    return {'dim': 227, 'heads': 11, 'qkv': qkv_params_v0035, 'ffn': ffn_params_v0035, 'v': 35}\nassert evaluate_tensor_kernel_v0035()['qkv'] > 0, 'Kernel parameter bounds violated for v0035'\ndef evaluate_tensor_kernel_v0036(dim: int = 228, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 36.\"\"\"\n    d_head_v0036: int = 228 // 6\n    d_ff_v0036: int = int(228 * 8 / 3)\n    qkv_params_v0036: int = 3 * 228 * (6 * d_head_v0036)\n    ffn_params_v0036: int = 3 * 228 * d_ff_v0036\n    return {'dim': 228, 'heads': 6, 'qkv': qkv_params_v0036, 'ffn': ffn_para"
+  },
+  {
+    "doc_id": "ctrl_skewed_0014",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 340,
+    "text": "ms_v0036, 'v': 36}\nassert evaluate_tensor_kernel_v0036()['qkv'] > 0, 'Kernel parameter bounds violated for v0036'\ndef evaluate_tensor_kernel_v0037(dim: int = 229, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 37.\"\"\"\n    d_head_v0037: int = 229 // 7\n    d_ff_v0037: int = int(229 * 8 / 3)\n    qkv_params_v0037: int = 3 * 229 * (7 * d_head_v0037)\n    ffn_params_v0037: int = 3 * 229 * d_ff_v0037\n    return {'dim': 229, 'heads': 7, 'qkv': qkv_params_v0037, 'ffn': ffn_params_v0037, 'v': 37}\nassert evaluate_tensor_kernel_v0037()['qkv'] > 0, 'Kernel parameter bounds violated for v0037'\ndef evaluate_tensor_kernel_v0038(dim: int = 230, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter"
+  },
+  {
+    "doc_id": "ctrl_skewed_0015",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 349,
+    "text": "sizing for neural transformer layer variant 38.\"\"\"\n    d_head_v0038: int = 230 // 8\n    d_ff_v0038: int = int(230 * 8 / 3)\n    qkv_params_v0038: int = 3 * 230 * (8 * d_head_v0038)\n    ffn_params_v0038: int = 3 * 230 * d_ff_v0038\n    return {'dim': 230, 'heads': 8, 'qkv': qkv_params_v0038, 'ffn': ffn_params_v0038, 'v': 38}\nassert evaluate_tensor_kernel_v0038()['qkv'] > 0, 'Kernel parameter bounds violated for v0038'\ndef evaluate_tensor_kernel_v0039(dim: int = 231, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 39.\"\"\"\n    d_head_v0039: int = 231 // 9\n    d_ff_v0039: int = int(231 * 8 / 3)\n    qkv_params_v0039: int = 3 * 231 * (9 * d_head_v0039)\n    ffn_params_v0039: int = 3 * 231 * d_f"
+  },
+  {
+    "doc_id": "ctrl_skewed_0016",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 360,
+    "text": "f_v0039\n    return {'dim': 231, 'heads': 9, 'qkv': qkv_params_v0039, 'ffn': ffn_params_v0039, 'v': 39}\nassert evaluate_tensor_kernel_v0039()['qkv'] > 0, 'Kernel parameter bounds violated for v0039'\ndef evaluate_tensor_kernel_v0040(dim: int = 232, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 40.\"\"\"\n    d_head_v0040: int = 232 // 10\n    d_ff_v0040: int = int(232 * 8 / 3)\n    qkv_params_v0040: int = 3 * 232 * (10 * d_head_v0040)\n    ffn_params_v0040: int = 3 * 232 * d_ff_v0040\n    return {'dim': 232, 'heads': 10, 'qkv': qkv_params_v0040, 'ffn': ffn_params_v0040, 'v': 40}\nassert evaluate_tensor_kernel_v0040()['qkv'] > 0, 'Kernel parameter bounds violated for v0040'\ndef evaluate_tensor_"
+  },
+  {
+    "doc_id": "ctrl_skewed_0017",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 336,
+    "text": "kernel_v0041(dim: int = 233, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 41.\"\"\"\n    d_head_v0041: int = 233 // 11\n    d_ff_v0041: int = int(233 * 8 / 3)\n    qkv_params_v0041: int = 3 * 233 * (11 * d_head_v0041)\n    ffn_params_v0041: int = 3 * 233 * d_ff_v0041\n    return {'dim': 233, 'heads': 11, 'qkv': qkv_params_v0041, 'ffn': ffn_params_v0041, 'v': 41}\nassert evaluate_tensor_kernel_v0041()['qkv'] > 0, 'Kernel parameter bounds violated for v0041'\ndef evaluate_tensor_kernel_v0042(dim: int = 234, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 42.\"\"\"\n    d_head_v0042: int = 234 // 6\n    d_ff_v0042: int = int(234 * 8 / 3)\n    qk"
+  },
+  {
+    "doc_id": "ctrl_skewed_0018",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 373,
+    "text": "v_params_v0042: int = 3 * 234 * (6 * d_head_v0042)\n    ffn_params_v0042: int = 3 * 234 * d_ff_v0042\n    return {'dim': 234, 'heads': 6, 'qkv': qkv_params_v0042, 'ffn': ffn_params_v0042, 'v': 42}\nassert evaluate_tensor_kernel_v0042()['qkv'] > 0, 'Kernel parameter bounds violated for v0042'\ndef evaluate_tensor_kernel_v0043(dim: int = 235, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 43.\"\"\"\n    d_head_v0043: int = 235 // 7\n    d_ff_v0043: int = int(235 * 8 / 3)\n    qkv_params_v0043: int = 3 * 235 * (7 * d_head_v0043)\n    ffn_params_v0043: int = 3 * 235 * d_ff_v0043\n    return {'dim': 235, 'heads': 7, 'qkv': qkv_params_v0043, 'ffn': ffn_params_v0043, 'v': 43}\nassert evaluate_tensor_kern"
+  },
+  {
+    "doc_id": "ctrl_skewed_0019",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 326,
+    "text": "el_v0043()['qkv'] > 0, 'Kernel parameter bounds violated for v0043'\ndef evaluate_tensor_kernel_v0044(dim: int = 236, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 44.\"\"\"\n    d_head_v0044: int = 236 // 8\n    d_ff_v0044: int = int(236 * 8 / 3)\n    qkv_params_v0044: int = 3 * 236 * (8 * d_head_v0044)\n    ffn_params_v0044: int = 3 * 236 * d_ff_v0044\n    return {'dim': 236, 'heads': 8, 'qkv': qkv_params_v0044, 'ffn': ffn_params_v0044, 'v': 44}\nassert evaluate_tensor_kernel_v0044()['qkv'] > 0, 'Kernel parameter bounds violated for v0044'\ndef evaluate_tensor_kernel_v0045(dim: int = 237, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 4"
+  },
+  {
+    "doc_id": "ctrl_skewed_0020",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 356,
+    "text": "5.\"\"\"\n    d_head_v0045: int = 237 // 9\n    d_ff_v0045: int = int(237 * 8 / 3)\n    qkv_params_v0045: int = 3 * 237 * (9 * d_head_v0045)\n    ffn_params_v0045: int = 3 * 237 * d_ff_v0045\n    return {'dim': 237, 'heads': 9, 'qkv': qkv_params_v0045, 'ffn': ffn_params_v0045, 'v': 45}\nassert evaluate_tensor_kernel_v0045()['qkv'] > 0, 'Kernel parameter bounds violated for v0045'\ndef evaluate_tensor_kernel_v0046(dim: int = 238, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 46.\"\"\"\n    d_head_v0046: int = 238 // 10\n    d_ff_v0046: int = int(238 * 8 / 3)\n    qkv_params_v0046: int = 3 * 238 * (10 * d_head_v0046)\n    ffn_params_v0046: int = 3 * 238 * d_ff_v0046\n    return {'dim': 238, 'heads': 10"
+  },
+  {
+    "doc_id": "ctrl_skewed_0021",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 364,
+    "text": ", 'qkv': qkv_params_v0046, 'ffn': ffn_params_v0046, 'v': 46}\nassert evaluate_tensor_kernel_v0046()['qkv'] > 0, 'Kernel parameter bounds violated for v0046'\ndef evaluate_tensor_kernel_v0047(dim: int = 239, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 47.\"\"\"\n    d_head_v0047: int = 239 // 11\n    d_ff_v0047: int = int(239 * 8 / 3)\n    qkv_params_v0047: int = 3 * 239 * (11 * d_head_v0047)\n    ffn_params_v0047: int = 3 * 239 * d_ff_v0047\n    return {'dim': 239, 'heads': 11, 'qkv': qkv_params_v0047, 'ffn': ffn_params_v0047, 'v': 47}\nassert evaluate_tensor_kernel_v0047()['qkv'] > 0, 'Kernel parameter bounds violated for v0047'\ndef evaluate_tensor_kernel_v0048(dim: int = 240, heads: int ="
+  },
+  {
+    "doc_id": "ctrl_skewed_0022",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 336,
+    "text": "6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 48.\"\"\"\n    d_head_v0048: int = 240 // 6\n    d_ff_v0048: int = int(240 * 8 / 3)\n    qkv_params_v0048: int = 3 * 240 * (6 * d_head_v0048)\n    ffn_params_v0048: int = 3 * 240 * d_ff_v0048\n    return {'dim': 240, 'heads': 6, 'qkv': qkv_params_v0048, 'ffn': ffn_params_v0048, 'v': 48}\nassert evaluate_tensor_kernel_v0048()['qkv'] > 0, 'Kernel parameter bounds violated for v0048'\ndef evaluate_tensor_kernel_v0049(dim: int = 241, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 49.\"\"\"\n    d_head_v0049: int = 241 // 7\n    d_ff_v0049: int = int(241 * 8 / 3)\n    qkv_params_v0049: int = 3 * 241 * (7 * d_head_v0"
+  },
+  {
+    "doc_id": "ctrl_skewed_0023",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 370,
+    "text": "049)\n    ffn_params_v0049: int = 3 * 241 * d_ff_v0049\n    return {'dim': 241, 'heads': 7, 'qkv': qkv_params_v0049, 'ffn': ffn_params_v0049, 'v': 49}\nassert evaluate_tensor_kernel_v0049()['qkv'] > 0, 'Kernel parameter bounds violated for v0049'\ndef evaluate_tensor_kernel_v0050(dim: int = 242, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 50.\"\"\"\n    d_head_v0050: int = 242 // 8\n    d_ff_v0050: int = int(242 * 8 / 3)\n    qkv_params_v0050: int = 3 * 242 * (8 * d_head_v0050)\n    ffn_params_v0050: int = 3 * 242 * d_ff_v0050\n    return {'dim': 242, 'heads': 8, 'qkv': qkv_params_v0050, 'ffn': ffn_params_v0050, 'v': 50}\nassert evaluate_tensor_kernel_v0050()['qkv'] > 0, 'Kernel parameter bound"
+  },
+  {
+    "doc_id": "ctrl_skewed_0024",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 341,
+    "text": "s violated for v0050'\ndef evaluate_tensor_kernel_v0051(dim: int = 243, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 51.\"\"\"\n    d_head_v0051: int = 243 // 9\n    d_ff_v0051: int = int(243 * 8 / 3)\n    qkv_params_v0051: int = 3 * 243 * (9 * d_head_v0051)\n    ffn_params_v0051: int = 3 * 243 * d_ff_v0051\n    return {'dim': 243, 'heads': 9, 'qkv': qkv_params_v0051, 'ffn': ffn_params_v0051, 'v': 51}\nassert evaluate_tensor_kernel_v0051()['qkv'] > 0, 'Kernel parameter bounds violated for v0051'\ndef evaluate_tensor_kernel_v0052(dim: int = 244, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 52.\"\"\"\n    d_head_v0052: int = 244 // 10\n    d"
+  },
+  {
+    "doc_id": "ctrl_skewed_0025",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 374,
+    "text": "_ff_v0052: int = int(244 * 8 / 3)\n    qkv_params_v0052: int = 3 * 244 * (10 * d_head_v0052)\n    ffn_params_v0052: int = 3 * 244 * d_ff_v0052\n    return {'dim': 244, 'heads': 10, 'qkv': qkv_params_v0052, 'ffn': ffn_params_v0052, 'v': 52}\nassert evaluate_tensor_kernel_v0052()['qkv'] > 0, 'Kernel parameter bounds violated for v0052'\ndef evaluate_tensor_kernel_v0053(dim: int = 245, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 53.\"\"\"\n    d_head_v0053: int = 245 // 11\n    d_ff_v0053: int = int(245 * 8 / 3)\n    qkv_params_v0053: int = 3 * 245 * (11 * d_head_v0053)\n    ffn_params_v0053: int = 3 * 245 * d_ff_v0053\n    return {'dim': 245, 'heads': 11, 'qkv': qkv_params_v0053, 'ffn': ffn_para"
+  },
+  {
+    "doc_id": "ctrl_skewed_0026",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 353,
+    "text": "ms_v0053, 'v': 53}\nassert evaluate_tensor_kernel_v0053()['qkv'] > 0, 'Kernel parameter bounds violated for v0053'\ndef evaluate_tensor_kernel_v0054(dim: int = 246, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 54.\"\"\"\n    d_head_v0054: int = 246 // 6\n    d_ff_v0054: int = int(246 * 8 / 3)\n    qkv_params_v0054: int = 3 * 246 * (6 * d_head_v0054)\n    ffn_params_v0054: int = 3 * 246 * d_ff_v0054\n    return {'dim': 246, 'heads': 6, 'qkv': qkv_params_v0054, 'ffn': ffn_params_v0054, 'v': 54}\nassert evaluate_tensor_kernel_v0054()['qkv'] > 0, 'Kernel parameter bounds violated for v0054'\ndef evaluate_tensor_kernel_v0055(dim: int = 247, heads: int = 7) -> dict[str, int]:\n    \"\"\"Compute parameter"
+  },
+  {
+    "doc_id": "ctrl_skewed_0027",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 342,
+    "text": "sizing for neural transformer layer variant 55.\"\"\"\n    d_head_v0055: int = 247 // 7\n    d_ff_v0055: int = int(247 * 8 / 3)\n    qkv_params_v0055: int = 3 * 247 * (7 * d_head_v0055)\n    ffn_params_v0055: int = 3 * 247 * d_ff_v0055\n    return {'dim': 247, 'heads': 7, 'qkv': qkv_params_v0055, 'ffn': ffn_params_v0055, 'v': 55}\nassert evaluate_tensor_kernel_v0055()['qkv'] > 0, 'Kernel parameter bounds violated for v0055'\ndef evaluate_tensor_kernel_v0056(dim: int = 248, heads: int = 8) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 56.\"\"\"\n    d_head_v0056: int = 248 // 8\n    d_ff_v0056: int = int(248 * 8 / 3)\n    qkv_params_v0056: int = 3 * 248 * (8 * d_head_v0056)\n    ffn_params_v0056: int = 3 * 248 * d_f"
+  },
+  {
+    "doc_id": "ctrl_skewed_0028",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 369,
+    "text": "f_v0056\n    return {'dim': 248, 'heads': 8, 'qkv': qkv_params_v0056, 'ffn': ffn_params_v0056, 'v': 56}\nassert evaluate_tensor_kernel_v0056()['qkv'] > 0, 'Kernel parameter bounds violated for v0056'\ndef evaluate_tensor_kernel_v0057(dim: int = 249, heads: int = 9) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 57.\"\"\"\n    d_head_v0057: int = 249 // 9\n    d_ff_v0057: int = int(249 * 8 / 3)\n    qkv_params_v0057: int = 3 * 249 * (9 * d_head_v0057)\n    ffn_params_v0057: int = 3 * 249 * d_ff_v0057\n    return {'dim': 249, 'heads': 9, 'qkv': qkv_params_v0057, 'ffn': ffn_params_v0057, 'v': 57}\nassert evaluate_tensor_kernel_v0057()['qkv'] > 0, 'Kernel parameter bounds violated for v0057'\ndef evaluate_tensor_kern"
+  },
+  {
+    "doc_id": "ctrl_skewed_0029",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 324,
+    "text": "el_v0058(dim: int = 250, heads: int = 10) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 58.\"\"\"\n    d_head_v0058: int = 250 // 10\n    d_ff_v0058: int = int(250 * 8 / 3)\n    qkv_params_v0058: int = 3 * 250 * (10 * d_head_v0058)\n    ffn_params_v0058: int = 3 * 250 * d_ff_v0058\n    return {'dim': 250, 'heads': 10, 'qkv': qkv_params_v0058, 'ffn': ffn_params_v0058, 'v': 58}\nassert evaluate_tensor_kernel_v0058()['qkv'] > 0, 'Kernel parameter bounds violated for v0058'\ndef evaluate_tensor_kernel_v0059(dim: int = 251, heads: int = 11) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 59.\"\"\"\n    d_head_v0059: int = 251 // 11\n    d_ff_v0059: int = int(251 * 8 / 3)\n    qkv_"
+  },
+  {
+    "doc_id": "ctrl_skewed_0030",
+    "domain": "code",
+    "split": "control_train",
+    "token_count": 358,
+    "text": "params_v0059: int = 3 * 251 * (11 * d_head_v0059)\n    ffn_params_v0059: int = 3 * 251 * d_ff_v0059\n    return {'dim': 251, 'heads': 11, 'qkv': qkv_params_v0059, 'ffn': ffn_params_v0059, 'v': 59}\nassert evaluate_tensor_kernel_v0059()['qkv'] > 0, 'Kernel parameter bounds violated for v0059'\ndef evaluate_tensor_kernel_v0060(dim: int = 252, heads: int = 6) -> dict[str, int]:\n    \"\"\"Compute parameter sizing for neural transformer layer variant 60.\"\"\"\n    d_head_v0060: int = 252 // 6\n    d_ff_v0060: int = int(252 * 8 / 3)\n    qkv_params_v0060: int = 3 * 252 * (6 * d_head_v0060)\n    ffn_params_v0060: int = 3 * 252 * d_ff_v0060\n    return {'dim': 252, 'heads': 6, 'qkv': qkv_params_v0060, 'ffn': ffn_params_v0060, 'v': 60}\nassert evaluate_tensor_kern"
+  },
+  {
+    "doc_id": "ctrl_skewed_0031",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 330,
+    "text": "r amplification.\nNumerical Check 015: Verification of Frobenius norm ||M_15||_F^2 = Tr(M_15^T * M_15) confirms computational consistency.\nStep 016 in Matrix Analysis: Consider n x n matrix M_16 with trace Tr(M_16) = 32 and determinant det(M_16) = 257.\nDerivation 016.1: The characteristic equation is det(lambda * I - M_16) = lambda^2 - 32 * lambda + 257 = 0.\nDerivation 016.2: Roots yield eigenvalues lambda_1,2 = 16 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 016.3: The matrix norm satisfies ||M_16||_2 = sqrt(lambda_max(M_16^T * M_16)), bounding operator amplification.\nNumerical Check 016: Verification of Frobenius norm ||M_16||_F^2 = Tr(M_16^T * M_16) confirms computational consistency.\nStep 017 in Matrix Analysis: Consider"
+  },
+  {
+    "doc_id": "ctrl_skewed_0032",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 338,
+    "text": "n x n matrix M_17 with trace Tr(M_17) = 34 and determinant det(M_17) = 290.\nDerivation 017.1: The characteristic equation is det(lambda * I - M_17) = lambda^2 - 34 * lambda + 290 = 0.\nDerivation 017.2: Roots yield eigenvalues lambda_1,2 = 17 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 017.3: The matrix norm satisfies ||M_17||_2 = sqrt(lambda_max(M_17^T * M_17)), bounding operator amplification.\nNumerical Check 017: Verification of Frobenius norm ||M_17||_F^2 = Tr(M_17^T * M_17) confirms computational consistency.\nStep 018 in Matrix Analysis: Consider n x n matrix M_18 with trace Tr(M_18) = 36 and determinant det(M_18) = 325.\nDerivation 018.1: The characteristic equation is det(lambda * I - M_18) = lambda^2 - 36 * lambda + 3"
+  },
+  {
+    "doc_id": "ctrl_skewed_0033",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 349,
+    "text": "25 = 0.\nDerivation 018.2: Roots yield eigenvalues lambda_1,2 = 18 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 018.3: The matrix norm satisfies ||M_18||_2 = sqrt(lambda_max(M_18^T * M_18)), bounding operator amplification.\nNumerical Check 018: Verification of Frobenius norm ||M_18||_F^2 = Tr(M_18^T * M_18) confirms computational consistency.\nStep 019 in Matrix Analysis: Consider n x n matrix M_19 with trace Tr(M_19) = 38 and determinant det(M_19) = 362.\nDerivation 019.1: The characteristic equation is det(lambda * I - M_19) = lambda^2 - 38 * lambda + 362 = 0.\nDerivation 019.2: Roots yield eigenvalues lambda_1,2 = 19 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 019.3: The matrix norm satisfies ||M_19||_2 = sqr"
+  },
+  {
+    "doc_id": "ctrl_skewed_0034",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 337,
+    "text": "t(lambda_max(M_19^T * M_19)), bounding operator amplification.\nNumerical Check 019: Verification of Frobenius norm ||M_19||_F^2 = Tr(M_19^T * M_19) confirms computational consistency.\nStep 020 in Matrix Analysis: Consider n x n matrix M_20 with trace Tr(M_20) = 40 and determinant det(M_20) = 401.\nDerivation 020.1: The characteristic equation is det(lambda * I - M_20) = lambda^2 - 40 * lambda + 401 = 0.\nDerivation 020.2: Roots yield eigenvalues lambda_1,2 = 20 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 020.3: The matrix norm satisfies ||M_20||_2 = sqrt(lambda_max(M_20^T * M_20)), bounding operator amplification.\nNumerical Check 020: Verification of Frobenius norm ||M_20||_F^2 = Tr(M_20^T * M_20) confirms computational consi"
+  },
+  {
+    "doc_id": "ctrl_skewed_0035",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 333,
+    "text": "stency.\nStep 021 in Matrix Analysis: Consider n x n matrix M_21 with trace Tr(M_21) = 42 and determinant det(M_21) = 442.\nDerivation 021.1: The characteristic equation is det(lambda * I - M_21) = lambda^2 - 42 * lambda + 442 = 0.\nDerivation 021.2: Roots yield eigenvalues lambda_1,2 = 21 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 021.3: The matrix norm satisfies ||M_21||_2 = sqrt(lambda_max(M_21^T * M_21)), bounding operator amplification.\nNumerical Check 021: Verification of Frobenius norm ||M_21||_F^2 = Tr(M_21^T * M_21) confirms computational consistency.\nStep 022 in Matrix Analysis: Consider n x n matrix M_22 with trace Tr(M_22) = 44 and determinant det(M_22) = 485.\nDerivation 022.1: The characteristic equation is det(l"
+  },
+  {
+    "doc_id": "ctrl_skewed_0036",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 342,
+    "text": "ambda * I - M_22) = lambda^2 - 44 * lambda + 485 = 0.\nDerivation 022.2: Roots yield eigenvalues lambda_1,2 = 22 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 022.3: The matrix norm satisfies ||M_22||_2 = sqrt(lambda_max(M_22^T * M_22)), bounding operator amplification.\nNumerical Check 022: Verification of Frobenius norm ||M_22||_F^2 = Tr(M_22^T * M_22) confirms computational consistency.\nStep 023 in Matrix Analysis: Consider n x n matrix M_23 with trace Tr(M_23) = 46 and determinant det(M_23) = 530.\nDerivation 023.1: The characteristic equation is det(lambda * I - M_23) = lambda^2 - 46 * lambda + 530 = 0.\nDerivation 023.2: Roots yield eigenvalues lambda_1,2 = 23 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 023"
+  },
+  {
+    "doc_id": "ctrl_skewed_0037",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 351,
+    "text": ".3: The matrix norm satisfies ||M_23||_2 = sqrt(lambda_max(M_23^T * M_23)), bounding operator amplification.\nNumerical Check 023: Verification of Frobenius norm ||M_23||_F^2 = Tr(M_23^T * M_23) confirms computational consistency.\nStep 024 in Matrix Analysis: Consider n x n matrix M_24 with trace Tr(M_24) = 48 and determinant det(M_24) = 577.\nDerivation 024.1: The characteristic equation is det(lambda * I - M_24) = lambda^2 - 48 * lambda + 577 = 0.\nDerivation 024.2: Roots yield eigenvalues lambda_1,2 = 24 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 024.3: The matrix norm satisfies ||M_24||_2 = sqrt(lambda_max(M_24^T * M_24)), bounding operator amplification.\nNumerical Check 024: Verification of Frobenius norm ||M_24||_F^2 ="
+  },
+  {
+    "doc_id": "ctrl_skewed_0038",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 334,
+    "text": "Tr(M_24^T * M_24) confirms computational consistency.\nStep 025 in Matrix Analysis: Consider n x n matrix M_25 with trace Tr(M_25) = 50 and determinant det(M_25) = 626.\nDerivation 025.1: The characteristic equation is det(lambda * I - M_25) = lambda^2 - 50 * lambda + 626 = 0.\nDerivation 025.2: Roots yield eigenvalues lambda_1,2 = 25 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 025.3: The matrix norm satisfies ||M_25||_2 = sqrt(lambda_max(M_25^T * M_25)), bounding operator amplification.\nNumerical Check 025: Verification of Frobenius norm ||M_25||_F^2 = Tr(M_25^T * M_25) confirms computational consistency.\nStep 026 in Matrix Analysis: Consider n x n matrix M_26 with trace Tr(M_26) = 52 and determinant det(M_26) = 677.\nDerivati"
+  },
+  {
+    "doc_id": "ctrl_skewed_0039",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 338,
+    "text": "on 026.1: The characteristic equation is det(lambda * I - M_26) = lambda^2 - 52 * lambda + 677 = 0.\nDerivation 026.2: Roots yield eigenvalues lambda_1,2 = 26 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 026.3: The matrix norm satisfies ||M_26||_2 = sqrt(lambda_max(M_26^T * M_26)), bounding operator amplification.\nNumerical Check 026: Verification of Frobenius norm ||M_26||_F^2 = Tr(M_26^T * M_26) confirms computational consistency.\nStep 027 in Matrix Analysis: Consider n x n matrix M_27 with trace Tr(M_27) = 54 and determinant det(M_27) = 730.\nDerivation 027.1: The characteristic equation is det(lambda * I - M_27) = lambda^2 - 54 * lambda + 730 = 0.\nDerivation 027.2: Roots yield eigenvalues lambda_1,2 = 27 +/- i, demonstrati"
+  },
+  {
+    "doc_id": "ctrl_skewed_0040",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 352,
+    "text": "ng non-real conjugate spectrum.\nDerivation 027.3: The matrix norm satisfies ||M_27||_2 = sqrt(lambda_max(M_27^T * M_27)), bounding operator amplification.\nNumerical Check 027: Verification of Frobenius norm ||M_27||_F^2 = Tr(M_27^T * M_27) confirms computational consistency.\nStep 028 in Matrix Analysis: Consider n x n matrix M_28 with trace Tr(M_28) = 56 and determinant det(M_28) = 785.\nDerivation 028.1: The characteristic equation is det(lambda * I - M_28) = lambda^2 - 56 * lambda + 785 = 0.\nDerivation 028.2: Roots yield eigenvalues lambda_1,2 = 28 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 028.3: The matrix norm satisfies ||M_28||_2 = sqrt(lambda_max(M_28^T * M_28)), bounding operator amplification.\nNumerical Check 028:"
+  },
+  {
+    "doc_id": "ctrl_skewed_0041",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 330,
+    "text": "Verification of Frobenius norm ||M_28||_F^2 = Tr(M_28^T * M_28) confirms computational consistency.\nStep 029 in Matrix Analysis: Consider n x n matrix M_29 with trace Tr(M_29) = 58 and determinant det(M_29) = 842.\nDerivation 029.1: The characteristic equation is det(lambda * I - M_29) = lambda^2 - 58 * lambda + 842 = 0.\nDerivation 029.2: Roots yield eigenvalues lambda_1,2 = 29 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 029.3: The matrix norm satisfies ||M_29||_2 = sqrt(lambda_max(M_29^T * M_29)), bounding operator amplification.\nNumerical Check 029: Verification of Frobenius norm ||M_29||_F^2 = Tr(M_29^T * M_29) confirms computational consistency.\nStep 030 in Matrix Analysis: Consider n x n matrix M_30 with trace Tr(M_30)"
+  },
+  {
+    "doc_id": "ctrl_skewed_0042",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 335,
+    "text": "= 60 and determinant det(M_30) = 901.\nDerivation 030.1: The characteristic equation is det(lambda * I - M_30) = lambda^2 - 60 * lambda + 901 = 0.\nDerivation 030.2: Roots yield eigenvalues lambda_1,2 = 30 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 030.3: The matrix norm satisfies ||M_30||_2 = sqrt(lambda_max(M_30^T * M_30)), bounding operator amplification.\nNumerical Check 030: Verification of Frobenius norm ||M_30||_F^2 = Tr(M_30^T * M_30) confirms computational consistency.\nStep 031 in Matrix Analysis: Consider n x n matrix M_31 with trace Tr(M_31) = 62 and determinant det(M_31) = 962.\nDerivation 031.1: The characteristic equation is det(lambda * I - M_31) = lambda^2 - 62 * lambda + 962 = 0.\nDerivation 031.2: Roots yield"
+  },
+  {
+    "doc_id": "ctrl_skewed_0043",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 351,
+    "text": "eigenvalues lambda_1,2 = 31 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 031.3: The matrix norm satisfies ||M_31||_2 = sqrt(lambda_max(M_31^T * M_31)), bounding operator amplification.\nNumerical Check 031: Verification of Frobenius norm ||M_31||_F^2 = Tr(M_31^T * M_31) confirms computational consistency.\nStep 032 in Matrix Analysis: Consider n x n matrix M_32 with trace Tr(M_32) = 64 and determinant det(M_32) = 1025.\nDerivation 032.1: The characteristic equation is det(lambda * I - M_32) = lambda^2 - 64 * lambda + 1025 = 0.\nDerivation 032.2: Roots yield eigenvalues lambda_1,2 = 32 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 032.3: The matrix norm satisfies ||M_32||_2 = sqrt(lambda_max(M_32^T * M_32)), boundi"
+  },
+  {
+    "doc_id": "ctrl_skewed_0044",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 344,
+    "text": "ng operator amplification.\nNumerical Check 032: Verification of Frobenius norm ||M_32||_F^2 = Tr(M_32^T * M_32) confirms computational consistency.\nStep 033 in Matrix Analysis: Consider n x n matrix M_33 with trace Tr(M_33) = 66 and determinant det(M_33) = 1090.\nDerivation 033.1: The characteristic equation is det(lambda * I - M_33) = lambda^2 - 66 * lambda + 1090 = 0.\nDerivation 033.2: Roots yield eigenvalues lambda_1,2 = 33 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 033.3: The matrix norm satisfies ||M_33||_2 = sqrt(lambda_max(M_33^T * M_33)), bounding operator amplification.\nNumerical Check 033: Verification of Frobenius norm ||M_33||_F^2 = Tr(M_33^T * M_33) confirms computational consistency.\nStep 034 in Matrix Analysi"
+  },
+  {
+    "doc_id": "ctrl_skewed_0045",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 329,
+    "text": "s: Consider n x n matrix M_34 with trace Tr(M_34) = 68 and determinant det(M_34) = 1157.\nDerivation 034.1: The characteristic equation is det(lambda * I - M_34) = lambda^2 - 68 * lambda + 1157 = 0.\nDerivation 034.2: Roots yield eigenvalues lambda_1,2 = 34 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 034.3: The matrix norm satisfies ||M_34||_2 = sqrt(lambda_max(M_34^T * M_34)), bounding operator amplification.\nNumerical Check 034: Verification of Frobenius norm ||M_34||_F^2 = Tr(M_34^T * M_34) confirms computational consistency.\nStep 035 in Matrix Analysis: Consider n x n matrix M_35 with trace Tr(M_35) = 70 and determinant det(M_35) = 1226.\nDerivation 035.1: The characteristic equation is det(lambda * I - M_35) = lambda^2 -"
+  },
+  {
+    "doc_id": "ctrl_skewed_0046",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 346,
+    "text": "70 * lambda + 1226 = 0.\nDerivation 035.2: Roots yield eigenvalues lambda_1,2 = 35 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 035.3: The matrix norm satisfies ||M_35||_2 = sqrt(lambda_max(M_35^T * M_35)), bounding operator amplification.\nNumerical Check 035: Verification of Frobenius norm ||M_35||_F^2 = Tr(M_35^T * M_35) confirms computational consistency.\nStep 036 in Matrix Analysis: Consider n x n matrix M_36 with trace Tr(M_36) = 72 and determinant det(M_36) = 1297.\nDerivation 036.1: The characteristic equation is det(lambda * I - M_36) = lambda^2 - 72 * lambda + 1297 = 0.\nDerivation 036.2: Roots yield eigenvalues lambda_1,2 = 36 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 036.3: The matrix norm satisfie"
+  },
+  {
+    "doc_id": "ctrl_skewed_0047",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 357,
+    "text": "s ||M_36||_2 = sqrt(lambda_max(M_36^T * M_36)), bounding operator amplification.\nNumerical Check 036: Verification of Frobenius norm ||M_36||_F^2 = Tr(M_36^T * M_36) confirms computational consistency.\nStep 037 in Matrix Analysis: Consider n x n matrix M_37 with trace Tr(M_37) = 74 and determinant det(M_37) = 1370.\nDerivation 037.1: The characteristic equation is det(lambda * I - M_37) = lambda^2 - 74 * lambda + 1370 = 0.\nDerivation 037.2: Roots yield eigenvalues lambda_1,2 = 37 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 037.3: The matrix norm satisfies ||M_37||_2 = sqrt(lambda_max(M_37^T * M_37)), bounding operator amplification.\nNumerical Check 037: Verification of Frobenius norm ||M_37||_F^2 = Tr(M_37^T * M_37) confirms"
+  },
+  {
+    "doc_id": "ctrl_skewed_0048",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 332,
+    "text": "computational consistency.\nStep 038 in Matrix Analysis: Consider n x n matrix M_38 with trace Tr(M_38) = 76 and determinant det(M_38) = 1445.\nDerivation 038.1: The characteristic equation is det(lambda * I - M_38) = lambda^2 - 76 * lambda + 1445 = 0.\nDerivation 038.2: Roots yield eigenvalues lambda_1,2 = 38 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 038.3: The matrix norm satisfies ||M_38||_2 = sqrt(lambda_max(M_38^T * M_38)), bounding operator amplification.\nNumerical Check 038: Verification of Frobenius norm ||M_38||_F^2 = Tr(M_38^T * M_38) confirms computational consistency.\nStep 039 in Matrix Analysis: Consider n x n matrix M_39 with trace Tr(M_39) = 78 and determinant det(M_39) = 1522.\nDerivation 039.1: The character"
+  },
+  {
+    "doc_id": "ctrl_skewed_0049",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 336,
+    "text": "istic equation is det(lambda * I - M_39) = lambda^2 - 78 * lambda + 1522 = 0.\nDerivation 039.2: Roots yield eigenvalues lambda_1,2 = 39 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 039.3: The matrix norm satisfies ||M_39||_2 = sqrt(lambda_max(M_39^T * M_39)), bounding operator amplification.\nNumerical Check 039: Verification of Frobenius norm ||M_39||_F^2 = Tr(M_39^T * M_39) confirms computational consistency.\nStep 040 in Matrix Analysis: Consider n x n matrix M_40 with trace Tr(M_40) = 80 and determinant det(M_40) = 1601.\nDerivation 040.1: The characteristic equation is det(lambda * I - M_40) = lambda^2 - 80 * lambda + 1601 = 0.\nDerivation 040.2: Roots yield eigenvalues lambda_1,2 = 40 +/- i, demonstrating non-real conjugat"
+  },
+  {
+    "doc_id": "ctrl_skewed_0050",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 354,
+    "text": "e spectrum.\nDerivation 040.3: The matrix norm satisfies ||M_40||_2 = sqrt(lambda_max(M_40^T * M_40)), bounding operator amplification.\nNumerical Check 040: Verification of Frobenius norm ||M_40||_F^2 = Tr(M_40^T * M_40) confirms computational consistency.\nStep 041 in Matrix Analysis: Consider n x n matrix M_41 with trace Tr(M_41) = 82 and determinant det(M_41) = 1682.\nDerivation 041.1: The characteristic equation is det(lambda * I - M_41) = lambda^2 - 82 * lambda + 1682 = 0.\nDerivation 041.2: Roots yield eigenvalues lambda_1,2 = 41 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 041.3: The matrix norm satisfies ||M_41||_2 = sqrt(lambda_max(M_41^T * M_41)), bounding operator amplification.\nNumerical Check 041: Verification of Fr"
+  },
+  {
+    "doc_id": "ctrl_skewed_0051",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 342,
+    "text": "obenius norm ||M_41||_F^2 = Tr(M_41^T * M_41) confirms computational consistency.\nStep 042 in Matrix Analysis: Consider n x n matrix M_42 with trace Tr(M_42) = 84 and determinant det(M_42) = 1765.\nDerivation 042.1: The characteristic equation is det(lambda * I - M_42) = lambda^2 - 84 * lambda + 1765 = 0.\nDerivation 042.2: Roots yield eigenvalues lambda_1,2 = 42 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 042.3: The matrix norm satisfies ||M_42||_2 = sqrt(lambda_max(M_42^T * M_42)), bounding operator amplification.\nNumerical Check 042: Verification of Frobenius norm ||M_42||_F^2 = Tr(M_42^T * M_42) confirms computational consistency.\nStep 043 in Matrix Analysis: Consider n x n matrix M_43 with trace Tr(M_43) = 86 and determi"
+  },
+  {
+    "doc_id": "ctrl_skewed_0052",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 344,
+    "text": "nant det(M_43) = 1850.\nDerivation 043.1: The characteristic equation is det(lambda * I - M_43) = lambda^2 - 86 * lambda + 1850 = 0.\nDerivation 043.2: Roots yield eigenvalues lambda_1,2 = 43 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 043.3: The matrix norm satisfies ||M_43||_2 = sqrt(lambda_max(M_43^T * M_43)), bounding operator amplification.\nNumerical Check 043: Verification of Frobenius norm ||M_43||_F^2 = Tr(M_43^T * M_43) confirms computational consistency.\nStep 044 in Matrix Analysis: Consider n x n matrix M_44 with trace Tr(M_44) = 88 and determinant det(M_44) = 1937.\nDerivation 044.1: The characteristic equation is det(lambda * I - M_44) = lambda^2 - 88 * lambda + 1937 = 0.\nDerivation 044.2: Roots yield eigenvalues"
+  },
+  {
+    "doc_id": "ctrl_skewed_0053",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 343,
+    "text": "lambda_1,2 = 44 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 044.3: The matrix norm satisfies ||M_44||_2 = sqrt(lambda_max(M_44^T * M_44)), bounding operator amplification.\nNumerical Check 044: Verification of Frobenius norm ||M_44||_F^2 = Tr(M_44^T * M_44) confirms computational consistency.\nStep 045 in Matrix Analysis: Consider n x n matrix M_45 with trace Tr(M_45) = 90 and determinant det(M_45) = 2026.\nDerivation 045.1: The characteristic equation is det(lambda * I - M_45) = lambda^2 - 90 * lambda + 2026 = 0.\nDerivation 045.2: Roots yield eigenvalues lambda_1,2 = 45 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 045.3: The matrix norm satisfies ||M_45||_2 = sqrt(lambda_max(M_45^T * M_45)), bounding operator"
+  },
+  {
+    "doc_id": "ctrl_skewed_0054",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 343,
+    "text": "amplification.\nNumerical Check 045: Verification of Frobenius norm ||M_45||_F^2 = Tr(M_45^T * M_45) confirms computational consistency.\nStep 046 in Matrix Analysis: Consider n x n matrix M_46 with trace Tr(M_46) = 92 and determinant det(M_46) = 2117.\nDerivation 046.1: The characteristic equation is det(lambda * I - M_46) = lambda^2 - 92 * lambda + 2117 = 0.\nDerivation 046.2: Roots yield eigenvalues lambda_1,2 = 46 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 046.3: The matrix norm satisfies ||M_46||_2 = sqrt(lambda_max(M_46^T * M_46)), bounding operator amplification.\nNumerical Check 046: Verification of Frobenius norm ||M_46||_F^2 = Tr(M_46^T * M_46) confirms computational consistency.\nStep 047 in Matrix Analysis: Consider"
+  },
+  {
+    "doc_id": "ctrl_skewed_0055",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 338,
+    "text": "n x n matrix M_47 with trace Tr(M_47) = 94 and determinant det(M_47) = 2210.\nDerivation 047.1: The characteristic equation is det(lambda * I - M_47) = lambda^2 - 94 * lambda + 2210 = 0.\nDerivation 047.2: Roots yield eigenvalues lambda_1,2 = 47 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 047.3: The matrix norm satisfies ||M_47||_2 = sqrt(lambda_max(M_47^T * M_47)), bounding operator amplification.\nNumerical Check 047: Verification of Frobenius norm ||M_47||_F^2 = Tr(M_47^T * M_47) confirms computational consistency.\nStep 048 in Matrix Analysis: Consider n x n matrix M_48 with trace Tr(M_48) = 96 and determinant det(M_48) = 2305.\nDerivation 048.1: The characteristic equation is det(lambda * I - M_48) = lambda^2 - 96 * lambda"
+  },
+  {
+    "doc_id": "ctrl_skewed_0056",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 349,
+    "text": "+ 2305 = 0.\nDerivation 048.2: Roots yield eigenvalues lambda_1,2 = 48 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 048.3: The matrix norm satisfies ||M_48||_2 = sqrt(lambda_max(M_48^T * M_48)), bounding operator amplification.\nNumerical Check 048: Verification of Frobenius norm ||M_48||_F^2 = Tr(M_48^T * M_48) confirms computational consistency.\nStep 049 in Matrix Analysis: Consider n x n matrix M_49 with trace Tr(M_49) = 98 and determinant det(M_49) = 2402.\nDerivation 049.1: The characteristic equation is det(lambda * I - M_49) = lambda^2 - 98 * lambda + 2402 = 0.\nDerivation 049.2: Roots yield eigenvalues lambda_1,2 = 49 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 049.3: The matrix norm satisfies ||M_49||_2"
+  },
+  {
+    "doc_id": "ctrl_skewed_0057",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 353,
+    "text": "= sqrt(lambda_max(M_49^T * M_49)), bounding operator amplification.\nNumerical Check 049: Verification of Frobenius norm ||M_49||_F^2 = Tr(M_49^T * M_49) confirms computational consistency.\nStep 050 in Matrix Analysis: Consider n x n matrix M_50 with trace Tr(M_50) = 100 and determinant det(M_50) = 2501.\nDerivation 050.1: The characteristic equation is det(lambda * I - M_50) = lambda^2 - 100 * lambda + 2501 = 0.\nDerivation 050.2: Roots yield eigenvalues lambda_1,2 = 50 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 050.3: The matrix norm satisfies ||M_50||_2 = sqrt(lambda_max(M_50^T * M_50)), bounding operator amplification.\nNumerical Check 050: Verification of Frobenius norm ||M_50||_F^2 = Tr(M_50^T * M_50) confirms computati"
+  },
+  {
+    "doc_id": "ctrl_skewed_0058",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 345,
+    "text": "onal consistency.\nStep 051 in Matrix Analysis: Consider n x n matrix M_51 with trace Tr(M_51) = 102 and determinant det(M_51) = 2602.\nDerivation 051.1: The characteristic equation is det(lambda * I - M_51) = lambda^2 - 102 * lambda + 2602 = 0.\nDerivation 051.2: Roots yield eigenvalues lambda_1,2 = 51 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 051.3: The matrix norm satisfies ||M_51||_2 = sqrt(lambda_max(M_51^T * M_51)), bounding operator amplification.\nNumerical Check 051: Verification of Frobenius norm ||M_51||_F^2 = Tr(M_51^T * M_51) confirms computational consistency.\nStep 052 in Matrix Analysis: Consider n x n matrix M_52 with trace Tr(M_52) = 104 and determinant det(M_52) = 2705.\nDerivation 052.1: The characteristic e"
+  },
+  {
+    "doc_id": "ctrl_skewed_0059",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 353,
+    "text": "quation is det(lambda * I - M_52) = lambda^2 - 104 * lambda + 2705 = 0.\nDerivation 052.2: Roots yield eigenvalues lambda_1,2 = 52 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 052.3: The matrix norm satisfies ||M_52||_2 = sqrt(lambda_max(M_52^T * M_52)), bounding operator amplification.\nNumerical Check 052: Verification of Frobenius norm ||M_52||_F^2 = Tr(M_52^T * M_52) confirms computational consistency.\nStep 053 in Matrix Analysis: Consider n x n matrix M_53 with trace Tr(M_53) = 106 and determinant det(M_53) = 2810.\nDerivation 053.1: The characteristic equation is det(lambda * I - M_53) = lambda^2 - 106 * lambda + 2810 = 0.\nDerivation 053.2: Roots yield eigenvalues lambda_1,2 = 53 +/- i, demonstrating non-real conjugate sp"
+  },
+  {
+    "doc_id": "ctrl_skewed_0060",
+    "domain": "mathematics",
+    "split": "control_train",
+    "token_count": 363,
+    "text": "ectrum.\nDerivation 053.3: The matrix norm satisfies ||M_53||_2 = sqrt(lambda_max(M_53^T * M_53)), bounding operator amplification.\nNumerical Check 053: Verification of Frobenius norm ||M_53||_F^2 = Tr(M_53^T * M_53) confirms computational consistency.\nStep 054 in Matrix Analysis: Consider n x n matrix M_54 with trace Tr(M_54) = 108 and determinant det(M_54) = 2917.\nDerivation 054.1: The characteristic equation is det(lambda * I - M_54) = lambda^2 - 108 * lambda + 2917 = 0.\nDerivation 054.2: Roots yield eigenvalues lambda_1,2 = 54 +/- i, demonstrating non-real conjugate spectrum.\nDerivation 054.3: The matrix norm satisfies ||M_54||_2 = sqrt(lambda_max(M_54^T * M_54)), bounding operator amplification.\nNumerical Check 054: Verification of Frob"
+  }
+]
