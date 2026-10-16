@@ -1,0 +1,692 @@
+{
+  "timestamp": "2026-10-16T03:57:55Z",
+  "configurations": {
+    "bm25": {
+      "name": "BM25 Lexical Baseline",
+      "recall_at_1": 0.9833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9833,
+      "accuracy": 0.8429,
+      "median_latency_ms": 1.05,
+      "ingest_time_ms": 446.15
+    },
+    "hash": {
+      "name": "Deterministic Hash Hybrid",
+      "recall_at_1": 0.9833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9833,
+      "accuracy": 0.8429,
+      "median_latency_ms": 1.0,
+      "ingest_time_ms": 62.04
+    },
+    "neural_old": {
+      "name": "Untrained/Physics ChakrBiEncoder Hybrid",
+      "recall_at_1": 0.9167,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 0.9556,
+      "accuracy": 0.8571,
+      "median_latency_ms": 4.04,
+      "ingest_time_ms": 387.85
+    },
+    "neural_domain_adaptive": {
+      "name": "Domain-Adaptive ChakrBiEncoder Hybrid",
+      "recall_at_1": 0.8833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9333,
+      "accuracy": 0.8429,
+      "median_latency_ms": 4.47,
+      "ingest_time_ms": 576.53
+    },
+    "ablation_pure_neural": {
+      "name": "Pure Domain-Adaptive Neural Vector Search (No Lexical/BM25)",
+      "recall_at_1": 0.05,
+      "recall_at_3": 0.1167,
+      "recall_at_5": 0.15,
+      "mrr": null,
+      "accuracy": null,
+      "median_latency_ms": null,
+      "ingest_time_ms": null
+    }
+  },
+  "paired_analysis_new_vs_old_neural": {
+    "new_model_wins": 1,
+    "new_model_losses": 2,
+    "ties": 56
+  },
+  "paired_details": [
+    {
+      "id": 101,
+      "query": "What is the parameter count of ChakrMicro V0.6?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 102,
+      "query": "What is the minimum physical RAM required for CPU inference?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 103,
+      "query": "What minimum compute capability is required for CUDA acceleration?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 104,
+      "query": "What is the thread pool ceiling for CPU execution?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 105,
+      "query": "What TCP port handles data transmission in the mesh network?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 106,
+      "query": "What is the heartbeat interval in Raft consensus?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 107,
+      "query": "What is the maximum capacity of the in-memory embedding cache?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 108,
+      "query": "What is the term saturation parameter k1 in the BM25 index?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 109,
+      "query": "What is the length normalization parameter b in BM25?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 110,
+      "query": "What is the maximum single document size in the BLOB store?",
+      "category": "exact_entity",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 111,
+      "query": "How many query attention heads does ChakrMicro incorporate?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 112,
+      "query": "What is the maximum throughput across the memory interconnect?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 113,
+      "query": "How frequently are telemetry metrics harvested by the collector?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 114,
+      "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 115,
+      "query": "How many participant machines can join a single cluster diameter?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 116,
+      "query": "When does automatic re-keying take place on encrypted communication lines?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 117,
+      "query": "How long does a client socket remain idle before keepalive probes trigger?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 118,
+      "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 119,
+      "query": "What is the maximum allowed query frequency per minute for a client IP?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 120,
+      "query": "What dead tuple percentage triggers automated compaction on database files?",
+      "category": "paraphrase",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 121,
+      "query": "What vector dimension does the learned neural bi-encoder project into?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 122,
+      "query": "How long must security audit log entries be preserved before deletion?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 123,
+      "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 124,
+      "query": "Within what timeframe must security breaches be escalated internally?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 125,
+      "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 3,
+      "new_neural_rank": 2,
+      "status": "NEW_MODEL_WIN"
+    },
+    {
+      "id": 126,
+      "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 127,
+      "query": "What payment duration is permitted after an invoice has been issued?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 128,
+      "query": "What monthly interest surcharge applies to delinquent invoices?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 129,
+      "query": "What availability percentage is guaranteed for hosted control planes?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 130,
+      "query": "What fee is charged per month for each additional worker process?",
+      "category": "synonym",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 131,
+      "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 2,
+      "new_neural_rank": 2,
+      "status": "TIE"
+    },
+    {
+      "id": 132,
+      "query": "How many tokens are in the calibration dataset for model quantization?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 133,
+      "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 134,
+      "query": "What is the maximum response time for Severity 1 support requests?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 135,
+      "query": "What is the Recovery Time Objective during disaster recovery failover?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 136,
+      "query": "What billing credit is applied when uptime drops below 99.9%?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 137,
+      "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 138,
+      "query": "What is the monthly subscription price of the Starter Tier?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 139,
+      "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 140,
+      "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+      "category": "distractor_competition",
+      "bm25_rank": 1,
+      "old_neural_rank": 2,
+      "new_neural_rank": 2,
+      "status": "TIE"
+    },
+    {
+      "id": 141,
+      "query": "What is the hidden dimension of ChakrMicro V0.6?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 2,
+      "new_neural_rank": 2,
+      "status": "TIE"
+    },
+    {
+      "id": 142,
+      "query": "What is the hidden dimension in the V0.7 specification?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 143,
+      "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 144,
+      "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 145,
+      "query": "What Python versions are officially certified for deployment?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 146,
+      "query": "Is Python 3.9 accepted in the certified deployment environment?",
+      "category": "version_conflict",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 147,
+      "query": "How many concurrent worker processes are included in that tier?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 148,
+      "query": "What billing credit is deducted if it drops below 99.9%?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 149,
+      "query": "What HTTP status code is returned when that request is unauthenticated?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 150,
+      "query": "What symmetric cipher algorithm is used with it?",
+      "category": "follow_up",
+      "bm25_rank": null,
+      "old_neural_rank": 2,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 151,
+      "query": "How many transformer decoder layers does it have?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 152,
+      "query": "Where is the offsite replica archive stored?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 153,
+      "query": "What is the maximum engineer response time for that incident rating?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 2,
+      "status": "NEW_MODEL_LOSS"
+    },
+    {
+      "id": 154,
+      "query": "What discount is provided for a 3-year commitment?",
+      "category": "follow_up",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 155,
+      "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 2,
+      "status": "NEW_MODEL_LOSS"
+    },
+    {
+      "id": 156,
+      "query": "Professional Tier subscription ka per month rate kya hai?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 157,
+      "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 158,
+      "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 159,
+      "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 160,
+      "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+      "category": "multilingual_hinglish",
+      "bm25_rank": 1,
+      "old_neural_rank": 1,
+      "new_neural_rank": 1,
+      "status": "TIE"
+    },
+    {
+      "id": 161,
+      "query": "Why does ChakrMicro V0.6 require 128 attention heads on CPU?",
+      "category": "false_premise",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 162,
+      "query": "Why is the Starter subscription priced at $9,000 per month?",
+      "category": "false_premise",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 163,
+      "query": "Why does ChakrView allow arbitrary sudo execution in production?",
+      "category": "false_premise",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 164,
+      "query": "Why are database tokens configured to expire after 100 years?",
+      "category": "false_premise",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 165,
+      "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+      "category": "false_premise",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 166,
+      "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+      "category": "abstention",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 167,
+      "query": "What is the orbital eccentricity of Jupiter moon Europa?",
+      "category": "abstention",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 168,
+      "query": "What is the current market capital of Apple in Japanese Yen?",
+      "category": "abstention",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 169,
+      "query": "What is the chemical composition of volcanic basalt on Mars?",
+      "category": "abstention",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    },
+    {
+      "id": 170,
+      "query": "Who won the FIFA World Cup football tournament in 1994?",
+      "category": "abstention",
+      "bm25_rank": null,
+      "old_neural_rank": null,
+      "new_neural_rank": null,
+      "status": "TIE"
+    }
+  ]
+}

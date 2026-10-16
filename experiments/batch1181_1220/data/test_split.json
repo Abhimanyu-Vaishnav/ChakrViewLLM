@@ -1,0 +1,682 @@
+[
+  {
+    "id": "EX_0099",
+    "query": "Could you provide information regarding the following: which internal dns daemon resolves cluster service names",
+    "category": "paraphrase",
+    "pos_doc_name": "network_dns_resolution.md",
+    "pos_passage": "CoreDNS handles internal service name resolution on port 53.",
+    "neg_doc_name": "network_encryption_transit.md",
+    "neg_passage": "## 1. Wire Encryption Standards\n- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verification: Mutual TLS (mTLS) with custom X.509 certificates.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0296",
+    "query": "Weights quantization me kaun sa integer format use hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "compute_quantization.md",
+    "pos_passage": "Model weights are quantized to INT8 symmetric integer format.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0186",
+    "query": "Inquire about P1 incident response target details.",
+    "category": "synonym",
+    "pos_doc_name": "security_incident_response.md",
+    "pos_passage": "P1 security incidents must be acknowledged within 15 minutes.",
+    "neg_doc_name": "security_at_rest_encryption.md",
+    "neg_passage": "## 1. Encryption Methods\n- Disk block encryption: Transparent AES-256-XTS filesystem encryption.\n- Key rotation cycle: Rotating HMAC keys renewed every 90 days.\n- File permission restriction: Mode 0600 on all stored session histories.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0317",
+    "query": "What command cordons a node before maintenance?",
+    "category": "exact_entity",
+    "pos_doc_name": "sop_cluster_drain.md",
+    "pos_passage": "Nodes are cordoned using the chakr-ctl node cordon command.",
+    "neg_doc_name": "sop_disaster_recovery.md",
+    "neg_passage": "## 1. Recovery Time and Point Objectives\n- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0322",
+    "query": "Inquire about drain grace period details.",
+    "category": "synonym",
+    "pos_doc_name": "sop_cluster_drain.md",
+    "pos_passage": "In-flight inference queries are allowed a 30-second graceful completion window.",
+    "neg_doc_name": "sop_document_reindex.md",
+    "neg_passage": "## 1. Re-indexing Steps\n- Step 1: Scan target directory for files matching `.txt` and `.md` extensions.\n- Step 2: Compare file modification time and SHA-256 hash against metadata table.\n- Step 3: Delete orphaned chunks for modified or removed files.\n- Step 4: Re-chunk modified files at 800-character boundaries with 100-character overlap.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0151",
+    "query": "Could you provide information regarding the following: what tcp congestion control algorithm is deployed",
+    "category": "paraphrase",
+    "pos_doc_name": "network_socket_tuning.md",
+    "pos_passage": "TCP BBR congestion control is enabled on all cluster routers.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0283",
+    "query": "Could you provide information regarding the following: what speedup does kernel fusion achieve on cpu",
+    "category": "paraphrase",
+    "pos_doc_name": "compute_kernel_fusion.md",
+    "pos_passage": "Kernel fusion yields a 1.35x speedup in CPU inference latency.",
+    "neg_doc_name": "compute_accelerator_metal.md",
+    "neg_passage": "## 1. Metal Runtime Details\n- Backend identifier: MPSGraph execution engine.\n- Supported precision format: Float16 native compute.\n- Unified memory pool allocation cap: 75% of available system unified RAM.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0041",
+    "query": "What eviction policy is used by the caching layer?",
+    "category": "exact_entity",
+    "pos_doc_name": "storage_caching_layer.md",
+    "pos_passage": "The caching layer evicts items using Least Recently Used (LRU) policy.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0194",
+    "query": "Inquire about data key renewal schedule details.",
+    "category": "synonym",
+    "pos_doc_name": "security_key_management.md",
+    "pos_passage": "Data encryption keys (DEKs) are rotated automatically every 90 days.",
+    "neg_doc_name": "security_at_rest_encryption.md",
+    "neg_passage": "## 1. Encryption Methods\n- Disk block encryption: Transparent AES-256-XTS filesystem encryption.\n- Key rotation cycle: Rotating HMAC keys renewed every 90 days.\n- File permission restriction: Mode 0600 on all stored session histories.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0064",
+    "query": "Durable persistence ke liye kaun sa mode use hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_disk_engine.md",
+    "pos_passage": "Synchronous WAL mode ensures zero-loss durable persistence.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0275",
+    "query": "Could you provide information regarding the following: which instruction set accelerates cpu matrix multiplications",
+    "category": "paraphrase",
+    "pos_doc_name": "compute_cpu_simd.md",
+    "pos_passage": "Matrix operations are accelerated using AVX2 and FMA instructions.",
+    "neg_doc_name": "compute_accelerator_metal.md",
+    "neg_passage": "## 1. Metal Runtime Details\n- Backend identifier: MPSGraph execution engine.\n- Supported precision format: Float16 native compute.\n- Unified memory pool allocation cap: 75% of available system unified RAM.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0236",
+    "query": "CUDA chalane ke liye minimum compute capability kitni honi chahiye?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "compute_accelerator_cuda.md",
+    "pos_passage": "CUDA acceleration requires Nvidia GPU compute capability 7.5 or higher.",
+    "neg_doc_name": "compute_accelerator_metal.md",
+    "neg_passage": "## 1. Metal Runtime Details\n- Backend identifier: MPSGraph execution engine.\n- Supported precision format: Float16 native compute.\n- Unified memory pool allocation cap: 75% of available system unified RAM.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0374",
+    "query": "Inquire about supported python interpreter runtime details.",
+    "category": "synonym",
+    "pos_doc_name": "sop_runtime_environments.md",
+    "pos_passage": "The runtime officially supports Python 3.10 through 3.14.",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0023",
+    "query": "Could you provide information regarding the following: what chunk size is used for multipart uploads",
+    "category": "paraphrase",
+    "pos_doc_name": "storage_blob_store.md",
+    "pos_passage": "Multipart uploads partition files into 64 MB blocks.",
+    "neg_doc_name": "storage_caching_layer.md",
+    "neg_passage": "## 1. Caching Specifications\n- Cache eviction policy: Least Recently Used (LRU) with composite hash keys.\n- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text content.\n- Stale cache invalidation trigger: Document SHA-256 modification or file deletion.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0136",
+    "query": "Backend ko down mark karne ke liye kitne failed checks lagte hain?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "network_load_balancer.md",
+    "pos_passage": "Backends are marked down after 3 consecutive health check failures.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0310",
+    "query": "Inquire about Prometheus metrics port details.",
+    "category": "synonym",
+    "pos_doc_name": "compute_telemetry.md",
+    "pos_passage": "Compute telemetry metrics are exposed on HTTP port 9090.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0177",
+    "query": "What is the lifespan of an API bearer token?",
+    "category": "exact_entity",
+    "pos_doc_name": "security_auth_tokens.md",
+    "pos_passage": "API bearer tokens expire after 15 minutes.",
+    "neg_doc_name": "security_at_rest_encryption.md",
+    "neg_passage": "## 1. Encryption Methods\n- Disk block encryption: Transparent AES-256-XTS filesystem encryption.\n- Key rotation cycle: Rotating HMAC keys renewed every 90 days.\n- File permission restriction: Mode 0600 on all stored session histories.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0184",
+    "query": "JWT token sign karne ke liye kaun sa algorithm use hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "security_auth_tokens.md",
+    "pos_passage": "JWTs are cryptographically signed using Ed25519 asymmetric keys.",
+    "neg_doc_name": "security_audit_logging.md",
+    "neg_passage": "## 1. Audit Requirements\n- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar days.\n- Monitored events: Authentication attempts, privilege elevations, document ingestion, and index pruning.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0050",
+    "query": "Inquire about compaction trigger threshold details.",
+    "category": "synonym",
+    "pos_doc_name": "storage_compaction.md",
+    "pos_passage": "Compaction triggers automatically when deleted tombstone ratio exceeds 20%.",
+    "neg_doc_name": "storage_backup_policy.md",
+    "neg_passage": "## 1. Snapshot Schedule\n- Automated snapshot frequency: Hourly local differential snapshots.\n- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0195",
+    "query": "Could you provide information regarding the following: how frequently are envelope encryption data keys rotated",
+    "category": "paraphrase",
+    "pos_doc_name": "security_key_management.md",
+    "pos_passage": "Data encryption keys (DEKs) are rotated automatically every 90 days.",
+    "neg_doc_name": "security_at_rest_encryption.md",
+    "neg_passage": "## 1. Encryption Methods\n- Disk block encryption: Transparent AES-256-XTS filesystem encryption.\n- Key rotation cycle: Rotating HMAC keys renewed every 90 days.\n- File permission restriction: Mode 0600 on all stored session histories.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0426",
+    "query": "Inquire about downtime service credit reimbursement details.",
+    "category": "synonym",
+    "pos_doc_name": "billing_sla_commitments.md",
+    "pos_passage": "Uptime below 99.0% results in a 50% service credit.",
+    "neg_doc_name": "billing_licensing_compliance.md",
+    "neg_passage": "## 1. License Restrictions\n- License grant: Commercial, non-exclusive, non-transferable local deployment license.\n- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistribution of compiled or raw binaries is strictly prohibited.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0435",
+    "query": "Could you provide information regarding the following: how many concurrent documents can the starter tier index",
+    "category": "paraphrase",
+    "pos_doc_name": "billing_subscription_tiers.md",
+    "pos_passage": "Starter tier indexes up to 50 documents concurrently.",
+    "neg_doc_name": "billing_licensing_compliance.md",
+    "neg_passage": "## 1. License Restrictions\n- License grant: Commercial, non-exclusive, non-transferable local deployment license.\n- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistribution of compiled or raw binaries is strictly prohibited.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0173",
+    "query": "What hashing algorithm signs tamper-evident log blocks?",
+    "category": "exact_entity",
+    "pos_doc_name": "security_audit_logging.md",
+    "pos_passage": "Log chunks are chained using SHA-256 cryptographic hashes.",
+    "neg_doc_name": "security_auth_tokens.md",
+    "neg_passage": "## 1. Token Policy\n- Token format: Cryptographically signed OAuth2 JSON Web Tokens (JWT).\n- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0391",
+    "query": "Could you provide information regarding the following: what software license governs chakrview community edition",
+    "category": "paraphrase",
+    "pos_doc_name": "billing_licensing_compliance.md",
+    "pos_passage": "The community edition is distributed under the Apache License 2.0.",
+    "neg_doc_name": "billing_enterprise_discounts.md",
+    "neg_passage": "## 1. Discount Rates\n- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: 30% reduction across all tiers.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0111",
+    "query": "Could you provide information regarding the following: how frequently are mutual tls session certificates rotated",
+    "category": "paraphrase",
+    "pos_doc_name": "network_encryption_transit.md",
+    "pos_passage": "mTLS session certificates are rotated every 24 hours.",
+    "neg_doc_name": "network_firewall_rules.md",
+    "neg_passage": "## 1. Permitted Inbound Traffic\n- Inbound port 8443: Encrypted API traffic.\n- Inbound port 9090: Prometheus telemetry scraping.\n- Blocked ports: All outbound and inbound UDP traffic except port 5353 mDNS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0080",
+    "query": "ChakrBiEncoder ka vector dimension kitna hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_vector_index.md",
+    "pos_passage": "ChakrBiEncoder produces dense 64-dimensional normalized vectors.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0410",
+    "query": "Inquire about overdue penalty interest details.",
+    "category": "synonym",
+    "pos_doc_name": "billing_payment_terms.md",
+    "pos_passage": "Past-due balances incur a 1.5% monthly late fee.",
+    "neg_doc_name": "billing_licensing_compliance.md",
+    "neg_passage": "## 1. License Restrictions\n- License grant: Commercial, non-exclusive, non-transferable local deployment license.\n- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistribution of compiled or raw binaries is strictly prohibited.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0175",
+    "query": "Could you provide information regarding the following: what hashing algorithm signs tamper-evident log blocks",
+    "category": "paraphrase",
+    "pos_doc_name": "security_audit_logging.md",
+    "pos_passage": "Log chunks are chained using SHA-256 cryptographic hashes.",
+    "neg_doc_name": "security_auth_tokens.md",
+    "neg_passage": "## 1. Token Policy\n- Token format: Cryptographically signed OAuth2 JSON Web Tokens (JWT).\n- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0429",
+    "query": "What is the monthly fee for the Professional subscription tier?",
+    "category": "exact_entity",
+    "pos_doc_name": "billing_subscription_tiers.md",
+    "pos_passage": "The Professional tier costs $299 per month.",
+    "neg_doc_name": "billing_enterprise_discounts.md",
+    "neg_passage": "## 1. Discount Rates\n- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: 30% reduction across all tiers.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0358",
+    "query": "Inquire about release qualification gate details.",
+    "category": "synonym",
+    "pos_doc_name": "sop_release_checklist.md",
+    "pos_passage": "Releases require 100% test pass rate across all regression suites.",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0082",
+    "query": "Inquire about Raft leader pulse rate details.",
+    "category": "synonym",
+    "pos_doc_name": "network_consensus_raft.md",
+    "pos_passage": "The leader sends heartbeats every 50 milliseconds.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0389",
+    "query": "What software license governs ChakrView community edition?",
+    "category": "exact_entity",
+    "pos_doc_name": "billing_licensing_compliance.md",
+    "pos_passage": "The community edition is distributed under the Apache License 2.0.",
+    "neg_doc_name": "billing_enterprise_discounts.md",
+    "neg_passage": "## 1. Discount Rates\n- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: 30% reduction across all tiers.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0004",
+    "query": "Backup ka retention kitne din ka hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_backup_policy.md",
+    "pos_passage": "Daily snapshots are retained for 30 calendar days.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0143",
+    "query": "Could you provide information regarding the following: what overlay protocol encapsulates peer-to-peer frames",
+    "category": "paraphrase",
+    "pos_doc_name": "network_mesh_topology.md",
+    "pos_passage": "Mesh peers communicate over WireGuard encapsulated UDP frames.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0302",
+    "query": "Inquire about query scheduling discipline details.",
+    "category": "synonym",
+    "pos_doc_name": "compute_scheduler.md",
+    "pos_passage": "Concurrent queries are dispatched using priority fair-share queues.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0230",
+    "query": "Inquire about high severity SLA details.",
+    "category": "synonym",
+    "pos_doc_name": "security_vulnerability_sla.md",
+    "pos_passage": "High severity vulnerabilities have a 14-day remediation window.",
+    "neg_doc_name": "security_audit_logging.md",
+    "neg_passage": "## 1. Audit Requirements\n- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar days.\n- Monitored events: Authentication attempts, privilege elevations, document ingestion, and index pruning.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0113",
+    "query": "What default policy is applied by the firewall?",
+    "category": "exact_entity",
+    "pos_doc_name": "network_firewall_rules.md",
+    "pos_passage": "The firewall operates on a default-deny ingress policy.",
+    "neg_doc_name": "network_consensus_raft.md",
+    "neg_passage": "## 1. Consensus Parameters\n- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0215",
+    "query": "Could you provide information regarding the following: are assistant runtime workers permitted outbound internet access",
+    "category": "paraphrase",
+    "pos_doc_name": "security_sandbox_isolation.md",
+    "pos_passage": "Runtime sandboxes have outbound network traffic completely disabled.",
+    "neg_doc_name": "security_audit_logging.md",
+    "neg_passage": "## 1. Audit Requirements\n- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar days.\n- Monitored events: Authentication attempts, privilege elevations, document ingestion, and index pruning.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0432",
+    "query": "Professional subscription ka monthly charge kitna hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "billing_subscription_tiers.md",
+    "pos_passage": "The Professional tier costs $299 per month.",
+    "neg_doc_name": "billing_enterprise_discounts.md",
+    "neg_passage": "## 1. Discount Rates\n- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: 30% reduction across all tiers.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0360",
+    "query": "Release pass karne ke liye kitne percent tests pass hone chahiye?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "sop_release_checklist.md",
+    "pos_passage": "Releases require 100% test pass rate across all regression suites.",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0333",
+    "query": "What CLI command initiates a full corpus re-indexing?",
+    "category": "exact_entity",
+    "pos_doc_name": "sop_document_reindex.md",
+    "pos_passage": "Re-indexing is initiated with python -m chakrview.tools.reindex --force.",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0367",
+    "query": "Could you provide information regarding the following: what versioning convention governs chakrview releases",
+    "category": "paraphrase",
+    "pos_doc_name": "sop_release_versioning.md",
+    "pos_passage": "ChakrView follows Semantic Versioning (SemVer 2.0.0).",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0102",
+    "query": "Inquire about network traffic cipher standard details.",
+    "category": "synonym",
+    "pos_doc_name": "network_encryption_transit.md",
+    "pos_passage": "Inter-node communication is strictly encrypted with TLS 1.3.",
+    "neg_doc_name": "network_consensus_raft.md",
+    "neg_passage": "## 1. Consensus Parameters\n- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0288",
+    "query": "CPU inference ke liye kam se kam kitni RAM honi chahiye?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "compute_memory_bus.md",
+    "pos_passage": "CPU inference requires a minimum of 1.5 GB physical RAM.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0014",
+    "query": "Inquire about blob size limit details.",
+    "category": "synonym",
+    "pos_doc_name": "storage_blob_store.md",
+    "pos_passage": "The blob store supports objects up to 5 TB in size.",
+    "neg_doc_name": "storage_backup_policy.md",
+    "neg_passage": "## 1. Snapshot Schedule\n- Automated snapshot frequency: Hourly local differential snapshots.\n- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0309",
+    "query": "What port exposes Prometheus metrics for the compute node?",
+    "category": "exact_entity",
+    "pos_doc_name": "compute_telemetry.md",
+    "pos_passage": "Compute telemetry metrics are exposed on HTTP port 9090.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0259",
+    "query": "Could you provide information regarding the following: how many transformer layers are in chakrmicro v0.6",
+    "category": "paraphrase",
+    "pos_doc_name": "compute_arch_core.md",
+    "pos_passage": "ChakrMicro V0.6 consists of 4 transformer layers.",
+    "neg_doc_name": "compute_arch_v07_draft.md",
+    "neg_passage": "## 1. Upgraded Hyperparameters\n- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.\n- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 runtimes.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0120",
+    "query": "Admin access ke liye kaun sa port open hota hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "network_firewall_rules.md",
+    "pos_passage": "Cluster admin API is accessible only on TCP port 9443.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0112",
+    "query": "mTLS certificates kitne ghante me rotate hote hain?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "network_encryption_transit.md",
+    "pos_passage": "mTLS session certificates are rotated every 24 hours.",
+    "neg_doc_name": "network_firewall_rules.md",
+    "neg_passage": "## 1. Permitted Inbound Traffic\n- Inbound port 8443: Encrypted API traffic.\n- Inbound port 9090: Prometheus telemetry scraping.\n- Blocked ports: All outbound and inbound UDP traffic except port 5353 mDNS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0048",
+    "query": "Query embedding ka TTL kitna second hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_caching_layer.md",
+    "pos_passage": "Query embeddings have a TTL of 300 seconds.",
+    "neg_doc_name": "storage_bm25_index.md",
+    "neg_passage": "## 1. BM25 Hyperparameters\n- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0016",
+    "query": "Blob store me max object size kitna hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_blob_store.md",
+    "pos_passage": "The blob store supports objects up to 5 TB in size.",
+    "neg_doc_name": "storage_backup_policy.md",
+    "neg_passage": "## 1. Snapshot Schedule\n- Automated snapshot frequency: Hourly local differential snapshots.\n- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0017",
+    "query": "How many replicas are maintained for blob chunks?",
+    "category": "exact_entity",
+    "pos_doc_name": "storage_blob_store.md",
+    "pos_passage": "Each blob chunk is synchronously replicated across 3 failure zones.",
+    "neg_doc_name": "storage_bm25_index.md",
+    "neg_passage": "## 1. BM25 Hyperparameters\n- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0217",
+    "query": "What threat model methodology guides ChakrView security reviews?",
+    "category": "exact_entity",
+    "pos_doc_name": "security_threat_model.md",
+    "pos_passage": "Security reviews are structured according to the STRIDE threat model.",
+    "neg_doc_name": "security_at_rest_encryption.md",
+    "neg_passage": "## 1. Encryption Methods\n- Disk block encryption: Transparent AES-256-XTS filesystem encryption.\n- Key rotation cycle: Rotating HMAC keys renewed every 90 days.\n- File permission restriction: Mode 0600 on all stored session histories.\n",
+    "topic_family": "security"
+  },
+  {
+    "id": "EX_0303",
+    "query": "Could you provide information regarding the following: what scheduling policy dispatches concurrent user queries",
+    "category": "paraphrase",
+    "pos_doc_name": "compute_scheduler.md",
+    "pos_passage": "Concurrent queries are dispatched using priority fair-share queues.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0045",
+    "query": "What is the TTL for transient query embeddings?",
+    "category": "exact_entity",
+    "pos_doc_name": "storage_caching_layer.md",
+    "pos_passage": "Query embeddings have a TTL of 300 seconds.",
+    "neg_doc_name": "storage_bm25_index.md",
+    "neg_passage": "## 1. BM25 Hyperparameters\n- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0280",
+    "query": "Fused attention kernel me kaun se operations combine hote hain?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "compute_kernel_fusion.md",
+    "pos_passage": "The fused attention kernel combines softmax, dropout, and matrix multiply.",
+    "neg_doc_name": "compute_accelerator_cuda.md",
+    "neg_passage": "## 1. GPU Compute Specifications\n- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.\n- Kernel block dimension: 256 threads per streaming multiprocessor block.\n- VRAM minimum reservation: 2.0 GB dedicated video memory.\n",
+    "topic_family": "compute"
+  },
+  {
+    "id": "EX_0441",
+    "query": "Which support tier includes a dedicated technical account manager?",
+    "category": "exact_entity",
+    "pos_doc_name": "billing_support_tiers.md",
+    "pos_passage": "The Enterprise Premier tier includes a dedicated Technical Account Manager.",
+    "neg_doc_name": "billing_licensing_compliance.md",
+    "neg_passage": "## 1. License Restrictions\n- License grant: Commercial, non-exclusive, non-transferable local deployment license.\n- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistribution of compiled or raw binaries is strictly prohibited.\n",
+    "topic_family": "billing"
+  },
+  {
+    "id": "EX_0347",
+    "query": "Could you provide information regarding the following: within how many hours must a post-incident retrospective be completed",
+    "category": "paraphrase",
+    "pos_doc_name": "sop_incident_management.md",
+    "pos_passage": "Post-mortems must be published within 72 hours of incident resolution.",
+    "neg_doc_name": "sop_disaster_recovery.md",
+    "neg_passage": "## 1. Recovery Time and Point Objectives\n- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0053",
+    "query": "What algorithm is used for LSM merge sorting?",
+    "category": "exact_entity",
+    "pos_doc_name": "storage_compaction.md",
+    "pos_passage": "LSM merge sorting employs a k-way min-heap merge tree.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0378",
+    "query": "Inquire about supported operating systems details.",
+    "category": "synonym",
+    "pos_doc_name": "sop_runtime_environments.md",
+    "pos_passage": "ChakrView is validated on Windows 11 and Linux Ubuntu 22.04 LTS.",
+    "neg_doc_name": "sop_disaster_recovery.md",
+    "neg_passage": "## 1. Recovery Time and Point Objectives\n- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0072",
+    "query": "Chunk embeddings kis table me save hoti hain?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "storage_sqlite_schema.md",
+    "pos_passage": "The chunk_records table stores document ID, start_char, end_char, and vector blob.",
+    "neg_doc_name": "storage_blob_store.md",
+    "neg_passage": "## 1. Blob Storage Limits\n- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.\n- Blob hashing algorithm: SHA-256 content addressable storage.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0115",
+    "query": "Could you provide information regarding the following: what default policy is applied by the firewall",
+    "category": "paraphrase",
+    "pos_doc_name": "network_firewall_rules.md",
+    "pos_passage": "The firewall operates on a default-deny ingress policy.",
+    "neg_doc_name": "network_consensus_raft.md",
+    "neg_passage": "## 1. Consensus Parameters\n- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0126",
+    "query": "Inquire about maximum payload size limit details.",
+    "category": "synonym",
+    "pos_doc_name": "network_gateway_api.md",
+    "pos_passage": "Requests exceeding 10 MB in body size receive HTTP 413.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0141",
+    "query": "What overlay protocol encapsulates peer-to-peer frames?",
+    "category": "exact_entity",
+    "pos_doc_name": "network_mesh_topology.md",
+    "pos_passage": "Mesh peers communicate over WireGuard encapsulated UDP frames.",
+    "neg_doc_name": "network_dns_resolution.md",
+    "neg_passage": "## 1. DNS Settings\n- Cluster local domain: `cluster.local`.\n- DNS cache Time-To-Live (TTL): 30 seconds.\n- Upstream fallback resolver: 127.0.0.1:853 over DNS-over-TLS.\n",
+    "topic_family": "network"
+  },
+  {
+    "id": "EX_0380",
+    "query": "ChakrView kin operating systems par validate hua hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "sop_runtime_environments.md",
+    "pos_passage": "ChakrView is validated on Windows 11 and Linux Ubuntu 22.04 LTS.",
+    "neg_doc_name": "sop_disaster_recovery.md",
+    "neg_passage": "## 1. Recovery Time and Point Objectives\n- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.\n",
+    "topic_family": "sop"
+  },
+  {
+    "id": "EX_0013",
+    "query": "What is the maximum object size supported in the blob store?",
+    "category": "exact_entity",
+    "pos_doc_name": "storage_blob_store.md",
+    "pos_passage": "The blob store supports objects up to 5 TB in size.",
+    "neg_doc_name": "storage_backup_policy.md",
+    "neg_passage": "## 1. Snapshot Schedule\n- Automated snapshot frequency: Hourly local differential snapshots.\n- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0058",
+    "query": "Inquire about disk write block alignment details.",
+    "category": "synonym",
+    "pos_doc_name": "storage_disk_engine.md",
+    "pos_passage": "The disk engine writes in aligned 4 KB blocks.",
+    "neg_doc_name": "storage_backup_policy.md",
+    "neg_passage": "## 1. Snapshot Schedule\n- Automated snapshot frequency: Hourly local differential snapshots.\n- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.\n",
+    "topic_family": "storage"
+  },
+  {
+    "id": "EX_0328",
+    "query": "Disaster recovery me RPO kitne minute ka hai?",
+    "category": "multilingual_hinglish",
+    "pos_doc_name": "sop_disaster_recovery.md",
+    "pos_passage": "The disaster recovery plan targets an RPO of 15 minutes.",
+    "neg_doc_name": "sop_cluster_drain.md",
+    "neg_passage": "## 1. Drain Sequencing\n- Step 1: Mark target compute node unschedulable using `chakr node cordon <node_id>`.\n- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60 seconds before host shutdown.\n",
+    "topic_family": "sop"
+  }
+]
