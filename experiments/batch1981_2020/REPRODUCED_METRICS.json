@@ -1,0 +1,152 @@
+{
+  "mission": "batch1981_2020",
+  "evaluation_corpus": "source_disjoint_corpus.json",
+  "total_documents": 88,
+  "total_tokens_evaluated": 11022,
+  "independent_source_clusters": 18,
+  "canonical_baseline": {
+    "token_weighted_ce": 5.9254,
+    "perplexity": 374.41,
+    "macro_document_loss": 6.334
+  },
+  "candidates": {
+    "cpt_balanced_seed_42": {
+      "token_weighted_cross_entropy": 5.7242,
+      "token_weighted_delta": -0.2012,
+      "document_macro_loss": 6.0252,
+      "document_macro_delta": -0.3088,
+      "document_level_bootstrap_95ci": {
+        "token_weighted": [
+          -0.2782,
+          -0.1321
+        ],
+        "macro_document": [
+          -0.3918,
+          -0.2307
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      },
+      "source_clustered_bootstrap_95ci": {
+        "token_weighted": [
+          -0.416,
+          -0.0506
+        ],
+        "macro_document": [
+          -0.5156,
+          -0.1383
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      }
+    },
+    "cpt_balanced_seed_123": {
+      "token_weighted_cross_entropy": 5.725,
+      "token_weighted_delta": -0.2004,
+      "document_macro_loss": 6.0208,
+      "document_macro_delta": -0.3132,
+      "document_level_bootstrap_95ci": {
+        "token_weighted": [
+          -0.2821,
+          -0.1272
+        ],
+        "macro_document": [
+          -0.3993,
+          -0.232
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      },
+      "source_clustered_bootstrap_95ci": {
+        "token_weighted": [
+          -0.4271,
+          -0.0388
+        ],
+        "macro_document": [
+          -0.5279,
+          -0.1355
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      }
+    },
+    "cpt_balanced_seed_999": {
+      "token_weighted_cross_entropy": 5.7157,
+      "token_weighted_delta": -0.2097,
+      "document_macro_loss": 6.016,
+      "document_macro_delta": -0.318,
+      "document_level_bootstrap_95ci": {
+        "token_weighted": [
+          -0.2877,
+          -0.14
+        ],
+        "macro_document": [
+          -0.4016,
+          -0.239
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      },
+      "source_clustered_bootstrap_95ci": {
+        "token_weighted": [
+          -0.4266,
+          -0.0598
+        ],
+        "macro_document": [
+          -0.5263,
+          -0.1485
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      }
+    },
+    "cpt_balanced_seed_42_300steps": {
+      "token_weighted_cross_entropy": 5.842,
+      "token_weighted_delta": -0.0834,
+      "document_macro_loss": 6.1576,
+      "document_macro_delta": -0.1764,
+      "document_level_bootstrap_95ci": {
+        "token_weighted": [
+          -0.1668,
+          0.0005
+        ],
+        "macro_document": [
+          -0.2537,
+          -0.1
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      },
+      "source_clustered_bootstrap_95ci": {
+        "token_weighted": [
+          -0.2714,
+          0.114
+        ],
+        "macro_document": [
+          -0.3488,
+          -0.008
+        ],
+        "tw_point_in_interval": true,
+        "macro_point_in_interval": true
+      }
+    }
+  },
+  "verdict_classification": {
+    "cpt_balanced_seed_42": {
+      "classification": "Reproduced and supported",
+      "details": "Modest cross-entropy improvement (~ -0.20 CE token-weighted, -0.31 CE macro) reproduces consistently across paired document and source-clustered uncertainty estimation."
+    },
+    "cpt_balanced_seed_123": {
+      "classification": "Reproduced and supported",
+      "details": "Modest cross-entropy improvement (~ -0.20 CE token-weighted, -0.31 CE macro) reproduces consistently across paired document and source-clustered uncertainty estimation."
+    },
+    "cpt_balanced_seed_999": {
+      "classification": "Reproduced and supported",
+      "details": "Modest cross-entropy improvement (~ -0.20 CE token-weighted, -0.31 CE macro) reproduces consistently across paired document and source-clustered uncertainty estimation."
+    },
+    "cpt_balanced_seed_42_300steps": {
+      "classification": "Reproduced and supported (Overfitting Regression)",
+      "details": "The 300-step checkpoint's regression vs the 150-step model (+0.1178 CE) is independently verified. In source-clustered analysis, the 95% CI spans zero [-0.2714, +0.1140]."
+    }
+  }
+}
