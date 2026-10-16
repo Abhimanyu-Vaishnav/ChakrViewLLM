@@ -1,0 +1,3649 @@
+{
+  "timestamp": "2026-10-16T04:35:03Z",
+  "evaluator": "experiments/batch1301_1340/run_adversarial_evaluation.py",
+  "frozen_70_benchmark": {
+    "benchmark_name": "Frozen_70_Benchmark",
+    "total_queries": 70,
+    "correct_decisions": 69,
+    "accuracy": 0.9857,
+    "false_refutation_rate": 0.0,
+    "false_refutations_count": 0,
+    "total_non_refute_expected": 65,
+    "missed_refutation_rate": 0.2,
+    "missed_refutations_count": 1,
+    "total_refute_expected": 5,
+    "unsupported_answer_rate": 0.0,
+    "unsupported_answers_count": 0,
+    "total_unanswerable_expected": 10,
+    "abstention_precision": 0.8333,
+    "abstention_recall": 1.0,
+    "citation_validity_rate": 1.0,
+    "citation_valid_count": 64,
+    "citation_total_count": 64,
+    "median_latency_ms": 1.1,
+    "confusion_matrix": {
+      "ANSWER": {
+        "ANSWER": 60,
+        "REFUTE": 0,
+        "ABSTAIN": 0
+      },
+      "REFUTE": {
+        "ANSWER": 0,
+        "REFUTE": 4,
+        "ABSTAIN": 1
+      },
+      "ABSTAIN": {
+        "ANSWER": 0,
+        "REFUTE": 0,
+        "ABSTAIN": 5
+      }
+    },
+    "category_breakdown": {
+      "exact_entity": {
+        "total": 10,
+        "correct": 10
+      },
+      "paraphrase": {
+        "total": 10,
+        "correct": 10
+      },
+      "synonym": {
+        "total": 10,
+        "correct": 10
+      },
+      "distractor_competition": {
+        "total": 10,
+        "correct": 10
+      },
+      "version_conflict": {
+        "total": 6,
+        "correct": 6
+      },
+      "follow_up": {
+        "total": 8,
+        "correct": 8
+      },
+      "multilingual_hinglish": {
+        "total": 6,
+        "correct": 6
+      },
+      "false_premise": {
+        "total": 5,
+        "correct": 4
+      },
+      "abstention": {
+        "total": 5,
+        "correct": 5
+      }
+    },
+    "per_item_results": [
+      {
+        "id": 101,
+        "category": "exact_entity",
+        "query": "What is the parameter count of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.8643699607085755
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 6.16
+      },
+      {
+        "id": 102,
+        "category": "exact_entity",
+        "query": "What is the minimum physical RAM required for CPU inference?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 179,
+            "end_char": 324,
+            "exact_text": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned across L1, L2, and L3 caches.",
+            "confidence": 0.8520005615165117
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "latency_ms": 1.93
+      },
+      {
+        "id": 103,
+        "category": "exact_entity",
+        "query": "What minimum compute capability is required for CUDA acceleration?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_accelerator_cuda.md",
+            "chunk_index": 0,
+            "start_char": 61,
+            "end_char": 209,
+            "exact_text": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.",
+            "confidence": 0.9050760216558388
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF",
+        "latency_ms": 2.01
+      },
+      {
+        "id": 104,
+        "category": "exact_entity",
+        "query": "What is the thread pool ceiling for CPU execution?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_cpu_simd.md",
+            "chunk_index": 0,
+            "start_char": 195,
+            "end_char": 323,
+            "exact_text": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker threads.",
+            "confidence": 0.8464339341316367
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker ",
+        "latency_ms": 1.22
+      },
+      {
+        "id": 105,
+        "category": "exact_entity",
+        "query": "What TCP port handles data transmission in the mesh network?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_mesh_topology.md",
+            "chunk_index": 0,
+            "start_char": 182,
+            "end_char": 289,
+            "exact_text": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes.",
+            "confidence": 0.8930147396868193
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "latency_ms": 1.13
+      },
+      {
+        "id": 106,
+        "category": "exact_entity",
+        "query": "What is the heartbeat interval in Raft consensus?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 129,
+            "end_char": 250,
+            "exact_text": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.",
+            "confidence": 0.8678424769353529
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes",
+        "latency_ms": 0.95
+      },
+      {
+        "id": 107,
+        "category": "exact_entity",
+        "query": "What is the maximum capacity of the in-memory embedding cache?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_caching_layer.md",
+            "chunk_index": 0,
+            "start_char": 148,
+            "end_char": 274,
+            "exact_text": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text content.",
+            "confidence": 0.8812088564680927
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text co",
+        "latency_ms": 0.92
+      },
+      {
+        "id": 108,
+        "category": "exact_entity",
+        "query": "What is the term saturation parameter k1 in the BM25 index?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_bm25_index.md",
+            "chunk_index": 0,
+            "start_char": 59,
+            "end_char": 146,
+            "exact_text": "- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75.",
+            "confidence": 0.8674750105723439
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75. [Source: storage_bm25_index.md (",
+        "latency_ms": 0.91
+      },
+      {
+        "id": 109,
+        "category": "exact_entity",
+        "query": "What is the length normalization parameter b in BM25?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_bm25_index.md",
+            "chunk_index": 0,
+            "start_char": 96,
+            "end_char": 192,
+            "exact_text": "- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters.",
+            "confidence": 0.9091138809201197
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters. [Source: storage_bm25_i",
+        "latency_ms": 0.86
+      },
+      {
+        "id": 110,
+        "category": "exact_entity",
+        "query": "What is the maximum single document size in the BLOB store?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_blob_store.md",
+            "chunk_index": 0,
+            "start_char": 68,
+            "end_char": 178,
+            "exact_text": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.",
+            "confidence": 0.8526974748316073
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`. [Source: ",
+        "latency_ms": 1.01
+      },
+      {
+        "id": 111,
+        "category": "paraphrase",
+        "query": "How many query attention heads does ChakrMicro incorporate?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.8889717145546906
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.14
+      },
+      {
+        "id": 112,
+        "category": "paraphrase",
+        "query": "What is the maximum throughput across the memory interconnect?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 115,
+            "end_char": 258,
+            "exact_text": "- Memory bandwidth ceiling: 68.2 GB/s peak transfer throughput.\n- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.",
+            "confidence": 0.8592066859552088
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Memory bandwidth ceiling: 68.2 GB/s peak transfer throughput.\n- Minimum operational RAM allocation for CPU inference: ",
+        "latency_ms": 1.19
+      },
+      {
+        "id": 113,
+        "category": "paraphrase",
+        "query": "How frequently are telemetry metrics harvested by the collector?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_telemetry.md",
+            "chunk_index": 0,
+            "start_char": 130,
+            "end_char": 264,
+            "exact_text": "- Memory high-watermark threshold: 85% total system RAM trigger.\n- Metrics export format: OpenMetrics plaintext telemetry line format.",
+            "confidence": 0.8637046737971481
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Memory high-watermark threshold: 85% total system RAM trigger.\n- Metrics export format: OpenMetrics plaintext telemetr",
+        "latency_ms": 1.01
+      },
+      {
+        "id": 114,
+        "category": "paraphrase",
+        "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_kernel_fusion.md",
+            "chunk_index": 0,
+            "start_char": 133,
+            "end_char": 287,
+            "exact_text": "- Activation fusion: GELU activation folded directly into feed-forward linear layers.\n- Graph optimization speedup: 18.5% median latency reduction on CPU.",
+            "confidence": 0.8406051660142622
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Activation fusion: GELU activation folded directly into feed-forward linear layers.\n- Graph optimization speedup: 18.5",
+        "latency_ms": 1.26
+      },
+      {
+        "id": 115,
+        "category": "paraphrase",
+        "query": "How many participant machines can join a single cluster diameter?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_mesh_topology.md",
+            "chunk_index": 0,
+            "start_char": 182,
+            "end_char": 289,
+            "exact_text": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "latency_ms": 1.38
+      },
+      {
+        "id": 116,
+        "category": "paraphrase",
+        "query": "When does automatic re-keying take place on encrypted communication lines?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 149,
+            "end_char": 323,
+            "exact_text": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verification: Mutual TLS (mTLS) with custom X.509 certificates.",
+            "confidence": 0.8430406888518087
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat",
+        "latency_ms": 1.87
+      },
+      {
+        "id": 117,
+        "category": "paraphrase",
+        "query": "How long does a client socket remain idle before keepalive probes trigger?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_socket_tuning.md",
+            "chunk_index": 0,
+            "start_char": 122,
+            "end_char": 198,
+            "exact_text": "- TCP keepalive idle time: 300 seconds.\n- TCP SYN retry maximum: 3 attempts.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- TCP keepalive idle time: 300 seconds.\n- TCP SYN retry maximum: 3 attempts. [Source: network_socket_tuning.md (char 122",
+        "latency_ms": 1.33
+      },
+      {
+        "id": 118,
+        "category": "paraphrase",
+        "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_load_balancer.md",
+            "chunk_index": 0,
+            "start_char": 142,
+            "end_char": 256,
+            "exact_text": "- Health probe endpoint: `/healthz` HTTP GET probe.\n- Health probe failure threshold: 3 consecutive failed probes.",
+            "confidence": 0.8636906832073754
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Health probe endpoint: `/healthz` HTTP GET probe.\n- Health probe failure threshold: 3 consecutive failed probes. [Sour",
+        "latency_ms": 1.09
+      },
+      {
+        "id": 119,
+        "category": "paraphrase",
+        "query": "What is the maximum allowed query frequency per minute for a client IP?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_gateway_api.md",
+            "chunk_index": 0,
+            "start_char": 110,
+            "end_char": 231,
+            "exact_text": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP.",
+            "confidence": 0.8537310482633875
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP",
+        "latency_ms": 1.14
+      },
+      {
+        "id": 120,
+        "category": "paraphrase",
+        "query": "What dead tuple percentage triggers automated compaction on database files?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_compaction.md",
+            "chunk_index": 0,
+            "start_char": 63,
+            "end_char": 184,
+            "exact_text": "- Fragmentation threshold: 25% dead tuple volume triggers auto-vacuum.\n- Scheduled compaction time: Nightly at 02:00 UTC.",
+            "confidence": 0.9104168863265271
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Fragmentation threshold: 25% dead tuple volume triggers auto-vacuum.\n- Scheduled compaction time: Nightly at 02:00 UTC",
+        "latency_ms": 0.98
+      },
+      {
+        "id": 121,
+        "category": "synonym",
+        "query": "What vector dimension does the learned neural bi-encoder project into?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_vector_index.md",
+            "chunk_index": 0,
+            "start_char": 127,
+            "end_char": 241,
+            "exact_text": "- Normalized vector length: Unit L2 norm (magnitude 1.0).\n- Index dimension: 64 float elements for ChakrBiEncoder.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Normalized vector length: Unit L2 norm (magnitude 1.0).\n- Index dimension: 64 float elements for ChakrBiEncoder. [Sour",
+        "latency_ms": 1.11
+      },
+      {
+        "id": 122,
+        "category": "synonym",
+        "query": "How long must security audit log entries be preserved before deletion?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_audit_logging.md",
+            "chunk_index": 0,
+            "start_char": 67,
+            "end_char": 189,
+            "exact_text": "- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar days.",
+            "confidence": 0.8864077709581075
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar day",
+        "latency_ms": 1.09
+      },
+      {
+        "id": 123,
+        "category": "synonym",
+        "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_key_management.md",
+            "chunk_index": 0,
+            "start_char": 133,
+            "end_char": 265,
+            "exact_text": "- Key wrapping algorithm: AES-KeyWrap (RFC 3394).\n- Zeroization procedure: Instant key erasure on 5 consecutive invalid PIN entries.",
+            "confidence": 0.8952168363917813
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Key wrapping algorithm: AES-KeyWrap (RFC 3394).\n- Zeroization procedure: Instant key erasure on 5 consecutive invalid ",
+        "latency_ms": 1.11
+      },
+      {
+        "id": 124,
+        "category": "synonym",
+        "query": "Within what timeframe must security breaches be escalated internally?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_incident_response.md",
+            "chunk_index": 0,
+            "start_char": 61,
+            "end_char": 233,
+            "exact_text": "- Breach notification deadline: Internal escalation within 30 minutes of incident confirmation.\n- Containment action: Immediate network isolation of affected compute nodes.",
+            "confidence": 0.848724990308743
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Breach notification deadline: Internal escalation within 30 minutes of incident confirmation.\n- Containment action: Im",
+        "latency_ms": 1.07
+      },
+      {
+        "id": 125,
+        "category": "synonym",
+        "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_vulnerability_sla.md",
+            "chunk_index": 0,
+            "start_char": 56,
+            "end_char": 205,
+            "exact_text": "- Critical severity CVEs (CVSS 9.0+): Patch deployment within 24 hours.\n- High severity CVEs (CVSS 7.0-8.9): Patch deployment within 7 calendar days.",
+            "confidence": 0.841286436564105
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Critical severity CVEs (CVSS 9.0+): Patch deployment within 24 hours.\n- High severity CVEs (CVSS 7.0-8.9): Patch deplo",
+        "latency_ms": 1.35
+      },
+      {
+        "id": 126,
+        "category": "synonym",
+        "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 147,
+            "end_char": 354,
+            "exact_text": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster Tier: Custom annual contract starting at $12,000 per year with unlimited workers.",
+            "confidence": 0.8451207980295602
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "latency_ms": 1.26
+      },
+      {
+        "id": 127,
+        "category": "synonym",
+        "query": "What payment duration is permitted after an invoice has been issued?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_payment_terms.md",
+            "chunk_index": 0,
+            "start_char": 126,
+            "end_char": 266,
+            "exact_text": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5% compounded monthly.",
+            "confidence": 0.9035332884696943
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5%",
+        "latency_ms": 1.17
+      },
+      {
+        "id": 128,
+        "category": "synonym",
+        "query": "What monthly interest surcharge applies to delinquent invoices?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_payment_terms.md",
+            "chunk_index": 0,
+            "start_char": 126,
+            "end_char": 266,
+            "exact_text": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5% compounded monthly.",
+            "confidence": 0.8970941097559109
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5%",
+        "latency_ms": 1.14
+      },
+      {
+        "id": 129,
+        "category": "synonym",
+        "query": "What availability percentage is guaranteed for hosted control planes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_sla_commitments.md",
+            "chunk_index": 0,
+            "start_char": 72,
+            "end_char": 245,
+            "exact_text": "- Platform availability target: 99.95% monthly uptime for hosted control planes.\n- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.",
+            "confidence": 0.8664129446221908
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Platform availability target: 99.95% monthly uptime for hosted control planes.\n- Downtime financial credit: 15% billin",
+        "latency_ms": 0.93
+      },
+      {
+        "id": 130,
+        "category": "synonym",
+        "query": "What fee is charged per month for each additional worker process?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_metered_usage.md",
+            "chunk_index": 0,
+            "start_char": 56,
+            "end_char": 215,
+            "exact_text": "- Additional worker process unit: $40 per month per additional worker process.\n- Storage overage rate: $0.10 per gigabyte per month above allocated plan quota.",
+            "confidence": 0.9026636036602631
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Additional worker process unit: $40 per month per additional worker process.\n- Storage overage rate: $0.10 per gigabyt",
+        "latency_ms": 0.99
+      },
+      {
+        "id": 131,
+        "category": "distractor_competition",
+        "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 217,
+            "end_char": 343,
+            "exact_text": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 runtimes.",
+            "confidence": 0.8525240155969029
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 run",
+        "latency_ms": 0.98
+      },
+      {
+        "id": 132,
+        "category": "distractor_competition",
+        "query": "How many tokens are in the calibration dataset for model quantization?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_quantization.md",
+            "chunk_index": 0,
+            "start_char": 203,
+            "end_char": 323,
+            "exact_text": "- Calibration dataset footprint: Exactly 512 representative domain tokens.\n- Quantized checkpoint file suffix: `.q8.pt`.",
+            "confidence": 0.8635266151692438
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Calibration dataset footprint: Exactly 512 representative domain tokens.\n- Quantized checkpoint file suffix: `.q8.pt`.",
+        "latency_ms": 0.83
+      },
+      {
+        "id": 133,
+        "category": "distractor_competition",
+        "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 77,
+            "end_char": 159,
+            "exact_text": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.",
+            "confidence": 0.8818620892492545
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c",
+        "latency_ms": 0.94
+      },
+      {
+        "id": 134,
+        "category": "distractor_competition",
+        "query": "What is the maximum response time for Severity 1 support requests?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.900987783915876
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 1.04
+      },
+      {
+        "id": 135,
+        "category": "distractor_competition",
+        "query": "What is the Recovery Time Objective during disaster recovery failover?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_disaster_recovery.md",
+            "chunk_index": 0,
+            "start_char": 83,
+            "end_char": 245,
+            "exact_text": "- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.",
+            "confidence": 0.9153695581218125
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): U",
+        "latency_ms": 1.12
+      },
+      {
+        "id": 136,
+        "category": "distractor_competition",
+        "query": "What billing credit is applied when uptime drops below 99.9%?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_sla_commitments.md",
+            "chunk_index": 0,
+            "start_char": 153,
+            "end_char": 333,
+            "exact_text": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50% billing credit applied if monthly uptime drops below 98.0%.",
+            "confidence": 0.9487060479267264
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%",
+        "latency_ms": 1.02
+      },
+      {
+        "id": 137,
+        "category": "distractor_competition",
+        "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_enterprise_discounts.md",
+            "chunk_index": 0,
+            "start_char": 65,
+            "end_char": 219,
+            "exact_text": "- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 25% discount on total subscription.",
+            "confidence": 0.8407158070426423
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 2",
+        "latency_ms": 1.03
+      },
+      {
+        "id": 138,
+        "category": "distractor_competition",
+        "query": "What is the monthly subscription price of the Starter Tier?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 69,
+            "end_char": 252,
+            "exact_text": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.",
+            "confidence": 0.8458143084468698
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu",
+        "latency_ms": 1.25
+      },
+      {
+        "id": 139,
+        "category": "distractor_competition",
+        "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 60,
+            "end_char": 175,
+            "exact_text": "- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds.",
+            "confidence": 0.8741890033825159
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds. [Sou",
+        "latency_ms": 1.59
+      },
+      {
+        "id": 140,
+        "category": "distractor_competition",
+        "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 160,
+            "end_char": 255,
+            "exact_text": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens.",
+            "confidence": 0.8523384885516453
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0",
+        "latency_ms": 1.04
+      },
+      {
+        "id": 141,
+        "category": "version_conflict",
+        "query": "What is the hidden dimension of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 77,
+            "end_char": 159,
+            "exact_text": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.",
+            "confidence": 0.8548398434575132
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c",
+        "latency_ms": 1.05
+      },
+      {
+        "id": 142,
+        "category": "version_conflict",
+        "query": "What is the hidden dimension in the V0.7 specification?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 77,
+            "end_char": 159,
+            "exact_text": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.",
+            "confidence": 0.8455102617008804
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c",
+        "latency_ms": 0.96
+      },
+      {
+        "id": 143,
+        "category": "version_conflict",
+        "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 217,
+            "end_char": 343,
+            "exact_text": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 runtimes.",
+            "confidence": 0.8500748013377964
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 run",
+        "latency_ms": 0.89
+      },
+      {
+        "id": 144,
+        "category": "version_conflict",
+        "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 160,
+            "end_char": 255,
+            "exact_text": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens.",
+            "confidence": 0.848372475818476
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0",
+        "latency_ms": 0.9
+      },
+      {
+        "id": 145,
+        "category": "version_conflict",
+        "query": "What Python versions are officially certified for deployment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_runtime_environments.md",
+            "chunk_index": 0,
+            "start_char": 83,
+            "end_char": 269,
+            "exact_text": "- Certified Python runtimes: Python 3.10, Python 3.11, Python 3.12, Python 3.13, and Python 3.14.\n- Deprecated / Unsupported versions: Python 3.8 and Python 3.9 are strictly unsupported.",
+            "confidence": 0.8684477189904769
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Certified Python runtimes: Python 3.10, Python 3.11, Python 3.12, Python 3.13, and Python 3.14.\n- Deprecated / Unsuppo",
+        "latency_ms": 0.79
+      },
+      {
+        "id": 146,
+        "category": "version_conflict",
+        "query": "Is Python 3.9 accepted in the certified deployment environment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_runtime_environments.md",
+            "chunk_index": 0,
+            "start_char": 181,
+            "end_char": 363,
+            "exact_text": "- Deprecated / Unsupported versions: Python 3.8 and Python 3.9 are strictly unsupported.\n- Supported operating systems: Windows 11, Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and macOS 14+.",
+            "confidence": 0.8969848847031652
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Deprecated / Unsupported versions: Python 3.8 and Python 3.9 are strictly unsupported.\n- Supported operating systems: ",
+        "latency_ms": 0.84
+      },
+      {
+        "id": 147,
+        "category": "follow_up",
+        "query": "How many concurrent worker processes are included in that tier?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 147,
+            "end_char": 354,
+            "exact_text": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster Tier: Custom annual contract starting at $12,000 per year with unlimited workers.",
+            "confidence": 0.8643876819880378
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "latency_ms": 1.1
+      },
+      {
+        "id": 148,
+        "category": "follow_up",
+        "query": "What billing credit is deducted if it drops below 99.9%?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_sla_commitments.md",
+            "chunk_index": 0,
+            "start_char": 153,
+            "end_char": 333,
+            "exact_text": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50% billing credit applied if monthly uptime drops below 98.0%.",
+            "confidence": 0.92847303178542
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%",
+        "latency_ms": 1.31
+      },
+      {
+        "id": 149,
+        "category": "follow_up",
+        "query": "What HTTP status code is returned when that request is unauthenticated?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_auth_tokens.md",
+            "chunk_index": 0,
+            "start_char": 128,
+            "end_char": 270,
+            "exact_text": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.",
+            "confidence": 0.8548779214308407
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "latency_ms": 1.37
+      },
+      {
+        "id": 150,
+        "category": "follow_up",
+        "query": "What symmetric cipher algorithm is used with it?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 70,
+            "end_char": 235,
+            "exact_text": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.",
+            "confidence": 0.8391771861958713
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h",
+        "latency_ms": 1.21
+      },
+      {
+        "id": 151,
+        "category": "follow_up",
+        "query": "How many transformer decoder layers does it have?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 245,
+            "end_char": 342,
+            "exact_text": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens.",
+            "confidence": 0.899853628850773
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_",
+        "latency_ms": 1.28
+      },
+      {
+        "id": 152,
+        "category": "follow_up",
+        "query": "Where is the offsite replica archive stored?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_backup_policy.md",
+            "chunk_index": 0,
+            "start_char": 132,
+            "end_char": 247,
+            "exact_text": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.",
+            "confidence": 0.8709191616400027
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "latency_ms": 0.99
+      },
+      {
+        "id": 153,
+        "category": "follow_up",
+        "query": "What is the maximum engineer response time for that incident rating?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.873583362463638
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 1.46
+      },
+      {
+        "id": 154,
+        "category": "follow_up",
+        "query": "What discount is provided for a 3-year commitment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_enterprise_discounts.md",
+            "chunk_index": 0,
+            "start_char": 146,
+            "end_char": 297,
+            "exact_text": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: 30% reduction across all tiers.",
+            "confidence": 0.8773712967138914
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: ",
+        "latency_ms": 0.94
+      },
+      {
+        "id": 155,
+        "category": "multilingual_hinglish",
+        "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 160,
+            "end_char": 255,
+            "exact_text": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens.",
+            "confidence": 0.8476427263175821
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0",
+        "latency_ms": 1.1
+      },
+      {
+        "id": 156,
+        "category": "multilingual_hinglish",
+        "query": "Professional Tier subscription ka per month rate kya hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 147,
+            "end_char": 354,
+            "exact_text": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster Tier: Custom annual contract starting at $12,000 per year with unlimited workers.",
+            "confidence": 0.8604028836202673
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "latency_ms": 1.21
+      },
+      {
+        "id": 157,
+        "category": "multilingual_hinglish",
+        "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 1.53
+      },
+      {
+        "id": 158,
+        "category": "multilingual_hinglish",
+        "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_auth_tokens.md",
+            "chunk_index": 0,
+            "start_char": 128,
+            "end_char": 270,
+            "exact_text": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "latency_ms": 1.95
+      },
+      {
+        "id": 159,
+        "category": "multilingual_hinglish",
+        "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 70,
+            "end_char": 235,
+            "exact_text": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.",
+            "confidence": 0.8270918598465868
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h",
+        "latency_ms": 1.23
+      },
+      {
+        "id": 160,
+        "category": "multilingual_hinglish",
+        "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 179,
+            "end_char": 324,
+            "exact_text": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned across L1, L2, and L3 caches.",
+            "confidence": 0.8475679211429461
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "latency_ms": 1.0
+      },
+      {
+        "id": 161,
+        "category": "false_premise",
+        "query": "Why does ChakrMicro V0.6 require 128 attention heads on CPU?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.879414931180155
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on head: Query asserts 128, but verified evidence establishes - ",
+        "latency_ms": 0.93
+      },
+      {
+        "id": 162,
+        "category": "false_premise",
+        "query": "Why is the Starter subscription priced at $9,000 per month?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 69,
+            "end_char": 252,
+            "exact_text": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.",
+            "confidence": 0.9048673142076368
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on price: Query asserts 9000, but verified evidence establishes ",
+        "latency_ms": 0.86
+      },
+      {
+        "id": 163,
+        "category": "false_premise",
+        "query": "Why does ChakrView allow arbitrary sudo execution in production?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 66,
+            "end_char": 231,
+            "exact_text": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root and sudo commands are permanently forbidden.",
+            "confidence": 0.9057715919783627
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts permission for 'sudo', but verified documentation states it",
+        "latency_ms": 1.01
+      },
+      {
+        "id": 164,
+        "category": "false_premise",
+        "query": "Why are database tokens configured to expire after 100 years?",
+        "expected": "REFUTE",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.22
+      },
+      {
+        "id": 165,
+        "category": "false_premise",
+        "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8846262768013674
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on sla: Query asserts 48, but verified evidence establishes - Se",
+        "latency_ms": 1.55
+      },
+      {
+        "id": 166,
+        "category": "abstention",
+        "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.14
+      },
+      {
+        "id": 167,
+        "category": "abstention",
+        "query": "What is the orbital eccentricity of Jupiter moon Europa?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.04
+      },
+      {
+        "id": 168,
+        "category": "abstention",
+        "query": "What is the current market capital of Apple in Japanese Yen?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.65
+      },
+      {
+        "id": 169,
+        "category": "abstention",
+        "query": "What is the chemical composition of volcanic basalt on Mars?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.15
+      },
+      {
+        "id": 170,
+        "category": "abstention",
+        "query": "Who won the FIFA World Cup football tournament in 1994?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.04
+      }
+    ]
+  },
+  "adversarial_100_benchmark": {
+    "benchmark_name": "Adversarial_100_Benchmark",
+    "total_queries": 100,
+    "correct_decisions": 83,
+    "accuracy": 0.83,
+    "false_refutation_rate": 0.0132,
+    "false_refutations_count": 1,
+    "total_non_refute_expected": 76,
+    "missed_refutation_rate": 0.4583,
+    "missed_refutations_count": 11,
+    "total_refute_expected": 24,
+    "unsupported_answer_rate": 0.2727,
+    "unsupported_answers_count": 12,
+    "total_unanswerable_expected": 44,
+    "abstention_precision": 0.8095,
+    "abstention_recall": 0.85,
+    "citation_validity_rate": 1.0,
+    "citation_valid_count": 79,
+    "citation_total_count": 79,
+    "median_latency_ms": 1.03,
+    "confusion_matrix": {
+      "ANSWER": {
+        "ANSWER": 53,
+        "REFUTE": 0,
+        "ABSTAIN": 3
+      },
+      "REFUTE": {
+        "ANSWER": 10,
+        "REFUTE": 13,
+        "ABSTAIN": 1
+      },
+      "ABSTAIN": {
+        "ANSWER": 2,
+        "REFUTE": 1,
+        "ABSTAIN": 17
+      }
+    },
+    "category_breakdown": {
+      "numerical_premise": {
+        "total": 20,
+        "correct": 20
+      },
+      "permission_prohibition": {
+        "total": 10,
+        "correct": 7
+      },
+      "why_valid_with_context_num": {
+        "total": 10,
+        "correct": 10
+      },
+      "attribute_unit_discrimination": {
+        "total": 10,
+        "correct": 5
+      },
+      "version_conflicts": {
+        "total": 10,
+        "correct": 7
+      },
+      "honest_abstention_unsupported": {
+        "total": 20,
+        "correct": 17
+      },
+      "grounded_retrieval_and_hinglish": {
+        "total": 20,
+        "correct": 17
+      }
+    },
+    "per_item_results": [
+      {
+        "id": "ADV_001",
+        "category": "numerical_premise",
+        "query": "Why does ChakrMicro V0.6 require 128 attention heads on CPU?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.879414931180155
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on head: Query asserts 128, but verified evidence establishes - ",
+        "latency_ms": 1.22
+      },
+      {
+        "id": "ADV_002",
+        "category": "numerical_premise",
+        "query": "Why does ChakrMicro V0.6 have 6 query heads on CPU?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.9047298826550867
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.36
+      },
+      {
+        "id": "ADV_003",
+        "category": "numerical_premise",
+        "query": "Why is the Starter subscription priced at $9,000 per month?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 69,
+            "end_char": 252,
+            "exact_text": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.",
+            "confidence": 0.9048673142076368
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on price: Query asserts 9000, but verified evidence establishes ",
+        "latency_ms": 0.93
+      },
+      {
+        "id": "ADV_004",
+        "category": "numerical_premise",
+        "query": "Is the Starter subscription priced at $150 per month?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 69,
+            "end_char": 252,
+            "exact_text": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.",
+            "confidence": 0.8896295165640145
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu",
+        "latency_ms": 0.97
+      },
+      {
+        "id": "ADV_005",
+        "category": "numerical_premise",
+        "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8846262768013674
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on sla: Query asserts 48, but verified evidence establishes - Se",
+        "latency_ms": 0.93
+      },
+      {
+        "id": "ADV_006",
+        "category": "numerical_premise",
+        "query": "Does the P1 severity SLA require response within 15 minutes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8774319616527466
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 1.04
+      },
+      {
+        "id": "ADV_007",
+        "category": "numerical_premise",
+        "query": "Why does ChakrMicro V0.6 support a context window of 8192 active tokens?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 217,
+            "end_char": 343,
+            "exact_text": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 runtimes.",
+            "confidence": 0.8771922438707676
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on context: Query asserts 8192, but verified evidence establishe",
+        "latency_ms": 1.18
+      },
+      {
+        "id": "ADV_008",
+        "category": "numerical_premise",
+        "query": "What is the primary context ceiling in active tokens for ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 245,
+            "end_char": 342,
+            "exact_text": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens.",
+            "confidence": 0.9024653916973839
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_",
+        "latency_ms": 1.04
+      },
+      {
+        "id": "ADV_009",
+        "category": "numerical_premise",
+        "query": "Why does CPU inference require 32 GB of physical RAM?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 179,
+            "end_char": 324,
+            "exact_text": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned across L1, L2, and L3 caches.",
+            "confidence": 0.8381424043479239
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on ram: Query asserts 32, but verified evidence establishes - Mi",
+        "latency_ms": 0.95
+      },
+      {
+        "id": "ADV_010",
+        "category": "numerical_premise",
+        "query": "What is the minimum physical RAM required for CPU inference?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 179,
+            "end_char": 324,
+            "exact_text": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned across L1, L2, and L3 caches.",
+            "confidence": 0.8520005615165117
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "latency_ms": 0.89
+      },
+      {
+        "id": "ADV_011",
+        "category": "numerical_premise",
+        "query": "Why does CUDA acceleration require Nvidia compute capability 9.0?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_accelerator_cuda.md",
+            "chunk_index": 0,
+            "start_char": 61,
+            "end_char": 209,
+            "exact_text": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.",
+            "confidence": 0.895718251775059
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on compute_cap: Query asserts 9.0, but verified evidence establi",
+        "latency_ms": 1.31
+      },
+      {
+        "id": "ADV_012",
+        "category": "numerical_premise",
+        "query": "What minimum compute capability is required for CUDA acceleration?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_accelerator_cuda.md",
+            "chunk_index": 0,
+            "start_char": 61,
+            "end_char": 209,
+            "exact_text": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.",
+            "confidence": 0.9050760216558388
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF",
+        "latency_ms": 0.99
+      },
+      {
+        "id": "ADV_013",
+        "category": "numerical_premise",
+        "query": "Why does the mesh network communicate over TCP port 9000?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_mesh_topology.md",
+            "chunk_index": 0,
+            "start_char": 182,
+            "end_char": 289,
+            "exact_text": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes.",
+            "confidence": 0.887633680821752
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on port: Query asserts 9000, but verified evidence establishes -",
+        "latency_ms": 0.93
+      },
+      {
+        "id": "ADV_014",
+        "category": "numerical_premise",
+        "query": "What TCP port handles data transmission in the mesh network?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_mesh_topology.md",
+            "chunk_index": 0,
+            "start_char": 182,
+            "end_char": 289,
+            "exact_text": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes.",
+            "confidence": 0.8930147396868193
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "latency_ms": 0.85
+      },
+      {
+        "id": "ADV_015",
+        "category": "numerical_premise",
+        "query": "Why is the Raft consensus heartbeat interval set to 1000 milliseconds?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 129,
+            "end_char": 250,
+            "exact_text": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.",
+            "confidence": 0.8700202667274847
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on heartbeat: Query asserts 1000, but verified evidence establis",
+        "latency_ms": 1.26
+      },
+      {
+        "id": "ADV_016",
+        "category": "numerical_premise",
+        "query": "What is the heartbeat interval in Raft consensus?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 129,
+            "end_char": 250,
+            "exact_text": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.",
+            "confidence": 0.8678424769353529
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes",
+        "latency_ms": 1.28
+      },
+      {
+        "id": "ADV_017",
+        "category": "numerical_premise",
+        "query": "Why is the in-memory embedding cache limited to 50 entries?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_caching_layer.md",
+            "chunk_index": 0,
+            "start_char": 148,
+            "end_char": 274,
+            "exact_text": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text content.",
+            "confidence": 0.8814909516281215
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on cache: Query asserts 50, but verified evidence establishes - ",
+        "latency_ms": 1.31
+      },
+      {
+        "id": "ADV_018",
+        "category": "numerical_premise",
+        "query": "What is the maximum capacity of the in-memory embedding cache?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_caching_layer.md",
+            "chunk_index": 0,
+            "start_char": 148,
+            "end_char": 274,
+            "exact_text": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text content.",
+            "confidence": 0.8812088564680927
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text co",
+        "latency_ms": 1.18
+      },
+      {
+        "id": "ADV_019",
+        "category": "numerical_premise",
+        "query": "Why does disaster recovery target an RPO of 120 minutes?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_disaster_recovery.md",
+            "chunk_index": 0,
+            "start_char": 168,
+            "end_char": 339,
+            "exact_text": "- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on rpo: Query asserts 120, but verified evidence establishes - R",
+        "latency_ms": 1.26
+      },
+      {
+        "id": "ADV_020",
+        "category": "numerical_premise",
+        "query": "What is the target Recovery Point Objective (RPO)?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_disaster_recovery.md",
+            "chunk_index": 0,
+            "start_char": 168,
+            "end_char": 339,
+            "exact_text": "- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirection after 3 consecutive missed heartbeat intervals.",
+            "confidence": 0.8900914903985238
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirect",
+        "latency_ms": 1.17
+      },
+      {
+        "id": "ADV_021",
+        "category": "permission_prohibition",
+        "query": "Why does ChakrView allow arbitrary sudo execution in production?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 66,
+            "end_char": 231,
+            "exact_text": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root and sudo commands are permanently forbidden.",
+            "confidence": 0.9057715919783627
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts permission for 'sudo', but verified documentation states it",
+        "latency_ms": 0.98
+      },
+      {
+        "id": "ADV_022",
+        "category": "permission_prohibition",
+        "query": "Why does ChakrView allow root administrative access to worker tools?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 157,
+            "end_char": 306,
+            "exact_text": "- Administrative access: Root and sudo commands are permanently forbidden.\n- Allowed system calls: Bounded strictly by seccomp-bpf white-list filter.",
+            "confidence": 0.8755143085064732
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts permission for 'root', but verified documentation states it",
+        "latency_ms": 1.08
+      },
+      {
+        "id": "ADV_023",
+        "category": "permission_prohibition",
+        "query": "Why are unauthenticated API requests permitted without limits?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "network_gateway_api.md",
+            "chunk_index": 0,
+            "start_char": 110,
+            "end_char": 231,
+            "exact_text": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP.",
+            "confidence": 0.875945882909525
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP",
+        "latency_ms": 1.27
+      },
+      {
+        "id": "ADV_024",
+        "category": "permission_prohibition",
+        "query": "Why are unauthenticated requests granted full administrative access?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "security_auth_tokens.md",
+            "chunk_index": 0,
+            "start_char": 128,
+            "end_char": 270,
+            "exact_text": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.",
+            "confidence": 0.8752024742670781
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "latency_ms": 1.66
+      },
+      {
+        "id": "ADV_025",
+        "category": "permission_prohibition",
+        "query": "Why does ChakrView allow direct unencrypted communication between nodes?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 129,
+            "end_char": 250,
+            "exact_text": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes",
+        "latency_ms": 1.22
+      },
+      {
+        "id": "ADV_026",
+        "category": "permission_prohibition",
+        "query": "Does ChakrView allow unprivileged worker executions in production?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 66,
+            "end_char": 231,
+            "exact_text": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root and sudo commands are permanently forbidden.",
+            "confidence": 0.8692173015285448
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root",
+        "latency_ms": 1.09
+      },
+      {
+        "id": "ADV_027",
+        "category": "permission_prohibition",
+        "query": "Are tool executions run in isolated worker processes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 66,
+            "end_char": 231,
+            "exact_text": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root and sudo commands are permanently forbidden.",
+            "confidence": 0.8936952246139308
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Subprocess isolation: All tool executions run in isolated unprivileged worker processes.\n- Administrative access: Root",
+        "latency_ms": 0.92
+      },
+      {
+        "id": "ADV_028",
+        "category": "permission_prohibition",
+        "query": "What system calls are permitted by the seccomp-bpf filter?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_sandbox_isolation.md",
+            "chunk_index": 0,
+            "start_char": 157,
+            "end_char": 306,
+            "exact_text": "- Administrative access: Root and sudo commands are permanently forbidden.\n- Allowed system calls: Bounded strictly by seccomp-bpf white-list filter.",
+            "confidence": 0.851896812628056
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Administrative access: Root and sudo commands are permanently forbidden.\n- Allowed system calls: Bounded strictly by s",
+        "latency_ms": 0.9
+      },
+      {
+        "id": "ADV_029",
+        "category": "permission_prohibition",
+        "query": "What rate limit is applied to unauthenticated API requests?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_gateway_api.md",
+            "chunk_index": 0,
+            "start_char": 110,
+            "end_char": 231,
+            "exact_text": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP",
+        "latency_ms": 0.95
+      },
+      {
+        "id": "ADV_030",
+        "category": "permission_prohibition",
+        "query": "What token format is permitted for API authentication?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_auth_tokens.md",
+            "chunk_index": 0,
+            "start_char": 57,
+            "end_char": 189,
+            "exact_text": "- Token format: Cryptographically signed OAuth2 JSON Web Tokens (JWT).\n- Token expiration window: Exactly 3600 seconds (60 minutes).",
+            "confidence": 0.8639539879314744
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Token format: Cryptographically signed OAuth2 JSON Web Tokens (JWT).\n- Token expiration window: Exactly 3600 seconds (",
+        "latency_ms": 0.92
+      },
+      {
+        "id": "ADV_031",
+        "category": "why_valid_with_context_num",
+        "query": "Why does ChakrMicro V0.6 have 6 query heads on 1 machine?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.896690878977316
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.12
+      },
+      {
+        "id": "ADV_032",
+        "category": "why_valid_with_context_num",
+        "query": "Why does the Starter tier include up to 2 concurrent worker processes for 1 user?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 69,
+            "end_char": 252,
+            "exact_text": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.",
+            "confidence": 0.9198558317398726
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu",
+        "latency_ms": 1.36
+      },
+      {
+        "id": "ADV_033",
+        "category": "why_valid_with_context_num",
+        "query": "Why does CUDA acceleration require 7.5 compute capability on Nvidia GPUs?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_accelerator_cuda.md",
+            "chunk_index": 0,
+            "start_char": 61,
+            "end_char": 209,
+            "exact_text": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF16 tensor core acceleration.",
+            "confidence": 0.8938295908593529
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF",
+        "latency_ms": 1.28
+      },
+      {
+        "id": "ADV_034",
+        "category": "why_valid_with_context_num",
+        "query": "Why is the Raft heartbeat interval 50 milliseconds in a 5-node cluster?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_consensus_raft.md",
+            "chunk_index": 0,
+            "start_char": 129,
+            "end_char": 250,
+            "exact_text": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes.",
+            "confidence": 0.8560799787458244
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes",
+        "latency_ms": 1.25
+      },
+      {
+        "id": "ADV_035",
+        "category": "why_valid_with_context_num",
+        "query": "Why does the disk engine write in 4 KB blocks on storage systems?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_disk_engine.md",
+            "chunk_index": 0,
+            "start_char": 134,
+            "end_char": 251,
+            "exact_text": "- Storage block size: 4096 bytes per sector.\n- File permission mask on disk: Octal mode 0600 (read/write owner only).",
+            "confidence": 0.90358669682397
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Storage block size: 4096 bytes per sector.\n- File permission mask on disk: Octal mode 0600 (read/write owner only). [S",
+        "latency_ms": 1.63
+      },
+      {
+        "id": "ADV_036",
+        "category": "why_valid_with_context_num",
+        "query": "Why does the cache store up to 10000 entries in system memory?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_caching_layer.md",
+            "chunk_index": 0,
+            "start_char": 148,
+            "end_char": 274,
+            "exact_text": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text content.",
+            "confidence": 0.8655228591487142
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text co",
+        "latency_ms": 1.98
+      },
+      {
+        "id": "ADV_037",
+        "category": "why_valid_with_context_num",
+        "query": "Why does P1 severity require response within 15 minutes during an outage?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8804963256757113
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 1.49
+      },
+      {
+        "id": "ADV_038",
+        "category": "why_valid_with_context_num",
+        "query": "Why are daily database snapshots kept for 30 calendar days?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_backup_policy.md",
+            "chunk_index": 0,
+            "start_char": 132,
+            "end_char": 247,
+            "exact_text": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.",
+            "confidence": 0.853059424368382
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "latency_ms": 1.04
+      },
+      {
+        "id": "ADV_039",
+        "category": "why_valid_with_context_num",
+        "query": "Why does the CPU execution pool cap concurrency at 4 threads?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_cpu_simd.md",
+            "chunk_index": 0,
+            "start_char": 195,
+            "end_char": 323,
+            "exact_text": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker threads.",
+            "confidence": 0.8581339790296364
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker ",
+        "latency_ms": 1.04
+      },
+      {
+        "id": "ADV_040",
+        "category": "why_valid_with_context_num",
+        "query": "Why does the VPN tunnel send keepalive pings every 25 seconds?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_vpn_tunnel.md",
+            "chunk_index": 0,
+            "start_char": 126,
+            "end_char": 193,
+            "exact_text": "- Keepalive interval: 25 seconds.\n- Tunnel MTU setting: 1420 bytes.",
+            "confidence": 0.883300534452804
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Keepalive interval: 25 seconds.\n- Tunnel MTU setting: 1420 bytes. [Source: network_vpn_tunnel.md (char 126-193)]",
+        "latency_ms": 1.0
+      },
+      {
+        "id": "ADV_041",
+        "category": "attribute_unit_discrimination",
+        "query": "Why does ChakrMicro V0.6 have 1536 attention heads?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.9166094732135764
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.07
+      },
+      {
+        "id": "ADV_042",
+        "category": "attribute_unit_discrimination",
+        "query": "What is the intermediate feed-forward layer size in ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 160,
+            "end_char": 255,
+            "exact_text": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens.",
+            "confidence": 0.8575942989916578
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0",
+        "latency_ms": 1.15
+      },
+      {
+        "id": "ADV_043",
+        "category": "attribute_unit_discrimination",
+        "query": "Why is the hidden dimension of ChakrMicro V0.6 set to 512 units?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 77,
+            "end_char": 159,
+            "exact_text": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.",
+            "confidence": 0.8780989486596723
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c",
+        "latency_ms": 1.2
+      },
+      {
+        "id": "ADV_044",
+        "category": "attribute_unit_discrimination",
+        "query": "What is the hidden dimension of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 77,
+            "end_char": 159,
+            "exact_text": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads.",
+            "confidence": 0.8548398434575132
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c",
+        "latency_ms": 0.98
+      },
+      {
+        "id": "ADV_045",
+        "category": "attribute_unit_discrimination",
+        "query": "Why does the token expire after 500 hours?",
+        "expected": "REFUTE",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.93
+      },
+      {
+        "id": "ADV_046",
+        "category": "attribute_unit_discrimination",
+        "query": "What is the token expiration window in seconds?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_auth_tokens.md",
+            "chunk_index": 0,
+            "start_char": 128,
+            "end_char": 270,
+            "exact_text": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with HTTP 401 Unauthorized.",
+            "confidence": 0.8686989424908577
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "latency_ms": 1.3
+      },
+      {
+        "id": "ADV_047",
+        "category": "attribute_unit_discrimination",
+        "query": "Why does the API gateway allow requests up to 100 MB?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "network_gateway_api.md",
+            "chunk_index": 0,
+            "start_char": 110,
+            "end_char": 231,
+            "exact_text": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP.",
+            "confidence": 0.8713589941222246
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP",
+        "latency_ms": 1.45
+      },
+      {
+        "id": "ADV_048",
+        "category": "attribute_unit_discrimination",
+        "query": "What payload size triggers an HTTP 413 payload too large?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_blob_store.md",
+            "chunk_index": 0,
+            "start_char": 68,
+            "end_char": 178,
+            "exact_text": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`. [Source: ",
+        "latency_ms": 1.18
+      },
+      {
+        "id": "ADV_049",
+        "category": "attribute_unit_discrimination",
+        "query": "Why are mutual TLS certificates rotated every 24 minutes?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 149,
+            "end_char": 323,
+            "exact_text": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verification: Mutual TLS (mTLS) with custom X.509 certificates.",
+            "confidence": 0.8438321647172609
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat",
+        "latency_ms": 1.66
+      },
+      {
+        "id": "ADV_050",
+        "category": "attribute_unit_discrimination",
+        "query": "How frequently are mutual TLS session certificates rotated?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 149,
+            "end_char": 323,
+            "exact_text": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verification: Mutual TLS (mTLS) with custom X.509 certificates.",
+            "confidence": 0.8353700897590575
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat",
+        "latency_ms": 1.0
+      },
+      {
+        "id": "ADV_051",
+        "category": "version_conflicts",
+        "query": "What is the parameter count of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.8643699607085755
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 0.97
+      },
+      {
+        "id": "ADV_052",
+        "category": "version_conflicts",
+        "query": "What is the target parameter count for the V0.7 architecture?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.7543953131889891
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.08
+      },
+      {
+        "id": "ADV_053",
+        "category": "version_conflicts",
+        "query": "Why does ChakrMicro V0.6 use 24.5 million parameters?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 297,
+            "end_char": 410,
+            "exact_text": "- Primary context ceiling: 512 active tokens.\n- Weight parameter volume: 10.8 million trainable float parameters.",
+            "confidence": 0.8618476530709042
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Primary context ceiling: 512 active tokens.\n- Weight parameter volume: 10.8 million trainable float parameters. [Sourc",
+        "latency_ms": 1.09
+      },
+      {
+        "id": "ADV_054",
+        "category": "version_conflicts",
+        "query": "Why does ChakrMicro V0.7 target only 10.8 million parameters?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 297,
+            "end_char": 410,
+            "exact_text": "- Primary context ceiling: 512 active tokens.\n- Weight parameter volume: 10.8 million trainable float parameters.",
+            "confidence": 0.8814774106560708
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Primary context ceiling: 512 active tokens.\n- Weight parameter volume: 10.8 million trainable float parameters. [Sourc",
+        "latency_ms": 1.16
+      },
+      {
+        "id": "ADV_055",
+        "category": "version_conflicts",
+        "query": "What attention mechanism is proposed for V0.7?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 121,
+            "end_char": 216,
+            "exact_text": "- Attention heads: 8 full query heads.\n- Intermediate feed-forward layer size: 2048 dimensions.",
+            "confidence": 0.8525910366969754
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Attention heads: 8 full query heads.\n- Intermediate feed-forward layer size: 2048 dimensions. [Source: compute_arch_v0",
+        "latency_ms": 0.96
+      },
+      {
+        "id": "ADV_056",
+        "category": "version_conflicts",
+        "query": "How many transformer decoder layers are in ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 245,
+            "end_char": 342,
+            "exact_text": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens.",
+            "confidence": 0.9068523064414815
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_",
+        "latency_ms": 1.03
+      },
+      {
+        "id": "ADV_057",
+        "category": "version_conflicts",
+        "query": "Why does ChakrMicro V0.6 have 12 transformer layers?",
+        "expected": "REFUTE",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 245,
+            "end_char": 342,
+            "exact_text": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens.",
+            "confidence": 0.8948188694513137
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_",
+        "latency_ms": 1.08
+      },
+      {
+        "id": "ADV_058",
+        "category": "version_conflicts",
+        "query": "What is the primary context ceiling in ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 245,
+            "end_char": 342,
+            "exact_text": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens.",
+            "confidence": 0.8772226174924385
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_",
+        "latency_ms": 1.72
+      },
+      {
+        "id": "ADV_059",
+        "category": "version_conflicts",
+        "query": "Why is the context ceiling in V0.6 2048 tokens?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_v07_draft.md",
+            "chunk_index": 0,
+            "start_char": 217,
+            "end_char": 343,
+            "exact_text": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 runtimes.",
+            "confidence": 0.8451284052001102
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on context: Query asserts 2048, but verified evidence establishe",
+        "latency_ms": 1.27
+      },
+      {
+        "id": "ADV_060",
+        "category": "version_conflicts",
+        "query": "What is the parameter count of the core topology?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_arch_core.md",
+            "chunk_index": 0,
+            "start_char": 95,
+            "end_char": 244,
+            "exact_text": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward layer size: 1536 dimensions.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward",
+        "latency_ms": 1.07
+      },
+      {
+        "id": "ADV_061",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.83
+      },
+      {
+        "id": "ADV_062",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the orbital eccentricity of Jupiter moon Europa?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.72
+      },
+      {
+        "id": "ADV_063",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the current market capital of Apple in Japanese Yen?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.73
+      },
+      {
+        "id": "ADV_064",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the chemical composition of volcanic basalt on Mars?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.7
+      },
+      {
+        "id": "ADV_065",
+        "category": "honest_abstention_unsupported",
+        "query": "Who won the FIFA World Cup football tournament in 1994?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.71
+      },
+      {
+        "id": "ADV_066",
+        "category": "honest_abstention_unsupported",
+        "query": "Why are database tokens configured to expire after 100 years?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.75
+      },
+      {
+        "id": "ADV_067",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Postgres cluster replicate to Sydney data center?",
+        "expected": "ABSTAIN",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "network_mesh_topology.md",
+            "chunk_index": 0,
+            "start_char": 182,
+            "end_char": 289,
+            "exact_text": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "latency_ms": 0.92
+      },
+      {
+        "id": "ADV_068",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the latency of quantum teleportation in ChakrView?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.73
+      },
+      {
+        "id": "ADV_069",
+        "category": "honest_abstention_unsupported",
+        "query": "Why is the Kafka broker partition count set to 64?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.79
+      },
+      {
+        "id": "ADV_070",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the capital city of France?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.67
+      },
+      {
+        "id": "ADV_071",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Docker daemon use btrfs storage driver?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.78
+      },
+      {
+        "id": "ADV_072",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the half-life of Carbon-14 in years?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.82
+      },
+      {
+        "id": "ADV_073",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Redis cache expire keys after 7 days?",
+        "expected": "ABSTAIN",
+        "actual": "REFUTE",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "storage_caching_layer.md",
+            "chunk_index": 0,
+            "start_char": 199,
+            "end_char": 358,
+            "exact_text": "- Cache key generation: SHA-256 hash of model identifier plus text content.\n- Stale cache invalidation trigger: Document SHA-256 modification or file deletion.",
+            "confidence": 0.8857221173623872
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "Contradiction detected: False numerical premise refuted on cache: Query asserts 7, but verified evidence establishes - C",
+        "latency_ms": 1.2
+      },
+      {
+        "id": "ADV_074",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the melting point of tungsten in Celsius?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.96
+      },
+      {
+        "id": "ADV_075",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Nginx server run on port 8080?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.03
+      },
+      {
+        "id": "ADV_076",
+        "category": "honest_abstention_unsupported",
+        "query": "Who invented the printing press in Europe?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.29
+      },
+      {
+        "id": "ADV_077",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Golang compiler disable inlining on ARM?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.27
+      },
+      {
+        "id": "ADV_078",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the population of Tokyo in 2024?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.79
+      },
+      {
+        "id": "ADV_079",
+        "category": "honest_abstention_unsupported",
+        "query": "Why does the Ceph storage cluster use erasure coding 8+4?",
+        "expected": "ABSTAIN",
+        "actual": "ANSWER",
+        "is_correct": false,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 147,
+            "end_char": 354,
+            "exact_text": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster Tier: Custom annual contract starting at $12,000 per year with unlimited workers.",
+            "confidence": 0.8164005743225013
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "latency_ms": 1.13
+      },
+      {
+        "id": "ADV_080",
+        "category": "honest_abstention_unsupported",
+        "query": "What is the boiling point of liquid nitrogen?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.84
+      },
+      {
+        "id": "ADV_081",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What encryption protocol secures inter-node communication?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 70,
+            "end_char": 235,
+            "exact_text": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.",
+            "confidence": 0.7852378008038757
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h",
+        "latency_ms": 0.88
+      },
+      {
+        "id": "ADV_082",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "Which symmetric cipher is enforced with TLS 1.3?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 70,
+            "end_char": 235,
+            "exact_text": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h",
+        "latency_ms": 0.85
+      },
+      {
+        "id": "ADV_083",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What is the thread pool ceiling for CPU execution?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_cpu_simd.md",
+            "chunk_index": 0,
+            "start_char": 195,
+            "end_char": 323,
+            "exact_text": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker threads.",
+            "confidence": 0.8464339341316367
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker ",
+        "latency_ms": 0.86
+      },
+      {
+        "id": "ADV_084",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What load balancing algorithm distributes internal traffic?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_load_balancer.md",
+            "chunk_index": 0,
+            "start_char": 62,
+            "end_char": 193,
+            "exact_text": "- Primary load-balancing algorithm: Weighted round-robin based on CPU capacity.\n- Health probe endpoint: `/healthz` HTTP GET probe.",
+            "confidence": 0.8328424028533445
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Primary load-balancing algorithm: Weighted round-robin based on CPU capacity.\n- Health probe endpoint: `/healthz` HTTP",
+        "latency_ms": 0.77
+      },
+      {
+        "id": "ADV_085",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What algorithm is used for LSM merge sorting?",
+        "expected": "ANSWER",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.73
+      },
+      {
+        "id": "ADV_086",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What is the retention period for daily database backups?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_backup_policy.md",
+            "chunk_index": 0,
+            "start_char": 132,
+            "end_char": 247,
+            "exact_text": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "latency_ms": 0.92
+      },
+      {
+        "id": "ADV_087",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What database engine manages document metadata?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_sqlite_schema.md",
+            "chunk_index": 0,
+            "start_char": 48,
+            "end_char": 216,
+            "exact_text": "- Table `documents`: Tracks doc_id, file_path, file_size_bytes, mtime, sha256.\n- Table `chunks`: Tracks chunk_id, doc_id, chunk_index, start_char, end_char, chunk_hash.",
+            "confidence": 0.8396502302680952
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Table `documents`: Tracks doc_id, file_path, file_size_bytes, mtime, sha256.\n- Table `chunks`: Tracks chunk_id, doc_id",
+        "latency_ms": 0.93
+      },
+      {
+        "id": "ADV_088",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What threat model methodology guides ChakrView security reviews?",
+        "expected": "ANSWER",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 0.94
+      },
+      {
+        "id": "ADV_089",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What Linux kernel feature isolates assistant tool execution?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_threat_model.md",
+            "chunk_index": 0,
+            "start_char": 161,
+            "end_char": 372,
+            "exact_text": "- Prompt-injection resistance: Instructions inside retrieved documents never override system execution policies.\n- Tool invocation barrier: Document Q&A cannot trigger filesystem modifications or network egress.",
+            "confidence": 0.8257223394083599
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Prompt-injection resistance: Instructions inside retrieved documents never override system execution policies.\n- Tool ",
+        "latency_ms": 1.21
+      },
+      {
+        "id": "ADV_090",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What is the remediation SLA for critical vulnerabilities?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "security_vulnerability_sla.md",
+            "chunk_index": 0,
+            "start_char": 56,
+            "end_char": 205,
+            "exact_text": "- Critical severity CVEs (CVSS 9.0+): Patch deployment within 24 hours.\n- High severity CVEs (CVSS 7.0-8.9): Patch deployment within 7 calendar days.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Critical severity CVEs (CVSS 9.0+): Patch deployment within 24 hours.\n- High severity CVEs (CVSS 7.0-8.9): Patch deplo",
+        "latency_ms": 1.53
+      },
+      {
+        "id": "ADV_091",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "Inquire about inter-node network traffic cipher standard details.",
+        "expected": "ANSWER",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "citations": [],
+        "cites_valid": true,
+        "evidence_span": null,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "latency_ms": 1.12
+      },
+      {
+        "id": "ADV_092",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "Could you provide information regarding the thread pool ceiling for CPU execution?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_cpu_simd.md",
+            "chunk_index": 0,
+            "start_char": 195,
+            "end_char": 323,
+            "exact_text": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker threads.",
+            "confidence": 0.8662336542710524
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker ",
+        "latency_ms": 1.65
+      },
+      {
+        "id": "ADV_093",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "Inter-node traffic me kaun sa protocol encryption provide karta hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "network_encryption_transit.md",
+            "chunk_index": 0,
+            "start_char": 149,
+            "end_char": 323,
+            "exact_text": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verification: Mutual TLS (mTLS) with custom X.509 certificates.",
+            "confidence": 0.6314806804672898
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat",
+        "latency_ms": 1.44
+      },
+      {
+        "id": "ADV_094",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "CPU inference ke liye kam se kam kitni RAM honi chahiye?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "compute_memory_bus.md",
+            "chunk_index": 0,
+            "start_char": 179,
+            "end_char": 324,
+            "exact_text": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned across L1, L2, and L3 caches.",
+            "confidence": 0.8249592825142518
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "latency_ms": 1.1
+      },
+      {
+        "id": "ADV_095",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "Backup archives me kaun sa encryption lagta hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "storage_backup_policy.md",
+            "chunk_index": 0,
+            "start_char": 132,
+            "end_char": 247,
+            "exact_text": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume.",
+            "confidence": 0.7176112028262878
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "latency_ms": 0.88
+      },
+      {
+        "id": "ADV_096",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What software license governs ChakrView community edition?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_licensing_compliance.md",
+            "chunk_index": 0,
+            "start_char": 151,
+            "end_char": 328,
+            "exact_text": "- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistribution of compiled or raw binaries is strictly prohibited.",
+            "confidence": 0.8710772297280511
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum registered physical machines: 5 hardware machines per Starter license.\n- Source code redistribution: Redistrib",
+        "latency_ms": 0.87
+      },
+      {
+        "id": "ADV_097",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What is the monthly fee for the Professional subscription tier?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_subscription_tiers.md",
+            "chunk_index": 0,
+            "start_char": 147,
+            "end_char": 354,
+            "exact_text": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cluster Tier: Custom annual contract starting at $12,000 per year with unlimited workers.",
+            "confidence": 0.8
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "latency_ms": 1.0
+      },
+      {
+        "id": "ADV_098",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What response SLA is guaranteed for 24x7 mission critical support?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "billing_support_tiers.md",
+            "chunk_index": 0,
+            "start_char": 79,
+            "end_char": 225,
+            "exact_text": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.",
+            "confidence": 0.8699145205141514
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "latency_ms": 0.9
+      },
+      {
+        "id": "ADV_099",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "At what file size are runtime log files rotated?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_log_rotation.md",
+            "chunk_index": 0,
+            "start_char": 63,
+            "end_char": 193,
+            "exact_text": "- Maximum individual log file size: 52428800 bytes (50 MB cap).\n- Rotated backup count: 5 compressed archive generations retained.",
+            "confidence": 0.8621135678497214
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Maximum individual log file size: 52428800 bytes (50 MB cap).\n- Rotated backup count: 5 compressed archive generations",
+        "latency_ms": 0.89
+      },
+      {
+        "id": "ADV_100",
+        "category": "grounded_retrieval_and_hinglish",
+        "query": "What Python version is officially supported for runtime deployment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "citations": [
+          {
+            "doc_id": "sop_runtime_environments.md",
+            "chunk_index": 0,
+            "start_char": 83,
+            "end_char": 269,
+            "exact_text": "- Certified Python runtimes: Python 3.10, Python 3.11, Python 3.12, Python 3.13, and Python 3.14.\n- Deprecated / Unsupported versions: Python 3.8 and Python 3.9 are strictly unsupported.",
+            "confidence": 0.8775852319650135
+          }
+        ],
+        "cites_valid": true,
+        "evidence_span": "",
+        "answer_preview": "- Certified Python runtimes: Python 3.10, Python 3.11, Python 3.12, Python 3.13, and Python 3.14.\n- Deprecated / Unsuppo",
+        "latency_ms": 0.89
+      }
+    ]
+  }
+}

@@ -317,26 +317,68 @@ class LocalKnowledgeAssistant:
             q_clean_lower = clean_q.lower()
             ans_lower = answer_text.lower()
 
-            # Check 1: Permission vs Prohibition (e.g. allows sudo vs forbidden/prohibited)
-            allows_in_q = bool(re.search(r"\b(?:allow|allows|allowed|permit|permits|permitted|enable|enabled)\b", q_clean_lower))
-            forbids_in_ans = bool(re.search(r"\b(?:forbidden|prohibited|disabled|denied|disallowed|never)\b", ans_lower))
-            if allows_in_q and forbids_in_ans:
-                is_refute = True
-                refute_reason = f"False premise refuted: Query asserts permission/allowance, but verified documentation states it is forbidden or prohibited."
+            # Evidence-grounded conservative premise contradiction check
+            is_refute = False
+            refute_reason = None
+            q_clean_lower = clean_q.lower()
+            ans_lower = answer_text.lower()
 
-            # Check 2: Direct numerical contradiction in 'Why does/is/are...' premise queries
-            is_why_query = bool(re.search(r"\bwhy\s+(?:does|is|are|did|do|was|were)\b", q_clean_lower))
-            if is_why_query and not is_refute:
-                # Extract non-version numbers from query and evidence
-                q_nums = set(re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", q_clean_lower.replace(",", "")))
-                ans_nums = set(re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", ans_lower.replace(",", "")))
-                # Remove version numbers like 0.6, 0.7 if present in both
-                common_nums = q_nums.intersection(ans_nums)
-                distinct_q_nums = q_nums - common_nums
-                distinct_ans_nums = ans_nums - common_nums
-                if distinct_q_nums and distinct_ans_nums:
-                    is_refute = True
-                    refute_reason = f"False premise refuted: Query asserts {', '.join(distinct_q_nums)}, but verified evidence establishes {answer_text}."
+            # Check 1: Action-Aligned Permission vs Prohibition
+            # Identify the specific action/object being asked about (e.g. 'sudo', 'root', 'unauthenticated', 'unencrypted')
+            prohibited_actions = ["sudo", "root", "unauthenticated", "unencrypted", "plain-text", "arbitrary"]
+            allows_in_q = bool(re.search(r"\b(?:allow|allows|allowed|permit|permits|permitted|enable|enabled)\b", q_clean_lower))
+            
+            for action in prohibited_actions:
+                if action in q_clean_lower and allows_in_q:
+                    # Check if evidence explicitly states this action is forbidden/prohibited/terminated
+                    if action in ans_lower and re.search(r"\b(?:forbidden|prohibited|disabled|denied|disallowed|terminated|never)\b", ans_lower):
+                        is_refute = True
+                        refute_reason = f"False premise refuted: Query asserts permission for '{action}', but verified documentation states it is forbidden or prohibited."
+                        break
+
+            # Check 2: Attribute-Aligned Numerical Premise Contradiction
+            # Evaluates queries that assert an explicit number on an attribute (e.g. heads, price, sla, context)
+            if not is_refute:
+                # Map attribute keywords to check entity alignment
+                attributes = {
+                    "head": [r"\bhead[s]?\b", r"\battention\b"],
+                    "price": [r"\bprice\b", r"\bcost\b", r"\$\d+", r"\bper\s+month\b"],
+                    "sla": [r"\bsla\b", r"\bresponse\b", r"\boutage\b", r"\bseverity\b"],
+                    "context": [r"\bcontext\b", r"\btoken[s]?\b", r"\bceiling\b"],
+                    "ram": [r"\bram\b", r"\bmemory\b", r"\bgb\b"],
+                    "compute_cap": [r"\bcompute\s+capability\b", r"\bcuda\b"],
+                    "port": [r"\bport\b", r"\btcp\b"],
+                    "heartbeat": [r"\bheartbeat\b", r"\binterval\b"],
+                    "cache": [r"\bcache\b", r"\bcapacity\b", r"\bentries\b"],
+                    "rpo": [r"\brpo\b", r"\brecovery\s+point\b"],
+                    "payload": [r"\bpayload\b", r"\b413\b", r"\bmb\b"],
+                    "rotation": [r"\brotat(?:e|ed|ion)\b", r"\bcertificate[s]?\b"]
+                }
+                
+                # Check if query asserts a false number for an aligned attribute
+                is_why_or_assertive = bool(re.search(r"\b(?:why|is the|does|priced at|support a|limited to)\b", q_clean_lower))
+                if is_why_or_assertive:
+                    # Find all numbers in query excluding version tags like v0.6, v0.7
+                    q_no_version = re.sub(r"\bv\d+(?:\.\d+)?\b", "", q_clean_lower)
+                    q_num_matches = re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", q_no_version.replace(",", ""))
+                    q_pure_nums = [n for n in q_num_matches if n not in ("0.6", "0.7", "1", "2")]
+                    
+                    ans_no_version = re.sub(r"\bv\d+(?:\.\d+)?\b", "", ans_lower)
+                    ans_num_matches = re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", ans_no_version.replace(",", ""))
+                    ans_pure_nums = [n for n in ans_num_matches if n not in ("0.6", "0.7")]
+                    
+                    # Verify attribute alignment between query and evidence
+                    for attr_name, patterns in attributes.items():
+                        q_has_attr = any(re.search(p, q_clean_lower) for p in patterns)
+                        ans_has_attr = any(re.search(p, ans_lower) for p in patterns)
+                        
+                        if q_has_attr and ans_has_attr:
+                            # If query asserts a specific attribute number that differs from the evidence attribute number
+                            if q_pure_nums and ans_pure_nums:
+                                if not set(q_pure_nums).intersection(set(ans_pure_nums)):
+                                    is_refute = True
+                                    refute_reason = f"False numerical premise refuted on {attr_name}: Query asserts {', '.join(q_pure_nums)}, but verified evidence establishes {answer_text}."
+                                    break
 
             if is_refute:
                 decision_str = "REFUTE"

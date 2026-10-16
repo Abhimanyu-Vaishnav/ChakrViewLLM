@@ -1,0 +1,802 @@
+[
+  {
+    "id": "ADV_001",
+    "category": "numerical_premise",
+    "query": "Why does ChakrMicro V0.6 require 128 attention heads on CPU?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 128 heads, doc establishes 6 heads."
+  },
+  {
+    "id": "ADV_002",
+    "category": "numerical_premise",
+    "query": "Why does ChakrMicro V0.6 have 6 query heads on CPU?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid question reflecting true 6 heads."
+  },
+  {
+    "id": "ADV_003",
+    "category": "numerical_premise",
+    "query": "Why is the Starter subscription priced at $9,000 per month?",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts $9000, doc establishes $150."
+  },
+  {
+    "id": "ADV_004",
+    "category": "numerical_premise",
+    "query": "Is the Starter subscription priced at $150 per month?",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching $150 price."
+  },
+  {
+    "id": "ADV_005",
+    "category": "numerical_premise",
+    "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+    "expected_source": "billing_support_tiers.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 48 hours, doc establishes 15 minutes."
+  },
+  {
+    "id": "ADV_006",
+    "category": "numerical_premise",
+    "query": "Does the P1 severity SLA require response within 15 minutes?",
+    "expected_source": "billing_support_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching 15 minutes."
+  },
+  {
+    "id": "ADV_007",
+    "category": "numerical_premise",
+    "query": "Why does ChakrMicro V0.6 support a context window of 8192 active tokens?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 8192 tokens, doc establishes 512 tokens."
+  },
+  {
+    "id": "ADV_008",
+    "category": "numerical_premise",
+    "query": "What is the primary context ceiling in active tokens for ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query seeking 512 tokens."
+  },
+  {
+    "id": "ADV_009",
+    "category": "numerical_premise",
+    "query": "Why does CPU inference require 32 GB of physical RAM?",
+    "expected_source": "compute_memory_bus.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 32 GB, doc establishes 1.5 GB."
+  },
+  {
+    "id": "ADV_010",
+    "category": "numerical_premise",
+    "query": "What is the minimum physical RAM required for CPU inference?",
+    "expected_source": "compute_memory_bus.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching 1.5 GB."
+  },
+  {
+    "id": "ADV_011",
+    "category": "numerical_premise",
+    "query": "Why does CUDA acceleration require Nvidia compute capability 9.0?",
+    "expected_source": "compute_accelerator_cuda.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 9.0, doc establishes 7.5."
+  },
+  {
+    "id": "ADV_012",
+    "category": "numerical_premise",
+    "query": "What minimum compute capability is required for CUDA acceleration?",
+    "expected_source": "compute_accelerator_cuda.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching 7.5."
+  },
+  {
+    "id": "ADV_013",
+    "category": "numerical_premise",
+    "query": "Why does the mesh network communicate over TCP port 9000?",
+    "expected_source": "network_mesh_topology.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts port 9000, doc establishes port 8443."
+  },
+  {
+    "id": "ADV_014",
+    "category": "numerical_premise",
+    "query": "What TCP port handles data transmission in the mesh network?",
+    "expected_source": "network_mesh_topology.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query seeking port 8443."
+  },
+  {
+    "id": "ADV_015",
+    "category": "numerical_premise",
+    "query": "Why is the Raft consensus heartbeat interval set to 1000 milliseconds?",
+    "expected_source": "network_consensus_raft.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 1000ms, doc establishes 50ms."
+  },
+  {
+    "id": "ADV_016",
+    "category": "numerical_premise",
+    "query": "What is the heartbeat interval in Raft consensus?",
+    "expected_source": "network_consensus_raft.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching 50ms."
+  },
+  {
+    "id": "ADV_017",
+    "category": "numerical_premise",
+    "query": "Why is the in-memory embedding cache limited to 50 entries?",
+    "expected_source": "storage_caching_layer.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 50 entries, doc establishes 10000 entries."
+  },
+  {
+    "id": "ADV_018",
+    "category": "numerical_premise",
+    "query": "What is the maximum capacity of the in-memory embedding cache?",
+    "expected_source": "storage_caching_layer.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query seeking 10000 entries."
+  },
+  {
+    "id": "ADV_019",
+    "category": "numerical_premise",
+    "query": "Why does disaster recovery target an RPO of 120 minutes?",
+    "expected_source": "sop_disaster_recovery.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts 120m, doc establishes 15 minutes."
+  },
+  {
+    "id": "ADV_020",
+    "category": "numerical_premise",
+    "query": "What is the target Recovery Point Objective (RPO)?",
+    "expected_source": "sop_disaster_recovery.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query matching 15m."
+  },
+  {
+    "id": "ADV_021",
+    "category": "permission_prohibition",
+    "query": "Why does ChakrView allow arbitrary sudo execution in production?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts sudo allowed; doc forbids sudo."
+  },
+  {
+    "id": "ADV_022",
+    "category": "permission_prohibition",
+    "query": "Why does ChakrView allow root administrative access to worker tools?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts root access allowed; doc forbids root."
+  },
+  {
+    "id": "ADV_023",
+    "category": "permission_prohibition",
+    "query": "Why are unauthenticated API requests permitted without limits?",
+    "expected_source": "network_gateway_api.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts unauthenticated allowed freely; doc rate limits to 60/min."
+  },
+  {
+    "id": "ADV_024",
+    "category": "permission_prohibition",
+    "query": "Why are unauthenticated requests granted full administrative access?",
+    "expected_source": "security_auth_tokens.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts unauthenticated allowed; doc terminates with 401."
+  },
+  {
+    "id": "ADV_025",
+    "category": "permission_prohibition",
+    "query": "Why does ChakrView allow direct unencrypted communication between nodes?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Asserts unencrypted allowed; doc mandates TLS 1.3."
+  },
+  {
+    "id": "ADV_026",
+    "category": "permission_prohibition",
+    "query": "Does ChakrView allow unprivileged worker executions in production?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Unprivileged execution IS allowed/standard."
+  },
+  {
+    "id": "ADV_027",
+    "category": "permission_prohibition",
+    "query": "Are tool executions run in isolated worker processes?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid factual query confirming isolated workers."
+  },
+  {
+    "id": "ADV_028",
+    "category": "permission_prohibition",
+    "query": "What system calls are permitted by the seccomp-bpf filter?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query about allowed syscalls."
+  },
+  {
+    "id": "ADV_029",
+    "category": "permission_prohibition",
+    "query": "What rate limit is applied to unauthenticated API requests?",
+    "expected_source": "network_gateway_api.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query seeking 60 requests per minute."
+  },
+  {
+    "id": "ADV_030",
+    "category": "permission_prohibition",
+    "query": "What token format is permitted for API authentication?",
+    "expected_source": "security_auth_tokens.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Valid query seeking JWT format."
+  },
+  {
+    "id": "ADV_031",
+    "category": "why_valid_with_context_num",
+    "query": "Why does ChakrMicro V0.6 have 6 query heads on 1 machine?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "'1 machine' is contextual, 6 heads is true."
+  },
+  {
+    "id": "ADV_032",
+    "category": "why_valid_with_context_num",
+    "query": "Why does the Starter tier include up to 2 concurrent worker processes for 1 user?",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "2 workers is true."
+  },
+  {
+    "id": "ADV_033",
+    "category": "why_valid_with_context_num",
+    "query": "Why does CUDA acceleration require 7.5 compute capability on Nvidia GPUs?",
+    "expected_source": "compute_accelerator_cuda.md",
+    "expected_decision": "ANSWER",
+    "rationale": "7.5 is true."
+  },
+  {
+    "id": "ADV_034",
+    "category": "why_valid_with_context_num",
+    "query": "Why is the Raft heartbeat interval 50 milliseconds in a 5-node cluster?",
+    "expected_source": "network_consensus_raft.md",
+    "expected_decision": "ANSWER",
+    "rationale": "50ms is true."
+  },
+  {
+    "id": "ADV_035",
+    "category": "why_valid_with_context_num",
+    "query": "Why does the disk engine write in 4 KB blocks on storage systems?",
+    "expected_source": "storage_disk_engine.md",
+    "expected_decision": "ANSWER",
+    "rationale": "4 KB is true."
+  },
+  {
+    "id": "ADV_036",
+    "category": "why_valid_with_context_num",
+    "query": "Why does the cache store up to 10000 entries in system memory?",
+    "expected_source": "storage_caching_layer.md",
+    "expected_decision": "ANSWER",
+    "rationale": "10000 entries is true."
+  },
+  {
+    "id": "ADV_037",
+    "category": "why_valid_with_context_num",
+    "query": "Why does P1 severity require response within 15 minutes during an outage?",
+    "expected_source": "billing_support_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "15 minutes is true."
+  },
+  {
+    "id": "ADV_038",
+    "category": "why_valid_with_context_num",
+    "query": "Why are daily database snapshots kept for 30 calendar days?",
+    "expected_source": "storage_backup_policy.md",
+    "expected_decision": "ANSWER",
+    "rationale": "30 days is true."
+  },
+  {
+    "id": "ADV_039",
+    "category": "why_valid_with_context_num",
+    "query": "Why does the CPU execution pool cap concurrency at 4 threads?",
+    "expected_source": "compute_cpu_simd.md",
+    "expected_decision": "ANSWER",
+    "rationale": "4 threads is true."
+  },
+  {
+    "id": "ADV_040",
+    "category": "why_valid_with_context_num",
+    "query": "Why does the VPN tunnel send keepalive pings every 25 seconds?",
+    "expected_source": "network_vpn_tunnel.md",
+    "expected_decision": "ANSWER",
+    "rationale": "25 seconds is true."
+  },
+  {
+    "id": "ADV_041",
+    "category": "attribute_unit_discrimination",
+    "query": "Why does ChakrMicro V0.6 have 1536 attention heads?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "1536 is feed-forward size, not attention heads."
+  },
+  {
+    "id": "ADV_042",
+    "category": "attribute_unit_discrimination",
+    "query": "What is the intermediate feed-forward layer size in ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "1536 dimensions."
+  },
+  {
+    "id": "ADV_043",
+    "category": "attribute_unit_discrimination",
+    "query": "Why is the hidden dimension of ChakrMicro V0.6 set to 512 units?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Hidden dimension is 384, 512 is context ceiling."
+  },
+  {
+    "id": "ADV_044",
+    "category": "attribute_unit_discrimination",
+    "query": "What is the hidden dimension of ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "384 units."
+  },
+  {
+    "id": "ADV_045",
+    "category": "attribute_unit_discrimination",
+    "query": "Why does the token expire after 500 hours?",
+    "expected_source": "security_auth_tokens.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Token expires in 60 minutes."
+  },
+  {
+    "id": "ADV_046",
+    "category": "attribute_unit_discrimination",
+    "query": "What is the token expiration window in seconds?",
+    "expected_source": "security_auth_tokens.md",
+    "expected_decision": "ANSWER",
+    "rationale": "3600 seconds."
+  },
+  {
+    "id": "ADV_047",
+    "category": "attribute_unit_discrimination",
+    "query": "Why does the API gateway allow requests up to 100 MB?",
+    "expected_source": "network_gateway_api.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Payload ceiling is 10 MB."
+  },
+  {
+    "id": "ADV_048",
+    "category": "attribute_unit_discrimination",
+    "query": "What payload size triggers an HTTP 413 payload too large?",
+    "expected_source": "network_gateway_api.md",
+    "expected_decision": "ANSWER",
+    "rationale": "10 MB."
+  },
+  {
+    "id": "ADV_049",
+    "category": "attribute_unit_discrimination",
+    "query": "Why are mutual TLS certificates rotated every 24 minutes?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "REFUTE",
+    "rationale": "Certificates are rotated every 24 hours."
+  },
+  {
+    "id": "ADV_050",
+    "category": "attribute_unit_discrimination",
+    "query": "How frequently are mutual TLS session certificates rotated?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Every 24 hours."
+  },
+  {
+    "id": "ADV_051",
+    "category": "version_conflicts",
+    "query": "What is the parameter count of ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "10.8 million parameters in V0.6."
+  },
+  {
+    "id": "ADV_052",
+    "category": "version_conflicts",
+    "query": "What is the target parameter count for the V0.7 architecture?",
+    "expected_source": "compute_arch_v07_draft.md",
+    "expected_decision": "ANSWER",
+    "rationale": "24.5 million parameters in V0.7."
+  },
+  {
+    "id": "ADV_053",
+    "category": "version_conflicts",
+    "query": "Why does ChakrMicro V0.6 use 24.5 million parameters?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "V0.6 has 10.8M, 24.5M is V0.7."
+  },
+  {
+    "id": "ADV_054",
+    "category": "version_conflicts",
+    "query": "Why does ChakrMicro V0.7 target only 10.8 million parameters?",
+    "expected_source": "compute_arch_v07_draft.md",
+    "expected_decision": "REFUTE",
+    "rationale": "V0.7 targets 24.5M, 10.8M was V0.6."
+  },
+  {
+    "id": "ADV_055",
+    "category": "version_conflicts",
+    "query": "What attention mechanism is proposed for V0.7?",
+    "expected_source": "compute_arch_v07_draft.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Grouped Query Attention (GQA)."
+  },
+  {
+    "id": "ADV_056",
+    "category": "version_conflicts",
+    "query": "How many transformer decoder layers are in ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "6 homogeneous blocks."
+  },
+  {
+    "id": "ADV_057",
+    "category": "version_conflicts",
+    "query": "Why does ChakrMicro V0.6 have 12 transformer layers?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "V0.6 has 6 layers, not 12."
+  },
+  {
+    "id": "ADV_058",
+    "category": "version_conflicts",
+    "query": "What is the primary context ceiling in ChakrMicro V0.6?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "512 active tokens."
+  },
+  {
+    "id": "ADV_059",
+    "category": "version_conflicts",
+    "query": "Why is the context ceiling in V0.6 2048 tokens?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "REFUTE",
+    "rationale": "V0.6 context ceiling is 512."
+  },
+  {
+    "id": "ADV_060",
+    "category": "version_conflicts",
+    "query": "What is the parameter count of the core topology?",
+    "expected_source": "compute_arch_core.md",
+    "expected_decision": "ANSWER",
+    "rationale": "10.8 million."
+  },
+  {
+    "id": "ADV_061",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Out-of-domain low-temp physics."
+  },
+  {
+    "id": "ADV_062",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the orbital eccentricity of Jupiter moon Europa?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Out-of-domain celestial astronomy."
+  },
+  {
+    "id": "ADV_063",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the current market capital of Apple in Japanese Yen?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Out-of-domain currency finance."
+  },
+  {
+    "id": "ADV_064",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the chemical composition of volcanic basalt on Mars?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Out-of-domain planetary geology."
+  },
+  {
+    "id": "ADV_065",
+    "category": "honest_abstention_unsupported",
+    "query": "Who won the FIFA World Cup football tournament in 1994?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Out-of-domain sports."
+  },
+  {
+    "id": "ADV_066",
+    "category": "honest_abstention_unsupported",
+    "query": "Why are database tokens configured to expire after 100 years?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Corpus has API bearer tokens but no database token docs."
+  },
+  {
+    "id": "ADV_067",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Postgres cluster replicate to Sydney data center?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Sydney replication documented in corpus."
+  },
+  {
+    "id": "ADV_068",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the latency of quantum teleportation in ChakrView?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Quantum physics not present in corpus."
+  },
+  {
+    "id": "ADV_069",
+    "category": "honest_abstention_unsupported",
+    "query": "Why is the Kafka broker partition count set to 64?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Kafka broker docs in corpus."
+  },
+  {
+    "id": "ADV_070",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the capital city of France?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "General world geography unindexed."
+  },
+  {
+    "id": "ADV_071",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Docker daemon use btrfs storage driver?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Docker daemon docs in corpus."
+  },
+  {
+    "id": "ADV_072",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the half-life of Carbon-14 in years?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Nuclear physics unindexed."
+  },
+  {
+    "id": "ADV_073",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Redis cache expire keys after 7 days?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Redis doc in corpus."
+  },
+  {
+    "id": "ADV_074",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the melting point of tungsten in Celsius?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Material science unindexed."
+  },
+  {
+    "id": "ADV_075",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Nginx server run on port 8080?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Nginx server doc in corpus."
+  },
+  {
+    "id": "ADV_076",
+    "category": "honest_abstention_unsupported",
+    "query": "Who invented the printing press in Europe?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Historical unindexed topic."
+  },
+  {
+    "id": "ADV_077",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Golang compiler disable inlining on ARM?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Go runtime internals unindexed."
+  },
+  {
+    "id": "ADV_078",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the population of Tokyo in 2024?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Demographics unindexed."
+  },
+  {
+    "id": "ADV_079",
+    "category": "honest_abstention_unsupported",
+    "query": "Why does the Ceph storage cluster use erasure coding 8+4?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "No Ceph docs in corpus."
+  },
+  {
+    "id": "ADV_080",
+    "category": "honest_abstention_unsupported",
+    "query": "What is the boiling point of liquid nitrogen?",
+    "expected_source": null,
+    "expected_decision": "ABSTAIN",
+    "rationale": "Cryogenics unindexed."
+  },
+  {
+    "id": "ADV_081",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What encryption protocol secures inter-node communication?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "ANSWER",
+    "rationale": "TLS 1.3."
+  },
+  {
+    "id": "ADV_082",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "Which symmetric cipher is enforced with TLS 1.3?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "ANSWER",
+    "rationale": "AES-256-GCM."
+  },
+  {
+    "id": "ADV_083",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What is the thread pool ceiling for CPU execution?",
+    "expected_source": "compute_cpu_simd.md",
+    "expected_decision": "ANSWER",
+    "rationale": "4 threads."
+  },
+  {
+    "id": "ADV_084",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What load balancing algorithm distributes internal traffic?",
+    "expected_source": "network_load_balancer.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Weighted round-robin."
+  },
+  {
+    "id": "ADV_085",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What algorithm is used for LSM merge sorting?",
+    "expected_source": "storage_compaction.md",
+    "expected_decision": "ANSWER",
+    "rationale": "k-way min-heap merge tree."
+  },
+  {
+    "id": "ADV_086",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What is the retention period for daily database backups?",
+    "expected_source": "storage_backup_policy.md",
+    "expected_decision": "ANSWER",
+    "rationale": "30 calendar days."
+  },
+  {
+    "id": "ADV_087",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What database engine manages document metadata?",
+    "expected_source": "storage_sqlite_schema.md",
+    "expected_decision": "ANSWER",
+    "rationale": "SQLite WAL mode."
+  },
+  {
+    "id": "ADV_088",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What threat model methodology guides ChakrView security reviews?",
+    "expected_source": "security_threat_model.md",
+    "expected_decision": "ANSWER",
+    "rationale": "STRIDE threat model."
+  },
+  {
+    "id": "ADV_089",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What Linux kernel feature isolates assistant tool execution?",
+    "expected_source": "security_sandbox_isolation.md",
+    "expected_decision": "ANSWER",
+    "rationale": "seccomp-bpf."
+  },
+  {
+    "id": "ADV_090",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What is the remediation SLA for critical vulnerabilities?",
+    "expected_source": "security_vulnerability_sla.md",
+    "expected_decision": "ANSWER",
+    "rationale": "48 hours."
+  },
+  {
+    "id": "ADV_091",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "Inquire about inter-node network traffic cipher standard details.",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Synonym query for TLS 1.3."
+  },
+  {
+    "id": "ADV_092",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "Could you provide information regarding the thread pool ceiling for CPU execution?",
+    "expected_source": "compute_cpu_simd.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Paraphrase query."
+  },
+  {
+    "id": "ADV_093",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "Inter-node traffic me kaun sa protocol encryption provide karta hai?",
+    "expected_source": "network_encryption_transit.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Hinglish query for TLS 1.3."
+  },
+  {
+    "id": "ADV_094",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "CPU inference ke liye kam se kam kitni RAM honi chahiye?",
+    "expected_source": "compute_memory_bus.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Hinglish query for 1.5 GB."
+  },
+  {
+    "id": "ADV_095",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "Backup archives me kaun sa encryption lagta hai?",
+    "expected_source": "storage_backup_policy.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Hinglish query for AES-256."
+  },
+  {
+    "id": "ADV_096",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What software license governs ChakrView community edition?",
+    "expected_source": "billing_licensing_compliance.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Apache License 2.0."
+  },
+  {
+    "id": "ADV_097",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What is the monthly fee for the Professional subscription tier?",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "$450 per month."
+  },
+  {
+    "id": "ADV_098",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What response SLA is guaranteed for 24x7 mission critical support?",
+    "expected_source": "billing_support_tiers.md",
+    "expected_decision": "ANSWER",
+    "rationale": "1-hour 24x7 response."
+  },
+  {
+    "id": "ADV_099",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "At what file size are runtime log files rotated?",
+    "expected_source": "sop_log_rotation.md",
+    "expected_decision": "ANSWER",
+    "rationale": "500 MB."
+  },
+  {
+    "id": "ADV_100",
+    "category": "grounded_retrieval_and_hinglish",
+    "query": "What Python version is officially supported for runtime deployment?",
+    "expected_source": "sop_runtime_environments.md",
+    "expected_decision": "ANSWER",
+    "rationale": "Python 3.10 through 3.14."
+  }
+]
