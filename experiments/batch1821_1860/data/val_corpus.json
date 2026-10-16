@@ -1,0 +1,110 @@
+[
+  {
+    "doc_id": "doc_prose_006",
+    "domain": "prose",
+    "split": "val",
+    "char_count": 124,
+    "approx_words": 15,
+    "sha256": "61e5d0ca77830ddd33c7510332d1d6e6b2e8649fad71d74d1f0d878d759bd5e4",
+    "text": "Every mathematical discovery begins as an empirical conjecture before rigorous deduction establishes its universal validity."
+  },
+  {
+    "doc_id": "doc_prose_007",
+    "domain": "prose",
+    "split": "val",
+    "char_count": 115,
+    "approx_words": 14,
+    "sha256": "363fff0f4cbfbc54ebd3673dbbebf4c26b0ddb6e4cee991eb2c923846f75fc7b",
+    "text": "Memory consolidation in cognitive architectures allows past episodic trajectories to inform future decision making."
+  },
+  {
+    "doc_id": "doc_technical_016",
+    "domain": "technical",
+    "split": "val",
+    "char_count": 125,
+    "approx_words": 15,
+    "sha256": "f5de7013421c06fe2e3d73871517a5a7be6c895eb26917c4075113a06668549b",
+    "text": "Causal multi-head self-attention uses an upper-triangular mask to prevent information leakage from future sequence positions."
+  },
+  {
+    "doc_id": "doc_technical_017",
+    "domain": "technical",
+    "split": "val",
+    "char_count": 121,
+    "approx_words": 18,
+    "sha256": "a209891b2ba5508647d7786f84e5057aaf661a35289858c0c9b60ffa993ecffb",
+    "text": "Byte-pair encoding iteratively merges the most frequent byte pairs in a corpus to construct a compact subword vocabulary."
+  },
+  {
+    "doc_id": "doc_mathematics_026",
+    "domain": "mathematics",
+    "split": "val",
+    "char_count": 111,
+    "approx_words": 19,
+    "sha256": "b0c418497c38f9d54d616f4a75143a2e74f265ba3261692085e4c91f71e0e09d",
+    "text": "The Riemann zeta function satisfies a functional equation relating its values at complex arguments s and 1 - s."
+  },
+  {
+    "doc_id": "doc_mathematics_027",
+    "domain": "mathematics",
+    "split": "val",
+    "char_count": 111,
+    "approx_words": 16,
+    "sha256": "4051b6055aba10d6024f2eb821304378e3140619ff0b60968191eda6723b0514",
+    "text": "Prime factorization guarantees that every integer greater than one can be uniquely factored into prime numbers."
+  },
+  {
+    "doc_id": "doc_code_036",
+    "domain": "code",
+    "split": "val",
+    "char_count": 319,
+    "approx_words": 45,
+    "sha256": "a6e355d51f44e7fb2be82e7a88948608cecac2925763af4d1af26eaa38f5ff14",
+    "text": "def matrix_multiply(A, B):\n    rows_A, cols_A = len(A), len(A[0])\n    rows_B, cols_B = len(B), len(B[0])\n    assert cols_A == rows_B\n    C = [[0] * cols_B for _ in range(rows_A)]\n    for i in range(rows_A):\n        for j in range(cols_B):\n            C[i][j] = sum(A[i][k] * B[k][j] for k in range(cols_A))\n    return C"
+  },
+  {
+    "doc_id": "doc_code_037",
+    "domain": "code",
+    "split": "val",
+    "char_count": 155,
+    "approx_words": 25,
+    "sha256": "28f166261950fa956e299a50872f539d490af163c1b0fb6d316d346fd7644685",
+    "text": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True"
+  },
+  {
+    "doc_id": "doc_propositions_046",
+    "domain": "propositions",
+    "split": "val",
+    "char_count": 117,
+    "approx_words": 13,
+    "sha256": "5c2149984f964a47de5dc973be7e4ba42e6dd2afcb765fadc64b5388b0e73cd9",
+    "text": "The tokenizer vocabulary contains 4,096 tokens, utilizing UTF-8 byte-level fallback for out-of-vocabulary characters."
+  },
+  {
+    "doc_id": "doc_propositions_047",
+    "domain": "propositions",
+    "split": "val",
+    "char_count": 111,
+    "approx_words": 14,
+    "sha256": "e4d2b3f08ea9f971687faf4a5bdfc16503a0eae1ac86051d011f76f150042613",
+    "text": "A governed neuro-symbolic hybrid system intercepts tool requests to validate schema arguments before execution."
+  },
+  {
+    "doc_id": "doc_hinglish_056",
+    "domain": "hinglish",
+    "split": "val",
+    "char_count": 97,
+    "approx_words": 18,
+    "sha256": "1f6f16e26aa7d7a7cec4786c9e1c4d5a20dddf9f5855fd5185bf3cb21e47676e",
+    "text": "Python sandbox ke andar forbidden modules jaise os aur sys ko AST parsing se block kiya jata hai."
+  },
+  {
+    "doc_id": "doc_hinglish_057",
+    "domain": "hinglish",
+    "split": "val",
+    "char_count": 102,
+    "approx_words": 15,
+    "sha256": "9c5157769586995fd8d8df8812b99bd9f6873a9d24b2ba68513d24b4c7bbcdc4",
+    "text": "Multi-seed evaluation se model ke performance variance aur standard deviation ka sahi pata chalta hai."
+  }
+]
