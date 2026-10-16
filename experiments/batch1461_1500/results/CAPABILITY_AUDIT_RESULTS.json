@@ -1,0 +1,2406 @@
+{
+  "timestamp": "2026-10-16T05:29:01Z",
+  "summary_matrix": {
+    "track_c_mathematics": {
+      "canonical_base_accuracy": 0.0,
+      "candidate_adapted_accuracy": 0.0,
+      "delta": 0.0
+    },
+    "track_d_coding": {
+      "canonical_syntax_rate": 0.125,
+      "canonical_test_pass_rate": 0.0,
+      "candidate_syntax_rate": 0.05,
+      "candidate_test_pass_rate": 0.0
+    },
+    "track_b_factual_grounding": {
+      "standalone_model_recall": 0.0,
+      "grounded_assistant_accuracy": 0.75
+    },
+    "track_e_generalization": {
+      "both_correct_rate": 0.7,
+      "pair_consistency_rate": 0.9
+    },
+    "controls": {
+      "overall_accuracy": 0.75,
+      "refutation_accuracy": 0.5,
+      "abstention_accuracy": 1.0
+    }
+  },
+  "track_c_details": {
+    "base": {
+      "total_tasks": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "results": [
+        {
+          "id": "math_01",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 147 + 258\nAnswer:",
+          "expected": "405",
+          "raw_output": "The first number of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_02",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1024 - 512\nAnswer:",
+          "expected": "512",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_03",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 999 + 1\nAnswer:",
+          "expected": "1000",
+          "raw_output": "The first number of the first cannot the fir",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_04",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 450 - 150\nAnswer:",
+          "expected": "300",
+          "raw_output": "The first of the first cannot the first of",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_05",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 384 + 128\nAnswer:",
+          "expected": "512",
+          "raw_output": "The first number of the first cannot the fir",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_06",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 73 + 89\nAnswer:",
+          "expected": "162",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_07",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 500 - 245\nAnswer:",
+          "expected": "255",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_08",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1536 - 384\nAnswer:",
+          "expected": "1152",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_09",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 12 * 12\nAnswer:",
+          "expected": "144",
+          "raw_output": "The first number of the first cannot the fir",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_10",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 16 * 8\nAnswer:",
+          "expected": "128",
+          "raw_output": "* [http://www.gov.co.",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_11",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 25 * 4\nAnswer:",
+          "expected": "100",
+          "raw_output": "* [http://www.gov.co.",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_12",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 64 * 8\nAnswer:",
+          "expected": "512",
+          "raw_output": "* 2005 of the first century of the first",
+          "extracted_number": "2005",
+          "is_correct": false
+        },
+        {
+          "id": "math_13",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 7 * 9\nAnswer:",
+          "expected": "63",
+          "raw_output": "* 2005 of the first cannot the first of",
+          "extracted_number": "2005",
+          "is_correct": false
+        },
+        {
+          "id": "math_14",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 15 * 6\nAnswer:",
+          "expected": "90",
+          "raw_output": "* 2005 of the first century of the first",
+          "extracted_number": "2005",
+          "is_correct": false
+        },
+        {
+          "id": "math_15",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 32 * 32\nAnswer:",
+          "expected": "1024",
+          "raw_output": "* January 2008 \u2013 Christian Amer",
+          "extracted_number": "2008",
+          "is_correct": false
+        },
+        {
+          "id": "math_16",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 50 * 20\nAnswer:",
+          "expected": "1000",
+          "raw_output": "* January 2008 \u2013 January 2008 \ufffd",
+          "extracted_number": "2008",
+          "is_correct": false
+        },
+        {
+          "id": "math_17",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 100 / 4\nAnswer:",
+          "expected": "25",
+          "raw_output": "The Andrography of the Christians",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_18",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1024 / 8\nAnswer:",
+          "expected": "128",
+          "raw_output": "The Special of the Andra of the Ch",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_19",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 4096 / 16\nAnswer:",
+          "expected": "256",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_20",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 512 / 64\nAnswer:",
+          "expected": "8",
+          "raw_output": "The Special of the Christian And",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_21",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 17 % 5\nAnswer:",
+          "expected": "2",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_22",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 100 % 7\nAnswer:",
+          "expected": "2",
+          "raw_output": "The first of the first cannot the first of",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_23",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 64 % 8\nAnswer:",
+          "expected": "0",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_24",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 255 % 16\nAnswer:",
+          "expected": "15",
+          "raw_output": "The first of the first cannot the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_25",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A cluster has 8 nodes, each running 4 workers. What is the total number of workers?\nAnswer:",
+          "expected": "32",
+          "raw_output": "The first of the show of the word of the city of",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_26",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A server has 64 GB of RAM. The OS consumes 4 GB, and cache takes 12 GB. How many GB remain?\nAnswer:",
+          "expected": "48",
+          "raw_output": "The first of the first of the first of the fi",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_27",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A model has 6 layers with 64 dimensions each. What is the product of layers and dimensions?\nAnswer:",
+          "expected": "384",
+          "raw_output": "The first of the first of the word of the worl",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_28",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: If an API request takes 25 ms, how many requests can be processed sequentially in 1000 ms?\nAnswer:",
+          "expected": "40",
+          "raw_output": "Step-by-Step Solution:\nThe total numb",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_29",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A user buys 3 Starter subscriptions at $150 each. What is the total monthly cost?\nAnswer:",
+          "expected": "450",
+          "raw_output": "The first plants of the word of the city of the c",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_30",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A buffer holds 512 bytes. If 128 bytes are added, what is the new size in bytes?\nAnswer:",
+          "expected": "640",
+          "raw_output": "The first of the first cannot is the first",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_31",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A file of 1000 KB is compressed by 25%. What is the resulting size in KB?\nAnswer:",
+          "expected": "750",
+          "raw_output": "The Special of the first candy of the",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_32",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: If heartbeat interval is 50 ms, how many heartbeats occur in 1 second (1000 ms)?\nAnswer:",
+          "expected": "20",
+          "raw_output": "Step-by-Step Solution:\nThe total numb",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_33",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A token pool has 4096 tokens. If 3072 tokens are allocated, how many tokens are free?\nAnswer:",
+          "expected": "1024",
+          "raw_output": "The shown of the city of the city of the city",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_34",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A neural layer has 192 inputs and 192 outputs. How many weight elements are in the linear matrix?\nAnswer:",
+          "expected": "36864",
+          "raw_output": "Step-by-Step Solution:\nThe fir",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_35",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 + 3 * 4\nAnswer:",
+          "expected": "14",
+          "raw_output": "* 2007\n* [http://www.g",
+          "extracted_number": "2007",
+          "is_correct": false
+        },
+        {
+          "id": "math_36",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: (10 - 2) * 5\nAnswer:",
+          "expected": "40",
+          "raw_output": "* 2007\n* [http://www.g",
+          "extracted_number": "2007",
+          "is_correct": false
+        },
+        {
+          "id": "math_37",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 100 - 20 * 3\nAnswer:",
+          "expected": "40",
+          "raw_output": "* January 2008 \u2013 Christians (",
+          "extracted_number": "2008",
+          "is_correct": false
+        },
+        {
+          "id": "math_38",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 ** 8\nAnswer:",
+          "expected": "256",
+          "raw_output": "* January 2008 \u2013 Christians (",
+          "extracted_number": "2008",
+          "is_correct": false
+        },
+        {
+          "id": "math_39",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 ** 10\nAnswer:",
+          "expected": "1024",
+          "raw_output": "* January 2008 \u2013 Christians (",
+          "extracted_number": "2008",
+          "is_correct": false
+        },
+        {
+          "id": "math_40",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: (50 + 50) / (2 * 5)\nAnswer:",
+          "expected": "10",
+          "raw_output": "# Christian Andra (b. 19",
+          "extracted_number": "19",
+          "is_correct": false
+        }
+      ]
+    },
+    "cand": {
+      "total_tasks": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "results": [
+        {
+          "id": "math_01",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 147 + 258\nAnswer:",
+          "expected": "405",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_02",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1024 - 512\nAnswer:",
+          "expected": "512",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_03",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 999 + 1\nAnswer:",
+          "expected": "1000",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_04",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 450 - 150\nAnswer:",
+          "expected": "300",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_05",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 384 + 128\nAnswer:",
+          "expected": "512",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_06",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 73 + 89\nAnswer:",
+          "expected": "162",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_07",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 500 - 245\nAnswer:",
+          "expected": "255",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_08",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1536 - 384\nAnswer:",
+          "expected": "1152",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_09",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 12 * 12\nAnswer:",
+          "expected": "144",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_10",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 16 * 8\nAnswer:",
+          "expected": "128",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_11",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 25 * 4\nAnswer:",
+          "expected": "100",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_12",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 64 * 8\nAnswer:",
+          "expected": "512",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_13",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 7 * 9\nAnswer:",
+          "expected": "63",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_14",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 15 * 6\nAnswer:",
+          "expected": "90",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_15",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 32 * 32\nAnswer:",
+          "expected": "1024",
+          "raw_output": "* January 21 - Special Step-by-S",
+          "extracted_number": "21",
+          "is_correct": false
+        },
+        {
+          "id": "math_16",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 50 * 20\nAnswer:",
+          "expected": "1000",
+          "raw_output": "* John Bounds of the Severything Ste",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_17",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 100 / 4\nAnswer:",
+          "expected": "25",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_18",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 1024 / 8\nAnswer:",
+          "expected": "128",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_19",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 4096 / 16\nAnswer:",
+          "expected": "256",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_20",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 512 / 64\nAnswer:",
+          "expected": "8",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_21",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 17 % 5\nAnswer:",
+          "expected": "2",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_22",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 100 % 7\nAnswer:",
+          "expected": "2",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_23",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 64 % 8\nAnswer:",
+          "expected": "0",
+          "raw_output": "- Step-by-Step Solution:\nStep-",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_24",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Calculate: 255 % 16\nAnswer:",
+          "expected": "15",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_25",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A cluster has 8 nodes, each running 4 workers. What is the total number of workers?\nAnswer:",
+          "expected": "32",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_26",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A server has 64 GB of RAM. The OS consumes 4 GB, and cache takes 12 GB. How many GB remain?\nAnswer:",
+          "expected": "48",
+          "raw_output": "- Step-by-Step Solution:\n- Stemp",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_27",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A model has 6 layers with 64 dimensions each. What is the product of layers and dimensions?\nAnswer:",
+          "expected": "384",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_28",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: If an API request takes 25 ms, how many requests can be processed sequentially in 1000 ms?\nAnswer:",
+          "expected": "40",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_29",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A user buys 3 Starter subscriptions at $150 each. What is the total monthly cost?\nAnswer:",
+          "expected": "450",
+          "raw_output": "- Step-by-Step Solution:\nShe has",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_30",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A buffer holds 512 bytes. If 128 bytes are added, what is the new size in bytes?\nAnswer:",
+          "expected": "640",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_31",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A file of 1000 KB is compressed by 25%. What is the resulting size in KB?\nAnswer:",
+          "expected": "750",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_32",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: If heartbeat interval is 50 ms, how many heartbeats occur in 1 second (1000 ms)?\nAnswer:",
+          "expected": "20",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_33",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A token pool has 4096 tokens. If 3072 tokens are allocated, how many tokens are free?\nAnswer:",
+          "expected": "1024",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_34",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: A neural layer has 192 inputs and 192 outputs. How many weight elements are in the linear matrix?\nAnswer:",
+          "expected": "36864",
+          "raw_output": "- Step-by-Step Solution:\n- Stemp",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_35",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 + 3 * 4\nAnswer:",
+          "expected": "14",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_36",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: (10 - 2) * 5\nAnswer:",
+          "expected": "40",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_37",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 100 - 20 * 3\nAnswer:",
+          "expected": "40",
+          "raw_output": "* John 2000 - Special number of the fi",
+          "extracted_number": "2000",
+          "is_correct": false
+        },
+        {
+          "id": "math_38",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 ** 8\nAnswer:",
+          "expected": "256",
+          "raw_output": "* John Chinese of the Special Ste",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_39",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: 2 ** 10\nAnswer:",
+          "expected": "1024",
+          "raw_output": "* John Chinese of the Step-Repu",
+          "extracted_number": null,
+          "is_correct": false
+        },
+        {
+          "id": "math_40",
+          "prompt": "Solve the following mathematical problem. Output only the final numeric answer.\nProblem: Evaluate: (50 + 50) / (2 * 5)\nAnswer:",
+          "expected": "10",
+          "raw_output": "- Step-by-Step Solution:\n- Step",
+          "extracted_number": null,
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  "track_d_details": {
+    "base": {
+      "total_tasks": 40,
+      "syntax_valid_count": 5,
+      "syntax_valid_rate": 0.125,
+      "tests_passed_count": 0,
+      "test_pass_rate": 0.0,
+      "results": [
+        {
+          "id": "code_01",
+          "prompt": "Complete the Python function:\ndef add(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_02",
+          "prompt": "Complete the Python function:\ndef is_even(n):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_03",
+          "prompt": "Complete the Python function:\ndef square(x):\n",
+          "raw_completion": "    # This is the first number of the number of the number of the number of the number of the number",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_04",
+          "prompt": "Complete the Python function:\ndef double_number(n):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_05",
+          "prompt": "Complete the Python function:\ndef get_first_element(lst):\n",
+          "raw_completion": "    pass\n    pass\n    pass\n    # Check the result of the result of the number of the numb",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_06",
+          "prompt": "Complete the Python function:\ndef string_length(s):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_07",
+          "prompt": "Complete the Python function:\ndef is_positive(x):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_08",
+          "prompt": "Complete the Python function:\ndef negate(b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_09",
+          "prompt": "Complete the Python function:\ndef multiply(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_10",
+          "prompt": "Complete the Python function:\ndef max_two(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_11",
+          "prompt": "Complete the Python function:\ndef min_two(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_12",
+          "prompt": "Complete the Python function:\ndef absolute_val(x):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_13",
+          "prompt": "Complete the Python function:\ndef to_upper(s):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_14",
+          "prompt": "Complete the Python function:\ndef to_lower(s):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_15",
+          "prompt": "Complete the Python function:\ndef is_empty_string(s):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_16",
+          "prompt": "Complete the Python function:\ndef append_exclamation(s):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_17",
+          "prompt": "Complete the Python function:\ndef sum_list(nums):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_18",
+          "prompt": "Complete the Python function:\ndef list_length(nums):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_19",
+          "prompt": "Complete the Python function:\ndef reverse_string(s):\n",
+          "raw_completion": "    # This is the number of the number of the number of the number of the number of the number of th",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_20",
+          "prompt": "Complete the Python function:\ndef is_zero(n):\n",
+          "raw_completion": "    pass\n    pass\n    pass\n    pass\n    >>> linked_list.insert('b', 'a')\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 6)"
+        },
+        {
+          "id": "code_21",
+          "prompt": "Complete the Python function:\ndef cube(x):\n",
+          "raw_completion": "    pass\n    # This is the number of the number of the number of the number of the number of the num",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_22",
+          "prompt": "Complete the Python function:\ndef is_none(val):\n",
+          "raw_completion": "    pass\n    pass\n    pass\n    pass\n    pass\n    pass\n    pass\n    pass\n",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_23",
+          "prompt": "Complete the Python function:\ndef make_pair(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_24",
+          "prompt": "Complete the Python function:\ndef concatenate_strings(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._stack.insert(",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_25",
+          "prompt": "Complete the Python function:\ndef identity(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_26",
+          "prompt": "Complete the Python function:\ndef int_division(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_27",
+          "prompt": "Complete the Python function:\ndef remainder(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_28",
+          "prompt": "Complete the Python function:\ndef is_equal(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_29",
+          "prompt": "Complete the Python function:\ndef repeat_string(s, n):\n",
+          "raw_completion": "    if not self._subset(\")\n    if not self._remod:\n        if not self._result:\n            self._re",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated string literal (detected at line 2) (<string>, line 2)"
+        },
+        {
+          "id": "code_30",
+          "prompt": "Complete the Python function:\ndef get_last_element(lst):\n",
+          "raw_completion": "    pass\n    pass\n    pass\n    >>> linked_list.insert(\")\n    Traceback (most recent ",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated string literal (detected at line 5) (<string>, line 5)"
+        },
+        {
+          "id": "code_31",
+          "prompt": "Complete the Python function:\ndef clamp_zero(n):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._subset(\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_32",
+          "prompt": "Complete the Python function:\ndef increment(x):\n",
+          "raw_completion": "    pass\n    pass\n    # Check the first number of the number of the number of the number of the numb",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_33",
+          "prompt": "Complete the Python function:\ndef decrement(x):\n",
+          "raw_completion": "    pass\n    >>> linked_list.insert(\")\n    Traceback (most recent call last):\n        ...",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated string literal (detected at line 3) (<string>, line 3)"
+        },
+        {
+          "id": "code_34",
+          "prompt": "Complete the Python function:\ndef bool_to_int(b):\n",
+          "raw_completion": "    \"\"\"\n    Return the number of the first number of the first number of the number of the number of",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 3) (<string>, line 2)"
+        },
+        {
+          "id": "code_35",
+          "prompt": "Complete the Python function:\ndef is_strictly_greater(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._stack.insert(",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_36",
+          "prompt": "Complete the Python function:\ndef is_strictly_less(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._stack.insert(\")\n    if not self._subset(",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_37",
+          "prompt": "Complete the Python function:\ndef wrap_in_list(x):\n",
+          "raw_completion": "    pass\n    pass\n    # Check the result of the result of the number of the number of the number ",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_38",
+          "prompt": "Complete the Python function:\ndef is_odd(n):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_39",
+          "prompt": "Complete the Python function:\ndef half_number(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_40",
+          "prompt": "Complete the Python function:\ndef opposite_sign(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\")\n    if not self._result:\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        }
+      ]
+    },
+    "cand": {
+      "total_tasks": 40,
+      "syntax_valid_count": 2,
+      "syntax_valid_rate": 0.05,
+      "tests_passed_count": 0,
+      "test_pass_rate": 0.0,
+      "results": [
+        {
+          "id": "code_01",
+          "prompt": "Complete the Python function:\ndef add(a, b):\n",
+          "raw_completion": "    pass='strict',\n    'b': 'b': 'b', 'b', 'b', 'b', 'b'",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 2)"
+        },
+        {
+          "id": "code_02",
+          "prompt": "Complete the Python function:\ndef is_even(n):\n",
+          "raw_completion": "    p = self._subset(\"0)\n    for i in range(0)\n    for i in range(0.90.c\")\n    for i in range(0",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated string literal (detected at line 2) (<string>, line 2)"
+        },
+        {
+          "id": "code_03",
+          "prompt": "Complete the Python function:\ndef square(x):\n",
+          "raw_completion": "    # Incremental number of the number of non-newer.\n        # the number of non-newern non-ne",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_04",
+          "prompt": "Complete the Python function:\ndef double_number(n):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    if not self._subset(\"0\")\n\n    if not self._sub",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 6) (<string>, line 2)"
+        },
+        {
+          "id": "code_05",
+          "prompt": "Complete the Python function:\ndef get_first_element(lst):\n",
+          "raw_completion": "    path = self._subset('0', '0')\n    >>> linked_list.add_node('0', '0', ",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 3)"
+        },
+        {
+          "id": "code_06",
+          "prompt": "Complete the Python function:\ndef string_length(s):\n",
+          "raw_completion": "    # Incremental number: float: float: float: float: float: float: float: float: float: float: floa",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_07",
+          "prompt": "Complete the Python function:\ndef is_positive(x):\n",
+          "raw_completion": "    # Incremental number of the number of the number of non-newn.\n    ValueError: The first numb",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 3)"
+        },
+        {
+          "id": "code_08",
+          "prompt": "Complete the Python function:\ndef negate(b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    if not self._subset(\"0\")\n\n    if not self._re",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 6) (<string>, line 2)"
+        },
+        {
+          "id": "code_09",
+          "prompt": "Complete the Python function:\ndef multiply(a, b):\n",
+          "raw_completion": "    pass='strict',\n    'b': 'b': 'b', 'b', 'b', 'b', 'b'",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 2)"
+        },
+        {
+          "id": "code_10",
+          "prompt": "Complete the Python function:\ndef max_two(a, b):\n",
+          "raw_completion": "    pass\n\n    # non-newern non-newern non-newer.\n    # non-newer",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_11",
+          "prompt": "Complete the Python function:\ndef min_two(a, b):\n",
+          "raw_completion": "    pass\n\n    # non-newern non-newern non-newer.\n    # non-newer",
+          "syntax_valid": true,
+          "test_passed": false,
+          "exec_error": "AssertionError: Unit test assertions failed."
+        },
+        {
+          "id": "code_12",
+          "prompt": "Complete the Python function:\ndef absolute_val(x):\n",
+          "raw_completion": "    # Incremental number of the number of non-newer.\n        # the total number of non-newern non",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_13",
+          "prompt": "Complete the Python function:\ndef to_upper(s):\n",
+          "raw_completion": "    # Incremental number: float: float: float: float: float: float: float: float: float: float: floa",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_14",
+          "prompt": "Complete the Python function:\ndef to_lower(s):\n",
+          "raw_completion": "    # Incremental number: The number of the number of the number of non-newer.\n    # the total numbe",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_15",
+          "prompt": "Complete the Python function:\ndef is_empty_string(s):\n",
+          "raw_completion": "    # Incremental number: float: float: float: float: float: float: float: float: float: float: floa",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_16",
+          "prompt": "Complete the Python function:\ndef append_exclamation(s):\n",
+          "raw_completion": "    # doctest: The total number of non-newern nodes.\n        # the total number of the number of non",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_17",
+          "prompt": "Complete the Python function:\ndef sum_list(nums):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    if not self._subset(\"0\")\n\n    if not self._re",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 6) (<string>, line 2)"
+        },
+        {
+          "id": "code_18",
+          "prompt": "Complete the Python function:\ndef list_length(nums):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.9\")\n    for i in range(0.9\")\n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_19",
+          "prompt": "Complete the Python function:\ndef reverse_string(s):\n",
+          "raw_completion": "    # Incremental number: float: float: float: float: float: float: float: float: float: float: floa",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_20",
+          "prompt": "Complete the Python function:\ndef is_zero(n):\n",
+          "raw_completion": "    path.insert('0', '0')\n    >>> linked_list.add_edge.get_to_to_to_to",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 3)"
+        },
+        {
+          "id": "code_21",
+          "prompt": "Complete the Python function:\ndef cube(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.90.\")\n    for i in range(0.90",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_22",
+          "prompt": "Complete the Python function:\ndef is_none(val):\n",
+          "raw_completion": "    # doctest: The total number of non-negative number of non-newer.\n    # the total number of n",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_23",
+          "prompt": "Complete the Python function:\ndef make_pair(a, b):\n",
+          "raw_completion": "    path.next_node(\"0\")\n    # doctest.\n    ValueError: Returns:\n        #",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 4)"
+        },
+        {
+          "id": "code_24",
+          "prompt": "Complete the Python function:\ndef concatenate_strings(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset_node:\n            raise ValueError(\"",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_25",
+          "prompt": "Complete the Python function:\ndef identity(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.90.\")\n    for i in range(0.90",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_26",
+          "prompt": "Complete the Python function:\ndef int_division(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\")\n    if not self._subset(\"0\")\n\n    if not self._subset(",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 6) (<string>, line 2)"
+        },
+        {
+          "id": "code_27",
+          "prompt": "Complete the Python function:\ndef remainder(a, b):\n",
+          "raw_completion": "    pass='strict', 'b', 'b', 'b', 'b', 'b', 'b', 'b', '",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated string literal (detected at line 2) (<string>, line 2)"
+        },
+        {
+          "id": "code_28",
+          "prompt": "Complete the Python function:\ndef is_equal(a, b):\n",
+          "raw_completion": "    \"\"\"\n    # Incremental number of the first number of non-newer.\n\n    # the total number of non",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_29",
+          "prompt": "Complete the Python function:\ndef repeat_string(s, n):\n",
+          "raw_completion": "    # doctest: The total number of non-newern non-newer.\n    # India number of the fir",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 3)"
+        },
+        {
+          "id": "code_30",
+          "prompt": "Complete the Python function:\ndef get_last_element(lst):\n",
+          "raw_completion": "    # doctest: # Incremental numbers\n\n    # Incremental number: Incremental numbers\n\n    # ",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 6)"
+        },
+        {
+          "id": "code_31",
+          "prompt": "Complete the Python function:\ndef clamp_zero(n):\n",
+          "raw_completion": "    path.crypt('0', '0', 'b', '0')\n    >>> linked_list.add_edge.",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 3)"
+        },
+        {
+          "id": "code_32",
+          "prompt": "Complete the Python function:\ndef increment(x):\n",
+          "raw_completion": "            # IncrementalEncoder,\n            # IncrementalEncoder,\n            # IncrementalEncoder",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 5)"
+        },
+        {
+          "id": "code_33",
+          "prompt": "Complete the Python function:\ndef decrement(x):\n",
+          "raw_completion": "            # IncrementalDecoder,\n            # IncrementalDecoder,\n            # IncrementalDecoder",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 5)"
+        },
+        {
+          "id": "code_34",
+          "prompt": "Complete the Python function:\ndef bool_to_int(b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    if not self._subset(\"0\")\n\n    if not self._st",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 6) (<string>, line 2)"
+        },
+        {
+          "id": "code_35",
+          "prompt": "Complete the Python function:\ndef is_strictly_greater(a, b):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    if not _to_to_to_to_to_to_to_to_to",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 4) (<string>, line 2)"
+        },
+        {
+          "id": "code_36",
+          "prompt": "Complete the Python function:\ndef is_strictly_less(a, b):\n",
+          "raw_completion": "    # doctest: float: float: float: float: float: float: float: float: float: float: float: float: f",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: expected an indented block after function definition on line 1 (<string>, line 2)"
+        },
+        {
+          "id": "code_37",
+          "prompt": "Complete the Python function:\ndef wrap_in_list(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.9\")\n    for i in range(0.90.\"",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_38",
+          "prompt": "Complete the Python function:\ndef is_odd(n):\n",
+          "raw_completion": "    # IncrementalEncoder().\n    ValueError: IncrementalEncoder,\n    # IncrementalDeco",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: invalid syntax (<string>, line 3)"
+        },
+        {
+          "id": "code_39",
+          "prompt": "Complete the Python function:\ndef half_number(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.90.\")\n    for i in range(0.90",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        },
+        {
+          "id": "code_40",
+          "prompt": "Complete the Python function:\ndef opposite_sign(x):\n",
+          "raw_completion": "    \"\"\"\n    if not isinstance(\"0\")\n    for i in range(0.90.\")\n    for i in range(0.90",
+          "syntax_valid": false,
+          "test_passed": false,
+          "exec_error": "SyntaxError: unterminated triple-quoted string literal (detected at line 5) (<string>, line 2)"
+        }
+      ]
+    }
+  },
+  "track_b_details": {
+    "total_tasks": 40,
+    "cand_standalone_accuracy": 0.0,
+    "asst_grounded_accuracy": 0.75,
+    "results": [
+      {
+        "id": "fact_01",
+        "query": "What is the term saturation parameter k1 in the BM25 index?",
+        "expected": "1.5",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75. [Source: storage_bm25_index.md (",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_bm25_index.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_02",
+        "query": "What is the document length normalization parameter b in BM25?",
+        "expected": "0.75",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters. [Source: storage_bm25_i",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_bm25_index.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_03",
+        "query": "What is the maximum single document size in the BLOB store?",
+        "expected": "10485760 bytes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`. [Source: ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_blob_store.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_04",
+        "query": "What is the heartbeat interval in Raft consensus?",
+        "expected": "50 milliseconds",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_consensus_raft.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_05",
+        "query": "What is the maximum node cluster diameter in the mesh network?",
+        "expected": "16",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_mesh_topology.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_06",
+        "query": "What TCP port handles data transmission in the mesh network?",
+        "expected": "8443",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_mesh_topology.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_07",
+        "query": "What is the monthly subscription price for the Starter Tier?",
+        "expected": "$150",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_subscription_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_08",
+        "query": "What is the monthly subscription price for the Professional Tier?",
+        "expected": "$450",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_subscription_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_09",
+        "query": "How many concurrent workers are included in the Starter Tier?",
+        "expected": "2",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_subscription_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_10",
+        "query": "How many concurrent workers are included in the Professional Tier?",
+        "expected": "8",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_subscription_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_11",
+        "query": "What is the token expiration window for OAuth2 tokens?",
+        "expected": "3600 seconds",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "security_auth_tokens.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_12",
+        "query": "What HTTP status code is returned for unauthenticated API access?",
+        "expected": "401",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "security_auth_tokens.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_13",
+        "query": "What symmetric cipher algorithm encrypts network communication?",
+        "expected": "AES-256-GCM",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "asst_decision": "ABSTAIN",
+        "asst_citations": [],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_14",
+        "query": "What TLS version is strictly required for in-transit communication?",
+        "expected": "TLS 1.3",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_encryption_transit.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_15",
+        "query": "What is the maximum engineer response time for Severity 1 (P1)?",
+        "expected": "15 minutes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_support_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_16",
+        "query": "What is the maximum engineer response time for Severity 2 (P2)?",
+        "expected": "2 hours",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Severity 2 (P2 - Major Degradation): Maximum response time of 2 hours.\n- Severity 3 (P3 - Minor Defect): Maximum respo",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_support_tiers.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_17",
+        "query": "What discount is provided for a 3-year commitment?",
+        "expected": "25%",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_enterprise_discounts.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_18",
+        "query": "What discount is provided for an academic institution?",
+        "expected": "30%",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_enterprise_discounts.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_19",
+        "query": "What is the maximum capacity of the in-memory embedding cache?",
+        "expected": "10000",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text co",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_caching_layer.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_20",
+        "query": "What hashing algorithm is used for embedding cache keys?",
+        "expected": "SHA-256",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Cache key generation: SHA-256 hash of model identifier plus text content.\n- Stale cache invalidation trigger: Document",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_caching_layer.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_21",
+        "query": "What is the primary persistent storage backing in the disk engine?",
+        "expected": "Append-only log",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Primary persistent storage: Append-only log with SQLite index backing.\n- Storage block size: 4096 bytes per sector. [S",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_disk_engine.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_22",
+        "query": "What is the storage block size per sector?",
+        "expected": "4096 bytes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Storage block size: 4096 bytes per sector.\n- File permission mask on disk: Octal mode 0600 (read/write owner only). [S",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_disk_engine.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_23",
+        "query": "What is the minimum operational RAM required for CPU inference?",
+        "expected": "1.5 GB",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "compute_memory_bus.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_24",
+        "query": "What is the CPU cache line size in bytes?",
+        "expected": "64 bytes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "compute_memory_bus.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_25",
+        "query": "What minimum CUDA compute capability is required for GPU acceleration?",
+        "expected": "7.5",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "compute_accelerator_cuda.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_26",
+        "query": "What is the primary x86 vector instruction set extension used for CPU SIMD?",
+        "expected": "AVX2",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Primary x86 vector extension: AVX2 with FMA3 instruction interleaving.\n- Fallback x86 instruction set: SSE4.2 vector i",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "compute_cpu_simd.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_27",
+        "query": "What is the CPU worker thread pool ceiling?",
+        "expected": "4",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "compute_cpu_simd.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_28",
+        "query": "What time UTC is the daily database snapshot backup scheduled?",
+        "expected": "00:00 UTC",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_backup_policy.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_29",
+        "query": "What target is used for the offsite replica archive?",
+        "expected": "Encrypted offsite cold storage volume",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "storage_backup_policy.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_30",
+        "query": "What is the maximum tolerable data loss (RPO) in disaster recovery?",
+        "expected": "15 minutes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Recovery Point Objective (RPO): Under 5 minutes of transactional data loss.\n- Failover trigger: Automatic DNS redirect",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "sop_disaster_recovery.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_31",
+        "query": "What is the target system recovery time objective (RTO)?",
+        "expected": "60 minutes",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): U",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "sop_disaster_recovery.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_32",
+        "query": "What credit is applied if monthly uptime drops below 99.9%?",
+        "expected": "15%",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_sla_commitments.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_33",
+        "query": "What credit is applied if monthly uptime drops below 98.0%?",
+        "expected": "50%",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_sla_commitments.md"
+        ],
+        "asst_hit": true
+      },
+      {
+        "id": "fact_34",
+        "query": "What maximum payload size is allowed in incoming REST API requests?",
+        "expected": "10 MB",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_gateway_api.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_35",
+        "query": "What HTTP status code is returned when payload exceeds 10 MB?",
+        "expected": "413",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "asst_decision": "ABSTAIN",
+        "asst_citations": [],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_36",
+        "query": "What maximum drain timeout is allowed before forcing pod termination?",
+        "expected": "300 seconds",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "sop_cluster_drain.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_37",
+        "query": "What rotation interval is enforced for root TLS certificates?",
+        "expected": "90 days",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "network_encryption_transit.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_38",
+        "query": "How many days notice is required for enterprise contract cancellation?",
+        "expected": "30 days",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Annual plans: 30-day money-back satisfaction guarantee from initial contract signature.\n- Dispute resolution window: W",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_refund_policy.md"
+        ],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_39",
+        "query": "What payment grace period is allowed before automated account suspension?",
+        "expected": "14 days",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "I could not find sufficient verified evidence in the indexed local documents to answer this question.",
+        "asst_decision": "ABSTAIN",
+        "asst_citations": [],
+        "asst_hit": false
+      },
+      {
+        "id": "fact_40",
+        "query": "What refund policy applies to partial calendar months?",
+        "expected": "No refunds are issued for partial months",
+        "cand_standalone_output": "- Step-by-Step Solution:\nStep-by-Step S",
+        "cand_standalone_hit": false,
+        "asst_answer": "- Monthly plans: Cancellation effective at end of current billing cycle without prorated refund.\n- Annual plans: 30-day ",
+        "asst_decision": "ANSWER",
+        "asst_citations": [
+          "billing_refund_policy.md"
+        ],
+        "asst_hit": false
+      }
+    ]
+  },
+  "track_e_details": {
+    "total_pairs": 20,
+    "both_correct_count": 14,
+    "both_correct_rate": 0.7,
+    "partial_inconsistent_count": 2,
+    "both_failed_count": 4,
+    "pair_consistency_rate": 0.9,
+    "pair_results": [
+      {
+        "pair_id": "pair_gen_01",
+        "query_a": "What is the term saturation parameter k1 in BM25?",
+        "hit_a": true,
+        "query_b": "BM25 me k1 term saturation value kitni hoti hai?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_02",
+        "query_a": "What is the maximum capacity of the in-memory embedding cache?",
+        "hit_a": true,
+        "query_b": "How many embeddings can the in-memory cache store at maximum?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_03",
+        "query_a": "What is the monthly price of the Starter tier?",
+        "hit_a": true,
+        "query_b": "How much does the Starter subscription cost per month?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_04",
+        "query_a": "What is the heartbeat interval in Raft consensus?",
+        "hit_a": true,
+        "query_b": "Raft consensus me heartbeat interval kitne milliseconds ka hota hai?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_05",
+        "query_a": "What port is used for data transmission in the mesh network?",
+        "hit_a": true,
+        "query_b": "Which TCP port handles data transfer across the mesh nodes?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_06",
+        "query_a": "What minimum RAM is needed for CPU inference?",
+        "hit_a": true,
+        "query_b": "CPU execution ke liye minimum kitni physical RAM required hai?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_07",
+        "query_a": "What symmetric cipher algorithm is used for network transit encryption?",
+        "hit_a": false,
+        "query_b": "Which encryption cipher protects in-transit network traffic?",
+        "hit_b": true,
+        "status": "PARTIAL_INCONSISTENT"
+      },
+      {
+        "pair_id": "pair_gen_08",
+        "query_a": "How many concurrent workers are permitted in the Professional Tier?",
+        "hit_a": true,
+        "query_b": "What is the worker process limit for the Professional subscription?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_09",
+        "query_a": "What is the token expiration window for OAuth2 tokens?",
+        "hit_a": true,
+        "query_b": "How long do authentication tokens remain valid before expiration?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_10",
+        "query_a": "What is the maximum engineer response time for Severity 1 outages?",
+        "hit_a": true,
+        "query_b": "How quickly must an engineer respond to a P1 critical incident?",
+        "hit_b": false,
+        "status": "PARTIAL_INCONSISTENT"
+      },
+      {
+        "pair_id": "pair_gen_11",
+        "query_a": "What discount is provided for a 3-year commitment?",
+        "hit_a": true,
+        "query_b": "If a customer commits to 3 years upfront, what discount do they receive?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_12",
+        "query_a": "What is the CPU worker thread pool ceiling?",
+        "hit_a": true,
+        "query_b": "What is the maximum number of worker threads allowed for CPU SIMD?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_13",
+        "query_a": "What is the daily backup snapshot execution time?",
+        "hit_a": true,
+        "query_b": "At what time UTC is the full daily database backup run?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_14",
+        "query_a": "What is the target recovery point objective (RPO) in disaster recovery?",
+        "hit_a": false,
+        "query_b": "How much data loss is tolerable according to the disaster recovery RPO?",
+        "hit_b": false,
+        "status": "BOTH_FAILED"
+      },
+      {
+        "pair_id": "pair_gen_15",
+        "query_a": "What billing credit is provided if monthly uptime falls below 99.9%?",
+        "hit_a": true,
+        "query_b": "What credit percentage is deducted when hosted availability drops below 99.9%?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_16",
+        "query_a": "What is the maximum single document size in the BLOB store?",
+        "hit_a": true,
+        "query_b": "What is the maximum file payload allowed in the BLOB store in bytes?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_17",
+        "query_a": "What minimum compute capability is required for CUDA acceleration?",
+        "hit_a": true,
+        "query_b": "What compute capability version must an NVIDIA GPU support for CUDA?",
+        "hit_b": true,
+        "status": "BOTH_CORRECT"
+      },
+      {
+        "pair_id": "pair_gen_18",
+        "query_a": "What is the cluster node drain timeout ceiling before forced pod termination?",
+        "hit_a": false,
+        "query_b": "How many seconds does the cluster drain process wait before killing pods?",
+        "hit_b": false,
+        "status": "BOTH_FAILED"
+      },
+      {
+        "pair_id": "pair_gen_19",
+        "query_a": "What is the mandatory rotation period for root TLS certificates?",
+        "hit_a": false,
+        "query_b": "Every how many days must root certificates be rotated?",
+        "hit_b": false,
+        "status": "BOTH_FAILED"
+      },
+      {
+        "pair_id": "pair_gen_20",
+        "query_a": "What payment grace period is granted before automated account suspension?",
+        "hit_a": false,
+        "query_b": "How many days grace period exist before overdue accounts get suspended?",
+        "hit_b": false,
+        "status": "BOTH_FAILED"
+      }
+    ]
+  },
+  "control_details": {
+    "total_control_tasks": 40,
+    "overall_control_accuracy": 0.75,
+    "refutation_accuracy": 0.5,
+    "refutation_counts": "10/20",
+    "abstention_accuracy": 1.0,
+    "abstention_counts": "20/20",
+    "results": [
+      {
+        "id": "ctrl_01",
+        "category": "false_premise_refutation",
+        "query": "Why does the Starter subscription cost $9,000 per month?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on price: Query asserts 9000, but verified evidence establishes "
+      },
+      {
+        "id": "ctrl_02",
+        "category": "false_premise_refutation",
+        "query": "Why does ChakrView allow root and sudo command execution in production?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts permission for 'sudo', but verified documentation states it"
+      },
+      {
+        "id": "ctrl_03",
+        "category": "false_premise_refutation",
+        "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on sla: Query asserts 48, but verified evidence establishes - Se"
+      },
+      {
+        "id": "ctrl_04",
+        "category": "false_premise_refutation",
+        "query": "Why does OAuth2 token expiration window last for 100 years?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on context: Query asserts 100, but verified evidence establishes"
+      },
+      {
+        "id": "ctrl_05",
+        "category": "false_premise_refutation",
+        "query": "Why does the BM25 index set term saturation parameter k1 to 99.0?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75. [Source: storage_bm25_index.md ("
+      },
+      {
+        "id": "ctrl_06",
+        "category": "false_premise_refutation",
+        "query": "Why does the BLOB store restrict documents to only 50 bytes maximum?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`. [Source: "
+      },
+      {
+        "id": "ctrl_07",
+        "category": "false_premise_refutation",
+        "query": "Why does Raft consensus require 500 seconds heartbeat interval?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on heartbeat: Query asserts 500, but verified evidence establish"
+      },
+      {
+        "id": "ctrl_08",
+        "category": "false_premise_refutation",
+        "query": "Why does the mesh network use TCP port 22 for internal communication?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on port: Query asserts 22, but verified evidence establishes - D"
+      },
+      {
+        "id": "ctrl_09",
+        "category": "false_premise_refutation",
+        "query": "Why is the embedding cache capacity limited to only 3 items?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on cache: Query asserts 3, but verified evidence establishes - M"
+      },
+      {
+        "id": "ctrl_10",
+        "category": "false_premise_refutation",
+        "query": "Why does CPU execution require a minimum of 512 GB physical RAM?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on ram: Query asserts 512, but verified evidence establishes - M"
+      },
+      {
+        "id": "ctrl_11",
+        "category": "false_premise_refutation",
+        "query": "Why does the system permit unencrypted plain-text communication across nodes?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ABSTAIN",
+        "is_correct": false,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_12",
+        "category": "false_premise_refutation",
+        "query": "Why are root certificates configured to never rotate for 50 years?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ABSTAIN",
+        "is_correct": false,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_13",
+        "category": "false_premise_refutation",
+        "query": "Why does the 3-year commitment discount give a 99% price deduction?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: "
+      },
+      {
+        "id": "ctrl_14",
+        "category": "false_premise_refutation",
+        "query": "Why does the REST API gateway accept 100 GB file payloads without 413 errors?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "## 1. API Endpoints [Source: network_gateway_api.md (char 39-58)]"
+      },
+      {
+        "id": "ctrl_15",
+        "category": "false_premise_refutation",
+        "query": "Why is disaster recovery RPO set to 7 days of tolerable data loss?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on rpo: Query asserts 7, but verified evidence establishes - Rec"
+      },
+      {
+        "id": "ctrl_16",
+        "category": "false_premise_refutation",
+        "query": "Why does the Professional subscription include up to 500 concurrent workers?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl"
+      },
+      {
+        "id": "ctrl_17",
+        "category": "false_premise_refutation",
+        "query": "Why does CUDA acceleration require minimum compute capability 99.9?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False numerical premise refuted on compute_cap: Query asserts 99.9, but verified evidence establ"
+      },
+      {
+        "id": "ctrl_18",
+        "category": "false_premise_refutation",
+        "query": "Why does cluster node drain wait for 24 hours before evicting pods?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Step 2: Evict active worker processes to neighboring peer nodes.\n- Step 3: Wait for graceful termination timeout of 60"
+      },
+      {
+        "id": "ctrl_19",
+        "category": "false_premise_refutation",
+        "query": "Why does the billing policy issue full refunds for partial calendar months?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Monthly plans: Cancellation effective at end of current billing cycle without prorated refund.\n- Annual plans: 30-day "
+      },
+      {
+        "id": "ctrl_20",
+        "category": "false_premise_refutation",
+        "query": "Why does the payment terms allow a 365-day grace period before suspension?",
+        "expected_decision": "REFUTE",
+        "actual_decision": "ANSWER",
+        "is_correct": false,
+        "answer_preview": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5%"
+      },
+      {
+        "id": "ctrl_21",
+        "category": "honest_abstention",
+        "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_22",
+        "category": "honest_abstention",
+        "query": "Who was the Roman emperor during the eruption of Mount Vesuvius in 79 AD?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_23",
+        "category": "honest_abstention",
+        "query": "What is the chemical formula for caffeine?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_24",
+        "category": "honest_abstention",
+        "query": "What is the capital city of Madagascar?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_25",
+        "category": "honest_abstention",
+        "query": "What is the average lifespan of a green sea turtle in the wild?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_26",
+        "category": "honest_abstention",
+        "query": "What is the melting temperature of tungsten under atmospheric pressure?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_27",
+        "category": "honest_abstention",
+        "query": "Who directed the 1982 science fiction film Blade Runner?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_28",
+        "category": "honest_abstention",
+        "query": "What is the boiling point of ethanol at sea level in degrees Celsius?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_29",
+        "category": "honest_abstention",
+        "query": "What was the population of Paris in the year 1800?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_30",
+        "category": "honest_abstention",
+        "query": "How many moons does Neptune have in our solar system?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_31",
+        "category": "honest_abstention",
+        "query": "What is the primary export commodity of New Zealand?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_32",
+        "category": "honest_abstention",
+        "query": "Who won the FIFA Men's World Cup in 1998?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_33",
+        "category": "honest_abstention",
+        "query": "What is the half-life of Carbon-14 in radioactive dating?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_34",
+        "category": "honest_abstention",
+        "query": "What is the currency used in Switzerland?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_35",
+        "category": "honest_abstention",
+        "query": "What is the standard tuning frequency of concert pitch A4?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_36",
+        "category": "honest_abstention",
+        "query": "Who wrote the play The Cherry Orchard?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_37",
+        "category": "honest_abstention",
+        "query": "What is the distance from Earth to the Moon in kilometers?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_38",
+        "category": "honest_abstention",
+        "query": "What is the legal voting age in Japan?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_39",
+        "category": "honest_abstention",
+        "query": "What is the atomic mass of Gold in the periodic table?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": "ctrl_40",
+        "category": "honest_abstention",
+        "query": "What year was the construction of the Sydney Opera House completed?",
+        "expected_decision": "ABSTAIN",
+        "actual_decision": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      }
+    ]
+  }
+}
