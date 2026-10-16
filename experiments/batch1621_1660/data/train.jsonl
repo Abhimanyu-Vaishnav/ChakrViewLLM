@@ -1,0 +1,120 @@
+{"text": "Service auth operates on TCP port 8001.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service billing operates on TCP port 8002.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service telemetry operates on TCP port 8003.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service gateway operates on TCP port 8004.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service indexer operates on TCP port 8005.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service cache operates on TCP port 8006.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service scheduler operates on TCP port 8007.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service worker operates on TCP port 8008.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service logger operates on TCP port 8009.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service notifier operates on TCP port 8010.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service proxy operates on TCP port 8011.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Service monitor operates on TCP port 8012.", "category": "service_ports", "rule": "service_port_mapping"}
+{"text": "Compute tier nano allocates 2 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier micro allocates 4 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier small allocates 8 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier medium allocates 16 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier large allocates 32 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier xlarge allocates 64 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier 2xlarge allocates 128 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Compute tier cluster allocates 256 concurrent execution slots.", "category": "compute_tiers", "rule": "tier_slot_allocation"}
+{"text": "Cluster north connects to bridge amber.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge amber relays to archive diamond.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster south connects to bridge bronze.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge bronze relays to archive emerald.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster east connects to bridge copper.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge copper relays to archive sapphire.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster west connects to bridge silver.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge silver relays to archive ruby.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster central connects to bridge gold.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge gold relays to archive topaz.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster edge connects to bridge platinum.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge platinum relays to archive onyx.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster ingress connects to bridge titanium.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge titanium relays to archive pearl.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "Cluster egress connects to bridge cobalt.", "category": "composition_step1", "rule": "forwarding_hop1"}
+{"text": "Bridge cobalt relays to archive garnet.", "category": "composition_step2", "rule": "forwarding_hop2"}
+{"text": "The double of 1 is 2.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 2 is 4.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 3 is 6.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 4 is 8.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 5 is 10.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 6 is 12.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 7 is 14.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 8 is 16.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 9 is 18.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 10 is 20.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 11 is 22.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 12 is 24.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 13 is 26.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 14 is 28.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 15 is 30.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 16 is 32.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 17 is 34.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 18 is 36.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 19 is 38.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "The double of 20 is 40.", "category": "arithmetic_doubles", "rule": "math_double"}
+{"text": "def compute_hash(data: bytes) -> str:\n    return hashlib.sha256(data).hexdigest()", "category": "python_code", "rule": "code_structure"}
+{"text": "def parse_config(path: str) -> dict:\n    with open(path, 'r') as f:\n        return json.load(f)", "category": "python_code", "rule": "code_structure"}
+{"text": "def clamp_value(val: float, low: float, high: float) -> float:\n    return max(low, min(val, high))", "category": "python_code", "rule": "code_structure"}
+{"text": "def is_valid_port(port: int) -> bool:\n    return 1 <= port <= 65535", "category": "python_code", "rule": "code_structure"}
+{"text": "def sanitize_string(text: str) -> str:\n    return text.strip().lower()", "category": "python_code", "rule": "code_structure"}
+{"text": "def compute_mean(values: list) -> float:\n    return sum(values) / len(values) if values else 0.0", "category": "python_code", "rule": "code_structure"}
+{"text": "def count_tokens(tokens: list) -> int:\n    return len(tokens)", "category": "python_code", "rule": "code_structure"}
+{"text": "def is_even(num: int) -> bool:\n    return num % 2 == 0", "category": "python_code", "rule": "code_structure"}
+{"text": "def square_number(x: int) -> int:\n    return x * x", "category": "python_code", "rule": "code_structure"}
+{"text": "def get_status_code(success: bool) -> int:\n    return 200 if success else 500", "category": "python_code", "rule": "code_structure"}
+{"text": "Network channel chan_1 maintains buffer limit of 16 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_2 maintains buffer limit of 32 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_3 maintains buffer limit of 48 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_4 maintains buffer limit of 64 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_5 maintains buffer limit of 80 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_6 maintains buffer limit of 96 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_7 maintains buffer limit of 112 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_8 maintains buffer limit of 128 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_9 maintains buffer limit of 144 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_10 maintains buffer limit of 160 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_11 maintains buffer limit of 176 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_12 maintains buffer limit of 192 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_13 maintains buffer limit of 208 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_14 maintains buffer limit of 224 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_15 maintains buffer limit of 240 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_16 maintains buffer limit of 256 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_17 maintains buffer limit of 272 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_18 maintains buffer limit of 288 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_19 maintains buffer limit of 304 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_20 maintains buffer limit of 320 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_21 maintains buffer limit of 336 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_22 maintains buffer limit of 352 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_23 maintains buffer limit of 368 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_24 maintains buffer limit of 384 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_25 maintains buffer limit of 400 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_26 maintains buffer limit of 416 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_27 maintains buffer limit of 432 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_28 maintains buffer limit of 448 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_29 maintains buffer limit of 464 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_30 maintains buffer limit of 480 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_31 maintains buffer limit of 496 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_32 maintains buffer limit of 512 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_33 maintains buffer limit of 528 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_34 maintains buffer limit of 544 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_35 maintains buffer limit of 560 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_36 maintains buffer limit of 576 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_37 maintains buffer limit of 592 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_38 maintains buffer limit of 608 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_39 maintains buffer limit of 624 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_40 maintains buffer limit of 640 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_41 maintains buffer limit of 656 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_42 maintains buffer limit of 672 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_43 maintains buffer limit of 688 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_44 maintains buffer limit of 704 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_45 maintains buffer limit of 720 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_46 maintains buffer limit of 736 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_47 maintains buffer limit of 752 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_48 maintains buffer limit of 768 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_49 maintains buffer limit of 784 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_50 maintains buffer limit of 800 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_51 maintains buffer limit of 816 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_52 maintains buffer limit of 832 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_53 maintains buffer limit of 848 packets.", "category": "buffer_specs", "rule": "channel_spec"}
+{"text": "Network channel chan_54 maintains buffer limit of 864 packets.", "category": "buffer_specs", "rule": "channel_spec"}

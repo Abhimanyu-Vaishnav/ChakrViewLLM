@@ -1,0 +1,3350 @@
+{
+  "timestamp": "2026-10-16T07:09:48Z",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "adapted_checkpoint_sha256": "15d48176efd6941415cc446b0f0602573a266a49a17da56d72d365d445091139",
+  "candidate_checkpoint_sha256": "75492f1de4d7aa8a00b519d0f6c7077951a9126ad49d509f7c15919cb4e91598",
+  "training_report": {
+    "total_steps": 100,
+    "batch_size": 4,
+    "learning_rate": 5e-05,
+    "training_time_sec": 3.94,
+    "best_val_loss": 2.4252,
+    "candidate_checkpoint_sha256": "75492f1de4d7aa8a00b519d0f6c7077951a9126ad49d509f7c15919cb4e91598",
+    "step_log": [
+      {
+        "step": 10,
+        "train_loss": 3.9659,
+        "val_loss": 4.6725,
+        "val_ppl": 106.97
+      },
+      {
+        "step": 20,
+        "train_loss": 3.3356,
+        "val_loss": 4.1971,
+        "val_ppl": 66.49
+      },
+      {
+        "step": 30,
+        "train_loss": 1.7504,
+        "val_loss": 3.8525,
+        "val_ppl": 47.11
+      },
+      {
+        "step": 40,
+        "train_loss": 1.7742,
+        "val_loss": 3.5765,
+        "val_ppl": 35.75
+      },
+      {
+        "step": 50,
+        "train_loss": 1.3634,
+        "val_loss": 3.2556,
+        "val_ppl": 25.93
+      },
+      {
+        "step": 60,
+        "train_loss": 2.9998,
+        "val_loss": 2.9733,
+        "val_ppl": 19.56
+      },
+      {
+        "step": 70,
+        "train_loss": 1.4594,
+        "val_loss": 2.7585,
+        "val_ppl": 15.78
+      },
+      {
+        "step": 80,
+        "train_loss": 1.037,
+        "val_loss": 2.6249,
+        "val_ppl": 13.8
+      },
+      {
+        "step": 90,
+        "train_loss": 2.5867,
+        "val_loss": 2.5031,
+        "val_ppl": 12.22
+      },
+      {
+        "step": 100,
+        "train_loss": 1.8195,
+        "val_loss": 2.4252,
+        "val_ppl": 11.3
+      }
+    ]
+  },
+  "comparative_summary": {
+    "canonical_step_10000": {
+      "model_name": "canonical_step_10000",
+      "total_tasks": 150,
+      "total_passed": 45,
+      "accuracy": 0.3,
+      "track_scores": {
+        "track1_language_continuation": {
+          "total": 30,
+          "passed": 30,
+          "accuracy": 1.0
+        },
+        "track2_arithmetic_continuation": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track3_code_completion": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track4_compositional_generalization": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track5_factual_recall_and_memorization": {
+          "total": 30,
+          "passed": 15,
+          "accuracy": 0.5
+        }
+      },
+      "evaluation_time_ms": 18465.3,
+      "train_loss": 5.3148,
+      "train_ppl": 203.33,
+      "val_loss": 5.169,
+      "val_ppl": 175.74
+    },
+    "adapted_step_10080": {
+      "model_name": "adapted_step_10080",
+      "total_tasks": 150,
+      "total_passed": 45,
+      "accuracy": 0.3,
+      "track_scores": {
+        "track1_language_continuation": {
+          "total": 30,
+          "passed": 30,
+          "accuracy": 1.0
+        },
+        "track2_arithmetic_continuation": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track3_code_completion": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track4_compositional_generalization": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track5_factual_recall_and_memorization": {
+          "total": 30,
+          "passed": 15,
+          "accuracy": 0.5
+        }
+      },
+      "evaluation_time_ms": 12648.83,
+      "train_loss": 5.1737,
+      "train_ppl": 176.57,
+      "val_loss": 4.968,
+      "val_ppl": 143.74
+    },
+    "candidate_step_100": {
+      "model_name": "candidate_step_100",
+      "total_tasks": 150,
+      "total_passed": 45,
+      "accuracy": 0.3,
+      "track_scores": {
+        "track1_language_continuation": {
+          "total": 30,
+          "passed": 30,
+          "accuracy": 1.0
+        },
+        "track2_arithmetic_continuation": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track3_code_completion": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track4_compositional_generalization": {
+          "total": 30,
+          "passed": 0,
+          "accuracy": 0.0
+        },
+        "track5_factual_recall_and_memorization": {
+          "total": 30,
+          "passed": 15,
+          "accuracy": 0.5
+        }
+      },
+      "evaluation_time_ms": 12414.47,
+      "train_loss": 1.1757,
+      "train_ppl": 3.24,
+      "val_loss": 2.4252,
+      "val_ppl": 11.3
+    }
+  },
+  "per_task_results": {
+    "canonical": [
+      {
+        "id": "lang_001",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_1 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_002",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_2 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_003",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_3 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_004",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_4 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_005",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_5 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_006",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_6 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_007",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_7 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_008",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_8 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_009",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_9 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_010",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_10 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_011",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_11 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_012",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_12 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_013",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_13 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_014",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_14 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_015",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_15 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_016",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_16 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_017",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_17 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_018",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_18 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_019",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_19 communicates with",
+        "generated": "in the first of the first of the world, which is",
+        "passed": true
+      },
+      {
+        "id": "lang_020",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_20 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_021",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_21 communicates with",
+        "generated": "in the word of the world, which is the world of the",
+        "passed": true
+      },
+      {
+        "id": "lang_022",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_22 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_023",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_23 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_024",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_24 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_025",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_25 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_026",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_26 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_027",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_27 communicates with",
+        "generated": "in the word of the world, which is the world of the",
+        "passed": true
+      },
+      {
+        "id": "lang_028",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_28 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "lang_029",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_29 communicates with",
+        "generated": "in the first of the world, which is the world of",
+        "passed": true
+      },
+      {
+        "id": "lang_030",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_30 communicates with",
+        "generated": "in the world, which is the world of the world.",
+        "passed": true
+      },
+      {
+        "id": "arith_031",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 25 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_032",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 26 is",
+        "generated": "lands, the first century of the city of the city of",
+        "passed": false
+      },
+      {
+        "id": "arith_033",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 27 is",
+        "generated": "lands of the city of the shows she was the show",
+        "passed": false
+      },
+      {
+        "id": "arith_034",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 28 is",
+        "generated": "lands of the city of the shows she was the show",
+        "passed": false
+      },
+      {
+        "id": "arith_035",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 29 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_036",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 30 is",
+        "generated": "lands, the total of the city of the shows to be a s",
+        "passed": false
+      },
+      {
+        "id": "arith_037",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 31 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_038",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 32 is",
+        "generated": "lands, the world of the world. \n\nThe remaining the",
+        "passed": false
+      },
+      {
+        "id": "arith_039",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 33 is",
+        "generated": "lands\n* 2005 of the first candy of the",
+        "passed": false
+      },
+      {
+        "id": "arith_040",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 34 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_041",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 35 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_042",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 36 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_043",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 37 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_044",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 38 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_045",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 39 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_046",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 40 is",
+        "generated": "lands, the world of the world. \n\nThe remaining the",
+        "passed": false
+      },
+      {
+        "id": "arith_047",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 41 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_048",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 42 is",
+        "generated": "lands\n* January 21 \u2013 January 200",
+        "passed": false
+      },
+      {
+        "id": "arith_049",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 43 is",
+        "generated": "lands\n* 2005 of the first candy of the",
+        "passed": false
+      },
+      {
+        "id": "arith_050",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 44 is",
+        "generated": "lands of the total of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_051",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 45 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_052",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 46 is",
+        "generated": "lands of the city of the shows the first candy",
+        "passed": false
+      },
+      {
+        "id": "arith_053",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 47 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_054",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 48 is",
+        "generated": "lands, the world of the world. \n\nThe remaining the",
+        "passed": false
+      },
+      {
+        "id": "arith_055",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 49 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_056",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 50 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_057",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 51 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_058",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 52 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_059",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 53 is",
+        "generated": "lands\n* 2005 of the first candy of the",
+        "passed": false
+      },
+      {
+        "id": "arith_060",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 54 is",
+        "generated": "lands\n* 2005 of the first candy of the",
+        "passed": false
+      },
+      {
+        "id": "code_061",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_062",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_063",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_064",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_065",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "code_066",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_067",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_068",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_069",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_070",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "code_071",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_072",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_073",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_074",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_075",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "code_076",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_077",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_078",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_079",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_080",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "code_081",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_082",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_083",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_084",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_085",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "code_086",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": "# If the first number of the number of the number",
+        "passed": false
+      },
+      {
+        "id": "code_087",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ">>> linked_list.add_edge([[1, 1, 1,",
+        "passed": false
+      },
+      {
+        "id": "code_088",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_089",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.add_list([[[], [",
+        "passed": false
+      },
+      {
+        "id": "code_090",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\")\n    >>> lin",
+        "passed": false
+      },
+      {
+        "id": "comp_091",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_092",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_093",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_094",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_095",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is the first candy of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_096",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "comp_097",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is the first of the world, which is",
+        "passed": false
+      },
+      {
+        "id": "comp_098",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_099",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_100",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_101",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_102",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_103",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is the first candy of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_104",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "comp_105",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is the first of the world, which is",
+        "passed": false
+      },
+      {
+        "id": "comp_106",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_107",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_108",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_109",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_110",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_111",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is the first candy of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_112",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "comp_113",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is the first of the world, which is",
+        "passed": false
+      },
+      {
+        "id": "comp_114",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_115",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_116",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_117",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is the world of the world of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_118",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is a good of the world of the worl",
+        "passed": false
+      },
+      {
+        "id": "comp_119",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is the first candy of the world.",
+        "passed": false
+      },
+      {
+        "id": "comp_120",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "fact_121",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": false
+      },
+      {
+        "id": "fact_122",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "ing and the Christian People and the Greek and the",
+        "passed": false
+      },
+      {
+        "id": "fact_123",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "on.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "fact_124",
+        "track": "factual_recall",
+        "prompt": "Service gateway operates on TCP port",
+        "generated": "on and the Christian People and the Greek and C",
+        "passed": false
+      },
+      {
+        "id": "fact_125",
+        "track": "factual_recall",
+        "prompt": "Service indexer operates on TCP port",
+        "generated": "on, the United States\n* [http://ww",
+        "passed": false
+      },
+      {
+        "id": "fact_126",
+        "track": "factual_recall",
+        "prompt": "Service cache operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": false
+      },
+      {
+        "id": "fact_127",
+        "track": "factual_recall",
+        "prompt": "Service scheduler operates on TCP port",
+        "generated": "on, the Christian People (d. 1994)",
+        "passed": false
+      },
+      {
+        "id": "fact_128",
+        "track": "factual_recall",
+        "prompt": "Service worker operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": false
+      },
+      {
+        "id": "fact_129",
+        "track": "factual_recall",
+        "prompt": "Service logger operates on TCP port",
+        "generated": "ing and the Christian People and the Greek and the",
+        "passed": false
+      },
+      {
+        "id": "fact_130",
+        "track": "factual_recall",
+        "prompt": "Service notifier operates on TCP port",
+        "generated": "on, but the first cannot be a planet. I",
+        "passed": false
+      },
+      {
+        "id": "fact_131",
+        "track": "factual_recall",
+        "prompt": "Service proxy operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": false
+      },
+      {
+        "id": "fact_132",
+        "track": "factual_recall",
+        "prompt": "Service monitor operates on TCP port",
+        "generated": "on and the Christian People and the Greek and the",
+        "passed": false
+      },
+      {
+        "id": "fact_133",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": false
+      },
+      {
+        "id": "fact_134",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "ing and the Christian People and the Greek and the",
+        "passed": false
+      },
+      {
+        "id": "fact_135",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "on.\n\nReferences\n\nReferences",
+        "passed": false
+      },
+      {
+        "id": "fact_136",
+        "track": "factual_recall",
+        "prompt": "Service audit operates on TCP port",
+        "generated": "ing and the Greek and the Chinese of the Arcean",
+        "passed": true
+      },
+      {
+        "id": "fact_137",
+        "track": "factual_recall",
+        "prompt": "Service vault operates on TCP port",
+        "generated": "on.\n\nReferences\n\nOther websites",
+        "passed": true
+      },
+      {
+        "id": "fact_138",
+        "track": "factual_recall",
+        "prompt": "Service dns operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": true
+      },
+      {
+        "id": "fact_139",
+        "track": "factual_recall",
+        "prompt": "Service sso operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": true
+      },
+      {
+        "id": "fact_140",
+        "track": "factual_recall",
+        "prompt": "Service kafka operates on TCP port",
+        "generated": "ing and the Greek and the Christian American actor",
+        "passed": true
+      },
+      {
+        "id": "fact_141",
+        "track": "factual_recall",
+        "prompt": "Service elastic operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": true
+      },
+      {
+        "id": "fact_142",
+        "track": "factual_recall",
+        "prompt": "Service redis operates on TCP port",
+        "generated": "on. It is a shows a shows to be the fi",
+        "passed": true
+      },
+      {
+        "id": "fact_143",
+        "track": "factual_recall",
+        "prompt": "Service spanner operates on TCP port",
+        "generated": "on, but the first of the world. The first of the",
+        "passed": true
+      },
+      {
+        "id": "fact_144",
+        "track": "factual_recall",
+        "prompt": "Service bigtable operates on TCP port",
+        "generated": "on, but the first of the world. The first of the",
+        "passed": true
+      },
+      {
+        "id": "fact_145",
+        "track": "factual_recall",
+        "prompt": "Service pubsub operates on TCP port",
+        "generated": "on.\n\nReferences\n\nReferences",
+        "passed": true
+      },
+      {
+        "id": "fact_146",
+        "track": "factual_recall",
+        "prompt": "Service flink operates on TCP port",
+        "generated": "ing and the Chinese of the Chinese of the Chin",
+        "passed": true
+      },
+      {
+        "id": "fact_147",
+        "track": "factual_recall",
+        "prompt": "Service spark operates on TCP port",
+        "generated": "ing and the Greek and the Chinese of the Chinese",
+        "passed": true
+      },
+      {
+        "id": "fact_148",
+        "track": "factual_recall",
+        "prompt": "Service airflow operates on TCP port",
+        "generated": "on.\n\nReferences\n\nOther websites",
+        "passed": true
+      },
+      {
+        "id": "fact_149",
+        "track": "factual_recall",
+        "prompt": "Service superset operates on TCP port",
+        "generated": "on, but the first of the world. It is a gro",
+        "passed": true
+      },
+      {
+        "id": "fact_150",
+        "track": "factual_recall",
+        "prompt": "Service trino operates on TCP port",
+        "generated": "on.\n\nReferences\n\nReferences",
+        "passed": true
+      }
+    ],
+    "adapted": [
+      {
+        "id": "lang_001",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_1 communicates with",
+        "generated": "in range(0.7.\n            ............",
+        "passed": true
+      },
+      {
+        "id": "lang_002",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_2 communicates with",
+        "generated": "in range(0.7.\n            ............",
+        "passed": true
+      },
+      {
+        "id": "lang_003",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_3 communicates with",
+        "generated": "in range(0.7.\n\n- Step-by-Step Solu",
+        "passed": true
+      },
+      {
+        "id": "lang_004",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_4 communicates with",
+        "generated": "in the total number of each century.\n- Step-",
+        "passed": true
+      },
+      {
+        "id": "lang_005",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_5 communicates with",
+        "generated": "in the total number of each of the word of the number of e",
+        "passed": true
+      },
+      {
+        "id": "lang_006",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_6 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_007",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_7 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_008",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_8 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_009",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_9 communicates with",
+        "generated": "in the first number of each of the word of the word of",
+        "passed": true
+      },
+      {
+        "id": "lang_010",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_10 communicates with",
+        "generated": "in the total number of each century.\n- Step-",
+        "passed": true
+      },
+      {
+        "id": "lang_011",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_11 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_012",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_12 communicates with",
+        "generated": "in the first number of each of the word of the word of",
+        "passed": true
+      },
+      {
+        "id": "lang_013",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_13 communicates with",
+        "generated": "in the first number of each of the word of the word of",
+        "passed": true
+      },
+      {
+        "id": "lang_014",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_14 communicates with",
+        "generated": "in the first number of each of the word of the word of",
+        "passed": true
+      },
+      {
+        "id": "lang_015",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_15 communicates with",
+        "generated": "in the first number of each of the word of the word of",
+        "passed": true
+      },
+      {
+        "id": "lang_016",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_16 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_017",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_17 communicates with",
+        "generated": "in the total number of each century.\n- Step-",
+        "passed": true
+      },
+      {
+        "id": "lang_018",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_18 communicates with",
+        "generated": "in range(0.7.\n- Step-by-Step Solution",
+        "passed": true
+      },
+      {
+        "id": "lang_019",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_19 communicates with",
+        "generated": "in the first number of the first number of the first numb",
+        "passed": true
+      },
+      {
+        "id": "lang_020",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_20 communicates with",
+        "generated": "in range(0.7.\n\n- Step-by-Step Solu",
+        "passed": true
+      },
+      {
+        "id": "lang_021",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_21 communicates with",
+        "generated": "in range(0.7.\n            for i in range(0.7.....",
+        "passed": true
+      },
+      {
+        "id": "lang_022",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_22 communicates with",
+        "generated": "in range(0.7.\n            for i in range(0.7.....",
+        "passed": true
+      },
+      {
+        "id": "lang_023",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_23 communicates with",
+        "generated": "in the total number of each century.\n- Step-",
+        "passed": true
+      },
+      {
+        "id": "lang_024",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_24 communicates with",
+        "generated": "in range(0.7.\n            ............",
+        "passed": true
+      },
+      {
+        "id": "lang_025",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_25 communicates with",
+        "generated": "in the total number of each of the word of the number of e",
+        "passed": true
+      },
+      {
+        "id": "lang_026",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_26 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_027",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_27 communicates with",
+        "generated": "in range(0.7.\n- Step-by-Step Solution",
+        "passed": true
+      },
+      {
+        "id": "lang_028",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_28 communicates with",
+        "generated": "in range(0.7.\n- Step-by-Step Solution",
+        "passed": true
+      },
+      {
+        "id": "lang_029",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_29 communicates with",
+        "generated": "in the first number of each century.\n- Step",
+        "passed": true
+      },
+      {
+        "id": "lang_030",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_30 communicates with",
+        "generated": "in range(0.7.\n\n- Step-by-Step Solu",
+        "passed": true
+      },
+      {
+        "id": "arith_031",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 25 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_032",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 26 is",
+        "generated": "lands of the first century.\n* John Boo",
+        "passed": false
+      },
+      {
+        "id": "arith_033",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 27 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_034",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 28 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_035",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 29 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_036",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 30 is",
+        "generated": "lands of the total number of candy of hours.\n\nS",
+        "passed": false
+      },
+      {
+        "id": "arith_037",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 31 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_038",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 32 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_039",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 33 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_040",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 34 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_041",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 35 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_042",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 36 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_043",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 37 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_044",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 38 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_045",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 39 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_046",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 40 is",
+        "generated": "lands of the total number of candy of each surf",
+        "passed": false
+      },
+      {
+        "id": "arith_047",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 41 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_048",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 42 is",
+        "generated": "lands\n* Step-by-Step Solution:\nThe",
+        "passed": false
+      },
+      {
+        "id": "arith_049",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 43 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_050",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 44 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_051",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 45 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_052",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 46 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_053",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 47 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_054",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 48 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_055",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 49 is",
+        "generated": "lands of the city of the city of the city of the city of the",
+        "passed": false
+      },
+      {
+        "id": "arith_056",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 50 is",
+        "generated": "lands of the total number of candars.\n- $5 c",
+        "passed": false
+      },
+      {
+        "id": "arith_057",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 51 is",
+        "generated": "lands of the total number of candars.\n- Step-",
+        "passed": false
+      },
+      {
+        "id": "arith_058",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 52 is",
+        "generated": "lands of the total number of candars.\n- $5 c",
+        "passed": false
+      },
+      {
+        "id": "arith_059",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 53 is",
+        "generated": "lands of the total number of candars.\n\nStep-",
+        "passed": false
+      },
+      {
+        "id": "arith_060",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 54 is",
+        "generated": "lands of the total number of candars.\n- $5 c",
+        "passed": false
+      },
+      {
+        "id": "code_061",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_062",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_063",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_064",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_065",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_066",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_067",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_068",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_069",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_070",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_071",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_072",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_073",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_074",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_075",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_076",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_077",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_078",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_079",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_080",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_081",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_082",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_083",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_084",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_085",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_086",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_087",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": ": float: float: float: float: float: float: float: float: float: float",
+        "passed": false
+      },
+      {
+        "id": "code_088",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int.next_node: float: float: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_089",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": "# IndexError: float: float: float: float:",
+        "passed": false
+      },
+      {
+        "id": "code_090",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "# IncrementalEncoder,\n    # Incremental",
+        "passed": false
+      },
+      {
+        "id": "comp_091",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_092",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAn",
+        "passed": false
+      },
+      {
+        "id": "comp_093",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_094",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_095",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_096",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n- Step-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_097",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_098",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_099",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_100",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAn",
+        "passed": false
+      },
+      {
+        "id": "comp_101",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_102",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_103",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_104",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n- Step-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_105",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_106",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_107",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_108",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAn",
+        "passed": false
+      },
+      {
+        "id": "comp_109",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_110",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_111",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_112",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n- Step-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_113",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_114",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_115",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_116",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAn",
+        "passed": false
+      },
+      {
+        "id": "comp_117",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_118",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "comp_119",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l.\n\nStep-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "comp_120",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l.\n- Step-by-Step Solution:\nAft",
+        "passed": false
+      },
+      {
+        "id": "fact_121",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing and Special Step-Mon-Monday, S",
+        "passed": false
+      },
+      {
+        "id": "fact_122",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_123",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "ons.\n- Step-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "fact_124",
+        "track": "factual_recall",
+        "prompt": "Service gateway operates on TCP port",
+        "generated": "s\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_125",
+        "track": "factual_recall",
+        "prompt": "Service indexer operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_126",
+        "track": "factual_recall",
+        "prompt": "Service cache operates on TCP port",
+        "generated": "ing and Special Step-Minities of Spec",
+        "passed": false
+      },
+      {
+        "id": "fact_127",
+        "track": "factual_recall",
+        "prompt": "Service scheduler operates on TCP port",
+        "generated": "s\n\n### 1. Overage Andrond of the",
+        "passed": false
+      },
+      {
+        "id": "fact_128",
+        "track": "factual_recall",
+        "prompt": "Service worker operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_129",
+        "track": "factual_recall",
+        "prompt": "Service logger operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_130",
+        "track": "factual_recall",
+        "prompt": "Service notifier operates on TCP port",
+        "generated": "s.\n\nStep-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_131",
+        "track": "factual_recall",
+        "prompt": "Service proxy operates on TCP port",
+        "generated": "ing and Special Step-by-Step Solution:",
+        "passed": false
+      },
+      {
+        "id": "fact_132",
+        "track": "factual_recall",
+        "prompt": "Service monitor operates on TCP port",
+        "generated": "ing and Special Step-Mon-Books",
+        "passed": false
+      },
+      {
+        "id": "fact_133",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing and Special Step-Mon-Monday, S",
+        "passed": false
+      },
+      {
+        "id": "fact_134",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": false
+      },
+      {
+        "id": "fact_135",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "ons.\n- Step-by-Step Solution:\nSte",
+        "passed": false
+      },
+      {
+        "id": "fact_136",
+        "track": "factual_recall",
+        "prompt": "Service audit operates on TCP port",
+        "generated": "ing and Special Step-Minities of Spec",
+        "passed": true
+      },
+      {
+        "id": "fact_137",
+        "track": "factual_recall",
+        "prompt": "Service vault operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": true
+      },
+      {
+        "id": "fact_138",
+        "track": "factual_recall",
+        "prompt": "Service dns operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": true
+      },
+      {
+        "id": "fact_139",
+        "track": "factual_recall",
+        "prompt": "Service sso operates on TCP port",
+        "generated": "ing and Special Step-Mon-Books",
+        "passed": true
+      },
+      {
+        "id": "fact_140",
+        "track": "factual_recall",
+        "prompt": "Service kafka operates on TCP port",
+        "generated": "ing and Special Steps\n- Step-by-Ste",
+        "passed": true
+      },
+      {
+        "id": "fact_141",
+        "track": "factual_recall",
+        "prompt": "Service elastic operates on TCP port",
+        "generated": "ing and Special Step-by-Step Solution:",
+        "passed": true
+      },
+      {
+        "id": "fact_142",
+        "track": "factual_recall",
+        "prompt": "Service redis operates on TCP port",
+        "generated": "s.\n\nStep-by-Step Solution:\nStep",
+        "passed": true
+      },
+      {
+        "id": "fact_143",
+        "track": "factual_recall",
+        "prompt": "Service spanner operates on TCP port",
+        "generated": "ing and Special Step-Mon-Books",
+        "passed": true
+      },
+      {
+        "id": "fact_144",
+        "track": "factual_recall",
+        "prompt": "Service bigtable operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": true
+      },
+      {
+        "id": "fact_145",
+        "track": "factual_recall",
+        "prompt": "Service pubsub operates on TCP port",
+        "generated": "ing and Special Step-Mon-Books",
+        "passed": true
+      },
+      {
+        "id": "fact_146",
+        "track": "factual_recall",
+        "prompt": "Service flink operates on TCP port",
+        "generated": "ing and Special Step-Mon-Monday, S",
+        "passed": true
+      },
+      {
+        "id": "fact_147",
+        "track": "factual_recall",
+        "prompt": "Service spark operates on TCP port",
+        "generated": "ing and Special Step-Mon-Monday, S",
+        "passed": true
+      },
+      {
+        "id": "fact_148",
+        "track": "factual_recall",
+        "prompt": "Service airflow operates on TCP port",
+        "generated": "ing and Special Step-Mon-Monday, S",
+        "passed": true
+      },
+      {
+        "id": "fact_149",
+        "track": "factual_recall",
+        "prompt": "Service superset operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": true
+      },
+      {
+        "id": "fact_150",
+        "track": "factual_recall",
+        "prompt": "Service trino operates on TCP port",
+        "generated": "s.\n- Step-by-Step Solution:\nStep",
+        "passed": true
+      }
+    ],
+    "candidate": [
+      {
+        "id": "lang_001",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_1 communicates with",
+        "generated": "is 36 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_002",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_2 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_003",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_3 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_004",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_4 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_005",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_5 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_006",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_6 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_007",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_7 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_008",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_8 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_009",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_9 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_010",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_10 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_011",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_11 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_012",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_12 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_013",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_13 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_014",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_14 communicates with",
+        "generated": "of 66 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_015",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_15 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_016",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_16 communicates with",
+        "generated": ". It is 36 packets. It is 36 pac",
+        "passed": true
+      },
+      {
+        "id": "lang_017",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_17 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_018",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_18 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_019",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_19 communicates with",
+        "generated": ". is 4. This is 4. is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_020",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_20 communicates with",
+        "generated": "packets.\n    >>> linked_list.insert(')",
+        "passed": true
+      },
+      {
+        "id": "lang_021",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_21 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_022",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_22 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_023",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_23 communicates with",
+        "generated": "packets.\n\n    >>> linked_list.insert(')",
+        "passed": true
+      },
+      {
+        "id": "lang_024",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_24 communicates with",
+        "generated": "of 06 packets. It is 36 packets.",
+        "passed": true
+      },
+      {
+        "id": "lang_025",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_25 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_026",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_26 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_027",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_27 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_028",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_28 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_029",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_29 communicates with",
+        "generated": "packets. It is 36 packets. It is",
+        "passed": true
+      },
+      {
+        "id": "lang_030",
+        "track": "language_continuation",
+        "prompt": "In a distributed cluster, node worker_30 communicates with",
+        "generated": "packets. It is 36 packets.getpac",
+        "passed": true
+      },
+      {
+        "id": "arith_031",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 25 is",
+        "generated": "lands of 5 is 36. The double of 28 is 12.",
+        "passed": false
+      },
+      {
+        "id": "arith_032",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 26 is",
+        "generated": "lands of 5 is 7. The packet. The double",
+        "passed": false
+      },
+      {
+        "id": "arith_033",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 27 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_034",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 28 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_035",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 29 is",
+        "generated": "lands of 5 is 36. The central of 5 is 3",
+        "passed": false
+      },
+      {
+        "id": "arith_036",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 30 is",
+        "generated": "lands of 5 sland 3. The total of 5 is 12",
+        "passed": false
+      },
+      {
+        "id": "arith_037",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 31 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_038",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 32 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_039",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 33 is",
+        "generated": "lands = <<24*2=2>>6 packets.",
+        "passed": false
+      },
+      {
+        "id": "arith_040",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 34 is",
+        "generated": "lands of 5 is 7. The packet. The double",
+        "passed": false
+      },
+      {
+        "id": "arith_041",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 35 is",
+        "generated": "lands of 5 is 36. The central of 5 is 3",
+        "passed": false
+      },
+      {
+        "id": "arith_042",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 36 is",
+        "generated": "lands of 5 is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "arith_043",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 37 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_044",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 38 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_045",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 39 is",
+        "generated": "lands of 5 is 36. The central of 5 is 3",
+        "passed": false
+      },
+      {
+        "id": "arith_046",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 40 is",
+        "generated": "lands of 5 is 36 packets. It has 5",
+        "passed": false
+      },
+      {
+        "id": "arith_047",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 41 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_048",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 42 is",
+        "generated": "lands of 5 is 36. The central of 5 is 3",
+        "passed": false
+      },
+      {
+        "id": "arith_049",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 43 is",
+        "generated": "lands = <<24*2=2>>6 packets.",
+        "passed": false
+      },
+      {
+        "id": "arith_050",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 44 is",
+        "generated": "lands = <<2*2=2>>6 packets.\n#",
+        "passed": false
+      },
+      {
+        "id": "arith_051",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 45 is",
+        "generated": "lands of 5 is 36. The double of 28 is 12.",
+        "passed": false
+      },
+      {
+        "id": "arith_052",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 46 is",
+        "generated": "lands of 5 is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "arith_053",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 47 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_054",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 48 is",
+        "generated": "lands of 5 is 36. The double of 28 is 12.",
+        "passed": false
+      },
+      {
+        "id": "arith_055",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 49 is",
+        "generated": "lands of 5 is 36. The central of 5 is 3",
+        "passed": false
+      },
+      {
+        "id": "arith_056",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 50 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_057",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 51 is",
+        "generated": "lands of 5 is 7. It is 36 packets.",
+        "passed": false
+      },
+      {
+        "id": "arith_058",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 52 is",
+        "generated": "lands of 5 is 36. The total of 5 is 12 is",
+        "passed": false
+      },
+      {
+        "id": "arith_059",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 53 is",
+        "generated": "lands = <<2*2=2>>6 packets.\n#",
+        "passed": false
+      },
+      {
+        "id": "arith_060",
+        "track": "arithmetic_continuation",
+        "prompt": "The double of 54 is",
+        "generated": "lands = <<2*2=2>>6 packets.\n#",
+        "passed": false
+      },
+      {
+        "id": "code_061",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_062",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_063",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_064",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_065",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "code_066",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_067",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_068",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_069",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_070",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "code_071",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_072",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_073",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_074",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_075",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "code_076",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_077",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_078",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_079",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_080",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "code_081",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_082",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_083",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_084",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_085",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "code_086",
+        "track": "code_completion",
+        "prompt": "def calculate_area(width: float, height: float) -> float:\n    return",
+        "generated": ": int:\n    return packet_packet(\"Incremental",
+        "passed": false
+      },
+      {
+        "id": "code_087",
+        "track": "code_completion",
+        "prompt": "def get_header(token: str) -> dict:\n    return",
+        "generated": "(most recent call last):\n    ....\n    Valu",
+        "passed": false
+      },
+      {
+        "id": "code_088",
+        "track": "code_completion",
+        "prompt": "def to_uppercase(s: str) -> str:\n    return",
+        "generated": ": int:\n    return np.ndarray([0])",
+        "passed": false
+      },
+      {
+        "id": "code_089",
+        "track": "code_completion",
+        "prompt": "def list_length(items: list) -> int:\n    return",
+        "generated": ">>> linked_list.insert(\"input\")\n    >",
+        "passed": false
+      },
+      {
+        "id": "code_090",
+        "track": "code_completion",
+        "prompt": "def multiply_by_ten(val: int) -> int:\n    return",
+        "generated": "(self.assertEqual)\n    packet_connect = self._",
+        "passed": false
+      },
+      {
+        "id": "comp_091",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_092",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_093",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_094",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_095",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_096",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_097",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_098",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_099",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_100",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_101",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_102",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_103",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_104",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_105",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_106",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_107",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_108",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_109",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_110",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_111",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_112",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_113",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge titanium, cluster ingress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_114",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge cobalt, cluster egress relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_115",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge amber, cluster north relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_116",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge bronze, cluster south relays to archive",
+        "generated": "mber websites. It is 36 packets. I",
+        "passed": false
+      },
+      {
+        "id": "comp_117",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge copper, cluster east relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_118",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge silver, cluster west relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_119",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge gold, cluster central relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "comp_120",
+        "track": "compositional_generalization",
+        "prompt": "Through bridge platinum, cluster edge relays to archive",
+        "generated": "l. It is 36 packets. It is 36 p",
+        "passed": false
+      },
+      {
+        "id": "fact_121",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relayer",
+        "passed": false
+      },
+      {
+        "id": "fact_122",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "s. The relays to archive limit of 28 is 36.",
+        "passed": false
+      },
+      {
+        "id": "fact_123",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "s. The double of 28 is 36. The central of",
+        "passed": false
+      },
+      {
+        "id": "fact_124",
+        "track": "factual_recall",
+        "prompt": "Service gateway operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": false
+      },
+      {
+        "id": "fact_125",
+        "track": "factual_recall",
+        "prompt": "Service indexer operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": false
+      },
+      {
+        "id": "fact_126",
+        "track": "factual_recall",
+        "prompt": "Service cache operates on TCP port",
+        "generated": "ing to archive limit of 28 packets. It is 3",
+        "passed": false
+      },
+      {
+        "id": "fact_127",
+        "track": "factual_recall",
+        "prompt": "Service scheduler operates on TCP port",
+        "generated": "s. The double of 28 is 36. The central of",
+        "passed": false
+      },
+      {
+        "id": "fact_128",
+        "track": "factual_recall",
+        "prompt": "Service worker operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": false
+      },
+      {
+        "id": "fact_129",
+        "track": "factual_recall",
+        "prompt": "Service logger operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": false
+      },
+      {
+        "id": "fact_130",
+        "track": "factual_recall",
+        "prompt": "Service notifier operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": false
+      },
+      {
+        "id": "fact_131",
+        "track": "factual_recall",
+        "prompt": "Service proxy operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": false
+      },
+      {
+        "id": "fact_132",
+        "track": "factual_recall",
+        "prompt": "Service monitor operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": false
+      },
+      {
+        "id": "fact_133",
+        "track": "factual_recall",
+        "prompt": "Service auth operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relayer",
+        "passed": false
+      },
+      {
+        "id": "fact_134",
+        "track": "factual_recall",
+        "prompt": "Service billing operates on TCP port",
+        "generated": "s. The relays to archive limit of 28 is 36.",
+        "passed": false
+      },
+      {
+        "id": "fact_135",
+        "track": "factual_recall",
+        "prompt": "Service telemetry operates on TCP port",
+        "generated": "s. The double of 28 is 36. The central of",
+        "passed": false
+      },
+      {
+        "id": "fact_136",
+        "track": "factual_recall",
+        "prompt": "Service audit operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": true
+      },
+      {
+        "id": "fact_137",
+        "track": "factual_recall",
+        "prompt": "Service vault operates on TCP port",
+        "generated": "s. The relays to archive limit of 28 is 36.",
+        "passed": true
+      },
+      {
+        "id": "fact_138",
+        "track": "factual_recall",
+        "prompt": "Service dns operates on TCP port",
+        "generated": "s. The double of 28 is 36. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_139",
+        "track": "factual_recall",
+        "prompt": "Service sso operates on TCP port",
+        "generated": "ing to archive limit of 28 packets. It is 3",
+        "passed": true
+      },
+      {
+        "id": "fact_140",
+        "track": "factual_recall",
+        "prompt": "Service kafka operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": true
+      },
+      {
+        "id": "fact_141",
+        "track": "factual_recall",
+        "prompt": "Service elastic operates on TCP port",
+        "generated": "ing to archive limit of 28 packets. The relays",
+        "passed": true
+      },
+      {
+        "id": "fact_142",
+        "track": "factual_recall",
+        "prompt": "Service redis operates on TCP port",
+        "generated": "s. The double of 28 is 36. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_143",
+        "track": "factual_recall",
+        "prompt": "Service spanner operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_144",
+        "track": "factual_recall",
+        "prompt": "Service bigtable operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": true
+      },
+      {
+        "id": "fact_145",
+        "track": "factual_recall",
+        "prompt": "Service pubsub operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_146",
+        "track": "factual_recall",
+        "prompt": "Service flink operates on TCP port",
+        "generated": "ing to archive limit of 28 packets. It is 3",
+        "passed": true
+      },
+      {
+        "id": "fact_147",
+        "track": "factual_recall",
+        "prompt": "Service spark operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_148",
+        "track": "factual_recall",
+        "prompt": "Service airflow operates on TCP port",
+        "generated": "ing to archive limit of 27 packets. The relays",
+        "passed": true
+      },
+      {
+        "id": "fact_149",
+        "track": "factual_recall",
+        "prompt": "Service superset operates on TCP port",
+        "generated": "ing to archive limit of 2008. The packets.",
+        "passed": true
+      },
+      {
+        "id": "fact_150",
+        "track": "factual_recall",
+        "prompt": "Service trino operates on TCP port",
+        "generated": "s. The relays to archive limit of 28 is 36.",
+        "passed": true
+      }
+    ]
+  }
+}
