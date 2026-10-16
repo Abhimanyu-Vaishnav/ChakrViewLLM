@@ -1,0 +1,139 @@
+{
+  "contrastive_test_split_metrics": {
+    "old_bi_encoder": {
+      "accuracy": 0.7059,
+      "mean_pos_sim": 0.3682,
+      "mean_neg_sim": 0.2113,
+      "mean_margin": 0.1569,
+      "min_margin": -0.3621,
+      "max_margin": 0.8088
+    },
+    "domain_adaptive_bi_encoder": {
+      "accuracy": 1.0,
+      "mean_pos_sim": 0.941,
+      "mean_neg_sim": 0.0806,
+      "mean_margin": 0.8605,
+      "min_margin": 0.5061,
+      "max_margin": 1.1688
+    }
+  },
+  "corpus_embedding_space_metrics": {
+    "total_chunks_indexed": 72,
+    "old_model_mean_interchunk_cosine": 0.5613,
+    "old_model_stdev_interchunk_cosine": 0.2583,
+    "new_model_mean_interchunk_cosine": 0.635,
+    "new_model_stdev_interchunk_cosine": 0.3527
+  },
+  "dense_retrieval_failure_diagnoses": [
+    {
+      "id": 101,
+      "category": "exact_entity",
+      "query": "What is the parameter count of ChakrMicro V0.6?",
+      "expected_source": "compute_arch_core.md",
+      "top_retrieved_source": "billing_subscription_tiers.md",
+      "top_similarity": 0.9504,
+      "gold_source_similarity": 0.7916,
+      "margin_deficit": 0.1588,
+      "top_chunk_preview": "t starting at $12,000 per year with unlimited workers.\n"
+    },
+    {
+      "id": 102,
+      "category": "exact_entity",
+      "query": "What is the minimum physical RAM required for CPU inference?",
+      "expected_source": "compute_memory_bus.md",
+      "top_retrieved_source": "billing_subscription_tiers.md",
+      "top_similarity": 0.9508,
+      "gold_source_similarity": 0.7014,
+      "margin_deficit": 0.2493,
+      "top_chunk_preview": "t starting at $12,000 per year with unlimited workers.\n"
+    },
+    {
+      "id": 103,
+      "category": "exact_entity",
+      "query": "What minimum compute capability is required for CUDA acceleration?",
+      "expected_source": "compute_accelerator_cuda.md",
+      "top_retrieved_source": "billing_refund_policy.md",
+      "top_similarity": 0.9408,
+      "gold_source_similarity": 0.8997,
+      "margin_deficit": 0.0412,
+      "top_chunk_preview": "ired within 60 days of invoice date.\n"
+    },
+    {
+      "id": 104,
+      "category": "exact_entity",
+      "query": "What is the thread pool ceiling for CPU execution?",
+      "expected_source": "compute_cpu_simd.md",
+      "top_retrieved_source": "billing_subscription_tiers.md",
+      "top_similarity": 0.9602,
+      "gold_source_similarity": 0.8871,
+      "margin_deficit": 0.073,
+      "top_chunk_preview": "t starting at $12,000 per year with unlimited workers.\n"
+    },
+    {
+      "id": 105,
+      "category": "exact_entity",
+      "query": "What TCP port handles data transmission in the mesh network?",
+      "expected_source": "network_mesh_topology.md",
+      "top_retrieved_source": "security_threat_model.md",
+      "top_similarity": 0.9425,
+      "gold_source_similarity": 0.055,
+      "margin_deficit": 0.8875,
+      "top_chunk_preview": " Document Q&A cannot trigger filesystem modifications or network egress.\n"
+    },
+    {
+      "id": 106,
+      "category": "exact_entity",
+      "query": "What is the heartbeat interval in Raft consensus?",
+      "expected_source": "network_consensus_raft.md",
+      "top_retrieved_source": "storage_caching_layer.md",
+      "top_similarity": 0.95,
+      "gold_source_similarity": 0.1603,
+      "margin_deficit": 0.7897,
+      "top_chunk_preview": "n trigger: Document SHA-256 modification or file deletion.\n"
+    },
+    {
+      "id": 107,
+      "category": "exact_entity",
+      "query": "What is the maximum capacity of the in-memory embedding cache?",
+      "expected_source": "storage_caching_layer.md",
+      "top_retrieved_source": "billing_subscription_tiers.md",
+      "top_similarity": 0.9556,
+      "gold_source_similarity": 0.9555,
+      "margin_deficit": 0.0001,
+      "top_chunk_preview": "t starting at $12,000 per year with unlimited workers.\n"
+    },
+    {
+      "id": 108,
+      "category": "exact_entity",
+      "query": "What is the term saturation parameter k1 in the BM25 index?",
+      "expected_source": "storage_bm25_index.md",
+      "top_retrieved_source": "storage_caching_layer.md",
+      "top_similarity": 0.944,
+      "gold_source_similarity": 0.1096,
+      "margin_deficit": 0.8345,
+      "top_chunk_preview": "n trigger: Document SHA-256 modification or file deletion.\n"
+    },
+    {
+      "id": 109,
+      "category": "exact_entity",
+      "query": "What is the length normalization parameter b in BM25?",
+      "expected_source": "storage_bm25_index.md",
+      "top_retrieved_source": "billing_subscription_tiers.md",
+      "top_similarity": 0.9469,
+      "gold_source_similarity": 0.1077,
+      "margin_deficit": 0.8392,
+      "top_chunk_preview": "t starting at $12,000 per year with unlimited workers.\n"
+    },
+    {
+      "id": 110,
+      "category": "exact_entity",
+      "query": "What is the maximum single document size in the BLOB store?",
+      "expected_source": "storage_blob_store.md",
+      "top_retrieved_source": "storage_caching_layer.md",
+      "top_similarity": 0.9516,
+      "gold_source_similarity": 0.0922,
+      "margin_deficit": 0.8594,
+      "top_chunk_preview": "n trigger: Document SHA-256 modification or file deletion.\n"
+    }
+  ]
+}

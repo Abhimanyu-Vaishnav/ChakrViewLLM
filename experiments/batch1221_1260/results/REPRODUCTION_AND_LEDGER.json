@@ -1,0 +1,133 @@
+{
+  "timestamp": "2026-10-16T04:07:32Z",
+  "benchmark_audit": {
+    "benchmark_file": "experiments\\batch1141_1180\\data\\held_out_70_benchmark.json",
+    "total_items": 70,
+    "unique_ids": 70,
+    "category_counts": {
+      "exact_entity": 10,
+      "paraphrase": 10,
+      "synonym": 10,
+      "distractor_competition": 10,
+      "version_conflict": 6,
+      "follow_up": 8,
+      "multilingual_hinglish": 6,
+      "false_premise": 5,
+      "abstention": 5
+    },
+    "category_sum": 70,
+    "expected_type_counts": {
+      "ANSWER": 60,
+      "REFUTE": 5,
+      "ABSTAIN": 5
+    },
+    "expected_type_sum": 70,
+    "answerable_denominator": 60,
+    "abstention_denominator": 5,
+    "false_premise_denominator": 5
+  },
+  "metric_ledger": [
+    {
+      "metric": "Recall@1 (BM25)",
+      "source": "experiments/batch1181_1220/results/EVAL_BM25.json",
+      "reported_value": 0.9833,
+      "reproduced_value": 0.9833,
+      "numerator": 59,
+      "denominator": 60,
+      "formula": "r1_hits / answerable_queries",
+      "matches_reported": true
+    },
+    {
+      "metric": "MRR (BM25)",
+      "source": "experiments/batch1181_1220/results/EVAL_BM25.json",
+      "reported_value": 0.9833,
+      "reproduced_value": 0.9833,
+      "numerator": 59.0,
+      "denominator": 60,
+      "formula": "sum(1.0 / rank) / answerable_queries",
+      "matches_reported": true
+    },
+    {
+      "metric": "Overall Accuracy (BM25)",
+      "source": "experiments/batch1181_1220/results/EVAL_BM25.json",
+      "reported_value": 0.8429,
+      "reproduced_value": 0.8429,
+      "numerator": 59,
+      "denominator": 70,
+      "formula": "overall_correct / total_queries",
+      "matches_reported": true
+    },
+    {
+      "metric": "Recall@1 (Domain-Adaptive Bi-Encoder)",
+      "source": "experiments/batch1181_1220/results/EVAL_NEURAL_DOMAIN_ADAPTIVE.json",
+      "reported_value": 0.8833,
+      "reproduced_value": 0.8833,
+      "numerator": 53,
+      "denominator": 60,
+      "formula": "r1_hits / answerable_queries",
+      "matches_reported": true
+    },
+    {
+      "metric": "MRR (Domain-Adaptive Bi-Encoder)",
+      "source": "experiments/batch1181_1220/results/EVAL_NEURAL_DOMAIN_ADAPTIVE.json",
+      "reported_value": 0.9333,
+      "reproduced_value": 0.9333,
+      "numerator": 56.0,
+      "denominator": 60,
+      "formula": "sum(1.0 / rank) / answerable_queries",
+      "matches_reported": true
+    },
+    {
+      "metric": "Overall Accuracy (Domain-Adaptive Bi-Encoder)",
+      "source": "experiments/batch1181_1220/results/EVAL_NEURAL_DOMAIN_ADAPTIVE.json",
+      "reported_value": 0.8429,
+      "reproduced_value": 0.8429,
+      "numerator": 59,
+      "denominator": 70,
+      "formula": "overall_correct / total_queries",
+      "matches_reported": true
+    }
+  ],
+  "reproduced_summaries": {
+    "bm25": {
+      "name": "BM25 Lexical Baseline",
+      "recall_at_1": 0.9833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9833,
+      "accuracy": 0.8429,
+      "median_latency_ms": 1.04,
+      "ingest_time_ms": 448.98
+    },
+    "hash": {
+      "name": "Deterministic Hash Hybrid",
+      "recall_at_1": 0.9833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9833,
+      "accuracy": 0.8429,
+      "median_latency_ms": 1.02,
+      "ingest_time_ms": 60.54
+    },
+    "neural_old": {
+      "name": "Untrained/Physics ChakrBiEncoder Hybrid",
+      "recall_at_1": 0.9167,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 0.9556,
+      "accuracy": 0.8571,
+      "median_latency_ms": 4.23,
+      "ingest_time_ms": 413.37
+    },
+    "neural_domain_adaptive": {
+      "name": "Domain-Adaptive ChakrBiEncoder Hybrid",
+      "recall_at_1": 0.8833,
+      "recall_at_3": 0.9833,
+      "recall_at_5": 0.9833,
+      "mrr": 0.9333,
+      "accuracy": 0.8429,
+      "median_latency_ms": 3.9,
+      "ingest_time_ms": 523.93
+    }
+  }
+}
