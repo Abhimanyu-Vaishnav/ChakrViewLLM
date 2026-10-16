@@ -1,0 +1,385 @@
+{
+  "timestamp": "2026-10-16T04:59:38Z",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "training_metadata": {
+    "max_steps": 80,
+    "actual_steps_completed": 80,
+    "best_step": 80,
+    "best_val_loss": 4.6266,
+    "peak_lr": 5e-05,
+    "weight_decay": 0.05,
+    "training_duration_seconds": 14.2,
+    "candidate_checkpoint_path": "experiments\\batch1381_1420\\checkpoints\\chakrmicro_domain_adapted_experimental.pt"
+  },
+  "training_log": [
+    {
+      "step": 5,
+      "learning_rate": 2.75e-05,
+      "train_loss": 4.8206,
+      "val_loss": 5.3126,
+      "val_perplexity": 202.87,
+      "is_best": true
+    },
+    {
+      "step": 10,
+      "learning_rate": 5e-05,
+      "train_loss": 4.6474,
+      "val_loss": 5.1455,
+      "val_perplexity": 171.65,
+      "is_best": true
+    },
+    {
+      "step": 15,
+      "learning_rate": 4.944e-05,
+      "train_loss": 4.4339,
+      "val_loss": 5.0047,
+      "val_perplexity": 149.12,
+      "is_best": true
+    },
+    {
+      "step": 20,
+      "learning_rate": 4.777e-05,
+      "train_loss": 4.4939,
+      "val_loss": 4.9015,
+      "val_perplexity": 134.49,
+      "is_best": true
+    },
+    {
+      "step": 25,
+      "learning_rate": 4.509e-05,
+      "train_loss": 4.3354,
+      "val_loss": 4.8223,
+      "val_perplexity": 124.25,
+      "is_best": true
+    },
+    {
+      "step": 30,
+      "learning_rate": 4.153e-05,
+      "train_loss": 4.1458,
+      "val_loss": 4.7662,
+      "val_perplexity": 117.47,
+      "is_best": true
+    },
+    {
+      "step": 35,
+      "learning_rate": 3.726e-05,
+      "train_loss": 3.82,
+      "val_loss": 4.7307,
+      "val_perplexity": 113.37,
+      "is_best": true
+    },
+    {
+      "step": 40,
+      "learning_rate": 3.251e-05,
+      "train_loss": 3.6483,
+      "val_loss": 4.7022,
+      "val_perplexity": 110.19,
+      "is_best": true
+    },
+    {
+      "step": 45,
+      "learning_rate": 2.75e-05,
+      "train_loss": 3.6408,
+      "val_loss": 4.6798,
+      "val_perplexity": 107.74,
+      "is_best": true
+    },
+    {
+      "step": 50,
+      "learning_rate": 2.249e-05,
+      "train_loss": 3.4389,
+      "val_loss": 4.6638,
+      "val_perplexity": 106.04,
+      "is_best": true
+    },
+    {
+      "step": 55,
+      "learning_rate": 1.774e-05,
+      "train_loss": 3.4735,
+      "val_loss": 4.6514,
+      "val_perplexity": 104.74,
+      "is_best": true
+    },
+    {
+      "step": 60,
+      "learning_rate": 1.347e-05,
+      "train_loss": 3.733,
+      "val_loss": 4.6429,
+      "val_perplexity": 103.84,
+      "is_best": true
+    },
+    {
+      "step": 65,
+      "learning_rate": 9.91e-06,
+      "train_loss": 3.566,
+      "val_loss": 4.6372,
+      "val_perplexity": 103.25,
+      "is_best": true
+    },
+    {
+      "step": 70,
+      "learning_rate": 7.23e-06,
+      "train_loss": 3.5615,
+      "val_loss": 4.6326,
+      "val_perplexity": 102.79,
+      "is_best": true
+    },
+    {
+      "step": 75,
+      "learning_rate": 5.56e-06,
+      "train_loss": 3.6174,
+      "val_loss": 4.6293,
+      "val_perplexity": 102.44,
+      "is_best": true
+    },
+    {
+      "step": 80,
+      "learning_rate": 5e-06,
+      "train_loss": 3.4277,
+      "val_loss": 4.6266,
+      "val_perplexity": 102.17,
+      "is_best": true
+    }
+  ],
+  "comparative_evaluation": {
+    "targets_evaluated": 3456,
+    "baseline_canonical": {
+      "cross_entropy_loss": 5.063,
+      "perplexity": 158.07,
+      "top_1_accuracy": 0.1285,
+      "top_5_accuracy": 0.307,
+      "top_10_accuracy": 0.4039
+    },
+    "candidate_adapted": {
+      "cross_entropy_loss": 4.3371,
+      "perplexity": 76.49,
+      "top_1_accuracy": 0.2352,
+      "top_5_accuracy": 0.4045,
+      "top_10_accuracy": 0.4933
+    },
+    "deltas": {
+      "loss_change": -0.7259,
+      "perplexity_change": -81.58,
+      "top_1_accuracy_change": 0.1067,
+      "top_10_accuracy_change": 0.0894
+    }
+  },
+  "per_document_comparison": [
+    {
+      "doc_id": "billing_refund_policy.md",
+      "category": "billing",
+      "tokens": 142,
+      "baseline_loss": 4.7036,
+      "candidate_loss": 4.1208,
+      "loss_delta": -0.5828
+    },
+    {
+      "doc_id": "billing_sla_commitments.md",
+      "category": "billing",
+      "tokens": 151,
+      "baseline_loss": 5.0423,
+      "candidate_loss": 4.3828,
+      "loss_delta": -0.6595
+    },
+    {
+      "doc_id": "billing_subscription_tiers.md",
+      "category": "billing",
+      "tokens": 142,
+      "baseline_loss": 4.9629,
+      "candidate_loss": 4.3929,
+      "loss_delta": -0.57
+    },
+    {
+      "doc_id": "billing_support_tiers.md",
+      "category": "billing",
+      "tokens": 145,
+      "baseline_loss": 4.7299,
+      "candidate_loss": 3.6926,
+      "loss_delta": -1.0373
+    },
+    {
+      "doc_id": "compute_kernel_fusion.md",
+      "category": "compute",
+      "tokens": 113,
+      "baseline_loss": 5.2973,
+      "candidate_loss": 4.4665,
+      "loss_delta": -0.8308
+    },
+    {
+      "doc_id": "compute_memory_bus.md",
+      "category": "compute",
+      "tokens": 121,
+      "baseline_loss": 6.007,
+      "candidate_loss": 5.0517,
+      "loss_delta": -0.9553
+    },
+    {
+      "doc_id": "compute_quantization.md",
+      "category": "compute",
+      "tokens": 131,
+      "baseline_loss": 5.3941,
+      "candidate_loss": 4.5977,
+      "loss_delta": -0.7964
+    },
+    {
+      "doc_id": "compute_scheduler.md",
+      "category": "compute",
+      "tokens": 105,
+      "baseline_loss": 4.7524,
+      "candidate_loss": 3.8933,
+      "loss_delta": -0.8591
+    },
+    {
+      "doc_id": "compute_telemetry.md",
+      "category": "compute",
+      "tokens": 121,
+      "baseline_loss": 4.6447,
+      "candidate_loss": 3.9809,
+      "loss_delta": -0.6638
+    },
+    {
+      "doc_id": "network_gateway_api.md",
+      "category": "network",
+      "tokens": 125,
+      "baseline_loss": 5.0865,
+      "candidate_loss": 4.3456,
+      "loss_delta": -0.7409
+    },
+    {
+      "doc_id": "network_load_balancer.md",
+      "category": "network",
+      "tokens": 118,
+      "baseline_loss": 5.0812,
+      "candidate_loss": 4.4499,
+      "loss_delta": -0.6313
+    },
+    {
+      "doc_id": "network_mesh_topology.md",
+      "category": "network",
+      "tokens": 130,
+      "baseline_loss": 5.2744,
+      "candidate_loss": 4.5156,
+      "loss_delta": -0.7588
+    },
+    {
+      "doc_id": "network_socket_tuning.md",
+      "category": "network",
+      "tokens": 108,
+      "baseline_loss": 4.8627,
+      "candidate_loss": 4.0145,
+      "loss_delta": -0.8482
+    },
+    {
+      "doc_id": "network_vpn_tunnel.md",
+      "category": "network",
+      "tokens": 104,
+      "baseline_loss": 4.706,
+      "candidate_loss": 3.9611,
+      "loss_delta": -0.7449
+    },
+    {
+      "doc_id": "security_key_management.md",
+      "category": "security",
+      "tokens": 127,
+      "baseline_loss": 5.2348,
+      "candidate_loss": 4.6157,
+      "loss_delta": -0.6191
+    },
+    {
+      "doc_id": "security_role_rbac.md",
+      "category": "security",
+      "tokens": 116,
+      "baseline_loss": 5.2181,
+      "candidate_loss": 4.5144,
+      "loss_delta": -0.7037
+    },
+    {
+      "doc_id": "security_sandbox_isolation.md",
+      "category": "security",
+      "tokens": 126,
+      "baseline_loss": 5.3576,
+      "candidate_loss": 4.7062,
+      "loss_delta": -0.6514
+    },
+    {
+      "doc_id": "security_threat_model.md",
+      "category": "security",
+      "tokens": 152,
+      "baseline_loss": 4.9002,
+      "candidate_loss": 4.3365,
+      "loss_delta": -0.5637
+    },
+    {
+      "doc_id": "security_vulnerability_sla.md",
+      "category": "security",
+      "tokens": 150,
+      "baseline_loss": 5.1049,
+      "candidate_loss": 4.4155,
+      "loss_delta": -0.6894
+    },
+    {
+      "doc_id": "sop_log_rotation.md",
+      "category": "sop",
+      "tokens": 104,
+      "baseline_loss": 5.1393,
+      "candidate_loss": 4.1725,
+      "loss_delta": -0.9668
+    },
+    {
+      "doc_id": "sop_release_checklist.md",
+      "category": "sop",
+      "tokens": 153,
+      "baseline_loss": 5.2085,
+      "candidate_loss": 4.4945,
+      "loss_delta": -0.714
+    },
+    {
+      "doc_id": "sop_release_versioning.md",
+      "category": "sop",
+      "tokens": 136,
+      "baseline_loss": 5.1526,
+      "candidate_loss": 4.5329,
+      "loss_delta": -0.6197
+    },
+    {
+      "doc_id": "sop_runtime_environments.md",
+      "category": "sop",
+      "tokens": 156,
+      "baseline_loss": 5.1949,
+      "candidate_loss": 4.5707,
+      "loss_delta": -0.6242
+    },
+    {
+      "doc_id": "storage_compaction.md",
+      "category": "storage",
+      "tokens": 122,
+      "baseline_loss": 4.6323,
+      "candidate_loss": 3.8653,
+      "loss_delta": -0.767
+    },
+    {
+      "doc_id": "storage_disk_engine.md",
+      "category": "storage",
+      "tokens": 110,
+      "baseline_loss": 5.3141,
+      "candidate_loss": 4.3994,
+      "loss_delta": -0.9147
+    },
+    {
+      "doc_id": "storage_sqlite_schema.md",
+      "category": "storage",
+      "tokens": 143,
+      "baseline_loss": 4.8102,
+      "candidate_loss": 4.2734,
+      "loss_delta": -0.5368
+    },
+    {
+      "doc_id": "storage_vector_index.md",
+      "category": "storage",
+      "tokens": 105,
+      "baseline_loss": 4.8886,
+      "candidate_loss": 4.1087,
+      "loss_delta": -0.7799
+    }
+  ]
+}
