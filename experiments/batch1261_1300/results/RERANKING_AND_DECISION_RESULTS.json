@@ -1,0 +1,2437 @@
+{
+  "timestamp": "2026-10-16T04:23:34Z",
+  "candidate_pool_analysis": {
+    "recall_at_5": {
+      "hits": 59,
+      "total": 60,
+      "ratio": 0.9833
+    },
+    "recall_at_10": {
+      "hits": 60,
+      "total": 60,
+      "ratio": 1.0
+    },
+    "recall_at_20": {
+      "hits": 60,
+      "total": 60,
+      "ratio": 1.0
+    }
+  },
+  "reranking_configurations": {
+    "pure_reranker_k10": {
+      "k_depth": 10,
+      "alpha": 1.0,
+      "recall_at_1": 0.15,
+      "recall_at_1_count": "9/60",
+      "recall_at_3": 0.4333,
+      "recall_at_3_count": "26/60",
+      "recall_at_5": 0.75,
+      "recall_at_5_count": "45/60",
+      "mrr": 0.3724,
+      "median_latency_ms": 62.44,
+      "p95_latency_ms": 78.98,
+      "per_query": [
+        {
+          "id": 101,
+          "query": "What is the parameter count of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 102,
+          "query": "What is the minimum physical RAM required for CPU inference?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 3,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 103,
+          "query": "What minimum compute capability is required for CUDA acceleration?",
+          "expected_source": "compute_accelerator_cuda.md",
+          "rank": 10,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 104,
+          "query": "What is the thread pool ceiling for CPU execution?",
+          "expected_source": "compute_cpu_simd.md",
+          "rank": 8,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 105,
+          "query": "What TCP port handles data transmission in the mesh network?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 6,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 106,
+          "query": "What is the heartbeat interval in Raft consensus?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 3,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 107,
+          "query": "What is the maximum capacity of the in-memory embedding cache?",
+          "expected_source": "storage_caching_layer.md",
+          "rank": 5,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 108,
+          "query": "What is the term saturation parameter k1 in the BM25 index?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 4,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 109,
+          "query": "What is the length normalization parameter b in BM25?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 2,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 110,
+          "query": "What is the maximum single document size in the BLOB store?",
+          "expected_source": "storage_blob_store.md",
+          "rank": 10,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 111,
+          "query": "How many query attention heads does ChakrMicro incorporate?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 5,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 112,
+          "query": "What is the maximum throughput across the memory interconnect?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 2,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 113,
+          "query": "How frequently are telemetry metrics harvested by the collector?",
+          "expected_source": "compute_telemetry.md",
+          "rank": 4,
+          "top_source": "network_firewall_rules.md"
+        },
+        {
+          "id": 114,
+          "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+          "expected_source": "compute_kernel_fusion.md",
+          "rank": 6,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 115,
+          "query": "How many participant machines can join a single cluster diameter?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 5,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 116,
+          "query": "When does automatic re-keying take place on encrypted communication lines?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 4,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 117,
+          "query": "How long does a client socket remain idle before keepalive probes trigger?",
+          "expected_source": "network_socket_tuning.md",
+          "rank": 7,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 118,
+          "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+          "expected_source": "network_load_balancer.md",
+          "rank": 3,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 119,
+          "query": "What is the maximum allowed query frequency per minute for a client IP?",
+          "expected_source": "network_gateway_api.md",
+          "rank": 7,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 120,
+          "query": "What dead tuple percentage triggers automated compaction on database files?",
+          "expected_source": "storage_compaction.md",
+          "rank": 3,
+          "top_source": "sop_document_reindex.md"
+        },
+        {
+          "id": 121,
+          "query": "What vector dimension does the learned neural bi-encoder project into?",
+          "expected_source": "storage_vector_index.md",
+          "rank": 3,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 122,
+          "query": "How long must security audit log entries be preserved before deletion?",
+          "expected_source": "security_audit_logging.md",
+          "rank": 4,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 123,
+          "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+          "expected_source": "security_key_management.md",
+          "rank": 1,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 124,
+          "query": "Within what timeframe must security breaches be escalated internally?",
+          "expected_source": "security_incident_response.md",
+          "rank": 4,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 125,
+          "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+          "expected_source": "security_vulnerability_sla.md",
+          "rank": 9,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 126,
+          "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 3,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 127,
+          "query": "What payment duration is permitted after an invoice has been issued?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 5,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 128,
+          "query": "What monthly interest surcharge applies to delinquent invoices?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 4,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 129,
+          "query": "What availability percentage is guaranteed for hosted control planes?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "sop_incident_management.md"
+        },
+        {
+          "id": 130,
+          "query": "What fee is charged per month for each additional worker process?",
+          "expected_source": "billing_metered_usage.md",
+          "rank": 1,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 131,
+          "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 132,
+          "query": "How many tokens are in the calibration dataset for model quantization?",
+          "expected_source": "compute_quantization.md",
+          "rank": 5,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 133,
+          "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 4,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 134,
+          "query": "What is the maximum response time for Severity 1 support requests?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 6,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 135,
+          "query": "What is the Recovery Time Objective during disaster recovery failover?",
+          "expected_source": "sop_disaster_recovery.md",
+          "rank": 1,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 136,
+          "query": "What billing credit is applied when uptime drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 137,
+          "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 10,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 138,
+          "query": "What is the monthly subscription price of the Starter Tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 4,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 139,
+          "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 2,
+          "top_source": "compute_scheduler.md"
+        },
+        {
+          "id": 140,
+          "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 141,
+          "query": "What is the hidden dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 142,
+          "query": "What is the hidden dimension in the V0.7 specification?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 3,
+          "top_source": "storage_vector_index.md"
+        },
+        {
+          "id": 143,
+          "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 6,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 144,
+          "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 3,
+          "top_source": "security_vulnerability_sla.md"
+        },
+        {
+          "id": 145,
+          "query": "What Python versions are officially certified for deployment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 4,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 146,
+          "query": "Is Python 3.9 accepted in the certified deployment environment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 10,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 147,
+          "query": "How many concurrent worker processes are included in that tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 2,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 148,
+          "query": "What billing credit is deducted if it drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 149,
+          "query": "What HTTP status code is returned when that request is unauthenticated?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 4,
+          "top_source": "billing_licensing_compliance.md"
+        },
+        {
+          "id": 150,
+          "query": "What symmetric cipher algorithm is used with it?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 5,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 151,
+          "query": "How many transformer decoder layers does it have?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 152,
+          "query": "Where is the offsite replica archive stored?",
+          "expected_source": "storage_backup_policy.md",
+          "rank": 4,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 153,
+          "query": "What is the maximum engineer response time for that incident rating?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 6,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 154,
+          "query": "What discount is provided for a 3-year commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 9,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 155,
+          "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 156,
+          "query": "Professional Tier subscription ka per month rate kya hai?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 5,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 157,
+          "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 5,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 158,
+          "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 8,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 159,
+          "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 2,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 160,
+          "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 3,
+          "top_source": "billing_licensing_compliance.md"
+        }
+      ]
+    },
+    "pure_reranker_k20": {
+      "k_depth": 20,
+      "alpha": 1.0,
+      "recall_at_1": 0.15,
+      "recall_at_1_count": "9/60",
+      "recall_at_3": 0.4167,
+      "recall_at_3_count": "25/60",
+      "recall_at_5": 0.7167,
+      "recall_at_5_count": "43/60",
+      "mrr": 0.3589,
+      "median_latency_ms": 57.85,
+      "p95_latency_ms": 68.12,
+      "per_query": [
+        {
+          "id": 101,
+          "query": "What is the parameter count of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 102,
+          "query": "What is the minimum physical RAM required for CPU inference?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 4,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 103,
+          "query": "What minimum compute capability is required for CUDA acceleration?",
+          "expected_source": "compute_accelerator_cuda.md",
+          "rank": 10,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 104,
+          "query": "What is the thread pool ceiling for CPU execution?",
+          "expected_source": "compute_cpu_simd.md",
+          "rank": 8,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 105,
+          "query": "What TCP port handles data transmission in the mesh network?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 6,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 106,
+          "query": "What is the heartbeat interval in Raft consensus?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 3,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 107,
+          "query": "What is the maximum capacity of the in-memory embedding cache?",
+          "expected_source": "storage_caching_layer.md",
+          "rank": 7,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 108,
+          "query": "What is the term saturation parameter k1 in the BM25 index?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 4,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 109,
+          "query": "What is the length normalization parameter b in BM25?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 2,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 110,
+          "query": "What is the maximum single document size in the BLOB store?",
+          "expected_source": "storage_blob_store.md",
+          "rank": 15,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 111,
+          "query": "How many query attention heads does ChakrMicro incorporate?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 5,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 112,
+          "query": "What is the maximum throughput across the memory interconnect?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 3,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 113,
+          "query": "How frequently are telemetry metrics harvested by the collector?",
+          "expected_source": "compute_telemetry.md",
+          "rank": 4,
+          "top_source": "network_firewall_rules.md"
+        },
+        {
+          "id": 114,
+          "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+          "expected_source": "compute_kernel_fusion.md",
+          "rank": 6,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 115,
+          "query": "How many participant machines can join a single cluster diameter?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 5,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 116,
+          "query": "When does automatic re-keying take place on encrypted communication lines?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 4,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 117,
+          "query": "How long does a client socket remain idle before keepalive probes trigger?",
+          "expected_source": "network_socket_tuning.md",
+          "rank": 7,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 118,
+          "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+          "expected_source": "network_load_balancer.md",
+          "rank": 3,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 119,
+          "query": "What is the maximum allowed query frequency per minute for a client IP?",
+          "expected_source": "network_gateway_api.md",
+          "rank": 13,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 120,
+          "query": "What dead tuple percentage triggers automated compaction on database files?",
+          "expected_source": "storage_compaction.md",
+          "rank": 3,
+          "top_source": "sop_document_reindex.md"
+        },
+        {
+          "id": 121,
+          "query": "What vector dimension does the learned neural bi-encoder project into?",
+          "expected_source": "storage_vector_index.md",
+          "rank": 3,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 122,
+          "query": "How long must security audit log entries be preserved before deletion?",
+          "expected_source": "security_audit_logging.md",
+          "rank": 4,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 123,
+          "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+          "expected_source": "security_key_management.md",
+          "rank": 1,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 124,
+          "query": "Within what timeframe must security breaches be escalated internally?",
+          "expected_source": "security_incident_response.md",
+          "rank": 4,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 125,
+          "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+          "expected_source": "security_vulnerability_sla.md",
+          "rank": 13,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 126,
+          "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 3,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 127,
+          "query": "What payment duration is permitted after an invoice has been issued?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 5,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 128,
+          "query": "What monthly interest surcharge applies to delinquent invoices?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 4,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 129,
+          "query": "What availability percentage is guaranteed for hosted control planes?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "sop_incident_management.md"
+        },
+        {
+          "id": 130,
+          "query": "What fee is charged per month for each additional worker process?",
+          "expected_source": "billing_metered_usage.md",
+          "rank": 1,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 131,
+          "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 132,
+          "query": "How many tokens are in the calibration dataset for model quantization?",
+          "expected_source": "compute_quantization.md",
+          "rank": 5,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 133,
+          "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 4,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 134,
+          "query": "What is the maximum response time for Severity 1 support requests?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 14,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 135,
+          "query": "What is the Recovery Time Objective during disaster recovery failover?",
+          "expected_source": "sop_disaster_recovery.md",
+          "rank": 1,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 136,
+          "query": "What billing credit is applied when uptime drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 137,
+          "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 12,
+          "top_source": "compute_memory_bus.md"
+        },
+        {
+          "id": 138,
+          "query": "What is the monthly subscription price of the Starter Tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 4,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 139,
+          "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 2,
+          "top_source": "compute_scheduler.md"
+        },
+        {
+          "id": 140,
+          "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 141,
+          "query": "What is the hidden dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 142,
+          "query": "What is the hidden dimension in the V0.7 specification?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 3,
+          "top_source": "storage_vector_index.md"
+        },
+        {
+          "id": 143,
+          "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 13,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 144,
+          "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 3,
+          "top_source": "security_vulnerability_sla.md"
+        },
+        {
+          "id": 145,
+          "query": "What Python versions are officially certified for deployment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 4,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 146,
+          "query": "Is Python 3.9 accepted in the certified deployment environment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 14,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 147,
+          "query": "How many concurrent worker processes are included in that tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 2,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 148,
+          "query": "What billing credit is deducted if it drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 2,
+          "top_source": "billing_refund_policy.md"
+        },
+        {
+          "id": 149,
+          "query": "What HTTP status code is returned when that request is unauthenticated?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 4,
+          "top_source": "billing_licensing_compliance.md"
+        },
+        {
+          "id": 150,
+          "query": "What symmetric cipher algorithm is used with it?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 7,
+          "top_source": "storage_disk_engine.md"
+        },
+        {
+          "id": 151,
+          "query": "How many transformer decoder layers does it have?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 152,
+          "query": "Where is the offsite replica archive stored?",
+          "expected_source": "storage_backup_policy.md",
+          "rank": 4,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 153,
+          "query": "What is the maximum engineer response time for that incident rating?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 10,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 154,
+          "query": "What discount is provided for a 3-year commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 10,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 155,
+          "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 156,
+          "query": "Professional Tier subscription ka per month rate kya hai?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 5,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 157,
+          "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 5,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 158,
+          "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 8,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 159,
+          "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 2,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 160,
+          "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 3,
+          "top_source": "billing_licensing_compliance.md"
+        }
+      ]
+    },
+    "fused_reranker_k10_alpha02": {
+      "k_depth": 10,
+      "alpha": 0.2,
+      "recall_at_1": 0.9167,
+      "recall_at_1_count": "55/60",
+      "recall_at_3": 0.9833,
+      "recall_at_3_count": "59/60",
+      "recall_at_5": 0.9833,
+      "recall_at_5_count": "59/60",
+      "mrr": 0.9528,
+      "median_latency_ms": 63.38,
+      "p95_latency_ms": 71.84,
+      "per_query": [
+        {
+          "id": 101,
+          "query": "What is the parameter count of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 102,
+          "query": "What is the minimum physical RAM required for CPU inference?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        },
+        {
+          "id": 103,
+          "query": "What minimum compute capability is required for CUDA acceleration?",
+          "expected_source": "compute_accelerator_cuda.md",
+          "rank": 1,
+          "top_source": "compute_accelerator_cuda.md"
+        },
+        {
+          "id": 104,
+          "query": "What is the thread pool ceiling for CPU execution?",
+          "expected_source": "compute_cpu_simd.md",
+          "rank": 1,
+          "top_source": "compute_cpu_simd.md"
+        },
+        {
+          "id": 105,
+          "query": "What TCP port handles data transmission in the mesh network?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 1,
+          "top_source": "network_mesh_topology.md"
+        },
+        {
+          "id": 106,
+          "query": "What is the heartbeat interval in Raft consensus?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 1,
+          "top_source": "network_consensus_raft.md"
+        },
+        {
+          "id": 107,
+          "query": "What is the maximum capacity of the in-memory embedding cache?",
+          "expected_source": "storage_caching_layer.md",
+          "rank": 1,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 108,
+          "query": "What is the term saturation parameter k1 in the BM25 index?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 1,
+          "top_source": "storage_bm25_index.md"
+        },
+        {
+          "id": 109,
+          "query": "What is the length normalization parameter b in BM25?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 1,
+          "top_source": "storage_bm25_index.md"
+        },
+        {
+          "id": 110,
+          "query": "What is the maximum single document size in the BLOB store?",
+          "expected_source": "storage_blob_store.md",
+          "rank": 1,
+          "top_source": "storage_blob_store.md"
+        },
+        {
+          "id": 111,
+          "query": "How many query attention heads does ChakrMicro incorporate?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 112,
+          "query": "What is the maximum throughput across the memory interconnect?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        },
+        {
+          "id": 113,
+          "query": "How frequently are telemetry metrics harvested by the collector?",
+          "expected_source": "compute_telemetry.md",
+          "rank": 1,
+          "top_source": "compute_telemetry.md"
+        },
+        {
+          "id": 114,
+          "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+          "expected_source": "compute_kernel_fusion.md",
+          "rank": 1,
+          "top_source": "compute_kernel_fusion.md"
+        },
+        {
+          "id": 115,
+          "query": "How many participant machines can join a single cluster diameter?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 1,
+          "top_source": "network_mesh_topology.md"
+        },
+        {
+          "id": 116,
+          "query": "When does automatic re-keying take place on encrypted communication lines?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 1,
+          "top_source": "network_encryption_transit.md"
+        },
+        {
+          "id": 117,
+          "query": "How long does a client socket remain idle before keepalive probes trigger?",
+          "expected_source": "network_socket_tuning.md",
+          "rank": 1,
+          "top_source": "network_socket_tuning.md"
+        },
+        {
+          "id": 118,
+          "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+          "expected_source": "network_load_balancer.md",
+          "rank": 1,
+          "top_source": "network_load_balancer.md"
+        },
+        {
+          "id": 119,
+          "query": "What is the maximum allowed query frequency per minute for a client IP?",
+          "expected_source": "network_gateway_api.md",
+          "rank": 1,
+          "top_source": "network_gateway_api.md"
+        },
+        {
+          "id": 120,
+          "query": "What dead tuple percentage triggers automated compaction on database files?",
+          "expected_source": "storage_compaction.md",
+          "rank": 1,
+          "top_source": "storage_compaction.md"
+        },
+        {
+          "id": 121,
+          "query": "What vector dimension does the learned neural bi-encoder project into?",
+          "expected_source": "storage_vector_index.md",
+          "rank": 1,
+          "top_source": "storage_vector_index.md"
+        },
+        {
+          "id": 122,
+          "query": "How long must security audit log entries be preserved before deletion?",
+          "expected_source": "security_audit_logging.md",
+          "rank": 1,
+          "top_source": "security_audit_logging.md"
+        },
+        {
+          "id": 123,
+          "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+          "expected_source": "security_key_management.md",
+          "rank": 1,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 124,
+          "query": "Within what timeframe must security breaches be escalated internally?",
+          "expected_source": "security_incident_response.md",
+          "rank": 1,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 125,
+          "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+          "expected_source": "security_vulnerability_sla.md",
+          "rank": 1,
+          "top_source": "security_vulnerability_sla.md"
+        },
+        {
+          "id": 126,
+          "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 127,
+          "query": "What payment duration is permitted after an invoice has been issued?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 1,
+          "top_source": "billing_payment_terms.md"
+        },
+        {
+          "id": 128,
+          "query": "What monthly interest surcharge applies to delinquent invoices?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 1,
+          "top_source": "billing_payment_terms.md"
+        },
+        {
+          "id": 129,
+          "query": "What availability percentage is guaranteed for hosted control planes?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 130,
+          "query": "What fee is charged per month for each additional worker process?",
+          "expected_source": "billing_metered_usage.md",
+          "rank": 1,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 131,
+          "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 132,
+          "query": "How many tokens are in the calibration dataset for model quantization?",
+          "expected_source": "compute_quantization.md",
+          "rank": 1,
+          "top_source": "compute_quantization.md"
+        },
+        {
+          "id": 133,
+          "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 134,
+          "query": "What is the maximum response time for Severity 1 support requests?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 135,
+          "query": "What is the Recovery Time Objective during disaster recovery failover?",
+          "expected_source": "sop_disaster_recovery.md",
+          "rank": 1,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 136,
+          "query": "What billing credit is applied when uptime drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 137,
+          "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 1,
+          "top_source": "billing_enterprise_discounts.md"
+        },
+        {
+          "id": 138,
+          "query": "What is the monthly subscription price of the Starter Tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 139,
+          "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 1,
+          "top_source": "network_consensus_raft.md"
+        },
+        {
+          "id": 140,
+          "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 141,
+          "query": "What is the hidden dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 142,
+          "query": "What is the hidden dimension in the V0.7 specification?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 143,
+          "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 144,
+          "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 145,
+          "query": "What Python versions are officially certified for deployment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 1,
+          "top_source": "sop_runtime_environments.md"
+        },
+        {
+          "id": 146,
+          "query": "Is Python 3.9 accepted in the certified deployment environment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 1,
+          "top_source": "sop_runtime_environments.md"
+        },
+        {
+          "id": 147,
+          "query": "How many concurrent worker processes are included in that tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 148,
+          "query": "What billing credit is deducted if it drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 149,
+          "query": "What HTTP status code is returned when that request is unauthenticated?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 1,
+          "top_source": "security_auth_tokens.md"
+        },
+        {
+          "id": 150,
+          "query": "What symmetric cipher algorithm is used with it?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 6,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 151,
+          "query": "How many transformer decoder layers does it have?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 152,
+          "query": "Where is the offsite replica archive stored?",
+          "expected_source": "storage_backup_policy.md",
+          "rank": 1,
+          "top_source": "storage_backup_policy.md"
+        },
+        {
+          "id": 153,
+          "query": "What is the maximum engineer response time for that incident rating?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 154,
+          "query": "What discount is provided for a 3-year commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 1,
+          "top_source": "billing_enterprise_discounts.md"
+        },
+        {
+          "id": 155,
+          "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 156,
+          "query": "Professional Tier subscription ka per month rate kya hai?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 157,
+          "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 158,
+          "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 1,
+          "top_source": "security_auth_tokens.md"
+        },
+        {
+          "id": 159,
+          "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 1,
+          "top_source": "network_encryption_transit.md"
+        },
+        {
+          "id": 160,
+          "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        }
+      ]
+    },
+    "fused_reranker_k10_alpha05": {
+      "k_depth": 10,
+      "alpha": 0.5,
+      "recall_at_1": 0.9,
+      "recall_at_1_count": "54/60",
+      "recall_at_3": 0.9833,
+      "recall_at_3_count": "59/60",
+      "recall_at_5": 0.9833,
+      "recall_at_5_count": "59/60",
+      "mrr": 0.9444,
+      "median_latency_ms": 60.44,
+      "p95_latency_ms": 78.12,
+      "per_query": [
+        {
+          "id": 101,
+          "query": "What is the parameter count of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 102,
+          "query": "What is the minimum physical RAM required for CPU inference?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        },
+        {
+          "id": 103,
+          "query": "What minimum compute capability is required for CUDA acceleration?",
+          "expected_source": "compute_accelerator_cuda.md",
+          "rank": 1,
+          "top_source": "compute_accelerator_cuda.md"
+        },
+        {
+          "id": 104,
+          "query": "What is the thread pool ceiling for CPU execution?",
+          "expected_source": "compute_cpu_simd.md",
+          "rank": 1,
+          "top_source": "compute_cpu_simd.md"
+        },
+        {
+          "id": 105,
+          "query": "What TCP port handles data transmission in the mesh network?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 1,
+          "top_source": "network_mesh_topology.md"
+        },
+        {
+          "id": 106,
+          "query": "What is the heartbeat interval in Raft consensus?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 1,
+          "top_source": "network_consensus_raft.md"
+        },
+        {
+          "id": 107,
+          "query": "What is the maximum capacity of the in-memory embedding cache?",
+          "expected_source": "storage_caching_layer.md",
+          "rank": 1,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 108,
+          "query": "What is the term saturation parameter k1 in the BM25 index?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 1,
+          "top_source": "storage_bm25_index.md"
+        },
+        {
+          "id": 109,
+          "query": "What is the length normalization parameter b in BM25?",
+          "expected_source": "storage_bm25_index.md",
+          "rank": 1,
+          "top_source": "storage_bm25_index.md"
+        },
+        {
+          "id": 110,
+          "query": "What is the maximum single document size in the BLOB store?",
+          "expected_source": "storage_blob_store.md",
+          "rank": 1,
+          "top_source": "storage_blob_store.md"
+        },
+        {
+          "id": 111,
+          "query": "How many query attention heads does ChakrMicro incorporate?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 112,
+          "query": "What is the maximum throughput across the memory interconnect?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        },
+        {
+          "id": 113,
+          "query": "How frequently are telemetry metrics harvested by the collector?",
+          "expected_source": "compute_telemetry.md",
+          "rank": 1,
+          "top_source": "compute_telemetry.md"
+        },
+        {
+          "id": 114,
+          "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+          "expected_source": "compute_kernel_fusion.md",
+          "rank": 1,
+          "top_source": "compute_kernel_fusion.md"
+        },
+        {
+          "id": 115,
+          "query": "How many participant machines can join a single cluster diameter?",
+          "expected_source": "network_mesh_topology.md",
+          "rank": 1,
+          "top_source": "network_mesh_topology.md"
+        },
+        {
+          "id": 116,
+          "query": "When does automatic re-keying take place on encrypted communication lines?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 1,
+          "top_source": "network_encryption_transit.md"
+        },
+        {
+          "id": 117,
+          "query": "How long does a client socket remain idle before keepalive probes trigger?",
+          "expected_source": "network_socket_tuning.md",
+          "rank": 1,
+          "top_source": "network_socket_tuning.md"
+        },
+        {
+          "id": 118,
+          "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+          "expected_source": "network_load_balancer.md",
+          "rank": 1,
+          "top_source": "network_load_balancer.md"
+        },
+        {
+          "id": 119,
+          "query": "What is the maximum allowed query frequency per minute for a client IP?",
+          "expected_source": "network_gateway_api.md",
+          "rank": 1,
+          "top_source": "network_gateway_api.md"
+        },
+        {
+          "id": 120,
+          "query": "What dead tuple percentage triggers automated compaction on database files?",
+          "expected_source": "storage_compaction.md",
+          "rank": 1,
+          "top_source": "storage_compaction.md"
+        },
+        {
+          "id": 121,
+          "query": "What vector dimension does the learned neural bi-encoder project into?",
+          "expected_source": "storage_vector_index.md",
+          "rank": 1,
+          "top_source": "storage_vector_index.md"
+        },
+        {
+          "id": 122,
+          "query": "How long must security audit log entries be preserved before deletion?",
+          "expected_source": "security_audit_logging.md",
+          "rank": 1,
+          "top_source": "security_audit_logging.md"
+        },
+        {
+          "id": 123,
+          "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+          "expected_source": "security_key_management.md",
+          "rank": 1,
+          "top_source": "security_key_management.md"
+        },
+        {
+          "id": 124,
+          "query": "Within what timeframe must security breaches be escalated internally?",
+          "expected_source": "security_incident_response.md",
+          "rank": 1,
+          "top_source": "security_incident_response.md"
+        },
+        {
+          "id": 125,
+          "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+          "expected_source": "security_vulnerability_sla.md",
+          "rank": 2,
+          "top_source": "sop_release_checklist.md"
+        },
+        {
+          "id": 126,
+          "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 127,
+          "query": "What payment duration is permitted after an invoice has been issued?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 1,
+          "top_source": "billing_payment_terms.md"
+        },
+        {
+          "id": 128,
+          "query": "What monthly interest surcharge applies to delinquent invoices?",
+          "expected_source": "billing_payment_terms.md",
+          "rank": 1,
+          "top_source": "billing_payment_terms.md"
+        },
+        {
+          "id": 129,
+          "query": "What availability percentage is guaranteed for hosted control planes?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 130,
+          "query": "What fee is charged per month for each additional worker process?",
+          "expected_source": "billing_metered_usage.md",
+          "rank": 1,
+          "top_source": "billing_metered_usage.md"
+        },
+        {
+          "id": 131,
+          "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 132,
+          "query": "How many tokens are in the calibration dataset for model quantization?",
+          "expected_source": "compute_quantization.md",
+          "rank": 1,
+          "top_source": "compute_quantization.md"
+        },
+        {
+          "id": 133,
+          "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 134,
+          "query": "What is the maximum response time for Severity 1 support requests?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 135,
+          "query": "What is the Recovery Time Objective during disaster recovery failover?",
+          "expected_source": "sop_disaster_recovery.md",
+          "rank": 1,
+          "top_source": "sop_disaster_recovery.md"
+        },
+        {
+          "id": 136,
+          "query": "What billing credit is applied when uptime drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 137,
+          "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 1,
+          "top_source": "billing_enterprise_discounts.md"
+        },
+        {
+          "id": 138,
+          "query": "What is the monthly subscription price of the Starter Tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 139,
+          "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+          "expected_source": "network_consensus_raft.md",
+          "rank": 1,
+          "top_source": "network_consensus_raft.md"
+        },
+        {
+          "id": 140,
+          "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 141,
+          "query": "What is the hidden dimension of ChakrMicro V0.6?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 142,
+          "query": "What is the hidden dimension in the V0.7 specification?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 143,
+          "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 144,
+          "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+          "expected_source": "compute_arch_v07_draft.md",
+          "rank": 1,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 145,
+          "query": "What Python versions are officially certified for deployment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 1,
+          "top_source": "sop_runtime_environments.md"
+        },
+        {
+          "id": 146,
+          "query": "Is Python 3.9 accepted in the certified deployment environment?",
+          "expected_source": "sop_runtime_environments.md",
+          "rank": 1,
+          "top_source": "sop_runtime_environments.md"
+        },
+        {
+          "id": 147,
+          "query": "How many concurrent worker processes are included in that tier?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 148,
+          "query": "What billing credit is deducted if it drops below 99.9%?",
+          "expected_source": "billing_sla_commitments.md",
+          "rank": 1,
+          "top_source": "billing_sla_commitments.md"
+        },
+        {
+          "id": 149,
+          "query": "What HTTP status code is returned when that request is unauthenticated?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 1,
+          "top_source": "security_auth_tokens.md"
+        },
+        {
+          "id": 150,
+          "query": "What symmetric cipher algorithm is used with it?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 6,
+          "top_source": "storage_caching_layer.md"
+        },
+        {
+          "id": 151,
+          "query": "How many transformer decoder layers does it have?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 1,
+          "top_source": "compute_arch_core.md"
+        },
+        {
+          "id": 152,
+          "query": "Where is the offsite replica archive stored?",
+          "expected_source": "storage_backup_policy.md",
+          "rank": 1,
+          "top_source": "storage_backup_policy.md"
+        },
+        {
+          "id": 153,
+          "query": "What is the maximum engineer response time for that incident rating?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 154,
+          "query": "What discount is provided for a 3-year commitment?",
+          "expected_source": "billing_enterprise_discounts.md",
+          "rank": 1,
+          "top_source": "billing_enterprise_discounts.md"
+        },
+        {
+          "id": 155,
+          "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+          "expected_source": "compute_arch_core.md",
+          "rank": 2,
+          "top_source": "compute_arch_v07_draft.md"
+        },
+        {
+          "id": 156,
+          "query": "Professional Tier subscription ka per month rate kya hai?",
+          "expected_source": "billing_subscription_tiers.md",
+          "rank": 1,
+          "top_source": "billing_subscription_tiers.md"
+        },
+        {
+          "id": 157,
+          "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+          "expected_source": "billing_support_tiers.md",
+          "rank": 1,
+          "top_source": "billing_support_tiers.md"
+        },
+        {
+          "id": 158,
+          "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+          "expected_source": "security_auth_tokens.md",
+          "rank": 1,
+          "top_source": "security_auth_tokens.md"
+        },
+        {
+          "id": 159,
+          "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+          "expected_source": "network_encryption_transit.md",
+          "rank": 1,
+          "top_source": "network_encryption_transit.md"
+        },
+        {
+          "id": 160,
+          "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+          "expected_source": "compute_memory_bus.md",
+          "rank": 1,
+          "top_source": "compute_memory_bus.md"
+        }
+      ]
+    }
+  },
+  "decision_policy_evaluation": {
+    "total_queries": 70,
+    "correct_decisions": 69,
+    "overall_decision_accuracy": 0.9857,
+    "category_breakdown": {
+      "exact_entity": {
+        "total": 10,
+        "correct": 10
+      },
+      "paraphrase": {
+        "total": 10,
+        "correct": 10
+      },
+      "synonym": {
+        "total": 10,
+        "correct": 10
+      },
+      "distractor_competition": {
+        "total": 10,
+        "correct": 10
+      },
+      "version_conflict": {
+        "total": 6,
+        "correct": 6
+      },
+      "follow_up": {
+        "total": 8,
+        "correct": 8
+      },
+      "multilingual_hinglish": {
+        "total": 6,
+        "correct": 6
+      },
+      "false_premise": {
+        "total": 5,
+        "correct": 4
+      },
+      "abstention": {
+        "total": 5,
+        "correct": 5
+      }
+    },
+    "per_query_decisions": [
+      {
+        "id": 101,
+        "category": "exact_entity",
+        "query": "What is the parameter count of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward"
+      },
+      {
+        "id": 102,
+        "category": "exact_entity",
+        "query": "What is the minimum physical RAM required for CPU inference?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro"
+      },
+      {
+        "id": 103,
+        "category": "exact_entity",
+        "query": "What minimum compute capability is required for CUDA acceleration?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Minimum CUDA compute capability: 7.5 (Turing architecture or newer).\n- Numerical precision execution mode: FP16 and BF"
+      },
+      {
+        "id": 104,
+        "category": "exact_entity",
+        "query": "What is the thread pool ceiling for CPU execution?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- ARM vectorization: ARM Neon 128-bit SIMD registers.\n- Thread pool worker ceiling for CPU execution: 4 physical worker "
+      },
+      {
+        "id": 105,
+        "category": "exact_entity",
+        "query": "What TCP port handles data transmission in the mesh network?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net"
+      },
+      {
+        "id": 106,
+        "category": "exact_entity",
+        "query": "What is the heartbeat interval in Raft consensus?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Heartbeat interval: Exactly 50 milliseconds.\n- Quorum requirement: Strict majority formula floor(N/2) + 1 active nodes"
+      },
+      {
+        "id": 107,
+        "category": "exact_entity",
+        "query": "What is the maximum capacity of the in-memory embedding cache?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Maximum cache capacity: 10000 vector embeddings.\n- Cache key generation: SHA-256 hash of model identifier plus text co"
+      },
+      {
+        "id": 108,
+        "category": "exact_entity",
+        "query": "What is the term saturation parameter k1 in the BM25 index?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Term saturation parameter k1: 1.5.\n- Document length normalization parameter b: 0.75. [Source: storage_bm25_index.md ("
+      },
+      {
+        "id": 109,
+        "category": "exact_entity",
+        "query": "What is the length normalization parameter b in BM25?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Document length normalization parameter b: 0.75.\n- Minimum indexed token length: 2 characters. [Source: storage_bm25_i"
+      },
+      {
+        "id": 110,
+        "category": "exact_entity",
+        "query": "What is the maximum single document size in the BLOB store?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Maximum single document size: 10485760 bytes (10 MB ceiling).\n- Storage path directory: `var/storage/blobs`. [Source: "
+      },
+      {
+        "id": 111,
+        "category": "paraphrase",
+        "query": "How many query attention heads does ChakrMicro incorporate?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Multi-head attention count: 6 query heads and 2 key-value heads (grouped-query attention).\n- Intermediate feed-forward"
+      },
+      {
+        "id": 112,
+        "category": "paraphrase",
+        "query": "What is the maximum throughput across the memory interconnect?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Memory bandwidth ceiling: 68.2 GB/s peak transfer throughput.\n- Minimum operational RAM allocation for CPU inference: "
+      },
+      {
+        "id": 113,
+        "category": "paraphrase",
+        "query": "How frequently are telemetry metrics harvested by the collector?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Memory high-watermark threshold: 85% total system RAM trigger.\n- Metrics export format: OpenMetrics plaintext telemetr"
+      },
+      {
+        "id": 114,
+        "category": "paraphrase",
+        "query": "What speedup is achieved on CPU by fusing kernels into linear layers?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Activation fusion: GELU activation folded directly into feed-forward linear layers.\n- Graph optimization speedup: 18.5"
+      },
+      {
+        "id": 115,
+        "category": "paraphrase",
+        "query": "How many participant machines can join a single cluster diameter?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Data transmission port: TCP port 8443.\n- Maximum node cluster diameter: 16 distributed participant nodes. [Source: net"
+      },
+      {
+        "id": 116,
+        "category": "paraphrase",
+        "query": "When does automatic re-keying take place on encrypted communication lines?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Session re-keying threshold: Every 24 hours or after transmitting 100 GB of traffic.\n- Certificate authority verificat"
+      },
+      {
+        "id": 117,
+        "category": "paraphrase",
+        "query": "How long does a client socket remain idle before keepalive probes trigger?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- TCP keepalive idle time: 300 seconds.\n- TCP SYN retry maximum: 3 attempts. [Source: network_socket_tuning.md (char 122"
+      },
+      {
+        "id": 118,
+        "category": "paraphrase",
+        "query": "How many consecutive failed probes cause a node to be marked unhealthy?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Health probe endpoint: `/healthz` HTTP GET probe.\n- Health probe failure threshold: 3 consecutive failed probes. [Sour"
+      },
+      {
+        "id": 119,
+        "category": "paraphrase",
+        "query": "What is the maximum allowed query frequency per minute for a client IP?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Query endpoint: `POST /v1/assistant/query`.\n- Rate limit threshold: 60 requests per minute per authenticated client IP"
+      },
+      {
+        "id": 120,
+        "category": "paraphrase",
+        "query": "What dead tuple percentage triggers automated compaction on database files?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Fragmentation threshold: 25% dead tuple volume triggers auto-vacuum.\n- Scheduled compaction time: Nightly at 02:00 UTC"
+      },
+      {
+        "id": 121,
+        "category": "synonym",
+        "query": "What vector dimension does the learned neural bi-encoder project into?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Normalized vector length: Unit L2 norm (magnitude 1.0).\n- Index dimension: 64 float elements for ChakrBiEncoder. [Sour"
+      },
+      {
+        "id": 122,
+        "category": "synonym",
+        "query": "How long must security audit log entries be preserved before deletion?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Event log destination: Append-only signed audit log at `var/logs/audit.log`.\n- Log retention minimum: 365 calendar day"
+      },
+      {
+        "id": 123,
+        "category": "synonym",
+        "query": "How many incorrect PIN attempts trigger instant zeroization of the root key?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Key wrapping algorithm: AES-KeyWrap (RFC 3394).\n- Zeroization procedure: Instant key erasure on 5 consecutive invalid "
+      },
+      {
+        "id": 124,
+        "category": "synonym",
+        "query": "Within what timeframe must security breaches be escalated internally?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Breach notification deadline: Internal escalation within 30 minutes of incident confirmation.\n- Containment action: Im"
+      },
+      {
+        "id": 125,
+        "category": "synonym",
+        "query": "What is the maximum allowed remediation window for critical severity vulnerabilities?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Critical severity CVEs (CVSS 9.0+): Patch deployment within 24 hours.\n- High severity CVEs (CVSS 7.0-8.9): Patch deplo"
+      },
+      {
+        "id": 126,
+        "category": "synonym",
+        "query": "What annual contract price applies to the Dedicated Cluster subscription?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl"
+      },
+      {
+        "id": 127,
+        "category": "synonym",
+        "query": "What payment duration is permitted after an invoice has been issued?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5%"
+      },
+      {
+        "id": 128,
+        "category": "synonym",
+        "query": "What monthly interest surcharge applies to delinquent invoices?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Payment terms: Net 30 days from invoice generation date.\n- Late payment penalty: Annualized interest surcharge of 8.5%"
+      },
+      {
+        "id": 129,
+        "category": "synonym",
+        "query": "What availability percentage is guaranteed for hosted control planes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Platform availability target: 99.95% monthly uptime for hosted control planes.\n- Downtime financial credit: 15% billin"
+      },
+      {
+        "id": 130,
+        "category": "synonym",
+        "query": "What fee is charged per month for each additional worker process?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Additional worker process unit: $40 per month per additional worker process.\n- Storage overage rate: $0.10 per gigabyt"
+      },
+      {
+        "id": 131,
+        "category": "distractor_competition",
+        "query": "What is the maximum context length in tokens for ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 run"
+      },
+      {
+        "id": 132,
+        "category": "distractor_competition",
+        "query": "How many tokens are in the calibration dataset for model quantization?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Calibration dataset footprint: Exactly 512 representative domain tokens.\n- Quantized checkpoint file suffix: `.q8.pt`."
+      },
+      {
+        "id": 133,
+        "category": "distractor_competition",
+        "query": "What is the hidden dimension of the experimental V0.7 draft model?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c"
+      },
+      {
+        "id": 134,
+        "category": "distractor_competition",
+        "query": "What is the maximum response time for Severity 1 support requests?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum"
+      },
+      {
+        "id": 135,
+        "category": "distractor_competition",
+        "query": "What is the Recovery Time Objective during disaster recovery failover?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Recovery Time Objective (RTO): Under 15 minutes to restore secondary node cluster.\n- Recovery Point Objective (RPO): U"
+      },
+      {
+        "id": 136,
+        "category": "distractor_competition",
+        "query": "What billing credit is applied when uptime drops below 99.9%?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%"
+      },
+      {
+        "id": 137,
+        "category": "distractor_competition",
+        "query": "What percentage discount is awarded for a 2-year upfront commitment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- 2-year upfront commitment discount: 15% discount on total annual subscription.\n- 3-year upfront commitment discount: 2"
+      },
+      {
+        "id": 138,
+        "category": "distractor_competition",
+        "query": "What is the monthly subscription price of the Starter Tier?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Starter Tier: $150 per month, includes up to 2 concurrent worker processes.\n- Professional Tier: $450 per month, inclu"
+      },
+      {
+        "id": 139,
+        "category": "distractor_competition",
+        "query": "What is the lower bound timeout for Raft leader elections in milliseconds?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Leader election timeout: Bounded randomly between 150ms and 300ms.\n- Heartbeat interval: Exactly 50 milliseconds. [Sou"
+      },
+      {
+        "id": 140,
+        "category": "distractor_competition",
+        "query": "What is the feed-forward dimension of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0"
+      },
+      {
+        "id": 141,
+        "category": "version_conflict",
+        "query": "What is the hidden dimension of ChakrMicro V0.6?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c"
+      },
+      {
+        "id": 142,
+        "category": "version_conflict",
+        "query": "What is the hidden dimension in the V0.7 specification?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Experimental hidden dimension: 512 units.\n- Attention heads: 8 full query heads. [Source: compute_arch_v07_draft.md (c"
+      },
+      {
+        "id": 143,
+        "category": "version_conflict",
+        "query": "Are V0.6 model checkpoints compatible with V0.7 runtimes?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Context window ceiling: 1024 tokens.\n- Deprecation Notice: V0.6 384-dimension checkpoints are non-loadable in V0.7 run"
+      },
+      {
+        "id": 144,
+        "category": "version_conflict",
+        "query": "What is the intermediate feed-forward dimension in the V0.7 draft?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0"
+      },
+      {
+        "id": 145,
+        "category": "version_conflict",
+        "query": "What Python versions are officially certified for deployment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Certified Python runtimes: Python 3.10, Python 3.11, Python 3.12, Python 3.13, and Python 3.14.\n- Deprecated / Unsuppo"
+      },
+      {
+        "id": 146,
+        "category": "version_conflict",
+        "query": "Is Python 3.9 accepted in the certified deployment environment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Deprecated / Unsupported versions: Python 3.8 and Python 3.9 are strictly unsupported.\n- Supported operating systems: "
+      },
+      {
+        "id": 147,
+        "category": "follow_up",
+        "query": "How many concurrent worker processes are included in that tier?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl"
+      },
+      {
+        "id": 148,
+        "category": "follow_up",
+        "query": "What billing credit is deducted if it drops below 99.9%?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Downtime financial credit: 15% billing credit applied if monthly uptime drops below 99.9%.\n- Severe outage credit: 50%"
+      },
+      {
+        "id": 149,
+        "category": "follow_up",
+        "query": "What HTTP status code is returned when that request is unauthenticated?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with "
+      },
+      {
+        "id": 150,
+        "category": "follow_up",
+        "query": "What symmetric cipher algorithm is used with it?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h"
+      },
+      {
+        "id": 151,
+        "category": "follow_up",
+        "query": "How many transformer decoder layers does it have?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Transformer decoder layers: 6 homogeneous blocks.\n- Primary context ceiling: 512 active tokens. [Source: compute_arch_"
+      },
+      {
+        "id": 152,
+        "category": "follow_up",
+        "query": "Where is the offsite replica archive stored?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Daily full backup time: 00:00 UTC daily.\n- Offsite replica archive target: Encrypted offsite cold storage volume. [Sou"
+      },
+      {
+        "id": 153,
+        "category": "follow_up",
+        "query": "What is the maximum engineer response time for that incident rating?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum"
+      },
+      {
+        "id": 154,
+        "category": "follow_up",
+        "query": "What discount is provided for a 3-year commitment?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- 3-year upfront commitment discount: 25% discount on total subscription.\n- Academic / Non-profit institution discount: "
+      },
+      {
+        "id": 155,
+        "category": "multilingual_hinglish",
+        "query": "ChakrMicro V0.6 me intermediate feed-forward layer size kitna hota hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Intermediate feed-forward layer size: 2048 dimensions.\n- Context window ceiling: 1024 tokens. [Source: compute_arch_v0"
+      },
+      {
+        "id": 156,
+        "category": "multilingual_hinglish",
+        "query": "Professional Tier subscription ka per month rate kya hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Professional Tier: $450 per month, includes up to 8 concurrent worker processes and priority telemetry.\n- Dedicated Cl"
+      },
+      {
+        "id": 157,
+        "category": "multilingual_hinglish",
+        "query": "P1 severity issue aane par engineer kitne time me respond karega?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Severity 1 (P1 - Complete Outage): Maximum response time of 15 minutes.\n- Severity 2 (P2 - Major Degradation): Maximum"
+      },
+      {
+        "id": 158,
+        "category": "multilingual_hinglish",
+        "query": "Production API pe unauthenticated access par konsa error status code milta hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Token expiration window: Exactly 3600 seconds (60 minutes).\n- Unauthenticated API access: Terminated immediately with "
+      },
+      {
+        "id": 159,
+        "category": "multilingual_hinglish",
+        "query": "In-transit network communication me konsa encryption cipher use hota hai?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM.\n- Session re-keying threshold: Every 24 h"
+      },
+      {
+        "id": 160,
+        "category": "multilingual_hinglish",
+        "query": "CPU par inference chalane ke liye minimum kitni physical RAM honi chahiye?",
+        "expected": "ANSWER",
+        "actual": "ANSWER",
+        "is_correct": true,
+        "answer_preview": "- Minimum operational RAM allocation for CPU inference: 1.5 GB physical memory.\n- Cache line size: 64 bytes aligned acro"
+      },
+      {
+        "id": 161,
+        "category": "false_premise",
+        "query": "Why does ChakrMicro V0.6 require 128 attention heads on CPU?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts 128, but verified evidence establishes - Multi-head attenti"
+      },
+      {
+        "id": 162,
+        "category": "false_premise",
+        "query": "Why is the Starter subscription priced at $9,000 per month?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts 9000, but verified evidence establishes - Starter Tier: $15"
+      },
+      {
+        "id": 163,
+        "category": "false_premise",
+        "query": "Why does ChakrView allow arbitrary sudo execution in production?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts permission/allowance, but verified documentation states it "
+      },
+      {
+        "id": 164,
+        "category": "false_premise",
+        "query": "Why are database tokens configured to expire after 100 years?",
+        "expected": "REFUTE",
+        "actual": "ABSTAIN",
+        "is_correct": false,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": 165,
+        "category": "false_premise",
+        "query": "Why does the P1 severity SLA allow up to 48 hours for engineer response?",
+        "expected": "REFUTE",
+        "actual": "REFUTE",
+        "is_correct": true,
+        "answer_preview": "Contradiction detected: False premise refuted: Query asserts 48, but verified evidence establishes - Severity 1 (P1 - Co"
+      },
+      {
+        "id": 166,
+        "category": "abstention",
+        "query": "What is the speed of sound in liquid helium at 1 Kelvin?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": 167,
+        "category": "abstention",
+        "query": "What is the orbital eccentricity of Jupiter moon Europa?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": 168,
+        "category": "abstention",
+        "query": "What is the current market capital of Apple in Japanese Yen?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": 169,
+        "category": "abstention",
+        "query": "What is the chemical composition of volcanic basalt on Mars?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      },
+      {
+        "id": 170,
+        "category": "abstention",
+        "query": "Who won the FIFA World Cup football tournament in 1994?",
+        "expected": "ABSTAIN",
+        "actual": "ABSTAIN",
+        "is_correct": true,
+        "answer_preview": "I could not find sufficient verified evidence in the indexed local documents to answer this question."
+      }
+    ]
+  }
+}

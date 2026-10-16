@@ -310,8 +310,41 @@ class LocalKnowledgeAssistant:
                 "confidence": best_cand.score,
             }
             citations = [citation_item]
-            answer = f"{answer_text} [Source: {doc_id} (char {start_char}-{end_char})]"
-            decision_str = "ANSWER"
+
+            # Evidence-grounded premise contradiction check
+            is_refute = False
+            refute_reason = None
+            q_clean_lower = clean_q.lower()
+            ans_lower = answer_text.lower()
+
+            # Check 1: Permission vs Prohibition (e.g. allows sudo vs forbidden/prohibited)
+            allows_in_q = bool(re.search(r"\b(?:allow|allows|allowed|permit|permits|permitted|enable|enabled)\b", q_clean_lower))
+            forbids_in_ans = bool(re.search(r"\b(?:forbidden|prohibited|disabled|denied|disallowed|never)\b", ans_lower))
+            if allows_in_q and forbids_in_ans:
+                is_refute = True
+                refute_reason = f"False premise refuted: Query asserts permission/allowance, but verified documentation states it is forbidden or prohibited."
+
+            # Check 2: Direct numerical contradiction in 'Why does/is/are...' premise queries
+            is_why_query = bool(re.search(r"\bwhy\s+(?:does|is|are|did|do|was|were)\b", q_clean_lower))
+            if is_why_query and not is_refute:
+                # Extract non-version numbers from query and evidence
+                q_nums = set(re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", q_clean_lower.replace(",", "")))
+                ans_nums = set(re.findall(r"\b\d+(?:,\d+)*(?:\.\d+)?\b", ans_lower.replace(",", "")))
+                # Remove version numbers like 0.6, 0.7 if present in both
+                common_nums = q_nums.intersection(ans_nums)
+                distinct_q_nums = q_nums - common_nums
+                distinct_ans_nums = ans_nums - common_nums
+                if distinct_q_nums and distinct_ans_nums:
+                    is_refute = True
+                    refute_reason = f"False premise refuted: Query asserts {', '.join(distinct_q_nums)}, but verified evidence establishes {answer_text}."
+
+            if is_refute:
+                decision_str = "REFUTE"
+                answer = f"Contradiction detected: {refute_reason} [Source: {doc_id} (char {start_char}-{end_char})]"
+            else:
+                decision_str = "ANSWER"
+                answer = f"{answer_text} [Source: {doc_id} (char {start_char}-{end_char})]"
+
             confidence = round(best_cand.score, 3)
 
         elapsed = (time.perf_counter() - t0) * 1000.0
