@@ -330,6 +330,85 @@ class DeterministicHashEmbeddingProvider(EmbeddingProvider):
         return [self.embed_text(t) for t in texts]
 
 
+class CachedEmbeddingProvider(EmbeddingProvider):
+    """
+    LRU caching wrapper around any EmbeddingProvider.
+    
+    Guarantees:
+    - Cache key incorporates provider_id, text content, and SHA-256 hash.
+    - Zero numerical drift: cached vectors match uncached vectors bit-for-bit.
+    - Tracks hits, misses, evictions, and cache size.
+    - Invalidation on demand (e.g. document modification/deletion).
+    """
+
+    def __init__(
+        self,
+        provider: EmbeddingProvider,
+        max_capacity: int = 10000,
+    ) -> None:
+        self.provider = provider
+        self.max_capacity = max_capacity
+        self._cache: Dict[str, List[float]] = {}
+        self._access_order: Dict[str, float] = {}
+        self.hits = 0
+        self.misses = 0
+        self.evictions = 0
+
+    @property
+    def dimension(self) -> int:
+        return self.provider.dimension
+
+    @property
+    def provider_id(self) -> str:
+        return f"cached_{self.provider.provider_id}"
+
+    def _make_key(self, text: str) -> str:
+        h = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        return f"{self.provider.provider_id}:{len(text)}:{h}"
+
+    def embed_text(self, text: str) -> List[float]:
+        key = self._make_key(text)
+        if key in self._cache:
+            self.hits += 1
+            self._access_order[key] = time.perf_counter()
+            return list(self._cache[key])
+
+        self.misses += 1
+        vec = self.provider.embed_text(text)
+
+        # LRU eviction if at capacity
+        if len(self._cache) >= self.max_capacity and key not in self._cache:
+            oldest_key = min(self._access_order.items(), key=lambda x: x[1])[0]
+            del self._cache[oldest_key]
+            del self._access_order[oldest_key]
+            self.evictions += 1
+
+        self._cache[key] = list(vec)
+        self._access_order[key] = time.perf_counter()
+        return list(vec)
+
+    def embed_many(self, texts: List[str]) -> List[List[float]]:
+        return [self.embed_text(t) for t in texts]
+
+    def clear(self) -> None:
+        """Purge all cached embeddings."""
+        self._cache.clear()
+        self._access_order.clear()
+
+    def invalidate(self, text: str) -> bool:
+        """Invalidate a specific text embedding from cache."""
+        key = self._make_key(text)
+        if key in self._cache:
+            del self._cache[key]
+            self._access_order.pop(key, None)
+            return True
+        return False
+
+    @property
+    def size(self) -> int:
+        return len(self._cache)
+
+
 class VectorIndex(ABC):
     """
     Abstract interface for in-memory or external vector storage and retrieval.

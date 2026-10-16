@@ -85,14 +85,23 @@ class LocalKnowledgeAssistant:
         chunk_overlap: int = 100,
         embedding_provider: Optional[Any] = None,
         extract_concise_span: bool = False,
+        use_embedding_cache: bool = True,
     ):
         self.storage_dir = Path(storage_dir) if storage_dir else None
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        self.embedding_provider = embedding_provider
         self.extract_concise_span = extract_concise_span
+        self.use_embedding_cache = use_embedding_cache
         self.doc_metadata: Dict[str, IndexedDocumentMetadata] = {}
         self.chunks: List[DocumentChunk] = []
+
+        # Configure embedding provider with LRU cache if enabled
+        from chakrview.runtime.retrieval import CachedEmbeddingProvider, DeterministicHashEmbeddingProvider
+        raw_provider = embedding_provider or DeterministicHashEmbeddingProvider()
+        if self.use_embedding_cache and not isinstance(raw_provider, CachedEmbeddingProvider):
+            self.embedding_provider = CachedEmbeddingProvider(raw_provider, max_capacity=10000)
+        else:
+            self.embedding_provider = raw_provider
         
         # Hybrid retriever combining BM25 lexical and vector search
         self.lexical_index = BM25KnowledgeIndex()
@@ -209,12 +218,15 @@ class LocalKnowledgeAssistant:
         resolved_query = clean_q
         context_used = None
 
-        if self.conversation_turns and any(w in q_lower for w in ["that", "it", "the document", "the second", "what about", "which", "previous"]):
+        FOLLOWUP_PATTERN = re.compile(r"\b(that|it|the document|the second|what about|which|previous)\b", re.IGNORECASE)
+        if self.conversation_turns and FOLLOWUP_PATTERN.search(clean_q):
             is_follow_up = True
             recent_user_turns = [t for t in reversed(self.conversation_turns) if t.role == ConversationRole.USER]
+            recent_asst_turns = [t for t in reversed(self.conversation_turns) if t.role == ConversationRole.ASSISTANT]
             if recent_user_turns:
-                context_used = recent_user_turns[0].content
-                resolved_query = f"{context_used} {clean_q}"
+                user_ctx = recent_user_turns[0].content
+                context_used = user_ctx
+                resolved_query = f"{user_ctx} {clean_q}"
 
         # 2. Check for explicit domain refutations / astronomical / mathematical impossibilities
         gate_res: GovernedResponse = self.evidence_gate.process_query(resolved_query)
@@ -254,18 +266,19 @@ class LocalKnowledgeAssistant:
             "from", "with", "about", "into", "through", "during", "before", "after", "above",
             "below", "have", "has", "had", "does", "did", "doing", "the", "a", "an", "is", "was",
             "are", "were", "in", "on", "at", "by", "for", "and", "or", "to", "of", "how", "many",
-            "much", "do", "can", "are", "is", "total", "does", "doe"
+            "much", "do", "can", "are", "is", "total", "does", "doe", "use", "used", "using", "with"
         }
         curr_tokens = [w.rstrip("s") for w in re.findall(r"\b[a-zA-Z0-9_\.-]{3,}\b|\b\d+(?:\.\d+)?\b", clean_q.lower()) if w not in stops]
         resolved_tokens = [w.rstrip("s") for w in re.findall(r"\b[a-zA-Z0-9_\.-]{3,}\b|\b\d+(?:\.\d+)?\b", resolved_query.lower()) if w not in stops]
 
-        # Score candidate chunks by content token overlap
+        # Score candidate chunks by content token overlap and retrieval confidence
         scored_cands = []
         for c in retrieval_res.candidates:
             c_tokens = set([w.rstrip("s") for w in re.findall(r"\b[a-zA-Z0-9_\.-]{3,}\b|\b\d+(?:\.\d+)?\b", c.text.lower())])
             curr_overlap = set(curr_tokens).intersection(c_tokens)
             res_overlap = set(resolved_tokens).intersection(c_tokens)
-            score = len(curr_overlap) * 5.0 + len(res_overlap) * 1.5 + (c.score * 0.5)
+            # Give healthy weight to candidate retrieval score (c.score) alongside overlap
+            score = len(curr_overlap) * 4.0 + len(res_overlap) * 2.0 + (c.score * 8.0)
             scored_cands.append((score, curr_overlap, res_overlap, c))
 
         scored_cands.sort(key=lambda x: x[0], reverse=True)

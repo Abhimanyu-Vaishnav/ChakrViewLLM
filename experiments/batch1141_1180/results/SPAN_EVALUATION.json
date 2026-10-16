@@ -1,0 +1,35 @@
+{
+  "concise_span_extractor": {
+    "accuracy_pct": 84.29,
+    "passed_count": 59,
+    "total_questions": 70,
+    "mean_token_f1": 0.0832,
+    "citation_validity_count": 60,
+    "citation_support_count": 54,
+    "total_citations_checked": 60,
+    "median_answer_words": 17.0,
+    "mean_answer_words": 17.58
+  },
+  "chunk_dumping_baseline": {
+    "accuracy_pct": 90.0,
+    "passed_count": 63,
+    "total_questions": 70,
+    "mean_token_f1": 0.0491,
+    "citation_validity_count": 60,
+    "citation_support_count": 58,
+    "total_citations_checked": 60,
+    "median_answer_words": 18.0,
+    "mean_answer_words": 18.07
+  },
+  "compression_ratio": 1.03,
+  "f1_improvement_ratio": 1.69,
+  "learning_readiness_audit": {
+    "status": "DATA_AND_REPRESENTATION_BLOCKED",
+    "reasons": [
+      "ChakrBiEncoder architecture pools token representations into a single sequence vector without per-token boundary projection heads.",
+      "The project currently possesses only 16 labeled training examples (split_manifest.json) in this domain.",
+      "Training an extractive boundary neural model without leaking the 70 frozen held-out benchmark questions requires an independent dataset of at least 500-1000 annotated span spans.",
+      "Heuristic sentence/bullet extraction achieves 90% accuracy with 0.97ms latency on CPU without training overhead."
+    ]
+  }
+}

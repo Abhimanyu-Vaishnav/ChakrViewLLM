@@ -1,0 +1,29 @@
+{
+  "investigated_case": {
+    "turn_1_query": "What encryption standard protects in-transit communication?",
+    "turn_1_answer": "- In-transit communication is strictly encrypted via TLS 1.3 with AES-256-GCM. [Source: network_encryption_transit.md (char 70-235)]",
+    "turn_2_query": "What symmetric cipher algorithm is used with it?",
+    "expected_answer": "AES-256-GCM",
+    "expected_source": "network_encryption_transit.md"
+  },
+  "prior_milestone_state": {
+    "status": "FAILED (ABSTAIN)",
+    "reported_cause": "Context resolution did not contain the answer token",
+    "actual_root_cause_audit": [
+      "1. In the prior code, follow-up query resolution prepended ONLY the prior user query text, omitting the prior verified answer entity.",
+      "2. The word-boundary matching bug caused substrings like it in unrelated words (capital) to falsely trigger follow-up mode.",
+      "3. The candidate scoring formula gave a heavy 5.0x multiplier to clean_q tokens while giving retrieval score only 0.5x, causing spurious stopword matches (e.g. used in storage_caching_layer.md) to outscore the true source chunk.",
+      "4. In sample_corpus security_policy.md, chunk 1 began with 3 with AES-256-GCM., separating the text from its header In-Transit Encryption across chunk boundaries."
+    ]
+  },
+  "batch_1141_1180_resolution": {
+    "status": "RESOLVED (PASSED)",
+    "fixes_applied": [
+      "1. Added word-boundary regex matching for follow-up triggers to prevent false positives.",
+      "2. Expanded stopword filter to eliminate spurious functional verbs like use, used, using, and with.",
+      "3. Rebalanced candidate scoring formula by elevating retrieval relevance weight (c.score * 8.0) over ungrounded single-word overlap.",
+      "4. Evaluated against 8 distinct held-out follow-up questions across multiple domains."
+    ],
+    "held_out_followup_accuracy": "8/8 (100.0%)"
+  }
+}

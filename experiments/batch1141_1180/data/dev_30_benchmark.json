@@ -1,0 +1,244 @@
+[
+  {
+    "id": 1,
+    "category": "exact_entity",
+    "query": "What is the hidden dimension of ChakrMicro V0.6?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": "384 units"
+  },
+  {
+    "id": 2,
+    "category": "exact_entity",
+    "query": "What is the intermediate feed-forward layer size in V0.6?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": "1536"
+  },
+  {
+    "id": 3,
+    "category": "paraphrase",
+    "query": "What is the peak memory transfer throughput supported by the bus?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_memory_bus.md",
+    "expected_substring": "68.2 GB/s"
+  },
+  {
+    "id": 4,
+    "category": "synonym",
+    "query": "What cryptographic cipher protects wire transmission?",
+    "expected_type": "ANSWER",
+    "expected_source": "network_encryption_transit.md",
+    "expected_substring": "TLS 1.3 with AES-256-GCM"
+  },
+  {
+    "id": 5,
+    "category": "distractor_competition",
+    "query": "What is the maximum token context length supported in V0.6?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": "512"
+  },
+  {
+    "id": 6,
+    "category": "version_conflict",
+    "query": "Can ChakrMicro V0.6 checkpoints be loaded inside V0.7 runtimes?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_v07_draft.md",
+    "expected_substring": "non-loadable in V0.7 runtimes"
+  },
+  {
+    "id": 7,
+    "category": "exact_entity",
+    "query": "What is the monthly fee for the Starter subscription tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_substring": "150"
+  },
+  {
+    "id": 8,
+    "category": "exact_entity",
+    "query": "How many worker processes are included in the Professional Tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_substring": "8"
+  },
+  {
+    "id": 9,
+    "category": "distractor_competition",
+    "query": "What is the maximum allowed response delay for P1 severity incidents?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_support_tiers.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 10,
+    "category": "distractor_competition",
+    "query": "What is the target Recovery Time Objective for disaster recovery?",
+    "expected_type": "ANSWER",
+    "expected_source": "sop_disaster_recovery.md",
+    "expected_substring": "15 minutes"
+  },
+  {
+    "id": 11,
+    "category": "paraphrase",
+    "query": "What happens when an unauthenticated client tries to access the API?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_auth_tokens.md",
+    "expected_substring": "terminated immediately with HTTP 401"
+  },
+  {
+    "id": 12,
+    "category": "synonym",
+    "query": "How long do signed authorization credentials remain valid?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_auth_tokens.md",
+    "expected_substring": "3600 seconds"
+  },
+  {
+    "id": 13,
+    "category": "follow_up",
+    "context_query": "What is the monthly fee for the Starter subscription tier?",
+    "query": "How many concurrent worker processes are included in that tier?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_substring": "2"
+  },
+  {
+    "id": 14,
+    "category": "follow_up",
+    "context_query": "What encryption standard protects in-transit communication?",
+    "query": "What symmetric cipher algorithm is used with it?",
+    "expected_type": "ANSWER",
+    "expected_source": "network_encryption_transit.md",
+    "expected_substring": "AES-256-GCM"
+  },
+  {
+    "id": 15,
+    "category": "multilingual_hinglish",
+    "query": "Starter tier ka monthly kharcha kitna hai?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_substring": "150"
+  },
+  {
+    "id": 16,
+    "category": "multilingual_hinglish",
+    "query": "V0.6 model me kitne transformer layers hote hain?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": "6"
+  },
+  {
+    "id": 17,
+    "category": "false_premise",
+    "query": "Why does ChakrMicro require 128 transformer layers on mobile devices?",
+    "expected_type": "REFUTE",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": null
+  },
+  {
+    "id": 18,
+    "category": "false_premise",
+    "query": "Why does the Starter Tier cost $5000 per month?",
+    "expected_type": "REFUTE",
+    "expected_source": "billing_subscription_tiers.md",
+    "expected_substring": null
+  },
+  {
+    "id": 19,
+    "category": "abstention",
+    "query": "What is the population of Tokyo in 2026?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": null
+  },
+  {
+    "id": 20,
+    "category": "abstention",
+    "query": "What is the quantum coherence time of the optical qubit bus?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": null
+  },
+  {
+    "id": 21,
+    "category": "exact_entity",
+    "query": "What instruction set provides AVX2 vector extensions for x86 CPUs?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_cpu_simd.md",
+    "expected_substring": "AVX2"
+  },
+  {
+    "id": 22,
+    "category": "paraphrase",
+    "query": "How many threads are assigned to each CUDA streaming multiprocessor block?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_accelerator_cuda.md",
+    "expected_substring": "256"
+  },
+  {
+    "id": 23,
+    "category": "synonym",
+    "query": "What is the filesystem permission mask applied to stored session histories?",
+    "expected_type": "ANSWER",
+    "expected_source": "storage_disk_engine.md",
+    "expected_substring": "0600"
+  },
+  {
+    "id": 24,
+    "category": "distractor_competition",
+    "query": "How many representative domain tokens are used to calibrate quantization?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_quantization.md",
+    "expected_substring": "512"
+  },
+  {
+    "id": 25,
+    "category": "version_conflict",
+    "query": "What is the context window size of the experimental V0.7 model?",
+    "expected_type": "ANSWER",
+    "expected_source": "compute_arch_v07_draft.md",
+    "expected_substring": "1024"
+  },
+  {
+    "id": 26,
+    "category": "exact_entity",
+    "query": "On which day of the month are invoices created?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_payment_terms.md",
+    "expected_substring": "1st"
+  },
+  {
+    "id": 27,
+    "category": "paraphrase",
+    "query": "What percentage billing rebate applies if monthly availability falls below 99.9%?",
+    "expected_type": "ANSWER",
+    "expected_source": "billing_sla_commitments.md",
+    "expected_substring": "15%"
+  },
+  {
+    "id": 28,
+    "category": "abstention",
+    "query": "Who is the CEO of Microsoft in 2026?",
+    "expected_type": "ABSTAIN",
+    "expected_source": null,
+    "expected_substring": null
+  },
+  {
+    "id": 29,
+    "category": "false_premise",
+    "query": "Why does ChakrMicro use 48 attention heads on CPU?",
+    "expected_type": "REFUTE",
+    "expected_source": "compute_arch_core.md",
+    "expected_substring": null
+  },
+  {
+    "id": 30,
+    "category": "multilingual_hinglish",
+    "query": "Production database me token expiration time kitna hai?",
+    "expected_type": "ANSWER",
+    "expected_source": "security_auth_tokens.md",
+    "expected_substring": "3600 seconds"
+  }
+]
