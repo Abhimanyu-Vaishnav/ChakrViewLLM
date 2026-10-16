@@ -1,0 +1,41 @@
+{
+  "suite_name": "batch1701_1740_direct_classification_and_scaling_v1",
+  "partitions": {
+    "train_full": {
+      "samples": 240,
+      "sha256": "8e529bdb07c95f3dd7bfec931770326670013b94a9216909f8ea40dbe61b6768"
+    },
+    "train_50pct": {
+      "samples": 120,
+      "sha256": "38f9b639ec36cbc13cabc021ebfeace02ce239585168a140ee769a8e7dfddccb"
+    },
+    "train_25pct": {
+      "samples": 60,
+      "sha256": "2b06f66fe6513b61db29f8b65e8adb6b4d6a3d0b923662af59328e3304dee63c"
+    },
+    "val": {
+      "samples": 60,
+      "sha256": "63aabf05256fc5b8886a9d02ff15073e9d7f81a6342633d5913ecf9361b5a91f"
+    },
+    "test_held_out": {
+      "samples": 180,
+      "sha256": "63bc6ca288683e74b048e8eda88b6d0033f403722c550b3e03410a46dbe57d6f"
+    }
+  },
+  "intents": [
+    "CALCULATE",
+    "VERIFY_CLAIM",
+    "KNOWLEDGE_QUERY",
+    "CODE_TASK",
+    "CLARIFY",
+    "OUT_OF_SCOPE"
+  ],
+  "class_distribution_test": {
+    "CALCULATE": 30,
+    "VERIFY_CLAIM": 30,
+    "KNOWLEDGE_QUERY": 30,
+    "CODE_TASK": 30,
+    "CLARIFY": 30,
+    "OUT_OF_SCOPE": 30
+  }
+}
