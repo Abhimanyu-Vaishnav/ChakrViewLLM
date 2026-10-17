@@ -1,0 +1,116 @@
+{
+  "mission": "Batch 2181-2220 Evidence Audit, Adaptive Hardware Runtime, Tool-Grounded Intelligence & Learning Integration",
+  "timestamp_iso": "2026-10-17T12:56:00Z",
+  "repository": "D:\\Project\\ChakrView",
+  "branch": "dev/v0.6-v0.7-validation",
+  "starting_commit": "574aa3d",
+  "preexisting_uncommitted_modifications": [
+    "chakrview/runtime/session.py"
+  ],
+  "protected_artifacts": {
+    "canonical_checkpoint_step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true
+    },
+    "canonical_tokenizer_vocab_4096": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+      "vocab_size": 4096,
+      "verified": true
+    },
+    "canonical_architecture_hash": {
+      "reported": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "param_count": 3443136,
+      "verified": true
+    },
+    "corpus_cleaned_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "sha256": "e3db033c5e886915b81a04e578f7db0d9472eb29ba0e5a1b32bb3da6cfbb7a69",
+      "verified": true
+    }
+  },
+  "cpt_evidence_reconciliation": {
+    "status": "RECONCILED",
+    "test_split_population": {
+      "documents": 290,
+      "tokens": 64769,
+      "source_families": 4
+    },
+    "metrics_reconciled": {
+      "token_weighted_ce_delta_seed42": -0.1928,
+      "mean_paired_doc_delta_seed42": -0.2362,
+      "paired_doc_bootstrap_95_ci_seed42": [-0.2630, -0.2095],
+      "document_win_rate_seed42": 0.7655,
+      "t_statistic": -17.51,
+      "p_value": "< 1e-45"
+    },
+    "seed_stopping_reconciliation": {
+      "seed_42_steps": 200,
+      "seed_1337_steps": 125,
+      "seed_2026_steps": 125,
+      "explanation": "Seeds 1337 and 2026 reached validation minimum at step 50 and triggered the preregistered patience=3 early stopping rule at step 125. All runs completed under identical protocols."
+    }
+  },
+  "dataset_leakage_audit": {
+    "train_val_id_overlap": 0,
+    "train_test_id_overlap": 0,
+    "val_test_id_overlap": 0,
+    "train_val_hash_overlap": 0,
+    "train_test_hash_overlap": 0,
+    "val_test_hash_overlap": 0,
+    "exact_duplicates": 0,
+    "leakage_verdict": "ZERO_LEAKAGE"
+  },
+  "hardware_root_cause_and_benchmarks": {
+    "detected_cpu": "Intel(R) Core(TM) i5-13500H (16 CPUs)",
+    "detected_gpu": "NVIDIA RTX A1000 6GB Laptop GPU",
+    "pytorch_version": "2.14.1+cu126",
+    "cuda_available": true,
+    "root_cause_cpu_80pct": "CPT runner script had explicit device='cpu' hardcoding; coding assistant agent executed in separate CPU-bound process.",
+    "benchmarks": {
+      "interactive_generation_b1": {
+        "cpu_tok_per_sec": 239.55,
+        "gpu_tok_per_sec": 120.03,
+        "winner": "CPU (Kernel launch overhead exceeds computation for 3.4M model)"
+      },
+      "batched_forward_b32": {
+        "cpu_latency_ms": 377.06,
+        "gpu_latency_ms": 52.69,
+        "speedup": "7.16x faster on GPU"
+      }
+    },
+    "implemented_policy": "AdaptiveExecutionPolicy (CPU for B=1-2, GPU for B>=4 and training)"
+  },
+  "tool_grounded_capability": {
+    "arithmetic_raw_accuracy": 0.0,
+    "arithmetic_tool_assisted_accuracy": 1.0,
+    "evaluated_probes_count": 20,
+    "tool_used": "VerifiedToolRouter (SafeCalculator AST allowlist)",
+    "avg_execution_time_ms": 0.15,
+    "security_guarantees": "Zero eval/exec, zero imports, ast-only node allowlist"
+  },
+  "feedback_learning": {
+    "layer_1_conversation_memory": "END-TO-END VERIFIED (with synthetic fixtures)",
+    "layer_2_feedback_ledger": "END-TO-END VERIFIED",
+    "layer_3_dataset_export": "END-TO-END VERIFIED",
+    "offline_training_from_feedback": "DESIGN ONLY",
+    "session_py_modified": false
+  },
+  "release_gate_decision": {
+    "verdict": "CONDITIONAL_V0.6_CANDIDATE",
+    "canonical_baseline_modified": false,
+    "reasons": [
+      "Empirical CPT language modeling gains verified (-0.1928 token CE delta, 76.6% document win rate).",
+      "Arithmetic accuracy lifted from 0% to 100% via SafeCalculator without security violations.",
+      "Dedicated GPU discovered and integrated via AdaptiveExecutionPolicy with 7.16x batched speedup.",
+      "Full production v0.6 release deferred until runtime CLI integration is complete."
+    ]
+  },
+  "tests_executed": {
+    "test_batch2181_2220_adaptive_and_tool_routing": "4 passed",
+    "test_batch2141_2180_cpt_and_feedback": "4 passed",
+    "test_batch2101_2140_cpt_preflight_and_reconciliation": "7 passed",
+    "total_passed": 15,
+    "total_failed": 0
+  }
+}
