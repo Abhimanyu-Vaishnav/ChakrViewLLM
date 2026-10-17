@@ -1,0 +1,102 @@
+{
+  "preregistration_version": "1.0.0",
+  "milestone": "batch2101_2140",
+  "status": "FROZEN_FOR_FUTURE_EXECUTION",
+  "experiment_name": "chakrmicro_cpt_phase5_controlled_natural_continuation",
+  "base_model": {
+    "canonical_checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "vocab_size": 4096,
+    "dim": 384,
+    "n_layers": 6,
+    "n_heads": 6,
+    "total_trainable_parameters": 3443136
+  },
+  "tokenizer": {
+    "vocab_dir": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "vocab_json_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_json_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "config_json_sha256": "0fca72b6a70e9ae812589199c661ef6be20cb9973f06353db125a1ec7264e589"
+  },
+  "datasets": {
+    "corpus_cleaned_manifest_path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+    "split_manifest_path": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+    "provenance_manifest_path": "experiments/batch2021_2060/SOURCE_PROVENANCE_MANIFEST.json",
+    "training_partition": {
+      "documents": 782,
+      "tokens": 147476,
+      "source_families": [
+        "cpython_algorithms_heapq",
+        "gutenberg_tagore_gitanjali",
+        "ietf_rfc793_tcp",
+        "wikipedia_en_turing_machine",
+        "wikipedia_hi_chemistry",
+        "wikipedia_hi_premchand"
+      ]
+    },
+    "validation_partition": {
+      "documents": 186,
+      "tokens": 32617,
+      "source_families": [
+        "cpython_algorithms_bisect",
+        "google_hinglish_top_dialogues",
+        "wikipedia_hi_ganit"
+      ]
+    },
+    "test_partition": {
+      "documents": 290,
+      "tokens": 65059,
+      "source_families": [
+        "gutenberg_loney_coordinate_geometry",
+        "wikipedia_en_information_theory",
+        "wikipedia_hi_sanskrit_sahitya",
+        "wikipedia_sa_bhagavad_gita"
+      ],
+      "blinding_policy": "STRICT_BLINDING_UNTIL_SELECTION_FREEZE"
+    }
+  },
+  "hyperparameters": {
+    "context_length": 256,
+    "batch_size_per_step": 4,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 8,
+    "tokens_per_step": 2048,
+    "max_steps": 200,
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "eps": 1e-8,
+    "weight_decay": 0.01,
+    "peak_learning_rate": 0.00015,
+    "min_learning_rate": 0.000015,
+    "warmup_steps": 20,
+    "lr_decay_schedule": "cosine",
+    "random_seeds": [42, 1337, 2026]
+  },
+  "validation_and_early_stopping": {
+    "cadence_steps": 25,
+    "evaluator_module": "experiments.batch2101_2140.validation_evaluator",
+    "selection_metric": "macro_source_ce",
+    "patience_checkpoints": 3,
+    "patience_steps": 75,
+    "divergence_abort_threshold_ce": 0.25,
+    "subdomain_non_regression_bounds": {
+      "cpython_algorithms_bisect_max_ce_delta": 0.10,
+      "wikipedia_hi_ganit_max_ce_delta": 0.10
+    }
+  },
+  "resource_limits": {
+    "max_ram_rss_gb": 2.0,
+    "max_checkpoint_disk_mb_per_seed": 400.0,
+    "expected_runtime_minutes_per_seed_cpu": "12 to 15 minutes (estimated)",
+    "execution_target": "CPU-first hardware adaptive"
+  },
+  "transfer_evaluation_suite": {
+    "probes": [
+      "pure_neural_arithmetic_greedy",
+      "pure_neural_code_syntax_ast",
+      "pure_neural_factual_cloze",
+      "hybrid_tool_governed_comparison"
+    ],
+    "timing": "POST_SELECTION_ONLY"
+  }
+}

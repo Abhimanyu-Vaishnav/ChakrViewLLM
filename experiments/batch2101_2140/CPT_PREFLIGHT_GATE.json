@@ -1,0 +1,83 @@
+{
+  "gate_version": "2.0.0",
+  "milestone": "batch2101_2140",
+  "evaluation_date": "2026-10-17",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "tokenizer_vocab_size": 4096,
+  "overall_decision": "READY_FOR_CONTROLLED_CPT",
+  "decision_summary": "All eight required preflight release gates have successfully passed. Artifact immutability is cryptographically verified; the historical 5.4578 vs 5.7242 and token count discrepancies are definitively reconciled; versioned Sanskrit cleaning completely eliminated MediaWiki formatting without altering raw sources; the 81.57% validation imbalance is resolved via equal-weighted macro-source evaluation; deterministic checkpoint resume and RNG recovery are implemented and verified; and full experiment pre-registration is permanently frozen.",
+  "gates": [
+    {
+      "gate_id": "GATE_01_ARTIFACT_INTEGRITY",
+      "name": "Artifact Integrity & Checkpoint Lineage",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/REPOSITORY_AND_ARTIFACT_INTEGRITY.md",
+      "result": "Branch dev/v0.6-v0.7-validation at commit 18fad0f verified. Canonical checkpoint (96357705...), CPT 150 (85753315...), and CPT 300 (2f775151...) binary hashes match expected digests exactly.",
+      "limitations": "CPU and CUDA verified on Windows NT x86_64.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_02_METRIC_RECONCILIATION",
+      "name": "Historical Metric Discrepancy Reconciliation",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/CPT_METRIC_RECONCILIATION.md",
+      "result": "Definitively resolved: 5.7242 and 5.8420 are the authentic empirical CE values in INDEPENDENT_EVALUATION_RESULTS.json. The values 5.4578 and 5.5756 were transcription artifacts of an offset copy-paste. Evaluated token count is mathematically exact at 11,022 target tokens (11,110 minus 88).",
+      "limitations": "Regression is benchmark-specific to the Batch 1861 synthetic training regimen.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_03_CORPUS_AND_LANGUAGE_INTEGRITY",
+      "name": "Versioned Sanskrit Cleaning & Corpus v2 Integrity",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/SANSKRIT_CLEANING_AUDIT.md",
+      "result": "Deterministic cleaning pass stripped 184 MediaWiki quote markers and 45 indentation colons from Sanskrit documents with 0 remaining formatting artifacts. New manifest CORPUS_V2_CLEANED_MANIFEST.json published with updated SHA-256 and token counts. Raw sources and Corpus v2 remain immutable.",
+      "limitations": "Sanskrit corpus relies on Bhagavad Gita source family.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_04_VALIDATION_SELECTION",
+      "name": "Validation Selection Protocol & Macro Loss Gating",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/VALIDATION_SELECTION_PROTOCOL.md",
+      "result": "Verified 81.57% Hinglish token dominance in validation partition. Implemented and tested validation_evaluator.py, establishing equal-weighted macro-source loss (5.0319 on canonical) and strict sub-domain non-regression constraints for checkpoint selection.",
+      "limitations": "3 validation source families cover hi-en, hi, and code.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_05_CHECKPOINT_RECOVERY",
+      "name": "Deterministic Checkpoint Resume & State Serialization",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/CHECKPOINT_RESUME_AUDIT.md",
+      "result": "Implemented cpt_checkpoint_engine.py saving model, optimizer, scheduler, Python RNG, PyTorch CPU/CUDA RNG, and NumPy RNG states. Synthetic test proved exact step-by-step weight and optimizer equivalence between uninterrupted control and resumed runs.",
+      "limitations": "Requires Python 3.10+ and PyTorch 2.0+.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_06_EXPERIMENT_PREREGISTRATION",
+      "name": "Pre-Registered CPT Protocol & Stopping Rules",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/CPT_PREREGISTRATION.json",
+      "result": "Experiment configuration permanently frozen: seeds (42, 1337, 2026), 200 steps, AdamW, cosine schedule, warmup 20, cadence 25 steps, patience 3 checkpoints (75 steps), and strict test blinding.",
+      "limitations": "Execution deferred to future milestone.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_07_RESOURCE_FEASIBILITY",
+      "name": "Resource Budget & Storage Feasibility",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2101_2140/CPT_PREREGISTRATION.json",
+      "result": "CPU-first hardware adaptive profile. Memory budget <= 2.0 GB RSS; storage <= 400 MB per seed. Runtime estimated at 12 to 15 minutes per seed on multicore CPU.",
+      "limitations": "Runtime estimates labeled as estimates until actual training run.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_08_HISTORICAL_CONTAMINATION",
+      "name": "Historical Pretraining Contamination Audit",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/CORPUS_INTEGRITY_AUDIT.md",
+      "result": "No confirmed data overlap exists between canonical pretraining records (synthetic algorithmic shards) and Corpus v2 natural texts. Split isolation remains strictly disjoint across train, validation, and test.",
+      "limitations": "Early Stage C raw generators are only partially documented in early batch history.",
+      "remediation": "Documented in audit records."
+    }
+  ]
+}
