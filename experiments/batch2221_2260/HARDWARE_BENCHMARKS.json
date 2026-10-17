@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "cpu_model": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "cpu_logical_cores": 20,
+    "ram_total_gb": 31.64,
+    "gpu_model": "NVIDIA RTX A1000 6GB Laptop GPU",
+    "cuda_version": "12.6",
+    "pytorch_version": "2.14.1+cu126",
+    "inference_mode": true
+  },
+  "devices": {
+    "cpu": {
+      "device": "cpu",
+      "model_load_latency_ms": {
+        "median": 100.46,
+        "min": 75.85,
+        "max": 128.77
+      },
+      "time_to_first_token_ms": {
+        "median": 6.47,
+        "std": 0.58,
+        "min": 5.59,
+        "max": 7.6
+      },
+      "prefill_throughput_tok_per_sec": {
+        "median": 3344.96,
+        "mean": 3203.47
+      },
+      "autoregressive_gen_b1_tok_per_sec": {
+        "median": 157.8,
+        "std": 22.62
+      },
+      "autoregressive_32tok_latency_ms": {
+        "median": 202.79,
+        "std": 28.48
+      },
+      "batched_forward_pass_ctx256": {
+        "batch_1": {
+          "median_latency_ms": 18.49,
+          "throughput_tok_per_sec": 13844.84
+        },
+        "batch_4": {
+          "median_latency_ms": 37.14,
+          "throughput_tok_per_sec": 27571.98
+        },
+        "batch_16": {
+          "median_latency_ms": 127.85,
+          "throughput_tok_per_sec": 32037.64
+        },
+        "batch_32": {
+          "median_latency_ms": 291.29,
+          "throughput_tok_per_sec": 28123.43
+        }
+      },
+      "peak_vram_allocated_mb": 0.0,
+      "peak_host_rss_mb": 809.59
+    },
+    "cuda": {
+      "device": "cuda",
+      "model_load_latency_ms": {
+        "median": 185.08,
+        "min": 124.94,
+        "max": 924.72
+      },
+      "time_to_first_token_ms": {
+        "median": 8.64,
+        "std": 7.89,
+        "min": 4.89,
+        "max": 36.96
+      },
+      "prefill_throughput_tok_per_sec": {
+        "median": 2184.7,
+        "mean": 2539.82
+      },
+      "autoregressive_gen_b1_tok_per_sec": {
+        "median": 110.37,
+        "std": 11.72
+      },
+      "autoregressive_32tok_latency_ms": {
+        "median": 289.93,
+        "std": 32.73
+      },
+      "batched_forward_pass_ctx256": {
+        "batch_1": {
+          "median_latency_ms": 11.91,
+          "throughput_tok_per_sec": 21495.81
+        },
+        "batch_4": {
+          "median_latency_ms": 8.76,
+          "throughput_tok_per_sec": 116884.3
+        },
+        "batch_16": {
+          "median_latency_ms": 27.72,
+          "throughput_tok_per_sec": 147750.02
+        },
+        "batch_32": {
+          "median_latency_ms": 52.8,
+          "throughput_tok_per_sec": 155147.84
+        }
+      },
+      "peak_vram_allocated_mb": 208.26,
+      "peak_host_rss_mb": 1086.01
+    }
+  }
+}

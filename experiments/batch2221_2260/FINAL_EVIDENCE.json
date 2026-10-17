@@ -1,0 +1,125 @@
+{
+  "mission": "Batch 2221-2260 User-Facing Integration, Reproducible Hardware Benchmarks & v0.6 Release Candidate Validation",
+  "timestamp_iso": "2026-10-17T13:24:00Z",
+  "repository": "D:\\Project\\ChakrView",
+  "branch": "dev/v0.6-v0.7-validation",
+  "starting_commit": "0695f73",
+  "protected_artifacts": {
+    "canonical_checkpoint_step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true
+    },
+    "canonical_tokenizer_vocab_4096": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+      "vocab_size": 4096,
+      "verified": true
+    },
+    "canonical_architecture_hash": {
+      "reported": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "param_count": 3443136,
+      "verified": true
+    },
+    "corpus_cleaned_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "sha256": "e3db033c5e886915b81a04e578f7db0d9472eb29ba0e5a1b32bb3da6cfbb7a69",
+      "verified": true
+    }
+  },
+  "evaluation_reproduction": {
+    "status": "INDEPENDENTLY_REPRODUCED",
+    "total_evaluated_documents": 290,
+    "total_evaluated_tokens": 64769,
+    "models": {
+      "canonical_baseline": {
+        "tw_ce": 4.4789,
+        "ppl": 88.14
+      },
+      "historical_cpt_150": {
+        "tw_ce": 4.5493,
+        "ppl": 94.57,
+        "delta": 0.0704,
+        "win_rate_pct": 18.97
+      },
+      "historical_cpt_300": {
+        "tw_ce": 4.6572,
+        "ppl": 105.34,
+        "delta": 0.1783,
+        "win_rate_pct": 3.79
+      },
+      "cpt_seed_42_best": {
+        "tw_ce": 4.2861,
+        "ppl": 72.68,
+        "delta": -0.1928,
+        "mean_paired_doc_delta": -0.2362,
+        "paired_doc_bootstrap_95_ci": [-0.2630, -0.2095],
+        "win_rate_pct": 76.55
+      },
+      "cpt_seed_1337_best": {
+        "tw_ce": 4.3046,
+        "ppl": 74.04,
+        "delta": -0.1743,
+        "mean_paired_doc_delta": -0.2087,
+        "paired_doc_bootstrap_95_ci": [-0.2301, -0.1874],
+        "win_rate_pct": 79.66
+      },
+      "cpt_seed_2026_best": {
+        "tw_ce": 4.3067,
+        "ppl": 74.20,
+        "delta": -0.1722,
+        "mean_paired_doc_delta": -0.2031,
+        "paired_doc_bootstrap_95_ci": [-0.2220, -0.1845],
+        "win_rate_pct": 84.48
+      }
+    }
+  },
+  "hardware_benchmarks": {
+    "device_detected": "Intel(R) Core(TM) i5-13500H + NVIDIA RTX A1000 6GB Laptop GPU",
+    "ram_total_gb": 31.64,
+    "interactive_b1_ttft_ms": {
+      "cpu": 6.47,
+      "cuda": 8.64,
+      "winner": "CPU (1.34x faster)"
+    },
+    "interactive_b1_throughput_tok_per_sec": {
+      "cpu": 157.8,
+      "cuda": 110.37,
+      "winner": "CPU (1.43x faster)"
+    },
+    "batched_b32_forward_latency_ms": {
+      "cpu": 291.29,
+      "cuda": 52.8,
+      "winner": "CUDA (5.52x faster)"
+    },
+    "batched_b32_throughput_tok_per_sec": 155147.84,
+    "cuda_peak_vram_mb": 208.26
+  },
+  "user_facing_integration": {
+    "cli_module": "chakrview/runtime/assistant_cli.py",
+    "adapter_module": "experiments/batch2221_2260/integrated_assistant_adapter.py",
+    "commands_supported": [
+      "status",
+      "ingest",
+      "list-docs",
+      "ask",
+      "interactive"
+    ],
+    "flags_supported": [
+      "--device [cpu|cuda]",
+      "--consent",
+      "--doc-dir"
+    ],
+    "tool_routing_end_to_end": "VERIFIED (100% on arithmetic, 0.19 ms latency)",
+    "feedback_logging_end_to_end": "VERIFIED (requires --consent flag)"
+  },
+  "candidate_packaging": {
+    "candidate_id": "chakrmicro-v0.6-candidate-cpt-seed42-step125",
+    "version": "v0.6.0-rc1",
+    "readiness": "RESEARCH_CANDIDATE_VALIDATED",
+    "public_release_declared": false
+  },
+  "unresolved_blockers": [
+    "Sanskrit Classical texts exhibited slight drift (+0.076 CE) due to absence in training split; requires rebalancing in subsequent CPT curriculum.",
+    "Session runtime (chakrview/runtime/session.py) kept strictly unmodified; integration achieved via adapter."
+  ]
+}
