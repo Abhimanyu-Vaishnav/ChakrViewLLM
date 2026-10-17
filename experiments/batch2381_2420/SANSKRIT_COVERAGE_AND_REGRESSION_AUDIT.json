@@ -1,0 +1,54 @@
+{
+  "audit_metadata": {
+    "batch": "2381-2420",
+    "audit_type": "Sanskrit Coverage and Regression Assessment",
+    "status": "VERIFIED"
+  },
+  "observed_held_out_regression": {
+    "source_id": "wikipedia_sa_bhagavad_gita",
+    "language": "Classical Sanskrit (Devanagari)",
+    "documents": 61,
+    "evaluated_target_tokens": 19577,
+    "baseline_exact_tw_ce": 4.320159,
+    "baseline_ppl": 75.2,
+    "candidate_exact_tw_ce": 4.397778,
+    "candidate_ppl": 81.27,
+    "exact_delta_tw_ce": 0.077619,
+    "delta_tw_ce_4dp": 0.0776,
+    "relative_ppl_increase_pct": 8.07,
+    "status": "CONFIRMED"
+  },
+  "hindi_control_source": {
+    "source_id": "wikipedia_hi_sanskrit_sahitya",
+    "language": "Hindi",
+    "documents": 9,
+    "evaluated_target_tokens": 4798,
+    "baseline_exact_tw_ce": 3.920308,
+    "candidate_exact_tw_ce": 3.905656,
+    "exact_delta_tw_ce": -0.014652,
+    "status": "NO_REGRESSION"
+  },
+  "training_coverage_findings": {
+    "split_manifest_train_sources": [
+      "cpython_algorithms_heapq",
+      "gutenberg_tagore_gitanjali",
+      "ietf_rfc793_tcp",
+      "wikipedia_en_turing_machine",
+      "wikipedia_hi_chemistry",
+      "wikipedia_hi_premchand"
+    ],
+    "train_languages": [
+      "code",
+      "en",
+      "hi"
+    ],
+    "classical_sanskrit_train_token_count": 0,
+    "classical_sanskrit_train_document_count": 0,
+    "status": "CONFIRMED_ZERO_TRAINING_COVERAGE"
+  },
+  "scientific_classification": {
+    "classification": "Held-out source-family regression due to zero training coverage",
+    "distinction_from_catastrophic_forgetting": "Perplexity increased by 8.07% (from 75.20 to 81.27), indicating mild representational drift on unreinforced token transition matrices, not complete representational collapse.",
+    "causality_boundary": "Zero training coverage is directly observed and logically consistent with representational drift, but causal proof requires an experimental intervention with pre-registered controls."
+  }
+}

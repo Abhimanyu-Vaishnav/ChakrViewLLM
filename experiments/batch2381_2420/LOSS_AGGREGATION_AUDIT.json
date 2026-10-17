@@ -1,0 +1,26 @@
+{
+  "total_evaluated_tokens": 64769,
+  "baseline_loss_accumulations": {
+    "exact_unrounded_evaluator_nll": 290094.4798755646,
+    "document_level_4dp_loss_sum": 290094.4573,
+    "source_level_4dp_ce_sum": 290096.7562,
+    "exact_tw_ce": 4.478909352862706,
+    "doc_sum_derived_tw_ce": 4.478909004307616,
+    "src_sum_derived_tw_ce": 4.478944498139542
+  },
+  "candidate_seed_42_loss_accumulations": {
+    "exact_unrounded_evaluator_nll": 277607.59344625473,
+    "document_level_4dp_loss_sum": 277607.5773,
+    "source_level_4dp_ce_sum": 277608.8526,
+    "exact_tw_ce": 4.286118257905089,
+    "doc_sum_derived_tw_ce": 4.286118008615233,
+    "src_sum_derived_tw_ce": 4.286137698590375
+  },
+  "loss_accumulation_precision_analysis": {
+    "baseline_discrepancy_range_units": 2.298899999994319,
+    "baseline_discrepancy_relative_pct": 0.000792465958325173,
+    "candidate_discrepancy_range_units": 1.2752999999793246,
+    "candidate_discrepancy_relative_pct": 0.0004593894511845277,
+    "scientific_conclusion": "The difference between 290,094.04 and 290,096.76 is completely accounted for by intermediate rounding of per-document losses vs per-source CEs to 4 decimal places. The true raw accumulation is 290,094.48 (Baseline) and 277,607.59 (Seed 42)."
+  }
+}

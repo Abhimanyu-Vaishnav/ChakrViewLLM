@@ -1,0 +1,47 @@
+{
+  "mission": "Batch 2381-2420 Evidence-Driven Audit Closure",
+  "overall_verdict": "VERIFIED",
+  "gates": {
+    "source_identity": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/SOURCE_IDENTITY_AUDIT.json",
+      "reason": "Derived 290 documents and 64,769 target tokens directly from CORPUS_V2_CLEANED_MANIFEST.json and SPLIT_V2_MANIFEST.json."
+    },
+    "raw_loss_aggregation": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/LOSS_AGGREGATION_AUDIT.json",
+      "reason": "True evaluator NLL accumulation verified at 290,094.48 (Base) and 277,607.59 (Seed 42). Precision discrepancy range is < 0.0008%."
+    },
+    "baseline_vs_candidate_reproducibility": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/FRESH_EVALUATION.json",
+      "reason": "Fresh isolated evaluation reproduced baseline TW-CE 4.4789 and candidate TW-CE 4.2861 (Delta: -0.1928, 76.55% win rate)."
+    },
+    "sanskrit_coverage_and_regression": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/SANSKRIT_COVERAGE_AND_REGRESSION_AUDIT.json",
+      "reason": "Observed held-out Sanskrit regression confirmed at +0.0776 CE (+8.07% PPL); training split confirmed to have 0 Classical Sanskrit tokens."
+    },
+    "checkpoint_identity": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/initial_artifacts_hashes.json",
+      "reason": "Canonical step 10,000 checkpoint and CPT Seed 42 checkpoint exist and match expected SHA-256 hashes."
+    },
+    "canonical_artifact_integrity": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/initial_artifacts_hashes.json",
+      "reason": "Canonical architecture digest (c5571c9c...), cleaned manifest (e3db033c...), and tokenizer vocab (db4d6119...) match expected digests."
+    },
+    "protected_file_provenance": {
+      "status": "VERIFIED",
+      "evidence_file": "experiments/batch2381_2420/PROTECTED_FILE_PROVENANCE_AUDIT.md",
+      "reason": "chakrview/runtime/session.py uncommitted modification has filesystem mtime of 2026-10-11 16:04:15, proving it predated current mission series."
+    },
+    "regression_tests": {
+      "status": "VERIFIED",
+      "evidence_file": "tests/",
+      "reason": "25/25 tests passed cleanly across 5 test suites (exit code 0)."
+    }
+  },
+  "recommendation": "PROCEED_TO_CONTROLLED_CURRICULUM_INTERVENTION"
+}

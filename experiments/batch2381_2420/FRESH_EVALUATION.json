@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "batch": "2381-2420",
+    "manifest": "D:\\Project\\ChakrView\\experiments\\batch2101_2140\\CORPUS_V2_CLEANED_MANIFEST.json",
+    "tokenizer": "D:\\Project\\ChakrView\\release\\chakrview-v0.5.0\\data\\experiments\\vocab_4096",
+    "device": "cpu"
+  },
+  "canonical_baseline": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "total_test_documents": 290,
+    "total_evaluated_target_tokens": 64769,
+    "exact_total_nll": 290094.4798755646,
+    "exact_tw_ce": 4.478909352862706,
+    "tw_ce_4dp": 4.4789,
+    "perplexity": 88.14,
+    "per_source_metrics": {
+      "gutenberg_loney_coordinate_geometry": {
+        "document_count": 150,
+        "evaluated_target_tokens": 24482,
+        "exact_nll_sum": 108490.77928447723,
+        "exact_token_weighted_ce": 4.431450832631208,
+        "token_weighted_ce_4dp": 4.4315,
+        "perplexity": 84.05,
+        "macro_doc_ce": 4.4516
+      },
+      "wikipedia_en_information_theory": {
+        "document_count": 70,
+        "evaluated_target_tokens": 15912,
+        "exact_nll_sum": 78218.30123877525,
+        "exact_token_weighted_ce": 4.915680067796333,
+        "token_weighted_ce_4dp": 4.9157,
+        "perplexity": 136.41,
+        "macro_doc_ce": 4.8674
+      },
+      "wikipedia_hi_sanskrit_sahitya": {
+        "document_count": 9,
+        "evaluated_target_tokens": 4798,
+        "exact_nll_sum": 18809.63897585869,
+        "exact_token_weighted_ce": 3.9203082484073963,
+        "token_weighted_ce_4dp": 3.9203,
+        "perplexity": 50.42,
+        "macro_doc_ce": 3.943
+      },
+      "wikipedia_sa_bhagavad_gita": {
+        "document_count": 61,
+        "evaluated_target_tokens": 19577,
+        "exact_nll_sum": 84575.7603764534,
+        "exact_token_weighted_ce": 4.320159389919467,
+        "token_weighted_ce_4dp": 4.3202,
+        "perplexity": 75.2,
+        "macro_doc_ce": 4.2906
+      }
+    }
+  },
+  "cpt_candidate_seed_42": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch2141_2180\\cpt\\seed_42\\cpt_best_checkpoint.pt",
+    "total_test_documents": 290,
+    "total_evaluated_target_tokens": 64769,
+    "exact_total_nll": 277607.59344625473,
+    "exact_tw_ce": 4.286118257905089,
+    "tw_ce_4dp": 4.2861,
+    "perplexity": 72.68,
+    "per_source_metrics": {
+      "gutenberg_loney_coordinate_geometry": {
+        "document_count": 150,
+        "evaluated_target_tokens": 24482,
+        "exact_nll_sum": 101587.4660422802,
+        "exact_token_weighted_ce": 4.149475779849694,
+        "token_weighted_ce_4dp": 4.1495,
+        "perplexity": 63.4,
+        "macro_doc_ce": 4.1608
+      },
+      "wikipedia_en_information_theory": {
+        "document_count": 70,
+        "evaluated_target_tokens": 15912,
+        "exact_nll_sum": 71185.48874306679,
+        "exact_token_weighted_ce": 4.473698387573328,
+        "token_weighted_ce_4dp": 4.4737,
+        "perplexity": 87.68,
+        "macro_doc_ce": 4.4422
+      },
+      "wikipedia_hi_sanskrit_sahitya": {
+        "document_count": 9,
+        "evaluated_target_tokens": 4798,
+        "exact_nll_sum": 18739.33715224266,
+        "exact_token_weighted_ce": 3.9056559300213967,
+        "token_weighted_ce_4dp": 3.9057,
+        "perplexity": 49.68,
+        "macro_doc_ce": 3.9385
+      },
+      "wikipedia_sa_bhagavad_gita": {
+        "document_count": 61,
+        "evaluated_target_tokens": 19577,
+        "exact_nll_sum": 86095.30150866508,
+        "exact_token_weighted_ce": 4.3977780818646925,
+        "token_weighted_ce_4dp": 4.3978,
+        "perplexity": 81.27,
+        "macro_doc_ce": 4.3718
+      }
+    }
+  },
+  "comparison": {
+    "exact_delta_tw_ce": -0.1927910949576166,
+    "delta_tw_ce_4dp": -0.1928,
+    "document_win_rate_pct": 76.55,
+    "total_documents": 290,
+    "candidate_wins": 222
+  }
+}
