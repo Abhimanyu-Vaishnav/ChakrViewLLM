@@ -1,0 +1,52 @@
+{
+  "audit_metadata": {
+    "batch": "2301-2340",
+    "reconciliation_status": "100% RECONCILED"
+  },
+  "artifacts": {
+    "canonical_architecture_digest": {
+      "expected_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "verified_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "parameter_count": 3443136,
+      "computation_method": "torch.manual_seed(42), iterate sorted named_parameters detach tobytes",
+      "status": "PASS"
+    },
+    "canonical_step_10000_checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "size_bytes": 42212787,
+      "status": "PASS"
+    },
+    "cleaned_corpus_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "sha256": "e3db033c83f356f653b10d7eb00994da31d6e0738ab4177faddb133e5b8da380",
+      "size_bytes": 1345799,
+      "total_passages": 2985,
+      "status": "PASS"
+    },
+    "original_corpus_v2_manifest": {
+      "path": "experiments/batch2021_2060/CORPUS_V2_MANIFEST.json",
+      "sha256": "4c7fc6ed32790bbec183ee670eb094c64672bb35b93f22bdb3c003c07de02519",
+      "size_bytes": 1346406,
+      "status": "PASS"
+    },
+    "canonical_tokenizer_vocab": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096/vocab.json",
+      "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "size_bytes": 112627,
+      "vocab_size": 4096,
+      "status": "PASS"
+    },
+    "canonical_tokenizer_merges": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096/merges.json",
+      "sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "status": "PASS"
+    },
+    "cpt_candidate_seed_42": {
+      "path": "experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt",
+      "sha256": "d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3",
+      "size_bytes": 41402267,
+      "status": "PASS"
+    }
+  }
+}

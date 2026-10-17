@@ -1,0 +1,84 @@
+{
+  "audit_metadata": {
+    "batch": "2301-2340",
+    "evaluator_file": "experiments/batch2221_2260/run_independent_evaluation.py",
+    "evaluation_source_json": "experiments/batch2221_2260/REPRODUCED_EVALUATION.json",
+    "eval_documents_total": 290,
+    "eval_tokens_total": 64769
+  },
+  "sources": {
+    "gutenberg_loney_coordinate_geometry": {
+      "document_count": 150,
+      "token_count": 24482,
+      "baseline_ce": 4.4315,
+      "candidate_ce": 4.1495,
+      "delta_ce": -0.282,
+      "baseline_ppl": 84.05,
+      "candidate_ppl": 63.4,
+      "baseline_token_loss_sum": 108491.983,
+      "candidate_token_loss_sum": 101588.059,
+      "macro_doc_ce_baseline": 4.4516,
+      "macro_doc_ce_candidate": 4.1608
+    },
+    "wikipedia_hi_sanskrit_sahitya": {
+      "document_count": 9,
+      "token_count": 4798,
+      "baseline_ce": 3.9203,
+      "candidate_ce": 3.9057,
+      "delta_ce": -0.0146,
+      "baseline_ppl": 50.42,
+      "candidate_ppl": 49.68,
+      "baseline_token_loss_sum": 18809.5994,
+      "candidate_token_loss_sum": 18739.5486,
+      "macro_doc_ce_baseline": 3.943,
+      "macro_doc_ce_candidate": 3.9385
+    },
+    "wikipedia_sa_bhagavad_gita": {
+      "document_count": 61,
+      "token_count": 19577,
+      "baseline_ce": 4.3202,
+      "candidate_ce": 4.3978,
+      "delta_ce": 0.0776,
+      "baseline_ppl": 75.2,
+      "candidate_ppl": 81.27,
+      "baseline_token_loss_sum": 84576.5554,
+      "candidate_token_loss_sum": 86095.7306,
+      "macro_doc_ce_baseline": 4.2906,
+      "macro_doc_ce_candidate": 4.3718
+    },
+    "wikipedia_en_information_theory": {
+      "document_count": 70,
+      "token_count": 15912,
+      "baseline_ce": 4.9157,
+      "candidate_ce": 4.4737,
+      "delta_ce": -0.442,
+      "baseline_ppl": 136.41,
+      "candidate_ppl": 87.68,
+      "baseline_token_loss_sum": 78218.6184,
+      "candidate_token_loss_sum": 71185.5144,
+      "macro_doc_ce_baseline": 4.8674,
+      "macro_doc_ce_candidate": 4.4422
+    }
+  },
+  "overall": {
+    "total_documents": 290,
+    "total_tokens": 64769,
+    "canonical_baseline": {
+      "summed_token_loss": 290096.7562,
+      "token_weighted_ce": 4.4789,
+      "perplexity": 88.14,
+      "macro_doc_ce": 4.5023,
+      "macro_source_ce": 4.3969,
+      "calculated_tw_ce": 4.4789
+    },
+    "cpt_seed_42": {
+      "summed_token_loss": 277608.8526,
+      "token_weighted_ce": 4.2861,
+      "perplexity": 72.68,
+      "macro_doc_ce": 4.2662,
+      "macro_source_ce": 4.2317,
+      "calculated_tw_ce": 4.2861
+    },
+    "delta_tw_ce": -0.1928
+  }
+}

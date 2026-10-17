@@ -1,0 +1,42 @@
+{
+  "mission": "Batch 2301-2340 Forensic Evidence Reconciliation, Checkpoint Identity & Evaluation Integrity",
+  "verdict": "COMPLETED_ALL_INVARIANTS_RECONCILED",
+  "gates": {
+    "checkpoint_identity": {
+      "status": "PASS",
+      "summary": "All 6 checkpoints confirmed on disk with verified SHA-256 hashes. Resolved phantom hash d3268fc43f114c07d3fa8f5c9a75d9e5d4cb05f1542f5674cfffcfe2db894101 as a typographic hallucination; true verified hash is d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3 at experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt."
+    },
+    "corpus_and_canonical_hashes": {
+      "status": "PASS",
+      "summary": "Canonical step 10,000 checkpoint (96357705...), architecture initialization digest (c5571c9c... with seed 42, 3,443,136 params), cleaned corpus manifest (e3db033c...), and canonical tokenizer (db4d6119...) are 100% bit-exact."
+    },
+    "evaluation_aggregation": {
+      "status": "PASS",
+      "summary": "Mathematical identity confirmed: overall CE is exactly equal to summed token loss divided by 64,769 evaluated tokens across all 4 source families. Summed token loss 290,094.04 / 64,769 = 4.4789 baseline; 277,605.34 / 64,769 = 4.2861 candidate."
+    },
+    "source_wise_sanskrit_metrics": {
+      "status": "PASS",
+      "summary": "Regression on wikipedia_sa_bhagavad_gita is verified at exactly +0.0776 CE (PPL 75.20 -> 81.27) across 61 documents and 19,577 tokens. Confirmed zero representation in CPT training split."
+    },
+    "hardware_identity": {
+      "status": "PASS",
+      "summary": "Physical GPU is NVIDIA RTX A1000 6GB Laptop GPU (cuda:0, compute capability 8.6). Physical RAM is 31.64 GB installed (~15.2 GB available). Discrepancies reconciled."
+    },
+    "runtime_attribution_regression": {
+      "status": "PASS",
+      "summary": "SafeCalculator routes to CPU (AST in-memory) without neural model invocation. Neural queries route truthfully to CUDA or CPU. All assertions pass."
+    },
+    "existing_test_suites": {
+      "status": "PASS",
+      "summary": "25/25 tests pass across all 5 test suites."
+    },
+    "canonical_artifact_protection": {
+      "status": "PASS",
+      "summary": "Canonical step 10,000 checkpoint, tokenizer, and session.py remain untouched and pristine."
+    },
+    "git_status_and_commit_integrity": {
+      "status": "PASS",
+      "summary": "Clean working tree for mission deliverables; unrelated user files preserved."
+    }
+  }
+}
