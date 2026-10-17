@@ -1,0 +1,167 @@
+{
+  "mission": "Batch 2141-2180 Seven-Day Integrated Engineering Mission",
+  "timestamp_iso": "2026-10-17T12:30:00Z",
+  "repository": "D:\\Project\\ChakrView",
+  "branch": "dev/v0.6-v0.7-validation",
+  "starting_commit": "6955858",
+  "working_tree_clean": false,
+  "preexisting_uncommitted_modifications": [
+    "chakrview/runtime/session.py"
+  ],
+  "protected_artifacts": {
+    "canonical_checkpoint_step_10000": {
+      "path": "release/chakrview-v0.5.0/checkpoints/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true
+    },
+    "canonical_tokenizer_vocab_4096": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+      "vocab_size": 4096,
+      "verified": true
+    },
+    "canonical_architecture_hash": {
+      "reported": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "param_count": 3443136,
+      "verified": true
+    },
+    "corpus_cleaned_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "sha256": "e3db033c5e886915b81a04e578f7db0d9472eb29ba0e5a1b32bb3da6cfbb7a69",
+      "verified": true
+    }
+  },
+  "cpt_execution": {
+    "preregistration_path": "experiments/batch2101_2140/CPT_PREREGISTRATION.json",
+    "hyperparameters": {
+      "lr": 0.00015,
+      "min_lr": 1.5e-05,
+      "warmup_steps": 20,
+      "batch_size": 4,
+      "context_length": 256,
+      "schedule": "cosine"
+    },
+    "seeds": {
+      "42": {
+        "status": "COMPLETED",
+        "total_steps": 200,
+        "tokens_processed": 288507,
+        "runtime_seconds": 112.7,
+        "peak_rss_mb": 1016.9,
+        "disk_mb": 394.8,
+        "best_step": 125,
+        "best_val_macro_ce": 4.8955,
+        "checkpoint_step_125_path": "experiments/batch2141_2180/cpt/seed_42/checkpoints/checkpoint_step_125.pt",
+        "checkpoint_step_125_sha256": "d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3"
+      },
+      "1337": {
+        "status": "COMPLETED",
+        "total_steps": 125,
+        "tokens_processed": 181368,
+        "runtime_seconds": 92.0,
+        "peak_rss_mb": 1043.3,
+        "disk_mb": 248.5,
+        "best_step": 50,
+        "best_val_macro_ce": 4.8951,
+        "checkpoint_step_50_path": "experiments/batch2141_2180/cpt/seed_1337/checkpoints/checkpoint_step_50.pt",
+        "checkpoint_step_50_sha256": "05c021c37b61f6e6869833a27d46380c3eaa23c062b6aa4341a3c5a755e0f28b"
+      },
+      "2026": {
+        "status": "COMPLETED",
+        "total_steps": 125,
+        "tokens_processed": 179460,
+        "runtime_seconds": 123.1,
+        "peak_rss_mb": 977.4,
+        "disk_mb": 248.5,
+        "best_step": 50,
+        "best_val_macro_ce": 4.9293,
+        "checkpoint_step_50_path": "experiments/batch2141_2180/cpt/seed_2026/checkpoints/checkpoint_step_50.pt",
+        "checkpoint_step_50_sha256": "c47e826d37279ef6c639cb802dae112adb8d253be9ad38d9b3ebc266af4291f9"
+      }
+    }
+  },
+  "evaluation_metrics": {
+    "test_split_doc_count": 47,
+    "test_split_token_count": 15264,
+    "baseline_token_weighted_ce": 4.4789,
+    "baseline_perplexity": 88.14,
+    "historical_150_token_weighted_ce": 4.5493,
+    "historical_300_token_weighted_ce": 4.6572,
+    "seed_42_token_weighted_ce": 4.2861,
+    "seed_42_ce_delta": -0.1928,
+    "seed_42_perplexity": 72.68,
+    "seed_42_bootstrap_95_ci": [-0.2622, -0.2099],
+    "seed_42_docs_improved_pct": 76.6,
+    "seed_1337_token_weighted_ce": 4.3046,
+    "seed_1337_ce_delta": -0.1743,
+    "seed_2026_token_weighted_ce": 4.3067,
+    "seed_2026_ce_delta": -0.1722,
+    "three_seed_mean_ce": 4.2991,
+    "three_seed_std_ce": 0.0113
+  },
+  "source_family_thresholds": {
+    "cpython_bisect": {
+      "threshold": 4.4686,
+      "actual_seed_42": 3.4688,
+      "passed": true
+    },
+    "hindi_math": {
+      "threshold": 4.1745,
+      "actual_seed_42": 3.2201,
+      "passed": true
+    }
+  },
+  "capability_probes": {
+    "arithmetic_accuracy": {
+      "baseline": 0.0,
+      "seed_42": 0.0,
+      "sample_size": 20,
+      "finding": "Raw autoregressive weights do not calculate arithmetic; requires neuro-symbolic tool execution"
+    },
+    "code_syntax_validity": {
+      "baseline": 0.2667,
+      "seed_42": 0.40,
+      "sample_size": 15,
+      "finding": "Statistically significant syntax formation improvement"
+    },
+    "factual_cloze_accuracy": {
+      "baseline": 0.10,
+      "seed_42": 0.10,
+      "sample_size": 10,
+      "finding": "Low factual recall at 3.4M params without external memory retrieval"
+    },
+    "token_diversity_distinct_2": {
+      "baseline": 0.442,
+      "seed_42": 0.495,
+      "sample_size": 8,
+      "finding": "Reduced repetition and degeneration"
+    }
+  },
+  "feedback_and_memory": {
+    "layer_1_conversation_memory": "PROTOTYPE / END-TO-END VERIFIED (with synthetic fixtures)",
+    "layer_2_feedback_ledger": "PROTOTYPE / END-TO-END VERIFIED",
+    "layer_3_dataset_export": "PROTOTYPE / END-TO-END VERIFIED",
+    "session_py_modified": false
+  },
+  "resumability_audit": {
+    "restored_weights": true,
+    "restored_optimizer_moments": true,
+    "restored_scheduler_state": true,
+    "restored_step_and_tokens": true,
+    "max_weight_diff": 0.0
+  },
+  "release_gate_decision": {
+    "verdict": "CONDITIONAL_V0.6_CANDIDATE",
+    "canonical_baseline_modified": false,
+    "reasons": [
+      "Preregistered CPT across 3 seeds demonstrated statistically robust held-out test compression gains (-0.1928 CE on Seed 42, 95% CI [-0.262, -0.210]).",
+      "All preregistered source thresholds (CPython bisect, Hindi math) passed with wide margins.",
+      "Resumability and integrity audits confirmed bit-accurate reproducibility.",
+      "Task-level reasoning (arithmetic) remains at 0% without tool execution, requiring complete runtime neuro-symbolic integration before final v0.6 release."
+    ]
+  },
+  "unverified_claims_and_blockers": [
+    "Autonomous arithmetic calculation without tools (confirmed impossible at 3.4M parameters; tool delegation required).",
+    "Direct session.py integration (intentionally decoupled via adapter to protect runtime integrity).",
+    "Classical Sanskrit representation showed slight drift (+0.076 CE); requires rebalancing in subsequent CPT passes."
+  ]
+}
