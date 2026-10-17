@@ -135,5 +135,5 @@ def test_cli_subcommands_execution():
         text=True
     )
     assert res_dev.returncode == 0
-    assert "Device: CPU" in res_dev.stdout
+    assert "Actual Backend: CPU" in res_dev.stdout
     assert "63" in res_dev.stdout

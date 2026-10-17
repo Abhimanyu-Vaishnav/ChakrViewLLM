@@ -46,6 +46,7 @@ class IntegratedAssistantResponse:
     confidence: float
     latency_ms: float
     device_used: str
+    execution_breakdown: Dict[str, str] = field(default_factory=dict)
     tool_trace: Optional[Dict[str, Any]] = None
     citations: List[Dict[str, Any]] = field(default_factory=list)
     memory_logged: bool = False
@@ -55,7 +56,7 @@ class IntegratedAssistantResponse:
 class IntegratedAssistantAdapter:
     """
     Unified runtime adapter that coordinates hardware selection, tool routing,
-    knowledge QA, and feedback capture.
+    knowledge QA, and feedback capture with truthful subsystem execution attribution.
     """
     def __init__(
         self,
@@ -128,6 +129,11 @@ class IntegratedAssistantAdapter:
                 confidence=1.0,
                 latency_ms=round(elapsed, 2),
                 device_used=str(selected_dev),
+                execution_breakdown={
+                    "subsystem": "safe_calculator",
+                    "actual_backend": "CPU (AST in-memory)",
+                    "neural_inference": "not invoked"
+                },
                 tool_trace=tool_trace.to_dict(),
                 citations=[],
                 memory_logged=False,
@@ -155,6 +161,11 @@ class IntegratedAssistantAdapter:
             confidence=qa_resp.confidence,
             latency_ms=round(elapsed, 2),
             device_used=str(selected_dev),
+            execution_breakdown={
+                "subsystem": "local_knowledge_assistant",
+                "actual_backend": "CPU (BM25 + Hybrid lexical/semantic index)",
+                "neural_inference": "not invoked"
+            },
             tool_trace=None,
             citations=qa_resp.citations,
             memory_logged=False,

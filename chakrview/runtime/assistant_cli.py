@@ -95,7 +95,11 @@ def main():
         if p.exists():
             adapter.ingest_directory(p)
         resp = adapter.ask(args.query)
-        print(f"\nDecision: {resp.decision} (confidence: {resp.confidence}) | Device: {resp.device_used.upper()} | Latency: {resp.latency_ms} ms")
+        print(f"\nDecision: {resp.decision} (confidence: {resp.confidence}) | Latency: {resp.latency_ms} ms")
+        if resp.execution_breakdown:
+            print(f"Subsystem: {resp.execution_breakdown.get('subsystem')} | Actual Backend: {resp.execution_breakdown.get('actual_backend')}")
+            if resp.execution_breakdown.get('neural_inference') != "not invoked":
+                print(f"Neural Inference Backend: {resp.execution_breakdown.get('neural_inference')}")
         print(f"Answer: {resp.answer}")
         if resp.citations:
             print(f"\nCitations ({len(resp.citations)}):")

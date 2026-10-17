@@ -1,0 +1,56 @@
+{
+  "manifest_schema_version": "1.0.0",
+  "candidate_name": "chakrmicro-v0.6-candidate-cpt-seed42-step125",
+  "internal_version": "v0.6.0-rc1",
+  "status": "RESEARCH_CANDIDATE_VALIDATED",
+  "public_release": false,
+  "date_certified": "2026-10-17",
+  "architecture": {
+    "model_name": "ChakrMicro",
+    "parameter_count": 3443136,
+    "architecture_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "config": {
+      "vocab_size": 4096,
+      "d_model": 192,
+      "n_layers": 6,
+      "n_heads": 6,
+      "hidden_dim": 512,
+      "max_seq_len": 512,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0
+    }
+  },
+  "candidate_checkpoint": {
+    "path": "experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt",
+    "sha256": "d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3",
+    "size_bytes": 41402267,
+    "training_provenance": "CPT Seed 42, early stopping step 125, patience 3",
+    "validation_macro_ce": 4.8955
+  },
+  "canonical_baseline_reference": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "size_bytes": 42212787
+  },
+  "tokenizer": {
+    "dir": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "vocab_sha256": "1d59ee38bbafe5bb7e279a0ec49d4f0d4a9ec032549a9539d91fbb984fa54fae",
+    "vocab_size": 4096
+  },
+  "verified_metrics": {
+    "benchmark": "Corpus v2 Cleaned Test Split (290 documents, 64,769 tokens)",
+    "canonical_baseline_tw_ce": 4.4789,
+    "candidate_tw_ce": 4.2861,
+    "token_weighted_ce_delta": -0.1928,
+    "mean_paired_document_delta": -0.2362,
+    "paired_document_bootstrap_95_ci": [-0.2630, -0.2095],
+    "document_win_rate_pct": 76.55,
+    "arithmetic_accuracy_raw_model": 0.0,
+    "arithmetic_accuracy_tool_grounded": 1.0
+  },
+  "known_limitations": [
+    "Classical Sanskrit drift (+0.0776 CE) observed due to omission from CPT training split; requires curriculum rebalancing.",
+    "Raw autoregressive token generation cannot solve arithmetic without the VerifiedToolRouter (SafeCalculator).",
+    "charkview/runtime/session.py remains strictly untouched; CLI integration achieved via adapter."
+  ]
+}

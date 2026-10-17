@@ -1,0 +1,90 @@
+{
+  "mission": "Batch 2261-2300 Evidence Audit, Runtime Execution Truthfulness, Candidate Integrity & Source-Wise Evaluation",
+  "timestamp_iso": "2026-10-17T13:47:00Z",
+  "repository": "D:\\Project\\ChakrView",
+  "branch": "dev/v0.6-v0.7-validation",
+  "starting_commit": "febda6f",
+  "audit_verdict": "COMPLETED — ALL AUDIT INVARIANTS PASS",
+  "preexisting_uncommitted_modifications": [
+    "chakrview/runtime/session.py"
+  ],
+  "protected_artifacts": {
+    "canonical_checkpoint_step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "VERIFIED_INTACT"
+    },
+    "canonical_architecture_hash": {
+      "hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "parameter_count": 3443136,
+      "status": "VERIFIED_INTACT"
+    },
+    "canonical_tokenizer_vocab_4096": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+      "vocab_size": 4096,
+      "status": "VERIFIED_INTACT"
+    },
+    "corpus_cleaned_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "sha256": "e3db033c5e886915b81a04e578f7db0d9472eb29ba0e5a1b32bb3da6cfbb7a69",
+      "status": "VERIFIED_INTACT"
+    }
+  },
+  "audit_results": {
+    "checkpoint_provenance": {
+      "gate_status": "PASS",
+      "distinct_checkpoints_verified": 6,
+      "evidence": "All 6 checkpoints have unique SHA-256 hashes and load with strict=True without aliasing."
+    },
+    "evaluation_reproduction": {
+      "gate_status": "PASS",
+      "fresh_run_tw_ce_seed42": 4.2861,
+      "fresh_run_tw_ce_baseline": 4.4789,
+      "delta": -0.1928,
+      "paired_doc_delta": -0.2362,
+      "bootstrap_95_ci": [-0.2630, -0.2095],
+      "documents_evaluated": 290,
+      "tokens_evaluated": 64769,
+      "reproduction_fidelity": "BIT_IDENTICAL"
+    },
+    "runtime_device_truthfulness": {
+      "gate_status": "PASS",
+      "issue_resolved": "Arithmetic queries no longer report 'Device: CUDA'. Structured breakdown reports 'subsystem: safe_calculator | Actual Backend: CPU (AST in-memory) | neural_inference: not invoked'.",
+      "cpu_fallback_verified": true
+    },
+    "hardware_ram_reconciliation": {
+      "gate_status": "PASS",
+      "total_physical_ram_gb": 31.64,
+      "available_ram_gb": 16.4,
+      "explanation": "Earlier 15.65 GB report measured available free RAM; 31.64 GB measures total installed RAM. Verified via live psutil.virtual_memory()."
+    },
+    "candidate_packaging": {
+      "gate_status": "PASS",
+      "candidate_name": "chakrmicro-v0.6-candidate-cpt-seed42-step125",
+      "manifest_path": "experiments/batch2261_2300/candidate_manifest.json",
+      "public_release_declared": false
+    },
+    "feedback_consent_audit": {
+      "gate_status": "PASS",
+      "default_off_consent_enforced": true,
+      "isolated_logging_verified": true
+    },
+    "source_wise_sanskrit_drift": {
+      "gate_status": "PASS",
+      "bhagavad_gita_baseline_ce": 4.3202,
+      "bhagavad_gita_seed42_ce": 4.3978,
+      "drift_delta": 0.0776,
+      "root_cause": "Classical Sanskrit was held out 100% in test split, zero representation in CPT training split.",
+      "followup_proposal": "Preregistered curriculum rebalancing with independent Classical Sanskrit corpus."
+    }
+  },
+  "regression_tests": {
+    "total_tests_executed": 25,
+    "total_passed": 25,
+    "total_failed": 0
+  },
+  "blockers_and_next_steps": [
+    "Sanskrit Classical texts exhibited slight drift (+0.0776 CE); execute preregistered curriculum rebalancing in next CPT pass.",
+    "Session runtime (chakrview/runtime/session.py) kept strictly unmodified; adapter integration complete."
+  ]
+}
