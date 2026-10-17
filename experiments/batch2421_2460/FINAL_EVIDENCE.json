@@ -1,0 +1,57 @@
+{
+  "mission": "Batch 2421-2460 Evidence-Gated Verdict Repair & Sanskrit Coverage Verification",
+  "evaluator": "experiments/batch2421_2460/evaluate_evidence_gates.py",
+  "overall_verdict": "PARTIALLY_VERIFIED",
+  "recommendation": "READY_FOR_CONTROLLED_CURRICULUM_EXPERIMENT",
+  "gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2421_2460/ARTIFACT_INTEGRITY_RECHECK.json",
+      "check_performed": "Cryptographic SHA-256 validation of canonical checkpoints, manifests, and tokenizer",
+      "actual_result": "All 6 canonical artifacts dynamically recomputed and matched canonical SHA-256 digests bit-exact.",
+      "unresolved_reason": null
+    },
+    "source_identity": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+      "check_performed": "Independent 1-to-1 mapping verification of test split documents against cleaned corpus",
+      "actual_result": "All 290 test document IDs verified unique and resolved in cleaned corpus manifest.",
+      "unresolved_reason": null
+    },
+    "raw_loss_aggregation": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2381_2420/PER_DOCUMENT_LOSSES.jsonl",
+      "check_performed": "Independent summation of per-document losses and NLL accumulation across all test records",
+      "actual_result": "Accumulated 64,769 tokens; Base NLL=290094.48 (CE: 4.4789), Cand NLL=277607.59 (CE: 4.2861).",
+      "unresolved_reason": null
+    },
+    "sanskrit_regression": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2421_2460/SANSKRIT_REGRESSION_RAW_RECHECK.json",
+      "check_performed": "Independent verification of Classical Sanskrit held-out regression delta and Hindi control",
+      "actual_result": "Classical Sanskrit delta confirmed at +0.0776 CE (+8.07% PPL); Hindi control delta confirmed at -0.0147 CE.",
+      "unresolved_reason": null
+    },
+    "training_coverage": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2421_2460/CPT_TRAINING_COVERAGE_RECHECK.json",
+      "check_performed": "Independent verification of Classical Sanskrit absence in resolved CPT training inputs",
+      "actual_result": "All 782 train documents resolved and tokenized; exactly 0 Classical Sanskrit documents and 0 Sanskrit target tokens confirmed.",
+      "unresolved_reason": null
+    },
+    "protected_file_provenance": {
+      "status": "PARTIALLY_VERIFIED",
+      "evidence_path": "experiments/batch2421_2460/PROTECTED_FILE_PROVENANCE_RECHECK.md",
+      "check_performed": "Forensic provenance verification of chakrview/runtime/session.py",
+      "actual_result": "Filesystem mtime (2026-10-11 16:04:15) and commit docs (Batch 75, 2341, 2381) substantiate pre-existence, but diff remains uncommitted in working tree.",
+      "unresolved_reason": "Unstaged working tree modifications lack an immutable git commit object on HEAD."
+    },
+    "regression_tests": {
+      "status": "VERIFIED",
+      "evidence_path": "experiments/batch2421_2460/REGRESSION_TEST_RESULTS.json",
+      "check_performed": "Execution and outcome verification of 5 core regression test suites",
+      "actual_result": "25/25 tests passed cleanly across 5 test suites (exit code 0).",
+      "unresolved_reason": null
+    }
+  }
+}

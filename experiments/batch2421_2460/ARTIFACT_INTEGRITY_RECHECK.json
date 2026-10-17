@@ -1,0 +1,57 @@
+{
+  "audit_metadata": {
+    "batch": "2421-2460",
+    "phase": "Phase 4 - Artifact Integrity Recheck",
+    "overall_match": true
+  },
+  "artifacts": {
+    "canonical_step_10000_checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "status": "PRESENT",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "match": true
+    },
+    "cpt_candidate_seed_42": {
+      "path": "experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt",
+      "status": "PRESENT",
+      "expected_sha256": "d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3",
+      "actual_sha256": "d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3",
+      "match": true
+    },
+    "cleaned_corpus_manifest": {
+      "path": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+      "status": "PRESENT",
+      "expected_sha256": "e3db033c83f356f653b10d7eb00994da31d6e0738ab4177faddb133e5b8da380",
+      "actual_sha256": "e3db033c83f356f653b10d7eb00994da31d6e0738ab4177faddb133e5b8da380",
+      "match": true
+    },
+    "split_v2_manifest": {
+      "path": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+      "status": "PRESENT",
+      "expected_sha256": "00748cbec81c6eb52880f0b74756f2e672d65358143822dde466c9cec4124a31",
+      "actual_sha256": "00748cbec81c6eb52880f0b74756f2e672d65358143822dde466c9cec4124a31",
+      "match": true
+    },
+    "canonical_tokenizer_vocab": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096/vocab.json",
+      "status": "PRESENT",
+      "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "match": true
+    },
+    "canonical_tokenizer_merges": {
+      "path": "release/chakrview-v0.5.0/data/experiments/vocab_4096/merges.json",
+      "status": "PRESENT",
+      "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "match": true
+    }
+  },
+  "path_reference_integrity": {
+    "eval_references_canonical_checkpoint": true,
+    "eval_references_cpt_candidate": true,
+    "eval_references_cleaned_manifest": true,
+    "eval_references_canonical_tokenizer": true
+  }
+}

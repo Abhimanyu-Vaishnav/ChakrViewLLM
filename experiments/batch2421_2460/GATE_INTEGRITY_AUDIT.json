@@ -1,0 +1,51 @@
+{
+  "audit_metadata": {
+    "batch": "2421-2460",
+    "target_audit_file": "experiments/batch2381_2420/FINAL_EVIDENCE.json",
+    "objective": "Identify hardcoded, unvalidated, or circular gates and establish replacement logic."
+  },
+  "flawed_gates_in_prior_batch": {
+    "source_identity": {
+      "prior_status": "VERIFIED",
+      "flaw": "Relied on static summary without re-verifying full 1-to-1 split-to-corpus ID mapping and zero duplicate IDs.",
+      "remediation": "Evaluate directly against SPLIT_V2_MANIFEST.json and CORPUS_V2_CLEANED_MANIFEST.json."
+    },
+    "raw_loss_aggregation": {
+      "prior_status": "VERIFIED",
+      "flaw": "Used pre-calculated JSON audit without dynamic summation across 290 PER_DOCUMENT_LOSSES.jsonl records.",
+      "remediation": "Dynamically re-sum NLL across all lines in PER_DOCUMENT_LOSSES.jsonl."
+    },
+    "baseline_vs_candidate_reproducibility": {
+      "prior_status": "VERIFIED",
+      "flaw": "Trusted FRESH_EVALUATION.json metrics without validating against raw document records.",
+      "remediation": "Derive win rate and delta CE directly from document records."
+    },
+    "sanskrit_coverage_and_regression": {
+      "prior_status": "VERIFIED",
+      "flaw": "Inferred zero Sanskrit training coverage without resolving and tokenizing actual training texts.",
+      "remediation": "Resolved 782 train documents, canonical tokenizer execution, and raw NLL delta checks."
+    },
+    "checkpoint_identity_and_artifact_integrity": {
+      "prior_status": "VERIFIED",
+      "flaw": "Relied on static initial_artifacts_hashes.json without dynamic hash verification at gate evaluation time.",
+      "remediation": "Dynamically compute SHA-256 for all 6 core assets against immutable constants."
+    },
+    "protected_file_provenance": {
+      "prior_status": "VERIFIED",
+      "flaw": "Unconditionally marked VERIFIED based on filesystem mtime alone without noting that unstaged diff lacks immutable commit object.",
+      "remediation": "Report PARTIALLY_VERIFIED reflecting honest classification between historical documentation and uncommitted working copy status."
+    },
+    "regression_tests": {
+      "prior_status": "VERIFIED",
+      "flaw": "Pointed to tests/ directory and hardcoded 25/25 without parsing execution artifacts.",
+      "remediation": "Parse real pytest execution logs REGRESSION_TEST_RESULTS.json and REGRESSION_TEST_RESULTS.txt."
+    }
+  },
+  "gate_repair_rules_enforced": [
+    "No unconditional VERIFIED assignments.",
+    "No hardcoded overall verdict or recommendation.",
+    "Missing evidence results in UNVERIFIED.",
+    "Contradictory evidence results in FAILED.",
+    "Derive overall verdict strictly from gate outcomes."
+  ]
+}

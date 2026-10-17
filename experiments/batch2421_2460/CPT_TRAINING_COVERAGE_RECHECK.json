@@ -1,0 +1,105 @@
+{
+  "audit_metadata": {
+    "batch": "2421-2460",
+    "phase": "Phase 3 - Training Coverage Independent Verification",
+    "training_split_manifest": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+    "corpus_manifest": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+    "canonical_tokenizer": "release/chakrview-v0.5.0/data/experiments/vocab_4096"
+  },
+  "training_input_resolution": {
+    "split_manifest_train_doc_count": 782,
+    "unique_train_doc_ids": 782,
+    "duplicate_train_doc_ids": 0,
+    "all_ids_resolved_in_cleaned_corpus": true,
+    "missing_document_ids": [],
+    "total_resolved_train_documents": 782
+  },
+  "source_family_and_language_coverage": {
+    "sources_present": [
+      "gutenberg_tagore_gitanjali",
+      "cpython_algorithms_heapq",
+      "ietf_rfc793_tcp",
+      "wikipedia_hi_premchand",
+      "wikipedia_en_turing_machine",
+      "wikipedia_hi_chemistry"
+    ],
+    "language_metadata_present": [
+      "code",
+      "en",
+      "hi"
+    ],
+    "source_level_breakdown": {
+      "gutenberg_tagore_gitanjali": {
+        "document_count": 195,
+        "language_metadata": [
+          "en"
+        ],
+        "raw_encoded_tokens": 34007,
+        "target_tokens_eval_convention": 33812
+      },
+      "cpython_algorithms_heapq": {
+        "document_count": 56,
+        "language_metadata": [
+          "code"
+        ],
+        "raw_encoded_tokens": 9814,
+        "target_tokens_eval_convention": 9758
+      },
+      "ietf_rfc793_tcp": {
+        "document_count": 367,
+        "language_metadata": [
+          "en"
+        ],
+        "raw_encoded_tokens": 61905,
+        "target_tokens_eval_convention": 61538
+      },
+      "wikipedia_hi_premchand": {
+        "document_count": 32,
+        "language_metadata": [
+          "hi"
+        ],
+        "raw_encoded_tokens": 10187,
+        "target_tokens_eval_convention": 10155
+      },
+      "wikipedia_en_turing_machine": {
+        "document_count": 74,
+        "language_metadata": [
+          "en"
+        ],
+        "raw_encoded_tokens": 16678,
+        "target_tokens_eval_convention": 16604
+      },
+      "wikipedia_hi_chemistry": {
+        "document_count": 58,
+        "language_metadata": [
+          "hi"
+        ],
+        "raw_encoded_tokens": 14885,
+        "target_tokens_eval_convention": 14827
+      }
+    }
+  },
+  "token_counts_summary": {
+    "total_raw_encoded_tokens": 147476,
+    "total_target_tokens_chunked_256": 146694
+  },
+  "sanskrit_coverage_verification": {
+    "classical_sanskrit_documents_in_train": 0,
+    "classical_sanskrit_target_tokens_in_train": 0,
+    "sanskrit_language_code_present_in_train": false,
+    "sanskrit_sources_in_corpus": [
+      "wikipedia_sa_bhagavad_gita",
+      "wikipedia_hi_sanskrit_sahitya"
+    ],
+    "corpus_sanskrit_split_assignment": {
+      "wikipedia_sa_bhagavad_gita": "test",
+      "wikipedia_hi_sanskrit_sahitya": "test"
+    },
+    "status": "CONFIRMED_ZERO_CLASSICAL_SANSKRIT_TRAINING_COVERAGE"
+  },
+  "scientific_separation_of_coverage_types": {
+    "source_family_coverage": "6 distinct source families present (Gitanjali, heapq, RFC 793, Premchand, Turing Machine, Chemistry). Classical Sanskrit epics completely absent.",
+    "language_metadata_coverage": "en (636 docs), code (56 docs), hi (90 docs). sa (Sanskrit) has 0 docs in train.",
+    "tokenizer_target_token_coverage": "146,694 target tokens across English, Code, and Hindi. 0 Classical Sanskrit target tokens trained."
+  }
+}
