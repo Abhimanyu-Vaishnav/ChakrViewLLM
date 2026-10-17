@@ -1,0 +1,101 @@
+{
+  "gate_version": "1.0.0",
+  "milestone": "batch2061_2100",
+  "evaluation_date": "2026-10-17",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "tokenizer_vocab_size": 4096,
+  "overall_decision": "CONDITIONAL_CPT_READINESS",
+  "decision_summary": "Core repository state, checkpoint immutability, corpus totals (1,258 docs, 245,758 tokens), lossless tokenizer roundtrip, and 150 vs 300 step regression metrics reproduce with 100% precision. Release readiness is CONDITIONAL due to validation split concentration (81.6% Hinglish) requiring macro-source loss weighting, checkpoint serialization requiring optimizer/RNG states, and residual MediaWiki markup in Sanskrit requiring pre-flight regex stripping.",
+  "gates": [
+    {
+      "gate_id": "GATE_01_REPOSITORY_LINEAGE",
+      "name": "Repository State and Branch Lineage",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/REPOSITORY_STATE_AUDIT.md",
+      "result": "Branch dev/v0.6-v0.7-validation verified at HEAD b006c21. Preceding milestone deliverables cataloged and intact.",
+      "limitations": "Unrelated pre-existing working-tree changes preserved untouched per mission constraints.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_02_CHECKPOINT_IMMUTABILITY",
+      "name": "Canonical and Candidate Checkpoint Cryptographic Immutability",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/REPOSITORY_STATE_AUDIT.md",
+      "result": "Canonical checkpoint (96357705...), CPT 150-step (85753315...), and CPT 300-step (2f775151...) binary hashes match expected digests exactly.",
+      "limitations": "Checkpoints were evaluated on CPU without modifying weights.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_03_CORPUS_RECONCILIATION",
+      "name": "Corpus v2 Deterministic Reconciliation",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/CORPUS_INTEGRITY_AUDIT.md",
+      "result": "Exactly 1,258 documents, 245,758 tokens, 533,433 characters. 100% SHA-256 match per document and zero UTF-8 decode errors.",
+      "limitations": "Corpus size is 245k tokens, suited for targeted low-compute CPT.",
+      "remediation": "None required."
+    },
+    {
+      "gate_id": "GATE_04_SPLIT_ISOLATION_AND_LEAKAGE",
+      "name": "Source-Family Split Isolation and Leakage Audit",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/CORPUS_INTEGRITY_AUDIT.md",
+      "result": "Source families strictly disjoint across train/val/test. Zero exact document duplicates across splits. Zero cross-split whitespace 8-gram leakage.",
+      "limitations": "Normalized regex 8-grams show 7 standard functional phrase overlaps (e.g., 'defined as', 'natural science') between train and val, but zero narrative leakage.",
+      "remediation": "Documented in audit report."
+    },
+    {
+      "gate_id": "GATE_05_DATA_CONSTRUCTION_INTEGRITY",
+      "name": "Sanskrit and Hinglish Extraction Quality",
+      "status": "CONDITIONAL",
+      "evidence_path": "experiments/batch2061_2100/CORPUS_INTEGRITY_AUDIT.md",
+      "result": "Sanskrit raw extraction contains 184 wiki quote markups and 45 indentation colons impacting 49.2% of Sanskrit documents. Hinglish dataset concatenates short queries into artificial paragraph transitions.",
+      "limitations": "Documents are linguistically authentic but contain extraction formatting artifacts.",
+      "remediation": "Execute pre-flight regex stripping on Sanskrit markup before running Phase 5 training."
+    },
+    {
+      "gate_id": "GATE_06_TOKENIZER_FERTILITY_REPRODUCTION",
+      "name": "Corpus-Wide Multilingual Tokenizer Reproduction",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/TOKENIZER_REPRODUCTION_AUDIT.md",
+      "result": "Evaluated all 1,258 documents. Lossless roundtrip is 100.0%. Mean tokens/word: Hinglish 2.244, English 2.804, Hindi 3.050, Sanskrit 6.168, Code 2.888. Context budget implications analyzed.",
+      "limitations": "Sanskrit and Hinglish rely on 1 source family each.",
+      "remediation": "None required for current milestone; maintain canonical vocab_4096."
+    },
+    {
+      "gate_id": "GATE_07_CPT_COMPARISON_STATISTICAL_REPRODUCTION",
+      "name": "Direct 150-Step vs 300-Step Comparison Reproduction",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/CPT_COMPARISON_REPRODUCTION.md",
+      "result": "Token-weighted delta +0.1178 CE (95% CI [+0.0858, +0.1521]), macro delta +0.1324 CE (95% CI [+0.1050, +0.1609]), source-clustered 95% CI [+0.0494, +0.2174], analytical paired t-stat 9.1558 (p < 1e-13). Discrepancy between B=2000 and B=10000 explained.",
+      "limitations": "88 evaluation documents across 18 source files.",
+      "remediation": "Clerical token-count typo (3,363 vs 11,022) documented and clarified."
+    },
+    {
+      "gate_id": "GATE_08_VALIDATION_SUITABILITY",
+      "name": "Validation Split Concentration and Checkpoint Selection",
+      "status": "CONDITIONAL",
+      "evidence_path": "experiments/batch2061_2100/CPT_PREPARATION_AUDIT.md",
+      "result": "Validation split has only 3 source families, with Hinglish comprising 81.57% of validation tokens, threatening checkpoint selection bias.",
+      "limitations": "Raw token-weighted validation loss would reflect predominantly Hinglish performance.",
+      "remediation": "Mandate equal-weighted macro-source validation loss (1/3 Hinglish, 1/3 Ganit, 1/3 Bisect) for early-stopping and checkpoint selection."
+    },
+    {
+      "gate_id": "GATE_09_TRAINING_ENGINE_AND_STATE_RECOVERY",
+      "name": "CPT Training Engine Resume and RNG State Handling",
+      "status": "CONDITIONAL",
+      "evidence_path": "experiments/batch2061_2100/CPT_PREPARATION_AUDIT.md",
+      "result": "Training plan defines AdamW, cosine schedule, warmup, batch size, seeds (42, 1337, 2026), and loss thresholds. However, previous script only saved model state dict, lacking optimizer and RNG state recovery.",
+      "limitations": "CPT script needs enhanced state serialization for mid-run recovery.",
+      "remediation": "Update training runner checkpoint save function to serialize optimizer_state, scheduler_state, and rng_state."
+    },
+    {
+      "gate_id": "GATE_10_TEST_ISOLATION_AND_TRANSFER_PROBES",
+      "name": "Test Benchmark Blinding and Downstream Transfer Probes",
+      "status": "PASS",
+      "evidence_path": "experiments/batch2061_2100/CPT_PREPARATION_AUDIT.md",
+      "result": "Test split is strictly blinded from training. Downstream deterministic transfer probes (arithmetic, AST python parsing, factual cloze) are pre-registered to separate neural learning from tooling.",
+      "limitations": "Probes will be executed only after checkpoint freeze in future milestone.",
+      "remediation": "None required."
+    }
+  ]
+}
