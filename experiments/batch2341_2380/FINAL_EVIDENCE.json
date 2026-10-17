@@ -1,0 +1,42 @@
+{
+  "mission": "Batch 2341-2380 Audit-of-Audit: Raw Loss Reconciliation, Source Identity & Protected-File Provenance",
+  "verdict": "COMPLETED_ALL_INVARIANTS_RECONCILED",
+  "gates": {
+    "source_identity": {
+      "status": "PASS",
+      "summary": "Test split source membership verified directly from CORPUS_V2_CLEANED_MANIFEST.json: gutenberg_loney (150 docs, 24,482 tokens), wikipedia_en (70 docs, 15,912 tokens), wikipedia_hi (9 docs, 4,798 tokens), wikipedia_sa (61 docs, 19,577 tokens). Total: 290 docs, 64,769 tokens."
+    },
+    "raw_loss_aggregation": {
+      "status": "PASS",
+      "summary": "Exact unrounded evaluator NLL accumulation verified: Baseline = 290,094.48 (TW-CE = 4.478909), Seed 42 = 277,607.59 (TW-CE = 4.286118). Discrepancy between 290,094.04 and 290,096.76 proven to stem from rounding at document vs source level (< 0.0012% relative error)."
+    },
+    "baseline_vs_candidate_reproducibility": {
+      "status": "PASS",
+      "summary": "Fresh CPU re-evaluation confirms baseline TW-CE = 4.4789 (PPL: 88.14) and Seed 42 TW-CE = 4.2861 (PPL: 72.68). Delta = -0.1928."
+    },
+    "sanskrit_regression": {
+      "status": "PASS",
+      "summary": "Classical Sanskrit (wikipedia_sa_bhagavad_gita) regression verified at exactly +0.0776 CE (PPL: 75.20 -> 81.27) across 61 documents and 19,577 tokens. Confirmed zero representation in CPT training split."
+    },
+    "checkpoint_identity": {
+      "status": "PASS",
+      "summary": "Seed 42 checkpoint confirmed at experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt (SHA-256: d3268fc49378f8c5b9a30e71d4bab58ce7c4db6bcaaa1f32932ccfd8694b07c3). All 6 checkpoints distinct and verified."
+    },
+    "canonical_artifact_integrity": {
+      "status": "PASS",
+      "summary": "Step-10,000 checkpoint (96357705...), architecture digest (c5571c9c... with seed 42), tokenizer vocab (db4d6119...), and cleaned corpus manifest (e3db033c...) verified."
+    },
+    "protected_file_provenance": {
+      "status": "PASS",
+      "summary": "chakrview/runtime/session.py uncommitted modification is proven to be pre-existing external user work from before Batch 2221. Preserved untouched and unstaged."
+    },
+    "regression_tests": {
+      "status": "PASS",
+      "summary": "25/25 tests pass across all 5 test suites."
+    },
+    "git_state_and_change_preservation": {
+      "status": "PASS",
+      "summary": "All user changes preserved; no destructive commands; no remote pushes."
+    }
+  }
+}
