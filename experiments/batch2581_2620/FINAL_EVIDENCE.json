@@ -1,0 +1,81 @@
+{
+  "batch": "2581-2620",
+  "mission": "Final Gate Correction & Sanskrit Experiment Review Readiness",
+  "timestamp": "2026-10-18T11:59:00+05:30",
+  "branch": "dev/v0.6-v0.7-validation",
+  "head_commit": "0570ff672ec04c2b48f3ca7b1f12901e95a8ca36",
+  "expected_parent_commit": "114aa79fa0e0125d7815690020f913466ea978b5",
+  "evidence_gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "check": "Cryptographic SHA-256 match for 6 canonical checkpoints, manifests, and vocab assets",
+      "verified_count": 6
+    },
+    "split_linkage": {
+      "status": "VERIFIED",
+      "check": "Exact partition exhaustiveness (1258 docs) and disjoint split membership",
+      "train_docs": 782,
+      "validation_docs": 186,
+      "test_docs": 290
+    },
+    "training_coverage": {
+      "status": "VERIFIED",
+      "check": "10-invariant dynamic enforcement without hardcoded claims; 0 Classical Sanskrit in train",
+      "classical_sanskrit_train_docs": 0,
+      "classical_sanskrit_train_tokens": 0,
+      "corpus_wide_sanskrit_in_test_split": 70
+    },
+    "token_count_semantics": {
+      "status": "VERIFIED",
+      "check": "Formal disambiguation of raw tokens (147,476), manifest tokens (147,476), chunked targets (146,694), and CPT batch target capacity (409,600)",
+      "interchangeability_error_resolved": true
+    },
+    "held_out_evaluation": {
+      "status": "VERIFIED",
+      "check": "Disaggregated recomputation of 290 test records; Classical Sanskrit regresses +0.0776 CE (2/61 wins), Hindi control stable -0.0147 CE (5/9 wins), Global delta -0.1928 CE",
+      "test_documents": 290,
+      "test_target_tokens": 64769
+    },
+    "adversarial_validator_behavior": {
+      "status": "VERIFIED",
+      "check": "Robust rejection across 37 adversarial tests (11 coverage, 20 validator hardening, 6 coverage validation)",
+      "total_adversarial_tests_passed": 37
+    },
+    "fresh_regression_tests": {
+      "status": "VERIFIED",
+      "check": "Live execution of 56 tests across 7 test suites with exit code 0",
+      "total_collected": 56,
+      "passed": 56,
+      "failed": 0,
+      "exit_code": 0
+    },
+    "preregistration_structure": {
+      "status": "VERIFIED",
+      "check": "Schema completeness of 4 experimental arms, controls, and decision rules",
+      "arms_count": 4
+    },
+    "scientific_protocol_reviewability": {
+      "status": "VERIFIED",
+      "check": "Unconfounded step 10k checkpoint lineage for Arms 1-3, 3-tiered leakage screening, provisional >= 1.80 chars/token threshold, multi-seed variance rules [42, 43, 44]",
+      "confounding_resolved": true
+    },
+    "empirical_tokenizer_preflight": {
+      "status": "UNVERIFIED",
+      "check": "Empirical execution of tokenizer chars/token metric on candidate Sanskrit corpus",
+      "reason": "Pending candidate corpus selection and download; properly declared unverified to avoid overclaiming"
+    },
+    "protected_file_preservation": {
+      "status": "VERIFIED",
+      "check": "Zero modifications or staging of chakrview/runtime/session.py in this batch",
+      "working_tree_diff": 0
+    },
+    "protected_file_provenance": {
+      "status": "VERIFIED",
+      "check": "chakrview/runtime/session.py fully committed to branch history in commit 0570ff6 per user directive",
+      "git_status": "clean"
+    }
+  },
+  "overall_decision": "READY_FOR_HUMAN_EXPERIMENT_REVIEW",
+  "decision_rationale": "All empirical evidence gates and protocol design requirements are verified. Token semantics are resolved, Classical Sanskrit is cleanly disaggregated from Hindi, and the protocol is ready for human review. Training is NOT authorized until human approvals are granted.",
+  "training_execution_status": "NO_TRAINING_EXECUTED"
+}

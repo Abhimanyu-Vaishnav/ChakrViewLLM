@@ -1,0 +1,62 @@
+{
+  "batch": "2581-2620",
+  "audit_name": "language_source_classification_audit",
+  "timestamp": "2026-10-18T11:57:40+05:30",
+  "disaggregated_groups": {
+    "classical_sanskrit": {
+      "source_id": "wikipedia_sa_bhagavad_gita",
+      "language": "sa",
+      "script": "Devanagari",
+      "corpus_type": "Primary Classical Sanskrit text and verse",
+      "documents": 61,
+      "target_tokens": 19577,
+      "baseline_ce": 4.320159,
+      "candidate_ce": 4.397778,
+      "delta_ce": 0.077619,
+      "relative_ce_pct": 1.80,
+      "baseline_ppl": 75.2006,
+      "candidate_ppl": 81.2701,
+      "delta_ppl": 6.0695,
+      "candidate_wins": 2,
+      "win_rate_pct": 3.28
+    },
+    "hindi_sanskrit_sahitya": {
+      "source_id": "wikipedia_hi_sanskrit_sahitya",
+      "language": "hi",
+      "script": "Devanagari",
+      "corpus_type": "Modern Hindi commentary and literature overview",
+      "documents": 9,
+      "target_tokens": 4798,
+      "baseline_ce": 3.920308,
+      "candidate_ce": 3.905656,
+      "delta_ce": -0.014652,
+      "relative_ce_pct": -0.37,
+      "baseline_ppl": 50.4160,
+      "candidate_ppl": 49.6827,
+      "delta_ppl": -0.7333,
+      "candidate_wins": 5,
+      "win_rate_pct": 55.56
+    },
+    "global_held_out_benchmark": {
+      "sources": [
+        "gutenberg_loney_coordinate_geometry",
+        "wikipedia_en_information_theory",
+        "wikipedia_hi_sanskrit_sahitya",
+        "wikipedia_sa_bhagavad_gita"
+      ],
+      "languages": ["en", "hi", "sa"],
+      "documents": 290,
+      "target_tokens": 64769,
+      "baseline_ce": 4.478909,
+      "candidate_ce": 4.286118,
+      "delta_ce": -0.192791,
+      "relative_ce_pct": -4.30,
+      "baseline_ppl": 88.1385,
+      "candidate_ppl": 72.6838,
+      "delta_ppl": -15.4547,
+      "candidate_wins": 222,
+      "win_rate_pct": 76.55
+    }
+  },
+  "classification_conclusion": "Strict linguistic isolation confirmed. Hindi commentary is classified as a language control, not Classical Sanskrit."
+}

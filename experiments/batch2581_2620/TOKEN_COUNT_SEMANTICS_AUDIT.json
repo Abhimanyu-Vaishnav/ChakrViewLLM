@@ -1,0 +1,34 @@
+{
+  "batch": "2581-2620",
+  "audit_name": "token_count_semantics_audit",
+  "timestamp": "2026-10-18T11:57:15+05:30",
+  "token_quantities": {
+    "raw_encoded_tokens": {
+      "definition": "Direct BPE tokenizer encoding of entire text without windowing or padding.",
+      "train_split": 147476,
+      "validation_split": 32617,
+      "test_split": 65665,
+      "total_corpus": 245758
+    },
+    "tokens_counted_by_manifest": {
+      "definition": "Declared token_count in SPLIT_V2_MANIFEST.json and CORPUS_V2_CLEANED_MANIFEST.json.",
+      "train_split": 147476,
+      "validation_split": 32617,
+      "test_split": 65665,
+      "identity_relation": "tokens_counted_by_manifest == raw_encoded_tokens"
+    },
+    "chunked_target_tokens_static_eval": {
+      "definition": "Evaluation target tokens tiled at stride 255 with context 256 and 1-token causal shift.",
+      "train_split": 146694,
+      "test_split": 64769,
+      "loss_per_chunk": "1 token loss per document/window transition due to autoregressive shift"
+    },
+    "training_processed_tokens": {
+      "definition": "Total tokens ingested by training loop: steps * grad_accum * batch_size * context_length.",
+      "cpt_200_steps_run": 409600,
+      "calculation": "200 steps * 2 grad_accum * 4 batch_size * 256 context_length",
+      "mechanism": "Stochastic random window sampling with replacement from 782 train documents"
+    }
+  },
+  "interchangeability_warning": "These 4 quantities measure fundamentally different stages of data processing and must NEVER be treated as interchangeable."
+}

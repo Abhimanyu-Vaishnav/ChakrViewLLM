@@ -1,0 +1,54 @@
+{
+  "batch": "2581-2620",
+  "review_name": "preregistration_final_review",
+  "timestamp": "2026-10-18T11:58:05+05:30",
+  "protocol_states": {
+    "STRUCTURE_COMPLETE": "VERIFIED",
+    "SCIENTIFIC_PROTOCOL_REVIEWABLE": "VERIFIED",
+    "EMPIRICAL_PREFLIGHT_COMPLETED": "UNVERIFIED",
+    "TRAINING_AUTHORIZED": "UNVERIFIED"
+  },
+  "scientific_checks": {
+    "checkpoint_lineage_unconfounded": {
+      "passed": true,
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    "seed_42_candidate_role": {
+      "passed": true,
+      "role": "External reference comparator (Arm 1)"
+    },
+    "training_arm_specifications": {
+      "passed": true,
+      "steps": 500,
+      "optimizer": "AdamW (peak_lr=1.5e-4, min_lr=1.5e-5)",
+      "seeds": [42, 43, 44]
+    },
+    "leakage_screening_limitations_acknowledged": {
+      "passed": true,
+      "tiered_heuristics_recognized": true,
+      "human_linguistic_review_mandatory": true
+    },
+    "held_out_quarantine": {
+      "passed": true,
+      "strictly_isolated_from_selection_tuning_checkpoints": true
+    },
+    "tokenizer_preflight_status": {
+      "passed": true,
+      "designated_as": "preregistered_provisional_criterion",
+      "empirical_threshold": ">= 1.80 chars/token",
+      "empirical_execution_in_audit": false
+    },
+    "prespecified_metrics_and_decisions": {
+      "passed": true,
+      "primary_metric": "Classical Sanskrit Token-Weighted Cross-Entropy",
+      "variance_sigma_rule": "Delta <= -1.96 * sigma",
+      "control_guardrail": "Hindi CE <= 3.9250, Global CE <= 4.2900"
+    },
+    "mandatory_reporting_of_all_runs": {
+      "passed": true,
+      "reporting_aborted_or_failed_runs_required": true
+    }
+  },
+  "overall_preregistration_readiness": "READY_FOR_HUMAN_PROTOCOL_REVIEW"
+}

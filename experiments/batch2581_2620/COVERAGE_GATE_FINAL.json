@@ -1,0 +1,101 @@
+{
+  "batch": "2581-2620",
+  "gate_name": "training_coverage_gate_final",
+  "timestamp": "2026-10-18T11:57:00+05:30",
+  "status": "VERIFIED",
+  "manifests_cross_referenced": {
+    "split_manifest": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+    "corpus_manifest": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json"
+  },
+  "invariants": {
+    "inv_01_no_duplicate_training_ids": {
+      "enforced": true,
+      "passed": true,
+      "count": 0,
+      "failing_elements": []
+    },
+    "inv_02_all_training_ids_present_in_corpus": {
+      "enforced": true,
+      "passed": true,
+      "missing_count": 0,
+      "failing_elements": []
+    },
+    "inv_03_no_unexpected_document_ids": {
+      "enforced": true,
+      "passed": true,
+      "unexpected_count": 0,
+      "failing_elements": []
+    },
+    "inv_04_no_duplicate_corpus_document_ids": {
+      "enforced": true,
+      "passed": true,
+      "count": 0,
+      "failing_elements": []
+    },
+    "inv_05_no_document_in_multiple_splits": {
+      "enforced": true,
+      "passed": true,
+      "overlapping_pairs": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      }
+    },
+    "inv_06_corpus_ids_and_split_ids_exact_partition_match": {
+      "enforced": true,
+      "passed": true,
+      "corpus_document_count": 1258,
+      "total_split_document_count": 1258,
+      "partition_symmetric_difference": 0
+    },
+    "inv_07_valid_and_consistent_source_language_identity": {
+      "enforced": true,
+      "passed": true,
+      "mismatched_documents": 0,
+      "failing_elements": []
+    },
+    "inv_08_zero_classical_sanskrit_in_training_split": {
+      "enforced": true,
+      "passed": true,
+      "classical_sanskrit_docs_in_train": 0,
+      "classical_sanskrit_tokens_in_train": 0,
+      "corpus_wide_sanskrit_docs_count": 70,
+      "corpus_wide_sanskrit_test_split_count": 70
+    },
+    "inv_09_per_document_and_aggregate_totals_match": {
+      "enforced": true,
+      "passed": true,
+      "per_document_sum_raw_tokens": 147476,
+      "aggregate_raw_tokens": 147476,
+      "per_document_sum_chunked_tokens": 146694,
+      "aggregate_chunked_tokens": 146694,
+      "difference": 0
+    },
+    "inv_10_manifest_count_semantics_consistent": {
+      "enforced": true,
+      "passed": true,
+      "split_declared_counts": {
+        "train": 782,
+        "validation": 186,
+        "test": 290
+      },
+      "split_actual_counts": {
+        "train": 782,
+        "validation": 186,
+        "test": 290
+      },
+      "split_declared_token_counts": {
+        "train": 147476,
+        "validation": 32617,
+        "test": 65665
+      }
+    }
+  },
+  "summary": {
+    "total_invariants_evaluated": 10,
+    "total_invariants_passed": 10,
+    "total_invariants_failed": 0,
+    "failing_invariants": [],
+    "final_gate_status": "VERIFIED"
+  }
+}
