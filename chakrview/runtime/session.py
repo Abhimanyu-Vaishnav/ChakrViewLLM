@@ -314,17 +314,20 @@ class LocalModelSession:
         # Compact history to fit remaining budget
         active_turns = self.context_manager.compact_turns(self.turns, max(0, available_budget))
 
-        # Format turn dialogue into prompt
-        prompt_sections: List[str] = []
-        for turn in active_turns:
-            if turn.role == ConversationRole.SYSTEM:
-                prompt_sections.append(f"System: {turn.content}")
-            elif turn.role == ConversationRole.USER:
-                prompt_sections.append(f"User: {turn.content}")
-            elif turn.role == ConversationRole.ASSISTANT:
-                prompt_sections.append(f"Assistant: {turn.content}")
+        # Format turn dialogue into canonical ConversationTemplate ChatML format
+        from chakrview.runtime.conversation import ConversationTemplate, ChatMessage, Role
 
-        prompt_sections.append(f"User: {user_input}\nAssistant:")
-        final_prompt = "\n".join(prompt_sections)
+        messages: List[ChatMessage] = []
+        for turn in active_turns:
+            role_map = {
+                ConversationRole.SYSTEM: Role.SYSTEM,
+                ConversationRole.USER: Role.USER,
+                ConversationRole.ASSISTANT: Role.ASSISTANT,
+            }
+            messages.append(ChatMessage(role=role_map[turn.role], content=turn.content))
+
+        # Append current user input
+        messages.append(ChatMessage(role=Role.USER, content=user_input))
+        final_prompt = ConversationTemplate.format_conversation(messages, add_generation_prompt=True)
 
         return final_prompt, envelope, active_turns

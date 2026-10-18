@@ -1,0 +1,3368 @@
+{
+  "direct_tool_control": {
+    "checkpoint": "experiments\\batch111_114_curriculum_transfer\\checkpoints\\direct_tool_control_step150.pt",
+    "sha256": "b4b489fca356b5f12e19eb2b88d7d25a418bb9af543a5f7368f0e13a6f093521",
+    "splits": {
+      "train": {
+        "total": 64,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.8125,
+        "b_acc": 0.9375,
+        "pair_acc": 0.75,
+        "exec_acc": 0.75,
+        "unique_outputs": 53,
+        "collapse_rate": 0.0312,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 2}",
+        "detailed": [
+          {
+            "operands": [
+              3,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              6,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              2,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              2,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              5,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              4,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              5,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              1,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              2,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              0,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              9,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              3,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              1,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              3,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      },
+      "val": {
+        "total": 16,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.75,
+        "b_acc": 0.6875,
+        "pair_acc": 0.5,
+        "exec_acc": 0.5,
+        "unique_outputs": 16,
+        "collapse_rate": 0.0625,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 1}",
+        "detailed": [
+          {
+            "operands": [
+              6,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              2,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              6,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              3,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              6,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              1,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              5,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      },
+      "test": {
+        "total": 20,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.8,
+        "b_acc": 0.9,
+        "pair_acc": 0.75,
+        "exec_acc": 0.75,
+        "unique_outputs": 19,
+        "collapse_rate": 0.1,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+        "detailed": [
+          {
+            "operands": [
+              0,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              0,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              9,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      }
+    },
+    "clarification": {
+      "total": 5,
+      "spurious_calls": 5,
+      "spurious_rate": 1.0,
+      "detailed": [
+        {
+          "prompt": "<|im_start|>user\nWhat is the capital of France?<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 1}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nTranslate hello to Spanish.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nWrite a Python script to list files.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nExplain quantum mechanics.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nWho wrote Hamlet?<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 1}",
+          "spurious": true
+        }
+      ]
+    }
+  },
+  "curriculum_bridge_transfer": {
+    "checkpoint": "experiments\\batch111_114_curriculum_transfer\\checkpoints\\curriculum_bridge_transfer_step150.pt",
+    "sha256": "67c857666f082aa1057c0c8aef47959f68d661556ba522d4febdcbe5eff8c4a5",
+    "splits": {
+      "train": {
+        "total": 64,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.9062,
+        "b_acc": 0.9531,
+        "pair_acc": 0.8594,
+        "exec_acc": 0.8594,
+        "unique_outputs": 59,
+        "collapse_rate": 0.0469,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+        "detailed": [
+          {
+            "operands": [
+              3,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              8,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              2,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              5,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              4,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              5,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 2,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              6,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              3,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      },
+      "val": {
+        "total": 16,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.9375,
+        "b_acc": 1.0,
+        "pair_acc": 0.9375,
+        "exec_acc": 0.9375,
+        "unique_outputs": 16,
+        "collapse_rate": 0.0625,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 1}",
+        "detailed": [
+          {
+            "operands": [
+              6,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              6,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      },
+      "test": {
+        "total": 20,
+        "syntax_rate": 1.0,
+        "tool_acc": 1.0,
+        "op_acc": 1.0,
+        "a_acc": 0.9,
+        "b_acc": 0.95,
+        "pair_acc": 0.85,
+        "exec_acc": 0.85,
+        "unique_outputs": 20,
+        "collapse_rate": 0.05,
+        "most_common": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+        "detailed": [
+          {
+            "operands": [
+              0,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              9,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              7
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 7}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 7
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              7,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 2}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 2
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              3,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              0,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 0,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              0
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 0}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 0
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              1,
+              4
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 4
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              4,
+              1
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 4,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              2,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 1,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              9,
+              2
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 1}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 9,
+              "b": 1
+            },
+            "syntax_ok": true,
+            "pair_ok": false,
+            "exec_ok": false
+          },
+          {
+            "operands": [
+              3,
+              5
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 5}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 3,
+              "b": 5
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              5,
+              3
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 3}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 5,
+              "b": 3
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              6,
+              8
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 8}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 6,
+              "b": 8
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              8,
+              6
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 6}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 8,
+              "b": 6
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          },
+          {
+            "operands": [
+              7,
+              9
+            ],
+            "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 9}",
+            "parsed": {
+              "tool": "calculator",
+              "op": "add",
+              "a": 7,
+              "b": 9
+            },
+            "syntax_ok": true,
+            "pair_ok": true,
+            "exec_ok": true
+          }
+        ]
+      }
+    },
+    "clarification": {
+      "total": 5,
+      "spurious_calls": 5,
+      "spurious_rate": 1.0,
+      "detailed": [
+        {
+          "prompt": "<|im_start|>user\nWhat is the capital of France?<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"a\": 1, \"b\": 1}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nTranslate hello to Spanish.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"a\": 1, \"b\": 2}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nWrite a Python script to list files.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"a\": 1, \"b\": 1}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nExplain quantum mechanics.<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"a\": 1, \"b\": 1}",
+          "spurious": true
+        },
+        {
+          "prompt": "<|im_start|>user\nWho wrote Hamlet?<|im_end|>\n<|im_start|>assistant\n",
+          "gen": "TOOL_CALL: {\"tool\": \"calculator\", \"a\": 1, \"b\": 2}",
+          "spurious": true
+        }
+      ]
+    }
+  }
+}

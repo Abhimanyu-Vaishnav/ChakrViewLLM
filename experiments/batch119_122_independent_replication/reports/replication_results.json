@@ -1,0 +1,1897 @@
+{
+  "benchmark": "batch121_independent_held_out_replication",
+  "eval_dataset": "experiments\\batch119_122_independent_replication\\data\\independent_eval.jsonl",
+  "total_test_records": 35,
+  "canonical_base_control": {
+    "total_examples": 35,
+    "tool_examples_count": 25,
+    "non_tool_examples_count": 10,
+    "tool_metrics": {
+      "denominator": 25,
+      "parse_rate": 1.0,
+      "schema_validity_rate": 1.0,
+      "tool_accuracy": 1.0,
+      "operation_accuracy": 1.0,
+      "operand_a_accuracy": 0.44,
+      "operand_b_accuracy": 0.24,
+      "exact_call_accuracy": 0.08,
+      "execution_success_rate": 1.0,
+      "e2e_correctness_rate": 0.08,
+      "unique_outputs_count": 14,
+      "collapse_rate": 0.28,
+      "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+    },
+    "non_tool_metrics": {
+      "denominator": 10,
+      "total_false_positive_rate": 0.0,
+      "valid_false_positive_rate": 0.0,
+      "malformed_false_positive_rate": 0.0,
+      "clean_refusal_rate": 1.0,
+      "sample_outputs": [
+        "I am a calculator assistant and only support arithmetic calculations.",
+        "I am a calculator assistant and only support arithmetic calculations.",
+        "I am a calculator assistant and only support arithmetic calculations."
+      ]
+    },
+    "condition_name": "canonical_base_curriculum_control",
+    "checkpoint_path": "experiments\\batch115_118_tool_gating_curriculum\\checkpoints\\balanced_control_base_step150.pt",
+    "checkpoint_sha256": "6905fa8b759f3730926665395e54453a779fb0767fb574e115163b3fc512a427",
+    "subcategory_breakdown": {
+      "fresh_prompt_phrasing": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 0.2,
+          "operand_b_accuracy": 0.2,
+          "exact_call_accuracy": 0.0,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 0.0,
+          "unique_outputs_count": 5,
+          "collapse_rate": 0.4,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+        }
+      },
+      "negative_control_and_underspecified": {
+        "total_examples": 10,
+        "tool_examples_count": 0,
+        "non_tool_examples_count": 10,
+        "non_tool_metrics": {
+          "denominator": 10,
+          "total_false_positive_rate": 0.0,
+          "valid_false_positive_rate": 0.0,
+          "malformed_false_positive_rate": 0.0,
+          "clean_refusal_rate": 1.0,
+          "sample_outputs": [
+            "I am a calculator assistant and only support arithmetic calculations.",
+            "I am a calculator assistant and only support arithmetic calculations.",
+            "I am a calculator assistant and only support arithmetic calculations."
+          ]
+        }
+      },
+      "unseen_single_digit_canonical_template": {
+        "total_examples": 15,
+        "tool_examples_count": 15,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 15,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 0.6,
+          "operand_b_accuracy": 0.2667,
+          "exact_call_accuracy": 0.1333,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 0.1333,
+          "unique_outputs_count": 11,
+          "collapse_rate": 0.2,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+        }
+      }
+    },
+    "per_example_details": [
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-00",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=1 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-01",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=1 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-02",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=2 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 9
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 9}",
+        "id": "REPL-UNSEEN-CANONICAL-03",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=2 B=9<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 9}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          3,
+          6
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 3,
+          "b": 5
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 5}",
+        "id": "REPL-UNSEEN-CANONICAL-04",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=3 B=6<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 5}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 0}",
+        "id": "REPL-UNSEEN-CANONICAL-05",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=1<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-06",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-07",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 9
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}",
+        "id": "REPL-UNSEEN-CANONICAL-08",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=9<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          6,
+          3
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 5,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-09",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=6 B=3<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 5, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          7,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 7,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-10",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=7 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          7,
+          7
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 7,
+          "b": 5
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 5}",
+        "id": "REPL-UNSEEN-CANONICAL-11",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=7 B=7<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 5}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          8,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 3,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 0}",
+        "id": "REPL-UNSEEN-CANONICAL-12",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=8 B=1<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          0
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}",
+        "id": "REPL-UNSEEN-CANONICAL-13",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=9 B=0<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          2
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}",
+        "id": "REPL-UNSEEN-CANONICAL-14",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=9 B=2<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-00",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Please add A=1 and B=4.<|im_end|> <|im_star",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-01",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=1 and B=8.<|im_end|>",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-02",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=2 and B=8.<|im_end|",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+        "id": "REPL-FRESH-PHRASING-03",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=2, B=9.<|im_end|> <|im_star",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          3,
+          6
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 6
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 6}",
+        "id": "REPL-FRESH-PHRASING-04",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Perform add operation: A=3 and B=6.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 6}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+        "id": "REPL-FRESH-PHRASING-05",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Execute addition on A=4 and B=1.<|im_end|> ",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-06",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=4 + B=4.<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          6,
+          3
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-07",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user What is the sum of A=6 and B=3?<|im_end|> <",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          8,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 0,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}",
+        "id": "REPL-FRESH-PHRASING-08",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Sum up values: A=8 and B=1.<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 0, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          2
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 9
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 9}",
+        "id": "REPL-FRESH-PHRASING-09",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Add together A=9 and B=2.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 9}"
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-01",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user What is the boiling point of water in Celsi",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-02",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Translate the word 'hello' into French.<|im",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-03",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Who formulated the general theory of relati",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-04",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Write a short haiku about mountain streams.",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-05",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Describe how modern compilers perform dead-",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-06",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Calculate sum of numbers without providing ",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-07",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Add operand A=5 with no second operand give",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-08",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Add operand B=9 when operand A is completel",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-09",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Perform calculator operation on unknown var",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-10",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Can you compute the sum of X and Y?<|im_end",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      }
+    ]
+  },
+  "copy_initialized_curriculum_bridge": {
+    "total_examples": 35,
+    "tool_examples_count": 25,
+    "non_tool_examples_count": 10,
+    "tool_metrics": {
+      "denominator": 25,
+      "parse_rate": 1.0,
+      "schema_validity_rate": 1.0,
+      "tool_accuracy": 1.0,
+      "operation_accuracy": 1.0,
+      "operand_a_accuracy": 0.72,
+      "operand_b_accuracy": 0.88,
+      "exact_call_accuracy": 0.68,
+      "execution_success_rate": 1.0,
+      "e2e_correctness_rate": 0.68,
+      "unique_outputs_count": 20,
+      "collapse_rate": 0.12,
+      "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}"
+    },
+    "non_tool_metrics": {
+      "denominator": 10,
+      "total_false_positive_rate": 0.0,
+      "valid_false_positive_rate": 0.0,
+      "malformed_false_positive_rate": 0.0,
+      "clean_refusal_rate": 1.0,
+      "sample_outputs": [
+        "I am a calculator assistant and only support arithmetic calculations.",
+        "I am a calculator assistant and only support arithmetic calculations.",
+        "I am a calculator assistant and only support arithmetic calculations."
+      ]
+    },
+    "condition_name": "copy_initialized_curriculum_bridge",
+    "checkpoint_path": "experiments\\batch115_118_tool_gating_curriculum\\checkpoints\\balanced_curriculum_bridge_step150.pt",
+    "checkpoint_sha256": "ff606e5a8c25272347d1e127005255080eb82192a7b2d6eb8136e9a13134a2f7",
+    "subcategory_breakdown": {
+      "fresh_prompt_phrasing": {
+        "total_examples": 10,
+        "tool_examples_count": 10,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 10,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 0.3,
+          "operand_b_accuracy": 0.7,
+          "exact_call_accuracy": 0.2,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 0.2,
+          "unique_outputs_count": 8,
+          "collapse_rate": 0.3,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}"
+        }
+      },
+      "negative_control_and_underspecified": {
+        "total_examples": 10,
+        "tool_examples_count": 0,
+        "non_tool_examples_count": 10,
+        "non_tool_metrics": {
+          "denominator": 10,
+          "total_false_positive_rate": 0.0,
+          "valid_false_positive_rate": 0.0,
+          "malformed_false_positive_rate": 0.0,
+          "clean_refusal_rate": 1.0,
+          "sample_outputs": [
+            "I am a calculator assistant and only support arithmetic calculations.",
+            "I am a calculator assistant and only support arithmetic calculations.",
+            "I am a calculator assistant and only support arithmetic calculations."
+          ]
+        }
+      },
+      "unseen_single_digit_canonical_template": {
+        "total_examples": 15,
+        "tool_examples_count": 15,
+        "non_tool_examples_count": 0,
+        "tool_metrics": {
+          "denominator": 15,
+          "parse_rate": 1.0,
+          "schema_validity_rate": 1.0,
+          "tool_accuracy": 1.0,
+          "operation_accuracy": 1.0,
+          "operand_a_accuracy": 1.0,
+          "operand_b_accuracy": 1.0,
+          "exact_call_accuracy": 1.0,
+          "execution_success_rate": 1.0,
+          "e2e_correctness_rate": 1.0,
+          "unique_outputs_count": 15,
+          "collapse_rate": 0.0667,
+          "most_common_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}"
+        }
+      }
+    },
+    "per_example_details": [
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 1,
+          "b": 4
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}",
+        "id": "REPL-UNSEEN-CANONICAL-00",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=1 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 4}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 1,
+          "b": 8
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "id": "REPL-UNSEEN-CANONICAL-01",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=1 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 8
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 8}",
+        "id": "REPL-UNSEEN-CANONICAL-02",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=2 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 8}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 9
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 9}",
+        "id": "REPL-UNSEEN-CANONICAL-03",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=2 B=9<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 9}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          3,
+          6
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 3,
+          "b": 6
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}",
+        "id": "REPL-UNSEEN-CANONICAL-04",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=3 B=6<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 6}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 1
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 1}",
+        "id": "REPL-UNSEEN-CANONICAL-05",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=1<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 1}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 4
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}",
+        "id": "REPL-UNSEEN-CANONICAL-06",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 8
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 8}",
+        "id": "REPL-UNSEEN-CANONICAL-07",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=8<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 8}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 9
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}",
+        "id": "REPL-UNSEEN-CANONICAL-08",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=4 B=9<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 9}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          6,
+          3
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 6,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 3}",
+        "id": "REPL-UNSEEN-CANONICAL-09",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=6 B=3<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 6, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          7,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 7,
+          "b": 4
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 4}",
+        "id": "REPL-UNSEEN-CANONICAL-10",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=7 B=4<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 4}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          7,
+          7
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 7,
+          "b": 7
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 7}",
+        "id": "REPL-UNSEEN-CANONICAL-11",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=7 B=7<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 7, \"b\": 7}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          8,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 8,
+          "b": 1
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 1}",
+        "id": "REPL-UNSEEN-CANONICAL-12",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=8 B=1<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 8, \"b\": 1}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          0
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 0
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}",
+        "id": "REPL-UNSEEN-CANONICAL-13",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=9 B=0<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 0}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          2
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 2}",
+        "id": "REPL-UNSEEN-CANONICAL-14",
+        "category": "unseen_single_digit_canonical_template",
+        "prompt_snippet": "<|im_start|>user Calculate sum of: A=9 B=2<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 2}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 4
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 4}",
+        "id": "REPL-FRESH-PHRASING-00",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Please add A=1 and B=4.<|im_end|> <|im_star",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 4}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          1,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 8
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 8}",
+        "id": "REPL-FRESH-PHRASING-01",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Compute addition for A=1 and B=8.<|im_end|>",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 8}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          8
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 3,
+          "b": 8
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+        "id": "REPL-FRESH-PHRASING-02",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Find the total sum of A=2 and B=8.<|im_end|",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          2,
+          9
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}",
+        "id": "REPL-FRESH-PHRASING-03",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Sum operands: A=2, B=9.<|im_end|> <|im_star",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          3,
+          6
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 6
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 6}",
+        "id": "REPL-FRESH-PHRASING-04",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Perform add operation: A=3 and B=6.<|im_end",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 6}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}",
+        "id": "REPL-FRESH-PHRASING-05",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Execute addition on A=4 and B=1.<|im_end|> ",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          4,
+          4
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 4,
+          "b": 4
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}",
+        "id": "REPL-FRESH-PHRASING-06",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Calculate total: A=4 + B=4.<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 4, \"b\": 4}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          6,
+          3
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": true,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 3
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 3}",
+        "id": "REPL-FRESH-PHRASING-07",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user What is the sum of A=6 and B=3?<|im_end|> <",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 3}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          8,
+          1
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": false,
+        "b_correct": false,
+        "exact_call": false,
+        "executed": true,
+        "e2e_correct": false,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 2,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}",
+        "id": "REPL-FRESH-PHRASING-08",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Sum up values: A=8 and B=1.<|im_end|> <|im_",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 2, \"b\": 2}"
+      },
+      {
+        "requires_tool": true,
+        "operands": [
+          9,
+          2
+        ],
+        "attempted_tool": true,
+        "parsed": true,
+        "schema_valid": true,
+        "tool_correct": true,
+        "op_correct": true,
+        "a_correct": true,
+        "b_correct": true,
+        "exact_call": true,
+        "executed": true,
+        "e2e_correct": true,
+        "parsed_payload": {
+          "tool": "calculator",
+          "op": "add",
+          "a": 9,
+          "b": 2
+        },
+        "clean_output": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 2}",
+        "id": "REPL-FRESH-PHRASING-09",
+        "category": "fresh_prompt_phrasing",
+        "prompt_snippet": "<|im_start|>user Add together A=9 and B=2.<|im_end|> <|im_st",
+        "full_prediction": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 9, \"b\": 2}"
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-01",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user What is the boiling point of water in Celsi",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-02",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Translate the word 'hello' into French.<|im",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-03",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Who formulated the general theory of relati",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "Please specify both numbers to add.",
+        "correct": true,
+        "id": "NONTOOL-REPL-04",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Write a short haiku about mountain streams.",
+        "full_prediction": "Please specify both numbers to add."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-05",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Describe how modern compilers perform dead-",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "Please specify both numbers to add.",
+        "correct": true,
+        "id": "NONTOOL-REPL-06",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Calculate sum of numbers without providing ",
+        "full_prediction": "Please specify both numbers to add."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-07",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Add operand A=5 with no second operand give",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "Please specify both numbers to add.",
+        "correct": true,
+        "id": "NONTOOL-REPL-08",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Add operand B=9 when operand A is completel",
+        "full_prediction": "Please specify both numbers to add."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "I am a calculator assistant and only support arithmetic calculations.",
+        "correct": true,
+        "id": "NONTOOL-REPL-09",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Perform calculator operation on unknown var",
+        "full_prediction": "I am a calculator assistant and only support arithmetic calculations."
+      },
+      {
+        "requires_tool": false,
+        "attempted_tool": false,
+        "parsed": false,
+        "schema_valid": false,
+        "false_positive": false,
+        "valid_false_positive": false,
+        "malformed_false_positive": false,
+        "clean_output": "Please specify both numbers to add.",
+        "correct": true,
+        "id": "NONTOOL-REPL-10",
+        "category": "negative_control_and_underspecified",
+        "prompt_snippet": "<|im_start|>user Can you compute the sum of X and Y?<|im_end",
+        "full_prediction": "Please specify both numbers to add."
+      }
+    ]
+  }
+}

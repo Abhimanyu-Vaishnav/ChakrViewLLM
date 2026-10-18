@@ -1,0 +1,317 @@
+{
+  "uniform_loss_control": {
+    "checkpoint": "experiments\\batch103_106_slot_weighted_sft\\checkpoints\\uniform_loss_control_stream_step100.pt",
+    "sha256": "7967ab078705c60643f795878c06539c349b0efee728cc04c9699b39d21bf5e5",
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 64,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1094,
+        "correct_operand_b_rate": 0.0781,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 64,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 7,
+        "end_to_end_success_rate": 0.1094,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 64
+        }
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.0556,
+        "correct_operand_b_rate": 0.0556,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 18
+        }
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1111,
+        "correct_operand_b_rate": 0.2222,
+        "exact_argument_pair_rate": 0.0556,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 18
+        }
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 0,
+      "safe_non_tool_rate": 0.0,
+      "malformed_or_spurious_tool_calls": 5,
+      "traces": [
+        {
+          "prompt": "Request: general knowledge\nQuery: What is the capital of India?\nRequired action: answer",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: translation\nText: hello\nRequired action: translate",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: unknown\nOperand B: 5\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: 3\nOperand B: missing\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: execute code\nScript: import os; os.system('ls')\nRequired action: execute",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        }
+      ]
+    }
+  },
+  "slot_weighted_5x": {
+    "checkpoint": "experiments\\batch103_106_slot_weighted_sft\\checkpoints\\slot_weighted_5x_stream_step100.pt",
+    "sha256": "7b057042dc375444406cd02de552fc72ff98257cc92e92046a2bc45846946e7a",
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 64,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1094,
+        "correct_operand_b_rate": 0.0781,
+        "exact_argument_pair_rate": 0.0156,
+        "runtime_execution_count": 64,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 8,
+        "end_to_end_success_rate": 0.125,
+        "unique_calls_count": 2,
+        "constant_call_collapse_rate": 0.7969,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start": 51,
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}": 13
+        }
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1111,
+        "correct_operand_b_rate": 0.0556,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "unique_calls_count": 2,
+        "constant_call_collapse_rate": 0.8889,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start": 16,
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}": 2
+        }
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.0556,
+        "correct_operand_b_rate": 0.2222,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 2,
+        "end_to_end_success_rate": 0.1111,
+        "unique_calls_count": 2,
+        "constant_call_collapse_rate": 0.7778,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_end\", \"tool\n<|im_start": 14,
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}": 4
+        }
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 0,
+      "safe_non_tool_rate": 0.0,
+      "malformed_or_spurious_tool_calls": 5,
+      "traces": [
+        {
+          "prompt": "Request: general knowledge\nQuery: What is the capital of India?\nRequired action: answer",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}<|im_start|>assistant\nThe answer is 7",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: translation\nText: hello\nRequired action: translate",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: unknown\nOperand B: 5\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: 3\nOperand B: missing\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: execute code\nScript: import os; os.system('ls')\nRequired action: execute",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 3, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        }
+      ]
+    }
+  },
+  "condition_c_baseline": {
+    "checkpoint": "experiments\\batch95_98_slot_binding_diagnostics\\experiments\\condition_c_slot_binding_step_100.pt",
+    "sha256": "d7702580c5e586ed4ffa3a6498d4f35520886d92e8f3b581ab8df1c26d4cdaa2",
+    "splits": {
+      "train": {
+        "total": 64,
+        "valid_tool_syntax_count": 64,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1094,
+        "correct_operand_b_rate": 0.0781,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 64,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 7,
+        "end_to_end_success_rate": 0.1094,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 64
+        }
+      },
+      "val": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.0556,
+        "correct_operand_b_rate": 0.0556,
+        "exact_argument_pair_rate": 0.0,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 18
+        }
+      },
+      "test": {
+        "total": 18,
+        "valid_tool_syntax_count": 18,
+        "valid_tool_syntax_rate": 1.0,
+        "correct_tool_selection_rate": 1.0,
+        "correct_operation_rate": 1.0,
+        "correct_operand_a_rate": 0.1111,
+        "correct_operand_b_rate": 0.2222,
+        "exact_argument_pair_rate": 0.0556,
+        "runtime_execution_count": 18,
+        "runtime_execution_rate": 1.0,
+        "end_to_end_success_count": 0,
+        "end_to_end_success_rate": 0.0,
+        "unique_calls_count": 1,
+        "constant_call_collapse_rate": 1.0,
+        "most_common_call": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+        "prediction_distribution": {
+          "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}": 18
+        }
+      }
+    },
+    "clarification_control": {
+      "total": 5,
+      "safe_non_tool_count": 0,
+      "safe_non_tool_rate": 0.0,
+      "malformed_or_spurious_tool_calls": 5,
+      "traces": [
+        {
+          "prompt": "Request: general knowledge\nQuery: What is the capital of India?\nRequired action: answer",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: translation\nText: hello\nRequired action: translate",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: unknown\nOperand B: 5\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: add numbers\nOperand A: 3\nOperand B: missing\nRequired action: calculator addition",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        },
+        {
+          "prompt": "Request: execute code\nScript: import os; os.system('ls')\nRequired action: execute",
+          "raw": "TOOL_CALL: {\"tool\": \"calculator\", \"op\": \"add\", \"a\": 1, \"b\": 8}",
+          "status": "SUCCESS",
+          "safe": false
+        }
+      ]
+    }
+  }
+}
