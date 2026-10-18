@@ -1,0 +1,39 @@
+{
+  "test_suite": "experiments/batch2501_2540/test_validator_hardening.py",
+  "execution_metadata": {
+    "batch": "2501-2540",
+    "timestamp": "2026-10-18T10:03:28+05:30",
+    "runner": ".venv_gpu\\Scripts\\pytest",
+    "duration_seconds": 1.16,
+    "exit_code": 0
+  },
+  "cases": [
+    {"id": 1, "name": "test_case_01_duplicate_document_id", "status": "PASSED"},
+    {"id": 2, "name": "test_case_02_missing_expected_test_document", "status": "PASSED"},
+    {"id": 3, "name": "test_case_03_unexpected_extra_test_document", "status": "PASSED"},
+    {"id": 4, "name": "test_case_04_target_token_mismatch", "status": "PASSED"},
+    {"id": 5, "name": "test_case_05_changed_source_id", "status": "PASSED"},
+    {"id": 6, "name": "test_case_06_missing_source_or_doc_id", "status": "PASSED"},
+    {"id": 7, "name": "test_case_07_nan_or_inf_loss_values", "status": "PASSED"},
+    {"id": 8, "name": "test_case_08_incorrect_nll_contradiction", "status": "PASSED"},
+    {"id": 9, "name": "test_case_09_changed_checkpoint_hash", "status": "PASSED"},
+    {"id": 10, "name": "test_case_10_missing_checkpoint", "status": "PASSED"},
+    {"id": 11, "name": "test_case_11_missing_training_document_reference", "status": "PASSED"},
+    {"id": 12, "name": "test_case_12_sanskrit_metadata_falsely_omitted", "status": "PASSED"},
+    {"id": 13, "name": "test_case_13_raw_indicates_sanskrit_in_train", "status": "PASSED"},
+    {"id": 14, "name": "test_case_14_missing_evidence_file", "status": "PASSED"},
+    {"id": 15, "name": "test_case_15_nonzero_pytest_exit_code", "status": "PASSED"},
+    {"id": 16, "name": "test_case_16_test_runner_cannot_launch", "status": "PASSED"},
+    {"id": 17, "name": "test_case_17_missing_incomplete_preregistration", "status": "PASSED"},
+    {"id": 18, "name": "test_case_18_source_global_aggregate_contradiction", "status": "PASSED"},
+    {"id": 19, "name": "test_case_19_manipulated_prior_final_evidence", "status": "PASSED"},
+    {"id": 20, "name": "test_case_20_clean_control_fixture", "status": "PASSED"}
+  ],
+  "summary": {
+    "total_tests": 20,
+    "passed": 20,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "verdict": "VALIDATOR_HARDENING_PASSED_ALL_ADVERSARIAL_CHALLENGES"
+  }
+}

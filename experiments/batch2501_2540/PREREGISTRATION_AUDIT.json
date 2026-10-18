@@ -1,0 +1,46 @@
+{
+  "audit_metadata": {
+    "batch": "2501-2540",
+    "audited_file": "experiments/batch2461_2500/SANSKRIT_CURRICULUM_PREREGISTRATION.json",
+    "auditor": "Batch 2501-2540 Independent Validator & Protocol Reviewer",
+    "classification": "REQUIRES_REVISION"
+  },
+  "arm_lineage_audit": {
+    "arm_0_baseline_step_10000": {
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "starting_hash": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "VALID_IMMUTABLE_REFERENCE"
+    },
+    "arm_1_cpt_seed_42": {
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "final_checkpoint": "experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt",
+      "status": "VALID_COMPARISON_REFERENCE"
+    },
+    "arm_2_sanskrit_augmented_cpt": {
+      "starting_checkpoint_ambiguity": "Protocol must explicitly state that Arm 2 branches from Step 10,000 baseline, NOT from Seed 42, to ensure identical step budget (500 steps).",
+      "status": "REQUIRES_CLARIFICATION"
+    },
+    "arm_3_volume_matched_control": {
+      "starting_checkpoint": "Step 10,000 baseline",
+      "status": "VALID_CONTROL_DESIGN"
+    }
+  },
+  "leakage_gate_audit": {
+    "current_rule": "0 exact 8-gram matches, MinHash Jaccard < 0.15",
+    "scientific_limitation": "8-gram / MinHash is an approximate screening heuristic. Classical Sanskrit sandhi and compounding allow identical semantic verses to evade exact n-gram matching.",
+    "required_enhancement": "Unicode NFKC normalization, virama stripping, and subword-level containment checks.",
+    "status": "INSUFFICIENT_AS_STANDALONE_PROOF"
+  },
+  "data_provenance_and_tokenization_audit": {
+    "corpus_source": "Underspecified public domain reference",
+    "tokenization_risk": "Tokenizer vocabulary coverage was built on English/Hindi/Code; potential high subword fragmentation on Classical Sanskrit text.",
+    "required_check": "Compute characters-per-token fragmentation metric on candidate training corpus.",
+    "status": "REQUIRES_PREFLIGHT_TOKENIZATION_AUDIT"
+  },
+  "decision_rules_audit": {
+    "point_estimate_thresholds": "TW-CE <= 4.3400",
+    "required_enhancement": "Incorporate empirical standard deviation (>= 2 sigma improvement below Seed 42).",
+    "status": "REQUIRES_STATISTICAL_RIGOR_UPGRADE"
+  },
+  "overall_recommendation": "REMAIN_IN_AUDIT_MODE_UNTIL_PROTOCOL_REVISED"
+}

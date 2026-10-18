@@ -1,0 +1,49 @@
+======================================================================
+VALIDATOR HARDENING ADVERSARIAL TEST REPORT - BATCH 2501-2540
+======================================================================
+Command:
+.venv_gpu\Scripts\pytest -v experiments/batch2501_2540/test_validator_hardening.py
+
+Platform: Windows 11 / Python 3.14.7 / Pytest 9.1.1
+Timestamp: 2026-10-18T10:03:28+05:30
+Execution Duration: 1.16 seconds
+Exit Code: 0
+
+Captured Pytest Stdout:
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- D:\Project\ChakrView\.venv_gpu\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Project\ChakrView
+configfile: pytest.ini
+collecting ... collected 20 items
+
+experiments/batch2501_2540/test_validator_hardening.py::test_case_01_duplicate_document_id PASSED [  5%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_02_missing_expected_test_document PASSED [ 10%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_03_unexpected_extra_test_document PASSED [ 15%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_04_target_token_mismatch PASSED [ 20%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_05_changed_source_id PASSED [ 25%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_06_missing_source_or_doc_id PASSED [ 30%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_07_nan_or_inf_loss_values PASSED [ 35%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_08_incorrect_nll_contradiction PASSED [ 40%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_09_changed_checkpoint_hash PASSED [ 45%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_10_missing_checkpoint PASSED [ 50%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_11_missing_training_document_reference PASSED [ 55%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_12_sanskrit_metadata_falsely_omitted PASSED [ 60%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_13_raw_indicates_sanskrit_in_train PASSED [ 65%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_14_missing_evidence_file PASSED [ 70%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_15_nonzero_pytest_exit_code PASSED [ 75%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_16_test_runner_cannot_launch PASSED [ 80%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_17_missing_incomplete_preregistration PASSED [ 85%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_18_source_global_aggregate_contradiction PASSED [ 90%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_19_manipulated_prior_final_evidence PASSED [ 95%]
+experiments/batch2501_2540/test_validator_hardening.py::test_case_20_clean_control_fixture PASSED [100%]
+
+============================= 20 passed in 1.16s ==============================
+
+Summary:
+- Total Hardening Cases Tested: 20
+- Passed: 20
+- Failed: 0
+- Pass Rate: 100.0%
+- Status: VALIDATOR_ADVERSARIALLY_VERIFIED
+======================================================================

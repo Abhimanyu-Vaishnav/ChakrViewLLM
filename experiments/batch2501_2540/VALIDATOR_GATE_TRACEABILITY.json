@@ -1,0 +1,63 @@
+{
+  "batch": "2501-2540",
+  "validator_traceability_matrix": {
+    "artifact_integrity": {
+      "primary_evidence_sources": [
+        "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+        "experiments/batch2141_2180/cpt/seed_42/cpt_best_checkpoint.pt",
+        "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+        "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+        "release/chakrview-v0.5.0/data/experiments/vocab_4096/vocab.json",
+        "release/chakrview-v0.5.0/data/experiments/vocab_4096/merges.json"
+      ],
+      "check_performed": "Dynamic SHA-256 byte-level recomputation and size sanity check",
+      "derivation_type": "DIRECT_PRIMARY_COMPUTATION",
+      "fails_on_tampering": true
+    },
+    "test_split_linkage": {
+      "primary_evidence_sources": [
+        "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+        "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+        "experiments/batch2381_2420/PER_DOCUMENT_LOSSES.jsonl"
+      ],
+      "check_performed": "1-to-1 document ID set equality between split manifest and loss records, and resolution in cleaned corpus",
+      "derivation_type": "BIDIRECTIONAL_SET_EQUALITY_VERIFICATION",
+      "fails_on_tampering": true
+    },
+    "raw_loss_and_regression": {
+      "primary_evidence_sources": [
+        "experiments/batch2381_2420/PER_DOCUMENT_LOSSES.jsonl"
+      ],
+      "check_performed": "Per-record float validation, NLL = loss * tokens consistency, source and global summation, Sanskrit regression and Hindi control deltas",
+      "derivation_type": "DIRECT_PRIMARY_AGGREGATION",
+      "fails_on_tampering": true
+    },
+    "training_coverage": {
+      "primary_evidence_sources": [
+        "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+        "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+        "release/chakrview-v0.5.0/data/experiments/vocab_4096"
+      ],
+      "check_performed": "Train document ID resolution, canonical BPE tokenization, and explicit Classical Sanskrit document/token count derivation",
+      "derivation_type": "DIRECT_TOKENIZATION_AND_METADATA_DERIVATION",
+      "fails_on_tampering": true
+    },
+    "regression_tests": {
+      "primary_evidence_sources": [
+        "experiments/batch2421_2460/REGRESSION_TEST_RESULTS.json",
+        "experiments/batch2421_2460/REGRESSION_TEST_RESULTS.txt"
+      ],
+      "check_performed": "Exit code 0, 0 failed, 25 passed, cross-check against raw stdout",
+      "derivation_type": "AUTOMATED_EXECUTION_LOG_VERIFICATION",
+      "fails_on_tampering": true
+    },
+    "protected_file_provenance": {
+      "primary_evidence_sources": [
+        "chakrview/runtime/session.py"
+      ],
+      "check_performed": "Filesystem mtime (2026-10-11 16:04:15), blob SHA-1 (79fbd618...), and commit history inspection",
+      "derivation_type": "FORENSIC_GIT_AND_FILESYSTEM_AUDIT",
+      "fails_on_tampering": true
+    }
+  }
+}

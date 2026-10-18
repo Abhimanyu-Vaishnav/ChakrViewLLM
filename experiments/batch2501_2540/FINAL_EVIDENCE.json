@@ -1,0 +1,50 @@
+{
+  "mission": "Batch 2501-2540 Independent Validator Hardening, Derived Coverage Proof & Experiment Protocol Audit",
+  "validator": "experiments/batch2501_2540/HARDENED_EVIDENCE_VALIDATOR.py",
+  "overall_verdict": "PARTIALLY_VERIFIED",
+  "decision": "REMAIN_IN_AUDIT_MODE",
+  "gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "check": "Cryptographic SHA-256 integrity and non-empty size validation of canonical assets",
+      "actual_result": "All 6 canonical assets dynamically verified bit-exact against immutable digests.",
+      "limitations_or_discrepancies": "None"
+    },
+    "test_split_linkage": {
+      "status": "VERIFIED",
+      "check": "Bidirectional test split linkage and source fidelity",
+      "actual_result": "All 290 test split documents verified unique, resolved, and source-faithful.",
+      "limitations_or_discrepancies": "None"
+    },
+    "raw_loss_and_regression": {
+      "status": "VERIFIED",
+      "check": "Raw loss record summation, float validation, and source metrics",
+      "actual_result": "Recomputed from 290 raw records: Global Delta CE=-0.1928, Sanskrit Delta=+0.0776 CE, Hindi Delta=-0.0147 CE.",
+      "limitations_or_discrepancies": "None"
+    },
+    "training_coverage": {
+      "status": "VERIFIED",
+      "check": "Training coverage resolution and Sanskrit absence",
+      "actual_result": "Resolved 782 train documents. Classical Sanskrit documents in train: 0.",
+      "limitations_or_discrepancies": "None"
+    },
+    "regression_tests": {
+      "status": "VERIFIED",
+      "check": "Regression test suite execution and cross-log validation",
+      "actual_result": "25/25 regression tests passed cleanly with exit code 0.",
+      "limitations_or_discrepancies": "None"
+    },
+    "preregistration_completeness": {
+      "status": "VERIFIED",
+      "check": "Preregistration structural completeness",
+      "actual_result": "Preregistration contains all 4 experimental arms, invariants, and decision rules.",
+      "limitations_or_discrepancies": "None"
+    },
+    "protected_file_provenance": {
+      "status": "PARTIALLY_VERIFIED",
+      "check": "Protected file provenance and working tree preservation",
+      "actual_result": "Filesystem mtime (2026-10-11 16:04:15) and commit logs substantiate pre-existence, but diff is uncommitted in working tree.",
+      "limitations_or_discrepancies": "Filesystem mtime (2026-10-11 16:04:15) and commit logs substantiate pre-existence, but diff is uncommitted in working tree."
+    }
+  }
+}
