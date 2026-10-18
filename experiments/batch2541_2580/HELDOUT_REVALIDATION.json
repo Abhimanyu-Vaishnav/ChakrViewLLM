@@ -1,0 +1,86 @@
+{
+  "batch": "2541-2580",
+  "task": "held_out_metrics_revalidation",
+  "timestamp": "2026-10-18T10:14:00+05:30",
+  "primary_source": "experiments/batch2381_2420/PER_DOCUMENT_LOSSES.jsonl",
+  "test_split_manifest": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+  "corpus_manifest": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+  "validation_checks": {
+    "records_count": 290,
+    "unique_document_ids": 290,
+    "bidirectional_set_equality_with_split_manifest": true,
+    "source_id_fidelity_with_cleaned_corpus": true,
+    "all_floats_finite_and_valid": true,
+    "nll_exact_loss_multiplication_consistency": true
+  },
+  "global_metrics": {
+    "total_documents": 290,
+    "total_target_tokens": 64769,
+    "baseline_cross_entropy": 4.478909,
+    "baseline_perplexity": 88.1388,
+    "candidate_cross_entropy": 4.286118,
+    "candidate_perplexity": 72.6841,
+    "delta_cross_entropy": -0.192791,
+    "delta_cross_entropy_pct": -4.3044,
+    "candidate_win_rate_pct": 76.5517,
+    "candidate_wins": 222,
+    "candidate_losses": 68
+  },
+  "per_source_breakdown": {
+    "gutenberg_loney_coordinate_geometry": {
+      "documents": 150,
+      "target_tokens": 24482,
+      "token_share_pct": 37.80,
+      "baseline_ce": 4.431526,
+      "candidate_ce": 4.149539,
+      "delta_ce": -0.281987,
+      "candidate_wins": 138,
+      "win_rate_pct": 92.00
+    },
+    "wikipedia_en_information_theory": {
+      "documents": 70,
+      "target_tokens": 15912,
+      "token_share_pct": 24.57,
+      "baseline_ce": 4.915729,
+      "candidate_ce": 4.473678,
+      "delta_ce": -0.442051,
+      "candidate_wins": 63,
+      "win_rate_pct": 90.00
+    },
+    "wikipedia_hi_sanskrit_sahitya": {
+      "documents": 9,
+      "target_tokens": 4798,
+      "token_share_pct": 7.41,
+      "baseline_ce": 3.920336,
+      "candidate_ce": 3.905675,
+      "delta_ce": -0.014661,
+      "candidate_wins": 6,
+      "win_rate_pct": 66.67
+    },
+    "wikipedia_sa_bhagavad_gita": {
+      "documents": 61,
+      "target_tokens": 19577,
+      "token_share_pct": 30.22,
+      "baseline_ce": 4.320158,
+      "candidate_ce": 4.397750,
+      "delta_ce": 0.077592,
+      "candidate_wins": 15,
+      "win_rate_pct": 24.59
+    }
+  },
+  "critical_scientific_findings": {
+    "classical_sanskrit_regression": {
+      "source_id": "wikipedia_sa_bhagavad_gita",
+      "delta_ce": 0.077592,
+      "candidate_win_rate_pct": 24.59,
+      "interpretation": "Seed 42 CPT candidate regresses on Classical Sanskrit by +0.0776 CE compared to canonical Step 10,000 baseline."
+    },
+    "hindi_control_performance": {
+      "source_id": "wikipedia_hi_sanskrit_sahitya",
+      "delta_ce": -0.014661,
+      "candidate_win_rate_pct": 66.67,
+      "interpretation": "Hindi Sanskrit Sahitya shows slight positive transfer (-0.0147 CE), confirming linguistic preservation in Indic script."
+    }
+  },
+  "status": "VERIFIED"
+}

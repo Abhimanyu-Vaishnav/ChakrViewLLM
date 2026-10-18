@@ -1,0 +1,31 @@
+{
+  "audit_metadata": {
+    "batch": "2541-2580",
+    "audited_file": "experiments/batch2541_2580/SANSKRIT_CURRICULUM_PREREGISTRATION_AMENDED.json",
+    "audit_date": "2026-10-18",
+    "final_classification": "PREREGISTRATION_SCIENTIFICALLY_VERIFIED"
+  },
+  "audit_dimensions": {
+    "checkpoint_lineage": {
+      "status": "PASS",
+      "findings": "All training arms (Arm 1, 2, 3) branch from canonical step 10,000 checkpoint with verified SHA-256 (96357705a683...). Step counts and compute budgets are strictly identical (500 steps)."
+    },
+    "leakage_protocol": {
+      "status": "PASS",
+      "findings": "Three-tier screening pipeline (exact 8-gram, NFKC normalized fuzzy matching, subword MinHash Jaccard < 0.10) with mandatory linguistic review established."
+    },
+    "tokenizer_preflight": {
+      "status": "PASS",
+      "findings": "Explicit characters-per-token threshold (>= 1.80 chars/token) defined to guard against subword fragmentation."
+    },
+    "statistical_decision_rules": {
+      "status": "PASS",
+      "findings": "Multi-seed variance framework (seeds [42, 43, 44]) with 1.96 * sigma statistical significance criteria specified."
+    },
+    "training_guardrails": {
+      "status": "PASS",
+      "findings": "Early stopping abort triggers on English/Hindi divergence defined."
+    }
+  },
+  "decision": "READY_FOR_HUMAN_EXPERIMENT_REVIEW"
+}

@@ -1,0 +1,47 @@
+{
+  "batch": "2541-2580",
+  "audit_type": "gate_semantics_and_validator_hardening",
+  "timestamp": "2026-10-18T10:13:30+05:30",
+  "semantic_decoupling": {
+    "preregistration": {
+      "preregistration_structure": {
+        "definition": "Verifies syntactic and schema completeness of the preregistration document and JSON specification.",
+        "checks": [
+          "presence_of_experimental_arms",
+          "presence_of_controls_and_invariants",
+          "presence_of_evaluation_metrics",
+          "presence_of_decision_rules",
+          "exact_four_arms_declared"
+        ],
+        "failure_behavior": "Returns FAILED if any required section or field is missing."
+      },
+      "preregistration_scientific_readiness": {
+        "definition": "Verifies methodological and experimental rigor, eliminating scientific confounding and leakage.",
+        "checks": [
+          "unconfounded_checkpoint_lineage (Arms 1-3 start at canonical step 10k)",
+          "multi_tiered_leakage_screening (n-gram, MinHash, passage review against test held-out)",
+          "tokenizer_preflight_thresholds (chars/token >= 1.80 empirical acceptance criterion)",
+          "multiseed_variance_decision_rules (seeds 42, 43, 44 required; paired tests)",
+          "early_stopping_guardrails (Hindi regression > 0.05 CE or Sanskrit regression triggers halt)"
+        ],
+        "failure_behavior": "Returns FAILED or REQUIRES_REVISION if any scientific requirement remains unresolved."
+      }
+    },
+    "protected_file": {
+      "protected_file_preservation": {
+        "definition": "Verifies that the protected file chakrview/runtime/session.py has not been modified, staged, or touched in this batch.",
+        "status": "VERIFIED",
+        "evidence": "git diff -- chakrview/runtime/session.py matches starting state exactly. Working tree diff untouched."
+      },
+      "protected_file_provenance": {
+        "definition": "Verifies historical provenance and origin of pre-existing uncommitted modifications in user workspace.",
+        "status": "PARTIALLY_VERIFIED",
+        "evidence": "mtime 2026-10-11 16:04:15, ChatML session runner modification predating audit batch sequence."
+      }
+    }
+  },
+  "adversarial_threat_models": {
+    "total_models": 21,
+    "structural_vs_scientific_regression_tested": true
+  }
+}

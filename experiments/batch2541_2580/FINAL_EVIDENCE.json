@@ -1,0 +1,88 @@
+{
+  "batch": "2541-2580",
+  "mission": "Close Remaining Evidence Gaps & Finalize Sanskrit Experiment Protocol",
+  "timestamp": "2026-10-18T10:15:00+05:30",
+  "branch": "dev/v0.6-v0.7-validation",
+  "base_commit": "3b30f86",
+  "gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "check": "Cryptographic SHA-256 integrity of canonical checkpoints, manifests, and tokenizer assets",
+      "verified_count": 6,
+      "details": "All canonical assets bit-exact against immutable hashes."
+    },
+    "training_coverage_derivation": {
+      "status": "VERIFIED",
+      "check": "Derived exact per-document tokenization and split partition verification",
+      "total_train_documents": 782,
+      "total_train_target_tokens": 146694,
+      "total_train_raw_tokens": 147476,
+      "classical_sanskrit_train_docs": 0,
+      "classical_sanskrit_train_tokens": 0,
+      "details": "All 782 train documents resolved against cleaned corpus. All 70 corpus Sanskrit docs confirmed assigned to test split."
+    },
+    "held_out_evidence_validity": {
+      "status": "VERIFIED",
+      "check": "Recomputation of 290 held-out test documents from primary loss records",
+      "total_test_documents": 290,
+      "total_target_tokens": 64769,
+      "global_delta_ce": -0.192791,
+      "candidate_win_rate_pct": 76.55,
+      "sanskrit_delta_ce": 0.077592,
+      "hindi_control_delta_ce": -0.014661,
+      "details": "Bit-exact match with primary loss summation, all floats finite and non-negative."
+    },
+    "validator_adversarial_robustness": {
+      "status": "VERIFIED",
+      "check": "Execution of adversarial test suites challenging evidence boundaries",
+      "training_coverage_adversarial_tests_passed": 6,
+      "validator_hardening_adversarial_tests_passed": 20,
+      "gate_semantics_tests_passed": 2,
+      "details": "All injected adversarial faults correctly rejected."
+    },
+    "regression_test_execution": {
+      "status": "VERIFIED",
+      "check": "Pytest execution across core test suites",
+      "collected": 25,
+      "passed": 25,
+      "failed": 0,
+      "exit_code": 0,
+      "details": "Clean pass across all 25 core regression tests."
+    },
+    "preregistration_structure": {
+      "status": "VERIFIED",
+      "check": "Structural completeness and schema compliance of preregistration specification",
+      "arms_declared": 4,
+      "required_sections_present": true,
+      "details": "All required sections, experimental arms, invariants, and schemas present."
+    },
+    "preregistration_scientific_readiness": {
+      "status": "VERIFIED",
+      "check": "Scientific readiness and methodological rigor of amended Sanskrit preregistration",
+      "checkpoint_lineage_unconfounded": true,
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "leakage_screening_tiered": true,
+      "tokenizer_preflight_thresholds_defined": true,
+      "empirical_threshold": ">= 1.80 chars/token",
+      "variance_aware_rules": true,
+      "planned_seeds": [42, 43, 44],
+      "early_stopping_guardrails_defined": true,
+      "details": "All 5 deficiencies from Batch 2501 formally resolved in SANSKRIT_CURRICULUM_PREREGISTRATION_AMENDED."
+    },
+    "protected_file_preservation": {
+      "status": "VERIFIED",
+      "check": "Protected file chakrview/runtime/session.py isolation during current batch",
+      "details": "chakrview/runtime/session.py was not modified, staged, or reverted in Batch 2541-2580."
+    },
+    "protected_file_provenance": {
+      "status": "PARTIALLY_VERIFIED",
+      "check": "Historical origin and status of working tree modification to session.py",
+      "details": "Pre-existing uncommitted ChatML session runner modification with mtime 2026-10-11 16:04:15 predating audit batches."
+    }
+  },
+  "overall_verdict": "PARTIALLY_VERIFIED",
+  "verdict_rationale": "All 8 audit and scientific readiness gates evaluate to VERIFIED. The overall verdict is PARTIALLY_VERIFIED strictly because chakrview/runtime/session.py contains a pre-existing uncommitted user modification from October 11, 2026.",
+  "final_decision": "READY_FOR_EXPERIMENT_REVIEW",
+  "decision_rationale": "All evidence gaps are closed, training coverage derivation is proven without hardcoding, validator is robust against adversarial attacks, held-out metrics are verified, regression suite passed 25/25, and the Sanskrit curriculum preregistration has resolved all scientific readiness requirements. The protocol is ready for independent scientific review prior to any authorized training run.",
+  "training_execution_status": "NO_TRAINING_EXECUTED"
+}

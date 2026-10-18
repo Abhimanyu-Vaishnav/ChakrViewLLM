@@ -1,0 +1,83 @@
+{
+  "protocol_metadata": {
+    "batch": "2541-2580",
+    "protocol_name": "Sanskrit Curriculum Intervention Experiment Protocol (Amended)",
+    "version": "2.0.0-amended",
+    "status": "FROZEN_PREREGISTERED_SPECIFICATION",
+    "model_training_authorized": false
+  },
+  "research_question": "Does adding independent Classical Sanskrit training material reduce the observed +0.0776 CE held-out Sanskrit regression without degrading English, Hindi, or Code control domains?",
+  "hypotheses": {
+    "null_hypothesis": "Mean Sanskrit CE in Arm 2 >= Mean Sanskrit CE in Arm 1 - 1.96 * sigma, or control domain regresses by >= 1.96 * sigma.",
+    "alternative_hypothesis": "Mean Sanskrit CE in Arm 2 < Mean Sanskrit CE in Arm 1 - 1.96 * sigma, while global CE <= 4.2900 and control domain deltas <= 1.0 * sigma."
+  },
+  "experimental_arms": [
+    {
+      "arm_id": 0,
+      "name": "canonical_baseline_step_10000",
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "starting_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "training_steps": 0,
+      "sanskrit_content_pct": 0.0,
+      "role": "Frozen pre-intervention anchor reference"
+    },
+    {
+      "arm_id": 1,
+      "name": "cpt_seed_42_reference",
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "starting_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "training_steps": 500,
+      "sanskrit_content_pct": 0.0,
+      "role": "Existing CPT benchmark reference (no Sanskrit)"
+    },
+    {
+      "arm_id": 2,
+      "name": "sanskrit_augmented_cpt",
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "starting_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "training_steps": 500,
+      "sanskrit_content_pct": 15.0,
+      "role": "Evaluates Sanskrit-specific representation recovery"
+    },
+    {
+      "arm_id": 3,
+      "name": "volume_matched_control",
+      "starting_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "starting_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "training_steps": 500,
+      "sanskrit_content_pct": 0.0,
+      "role": "Evaluates generic volume scaling vs Sanskrit semantic transfer"
+    }
+  ],
+  "controls_and_invariants": {
+    "architecture": "ChakrMicro (3,443,136 parameters, 6 layers, d_model=192, n_heads=6, tied embeddings)",
+    "optimizer": "AdamW (peak_lr=1.5e-4, min_lr=1.5e-5, betas=(0.9, 0.98), eps=1e-8, weight_decay=0.01)",
+    "schedule": "Cosine decay with 50 warmup steps",
+    "seeds": [42, 43, 44],
+    "context_length": 256,
+    "effective_batch_size": 8,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 2
+  },
+  "leakage_protocol": {
+    "screening_tiers": [
+      {"tier": 1, "method": "Exact 8-gram token match", "tolerance": 0},
+      {"tier": 2, "method": "Unicode NFKC normalization + punctuation stripping 8-gram Jaccard", "threshold": 0.05},
+      {"tier": 3, "method": "Subword MinHash LSH 13-gram Jaccard similarity", "threshold": 0.10}
+    ],
+    "mandatory_linguistic_review_on_flag": true,
+    "immutable_hash_freeze_required": true
+  },
+  "tokenizer_preflight_spec": {
+    "tokenizer_path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "min_characters_per_token": 1.80,
+    "max_padding_fraction": 0.15,
+    "unknown_token_tolerance": 0
+  },
+  "statistical_decision_rules": {
+    "validated_recovery": "Mean(TW-CE_sa(Arm 2)) <= Mean(TW-CE_sa(Arm 1)) - 1.96 * sigma_sa, Global CE <= 4.2900, Hindi CE <= 3.9250, Win rate >= 70%",
+    "partial_recovery_with_drift": "Sanskrit improves >= 1.96 * sigma but control domain degrades > 1.0 * sigma",
+    "inconclusive": "Sanskrit difference within seed variance (|delta| < 1.96 * sigma)",
+    "catastrophic_regression": "Global CE > 4.4789 or validation CE increases > 0.20"
+  }
+}
