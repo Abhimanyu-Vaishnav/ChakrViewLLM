@@ -1,0 +1,92 @@
+{
+  "batch": "2461-2500",
+  "phase": "Phase 4 - CPT Training Coverage Final Recheck",
+  "training_split_manifest": "experiments/batch2021_2060/SPLIT_V2_MANIFEST.json",
+  "cleaned_corpus_manifest": "experiments/batch2101_2140/CORPUS_V2_CLEANED_MANIFEST.json",
+  "canonical_tokenizer_path": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+  "input_resolution_integrity": {
+    "total_train_ids_in_split_manifest": 782,
+    "unique_train_ids": 782,
+    "duplicate_ids_count": 0,
+    "all_train_ids_resolved_in_cleaned_corpus": true,
+    "missing_train_ids_count": 0
+  },
+  "source_family_and_language_coverage": {
+    "sources_count": 6,
+    "languages_present": [
+      "code",
+      "en",
+      "hi"
+    ],
+    "source_breakdown": {
+      "gutenberg_tagore_gitanjali": {
+        "documents": 195,
+        "languages": [
+          "en"
+        ],
+        "raw_encoded_tokens": 34007,
+        "chunked_256_target_tokens": 33812
+      },
+      "cpython_algorithms_heapq": {
+        "documents": 56,
+        "languages": [
+          "code"
+        ],
+        "raw_encoded_tokens": 9814,
+        "chunked_256_target_tokens": 9758
+      },
+      "ietf_rfc793_tcp": {
+        "documents": 367,
+        "languages": [
+          "en"
+        ],
+        "raw_encoded_tokens": 61905,
+        "chunked_256_target_tokens": 61538
+      },
+      "wikipedia_hi_premchand": {
+        "documents": 32,
+        "languages": [
+          "hi"
+        ],
+        "raw_encoded_tokens": 10187,
+        "chunked_256_target_tokens": 10155
+      },
+      "wikipedia_en_turing_machine": {
+        "documents": 74,
+        "languages": [
+          "en"
+        ],
+        "raw_encoded_tokens": 16678,
+        "chunked_256_target_tokens": 16604
+      },
+      "wikipedia_hi_chemistry": {
+        "documents": 58,
+        "languages": [
+          "hi"
+        ],
+        "raw_encoded_tokens": 14885,
+        "chunked_256_target_tokens": 14827
+      }
+    }
+  },
+  "target_token_convention": {
+    "chunking_window": 256,
+    "target_tokens_formula": "sum(len(chunk) - 1 for chunk in doc_chunks if len(chunk) >= 2)",
+    "total_raw_encoded_tokens": 147476,
+    "total_target_tokens": 146694
+  },
+  "sanskrit_coverage_recheck": {
+    "classical_sanskrit_train_docs": 0,
+    "classical_sanskrit_train_target_tokens": 0,
+    "corpus_wide_sanskrit_docs_count": 70,
+    "corpus_wide_sanskrit_splits": {
+      "test": 70
+    },
+    "status": "CONFIRMED_ZERO_CLASSICAL_SANSKRIT_TRAINING_COVERAGE"
+  },
+  "distinction_of_coverage_layers": {
+    "source_label_layer": "Only 6 specific non-Sanskrit sources in train (rfc793, gitanjali, turing_machine, chemistry, heapq, premchand).",
+    "language_metadata_layer": "Only en, hi, and code tags present in train. sa tag is 100% absent.",
+    "text_and_token_layer": "All 782 train documents tokenized with canonical tokenizer; exactly 0 target tokens of Classical Sanskrit were trained."
+  }
+}

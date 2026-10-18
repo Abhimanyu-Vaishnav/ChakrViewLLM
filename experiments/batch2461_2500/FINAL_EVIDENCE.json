@@ -1,0 +1,44 @@
+{
+  "mission": "Batch 2461-2500 Independent Gate Validation & Sanskrit Experiment Preregistration",
+  "validator": "experiments/batch2461_2500/INDEPENDENT_EVIDENCE_VALIDATOR.py",
+  "overall_verdict": "PARTIALLY_VERIFIED",
+  "decision": "READY_FOR_EXPERIMENT_REVIEW",
+  "gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "check": "Cryptographic SHA-256 integrity of canonical checkpoints, manifests, and tokenizer",
+      "actual_result": "All 6 canonical artifacts dynamically computed and matched expected SHA-256 digests bit-exact.",
+      "limitation_or_discrepancy": "None"
+    },
+    "test_split_linkage": {
+      "status": "VERIFIED",
+      "check": "Test split linkage and corpus identity",
+      "actual_result": "All 290 test split documents verified unique and resolved in cleaned corpus manifest.",
+      "limitation_or_discrepancy": "None"
+    },
+    "raw_loss_and_regression": {
+      "status": "VERIFIED",
+      "check": "Independent recomputation of document records, loss accumulation, and regression deltas",
+      "actual_result": "Recomputed from 290 raw records: Global Delta CE=-0.1928, Sanskrit Delta=+0.0776 CE (+8.07% PPL), Hindi Delta=-0.0147 CE.",
+      "limitation_or_discrepancy": "None"
+    },
+    "training_coverage": {
+      "status": "VERIFIED",
+      "check": "Training coverage and Classical Sanskrit absence",
+      "actual_result": "Resolved 782 train documents across 6 sources and 3 languages. Classical Sanskrit documents in train: 0.",
+      "limitation_or_discrepancy": "None"
+    },
+    "regression_tests": {
+      "status": "VERIFIED",
+      "check": "Regression test suite execution and pass rate",
+      "actual_result": "25/25 regression tests passed cleanly with exit code 0.",
+      "limitation_or_discrepancy": "None"
+    },
+    "protected_file_provenance": {
+      "status": "PARTIALLY_VERIFIED",
+      "check": "Protected file provenance and working tree preservation",
+      "actual_result": "Filesystem mtime (2026-10-11 16:04:15) and commit logs substantiate pre-existence, but diff is uncommitted in working tree.",
+      "limitation_or_discrepancy": "Filesystem mtime (2026-10-11 16:04:15) and commit logs substantiate pre-existence, but diff is uncommitted in working tree."
+    }
+  }
+}

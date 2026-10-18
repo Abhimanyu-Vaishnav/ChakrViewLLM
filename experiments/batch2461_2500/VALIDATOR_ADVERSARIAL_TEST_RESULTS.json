@@ -1,0 +1,89 @@
+{
+  "test_suite": "experiments/batch2461_2500/test_independent_evidence_validator.py",
+  "execution_metadata": {
+    "batch": "2461-2500",
+    "timestamp": "2026-10-18T09:35:58+05:30",
+    "runner": ".venv_gpu\\Scripts\\pytest",
+    "duration_seconds": 0.47,
+    "exit_code": 0
+  },
+  "adversarial_cases": [
+    {
+      "case_id": 1,
+      "name": "test_adversarial_1_duplicated_document_id",
+      "threat_model": "Duplicated document ID injected into raw loss file",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 2,
+      "name": "test_adversarial_2_missing_document",
+      "threat_model": "Document ID dropped from loss records relative to split manifest",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 3,
+      "name": "test_adversarial_3_target_token_mismatch",
+      "threat_model": "Target token count changed arbitrarily without updating NLL",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 4,
+      "name": "test_adversarial_4_changed_source_id",
+      "threat_model": "Classical Sanskrit source label renamed or corrupted",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 5,
+      "name": "test_adversarial_5_deliberately_incorrect_nll",
+      "threat_model": "Direct NLL value manipulation violating NLL = loss * tokens",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 6,
+      "name": "test_adversarial_6_missing_checkpoint_or_altered_hash",
+      "threat_model": "Checkpoint altered or expected SHA-256 corrupted",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 7,
+      "name": "test_adversarial_7_nonzero_pytest_exit_code",
+      "threat_model": "Simulated pytest runner failure with exit code 1",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 8,
+      "name": "test_adversarial_8_missing_training_document_reference",
+      "threat_model": "Split manifest references non-existent training document ID",
+      "expected_behavior": "Reject with FAILED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 9,
+      "name": "test_adversarial_9_absent_evidence_file",
+      "threat_model": "Missing raw evidence artifact path",
+      "expected_behavior": "Return UNVERIFIED",
+      "observed_status": "PASSED"
+    },
+    {
+      "case_id": 10,
+      "name": "test_adversarial_10_contradictory_raw_evidence_vs_intermediate_claim",
+      "threat_model": "Manipulated candidate losses where candidate performs worse than baseline",
+      "expected_behavior": "Raw recomputation reflects loss increase and 0% win rate regardless of claims",
+      "observed_status": "PASSED"
+    }
+  ],
+  "summary": {
+    "total_tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "status": "VALIDATOR_VERIFIED_ROBUST"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "batch": "2461-2500",
+  "phase": "Phase 3 - Held-Out Regression Final Recheck",
+  "raw_evidence_source": "experiments/batch2381_2420/PER_DOCUMENT_LOSSES.jsonl",
+  "evaluation_convention": {
+    "target_tokens_definition": "Next-token prediction on prompt-response sequences chunked at max_seq 256",
+    "nll_accumulation": "sum(cross_entropy_mean * num_target_tokens)",
+    "token_weighted_ce": "sum(nll) / sum(target_tokens)",
+    "perplexity_formula": "exp(token_weighted_ce)",
+    "floating_point_precision": "IEEE 754 64-bit float (double precision)"
+  },
+  "recomputed_sources": {
+    "gutenberg_loney_coordinate_geometry": {
+      "docs": 150,
+      "tokens": 24482,
+      "baseline_nll": 108490.77928447723,
+      "candidate_nll": 101587.4660422802,
+      "baseline_ce": 4.431450832631208,
+      "candidate_ce": 4.149475779849694,
+      "delta_ce": -0.28197505278151436,
+      "baseline_ppl": 84.05327572570351,
+      "candidate_ppl": 63.400755631475924,
+      "relative_ppl_pct": -24.570749820178683
+    },
+    "wikipedia_en_information_theory": {
+      "docs": 70,
+      "tokens": 15912,
+      "baseline_nll": 78218.30123877525,
+      "candidate_nll": 71185.48874306679,
+      "baseline_ce": 4.915680067796333,
+      "candidate_ce": 4.473698387573328,
+      "delta_ce": -0.4419816802230052,
+      "baseline_ppl": 136.41204770561612,
+      "candidate_ppl": 87.68040020519256,
+      "relative_ppl_pct": -35.72385894066252
+    },
+    "wikipedia_hi_sanskrit_sahitya": {
+      "docs": 9,
+      "tokens": 4798,
+      "baseline_nll": 18809.63897585869,
+      "candidate_nll": 18739.33715224266,
+      "baseline_ce": 3.9203082484073963,
+      "candidate_ce": 3.9056559300213967,
+      "delta_ce": -0.014652318385999674,
+      "baseline_ppl": 50.415983029598,
+      "candidate_ppl": 49.68265757332124,
+      "relative_ppl_pct": -1.4545495539504778
+    },
+    "wikipedia_sa_bhagavad_gita": {
+      "docs": 61,
+      "tokens": 19577,
+      "baseline_nll": 84575.7603764534,
+      "candidate_nll": 86095.30150866508,
+      "baseline_ce": 4.320159389919467,
+      "candidate_ce": 4.3977780818646925,
+      "delta_ce": 0.07761869194522575,
+      "baseline_ppl": 75.20061355657117,
+      "candidate_ppl": 81.27009241213534,
+      "relative_ppl_pct": 8.071049647750923
+    }
+  },
+  "sanskrit_bhagavad_gita_recheck": {
+    "source_id": "wikipedia_sa_bhagavad_gita",
+    "document_count": 61,
+    "evaluated_target_tokens": 19577,
+    "exact_baseline_ce": 4.320159389919467,
+    "exact_candidate_ce": 4.3977780818646925,
+    "exact_delta_ce": 0.07761869194522575,
+    "exact_relative_ppl_pct": 8.071049647750923,
+    "status": "CONFIRMED_HELD_OUT_REGRESSION",
+    "reproduction_match_vs_batch2421": true
+  },
+  "hindi_control_recheck": {
+    "source_id": "wikipedia_hi_sanskrit_sahitya",
+    "document_count": 9,
+    "evaluated_target_tokens": 4798,
+    "exact_baseline_ce": 3.9203082484073963,
+    "exact_candidate_ce": 3.9056559300213967,
+    "exact_delta_ce": -0.014652318385999674,
+    "exact_relative_ppl_pct": -1.4545495539504778,
+    "status": "CONFIRMED_NO_REGRESSION",
+    "reproduction_match_vs_batch2421": true
+  },
+  "scientific_separation_of_facts_and_hypotheses": {
+    "verified_observation": "The CPT candidate shows a 0.0776 CE increase (8.07% PPL increase) on Classical Sanskrit while improving by 0.1928 CE on the test set overall and improving slightly on Hindi commentary (-0.0147 CE).",
+    "causal_hypothesis": "The regression on Classical Sanskrit is hypothesized to stem from zero training exposure during CPT, while other domains (English, Code, Hindi) received active training.",
+    "next_experimental_step": "A controlled curriculum experiment with independent Classical Sanskrit training data is required to causally test this hypothesis."
+  }
+}

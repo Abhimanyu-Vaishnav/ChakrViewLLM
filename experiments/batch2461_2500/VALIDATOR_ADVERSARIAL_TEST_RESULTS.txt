@@ -1,0 +1,37 @@
+======================================================================
+VALIDATOR ADVERSARIAL TEST RUN REPORT - BATCH 2461-2500
+======================================================================
+Command:
+.venv_gpu\Scripts\pytest -v experiments/batch2461_2500/test_independent_evidence_validator.py
+
+Platform: Windows 11 / Python 3.14.7 / pytest 9.1.1
+Timestamp: 2026-10-18T09:35:58+05:30
+Exit Code: 0
+
+Captured Pytest Stdout:
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- D:\Project\ChakrView\.venv_gpu\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Project\ChakrView
+configfile: pytest.ini
+collecting ... collected 10 items
+
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_1_duplicated_document_id PASSED [ 10%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_2_missing_document PASSED [ 20%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_3_target_token_mismatch PASSED [ 30%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_4_changed_source_id PASSED [ 40%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_5_deliberately_incorrect_nll PASSED [ 50%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_6_missing_checkpoint_or_altered_hash PASSED [ 60%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_7_nonzero_pytest_exit_code PASSED [ 70%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_8_missing_training_document_reference PASSED [ 80%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_9_absent_evidence_file PASSED [ 90%]
+experiments/batch2461_2500/test_independent_evidence_validator.py::test_adversarial_10_contradictory_raw_evidence_vs_intermediate_claim PASSED [100%]
+
+============================= 10 passed in 0.47s ==============================
+
+Summary:
+- Total Adversarial Test Cases: 10
+- Passed: 10
+- Failed: 0
+- Status: 100% SUCCESSFUL ADVERSARIAL REJECTION
+======================================================================

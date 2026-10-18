@@ -1,0 +1,136 @@
+{
+  "batch": "2461-2500",
+  "validator": "INDEPENDENT_EVIDENCE_VALIDATOR.py",
+  "overall_verdict": "PARTIALLY_VERIFIED",
+  "decision": "READY_FOR_EXPERIMENT_REVIEW",
+  "gates": {
+    "artifact_integrity": {
+      "status": "VERIFIED",
+      "check": "Cryptographic SHA-256 integrity of canonical checkpoints, manifests, and tokenizer",
+      "verified_artifacts": 6,
+      "total_expected": 6,
+      "mismatches": [],
+      "reason": "All 6 canonical artifacts dynamically computed and matched expected SHA-256 digests bit-exact."
+    },
+    "test_split_linkage": {
+      "status": "VERIFIED",
+      "check": "Test split linkage and corpus identity",
+      "resolved_test_documents": 290,
+      "reason": "All 290 test split documents verified unique and resolved in cleaned corpus manifest."
+    },
+    "raw_loss_and_regression": {
+      "status": "VERIFIED",
+      "check": "Independent recomputation of document records, loss accumulation, and regression deltas",
+      "total_documents": 290,
+      "total_tokens": 64769,
+      "global_baseline_ce": 4.478909352862706,
+      "global_candidate_ce": 4.286118257905089,
+      "global_delta_ce": -0.1927910949576166,
+      "document_win_rate_pct": 76.55172413793103,
+      "source_metrics": {
+        "gutenberg_loney_coordinate_geometry": {
+          "document_count": 150,
+          "target_tokens": 24482,
+          "baseline_nll": 108490.77928447723,
+          "candidate_nll": 101587.4660422802,
+          "baseline_ce": 4.431450832631208,
+          "candidate_ce": 4.149475779849694,
+          "delta_ce": -0.28197505278151436,
+          "baseline_ppl": 84.05327572570351,
+          "candidate_ppl": 63.400755631475924,
+          "relative_ppl_change_pct": -24.570749820178683
+        },
+        "wikipedia_en_information_theory": {
+          "document_count": 70,
+          "target_tokens": 15912,
+          "baseline_nll": 78218.30123877525,
+          "candidate_nll": 71185.48874306679,
+          "baseline_ce": 4.915680067796333,
+          "candidate_ce": 4.473698387573328,
+          "delta_ce": -0.4419816802230052,
+          "baseline_ppl": 136.41204770561612,
+          "candidate_ppl": 87.68040020519256,
+          "relative_ppl_change_pct": -35.72385894066252
+        },
+        "wikipedia_hi_sanskrit_sahitya": {
+          "document_count": 9,
+          "target_tokens": 4798,
+          "baseline_nll": 18809.63897585869,
+          "candidate_nll": 18739.33715224266,
+          "baseline_ce": 3.9203082484073963,
+          "candidate_ce": 3.9056559300213967,
+          "delta_ce": -0.014652318385999674,
+          "baseline_ppl": 50.415983029598,
+          "candidate_ppl": 49.68265757332124,
+          "relative_ppl_change_pct": -1.4545495539504778
+        },
+        "wikipedia_sa_bhagavad_gita": {
+          "document_count": 61,
+          "target_tokens": 19577,
+          "baseline_nll": 84575.7603764534,
+          "candidate_nll": 86095.30150866508,
+          "baseline_ce": 4.320159389919467,
+          "candidate_ce": 4.3977780818646925,
+          "delta_ce": 0.07761869194522575,
+          "baseline_ppl": 75.20061355657117,
+          "candidate_ppl": 81.27009241213534,
+          "relative_ppl_change_pct": 8.071049647750923
+        }
+      },
+      "sanskrit_held_out_regression": {
+        "source_id": "wikipedia_sa_bhagavad_gita",
+        "documents": 61,
+        "tokens": 19577,
+        "delta_ce": 0.07761869194522575,
+        "relative_ppl_pct": 8.071049647750923,
+        "is_regression": true
+      },
+      "hindi_control": {
+        "source_id": "wikipedia_hi_sanskrit_sahitya",
+        "documents": 9,
+        "tokens": 4798,
+        "delta_ce": -0.014652318385999674,
+        "relative_ppl_pct": -1.4545495539504778,
+        "is_regression": false
+      },
+      "reason": "Recomputed from 290 raw records: Global Delta CE=-0.1928, Sanskrit Delta=+0.0776 CE (+8.07% PPL), Hindi Delta=-0.0147 CE."
+    },
+    "training_coverage": {
+      "status": "VERIFIED",
+      "check": "Training coverage and Classical Sanskrit absence",
+      "resolved_train_documents": 782,
+      "source_breakdown": {
+        "gutenberg_tagore_gitanjali": 195,
+        "cpython_algorithms_heapq": 56,
+        "ietf_rfc793_tcp": 367,
+        "wikipedia_hi_premchand": 32,
+        "wikipedia_en_turing_machine": 74,
+        "wikipedia_hi_chemistry": 58
+      },
+      "language_breakdown": {
+        "en": 636,
+        "code": 56,
+        "hi": 90
+      },
+      "classical_sanskrit_train_docs": 0,
+      "classical_sanskrit_in_train": false,
+      "reason": "Resolved 782 train documents across 6 sources and 3 languages. Classical Sanskrit documents in train: 0."
+    },
+    "regression_tests": {
+      "status": "VERIFIED",
+      "check": "Regression test suite execution and pass rate",
+      "total_collected": 25,
+      "passed": 25,
+      "exit_code": 0,
+      "reason": "25/25 regression tests passed cleanly with exit code 0."
+    },
+    "protected_file_provenance": {
+      "status": "PARTIALLY_VERIFIED",
+      "check": "Protected file provenance and working tree preservation",
+      "file_size": 12511,
+      "mtime_timestamp": 1791714855.5905666,
+      "working_tree_blob_sha1": "79fbd618ad4b9b46bbdadac5bb88b7679e55e430",
+      "reason": "Filesystem mtime (2026-10-11 16:04:15) and commit logs substantiate pre-existence, but diff is uncommitted in working tree."
+    }
+  }
+}
