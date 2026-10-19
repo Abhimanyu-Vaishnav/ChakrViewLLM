@@ -15,12 +15,30 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 
 ---
 
-## Public Release Candidate: ChakrView v0.5.0
+## Public Research Preview: ChakrView v0.6.0
+ 
+ChakrView v0.6.0 is an accelerated research-preview release focusing on **working software, validated CPU inference, reproducible packaging, and truthful capability boundaries**.
 
-ChakrView v0.5.0 embodies a **One Cognitive Brain + Hardware-Adaptive Execution** architecture. The same indigenous 3.44M-parameter neural core runs across weak/old PCs, modern multi-core CPUs, systems with integrated GPUs, systems with discrete GPUs, and embedded hardware. Hardware differences change execution strategy, resource allocation, batching, chunking, parallelism and scheduling — NOT the cognitive brain or model identities.
+The same indigenous 3.44M-parameter neural core (`ChakrMicro`) runs natively on CPU hardware without external weights:
+- **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, Step-10,000 checkpoint (`96357705...e9f471ee`, $\Delta W = 0$).
+- **Standardized Runtime**: Verified inference adapter with fast cold start (~447 ms) and throughput (~133 tokens/sec on commodity CPUs).
+- **Truthful Epistemic Limits**: Clear separation between native statistical text continuation and governed retrieval/tools.
+
+For release artifacts, benchmarks, and reproduction instructions, see:
+- [Release Notes v0.6.0](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/RELEASE_NOTES_v0.6.0.md)
+- [Reproducibility Guide](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/REPRODUCIBILITY.md)
+- [Known Limitations](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/KNOWN_LIMITATIONS.md)
+- [Benchmark Results](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/BENCHMARK_RESULTS.json)
+- [Multi-Milestone Roadmap (v0.6 $\to$ v1.0)](file:///d:/Project/ChakrView/docs/ROADMAP.md)
+
+---
+
+## Lineage: ChakrView v0.5.0 Cognitive Foundation
+
+ChakrView v0.5.0 established the **One Cognitive Brain + Hardware-Adaptive Execution** architecture. The same indigenous 3.44M-parameter neural core runs across weak/old PCs, modern multi-core CPUs, systems with integrated GPUs, systems with discrete GPUs, and embedded hardware. Hardware differences change execution strategy, resource allocation, batching, chunking, parallelism and scheduling — NOT the cognitive brain or model identities.
 
 Internal research lineage:
-`v0.2.0 foundation -> V0.4 candidate -> V0.5 neural research -> V0.6 semantic research` (Candidate commit: `1e06746`).
+`v0.2.0 foundation -> V0.4 candidate -> V0.5 neural research -> V0.6 runtime stabilization -> V0.7 capability gate`.
 
 ### Capability Classification & Boundaries
 

@@ -1,0 +1,71 @@
+{
+  "release_version": "v0.6.0-rc1",
+  "release_name": "ChakrView Research Preview v0.6.0",
+  "target_release_date": "2026-11-02",
+  "classification": "Experimental Research Preview",
+  "status": "RELEASE_CANDIDATE_READY",
+  "canonical_artifacts": {
+    "checkpoint": {
+      "name": "training_checkpoint_step_10000.pt",
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "param_count": 3443136,
+      "total_tensor_elements": 4229568,
+      "verified": true
+    },
+    "tokenizer": {
+      "directory": "data/experiments/vocab_4096",
+      "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "vocab_size": 4096,
+      "verified": true
+    }
+  },
+  "release_inventory": [
+    {
+      "file": "RELEASE_NOTES_v0.6.0.md",
+      "description": "Version notes, key highlights, and changes from v0.5.0."
+    },
+    {
+      "file": "RELEASE_READINESS_REPORT.md",
+      "description": "Compliance audit against mandatory gates, benchmark summary, and next experiment proposal."
+    },
+    {
+      "file": "KNOWN_LIMITATIONS.md",
+      "description": "Epistemic and capability boundaries separating neural core from governed retrieval."
+    },
+    {
+      "file": "REPRODUCIBILITY.md",
+      "description": "Step-by-step setup, verification, test, and benchmark reproduction instructions."
+    },
+    {
+      "file": "BENCHMARK_RESULTS.json",
+      "description": "Machine-readable benchmark metrics (load time, TTFT, throughput, memory, determinism)."
+    },
+    {
+      "file": "RELEASE_MANIFEST.json",
+      "description": "Structured inventory and artifact checksums for v0.6.0 release candidate."
+    },
+    {
+      "file": "quickstart_inference.py",
+      "description": "Minimal standalone Python script executing CPU text continuation."
+    },
+    {
+      "file": "benchmark_v060.py",
+      "description": "Deterministic CPU inference benchmark harness."
+    },
+    {
+      "file": "tests/test_v060_release_smoke.py",
+      "description": "Automated smoke test suite validating artifact integrity, shapes, and determinism."
+    }
+  ],
+  "verification_status": {
+    "all_hashes_matched": true,
+    "session_py_unmodified": true,
+    "smoke_tests_passed": true,
+    "smoke_test_count": 7,
+    "regression_tests_passed": true,
+    "regression_test_count": 9,
+    "no_training_occurred": true
+  }
+}

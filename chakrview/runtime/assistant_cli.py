@@ -23,6 +23,14 @@ def main():
     )
     parser.add_argument("--device", type=str, default=None, choices=["cpu", "cuda"], help="Force execution device (cpu or cuda)")
     parser.add_argument("--consent", action="store_true", help="Grant consent for local conversation memory and feedback capture")
+    parser.add_argument("--enable-neural-generation", action="store_true", help="Enable experimental CPU neural generation fallback (unverified)")
+    parser.add_argument("--neural-checkpoint", type=str, default=None, help="Path or allowlist key for neural checkpoint (default: canonical step_10000)")
+    parser.add_argument("--neural-max-new-tokens", type=int, default=32, help="Maximum generated tokens for neural fallback (default: 32, max: 64)")
+    parser.add_argument("--neural-prompt-mode", type=str, default="raw_completion", choices=["raw_completion", "plain_instruction", "context_qa"], help="Prompt conditioning template mode (default: raw_completion)")
+    parser.add_argument("--neural-decoding", type=str, default="greedy", choices=["greedy", "sampling"], help="Decoding strategy (default: greedy)")
+    parser.add_argument("--neural-temperature", type=float, default=0.0, help="Sampling temperature when decoding=sampling (default: 0.0)")
+    parser.add_argument("--neural-repetition-penalty", type=float, default=1.0, help="Discount penalty applied to repeated tokens (default: 1.0, max: 10.0)")
+    parser.add_argument("--neural-seed", type=int, default=42, help="Deterministic seed for stochastic sampling (default: 42)")
     
     subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
 
@@ -51,7 +59,18 @@ def main():
         parser.print_help()
         sys.exit(1)
 
-    adapter = IntegratedAssistantAdapter(forced_device=args.device, enable_consent_default=args.consent)
+    adapter = IntegratedAssistantAdapter(
+        forced_device=args.device,
+        enable_consent_default=args.consent,
+        enable_neural_generation=args.enable_neural_generation,
+        neural_checkpoint=args.neural_checkpoint,
+        neural_max_new_tokens=args.neural_max_new_tokens,
+        neural_prompt_mode=args.neural_prompt_mode,
+        neural_decoding=args.neural_decoding,
+        neural_temperature=args.neural_temperature,
+        neural_repetition_penalty=args.neural_repetition_penalty,
+        neural_seed=args.neural_seed,
+    )
 
     if args.command == "status":
         st = adapter.get_system_status()
