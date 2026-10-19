@@ -1,0 +1,32 @@
+{
+  "manifest_version": "batch2941_2980_v1",
+  "description": "Balanced 70/30 SFT dataset mixture combining 280 instruction examples and 120 pretraining replay continuations",
+  "total_records": 400,
+  "split_counts": {
+    "train": 320,
+    "val": 40,
+    "test": 40
+  },
+  "mixture_ratio": {
+    "instruction_examples": 280,
+    "instruction_percentage": 70.0,
+    "replay_examples": 120,
+    "replay_percentage": 30.0
+  },
+  "category_counts": {
+    "simple_instruction": 40,
+    "context_extraction": 40,
+    "context_grounded_qa": 40,
+    "short_summarization": 40,
+    "structured_output": 40,
+    "uncertainty_insufficient_info": 40,
+    "bounded_text_transformation": 40,
+    "base_continuation_replay": 120
+  },
+  "file_checksums": {
+    "dataset_sha256": "76680401a93d2fd992f8ffaa34081fd3cff0776bb4c3729b7040abb23cf40632",
+    "train_sha256": "ee0a3843950f7b42dc383c6dc2704a909e67dfd018bd7c0788a423e892f7b840",
+    "val_sha256": "2c00d0c8f6bb1c533197f7f93d07777fd1359552bc9a9f74b76453d4248473e1",
+    "test_sha256": "e4e41b00d2fab66555d79cd122978637c7b4bcc6985b4c98167684b642e15d05"
+  }
+}

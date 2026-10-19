@@ -1,0 +1,52 @@
+{
+  "pilot_id": "batch2861_2900_sft_100step_pilot",
+  "execution_timestamp": "2026-10-18T11:22:12Z",
+  "authorization": {
+    "status": "AUTHORIZED",
+    "scope": "100 optimizer steps on CPU using 192-example curated dataset",
+    "pilot_output_directory": "experiments/batch2821_2860/sft_pilot_run"
+  },
+  "parent_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "verified_untouched": true
+  },
+  "training_execution": {
+    "device": "cpu",
+    "optimizer": "AdamW",
+    "initial_lr": 5e-05,
+    "min_lr": 5e-06,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "batch_size": 4,
+    "completed_optimizer_steps": 100,
+    "elapsed_seconds": 13.38,
+    "initial_val_loss": 4.939,
+    "final_train_loss": 3.7161,
+    "final_val_loss": 3.9569,
+    "best_val_step": 40,
+    "best_val_loss": 3.9523,
+    "final_val_perplexity": 52.3
+  },
+  "candidate_checkpoints": [
+    {
+      "step": 25,
+      "file": "sft_checkpoint_step_25.pt"
+    },
+    {
+      "step": 50,
+      "file": "sft_checkpoint_step_50.pt"
+    },
+    {
+      "step": 75,
+      "file": "sft_checkpoint_step_75.pt"
+    },
+    {
+      "step": 100,
+      "file": "sft_checkpoint_step_100.pt",
+      "file_sha256": "f911d081c8a6fbdde0e21322c15bb56d2db6f84593c47ea5e280dbfae2b574b1",
+      "parameter_digest": "d084b6f66d0a867a47c3a107f577e80a886e33a5557e0c9663bd25c6d4a1cee8"
+    }
+  ]
+}

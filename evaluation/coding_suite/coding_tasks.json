@@ -1,0 +1,55 @@
+{
+  "suite_name": "CHAKRVIEW_CODING_BENCHMARK_v0.7",
+  "version": "1.0.0",
+  "description": "Reproducible, leakage-safe coding capability benchmark spanning 6 core software development categories with sandboxed test fixtures.",
+  "tasks": [
+    {
+      "id": "CODE-COMP-01",
+      "category": "code_completion",
+      "prompt": "# Complete the function to compute factorial recursively:\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return ",
+      "target_snippet": "n * factorial(n - 1)",
+      "validation_type": "unit_test",
+      "test_code": "assert factorial(5) == 120\nassert factorial(0) == 1\nassert factorial(1) == 1"
+    },
+    {
+      "id": "CODE-IMPL-01",
+      "category": "simple_function_implementation",
+      "prompt": "Write a Python function named `is_palindrome` that takes a string s and returns True if s is identical forward and backward, otherwise False:\ndef is_palindrome(s: str) -> bool:\n",
+      "target_snippet": "    return s == s[::-1]",
+      "validation_type": "unit_test",
+      "test_code": "assert is_palindrome('radar') is True\nassert is_palindrome('hello') is False\nassert is_palindrome('') is True"
+    },
+    {
+      "id": "CODE-BUG-01",
+      "category": "bug_identification_and_correction",
+      "prompt": "# Fix the off-by-one bug in the sum_first_n function:\n# Buggy:\n# def sum_first_n(n):\n#     total = 0\n#     for i in range(n): total += i\n#     return total\n# Fixed:\ndef sum_first_n(n):\n",
+      "target_snippet": "    return sum(range(1, n + 1))",
+      "validation_type": "unit_test",
+      "test_code": "assert sum_first_n(5) == 15\nassert sum_first_n(1) == 1\nassert sum_first_n(0) == 0"
+    },
+    {
+      "id": "CODE-TEST-01",
+      "category": "basic_unit_test_generation",
+      "prompt": "# Given the function add(a, b): return a + b\n# Write a Python assert statement verifying 2 + 3 == 5:\n",
+      "target_snippet": "assert add(2, 3) == 5",
+      "validation_type": "unit_test",
+      "test_code": "def add(a, b): return a + b\nassert add(2, 3) == 5"
+    },
+    {
+      "id": "CODE-REQ-01",
+      "category": "following_explicit_requirements",
+      "prompt": "Write a Python function `clamp(val, low, high)` that returns low if val < low, high if val > high, and val otherwise:\ndef clamp(val, low, high):\n",
+      "target_snippet": "    return max(low, min(val, high))",
+      "validation_type": "unit_test",
+      "test_code": "assert clamp(10, 0, 5) == 5\nassert clamp(-5, 0, 5) == 0\nassert clamp(3, 0, 5) == 3"
+    },
+    {
+      "id": "CODE-SYN-01",
+      "category": "syntax_validity",
+      "prompt": "Write a valid Python class definition named `Point` with an __init__ method taking x and y:\nclass Point:\n",
+      "target_snippet": "    def __init__(self, x, y):\n        self.x = x\n        self.y = y",
+      "validation_type": "unit_test",
+      "test_code": "p = Point(10, 20)\nassert p.x == 10 and p.y == 20"
+    }
+  ]
+}

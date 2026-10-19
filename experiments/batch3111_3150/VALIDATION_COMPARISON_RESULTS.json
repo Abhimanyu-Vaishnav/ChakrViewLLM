@@ -1,0 +1,520 @@
+{
+  "total_records_evaluated": 20,
+  "unconstrained_metrics": {
+    "valid_syntax_count": 0,
+    "valid_syntax_pct": 0.0,
+    "schema_match_count": 0,
+    "schema_match_pct": 0.0,
+    "avg_tokens": 48.0
+  },
+  "constrained_metrics": {
+    "valid_syntax_count": 0,
+    "valid_syntax_pct": 0.0,
+    "completed_objects": 0,
+    "schema_match_count": 0,
+    "schema_match_pct": 0.0,
+    "avg_tokens": 48.0
+  },
+  "per_record_comparison": [
+    {
+      "id": "JSON_V2_VAL_001",
+      "category": "structured_output_server_status",
+      "prompt": "Instruction: Return a JSON object with fields 'status' and 'code' indicating server health status and return code.\nResponse:",
+      "target": "{\"status\": \"queued\", \"code\": 202}",
+      "expected_keys": [
+        "status",
+        "code"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # CError: CError: Callyou import ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"code\":\", \", \"codecs.\"\n       \n    ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_002",
+      "category": "structured_output_server_status",
+      "prompt": "Instruction: Provide a JSON object with attributes 'status' and 'code' for server health status and return code.\nResponse:",
+      "target": "{\"status\": \"draining\", \"code\": 200}",
+      "expected_keys": [
+        "status",
+        "code"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n\n    # import doctest\n    # Test the resulting the resulting the resulting ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"__main__\":\":\", \"main__\":\n       ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 55 (char 67)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_003",
+      "category": "structured_output_server_status",
+      "prompt": "Instruction: Return a JSON object with fields 'status' and 'code' indicating server health status and return code.\nResponse:",
+      "target": "{\"status\": \"internal_error\", \"code\": 500}",
+      "expected_keys": [
+        "status",
+        "code"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # CError: CError: Callyou import ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"code\":\", \", \"codecs.\"\n       \n    ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_004",
+      "category": "structured_output_server_status",
+      "prompt": "Instruction: Provide a JSON object with attributes 'status' and 'code' for server health status and return code.\nResponse:",
+      "target": "{\"status\": \"service_down\", \"code\": 503}",
+      "expected_keys": [
+        "status",
+        "code"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n\n    # import doctest\n    # Test the resulting the resulting the resulting ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"__main__\":\":\", \"main__\":\n       ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 55 (char 67)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_005",
+      "category": "structured_output_server_status",
+      "prompt": "Instruction: Return a JSON object with fields 'status' and 'code' indicating server health status and return code.\nResponse:",
+      "target": "{\"status\": \"closed\", \"code\": 410}",
+      "expected_keys": [
+        "status",
+        "code"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # CError: CError: Callyou import ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"code\":\", \", \"codecs.\"\n       \n    ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_006",
+      "category": "structured_output_network_metric",
+      "prompt": "Instruction: Return a JSON object with fields 'metric' and 'value' indicating telemetry metric name and measured reading.\nResponse:",
+      "target": "{\"metric\": \"vibration_g\", \"value\": 0.12}",
+      "expected_keys": [
+        "metric",
+        "value"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\":\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # It codecs.\n    # ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 1 column 20 (char 19)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\":\", \"code\":\":\", \"code\":\", \", \"main__\":\n       \"066666",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 2 column 8 (char 63)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_007",
+      "category": "structured_output_network_metric",
+      "prompt": "Instruction: Provide a JSON object with attributes 'metric' and 'value' for telemetry metric name and measured reading.\nResponse:",
+      "target": "{\"metric\": \"ambient_temp\", \"value\": 24.5}",
+      "expected_keys": [
+        "metric",
+        "value"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\":\"__main__\":\n    import doctest\n\n    # import doctest\n    # Test the resulting the re",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 1 column 20 (char 19)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\":\", \"code\":\"__main__\", \"__main__\":\n       \"06666640% import ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 2 column 8 (char 59)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_008",
+      "category": "structured_output_network_metric",
+      "prompt": "Instruction: Return a JSON object with fields 'metric' and 'value' indicating telemetry metric name and measured reading.\nResponse:",
+      "target": "{\"metric\": \"drop_rate\", \"value\": 0.03}",
+      "expected_keys": [
+        "metric",
+        "value"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\":\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # It codecs.\n    # ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 1 column 20 (char 19)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\":\", \"code\":\":\", \"code\":\", \", \"main__\":\n       \"066666",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 2 column 8 (char 63)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_009",
+      "category": "structured_output_network_metric",
+      "prompt": "Instruction: Provide a JSON object with attributes 'metric' and 'value' for telemetry metric name and measured reading.\nResponse:",
+      "target": "{\"metric\": \"noise_db\", \"value\": 42.0}",
+      "expected_keys": [
+        "metric",
+        "value"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\":\"__main__\":\n    import doctest\n\n    # import doctest\n    # Test the resulting the re",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 1 column 20 (char 19)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\":\", \"code\":\"__main__\", \"__main__\":\n       \"06666640% import ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 2 column 8 (char 59)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_010",
+      "category": "structured_output_network_metric",
+      "prompt": "Instruction: Return a JSON object with fields 'metric' and 'value' indicating telemetry metric name and measured reading.\nResponse:",
+      "target": "{\"metric\": \"rssi_dbm\", \"value\": -65.4}",
+      "expected_keys": [
+        "metric",
+        "value"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\":\"__main__\":\n    import doctest\n\n    # import doctest\n\n    # It codecs.\n    # ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 1 column 20 (char 19)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\":\", \"code\":\":\", \"code\":\", \", \"main__\":\n       \"066666",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 2 column 8 (char 63)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_011",
+      "category": "structured_output_feature_flag",
+      "prompt": "Instruction: Return a JSON object with fields 'feature' and 'enabled' indicating system feature flag name and operational state.\nResponse:",
+      "target": "{\"feature\": \"memory_checkpointing\", \"enabled\": true}",
+      "expected_keys": [
+        "feature",
+        "enabled"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n    import doctest\n\n    # CErrort\n    # Chinase: Incremental remov",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"main\":\", \", \"codecs.\"\n\n\n\n\n\n",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_012",
+      "category": "structured_output_feature_flag",
+      "prompt": "Instruction: Provide a JSON object with attributes 'feature' and 'enabled' for system feature flag name and operational state.\nResponse:",
+      "target": "{\"feature\": \"vector_cache\", \"enabled\": true}",
+      "expected_keys": [
+        "feature",
+        "enabled"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n    import doctest\n    import codecs.charmap_decode(input,errors,\n    # Codec: ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"main__\":\n       \"__main__\", \"__main",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 3 column 20 (char 71)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_013",
+      "category": "structured_output_feature_flag",
+      "prompt": "Instruction: Return a JSON object with fields 'feature' and 'enabled' indicating system feature flag name and operational state.\nResponse:",
+      "target": "{\"feature\": \"fallback_relay\", \"enabled\": false}",
+      "expected_keys": [
+        "feature",
+        "enabled"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n    import doctest\n\n    # CErrort\n    # Chinase: Incremental remov",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"main\":\", \", \"codecs.\"\n\n\n\n\n\n",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_014",
+      "category": "structured_output_feature_flag",
+      "prompt": "Instruction: Provide a JSON object with attributes 'feature' and 'enabled' for system feature flag name and operational state.\nResponse:",
+      "target": "{\"feature\": \"strict_json\", \"enabled\": true}",
+      "expected_keys": [
+        "feature",
+        "enabled"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n    import doctest\n    import codecs.charmap_decode(input,errors,\n    # Codec: ",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"main__\":\n       \"__main__\", \"__main",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Unterminated string starting at: line 3 column 20 (char 71)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_015",
+      "category": "structured_output_feature_flag",
+      "prompt": "Instruction: Return a JSON object with fields 'feature' and 'enabled' indicating system feature flag name and operational state.\nResponse:",
+      "target": "{\"feature\": \"anonymous_access\", \"enabled\": false}",
+      "expected_keys": [
+        "feature",
+        "enabled"
+      ],
+      "unconstrained": {
+        "text": "{\"__main__\":\n    import doctest\n    import doctest\n\n    # CErrort\n    # Chinase: Incremental remov",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 17)"
+      },
+      "constrained": {
+        "text": "{\"__main__\":\n       \"__main__\", \"f\":\", \", \"main\":\", \", \"codecs.\"\n\n\n\n\n\n",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 2 column 52 (char 64)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_016",
+      "category": "structured_output_inventory_item",
+      "prompt": "Instruction: Return a JSON object with fields 'name' and 'count' indicating inventory item name and available count.\nResponse:",
+      "target": "{\"name\": \"hard_drive_tray\", \"count\": 50}",
+      "expected_keys": [
+        "name",
+        "count"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\n    import doctest\n\n    # import doctest\n\n    # Copenral removed to be a resulting the re",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 21)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\n       \"__main__\", \"__main__\":\n       \"__main__\"\n       \n       \n      ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 3 column 18 (char 65)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_017",
+      "category": "structured_output_inventory_item",
+      "prompt": "Instruction: Provide a JSON object with attributes 'name' and 'count' for inventory item name and available count.\nResponse:",
+      "target": "{\"name\": \"buzzer_alarm\", \"count\": 42}",
+      "expected_keys": [
+        "name",
+        "count"
+      ],
+      "unconstrained": {
+        "text": "{\"name\", \"index\", \"index\", \"index\", \"index\", \"index\", \"in__main__\":\n    import doc",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 1 column 8 (char 7)"
+      },
+      "constrained": {
+        "text": "{\"name\":\", \", \"index\"\n       \n       \n       \n       \n       \n       \n       \n       \n    ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 1 column 22 (char 21)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_018",
+      "category": "structured_output_inventory_item",
+      "prompt": "Instruction: Return a JSON object with fields 'name' and 'count' indicating inventory item name and available count.\nResponse:",
+      "target": "{\"name\": \"dust_cover\", \"count\": 110}",
+      "expected_keys": [
+        "name",
+        "count"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\n    import doctest\n\n    # import doctest\n\n    # Copenral removed to be a resulting the re",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 21)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\n       \"__main__\", \"__main__\":\n       \"__main__\"\n       \n       \n      ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 3 column 18 (char 65)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_019",
+      "category": "structured_output_inventory_item",
+      "prompt": "Instruction: Provide a JSON object with attributes 'name' and 'count' for inventory item name and available count.\nResponse:",
+      "target": "{\"name\": \"usb_hub\", \"count\": 28}",
+      "expected_keys": [
+        "name",
+        "count"
+      ],
+      "unconstrained": {
+        "text": "{\"name\", \"index\", \"index\", \"index\", \"index\", \"index\", \"in__main__\":\n    import doc",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 1 column 8 (char 7)"
+      },
+      "constrained": {
+        "text": "{\"name\":\", \", \"index\"\n       \n       \n       \n       \n       \n       \n       \n       \n    ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ':' delimiter: line 1 column 22 (char 21)"
+      }
+    },
+    {
+      "id": "JSON_V2_VAL_020",
+      "category": "structured_output_inventory_item",
+      "prompt": "Instruction: Return a JSON object with fields 'name' and 'count' indicating inventory item name and available count.\nResponse:",
+      "target": "{\"name\": \"wire_harness\", \"count\": 65}",
+      "expected_keys": [
+        "name",
+        "count"
+      ],
+      "unconstrained": {
+        "text": "{\"name__main__\":\n    import doctest\n\n    # import doctest\n\n    # Copenral removed to be a resulting the re",
+        "token_count": 48,
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting value: line 2 column 5 (char 21)"
+      },
+      "constrained": {
+        "text": "{\"name__main__\":\n       \"__main__\", \"__main__\":\n       \"__main__\"\n       \n       \n      ",
+        "token_count": 48,
+        "stop_reason": "MAX_TOKENS",
+        "syntax_valid": false,
+        "schema_match": false,
+        "error": "Expecting ',' delimiter: line 3 column 18 (char 65)"
+      }
+    }
+  ]
+}

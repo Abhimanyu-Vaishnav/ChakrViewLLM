@@ -1,0 +1,68 @@
+{
+  "hypotheses": [
+    {
+      "rank": 1,
+      "hypothesis": "Pretraining continuation attractor",
+      "supporting_evidence": "Candidate checkpoint consistently (10/10, 100%) generates '{\"__main__\":\\n import doctest' when prompted with bare '\\nResponse:' delimiter. This matches pretraining corpus patterns from Python test suites where code blocks open with dict-like docstring test harnesses.",
+      "evidence_against": "Attractor rate is 0/10 (0%) on the exact same checkpoint when prompted with alternative framing like 'User: ... Assistant: {' or 'Question: ... Answer:'. This proves the attractor is strongly conditional on specific prompt boundary token transitions rather than being an inescapable global minimum.",
+      "cheapest_falsification_experiment": "Inference prompt boundary test: evaluate candidate generation under 3 distinct prompt delimiters without retraining. If changing boundary tokens reliably suppresses doctest emission, the attractor is boundary-conditioned.",
+      "confidence": "High"
+    },
+    {
+      "rank": 2,
+      "hypothesis": "Prompt-format or delimiter mismatch",
+      "supporting_evidence": "The training prompt boundary '\\nResponse:' allows the model to treat the response as code execution output or docstring. Replacing '\\nResponse:' with chat-style 'User:... Assistant: {' eliminated doctest attractors across all 10 evaluated diagnostic records.",
+      "evidence_against": "While fixing prompt format eliminates the doctest attractor, it did NOT yield correct value extractions (Task B exact match remained 0/10), proving prompt format is a necessary but not sufficient factor.",
+      "cheapest_falsification_experiment": "Test candidate with 'Assistant: {' prefix and measure whether correct context values are emitted. Falsified as sole root cause because value selection remained 0/10.",
+      "confidence": "High"
+    },
+    {
+      "rank": 3,
+      "hypothesis": "Weak context-to-answer learning",
+      "supporting_evidence": "In Task A (direct copy of exact word from context) and Task B (extract single field value), candidate achieved 0/10 value accuracy on unseen validation passages. The model has not learned to attend from response tokens back into the context passage tokens.",
+      "evidence_against": "In-sample training loss dropped from 5.3873 to 3.6204, showing the model learned target surface statistics (e.g., closing braces, field syntax) on the training set, but out-of-sample context retrieval failed.",
+      "cheapest_falsification_experiment": "Teacher-forced cross-entropy loss comparison between context-present and context-scrambled inputs. If loss is identical, attention routing is not utilizing context.",
+      "confidence": "High"
+    },
+    {
+      "rank": 4,
+      "hypothesis": "Insufficient training duration",
+      "supporting_evidence": "Pilot was capped at 100 steps (batch size 1, 100 training examples total, ~10.5 seconds of CPU time). Learning complex cross-attention routing from scratch from 100 samples is mathematically improbable given parameter count (4.5M) and random sampling across 5 categories.",
+      "evidence_against": "100 steps was sufficient to reduce validation loss by 1.7669 nats (5.3873 to 3.6204) and establish strong stylistic priors (emitting valid JSON keys and braces).",
+      "cheapest_falsification_experiment": "Compare loss curve trajectory and gradient norms across steps 0-100; if loss is still steeply descending at step 100 without plateauing, training was undertrained.",
+      "confidence": "Medium"
+    },
+    {
+      "rank": 5,
+      "hypothesis": "Model-capacity limitations",
+      "supporting_evidence": "ChakrMicro is a 4.5M parameter 6-layer 6-head 384-hidden model. Context copying circuits require induction heads and binding mechanisms that may require larger capacity or longer pretraining.",
+      "evidence_against": "ChakrMicro demonstrated capability to perform replay QA and template completion; 4.5M parameters is theoretically sufficient for basic n-gram pointer copying if properly aligned.",
+      "cheapest_falsification_experiment": "Train a synthetic 1-field copy task with 500 steps. If 4.5M model masters 1-field copy, model capacity is not the bottleneck.",
+      "confidence": "Medium"
+    },
+    {
+      "rank": 6,
+      "hypothesis": "Dataset target ambiguity or inconsistent supervision",
+      "supporting_evidence": "SFT V3 dataset contains multi-field schemas with varied casing, booleans, integers, and nested structures across 5 distinct categories, creating multi-task interference within 100 steps.",
+      "evidence_against": "Dataset contract audit proved all 30 validation records adhere strictly to schema types, keys, and values derived directly from context with 0% leakage.",
+      "cheapest_falsification_experiment": "Train pilot on 1 single category (e.g. single-field status) vs mixed multi-task. If single-task succeeds, multi-task interference is confirmed.",
+      "confidence": "Medium"
+    },
+    {
+      "rank": 7,
+      "hypothesis": "Causal loss masking or token-alignment defect",
+      "supporting_evidence": "Initially suspected as a reason for metric discrepancies.",
+      "evidence_against": "Direct audit of loss computation confirmed context tokens are masked with -100, prompt/response boundaries are properly aligned, and context tokens are fully visible in the attention matrix during answer prediction.",
+      "cheapest_falsification_experiment": "Verify forward pass loss with synthetic prompt/response pairs with known cross-entropy; verified mathematically in unit tests.",
+      "confidence": "Low"
+    },
+    {
+      "rank": 8,
+      "hypothesis": "Decoding constraints or scoring defects",
+      "supporting_evidence": "Initially suspected that Schema Prefix Trie was blocking valid tokens or scoring was corrupt.",
+      "evidence_against": "Direct diagnostic audit proved 10/10 (100%) ground truth validation targets are fully reachable under the Trie. Scorer accurately parsed valid JSON and penalized empty/malformed text correctly.",
+      "cheapest_falsification_experiment": "Trie reachability diagnostic on validation set ground truth; confirmed 100% reachable.",
+      "confidence": "Low"
+    }
+  ]
+}

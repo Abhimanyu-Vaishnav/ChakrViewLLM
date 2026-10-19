@@ -1,0 +1,267 @@
+{
+  "milestone": "SFT_V3_FAILURE_ANALYSIS",
+  "sample_size": 10,
+  "prompt_ablations": {
+    "format_1_canonical_v3": {
+      "base_attractor_rate": "0/10",
+      "cand_attractor_rate": "10/10",
+      "base_valid_json_rate": "0/10",
+      "cand_valid_json_rate": "0/10",
+      "sample_outputs": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "base_output": "\n\n\nAndron-est\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+          "cand_output": "{\"__main__\":\n    # import doctest\n\n\n    # Codec import codecannot resupport impo",
+          "cand_is_attractor": true
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "base_output": "\n\n\nAndrong is a shows to be a list of the city of the centre of the centuride.\n\n",
+          "cand_output": "{\"__main__\":\":\", \"code\", \"code\", \"code\", \"code\", \", \"code\", \"",
+          "cand_is_attractor": true
+        }
+      ]
+    },
+    "format_2_explicit_json_prefix": {
+      "base_attractor_rate": "1/10",
+      "cand_attractor_rate": "2/10",
+      "base_valid_json_rate": "0/10",
+      "cand_valid_json_rate": "0/10",
+      "sample_outputs": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "base_output": "| classic import Sp(' | classcopedire import codecan\n\n\n\n\n\n\ndef get_to",
+          "cand_output": "\"main\", \"code\", \"code\", \"code\", \"codec\", \"codecannotemperaturece_",
+          "cand_is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "base_output": "| classcope='last '' classhowsonal of the word of the show of the son of the fir",
+          "cand_output": "\"strict\", \"code\", \"code\", \"code\", \"code\", \", \", \"codece\", \"code",
+          "cand_is_attractor": false
+        }
+      ]
+    },
+    "format_3_section_delimited": {
+      "base_attractor_rate": "0/10",
+      "cand_attractor_rate": "6/10",
+      "base_valid_json_rate": "0/10",
+      "cand_valid_json_rate": "0/10",
+      "sample_outputs": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "base_output": "| classcombindegreach classhowikiloadd the first of the fixidlefactupather ",
+          "cand_output": "\"code\", \"maindeletter\", \"code\", \"indelecenter\", \"code\"main__main__\", ",
+          "cand_is_attractor": true
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "base_output": "| classcoordinathangoovannot the filed the first of the filed the files\n# The fi",
+          "cand_output": "\"indeleader\", \"in__main__\":\", \"code\", \"codec\", \"codecs.\", \"codec",
+          "cand_is_attractor": true
+        }
+      ]
+    },
+    "format_4_chat_turn_delimited": {
+      "base_attractor_rate": "0/10",
+      "cand_attractor_rate": "0/10",
+      "base_valid_json_rate": "0/10",
+      "cand_valid_json_rate": "0/10",
+      "sample_outputs": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "base_output": "| class=&quot;wikitable&quot; style=&quot;background-color: &quot",
+          "cand_output": "\"strict\", \"code\", \"index\", \"code\", \"code\", \"code\", \"code\", \"inde",
+          "cand_is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "base_output": "| class=&quot;wikitable&quot; style=&quot;background-color: &quot",
+          "cand_output": "\"input\", \"input\", \"index\", \"index\", \"index\", \"index\", \"index\", ",
+          "cand_is_attractor": false
+        }
+      ]
+    },
+    "format_5_plain_text_question": {
+      "base_attractor_rate": "0/10",
+      "cand_attractor_rate": "0/10",
+      "base_valid_json_rate": "0/10",
+      "cand_valid_json_rate": "0/10",
+      "sample_outputs": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "base_output": "Andronia, the Christian Andra (b. 1994)\n\n\nAndrone of the A",
+          "cand_output": "Andronia is a non-section of the world, which is a face of the world, which is t",
+          "cand_is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "base_output": "Andronia is the first of the world, which is the first of the word of the world.",
+          "cand_output": "Androne of the first face of the world, which is a face of the world, which is t",
+          "cand_is_attractor": false
+        }
+      ]
+    }
+  },
+  "progressive_extraction_tasks": {
+    "task_A_direct_copy": {
+      "value_hit_rate": "0/10 (0.0%)",
+      "attractor_rate": "0/10 (0.0%)",
+      "samples": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "expected": "dispatched",
+          "generated": "The first face of the word of the world, which is the world,",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "expected": "guest_access",
+          "generated": "The world, the world, the world, which is a list of the worl",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_INV_005",
+          "expected": "ribbon_cable_harness",
+          "generated": "The first number of the world, which is a list of the world,",
+          "contains_expected": false,
+          "is_attractor": false
+        }
+      ]
+    },
+    "task_B_single_field_qa": {
+      "value_hit_rate": "0/10 (0.0%)",
+      "attractor_rate": "0/10 (0.0%)",
+      "samples": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "expected": "dispatched",
+          "generated": "Androne of the first face of the first face of the first fac",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "expected": "guest_access",
+          "generated": "Andronia is the first position, which is the first face of t",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_INV_005",
+          "expected": "ribbon_cable_harness",
+          "generated": "https://en.wikipedia.org/wiki/Books/p",
+          "contains_expected": false,
+          "is_attractor": false
+        }
+      ]
+    },
+    "task_C_single_field_json": {
+      "value_hit_rate": "0/10 (0.0%)",
+      "attractor_rate": "0/10 (0.0%)",
+      "samples": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "expected": "dispatched",
+          "generated": "\", \"input\", \"input\", \"index\", \"index\", \"index\",",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "expected": "guest_access",
+          "generated": "f\", \"input\", \"input\", \"input\", \"index\", \"index\",",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_INV_005",
+          "expected": "ribbon_cable_harness",
+          "generated": "b\", \"input\", \"index\", \"index\", \"index\", \"index",
+          "contains_expected": false,
+          "is_attractor": false
+        }
+      ]
+    },
+    "task_D_two_field_json": {
+      "value_hit_rate": "0/10 (0.0%)",
+      "attractor_rate": "0/10 (0.0%)",
+      "samples": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "expected": "dispatched",
+          "generated": "np.ndarray_of_to_to_to_to_to_to_to_to_to_to",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "expected": "guest_access",
+          "generated": "next_list[0]\n    >>> linked_list.insert(\"input\", \"index\",",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_INV_005",
+          "expected": "ribbon_cable_harness",
+          "generated": "np.ndarray_of_to_to_to_to_to_to_to_to_to_to",
+          "contains_expected": false,
+          "is_attractor": false
+        }
+      ]
+    },
+    "task_E_full_canonical": {
+      "value_hit_rate": "0/10 (0.0%)",
+      "attractor_rate": "0/10 (0.0%)",
+      "samples": [
+        {
+          "id": "SFT3_VAL_ATC_002",
+          "expected": "dispatched",
+          "generated": "'large candublic getcans to be used to be used to be used to",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_FLG_005",
+          "expected": "guest_access",
+          "generated": "'bort', 'butt', 'month', 'candd', 'handd",
+          "contains_expected": false,
+          "is_attractor": false
+        },
+        {
+          "id": "SFT3_VAL_INV_005",
+          "expected": "ribbon_cable_harness",
+          "generated": "'strict', 'hand', 'htt', 'httd', 'handd",
+          "contains_expected": false,
+          "is_attractor": false
+        }
+      ]
+    }
+  },
+  "schema_trie_reachability_audit": {
+    "all_ground_truth_targets_reachable": true,
+    "reachable_count": "10/10",
+    "records": [
+      {
+        "id": "SFT3_VAL_ATC_002",
+        "target": "{\"status\": \"dispatched\", \"code\": 202}",
+        "is_reachable_under_trie": true,
+        "failure_reason": null
+      },
+      {
+        "id": "SFT3_VAL_FLG_005",
+        "target": "{\"feature\": \"guest_access\", \"enabled\": false}",
+        "is_reachable_under_trie": true,
+        "failure_reason": null
+      },
+      {
+        "id": "SFT3_VAL_INV_005",
+        "target": "{\"name\": \"ribbon_cable_harness\", \"count\": 110}",
+        "is_reachable_under_trie": true,
+        "failure_reason": null
+      }
+    ]
+  }
+}

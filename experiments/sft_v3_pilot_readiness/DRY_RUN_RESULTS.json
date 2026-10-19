@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "dry_run_version": "3.0.0",
+  "device": "cpu",
+  "dataset_checks": {
+    "train_path": "D:\\Project\\ChakrView\\experiments\\sft_v3_dataset_builder\\train.jsonl",
+    "train_sha256": "57affaa613eaf0e31be752bc680dddcd3c748e1cee3752942db93e8dea270804",
+    "val_path": "D:\\Project\\ChakrView\\experiments\\sft_v3_dataset_builder\\validation.jsonl",
+    "val_sha256": "4c4c77d5db4884e06ed4e06550bd4badba6a4793f37a1d5a38d0c9512cbc1cf8",
+    "train_records_loaded": 200,
+    "val_records_loaded": 40
+  },
+  "token_alignment_checks": {
+    "records_verified": 200,
+    "categories_verified": [
+      "anti_code_attractor_guard",
+      "base_continuation_replay",
+      "grounded_extraction_server_status",
+      "grounded_feature_flag",
+      "grounded_inventory_item",
+      "grounded_telemetry_metric",
+      "missing_information_abstention"
+    ],
+    "all_categories_covered": true
+  },
+  "batch_tensor_checks": {
+    "batch_size": 4,
+    "sequence_length": 142,
+    "active_tokens": 166,
+    "tensor_dtype": "torch.int64"
+  },
+  "forward_loss_checks": {
+    "forward_pass_succeeded": true,
+    "batch_cross_entropy_loss": 4.8898,
+    "batch_perplexity": 132.93,
+    "logits_shape": [
+      4,
+      142,
+      4096
+    ]
+  },
+  "checkpoint_integrity_checks": {
+    "base_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "in_memory_weights_unchanged": true,
+    "on_disk_checkpoint_unchanged": true,
+    "zero_backward_steps": true,
+    "zero_optimizer_steps": true
+  },
+  "errors": []
+}

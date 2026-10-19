@@ -1,0 +1,53 @@
+{
+  "test_suite": "batch2981_3020_checkpoint_saving_verification",
+  "tested_engine": "chakrview.training.sft_engine.SFTExperimentEngine",
+  "results": {
+    "initial_best_val_loss": {
+      "expected": "inf",
+      "observed": "inf",
+      "status": "PASS"
+    },
+    "save_on_improvement": {
+      "step": 10,
+      "val_loss": 3.5,
+      "best_checkpoint_saved": true,
+      "periodic_checkpoint_saved": true,
+      "status": "PASS"
+    },
+    "no_save_on_worse_loss": {
+      "step": 20,
+      "val_loss": 3.8,
+      "best_checkpoint_overwritten": false,
+      "best_checkpoint_retained_step": 10,
+      "periodic_checkpoint_saved": true,
+      "status": "PASS"
+    },
+    "deterministic_tie_behavior": {
+      "step": 30,
+      "val_loss": 3.5,
+      "condition_tested": "val_loss < best_val_loss",
+      "tie_result": "earlier_step_10_retained",
+      "status": "PASS"
+    },
+    "save_on_subsequent_improvement": {
+      "step": 40,
+      "val_loss": 3.1,
+      "best_checkpoint_saved": true,
+      "best_checkpoint_sft_step": 40,
+      "best_val_loss": 3.1,
+      "status": "PASS"
+    },
+    "strict_model_reload": {
+      "model_architecture": "ChakrMicro v0.1",
+      "state_dict_keys_matched": "All keys matched successfully",
+      "strict_flag_passed": true,
+      "status": "PASS"
+    },
+    "atomic_file_replacement": {
+      "pattern": "write_to_dot_tmp_and_replace",
+      "interrupted_write_safety": true,
+      "status": "PASS"
+    }
+  },
+  "overall_verdict": "PASS"
+}

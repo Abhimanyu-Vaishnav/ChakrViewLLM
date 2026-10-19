@@ -1,0 +1,57 @@
+{
+  "dataset_sizes": {
+    "train_total": 200,
+    "train_structured": 140,
+    "train_replay": 60,
+    "val_total": 30,
+    "val_structured": 20,
+    "val_replay": 10
+  },
+  "leakage_audit": {
+    "exact_prompt_overlap_count": 0,
+    "exact_prompt_overlap": [],
+    "normalized_prompt_overlap_count": 0,
+    "exact_target_overlap_count": 0,
+    "exact_target_overlap": [],
+    "normalized_target_overlap_count": 0,
+    "exact_value_leakage_count": 0,
+    "replay_source_overlap": []
+  },
+  "target_syntax_audit": {
+    "syntax_error_count": 0,
+    "syntax_errors": []
+  },
+  "distribution_audit": {
+    "train_categories": {
+      "structured_output_inventory_item": 35,
+      "structured_output_server_status": 35,
+      "structured_output_network_metric": 35,
+      "structured_output_feature_flag": 35
+    },
+    "val_categories": {
+      "structured_output_feature_flag": 5,
+      "structured_output_server_status": 5,
+      "structured_output_network_metric": 5,
+      "structured_output_inventory_item": 5
+    },
+    "train_template_stems_count": 3,
+    "train_template_stems": [
+      "Instruction: Output a JSON object with keys {k} representing {desc}.\nResponse:",
+      "Instruction: Format the requested data as a JSON object with keys {k} representing {desc}.\nResponse:",
+      "Instruction: Generate a JSON object containing keys {k} for {desc}.\nResponse:"
+    ],
+    "val_template_stems_count": 5,
+    "val_template_stems": [
+      "Instruction: Return a JSON object with fields 'status' and 'code' indicating {desc}.\nResponse:",
+      "Instruction: Return a JSON object with fields 'feature' and 'enabled' indicating {desc}.\nResponse:",
+      "Instruction: Return a JSON object with fields 'metric' and 'value' indicating {desc}.\nResponse:",
+      "Instruction: Provide a JSON object with attributes {k} for {desc}.\nResponse:",
+      "Instruction: Return a JSON object with fields 'name' and 'count' indicating {desc}.\nResponse:"
+    ]
+  },
+  "negative_examples_audit": {
+    "negative_examples_in_train": 0,
+    "negative_examples_in_val": 0,
+    "notes": "SFT V2 contains zero negative/contrastive examples. All examples are positive target completions."
+  }
+}

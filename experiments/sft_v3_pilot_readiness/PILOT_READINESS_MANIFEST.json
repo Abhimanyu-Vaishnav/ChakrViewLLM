@@ -1,0 +1,56 @@
+{
+  "manifest_version": "3.0.0",
+  "milestone": "SFT_V3_TRAINING_COMPATIBILITY_DRY_RUN_PILOT_READINESS",
+  "generated_at": "2026-10-19T16:23:00+05:30",
+  "verdict": "PILOT_READY_FOR_SEPARATE_AUTHORIZATION",
+  "hardware_execution": "CPU-first reference execution",
+  "canonical_artifacts": {
+    "base_checkpoint_step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true
+    },
+    "vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "verified": true
+    },
+    "merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "verified": true
+    }
+  },
+  "dataset_artifacts": {
+    "train_jsonl": {
+      "path": "experiments/sft_v3_dataset_builder/train.jsonl",
+      "sha256": "57affaa613eaf0e31be752bc680dddcd3c748e1cee3752942db93e8dea270804",
+      "record_count": 200,
+      "verified": true
+    },
+    "validation_jsonl": {
+      "path": "experiments/sft_v3_dataset_builder/validation.jsonl",
+      "sha256": "4c4c77d5db4884e06ed4e06550bd4badba6a4793f37a1d5a38d0c9512cbc1cf8",
+      "record_count": 40,
+      "verified": true
+    }
+  },
+  "dry_run_summary": {
+    "status": "PASS",
+    "batch_size": 4,
+    "max_seq_len_in_batch": 142,
+    "active_response_tokens": 166,
+    "forward_pass_loss": 4.8898,
+    "forward_pass_perplexity": 132.93,
+    "zero_backward_steps": true,
+    "zero_optimizer_steps": true,
+    "weights_bit_identical": true
+  },
+  "safety_gates": {
+    "session_py_diff_empty": true,
+    "held_out_test_split_unaccessed": true,
+    "git_operations_performed": false,
+    "training_executed": false
+  },
+  "unresolved_blockers": []
+}

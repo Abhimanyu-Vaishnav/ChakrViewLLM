@@ -1,0 +1,100 @@
+{
+  "manifest_version": "3.0.0",
+  "experiment_name": "sft_v3_pilot_run_100_step",
+  "execution_timestamp": "2026-10-19T16:27:00+05:30",
+  "verdict": "NO MEANINGFUL CAPABILITY IMPROVEMENT",
+  "authorization": "Single isolated training run of exactly 100 optimizer steps",
+  "model_architecture": {
+    "model_name": "ChakrMicro",
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512,
+    "trainable_parameters": 3443136
+  },
+  "training_parameters": {
+    "steps": 100,
+    "batch_size": 4,
+    "learning_rate": 3e-5,
+    "min_learning_rate": 1e-6,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "device": "cpu",
+    "elapsed_seconds": 10.49
+  },
+  "canonical_checkpoints": {
+    "base_checkpoint_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "base_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "verified_unchanged_post_run": true
+  },
+  "tokenizer": {
+    "directory": "data/experiments/vocab_4096",
+    "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "verified_unchanged_post_run": true
+  },
+  "datasets": {
+    "train_file": "experiments/sft_v3_dataset_builder/train.jsonl",
+    "train_sha256": "57affaa613eaf0e31be752bc680dddcd3c748e1cee3752942db93e8dea270804",
+    "val_file": "experiments/sft_v3_dataset_builder/validation.jsonl",
+    "val_sha256": "4c4c77d5db4884e06ed4e06550bd4badba6a4793f37a1d5a38d0c9512cbc1cf8",
+    "held_out_test_accessed": false
+  },
+  "generated_checkpoints": {
+    "sft_best_checkpoint.pt": "bfde007db1a90dde5ccc75d14a9ffe59f57b2393b87ac00b19422b8d088d1879",
+    "sft_checkpoint_step_100.pt": "8ce613c70f6f124a3740da1fb050e5b59964371be1f995d326c983a97a5f18c8",
+    "sft_checkpoint_step_20.pt": "d12650b3c1a8a7ed07db06859da443628fcdaccd437e8827a721b54aca2b115a",
+    "sft_checkpoint_step_40.pt": "19a438d83b6b9401583b80342dd81016dc7bc56e2af7fbfd885b777d50038edf",
+    "sft_checkpoint_step_50.pt": "d550b235158c778c5be3df44768a45f0321a731f26798069dac426406a2696a2",
+    "sft_checkpoint_step_60.pt": "680391c14eae31ad71ff3ceee43d153d37482b69dba41791a67b508200608acc",
+    "sft_checkpoint_step_80.pt": "01aa50ec3da078856359f3f8e6ef54b72fb13cac87ca6aea197cfac417233738"
+  },
+  "evaluation_metrics": {
+    "validation_loss": {
+      "base": 5.3873,
+      "candidate": 3.6204
+    },
+    "validation_perplexity": {
+      "base": 218.61,
+      "candidate": 37.35
+    },
+    "native_valid_json": {
+      "base": "0/30 (0.0%)",
+      "candidate": "0/30 (0.0%)"
+    },
+    "native_exact_match": {
+      "base": "0/30 (0.0%)",
+      "candidate": "0/30 (0.0%)"
+    },
+    "native_code_attractor_rate": {
+      "base": "0/30 (0.0% - generated repetitive text)",
+      "candidate": "27/30 (90.0% - captured by {'__main__': doctest})"
+    },
+    "constrained_valid_json": {
+      "base": "0/30 (0.0%)",
+      "candidate": "23/30 (76.7%)"
+    },
+    "constrained_exact_match": {
+      "base": "0/30 (0.0%)",
+      "candidate": "0/30 (0.0%)"
+    },
+    "replay_avg_continuation_length": {
+      "base": 48.0,
+      "candidate": 48.2
+    },
+    "replay_immediate_eos_count": {
+      "base": "0/10",
+      "candidate": "0/10"
+    }
+  },
+  "safety_integrity": {
+    "session_py_diff_empty": true,
+    "canonical_checkpoints_unchanged": true,
+    "zero_git_operations": true,
+    "total_training_runs": 1,
+    "total_optimizer_steps_executed": 100
+  }
+}

@@ -1,0 +1,1856 @@
+{
+  "metadata": {
+    "experiment": "COPY_CAPABILITY_GATE",
+    "base_checkpoint_hash": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "candidate_checkpoint_hash": "bfde007db1a90dde5ccc75d14a9ffe59f57b2393b87ac00b19422b8d088d1879",
+    "vocab_hash": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_hash": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "total_records": 20,
+    "normalization_rule": "lowercase, strip quotes, punctuation, extra whitespace"
+  },
+  "summary": {
+    "format_1_cir": {
+      "title": "Context / Instruction / Response",
+      "base": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 1,
+        "empty_or_premature_count": 0,
+        "total_generated_tokens": 800,
+        "avg_tokens": 40.0,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "1/20 (5.0%)",
+        "empty_rate": "0/20 (0.0%)"
+      },
+      "candidate": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 18,
+        "empty_or_premature_count": 0,
+        "total_generated_tokens": 779,
+        "avg_tokens": 38.95,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "18/20 (90.0%)",
+        "empty_rate": "0/20 (0.0%)"
+      }
+    },
+    "format_2_dialog": {
+      "title": "Dialog (User: ... Assistant:)",
+      "base": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 0,
+        "empty_or_premature_count": 1,
+        "total_generated_tokens": 800,
+        "avg_tokens": 40.0,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "0/20 (0.0%)",
+        "empty_rate": "1/20 (5.0%)"
+      },
+      "candidate": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 3,
+        "empty_or_premature_count": 0,
+        "total_generated_tokens": 800,
+        "avg_tokens": 40.0,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "3/20 (15.0%)",
+        "empty_rate": "0/20 (0.0%)"
+      }
+    },
+    "format_3_cqa": {
+      "title": "Plain (Context / Question / Answer)",
+      "base": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 2,
+        "empty_or_premature_count": 2,
+        "total_generated_tokens": 800,
+        "avg_tokens": 40.0,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "2/20 (10.0%)",
+        "empty_rate": "2/20 (10.0%)"
+      },
+      "candidate": {
+        "exact_match_count": 0,
+        "norm_match_count": 0,
+        "attractor_count": 3,
+        "empty_or_premature_count": 0,
+        "total_generated_tokens": 734,
+        "avg_tokens": 36.7,
+        "exact_match_rate": "0/20 (0.0%)",
+        "norm_match_rate": "0/20 (0.0%)",
+        "attractor_rate": "3/20 (15.0%)",
+        "empty_rate": "0/20 (0.0%)"
+      }
+    }
+  },
+  "per_example_results": [
+    {
+      "id": "SFT3_VAL_ATC_002",
+      "category": "anti_code_attractor_guard",
+      "expected_value": "dispatched",
+      "normalized_expected": "dispatched",
+      "context": "Metrics telemetry_sender dispatched batch with status dispatched and code 202.",
+      "copy_question": "Copy the exact value of status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Metrics telemetry_sender dispatched batch with status dispatched and code 202.\nInstruction: Copy the exact value of status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\nNovember 2005 century of the first cannot the first of the word of the word of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n\n    # import doctest\n    # import doctest\n\n    # import doctest",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Metrics telemetry_sender dispatched batch with status dispatched and code 202.\"\nCopy the exact value of status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n        raise ValueError(\")\n        # If the first number of the number of the number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        raise ValueError(\", \"index\", \"index\", \"index\", \"index\", \"in",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Metrics telemetry_sender dispatched batch with status dispatched and code 202.\nQuestion: Copy the exact value of status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first of the word of the word of the word of the word of the show. It is the fi",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        raise ValueError(\"index must be a non-negative\", \"index\", \"code\", \"in",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_INV_005",
+      "category": "grounded_inventory_item",
+      "expected_value": "ribbon_cable_harness",
+      "normalized_expected": "ribbon_cable_harness",
+      "context": "Wiring depot records 110 units of ribbon_cable_harness on hand.",
+      "copy_question": "Copy the exact name of the item from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Wiring depot records 110 units of ribbon_cable_harness on hand.\nInstruction: Copy the exact name of the item from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"strict\", \"code\", \"index\", \"index\", \"index\", \"index\", \"code\"",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Wiring depot records 110 units of ribbon_cable_harness on hand.\"\nCopy the exact name of the item from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        raise ValueError(\"index must be a resulting the number of the number of the number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Wiring depot records 110 units of ribbon_cable_harness on hand.\nQuestion: Copy the exact name of the item from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\n    >>> hex_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # doctest.testmod()",
+            "tokens_count": 19,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_MET_004",
+      "category": "grounded_telemetry_metric",
+      "expected_value": "acoustic_noise_db",
+      "normalized_expected": "acoustic_noise_db",
+      "context": "Microphone array registers acoustic_noise_db at 42.0 decibels.",
+      "copy_question": "Copy the exact metric name from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Microphone array registers acoustic_noise_db at 42.0 decibels.\nInstruction: Copy the exact metric name from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\nThe first of the first of the world of the world, which is the word of the word of the word of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # import doctest\n    # If the result of the number of the number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Microphone array registers acoustic_noise_db at 42.0 decibels.\"\nCopy the exact metric name from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\nAndra is the first of the world of the world of the word of the word of the word of the word of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"index\", \"code\", \"index\", \"index\", \"index\", \"code\", ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Microphone array registers acoustic_noise_db at 42.0 decibels.\nQuestion: Copy the exact metric name from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nTypes of the first of the first of the word of the word of the city of the city of the centre of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "British groups to be a face of the world, which is the first face of the word of the word ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_INV_002",
+      "category": "grounded_inventory_item",
+      "expected_value": "hepa_air_filter",
+      "normalized_expected": "hepa_air_filter",
+      "context": "Facility stock register counts 95 units of hepa_air_filter available.",
+      "copy_question": "Copy the exact name of the item from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Facility stock register counts 95 units of hepa_air_filter available.\nInstruction: Copy the exact name of the item from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\":\", \"code\", \"main__\", \"__main__\":\n    import doctest\n    import code",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Facility stock register counts 95 units of hepa_air_filter available.\"\nCopy the exact name of the item from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the first number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\":\", \"code\", \"code\", \"codecs.\", \"code\", \"code\", \"co",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Facility stock register counts 95 units of hepa_air_filter available.\nQuestion: Copy the exact name of the item from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the Basemble of the British of the British of the British of the Briti",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<40+4=40>>70 points.\n#### 3",
+            "tokens_count": 31,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_ATC_003",
+      "category": "anti_code_attractor_guard",
+      "expected_value": "saved",
+      "normalized_expected": "saved",
+      "context": "State snapshot_engine saved state with status saved and code 200.",
+      "copy_question": "Copy the exact value of status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: State snapshot_engine saved state with status saved and code 200.\nInstruction: Copy the exact value of status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\nfrom the first number of the first cannot be a total of the world of the word of the word of the world ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n\n    # import doctest\n\n    # ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"State snapshot_engine saved state with status saved and code 200.\"\nCopy the exact value of status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\nfrom the city of the first cannot be a plant of the world of the world of the word of the word of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n    # If the first number of the number of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: State snapshot_engine saved state with status saved and code 200.\nQuestion: Copy the exact value of status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the first candy of the world, which is the first of the word of the world, ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = 2005\n\ndef _validate_to_to_to_to_to_to_to_to_to_to_to",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_INV_001",
+      "category": "grounded_inventory_item",
+      "expected_value": "radiator_core",
+      "normalized_expected": "radiator_core",
+      "context": "Cooling inventory audit lists 14 units of radiator_core in inventory.",
+      "copy_question": "Copy the exact name of the item from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Cooling inventory audit lists 14 units of radiator_core in inventory.\nInstruction: Copy the exact name of the item from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the first number of the first number of the first number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # import doctest\n    # If the result of the result of the resulting the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Cooling inventory audit lists 14 units of radiator_core in inventory.\"\nCopy the exact name of the item from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the first number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n    # If the first number of the number of the first number of the number of the number of the number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Cooling inventory audit lists 14 units of radiator_core in inventory.\nQuestion: Copy the exact name of the item from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first of the first of the world, which is the first of the word of the world",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n# If the first cannot be a total of the world, which is the first of the word of the world",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_SRV_001",
+      "category": "grounded_extraction_server_status",
+      "expected_value": "queued",
+      "normalized_expected": "queued",
+      "context": "Job queue manager reports val_host_01 is queued with acceptance code 202.",
+      "copy_question": "Copy the exact status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Job queue manager reports val_host_01 is queued with acceptance code 202.\nInstruction: Copy the exact status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\nThe plant of the word of the word of the city of the word of the centront of the centront of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    # Test the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Job queue manager reports val_host_01 is queued with acceptance code 202.\"\nCopy the exact status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the first number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        raise ValueError(\"index must be a non-negative\", \"index\", \"code\", \"in",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Job queue manager reports val_host_01 is queued with acceptance code 202.\nQuestion: Copy the exact status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first of the word of the word of the world of the word of the word of the show of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        \"\"\"\n        if not isinstance(\"__main__\":\n        if not __name__ == \"__main__\":\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_MET_005",
+      "category": "grounded_telemetry_metric",
+      "expected_value": "wireless_rssi_dbm",
+      "normalized_expected": "wireless_rssi_dbm",
+      "context": "Transceiver telemetry notes wireless_rssi_dbm signal at -65.4 decibel milliwatts.",
+      "copy_question": "Copy the exact metric name from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Transceiver telemetry notes wireless_rssi_dbm signal at -65.4 decibel milliwatts.\nInstruction: Copy the exact metric name from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\nSpecial number of the first plant of the first of the word of the word of the word of the stit",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # import doctest\n    # Test the resulting the resulting the number of the fi",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Transceiver telemetry notes wireless_rssi_dbm signal at -65.4 decibel milliwatts.\"\nCopy the exact metric name from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\", \"__main__\":\n    import doctest\n    print(\", \"__factascrypt(\", \", ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Transceiver telemetry notes wireless_rssi_dbm signal at -65.4 decibel milliwatts.\nQuestion: Copy the exact metric name from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": true
+          },
+          "candidate": {
+            "output": "British governments to be used to be used to be a metal. If the filestitupes of the fir",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_ATC_001",
+      "category": "anti_code_attractor_guard",
+      "expected_value": "loaded",
+      "normalized_expected": "loaded",
+      "context": "Driver kernel_module loaded into memory with status loaded and code 0.",
+      "copy_question": "Copy the exact value of status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Driver kernel_module loaded into memory with status loaded and code 0.\nInstruction: Copy the exact value of status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Driver kernel_module loaded into memory with status loaded and code 0.\"\nCopy the exact value of status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n    # If the first number of the first number of the first number of the first number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n    # This is a non-set of the number of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Driver kernel_module loaded into memory with status loaded and code 0.\nQuestion: Copy the exact value of status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the first candy of the word of the word of the centront of the city of the world",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<40+4=40>>50 points.\n#### 3",
+            "tokens_count": 31,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_ATC_005",
+      "category": "anti_code_attractor_guard",
+      "expected_value": "archived",
+      "normalized_expected": "archived",
+      "context": "Compliance audit_collector archived logs with status archived and code 200.",
+      "copy_question": "Copy the exact value of status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Compliance audit_collector archived logs with status archived and code 200.\nInstruction: Copy the exact value of status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\ndef get_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\":\", \"main__\":\":\", \"main__\":\n    import doctest\n    import doctest",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Compliance audit_collector archived logs with status archived and code 200.\"\nCopy the exact value of status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n    # If the first number of the first number of the first number of the word of the number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n    # If the result of the number of the number of the number of the number of the number of the number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Compliance audit_collector archived logs with status archived and code 200.\nQuestion: Copy the exact value of status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the Chinese of the Andra (b. 1994)\n# Test of the Bast",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = 2005\n\ndef get_to_to_to_to_to_to_to_to_to_to_to_to",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_ATC_004",
+      "category": "anti_code_attractor_guard",
+      "expected_value": "throttled",
+      "normalized_expected": "throttled",
+      "context": "Rate quota_enforcer throttled excessive requests with status throttled and code 429.",
+      "copy_question": "Copy the exact value of status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Rate quota_enforcer throttled excessive requests with status throttled and code 429.\nInstruction: Copy the exact value of status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\nTypes the first of the world of the world of the word of the word of the word of the word of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    # import doctest\n\n    # import doctest\n    # Test the fi",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Rate quota_enforcer throttled excessive requests with status throttled and code 429.\"\nCopy the exact value of status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n# If the first of the word of the world of the world of the world of the word of the son of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n    # If the first number of the number of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Rate quota_enforcer throttled excessive requests with status throttled and code 429.\nQuestion: Copy the exact value of status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first cannot the first candy of the word of the word of the centronly the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% center. It is a total of the world, which is the world, which is the first centr",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_SRV_003",
+      "category": "grounded_extraction_server_status",
+      "expected_value": "internal_error",
+      "normalized_expected": "internal_error",
+      "context": "Uncaught exception on val_host_03 caused internal_error with code 500.",
+      "copy_question": "Copy the exact status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Uncaught exception on val_host_03 caused internal_error with code 500.\nInstruction: Copy the exact status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\":\", \"code\", \"main__\":\":\", \"main__\":\n    import doctest\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Uncaught exception on val_host_03 caused internal_error with code 500.\"\nCopy the exact status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n        raise ValueError: The first of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"input\", \"input\", \"index\", \"index\", \"indelecryp",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Uncaught exception on val_host_03 caused internal_error with code 500.\nQuestion: Copy the exact status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the Chinese of the British of the British of the British of the Base",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% center\n    # Chinese the first number of the first number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_MET_002",
+      "category": "grounded_telemetry_metric",
+      "expected_value": "ambient_room_temp",
+      "normalized_expected": "ambient_room_temp",
+      "context": "Facility environmental sensor shows ambient_room_temp at 24.5 Celsius.",
+      "copy_question": "Copy the exact metric name from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Facility environmental sensor shows ambient_room_temp at 24.5 Celsius.\nInstruction: Copy the exact metric name from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\nReferences\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n\n    # import doctest\n    # Codec Codec Codec Codec Code",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Facility environmental sensor shows ambient_room_temp at 24.5 Celsius.\"\nCopy the exact metric name from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\nAndrince of the first of the first of the first of the first of the first of the world of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "\n        # If the first number of the number of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Facility environmental sensor shows ambient_room_temp at 24.5 Celsius.\nQuestion: Copy the exact metric name from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": true
+          },
+          "candidate": {
+            "output": "British groups to be a face of the first of the first centronmental number of the filevision of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_INV_004",
+      "category": "grounded_inventory_item",
+      "expected_value": "numeric_keypad",
+      "normalized_expected": "numeric_keypad",
+      "context": "Input device register confirms 35 units of numeric_keypad ready for deployment.",
+      "copy_question": "Copy the exact name of the item from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Input device register confirms 35 units of numeric_keypad ready for deployment.\nInstruction: Copy the exact name of the item from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\nThe first of the first of the world of the word of the word of the world of the word of the world of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import codecs.charmap_decode(input,errors",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Input device register confirms 35 units of numeric_keypad ready for deployment.\"\nCopy the exact name of the item from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"code\", \"input\", \"index\", \"input\", \"input\", \"code",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Input device register confirms 35 units of numeric_keypad ready for deployment.\nQuestion: Copy the exact name of the item from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first of the city of the centront of the city of the word of the city of the word of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"input\", \"input\", \"index\", \"index\", \"code\", \"in",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_SRV_005",
+      "category": "grounded_extraction_server_status",
+      "expected_value": "closed",
+      "normalized_expected": "closed",
+      "context": "Registration endpoint on val_host_05 has been closed with code 410.",
+      "copy_question": "Copy the exact status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Registration endpoint on val_host_05 has been closed with code 410.\nInstruction: Copy the exact status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n# If the first cannot be a plant of the world of the word of the word of the world of the wor",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\":\", \"main__\":\n    import doctest\n    import codecs.charmap_decode(input",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Registration endpoint on val_host_05 has been closed with code 410.\"\nCopy the exact status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n        raise ValueError: The first of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n    # Test the result of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Registration endpoint on val_host_05 has been closed with code 410.\nQuestion: Copy the exact status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the Basish of the Arcean, which is the first of the world, which is ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<4*2=4>>6 squarium of the total number of the total number of centr",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_SRV_002",
+      "category": "grounded_extraction_server_status",
+      "expected_value": "draining",
+      "normalized_expected": "draining",
+      "context": "Traffic controller set val_host_02 to draining mode with HTTP code 200.",
+      "copy_question": "Copy the exact status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Traffic controller set val_host_02 to draining mode with HTTP code 200.\nInstruction: Copy the exact status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Traffic controller set val_host_02 to draining mode with HTTP code 200.\"\nCopy the exact status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n        raise ValueError: The first of the first number of the number of the number of the number of the number of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"code\", \"input\", \"index\", \"input\", \"index\", \"co",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Traffic controller set val_host_02 to draining mode with HTTP code 200.\nQuestion: Copy the exact status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If there are the first of the world of the world, which is the first of the word of ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<400-2=40>>70 green\n#### 3",
+            "tokens_count": 31,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_MET_001",
+      "category": "grounded_telemetry_metric",
+      "expected_value": "chassis_vibration",
+      "normalized_expected": "chassis_vibration",
+      "context": "Accelerometer records chassis_vibration intensity at 0.12 G force.",
+      "copy_question": "Copy the exact metric name from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Accelerometer records chassis_vibration intensity at 0.12 G force.\nInstruction: Copy the exact metric name from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\nThe first of the first of the world of the world of the world, which is the world, which is ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\":\", \"codecs.\", \"codecs.codecs.__main__\":\":\", \"code",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Accelerometer records chassis_vibration intensity at 0.12 G force.\"\nCopy the exact metric name from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": true
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"code\", \"index\", \"code\", \"input\", \"code\", \"inde",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Accelerometer records chassis_vibration intensity at 0.12 G force.\nQuestion: Copy the exact metric name from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\nThe first of the first of the first of the world, which is the first of the centron. The ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "British groups to be a face of the world, which is the first of the world, the word of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_MET_003",
+      "category": "grounded_telemetry_metric",
+      "expected_value": "frame_drop_ratio",
+      "normalized_expected": "frame_drop_ratio",
+      "context": "Display pipeline telemetry measures frame_drop_ratio at 0.03 percent.",
+      "copy_question": "Copy the exact metric name from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Display pipeline telemetry measures frame_drop_ratio at 0.03 percent.\nInstruction: Copy the exact metric name from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\nSublic is a plant of the world, which is the word of the word of the word of the world, w",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"strict\", \"code\", \"input\", \"code\", \"index\", \"code\", \"index\", \"",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Display pipeline telemetry measures frame_drop_ratio at 0.03 percent.\"\nCopy the exact metric name from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n    # If the first number of the first number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # If the resulting the resulting the resulting the resulting the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Display pipeline telemetry measures frame_drop_ratio at 0.03 percent.\nQuestion: Copy the exact metric name from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\nThe first of the first of the world of the word of the word of the word of the word of the word of the word ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "British greater than the world, which is the first face of the world, which is the fir",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_INV_003",
+      "category": "grounded_inventory_item",
+      "expected_value": "drive_enclosure",
+      "normalized_expected": "drive_enclosure",
+      "context": "Storage hardware supply records 18 units of drive_enclosure in aisle 4.",
+      "copy_question": "Copy the exact name of the item from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Storage hardware supply records 18 units of drive_enclosure in aisle 4.\nInstruction: Copy the exact name of the item from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # doctest.testmod()",
+            "tokens_count": 19,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Storage hardware supply records 18 units of drive_enclosure in aisle 4.\"\nCopy the exact name of the item from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n\n# If the first of the world of the word of the word of the word of the word of the world of the word ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"main__\":\n    # import doctest\n    # If the result of the number of the number of the number of the ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Storage hardware supply records 18 units of drive_enclosure in aisle 4.\nQuestion: Copy the exact name of the item from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n\n    >>> linked_list.add_edge([])\n    >>> hex_to_to_to_to_to_to_",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<40+4=40>>50 points.\n#### 3",
+            "tokens_count": 31,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    },
+    {
+      "id": "SFT3_VAL_SRV_004",
+      "category": "grounded_extraction_server_status",
+      "expected_value": "service_down",
+      "normalized_expected": "service_down",
+      "context": "Outage notice confirms val_host_04 has service_down status with code 503.",
+      "copy_question": "Copy the exact status from context:",
+      "formats": {
+        "format_1_cir": {
+          "prompt": "Context: Outage notice confirms val_host_04 has service_down status with code 503.\nInstruction: Copy the exact status from context:\nResponse:",
+          "boundary_token_ids": [
+            115,
+            279,
+            323,
+            61
+          ],
+          "boundary_text": "ponse:",
+          "base": {
+            "output": "\n\n    # If the first number of the number of the number of the number of the number of the number of the number of the numb",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"__main__\":\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    import doctest\n    ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": true,
+            "is_empty": false
+          }
+        },
+        "format_2_dialog": {
+          "prompt": "User: In the following context: \"Outage notice confirms val_host_04 has service_down status with code 503.\"\nCopy the exact status from context:\nAssistant:",
+          "boundary_token_ids": [
+            118,
+            1855,
+            1807,
+            61
+          ],
+          "boundary_text": "ssistant:",
+          "base": {
+            "output": "\n        raise ValueError: The first of the number of the number of the number of the number of the number of the number ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "{\"input\", \"input\", \"input\", \"input\", \"index\", \"index\", \"index\", \"",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        },
+        "format_3_cqa": {
+          "prompt": "Context: Outage notice confirms val_host_04 has service_down status with code 503.\nQuestion: Copy the exact status from context:\nAnswer:",
+          "boundary_token_ids": [
+            118,
+            122,
+            283,
+            61
+          ],
+          "boundary_text": "swer:",
+          "base": {
+            "output": "\n\n### If the first of the shows to be a total of the word of the word of the word of the world ",
+            "tokens_count": 40,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          },
+          "candidate": {
+            "output": "0% century = <<4*2=4>>6 years old.\n#### 3",
+            "tokens_count": 31,
+            "exact_match": false,
+            "norm_match": false,
+            "is_attractor": false,
+            "is_empty": false
+          }
+        }
+      }
+    }
+  ]
+}

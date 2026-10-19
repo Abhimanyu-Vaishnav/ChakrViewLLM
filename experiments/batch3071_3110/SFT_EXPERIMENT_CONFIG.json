@@ -1,0 +1,58 @@
+{
+  "experiment_id": "batch3071_3110_json_experiment_v1",
+  "model_architecture": {
+    "architecture_name": "ChakrMicro v0.1",
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "hidden_dim": 512,
+    "max_seq_len": 512
+  },
+  "parent_checkpoint": {
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "step": 10000
+  },
+  "tokenizer": {
+    "directory": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "vocab_size": 4096,
+    "bos_id": 0,
+    "eos_id": 1,
+    "pad_id": 2
+  },
+  "dataset_paths": {
+    "dataset_full": "experiments/batch3071_3110/JSON_SFT_DATASET.jsonl",
+    "train_file": "experiments/batch3071_3110/train.jsonl",
+    "val_file": "experiments/batch3071_3110/val.jsonl",
+    "test_file": "experiments/batch3071_3110/test.jsonl"
+  },
+  "training_hyperparameters": {
+    "pilot_steps": 100,
+    "batch_size": 4,
+    "max_seq_len": 512,
+    "learning_rate": 3e-05,
+    "min_learning_rate": 3e-06,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "val_interval": 10,
+    "save_interval": 20,
+    "save_best_checkpoint": true,
+    "seed": 42,
+    "device": "cpu",
+    "strip_prompt_delimiters": false,
+    "allow_exploratory_opt_in": false,
+    "enforce_trust_gate": true
+  },
+  "output_directory": "experiments/batch3071_3110/json_sft_pilot_run",
+  "best_checkpoint_tracking": {
+    "enabled": true,
+    "target_filename": "sft_best_checkpoint.pt",
+    "metric": "min_validation_loss"
+  },
+  "rationale": {
+    "pilot_steps_100": "100 steps at batch size 4 presents 400 training examples (exactly 2.0 passes over the 200-example training set).",
+    "mixture_70_30": "Provides 70% focused two-field JSON instruction coverage while dedicating 30% to unconditioned replay to protect against raw-continuation EOS regression.",
+    "document_isolation": "Strict document-level pre-split partition prevents any same-document passage leakage across train, val, and test."
+  }
+}

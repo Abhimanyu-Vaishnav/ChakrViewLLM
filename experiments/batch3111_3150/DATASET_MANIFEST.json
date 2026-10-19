@@ -1,0 +1,49 @@
+{
+  "dataset_name": "ChakrView JSON SFT V2 Dataset (Batch 3111-3150)",
+  "total_records": 264,
+  "split_counts": {
+    "train": 200,
+    "val": 30,
+    "test": 34
+  },
+  "composition": {
+    "train": {
+      "structured_json": 140,
+      "continuation_replay": 60
+    },
+    "val": {
+      "structured_json": 20,
+      "continuation_replay": 10
+    },
+    "test": {
+      "familiar_schema_json": 12,
+      "unseen_schema_json": 12,
+      "continuation_replay": 10
+    }
+  },
+  "anti_leakage_checks": {
+    "train_val_prompt_overlap": 0,
+    "train_test_prompt_overlap": 0,
+    "val_test_prompt_overlap": 0,
+    "unseen_key_overlap_with_train": 0
+  },
+  "document_overlap": {
+    "train_val": [],
+    "train_test": [],
+    "val_test": []
+  },
+  "document_partition": {
+    "train": [
+      "corpus_english_foundation",
+      "corpus_stage_b_systems"
+    ],
+    "val": [
+      "corpus_code_python",
+      "corpus_english_systems"
+    ],
+    "test": [
+      "corpus_code_foundation",
+      "corpus_math_foundation"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "audit_version": "batch2981_3020_v1",
+  "dataset_path": "experiments/batch2941_2980/BALANCED_SFT_DATASET.jsonl",
+  "total_records": 400,
+  "mixture_composition": {
+    "instruction_examples": 280,
+    "instruction_pct": 70.0,
+    "replay_examples": 120,
+    "replay_pct": 30.0
+  },
+  "split_counts": {
+    "train": 320,
+    "val": 40,
+    "test": 40
+  },
+  "leakage_findings": {
+    "exact_duplicate_prompts_across_splits": 0,
+    "normalized_duplicate_prompts_across_splits": 0,
+    "prompt_target_cross_contamination": 0,
+    "same_source_document_leakage": {
+      "detected": true,
+      "affected_corpora": [
+        {
+          "corpus": "corpus_english_foundation",
+          "split_overlap": ["train", "val"],
+          "train_count": 69,
+          "val_count": 4
+        },
+        {
+          "corpus": "corpus_code_foundation",
+          "split_overlap": ["val", "test"],
+          "val_count": 2,
+          "test_count": 9
+        }
+      ],
+      "mitigation_policy": "Documented as known structural limitation of sequential splitting in 2941-2980; recommended document-first partitioning for future builds."
+    },
+    "template_level_leakage": {
+      "detected": true,
+      "severity": "MODERATE",
+      "description": "Standardized prompt prefixes are shared within each of the 7 instruction categories; factual entities are unique per record."
+    },
+    "historical_benchmark_contamination": {
+      "generation_benchmark_28_cases": {
+        "train_overlap": 0,
+        "val_overlap": 0,
+        "test_overlap": 0,
+        "status": "CLEAN"
+      },
+      "sft_evaluation_set_24_cases": {
+        "train_overlap": 21,
+        "val_overlap": 0,
+        "test_overlap": 0,
+        "status": "CONTAMINATED_TRAIN_SET",
+        "action_required": "Must be labeled strictly as a historical regression suite, not an independent test benchmark."
+      }
+    }
+  },
+  "overall_verdict": "PARTIAL_WITH_DOCUMENTED_CONSTRAINTS"
+}

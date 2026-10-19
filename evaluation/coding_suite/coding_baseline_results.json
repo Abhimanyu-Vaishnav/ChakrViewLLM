@@ -1,0 +1,88 @@
+{
+  "suite_name": "CHAKRVIEW_CODING_BENCHMARK_v0.7",
+  "checkpoint_label": "Canonical Pretrained (Step 10,000)",
+  "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "total_tasks": 6,
+  "syntax_valid_count": 2,
+  "test_passed_count": 1,
+  "timeout_count": 0,
+  "policy_rejected_count": 4,
+  "task_results": [
+    {
+      "id": "CODE-COMP-01",
+      "category": "code_completion",
+      "prompt": "# Complete the function to compute factorial recursively:\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return ",
+      "generated_text": "\n    # It is the result of the number of the number of the number of the number of the number of the number of the number of the number of the number ",
+      "syntax_valid": true,
+      "test_passed": false,
+      "timed_out": false,
+      "rejected_by_policy": false,
+      "error": "AssertionError",
+      "exec_latency_ms": 100.54
+    },
+    {
+      "id": "CODE-IMPL-01",
+      "category": "simple_function_implementation",
+      "prompt": "Write a Python function named `is_palindrome` that takes a string s and returns True if s is identical forward and backward, otherwise False:\ndef is_palindrome(s: str) -> bool:\n",
+      "generated_text": "\n    \"\"\"\n    if not None:\n        if not None:\n        if not not None:\n            raise ValueErrhat is the resupport of the number ",
+      "syntax_valid": false,
+      "test_passed": false,
+      "timed_out": false,
+      "rejected_by_policy": true,
+      "error": "SyntaxError: unterminated triple-quoted string literal (detected at line 8) (<unknown>, line 4)",
+      "exec_latency_ms": 0.0
+    },
+    {
+      "id": "CODE-BUG-01",
+      "category": "bug_identification_and_correction",
+      "prompt": "# Fix the off-by-one bug in the sum_first_n function:\n# Buggy:\n# def sum_first_n(n):\n#     total = 0\n#     for i in range(n): total += i\n#     return total\n# Fixed:\ndef sum_first_n(n):\n",
+      "generated_text": "\n    # If the first of the number of the number of the number of the number of the number of the number of the number of the number of the number of the ",
+      "syntax_valid": false,
+      "test_passed": false,
+      "timed_out": false,
+      "rejected_by_policy": true,
+      "error": "SyntaxError: expected an indented block after function definition on line 8 (<unknown>, line 10)",
+      "exec_latency_ms": 0.0
+    },
+    {
+      "id": "CODE-TEST-01",
+      "category": "basic_unit_test_generation",
+      "prompt": "# Given the function add(a, b): return a + b\n# Write a Python assert statement verifying 2 + 3 == 5:\n",
+      "generated_text": "\n    # If the result of the number of the number of the number of the number of the number of the number of the number of the number of the number of ",
+      "syntax_valid": true,
+      "test_passed": true,
+      "timed_out": false,
+      "rejected_by_policy": false,
+      "error": null,
+      "exec_latency_ms": 49.6
+    },
+    {
+      "id": "CODE-REQ-01",
+      "category": "following_explicit_requirements",
+      "prompt": "Write a Python function `clamp(val, low, high)` that returns low if val < low, high if val > high, and val otherwise:\ndef clamp(val, low, high):\n",
+      "generated_text": "\n    pass\n    >>> linked_list(\"SIPSError\")\n    Traceback (most recent call last):\n        ...",
+      "syntax_valid": false,
+      "test_passed": false,
+      "timed_out": false,
+      "rejected_by_policy": true,
+      "error": "SyntaxError: invalid syntax (<unknown>, line 1)",
+      "exec_latency_ms": 0.0
+    },
+    {
+      "id": "CODE-SYN-01",
+      "category": "syntax_validity",
+      "prompt": "Write a valid Python class definition named `Point` with an __init__ method taking x and y:\nclass Point:\n",
+      "generated_text": "\n    # If the first number of the word of the word of the word of the word of the word of the word of the word of the word of the word ",
+      "syntax_valid": false,
+      "test_passed": false,
+      "timed_out": false,
+      "rejected_by_policy": true,
+      "error": "SyntaxError: invalid syntax (<unknown>, line 1)",
+      "exec_latency_ms": 0.0
+    }
+  ],
+  "syntax_valid_rate": "2/6 (33.3%)",
+  "test_pass_rate": "1/6 (16.7%)",
+  "timeout_rate": "0/6 (0.0%)",
+  "rejection_rate": "4/6 (66.7%)"
+}

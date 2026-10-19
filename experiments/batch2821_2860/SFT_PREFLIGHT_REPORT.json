@@ -1,0 +1,86 @@
+{
+  "preflight_version": "batch2821_2860_v1",
+  "timestamp": "2026-10-18T12:17:14Z",
+  "overall_verdict": "PASS",
+  "training_executed": false,
+  "optimizer_steps_executed": 0,
+  "weights_modified": false,
+  "gates": {
+    "parent_checkpoint_integrity": {
+      "status": "PASS",
+      "path": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    "tokenizer_integrity": {
+      "status": "PASS",
+      "directory": "D:\\Project\\ChakrView\\release\\chakrview-v0.5.0\\data\\experiments\\vocab_4096",
+      "vocab_size": 4096
+    },
+    "dataset_schema_and_isolation": {
+      "status": "PASS",
+      "total_examples": 240,
+      "split_counts": {
+        "train": 192,
+        "val": 24,
+        "test": 24
+      },
+      "category_counts": {
+        "simple_instruction": 30,
+        "context_extraction": 30,
+        "context_grounded_qa": 30,
+        "short_summarization": 30,
+        "structured_output": 30,
+        "uncertainty_insufficient_info": 30,
+        "conversational_acknowledgement": 30,
+        "bounded_text_transformation": 30
+      },
+      "leakage_detected": false
+    },
+    "token_length_and_context_boundary": {
+      "status": "PASS",
+      "max_context_limit": 512,
+      "max_observed_seq_len": 187,
+      "min_observed_seq_len": 28,
+      "mean_prompt_tokens": 67.46,
+      "mean_response_tokens": 23.5,
+      "mean_total_tokens": 91.96,
+      "truncated_examples": 0,
+      "rejected_examples": 0
+    },
+    "causal_loss_masking_alignment": {
+      "status": "PASS",
+      "sample_verifications": [
+        {
+          "record_id": "INST_001",
+          "prompt_token_count": 28,
+          "response_token_count": 37,
+          "input_seq_len": 66,
+          "target_seq_len": 66,
+          "masked_tokens_count": 28,
+          "active_tokens_count": 38,
+          "first_active_target": 989,
+          "expected_first_response_token": 989,
+          "alignment_verified": true
+        },
+        {
+          "record_id": "INST_002",
+          "prompt_token_count": 26,
+          "response_token_count": 30,
+          "input_seq_len": 57,
+          "target_seq_len": 57,
+          "masked_tokens_count": 26,
+          "active_tokens_count": 31,
+          "first_active_target": 898,
+          "expected_first_response_token": 898,
+          "alignment_verified": true
+        }
+      ]
+    },
+    "output_isolation": {
+      "status": "PASS",
+      "configured_output_dir": "D:\\Project\\ChakrView\\experiments\\batch2821_2860\\sft_pilot_run"
+    }
+  },
+  "authorized_training_command": ".\\.venv\\Scripts\\python.exe experiments/batch2821_2860/run_sft_trainer.py --config experiments/batch2821_2860/SFT_TRAINING_CONFIG.json --execute-authorized-training"
+}

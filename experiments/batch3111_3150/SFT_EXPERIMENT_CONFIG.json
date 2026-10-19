@@ -1,0 +1,51 @@
+{
+  "experiment_name": "chakrview_batch3111_3150_json_sft_v2",
+  "version": "v2.0",
+  "task_description": "Controlled Multi-Instance JSON SFT with Syntax Completion, Schema Adherence, and Held-Out Unseen Schema Generalization",
+  "parent_checkpoint": {
+    "name": "canonical_pretraining_step_10000",
+    "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+  },
+  "tokenizer": {
+    "directory": "release/chakrview-v0.5.0/data/experiments/vocab_4096",
+    "expected_vocab_size": 4096
+  },
+  "dataset_paths": {
+    "full_dataset": "experiments/batch3111_3150/JSON_SFT_V2_DATASET.jsonl",
+    "train_file": "experiments/batch3111_3150/train.jsonl",
+    "val_file": "experiments/batch3111_3150/val.jsonl",
+    "test_file": "experiments/batch3111_3150/test.jsonl",
+    "manifest_file": "experiments/batch3111_3150/DATASET_MANIFEST.json"
+  },
+  "training_hyperparameters": {
+    "device": "cpu",
+    "pilot_steps": 100,
+    "batch_size": 4,
+    "max_seq_len": 512,
+    "learning_rate": 3e-05,
+    "min_learning_rate": 3e-06,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "val_interval": 10,
+    "save_interval": 20,
+    "save_best_checkpoint": true,
+    "strip_prompt_delimiters": false,
+    "allow_exploratory_opt_in": false,
+    "enforce_trust_gate": true
+  },
+  "output_directory": "experiments/batch3111_3150/json_sft_v2_pilot_run",
+  "split_proportions": {
+    "train_examples": 200,
+    "train_structured_json": 140,
+    "train_continuation_replay": 60,
+    "val_examples": 30,
+    "val_structured_json": 20,
+    "val_continuation_replay": 10,
+    "test_examples": 34,
+    "test_familiar_schema_json": 12,
+    "test_unseen_schema_json": 12,
+    "test_continuation_replay": 10
+  }
+}

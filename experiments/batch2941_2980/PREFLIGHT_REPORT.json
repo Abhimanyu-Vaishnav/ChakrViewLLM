@@ -1,0 +1,47 @@
+{
+  "preflight_version": "batch2941_2980_v1",
+  "timestamp": "2026-10-18T12:17:13Z",
+  "overall_verdict": "PASS",
+  "training_executed": false,
+  "optimizer_steps_executed": 0,
+  "weights_modified": false,
+  "gates": {
+    "canonical_base_checkpoint": {
+      "status": "PASS",
+      "path": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    "tokenizer_artifacts": {
+      "status": "PASS",
+      "directory": "D:\\Project\\ChakrView\\release\\chakrview-v0.5.0\\data\\experiments\\vocab_4096",
+      "vocab_size": 4096
+    },
+    "dataset_manifest_and_balance": {
+      "status": "PASS",
+      "total_records": 400,
+      "splits": {
+        "train": 320,
+        "val": 40,
+        "test": 40
+      },
+      "instruction_count": 280,
+      "replay_count": 120,
+      "split_leakage_detected": false
+    },
+    "label_masking_and_eos_policy": {
+      "status": "PASS",
+      "instruction_eos_supervised": true,
+      "replay_eos_unforced": true
+    },
+    "output_isolation": {
+      "status": "PASS",
+      "configured_output": "experiments/batch2941_2980/balanced_sft_pilot_run"
+    },
+    "best_checkpoint_saving_support": {
+      "status": "PASS",
+      "save_checkpoint_has_is_best": true
+    }
+  },
+  "mandatory_execution_command": ".\\.venv\\Scripts\\python.exe experiments/batch2941_2980/run_balanced_sft_trainer.py --config experiments/batch2941_2980/SFT_EXPERIMENT_CONFIG.json --execute-authorized-training"
+}

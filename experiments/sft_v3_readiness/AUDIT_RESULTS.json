@@ -1,0 +1,81 @@
+{
+  "audit_version": "v3.0_readiness",
+  "checkpoint_under_audit": {
+    "name": "json_sft_v2_pilot_candidate",
+    "path": "experiments/batch3111_3150/json_sft_v2_pilot_run/sft_best_checkpoint.pt",
+    "sha256": "436bdb89e62e0ef461e511b0ac410d01368ce626569b64c27d803ec97d953bd6"
+  },
+  "canonical_artifacts_verified": {
+    "pretraining_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "vocab_json_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_json_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "session_py_unmodified": true
+  },
+  "dataset_pipeline_audit": {
+    "train_examples_count": 200,
+    "val_examples_count": 30,
+    "exact_prompt_leakage": 0,
+    "exact_target_leakage": 0,
+    "exact_value_leakage": 0,
+    "target_syntax_errors": 0,
+    "missing_context_root_cause": "Prompts in SFT V2 lacked context passages, forcing the model to hallucinate or memorize fixed tuples without reading comprehension."
+  },
+  "token_alignment_audit": {
+    "causal_alignment_valid": true,
+    "prompt_loss_masked_with_minus_100": true,
+    "first_predicted_target_token_aligned": true,
+    "max_sequence_length_found": 132,
+    "max_context_window": 512,
+    "truncation_risk": false
+  },
+  "validation_benchmarks": {
+    "evaluated_records": 20,
+    "unconstrained_greedy": {
+      "valid_syntax_count": 0,
+      "valid_syntax_pct": 0.0,
+      "schema_match_count": 0,
+      "value_exact_match_count": 0,
+      "avg_tokens": 48.0
+    },
+    "grammar_only_constrained": {
+      "valid_syntax_count": 0,
+      "valid_syntax_pct": 0.0,
+      "schema_match_count": 0,
+      "value_exact_match_count": 0,
+      "avg_tokens": 48.0
+    },
+    "schema_trie_constrained_48_tokens": {
+      "valid_syntax_count": 10,
+      "valid_syntax_pct": 50.0,
+      "completed_objects_count": 13,
+      "completed_objects_pct": 65.0,
+      "schema_match_count": 10,
+      "schema_match_pct": 50.0,
+      "value_exact_match_count": 0,
+      "value_exact_match_pct": 0.0,
+      "budget_exhausted_count": 7,
+      "deadlock_count": 0,
+      "avg_tokens": 31.55
+    },
+    "schema_trie_constrained_96_tokens": {
+      "valid_syntax_count": 10,
+      "valid_syntax_pct": 50.0,
+      "completed_objects_count": 15,
+      "completed_objects_pct": 75.0,
+      "schema_match_count": 10,
+      "schema_match_pct": 50.0,
+      "value_exact_match_count": 0,
+      "value_exact_match_pct": 0.0,
+      "budget_exhausted_count": 5,
+      "deadlock_count": 0,
+      "avg_tokens": 48.05
+    }
+  },
+  "unit_test_summary": {
+    "total_tests_executed": 20,
+    "total_tests_passed": 20,
+    "execution_time_seconds": 3.96
+  },
+  "training_authorized": false,
+  "overall_verdict": "READY WITH BLOCKERS"
+}

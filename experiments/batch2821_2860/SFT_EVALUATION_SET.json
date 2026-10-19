@@ -1,0 +1,271 @@
+{
+  "evaluation_version": "batch2821_2860_v1",
+  "description": "Held-out test set for evaluating SFT candidate against Canonical Step-10,000 baseline",
+  "total_cases": 24,
+  "cases": [
+    {
+      "id": "INST_028",
+      "category": "simple_instruction",
+      "prompt": "Instruction: State the law of conservation of energy.\nResponse:",
+      "response": "The law of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "INST_029",
+      "category": "simple_instruction",
+      "prompt": "Instruction: What is the difference between synchronous and asynchronous execution?\nResponse:",
+      "response": "Synchronous execution blocks subsequent tasks until the current task completes, whereas asynchronous execution allows tasks to execute concurrently without waiting.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "INST_030",
+      "category": "simple_instruction",
+      "prompt": "Instruction: Define the term 'bandwidth' in computer networking.\nResponse:",
+      "response": "Bandwidth is the maximum rate of data transfer across a given network path in a specific period of time.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "EXTR_028",
+      "category": "context_extraction",
+      "prompt": "Instruction: Extract the requested detail from the text:\nThe experimental solar cell recorded a power conversion efficiency of 28.6%. What was the power conversion efficiency?\nResponse:",
+      "response": "28.6%",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "EXTR_029",
+      "category": "context_extraction",
+      "prompt": "Instruction: Extract the requested detail from the text:\nVirtual machine node-401 has been assigned internal IP address 172.16.8.99. What internal IP address is assigned to node-401?\nResponse:",
+      "response": "172.16.8.99",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "EXTR_030",
+      "category": "context_extraction",
+      "prompt": "Instruction: Extract the requested detail from the text:\nArchitect Sarah Lin authored the specification document RFC-1092. Who authored RFC-1092?\nResponse:",
+      "response": "Sarah Lin",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CQA_028",
+      "category": "context_grounded_qa",
+      "prompt": "Instruction: Answer the question using only the provided context.\nContext: The battery pack utilizes lithium iron phosphate (LiFePO4) chemistry, rated for over 3,000 full charge cycles at 80% depth of discharge.\nQuestion: How many charge cycles is the battery pack rated for?\nResponse:",
+      "response": "The battery pack is rated for over 3,000 full charge cycles.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CQA_029",
+      "category": "context_grounded_qa",
+      "prompt": "Instruction: Answer the question using only the provided context.\nContext: In BGP routing, an autonomous system prepends its ASN to the AS-PATH attribute when advertising routes to external peers.\nQuestion: Which attribute is prepended when advertising BGP routes to external peers?\nResponse:",
+      "response": "The AS-PATH attribute is prepended.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CQA_030",
+      "category": "context_grounded_qa",
+      "prompt": "Instruction: Answer the question using only the provided context.\nContext: The clinical trial enrolled 450 adult participants across 8 medical centers in North America.\nQuestion: How many participants were enrolled in the clinical trial?\nResponse:",
+      "response": "The clinical trial enrolled 450 adult participants.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "SUMM_028",
+      "category": "short_summarization",
+      "prompt": "Instruction: Summarize the following passage in a single concise sentence:\nGeothermal power plants extract steam and hot water from deep underground reservoirs to drive electric generators with low greenhouse emissions.\nResponse:",
+      "response": "Geothermal power generates low-emission electricity using underground geothermal steam.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "SUMM_029",
+      "category": "short_summarization",
+      "prompt": "Instruction: Summarize the following passage in a single concise sentence:\nA database index creates a specialized data structure that accelerates query lookups while increasing write overhead and storage consumption.\nResponse:",
+      "response": "Database indices accelerate query lookups at the expense of storage and write performance.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "SUMM_030",
+      "category": "short_summarization",
+      "prompt": "Instruction: Summarize the following passage in a single concise sentence:\nBlockchain technology creates a decentralized, append-only ledger secured by cryptographic hash chaining and distributed consensus mechanisms.\nResponse:",
+      "response": "Blockchains provide decentralized, cryptographically chained append-only ledgers.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "STR_028",
+      "category": "structured_output",
+      "prompt": "Instruction: Output a JSON object with keys 'source' and 'destination' for path from 'A' to 'B'.\nResponse:",
+      "response": "{\"source\": \"A\", \"destination\": \"B\"}",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "STR_029",
+      "category": "structured_output",
+      "prompt": "Instruction: Format memory metrics total_mb 16384 and used_mb 8192 as a JSON object.\nResponse:",
+      "response": "{\"total_mb\": 16384, \"used_mb\": 8192}",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "STR_030",
+      "category": "structured_output",
+      "prompt": "Instruction: Represent a transaction with tx_id 'TX-901' and amount 150.75 as JSON.\nResponse:",
+      "response": "{\"tx_id\": \"TX-901\", \"amount\": 150.75}",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "UNC_028",
+      "category": "uncertainty_insufficient_info",
+      "prompt": "Instruction: Answer the question based on the provided context. If the context does not contain the answer, state that the information is unavailable.\nContext: The solar array generated 42 kWh of energy on Thursday.\nQuestion: What was the weather condition on Thursday?\nResponse:",
+      "response": "The provided context does not describe the weather condition on Thursday.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "UNC_029",
+      "category": "uncertainty_insufficient_info",
+      "prompt": "Instruction: Answer the question based on the provided context. If the context does not contain the answer, state that the information is unavailable.\nContext: The package contains fragile glassware and is marked with caution tape.\nQuestion: What company manufactured the glassware?\nResponse:",
+      "response": "The provided context does not mention the manufacturer of the glassware.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "UNC_030",
+      "category": "uncertainty_insufficient_info",
+      "prompt": "Instruction: Answer the question based on the provided context. If the context does not contain the answer, state that the information is unavailable.\nContext: Worker process #4 consumed 350 MB of memory before terminating.\nQuestion: What was the exact operating system version of the host?\nResponse:",
+      "response": "The provided context does not specify the host operating system version.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CONV_028",
+      "category": "conversational_acknowledgement",
+      "prompt": "Instruction: Respond appropriately to the conversational remark:\nThank you for the guidance on this task.\nResponse:",
+      "response": "You're very welcome! I'm glad I could provide useful guidance.",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CONV_029",
+      "category": "conversational_acknowledgement",
+      "prompt": "Instruction: Respond appropriately to the conversational remark:\nHello! Checking in on our project workflow.\nResponse:",
+      "response": "Hello! Workflow monitoring is active. What details would you like to review?",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "CONV_030",
+      "category": "conversational_acknowledgement",
+      "prompt": "Instruction: Respond appropriately to the conversational remark:\nThanks assistant, talk to you tomorrow.\nResponse:",
+      "response": "You're welcome! Talk to you tomorrow. Have a great evening!",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "TRNS_028",
+      "category": "bounded_text_transformation",
+      "prompt": "Instruction: Convert the string 'CRITICAL' to lowercase.\nResponse:",
+      "response": "critical",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "TRNS_029",
+      "category": "bounded_text_transformation",
+      "prompt": "Instruction: Format the key-value pair key='port' and value=8080 as 'port: 8080'.\nResponse:",
+      "response": "port: 8080",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    },
+    {
+      "id": "TRNS_030",
+      "category": "bounded_text_transformation",
+      "prompt": "Instruction: Reverse the string 'CHAKR'.\nResponse:",
+      "response": "RKAHC",
+      "split": "test",
+      "data_role": "TEST",
+      "provenance": "locally_authored_batch2821_2860",
+      "review_status": "VERIFIED_HUMAN_REVIEWED",
+      "status": "APPROVED"
+    }
+  ]
+}

@@ -51,6 +51,7 @@ class SFTConfig:
     allow_exploratory_opt_in: bool = False
     enforce_trust_gate: bool = True
     strip_prompt_delimiters: bool = True
+    save_best_checkpoint: bool = True
 
 
 class SFTDataset:
@@ -124,13 +125,17 @@ class SFTDataset:
     def __len__(self) -> int:
         return len(self.records)
 
-    def encode_example(self, prompt: str, response: str) -> Tuple[List[int], List[int]]:
+    def encode_example(
+        self, prompt: str, response: str, append_eos: bool = True
+    ) -> Tuple[List[int], List[int]]:
         """
         Tokenizes prompt and response, and builds causal input and label sequences
         with prompt targets masked using -100.
         Format:
-          input_seq:  <BOS> + prompt_tokens + response_tokens
-          target_seq: [-100]*len(prompt_tokens) + response_tokens + <EOS>
+          Instruction: input_seq:  <BOS> + prompt_tokens + response_tokens
+                       target_seq: [-100]*len(prompt_tokens) + response_tokens + <EOS>
+          Replay:      input_seq:  <BOS> + prompt_tokens + response_tokens[:-1]
+                       target_seq: [-100]*len(prompt_tokens) + response_tokens
         """
         bos_id = 0
         eos_id = 1
@@ -159,7 +164,12 @@ class SFTDataset:
             p_toks = p_toks[-allowed_p:]
 
         input_seq, target_seq = build_causal_sequence(
-            p_toks, r_toks, bos_id=bos_id, eos_id=eos_id, ignore_index=ignore_index
+            p_toks,
+            r_toks,
+            bos_id=bos_id,
+            eos_id=eos_id,
+            ignore_index=ignore_index,
+            append_eos=append_eos,
         )
         if len(input_seq) > self.max_seq_len:
             raise ValueError(
@@ -181,7 +191,8 @@ class SFTDataset:
 
         for idx in indices:
             rec = self.records[idx]
-            inp, tgt = self.encode_example(rec["prompt"], rec["response"])
+            append_eos = rec.get("append_eos", True)
+            inp, tgt = self.encode_example(rec["prompt"], rec["response"], append_eos=append_eos)
             batch_inputs.append(inp)
             batch_targets.append(tgt)
 
@@ -242,6 +253,8 @@ class SFTExperimentEngine:
 
         self.start_step = 0
         self.history: List[Dict[str, Any]] = []
+        self.best_val_loss: float = float("inf")
+        self.best_step: int = 0
         self._load_base_checkpoint()
 
     def _load_base_checkpoint(self):
@@ -358,8 +371,16 @@ class SFTExperimentEngine:
 
             if step % self.config.val_interval == 0 or step == self.config.steps:
                 val_metrics = self.evaluate(seed=101 + step)
-                step_record["val_loss"] = val_metrics["loss"]
+                cur_vloss = val_metrics["loss"]
+                step_record["val_loss"] = cur_vloss
                 step_record["val_perplexity"] = val_metrics["perplexity"]
+
+                # Check if new global minimum achieved (strictly less than, resolving ties deterministically to earlier step)
+                if self.config.save_best_checkpoint and math.isfinite(cur_vloss) and cur_vloss < self.best_val_loss:
+                    self.best_val_loss = cur_vloss
+                    self.best_step = step
+                    step_record["is_best"] = True
+                    self.save_checkpoint(step, rng=rng, is_best=True)
 
             self.history.append(step_record)
 
@@ -375,12 +396,19 @@ class SFTExperimentEngine:
             "final_train_loss": self.history[-1]["train_loss"],
             "final_val_loss": final_val["loss"],
             "final_val_perplexity": final_val["perplexity"],
+            "best_val_loss": self.best_val_loss if math.isfinite(self.best_val_loss) else final_val["loss"],
+            "best_val_step": self.best_step,
             "total_steps": self.config.steps,
             "elapsed_seconds": round(elapsed, 2),
             "history": self.history,
         }
 
-    def save_checkpoint(self, step: int, rng: Optional[np.random.RandomState] = None):
+    def save_checkpoint(
+        self,
+        step: int,
+        rng: Optional[np.random.RandomState] = None,
+        is_best: bool = False,
+    ):
         ckpt_filename = f"sft_checkpoint_step_{step}.pt"
         target_path = self.config.output_dir / ckpt_filename
         temp_path = self.config.output_dir / f"{ckpt_filename}.tmp"
@@ -402,8 +430,19 @@ class SFTExperimentEngine:
             "val_file": str(self.config.val_file),
             "train_file_sha256": self.train_dataset.file_sha256 if hasattr(self.train_dataset, "file_sha256") else None,
             "val_file_sha256": self.val_dataset.file_sha256 if hasattr(self.val_dataset, "file_sha256") else None,
+            "is_best": is_best,
+            "best_val_loss": self.best_val_loss if math.isfinite(self.best_val_loss) else None,
+            "best_step": self.best_step if self.best_step > 0 else step,
         }
 
         torch.save(payload, temp_path)
         if temp_path.exists():
             temp_path.replace(target_path)
+
+        # If this is the new best checkpoint, write atomic copy to sft_best_checkpoint.pt
+        if is_best:
+            best_target_path = self.config.output_dir / "sft_best_checkpoint.pt"
+            best_temp_path = self.config.output_dir / "sft_best_checkpoint.pt.tmp"
+            torch.save(payload, best_temp_path)
+            if best_temp_path.exists():
+                best_temp_path.replace(best_target_path)

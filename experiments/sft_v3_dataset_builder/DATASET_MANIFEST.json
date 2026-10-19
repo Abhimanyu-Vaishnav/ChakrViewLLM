@@ -1,0 +1,64 @@
+{
+  "manifest_version": "3.0.0",
+  "dataset_name": "chakrview_sft_v3_grounded_curriculum",
+  "generated_at": "2026-10-19T16:15:00+05:30",
+  "builder_script": "experiments/sft_v3_dataset_builder/build_sft_v3_dataset.py",
+  "validator_script": "experiments/sft_v3_dataset_builder/validate_sft_v3_dataset.py",
+  "random_seed": 42,
+  "hardware_execution": "CPU-first reference execution",
+  "splits": {
+    "train": {
+      "file": "train.jsonl",
+      "path": "experiments/sft_v3_dataset_builder/train.jsonl",
+      "record_count": 200,
+      "sha256": "57affaa613eaf0e31be752bc680dddcd3c748e1cee3752942db93e8dea270804",
+      "structured_count": 140,
+      "replay_count": 60,
+      "categories": {
+        "grounded_extraction_server_status": 25,
+        "grounded_telemetry_metric": 25,
+        "grounded_feature_flag": 25,
+        "grounded_inventory_item": 25,
+        "anti_code_attractor_guard": 20,
+        "missing_information_abstention": 20,
+        "base_continuation_replay": 60
+      }
+    },
+    "validation": {
+      "file": "validation.jsonl",
+      "path": "experiments/sft_v3_dataset_builder/validation.jsonl",
+      "record_count": 40,
+      "sha256": "4c4c77d5db4884e06ed4e06550bd4badba6a4793f37a1d5a38d0c9512cbc1cf8",
+      "structured_count": 30,
+      "replay_count": 10,
+      "categories": {
+        "grounded_extraction_server_status": 5,
+        "grounded_telemetry_metric": 5,
+        "grounded_feature_flag": 5,
+        "grounded_inventory_item": 5,
+        "anti_code_attractor_guard": 5,
+        "missing_information_abstention": 5,
+        "base_continuation_replay": 10
+      }
+    }
+  },
+  "leakage_controls": {
+    "template_family_overlap": 0,
+    "prompt_overlap_count": 0,
+    "factual_target_overlap_count": 0,
+    "context_overlap_count": 0,
+    "held_out_test_split_accessed": false
+  },
+  "token_boundaries": {
+    "min_token_sequence": 13,
+    "max_token_sequence": 157,
+    "context_window_limit": 512,
+    "truncation_risk_count": 0
+  },
+  "canonical_references": {
+    "step_10000_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7"
+  },
+  "preflight_status": "PREFLIGHT_PASSED_READY_FOR_HUMAN_REVIEW"
+}

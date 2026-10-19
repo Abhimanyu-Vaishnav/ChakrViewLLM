@@ -36,17 +36,30 @@ def build_causal_sequence(
     bos_id: int = 0,
     eos_id: int = 1,
     ignore_index: int = -100,
+    append_eos: bool = True,
 ) -> Tuple[List[int], List[int]]:
     """
     Builds causal input sequence and masked target sequence.
-    input_seq:  [BOS] + prompt_tokens + response_tokens
-    target_seq: [ignore_index]*len(prompt_tokens) + response_tokens + [EOS]
+    If append_eos is True (default, instruction pairs):
+      input_seq:  [BOS] + prompt_tokens + response_tokens
+      target_seq: [ignore_index]*len(prompt_tokens) + response_tokens + [EOS]
+    If append_eos is False (continuation / replay sequences):
+      input_seq:  [BOS] + prompt_tokens + response_tokens[:-1]
+      target_seq: [ignore_index]*len(prompt_tokens) + response_tokens
     
     Causal alignment property:
       input_seq[len(prompt_tokens)] is the final prompt token, whose prediction target is
       target_seq[len(prompt_tokens)] == response_tokens[0] (the first response token).
     """
-    input_seq = [bos_id] + prompt_tokens + response_tokens
-    target_seq = ([ignore_index] * len(prompt_tokens)) + response_tokens + [eos_id]
-    assert len(input_seq) == len(target_seq)
+    if append_eos:
+        input_seq = [bos_id] + prompt_tokens + response_tokens
+        target_seq = ([ignore_index] * len(prompt_tokens)) + response_tokens + [eos_id]
+    else:
+        # Replay/continuation: response continues naturally without forced EOS boundary
+        # target_seq has length len(prompt_tokens) + len(response_tokens)
+        # input_seq must have identical length: [BOS] + prompt_tokens + response_tokens[:-1]
+        input_seq = [bos_id] + prompt_tokens + (response_tokens[:-1] if response_tokens else [])
+        target_seq = ([ignore_index] * len(prompt_tokens)) + response_tokens
+
+    assert len(input_seq) == len(target_seq), f"Length mismatch: {len(input_seq)} vs {len(target_seq)}"
     return input_seq, target_seq

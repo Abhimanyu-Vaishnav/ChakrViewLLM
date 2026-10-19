@@ -1,0 +1,53 @@
+{
+  "preflight_version": "batch3021_3060_final_v1",
+  "timestamp": "2026-10-18T12:41:19Z",
+  "overall_verdict": "PASS",
+  "training_executed": false,
+  "optimizer_steps_executed": 0,
+  "weights_modified": false,
+  "gates": {
+    "parent_checkpoint": {
+      "status": "PASS",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "path": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt"
+    },
+    "tokenizer": {
+      "status": "PASS",
+      "directory": "D:\\Project\\ChakrView\\release\\chakrview-v0.5.0\\data\\experiments\\vocab_4096",
+      "vocab_size": 4096
+    },
+    "dataset_manifest_and_balance": {
+      "status": "PASS",
+      "total_records": 400,
+      "splits": {
+        "train": 320,
+        "val": 40,
+        "test": 40
+      },
+      "instruction_count": 280,
+      "replay_count": 120,
+      "split_leakage_detected": false,
+      "document_overlap_detected": false
+    },
+    "label_masking_and_eos_policy": {
+      "status": "PASS",
+      "instruction_eos_supervised": true,
+      "replay_eos_unforced": true
+    },
+    "configuration_reconciliation": {
+      "status": "PASS",
+      "reconciled_step_limit": 160,
+      "reconciled_batch_size": 4
+    },
+    "output_isolation": {
+      "status": "PASS",
+      "configured_output": "experiments/batch3021_3060/balanced_sft_pilot_run"
+    },
+    "best_checkpoint_saving_support": {
+      "status": "PASS",
+      "save_checkpoint_has_is_best": true
+    }
+  },
+  "mandatory_execution_command": ".\\.venv\\Scripts\\python.exe experiments/batch3021_3060/run_trainer.py --execute-authorized-training"
+}
