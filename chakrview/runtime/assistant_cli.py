@@ -54,6 +54,14 @@ def main():
     interactive_parser = subparsers.add_parser("interactive", help="Start an interactive multi-turn session")
     interactive_parser.add_argument("--doc-dir", type=str, default="experiments/batch1021_1060/data/sample_corpus", help="Corpus directory to auto-load")
 
+    # Code subcommand (v0.7 coding assistant)
+    code_parser = subparsers.add_parser("code", help="Coding assistant: draft, explain, fix, test, or execute code")
+    code_parser.add_argument("action", choices=["draft", "explain", "fix", "test", "sandbox"], help="Coding action to perform")
+    code_parser.add_argument("input_text", type=str, help="Specification, code snippet, or code to evaluate")
+    code_parser.add_argument("--error", type=str, default="", help="Error message (for 'fix' action)")
+    code_parser.add_argument("--test-assertions", type=str, default="", help="Assert statements (for 'sandbox' action)")
+    code_parser.add_argument("--language", type=str, default="python", help="Target programming language (default: python)")
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
@@ -145,6 +153,50 @@ def main():
             except (KeyboardInterrupt, EOFError):
                 break
         print("\nSession ended.")
+
+    elif args.command == "code":
+        from chakrview.runtime.coding_assistant import CodingAssistant
+        ca = CodingAssistant(
+            checkpoint_path=args.neural_checkpoint,
+            max_new_tokens=args.neural_max_new_tokens,
+            decoding=args.neural_decoding,
+            temperature=args.neural_temperature,
+            repetition_penalty=args.neural_repetition_penalty,
+        )
+        print("\nCHAKRVIEW CODING ASSISTANT (v0.7 Experimental)")
+        print("=" * 60)
+        if args.action == "draft":
+            res = ca.draft_code(args.input_text, language=args.language)
+            print(f"Action:       Draft Code")
+            print(f"Syntax Valid: {res.get('syntax_valid')}")
+            print(f"Security:     {res.get('security_audit')}")
+            print("-" * 60)
+            print(f"Generated Output:\n{res.get('native_output')}")
+        elif args.action == "explain":
+            res = ca.explain_code(args.input_text)
+            print(f"Action:       Explain Code")
+            print("-" * 60)
+            print(f"Explanation:\n{res.get('native_output')}")
+        elif args.action == "fix":
+            res = ca.fix_bug(args.input_text, error_message=args.error)
+            print(f"Action:       Fix Bug")
+            print(f"Syntax Valid: {res.get('syntax_valid')}")
+            print("-" * 60)
+            print(f"Proposed Fix:\n{res.get('native_output')}")
+        elif args.action == "test":
+            res = ca.generate_tests(args.input_text)
+            print(f"Action:       Generate Tests")
+            print("-" * 60)
+            print(f"Generated Assertions:\n{res.get('native_output')}")
+        elif args.action == "sandbox":
+            res = ca.test_in_sandbox(args.input_text, args.test_assertions)
+            print(f"Action:       Isolated Sandboxed Execution [TOOL-ASSISTED]")
+            print(f"Passed:       {res.get('passed')}")
+            print(f"Syntax Valid: {res.get('syntax_valid')}")
+            print(f"Latency:      {res.get('latency_ms')} ms")
+            if res.get('error'):
+                print(f"Error:        {res.get('error')}")
+        print("=" * 60)
 
 
 if __name__ == "__main__":

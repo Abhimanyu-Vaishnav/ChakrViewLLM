@@ -1,0 +1,275 @@
+{
+    "categories": [
+        "conversational_greetings",
+        "direct_instruction_following",
+        "context_copying",
+        "grounded_qa",
+        "summarization",
+        "simple_reasoning_arithmetic",
+        "format_adherence",
+        "coding_continuation",
+        "repetition_collapse_probe",
+        "multi_turn_context"
+    ],
+    "suite_name": "CHAKRVIEW_NATIVE_INTELLIGENCE_BENCHMARK_v0.8",
+    "description": "Comprehensive 32-task native evaluation across 10 core capability categories without external tooling.",
+    "version": "1.0.0",
+    "tasks": [
+        {
+            "id": "GREET-01",
+            "prompt": "Hello! Who are you?",
+            "test_code": "",
+            "expected_concept": "assistant",
+            "scoring": "substring",
+            "category": "conversational_greetings"
+        },
+        {
+            "id": "GREET-02",
+            "prompt": "Good morning! How are you today?",
+            "test_code": "",
+            "expected_concept": "good",
+            "scoring": "substring",
+            "category": "conversational_greetings"
+        },
+        {
+            "id": "GREET-03",
+            "prompt": "Hi, can you assist me with something?",
+            "test_code": "",
+            "expected_concept": "yes",
+            "scoring": "substring",
+            "category": "conversational_greetings"
+        },
+        {
+            "id": "INST-01",
+            "prompt": "Reply with exactly the single word: CONFIRMED",
+            "test_code": "",
+            "expected_concept": "CONFIRMED",
+            "scoring": "exact_strip",
+            "category": "direct_instruction_following"
+        },
+        {
+            "id": "INST-02",
+            "prompt": "Say the word APPLE and nothing else.",
+            "test_code": "",
+            "expected_concept": "APPLE",
+            "scoring": "exact_strip",
+            "category": "direct_instruction_following"
+        },
+        {
+            "id": "INST-03",
+            "prompt": "Type the number 42:",
+            "test_code": "",
+            "expected_concept": "42",
+            "scoring": "number_match",
+            "category": "direct_instruction_following"
+        },
+        {
+            "id": "COPY-01",
+            "prompt": "The secret activation code is ZETA-9871. What is the code? Answer:",
+            "test_code": "",
+            "expected_concept": "ZETA-9871",
+            "scoring": "word_boundary",
+            "category": "context_copying"
+        },
+        {
+            "id": "COPY-02",
+            "prompt": "User ID: QX-5502-ALPHA. Target ID:",
+            "test_code": "",
+            "expected_concept": "QX-5502-ALPHA",
+            "scoring": "word_boundary",
+            "category": "context_copying"
+        },
+        {
+            "id": "COPY-03",
+            "prompt": "The patient's name is Dr. Jonathan Higgins. Name:",
+            "test_code": "",
+            "expected_concept": "Jonathan Higgins",
+            "scoring": "word_boundary",
+            "category": "context_copying"
+        },
+        {
+            "id": "COPY-04",
+            "prompt": "Serial number: SN-90124-K. Verify SN:",
+            "test_code": "",
+            "expected_concept": "SN-90124-K",
+            "scoring": "word_boundary",
+            "category": "context_copying"
+        },
+        {
+            "id": "QA-01",
+            "prompt": "Context: The capital city of Solaria is Heliopolis. Question: What is the capital of Solaria? Answer:",
+            "test_code": "",
+            "expected_concept": "Heliopolis",
+            "scoring": "substring",
+            "category": "grounded_qa"
+        },
+        {
+            "id": "QA-02",
+            "prompt": "Context: Project Bluebird started in the year 1984 under director Vance. Question: Who was the director? Answer:",
+            "test_code": "",
+            "expected_concept": "Vance",
+            "scoring": "substring",
+            "category": "grounded_qa"
+        },
+        {
+            "id": "QA-03",
+            "prompt": "Context: The vehicle was painted emerald green with silver rims. Question: What color was the vehicle? Answer:",
+            "test_code": "",
+            "expected_concept": "emerald green",
+            "scoring": "substring",
+            "category": "grounded_qa"
+        },
+        {
+            "id": "SUMM-01",
+            "prompt": "Passage: The company announced a 15% revenue increase in Q3 driven by cloud expansion, while hardware sales dropped by 4%. Summary in one phrase:",
+            "test_code": "",
+            "expected_concept": "revenue",
+            "scoring": "heuristic_summary",
+            "category": "summarization"
+        },
+        {
+            "id": "SUMM-02",
+            "prompt": "Passage: Photosynthesis converts light energy into chemical energy stored in glucose molecules. Summary:",
+            "test_code": "",
+            "expected_concept": "photosynthesis",
+            "scoring": "heuristic_summary",
+            "category": "summarization"
+        },
+        {
+            "id": "SUMM-03",
+            "prompt": "Passage: The committee voted unanimously to postpone the construction of the new bridge until next spring due to budget constraints. Key takeaway:",
+            "test_code": "",
+            "expected_concept": "postpone",
+            "scoring": "heuristic_summary",
+            "category": "summarization"
+        },
+        {
+            "id": "REAS-01",
+            "prompt": "If Mary has 3 apples and John gives her 4 more apples, how many apples does Mary have in total? Answer:",
+            "test_code": "",
+            "expected_concept": "7",
+            "scoring": "number_match",
+            "category": "simple_reasoning_arithmetic"
+        },
+        {
+            "id": "REAS-02",
+            "prompt": "A box has 10 marbles. You take away 4. How many marbles remain in the box? Answer:",
+            "test_code": "",
+            "expected_concept": "6",
+            "scoring": "number_match",
+            "category": "simple_reasoning_arithmetic"
+        },
+        {
+            "id": "REAS-03",
+            "prompt": "What is 10 plus 15? Answer:",
+            "test_code": "",
+            "expected_concept": "25",
+            "scoring": "number_match",
+            "category": "simple_reasoning_arithmetic"
+        },
+        {
+            "id": "FMT-01",
+            "prompt": "Format this key-value pair as JSON with key 'status' and value 'active':\\nJSON:",
+            "test_code": "",
+            "expected_concept": "\"status\": \"active\"",
+            "scoring": "substring",
+            "category": "format_adherence"
+        },
+        {
+            "id": "FMT-02",
+            "prompt": "Output a numbered list of two items: cat, dog.\\n1.",
+            "test_code": "",
+            "expected_concept": "cat",
+            "scoring": "substring",
+            "category": "format_adherence"
+        },
+        {
+            "id": "FMT-03",
+            "prompt": "Wrap the word TEST inside XML tags <val> and </val>:",
+            "test_code": "",
+            "expected_concept": "<val>TEST</val>",
+            "scoring": "substring",
+            "category": "format_adherence"
+        },
+        {
+            "id": "CODE-01",
+            "prompt": "def add(a, b):\\n    return ",
+            "test_code": "assert add(2, 3) == 5",
+            "expected_concept": "a + b",
+            "scoring": "code_functional",
+            "category": "coding_continuation"
+        },
+        {
+            "id": "CODE-02",
+            "prompt": "def is_positive(x):\\n    return ",
+            "test_code": "assert is_positive(5) is True",
+            "expected_concept": "x > 0",
+            "scoring": "code_functional",
+            "category": "coding_continuation"
+        },
+        {
+            "id": "CODE-03",
+            "prompt": "# Python assertion checking that len('abc') equals 3:\\nassert ",
+            "test_code": "",
+            "expected_concept": "len('abc') == 3",
+            "scoring": "code_functional",
+            "category": "coding_continuation"
+        },
+        {
+            "id": "CODE-04",
+            "prompt": "def square(n):\\n    return ",
+            "test_code": "assert square(4) == 16",
+            "expected_concept": "n * n",
+            "scoring": "code_functional",
+            "category": "coding_continuation"
+        },
+        {
+            "id": "PROBE-01",
+            "prompt": "List the names of four fruits: apple, banana, ",
+            "test_code": "",
+            "expected_concept": "orange",
+            "scoring": "substring",
+            "category": "repetition_collapse_probe"
+        },
+        {
+            "id": "PROBE-02",
+            "prompt": "Counting numbers from 1 to 5: 1, 2, 3, ",
+            "test_code": "",
+            "expected_concept": "4",
+            "scoring": "number_match",
+            "category": "repetition_collapse_probe"
+        },
+        {
+            "id": "PROBE-03",
+            "prompt": "Write a complete three-word sentence:",
+            "test_code": "",
+            "expected_concept": ".",
+            "scoring": "substring",
+            "category": "repetition_collapse_probe"
+        },
+        {
+            "id": "TURN-01",
+            "prompt": "Human: My name is Alice.\\nAssistant: Nice to meet you Alice.\\nHuman: What is my name?\\nAssistant: Your name is ",
+            "test_code": "",
+            "expected_concept": "Alice",
+            "scoring": "substring",
+            "category": "multi_turn_context"
+        },
+        {
+            "id": "TURN-02",
+            "prompt": "Human: I live in Toronto.\\nAssistant: Toronto is a great city.\\nHuman: Which city did I say I live in?\\nAssistant: You live in ",
+            "test_code": "",
+            "expected_concept": "Toronto",
+            "scoring": "substring",
+            "category": "multi_turn_context"
+        },
+        {
+            "id": "TURN-03",
+            "prompt": "Human: Let's pick color blue.\\nAssistant: Blue is selected.\\nHuman: What color did we pick?\\nAssistant: ",
+            "test_code": "",
+            "expected_concept": "blue",
+            "scoring": "substring",
+            "category": "multi_turn_context"
+        }
+    ]
+}

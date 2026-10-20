@@ -1,5 +1,28 @@
 # Changelog
 
+## [v0.7.0] - 2026-10-20
+
+### Added
+- **Subprocess-Isolated Test Runner** (`evaluation/coding_suite/isolated_executor.py`): Restricted Python execution environment with AST safety auditing, timeout enforcement, and memory bounding for coding test assertions.
+- **Coding Assistant Subsystem & CLI** (`chakrview/runtime/coding_assistant.py`): Supports `draft`, `explain`, `fix`, `test`, and `sandbox` actions with AST-governed safety.
+- **Sliding-Window N-Gram Repetition Blocking** (`chakrview/runtime/sampling.py`): Added `apply_no_repeat_ngram` and `no_repeat_ngram_size` to sampling configurations, eliminating cyclic repetition attractor loops (dropping collapse from 53.1% to 0.0% on greedy decoding).
+- **10-Category 32-Task Native Intelligence Suite** (`evaluation/intelligence_suite/`): Versioned native benchmark covering greetings, instructions, context copying, grounded QA, summarization, arithmetic, formatting, coding continuation, repetition probes, and multi-turn context.
+- **Robust Scoring Evaluator** (`evaluation/intelligence_suite/scoring_evaluator.py`): Replaces naive substring matches with word boundaries, number isolation, and isolated subprocess execution for coding tasks.
+- **Coding Data Pipeline** (`chakrview/data/coding_data_pipeline.py`): Dataset normalization with exact deduplication and cross-split leakage prevention.
+- **Project North Star & Living Roadmap** (`docs/PROJECT_NORTH_STAR.md`, `docs/CHAKRVIEW_CAPABILITY_ROADMAP.md`).
+- **Release Documentation Package** (`docs/release/v0.7.0/`): Release checklist, release notes, reproducibility guide, and final execution report.
+
+### Changed
+- `chakrview/runtime/neural_runtime_adapter.py`: Integrated `no_repeat_ngram_size` parameter and dynamic external checkpoint resolution fallback with SHA-256 integrity validation.
+- `chakrview/runtime/assistant_cli.py`: Added `code` action subgroup and integration with coding assistant.
+
+### Verified Baseline Performance
+- 12-Task Coding Benchmark: 2/12 (16.7%) functional pass rate, 5/12 (41.7%) syntax valid.
+- 32-Task Intelligence Suite: 1/32 (3.1%) pass rate; attractor collapse reduced from 53.1% to 0.0% with `no_repeat_ngram_size=3`.
+
+---
+
+
 All notable changes to the ChakrView project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

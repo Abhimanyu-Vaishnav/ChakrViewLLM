@@ -15,6 +15,23 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 
 ---
 
+## Latest Release: ChakrView v0.7.0 (Coding Foundation & Runtime Hardening)
+
+ChakrView v0.7.0 delivers foundational coding workflows, secure subprocess execution, output repetition controls, and hardened benchmark evaluation:
+- **Subprocess-Isolated Code Runner**: Restricts execution with AST pre-auditing against dangerous builtins (`eval`, `open`, `__import__`) and enforces wall-clock timeouts.
+- **Coding Assistant Runtime**: Multi-action interface (`draft`, `explain`, `fix`, `test`, `sandbox`) for coding evaluation and synthesis.
+- **Sliding-Window N-Gram Repetition Blocking**: Integrated into sampling engine, reducing long-sequence attractor loops from 53.1% to 0.0% (`no_repeat_ngram_size=3`).
+- **10-Category 32-Task Native Intelligence Suite**: Versioned benchmark with robust word-boundary and functional test scoring.
+- **Clean Epistemic Demarcation**: Deterministic tools (calculators, AST sandboxes) are strictly isolated from native model intelligence.
+
+For release artifacts and reproducibility, see:
+- [Release Notes v0.7.0](docs/release/v0.7.0/RELEASE_NOTES.md)
+- [Reproducibility Guide v0.7.0](docs/release/v0.7.0/REPRODUCIBILITY.md)
+- [Release Checklist & Gates](docs/release/v0.7.0/RELEASE_CHECKLIST.md)
+- [Capability Roadmap (v0.6 -> v1.0)](docs/CHAKRVIEW_CAPABILITY_ROADMAP.md)
+
+---
+
 ## Public Research Preview: ChakrView v0.6.0
  
 ChakrView v0.6.0 is an accelerated research-preview release focusing on **working software, validated CPU inference, reproducible packaging, and truthful capability boundaries**.

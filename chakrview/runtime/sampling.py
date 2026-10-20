@@ -1,4 +1,4 @@
-"""
+﻿"""
 Sampling Subsystem for ChakrView (Step 10).
 
 Provides deterministic and stochastic token selection strategies:
@@ -7,6 +7,7 @@ Provides deterministic and stochastic token selection strategies:
 - Top-K truncation
 - Top-P (nucleus) filtering
 - Repetition penalty
+- Sliding-window n-gram blocking (no_repeat_ngram_size)
 - Minimum probability threshold
 - Deterministic seeding via independent PyTorch generators
 """
@@ -42,6 +43,7 @@ class SamplingConfig:
         top_k: Keep only top K highest-probability tokens (<= 0 to disable).
         top_p: Nucleus threshold cumulative probability (1.0 to disable).
         repetition_penalty: Discount factor applied to previously emitted tokens ([1.0, 10.0]; 1.0 disables).
+        no_repeat_ngram_size: Prevents repeating n-grams of specified size (0 to disable).
         min_prob: Minimum token probability threshold (0.0 to disable).
         seed: Random seed for deterministic stochastic sampling.
     """
@@ -49,6 +51,7 @@ class SamplingConfig:
     top_k: int = 0
     top_p: float = 1.0
     repetition_penalty: float = 1.0
+    no_repeat_ngram_size: int = 0
     min_prob: float = 0.0
     seed: Optional[int] = None
 
@@ -63,6 +66,8 @@ class SamplingConfig:
             raise ValueError(f"repetition_penalty must be >= 1.0, got {self.repetition_penalty}")
         if self.repetition_penalty > 10.0:
             raise ValueError(f"repetition_penalty must be <= 10.0, got {self.repetition_penalty}")
+        if self.no_repeat_ngram_size < 0:
+            raise ValueError(f"no_repeat_ngram_size must be >= 0, got {self.no_repeat_ngram_size}")
         if not (0.0 <= self.min_prob < 1.0):
             raise ValueError(f"min_prob must be in [0.0, 1.0), got {self.min_prob}")
 
@@ -114,6 +119,45 @@ def apply_repetition_penalty(
             val = filtered_logits[..., tok_id]
             filtered_logits[..., tok_id] = torch.where(val > 0, val / penalty, val * penalty)
     return filtered_logits
+
+
+def apply_no_repeat_ngram(
+    logits: torch.Tensor,
+    tokens: List[int],
+    ngram_size: int,
+) -> torch.Tensor:
+    """
+    Prevent repeating any n-gram of length `ngram_size`.
+    If the current sequence suffix of length (ngram_size - 1) appeared previously,
+    any token that previously followed that prefix is banned (logit set to -inf).
+    """
+    if ngram_size <= 0 or not tokens or len(tokens) < ngram_size - 1:
+        return logits
+
+    prefix_len = ngram_size - 1
+    current_prefix = tuple(tokens[-prefix_len:]) if prefix_len > 0 else ()
+    
+    banned_tokens: Set[int] = set()
+    for i in range(len(tokens) - prefix_len):
+        if prefix_len == 0:
+            banned_tokens.add(tokens[i])
+        elif tuple(tokens[i : i + prefix_len]) == current_prefix:
+            if i + prefix_len < len(tokens):
+                banned_tokens.add(tokens[i + prefix_len])
+
+    if not banned_tokens:
+        return logits
+
+    filtered = logits.clone()
+    for tok_id in banned_tokens:
+        if 0 <= tok_id < filtered.shape[-1]:
+            filtered[..., tok_id] = -float("inf")
+
+    # If all tokens are masked, fall back to unmasked logits to prevent complete failure
+    if torch.isneginf(filtered).all():
+        return logits
+
+    return filtered
 
 
 def apply_top_k(logits: torch.Tensor, top_k: int) -> torch.Tensor:
@@ -180,7 +224,7 @@ class Sampler:
         
         Args:
             logits: 1D [vocab_size] or 2D [1, vocab_size] logits tensor.
-            generated_tokens: List of previously generated token IDs for repetition penalty.
+            generated_tokens: List of previously generated token IDs for repetition penalty and n-gram blocking.
             config: Optional sampling configuration override.
             step: Step index used for deterministic pseudorandom generator seed progression.
             strict_safety: If True, raise SamplingProbabilityError on degenerate distribution.
@@ -202,19 +246,21 @@ class Sampler:
         if torch.isnan(logits).any() or torch.isinf(logits).any():
             raise ValueError("Logits contain NaN or Inf values. Generation aborted for numerical safety.")
 
+        # Apply repetition penalty
+        adjusted_logits = logits
+        if cfg.repetition_penalty > 1.0 and generated_tokens:
+            adjusted_logits = apply_repetition_penalty(adjusted_logits, generated_tokens, cfg.repetition_penalty)
+
+        # Apply n-gram blocking
+        if cfg.no_repeat_ngram_size > 0 and generated_tokens:
+            adjusted_logits = apply_no_repeat_ngram(adjusted_logits, generated_tokens, cfg.no_repeat_ngram_size)
+
         # 1. Greedy path
         if cfg.is_greedy:
-            if cfg.repetition_penalty > 1.0 and generated_tokens:
-                penalized = apply_repetition_penalty(logits, generated_tokens, cfg.repetition_penalty)
-                return int(torch.argmax(penalized).item())
-            return int(torch.argmax(logits).item())
+            return int(torch.argmax(adjusted_logits).item())
 
         # 2. Stochastic path
-        scaled = logits
-        if cfg.repetition_penalty > 1.0 and generated_tokens:
-            scaled = apply_repetition_penalty(scaled, generated_tokens, cfg.repetition_penalty)
-
-        scaled = scaled / cfg.temperature
+        scaled = adjusted_logits / cfg.temperature
 
         if cfg.top_k > 0:
             scaled = apply_top_k(scaled, cfg.top_k)
@@ -233,8 +279,8 @@ class Sampler:
                 raise SamplingProbabilityError(
                     "Degenerate probability distribution (sum <= 0 or NaNs) encountered in Sampler."
                 )
-            # Fallback to greedy on original logits
-            return int(torch.argmax(logits).item())
+            # Fallback to greedy on adjusted logits
+            return int(torch.argmax(adjusted_logits).item())
 
         # Deterministic RNG generator if seed is set
         generator = None

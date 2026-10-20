@@ -1,4 +1,4 @@
-"""
+﻿"""
 ChakrView Dedicated Neural Runtime Adapter.
 Location: chakrview/runtime/neural_runtime_adapter.py
 
@@ -16,6 +16,7 @@ Responsibilities:
 from __future__ import annotations
 
 import hashlib
+import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple, Union
 import time
@@ -40,6 +41,9 @@ from chakrview.runtime.prompt_conditioning import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+# Allow external canonical checkpoint root via environment variable, defaulting to standard sibling or project path
+CHAKRVIEW_SOURCE_DIR = os.environ.get("CHAKRVIEW_SOURCE_DIR", "")
+SOURCE_REPO_ROOT = Path(CHAKRVIEW_SOURCE_DIR) if CHAKRVIEW_SOURCE_DIR else (REPO_ROOT.parent / "ChakrView")
 
 # Canonical Checkpoints & Expected File SHA-256 Allowlist
 CANONICAL_CHECKPOINTS_ALLOWLIST: Dict[str, Tuple[Path, str, str]] = {
@@ -47,6 +51,11 @@ CANONICAL_CHECKPOINTS_ALLOWLIST: Dict[str, Tuple[Path, str, str]] = {
         REPO_ROOT / "experiments" / "batch16_21_combined" / "main_training_10000" / "training_checkpoint_step_10000.pt",
         "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
         "Canonical Pretrained (Step 10,000)",
+    ),
+    "source_step_10000": (
+        SOURCE_REPO_ROOT / "experiments" / "batch16_21_combined" / "main_training_10000" / "training_checkpoint_step_10000.pt",
+        "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+        "Canonical Pretrained (Step 10,000 Source Path)",
     ),
     "cpt_best": (
         REPO_ROOT / "experiments" / "batch2141_2180" / "cpt" / "seed_42" / "cpt_best_checkpoint.pt",
@@ -101,6 +110,7 @@ class NeuralRuntimeAdapter:
         top_k: int = 0,
         top_p: float = 1.0,
         repetition_penalty: float = 1.0,
+        no_repeat_ngram_size: int = 0,
         seed: Optional[int] = 42,
         stop_on_eos: bool = False,
     ) -> None:
@@ -133,6 +143,7 @@ class NeuralRuntimeAdapter:
         self.top_k = max(0, top_k)
         self.top_p = top_p
         self.repetition_penalty = repetition_penalty
+        self.no_repeat_ngram_size = max(0, no_repeat_ngram_size)
         self.seed = seed
         self.stop_on_eos = stop_on_eos
 
@@ -158,6 +169,8 @@ class NeuralRuntimeAdapter:
 
         if self.requested_checkpoint_path is None:
             target_path, matched_expected_hash, label = CANONICAL_CHECKPOINTS_ALLOWLIST[DEFAULT_CHECKPOINT_KEY]
+            if not target_path.is_file() and CANONICAL_CHECKPOINTS_ALLOWLIST["source_step_10000"][0].is_file():
+                target_path, matched_expected_hash, label = CANONICAL_CHECKPOINTS_ALLOWLIST["source_step_10000"]
         else:
             cand_p = Path(self.requested_checkpoint_path).resolve()
             # Check against canonical allowlist
@@ -251,6 +264,7 @@ class NeuralRuntimeAdapter:
         top_k: Optional[int] = None,
         top_p: Optional[float] = None,
         repetition_penalty: Optional[float] = None,
+        no_repeat_ngram_size: Optional[int] = None,
         seed: Optional[int] = None,
         stop_on_eos: Optional[bool] = None,
     ) -> Dict[str, Any]:
@@ -276,6 +290,7 @@ class NeuralRuntimeAdapter:
         active_top_k = self.top_k if top_k is None else max(0, top_k)
         active_top_p = self.top_p if top_p is None else max(0.001, min(top_p, 1.0))
         active_rep = self.repetition_penalty if repetition_penalty is None else max(1.0, min(repetition_penalty, 10.0))
+        active_ngram = self.no_repeat_ngram_size if no_repeat_ngram_size is None else max(0, no_repeat_ngram_size)
         active_seed = self.seed if seed is None else seed
         active_eos_stop = self.stop_on_eos if stop_on_eos is None else stop_on_eos
 
@@ -303,6 +318,7 @@ class NeuralRuntimeAdapter:
             top_k=active_top_k,
             top_p=active_top_p,
             repetition_penalty=active_rep,
+            no_repeat_ngram_size=active_ngram,
             seed=active_seed,
         )
 
@@ -358,6 +374,7 @@ class NeuralRuntimeAdapter:
             "top_k": active_top_k,
             "top_p": active_top_p,
             "repetition_penalty": active_rep,
+            "no_repeat_ngram_size": active_ngram,
             "seed": active_seed,
             "stop_on_eos": active_eos_stop,
             "weight_hash_verified": True,
