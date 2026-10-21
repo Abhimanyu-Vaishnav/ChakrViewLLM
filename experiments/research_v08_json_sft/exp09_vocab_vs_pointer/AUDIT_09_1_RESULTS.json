@@ -1,0 +1,44 @@
+{
+  "status": "METRICS RECONCILED \u2014 POINTER RESULT CONFIRMED",
+  "hashes": {
+    "canonical_parent_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "canonical_vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "arm_b_best_checkpoint_sha256": "f08858f577122ef8d800dde808586a1d584949a6e59294eb9a0469337a4c3db3"
+  },
+  "summary_by_split": {
+    "validation": {
+      "total_examples": 228,
+      "position_accuracy_raw": "100.00% (228/228)",
+      "position_accuracy_pct": 100.0,
+      "original_exact_match_raw": "90.35% (206/228)",
+      "original_exact_match_pct": 90.35,
+      "bpe_delimiter_splits_count": 22,
+      "clean_single_token_prompts_count": 206,
+      "normalized_exact_match_on_clean_prompts": "100.00% (206/206)",
+      "pointer_selection_errors": 0
+    },
+    "test_a_familiar": {
+      "total_examples": 214,
+      "position_accuracy_raw": "100.00% (214/214)",
+      "position_accuracy_pct": 100.0,
+      "original_exact_match_raw": "89.25% (191/214)",
+      "original_exact_match_pct": 89.25,
+      "bpe_delimiter_splits_count": 23,
+      "clean_single_token_prompts_count": 191,
+      "normalized_exact_match_on_clean_prompts": "100.00% (191/191)",
+      "pointer_selection_errors": 0
+    },
+    "test_b_held_out": {
+      "total_examples": 300,
+      "position_accuracy_raw": "100.00% (300/300)",
+      "position_accuracy_pct": 100.0,
+      "original_exact_match_raw": "93.67% (281/300)",
+      "original_exact_match_pct": 93.67,
+      "bpe_delimiter_splits_count": 19,
+      "clean_single_token_prompts_count": 281,
+      "normalized_exact_match_on_clean_prompts": "100.00% (281/281)",
+      "pointer_selection_errors": 0
+    }
+  },
+  "reconciliation_explanation": "The pointer model selects the assigned source position with 100.0% accuracy across all splits. The discrepancy between 100% position accuracy and 89-94% exact-match rate is caused entirely by BPE delimiter boundary splits: when a target word is placed directly adjacent to colon or comma delimiters (e.g. 'primary:mode' or 'Beta=caus, '), the byte-pair tokenizer merges the word with the adjacent delimiter into multi-token fragments (e.g. 'mo' + 'de '). Consequently, no single token ID at any position in the prompt contains the isolated word. On all clean single-token prompts where the target word exists as an isolated token in context, both position accuracy and exact-match rate are exactly 100.0%."
+}

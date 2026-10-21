@@ -1,0 +1,1119 @@
+{
+  "best_step": 400,
+  "best_checkpoint_sha256": "26a2d405498111b404f70cff48098db3354db66ca75a67ddb48483555bc07fc0",
+  "parent_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "baseline_parent": {
+    "val": {
+      "split_name": "Val_Parent",
+      "total_examples": 199,
+      "first_token_acc": 0.0,
+      "first_token_hits": 0,
+      "free_gen_em": 0.0,
+      "free_gen_hits": 0,
+      "mean_target_prob": 0.0002710320134649516,
+      "mean_target_rank": 1123.8442211055276,
+      "unique_outputs_count": 21,
+      "output_diversity": 0.10552763819095477,
+      "by_stage": {
+        "Stage_C": {
+          "total": 99,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        }
+      },
+      "by_template": {
+        "query_assign": {
+          "total": 27,
+          "em_acc": 0.0
+        },
+        "bracket": {
+          "total": 23,
+          "em_acc": 0.0
+        },
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "key_val": {
+          "total": 26,
+          "em_acc": 0.0
+        },
+        "colon_tag": {
+          "total": 23,
+          "em_acc": 0.0
+        }
+      },
+      "by_position": {
+        "0": {
+          "total": 113,
+          "em_acc": 0.0
+        },
+        "1": {
+          "total": 53,
+          "em_acc": 0.0
+        },
+        "2": {
+          "total": 33,
+          "em_acc": 0.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_C",
+          "template": "query_assign",
+          "prompt": "Assignment: value is benchmar; ignore alpha.\nOutput: ",
+          "expected": "benchmar",
+          "generated": "The first of the fir",
+          "first_token_pred_id": 898,
+          "target_token_id": 2087,
+          "target_prob": 9.032128218677826e-06,
+          "target_rank": 1642,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "query_assign",
+          "prompt": "Assignment: value is asu; ignore Hin.\nOutput: ",
+          "expected": "asu",
+          "generated": "The Andrography",
+          "first_token_pred_id": 898,
+          "target_token_id": 1674,
+          "target_prob": 9.510053132544272e-06,
+          "target_rank": 1430,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "bracket",
+          "prompt": "Input sequence: [assump, delta]\nSelect second item: ",
+          "expected": "delta",
+          "generated": "int) -> None:\n        \"\"\"",
+          "first_token_pred_id": 1965,
+          "target_token_id": 2616,
+          "target_prob": 7.062546501401812e-05,
+          "target_rank": 1115,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=updat, Beta=Gra, Gamma=sub\nCopy Gamma: ",
+          "expected": "sub",
+          "generated": "The Sea of the Eu",
+          "first_token_pred_id": 898,
+          "target_token_id": 2742,
+          "target_prob": 6.271785241551697e-05,
+          "target_rank": 572,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=able, Beta=fic, Gamma=head\nCopy Gamma: ",
+          "expected": "head",
+          "generated": "Christian An",
+          "first_token_pred_id": 70,
+          "target_token_id": 655,
+          "target_prob": 3.320233736303635e-05,
+          "target_rank": 793,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=ulti, Beta=dres, Gamma=rang\nCopy Alpha: ",
+          "expected": "ulti",
+          "generated": "The Armage, A",
+          "first_token_pred_id": 898,
+          "target_token_id": 562,
+          "target_prob": 1.731423253659159e-06,
+          "target_rank": 2497,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=hierarch, Beta=local, Gamma=head\nCopy Gamma: ",
+          "expected": "head",
+          "generated": "Christian An",
+          "first_token_pred_id": 70,
+          "target_token_id": 655,
+          "target_prob": 3.187315087416209e-05,
+          "target_rank": 839,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=form, ref=gra\nExtract key: ",
+          "expected": "form",
+          "generated": "The first of the worl",
+          "first_token_pred_id": 898,
+          "target_token_id": 1972,
+          "target_prob": 0.00026626474573276937,
+          "target_rank": 422,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=length, Beta=float, Gamma=abiliti\nCopy Beta: ",
+          "expected": "float",
+          "generated": "The Sea of the Ch",
+          "first_token_pred_id": 898,
+          "target_token_id": 563,
+          "target_prob": 0.002597072860226035,
+          "target_rank": 60,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Tor, Beta=embed, Gamma=assump\nCopy Alpha: ",
+          "expected": "Tor",
+          "generated": "The Andrography",
+          "first_token_pred_id": 898,
+          "target_token_id": 3943,
+          "target_prob": 0.0007801320170983672,
+          "target_rank": 129,
+          "exact_match": false
+        }
+      ]
+    },
+    "test_a": {
+      "split_name": "TestA_Parent",
+      "total_examples": 198,
+      "first_token_acc": 0.0,
+      "first_token_hits": 0,
+      "free_gen_em": 0.0,
+      "free_gen_hits": 0,
+      "mean_target_prob": 0.00014140209888726684,
+      "mean_target_rank": 1291.3939393939395,
+      "unique_outputs_count": 21,
+      "output_diversity": 0.10606060606060606,
+      "by_stage": {
+        "Stage_C": {
+          "total": 98,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        }
+      },
+      "by_template": {
+        "key_val": {
+          "total": 32,
+          "em_acc": 0.0
+        },
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "colon_tag": {
+          "total": 21,
+          "em_acc": 0.0
+        },
+        "bracket": {
+          "total": 24,
+          "em_acc": 0.0
+        },
+        "query_assign": {
+          "total": 21,
+          "em_acc": 0.0
+        }
+      },
+      "by_position": {
+        "0": {
+          "total": 102,
+          "em_acc": 0.0
+        },
+        "1": {
+          "total": 54,
+          "em_acc": 0.0
+        },
+        "2": {
+          "total": 42,
+          "em_acc": 0.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=servic, ref=Hel\nExtract key: ",
+          "expected": "servic",
+          "generated": "The first of the worl",
+          "first_token_pred_id": 898,
+          "target_token_id": 3001,
+          "target_prob": 3.9910763007355854e-05,
+          "target_rank": 1366,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=bit, Beta=rect, Gamma=man\nCopy Beta: ",
+          "expected": "rect",
+          "generated": "The Sublic of the",
+          "first_token_pred_id": 898,
+          "target_token_id": 1178,
+          "target_prob": 1.5473631719942205e-05,
+          "target_rank": 1146,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=ysi, ref=bit\nExtract key: ",
+          "expected": "ysi",
+          "generated": "The first of the worl",
+          "first_token_pred_id": 898,
+          "target_token_id": 1153,
+          "target_prob": 4.5062861318001524e-05,
+          "target_rank": 1289,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=ffici, Beta=Tensor, Gamma=lat\nCopy Alpha: ",
+          "expected": "ffici",
+          "generated": "The Sea of the Ch",
+          "first_token_pred_id": 898,
+          "target_token_id": 1133,
+          "target_prob": 3.317538357805461e-05,
+          "target_rank": 797,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=auto, Beta=form, Gamma=recon\nCopy Gamma: ",
+          "expected": "recon",
+          "generated": "The Sea of the Eu",
+          "first_token_pred_id": 898,
+          "target_token_id": 1810,
+          "target_prob": 4.328925115260063e-06,
+          "target_rank": 1812,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=beta, Beta=phi, Gamma=Vec\nCopy Beta: ",
+          "expected": "phi",
+          "generated": "The Sea of the Ch",
+          "first_token_pred_id": 898,
+          "target_token_id": 2385,
+          "target_prob": 0.00022974405146669596,
+          "target_rank": 287,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=lag, Beta=Gra, Gamma=cip\nCopy Gamma: ",
+          "expected": "cip",
+          "generated": "Andrograph, A",
+          "first_token_pred_id": 68,
+          "target_token_id": 2996,
+          "target_prob": 5.991916168568423e-06,
+          "target_rank": 1656,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Det, Beta=lookup, Gamma=key\nCopy Gamma: ",
+          "expected": "key",
+          "generated": "Christian An",
+          "first_token_pred_id": 70,
+          "target_token_id": 3209,
+          "target_prob": 5.253112249192782e-05,
+          "target_rank": 663,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=cces, ref=aliz\nExtract key: ",
+          "expected": "cces",
+          "generated": "The first of the worl",
+          "first_token_pred_id": 898,
+          "target_token_id": 4048,
+          "target_prob": 2.5506527890684083e-05,
+          "target_rank": 1641,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "colon_tag",
+          "prompt": "Record: primary:updat secondary:gist\nPrimary: ",
+          "expected": "updat",
+          "generated": "The Sea of the United",
+          "first_token_pred_id": 898,
+          "target_token_id": 2899,
+          "target_prob": 3.8876944017829373e-05,
+          "target_rank": 829,
+          "exact_match": false
+        }
+      ]
+    },
+    "test_b": {
+      "split_name": "TestB_Parent",
+      "total_examples": 300,
+      "first_token_acc": 0.0,
+      "first_token_hits": 0,
+      "free_gen_em": 0.0,
+      "free_gen_hits": 0,
+      "mean_target_prob": 0.00013972768622011244,
+      "mean_target_rank": 1305.6666666666667,
+      "unique_outputs_count": 29,
+      "output_diversity": 0.09666666666666666,
+      "by_stage": {
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_C": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_A": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        }
+      },
+      "by_template": {
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "bracket": {
+          "total": 34,
+          "em_acc": 0.0
+        },
+        "key_val": {
+          "total": 17,
+          "em_acc": 0.0
+        },
+        "standard_target": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "colon_tag": {
+          "total": 34,
+          "em_acc": 0.0
+        },
+        "query_assign": {
+          "total": 15,
+          "em_acc": 0.0
+        }
+      },
+      "by_position": {
+        "1": {
+          "total": 72,
+          "em_acc": 0.0
+        },
+        "0": {
+          "total": 187,
+          "em_acc": 0.0
+        },
+        "2": {
+          "total": 41,
+          "em_acc": 0.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=through, Beta=engineer, Gamma=mor\nCopy Beta: ",
+          "expected": "engineer",
+          "generated": "The Sea of the Ch",
+          "first_token_pred_id": 898,
+          "target_token_id": 1601,
+          "target_prob": 5.4617441492155194e-05,
+          "target_rank": 641,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "bracket",
+          "prompt": "Input sequence: [chahi, zar]\nSelect second item: ",
+          "expected": "zar",
+          "generated": "The Solution\n    >",
+          "first_token_pred_id": 898,
+          "target_token_id": 1360,
+          "target_prob": 1.761124440236017e-05,
+          "target_rank": 1798,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=hon, ref=Code\nExtract key: ",
+          "expected": "hon",
+          "generated": "The first of the worl",
+          "first_token_pred_id": 898,
+          "target_token_id": 1135,
+          "target_prob": 8.223357872338966e-05,
+          "target_rank": 923,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Pro, Beta=imple, Gamma=mor\nCopy Gamma: ",
+          "expected": "mor",
+          "generated": "The Sea of the Eu",
+          "first_token_pred_id": 898,
+          "target_token_id": 497,
+          "target_prob": 7.152383477659896e-05,
+          "target_rank": 538,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_A",
+          "template": "standard_target",
+          "prompt": "Target value: fol\nCopy: ",
+          "expected": "fol",
+          "generated": "The Special of the",
+          "first_token_pred_id": 898,
+          "target_token_id": 2962,
+          "target_prob": 8.215876732720062e-05,
+          "target_rank": 617,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_A",
+          "template": "standard_target",
+          "prompt": "Target value: tokeniz\nCopy: ",
+          "expected": "tokeniz",
+          "generated": "The Special of the",
+          "first_token_pred_id": 898,
+          "target_token_id": 803,
+          "target_prob": 1.8393291156826308e-06,
+          "target_rank": 3330,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "colon_tag",
+          "prompt": "Record: primary:activ secondary:contro\nPrimary: ",
+          "expected": "activ",
+          "generated": "The Sea of the United",
+          "first_token_pred_id": 898,
+          "target_token_id": 1456,
+          "target_prob": 2.4225619199569337e-05,
+          "target_rank": 1040,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=acces, Beta=recor, Gamma=trac\nCopy Gamma: ",
+          "expected": "trac",
+          "generated": "The Sea of the Eu",
+          "first_token_pred_id": 898,
+          "target_token_id": 1728,
+          "target_prob": 1.0395476238045376e-05,
+          "target_rank": 1271,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=windo, ref=likh\nExtract key: ",
+          "expected": "windo",
+          "generated": "The first of the word",
+          "first_token_pred_id": 898,
+          "target_token_id": 2421,
+          "target_prob": 0.0001344542542938143,
+          "target_rank": 689,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=imple, Beta=regist, Gamma=zar\nCopy Gamma: ",
+          "expected": "zar",
+          "generated": "Christian Pe",
+          "first_token_pred_id": 70,
+          "target_token_id": 1360,
+          "target_prob": 4.540431291388813e-06,
+          "target_rank": 1750,
+          "exact_match": false
+        }
+      ]
+    }
+  },
+  "exp08_trained": {
+    "val": {
+      "split_name": "Val_Exp08",
+      "total_examples": 199,
+      "first_token_acc": 91.4572864321608,
+      "first_token_hits": 182,
+      "free_gen_em": 91.4572864321608,
+      "free_gen_hits": 182,
+      "mean_target_prob": 0.7396764126039199,
+      "mean_target_rank": 3.0,
+      "unique_outputs_count": 97,
+      "output_diversity": 0.48743718592964824,
+      "by_stage": {
+        "Stage_C": {
+          "total": 99,
+          "tf_acc": 84.84848484848484,
+          "em_acc": 84.84848484848484
+        },
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 98.0,
+          "em_acc": 98.0
+        }
+      },
+      "by_template": {
+        "query_assign": {
+          "total": 27,
+          "em_acc": 96.29629629629629
+        },
+        "bracket": {
+          "total": 23,
+          "em_acc": 100.0
+        },
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 98.0
+        },
+        "key_val": {
+          "total": 26,
+          "em_acc": 100.0
+        },
+        "colon_tag": {
+          "total": 23,
+          "em_acc": 39.130434782608695
+        }
+      },
+      "by_position": {
+        "0": {
+          "total": 113,
+          "em_acc": 85.84070796460178
+        },
+        "1": {
+          "total": 53,
+          "em_acc": 98.11320754716981
+        },
+        "2": {
+          "total": 33,
+          "em_acc": 100.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_C",
+          "template": "query_assign",
+          "prompt": "Assignment: value is benchmar; ignore alpha.\nOutput: ",
+          "expected": "benchmar",
+          "generated": "benchmar",
+          "first_token_pred_id": 2087,
+          "target_token_id": 2087,
+          "target_prob": 0.8033426403999329,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "query_assign",
+          "prompt": "Assignment: value is asu; ignore Hin.\nOutput: ",
+          "expected": "asu",
+          "generated": "asu",
+          "first_token_pred_id": 1674,
+          "target_token_id": 1674,
+          "target_prob": 0.8903368711471558,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "bracket",
+          "prompt": "Input sequence: [assump, delta]\nSelect second item: ",
+          "expected": "delta",
+          "generated": "delta",
+          "first_token_pred_id": 2616,
+          "target_token_id": 2616,
+          "target_prob": 0.8024197220802307,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=updat, Beta=Gra, Gamma=sub\nCopy Gamma: ",
+          "expected": "sub",
+          "generated": "sub",
+          "first_token_pred_id": 2742,
+          "target_token_id": 2742,
+          "target_prob": 0.979728639125824,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=able, Beta=fic, Gamma=head\nCopy Gamma: ",
+          "expected": "head",
+          "generated": "head",
+          "first_token_pred_id": 655,
+          "target_token_id": 655,
+          "target_prob": 0.8239383101463318,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=ulti, Beta=dres, Gamma=rang\nCopy Alpha: ",
+          "expected": "ulti",
+          "generated": "ulti",
+          "first_token_pred_id": 562,
+          "target_token_id": 562,
+          "target_prob": 0.3271932601928711,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=hierarch, Beta=local, Gamma=head\nCopy Gamma: ",
+          "expected": "head",
+          "generated": "head",
+          "first_token_pred_id": 655,
+          "target_token_id": 655,
+          "target_prob": 0.8195214867591858,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=form, ref=gra\nExtract key: ",
+          "expected": "form",
+          "generated": "form",
+          "first_token_pred_id": 1972,
+          "target_token_id": 1972,
+          "target_prob": 0.9815701246261597,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=length, Beta=float, Gamma=abiliti\nCopy Beta: ",
+          "expected": "float",
+          "generated": "float",
+          "first_token_pred_id": 563,
+          "target_token_id": 563,
+          "target_prob": 0.8640267848968506,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Tor, Beta=embed, Gamma=assump\nCopy Alpha: ",
+          "expected": "Tor",
+          "generated": "Tor",
+          "first_token_pred_id": 3943,
+          "target_token_id": 3943,
+          "target_prob": 0.8199419379234314,
+          "target_rank": 1,
+          "exact_match": true
+        }
+      ]
+    },
+    "test_a": {
+      "split_name": "TestA_Exp08",
+      "total_examples": 198,
+      "first_token_acc": 92.92929292929293,
+      "first_token_hits": 184,
+      "free_gen_em": 92.92929292929293,
+      "free_gen_hits": 184,
+      "mean_target_prob": 0.7645366428669241,
+      "mean_target_rank": 1.52020202020202,
+      "unique_outputs_count": 95,
+      "output_diversity": 0.4797979797979798,
+      "by_stage": {
+        "Stage_C": {
+          "total": 98,
+          "tf_acc": 88.77551020408163,
+          "em_acc": 88.77551020408163
+        },
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 97.0,
+          "em_acc": 97.0
+        }
+      },
+      "by_template": {
+        "key_val": {
+          "total": 32,
+          "em_acc": 96.875
+        },
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 97.0
+        },
+        "colon_tag": {
+          "total": 21,
+          "em_acc": 61.904761904761905
+        },
+        "bracket": {
+          "total": 24,
+          "em_acc": 95.83333333333334
+        },
+        "query_assign": {
+          "total": 21,
+          "em_acc": 95.23809523809523
+        }
+      },
+      "by_position": {
+        "0": {
+          "total": 102,
+          "em_acc": 89.2156862745098
+        },
+        "1": {
+          "total": 54,
+          "em_acc": 94.44444444444444
+        },
+        "2": {
+          "total": 42,
+          "em_acc": 100.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=servic, ref=Hel\nExtract key: ",
+          "expected": "servic",
+          "generated": "servic",
+          "first_token_pred_id": 3001,
+          "target_token_id": 3001,
+          "target_prob": 0.9037772417068481,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=bit, Beta=rect, Gamma=man\nCopy Beta: ",
+          "expected": "rect",
+          "generated": "rect",
+          "first_token_pred_id": 1178,
+          "target_token_id": 1178,
+          "target_prob": 0.8608468174934387,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=ysi, ref=bit\nExtract key: ",
+          "expected": "ysi",
+          "generated": "ysi",
+          "first_token_pred_id": 1153,
+          "target_token_id": 1153,
+          "target_prob": 0.9901614189147949,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=ffici, Beta=Tensor, Gamma=lat\nCopy Alpha: ",
+          "expected": "ffici",
+          "generated": "ffici",
+          "first_token_pred_id": 1133,
+          "target_token_id": 1133,
+          "target_prob": 0.923229992389679,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=auto, Beta=form, Gamma=recon\nCopy Gamma: ",
+          "expected": "recon",
+          "generated": "recon",
+          "first_token_pred_id": 1810,
+          "target_token_id": 1810,
+          "target_prob": 0.6655532717704773,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=beta, Beta=phi, Gamma=Vec\nCopy Beta: ",
+          "expected": "phi",
+          "generated": "phi",
+          "first_token_pred_id": 2385,
+          "target_token_id": 2385,
+          "target_prob": 0.9061261415481567,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=lag, Beta=Gra, Gamma=cip\nCopy Gamma: ",
+          "expected": "cip",
+          "generated": "cip",
+          "first_token_pred_id": 2996,
+          "target_token_id": 2996,
+          "target_prob": 0.9787676930427551,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Det, Beta=lookup, Gamma=key\nCopy Gamma: ",
+          "expected": "key",
+          "generated": "key",
+          "first_token_pred_id": 3209,
+          "target_token_id": 3209,
+          "target_prob": 0.9211392402648926,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=cces, ref=aliz\nExtract key: ",
+          "expected": "cces",
+          "generated": "cces",
+          "first_token_pred_id": 4048,
+          "target_token_id": 4048,
+          "target_prob": 0.8599373698234558,
+          "target_rank": 1,
+          "exact_match": true
+        },
+        {
+          "stage": "Stage_C",
+          "template": "colon_tag",
+          "prompt": "Record: primary:updat secondary:gist\nPrimary: ",
+          "expected": "updat",
+          "generated": "updat",
+          "first_token_pred_id": 2899,
+          "target_token_id": 2899,
+          "target_prob": 0.9299629330635071,
+          "target_rank": 1,
+          "exact_match": true
+        }
+      ]
+    },
+    "test_b": {
+      "split_name": "TestB_Exp08",
+      "total_examples": 300,
+      "first_token_acc": 0.0,
+      "first_token_hits": 0,
+      "free_gen_em": 0.0,
+      "free_gen_hits": 0,
+      "mean_target_prob": 0.0005617203417848296,
+      "mean_target_rank": 385.05333333333334,
+      "unique_outputs_count": 51,
+      "output_diversity": 0.17,
+      "by_stage": {
+        "Stage_B": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_C": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        },
+        "Stage_A": {
+          "total": 100,
+          "tf_acc": 0.0,
+          "em_acc": 0.0
+        }
+      },
+      "by_template": {
+        "multi_item_lookup": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "bracket": {
+          "total": 34,
+          "em_acc": 0.0
+        },
+        "key_val": {
+          "total": 17,
+          "em_acc": 0.0
+        },
+        "standard_target": {
+          "total": 100,
+          "em_acc": 0.0
+        },
+        "colon_tag": {
+          "total": 34,
+          "em_acc": 0.0
+        },
+        "query_assign": {
+          "total": 15,
+          "em_acc": 0.0
+        }
+      },
+      "by_position": {
+        "1": {
+          "total": 72,
+          "em_acc": 0.0
+        },
+        "0": {
+          "total": 187,
+          "em_acc": 0.0
+        },
+        "2": {
+          "total": 41,
+          "em_acc": 0.0
+        }
+      },
+      "sample_predictions": [
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=through, Beta=engineer, Gamma=mor\nCopy Beta: ",
+          "expected": "engineer",
+          "generated": "digen",
+          "first_token_pred_id": 874,
+          "target_token_id": 1601,
+          "target_prob": 0.0002489889448042959,
+          "target_rank": 116,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "bracket",
+          "prompt": "Input sequence: [chahi, zar]\nSelect second item: ",
+          "expected": "zar",
+          "generated": "ith",
+          "first_token_pred_id": 435,
+          "target_token_id": 1360,
+          "target_prob": 0.00024402543203905225,
+          "target_rank": 395,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=hon, ref=Code\nExtract key: ",
+          "expected": "hon",
+          "generated": "Det",
+          "first_token_pred_id": 3826,
+          "target_token_id": 1135,
+          "target_prob": 0.00027811885229311883,
+          "target_rank": 214,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=Pro, Beta=imple, Gamma=mor\nCopy Gamma: ",
+          "expected": "mor",
+          "generated": "able",
+          "first_token_pred_id": 1920,
+          "target_token_id": 497,
+          "target_prob": 0.00013143291289452463,
+          "target_rank": 728,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_A",
+          "template": "standard_target",
+          "prompt": "Target value: fol\nCopy: ",
+          "expected": "fol",
+          "generated": "out",
+          "first_token_pred_id": 769,
+          "target_token_id": 2962,
+          "target_prob": 0.00025208236183971167,
+          "target_rank": 195,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_A",
+          "template": "standard_target",
+          "prompt": "Target value: tokeniz\nCopy: ",
+          "expected": "tokeniz",
+          "generated": "digen",
+          "first_token_pred_id": 874,
+          "target_token_id": 803,
+          "target_prob": 0.00023189751664176583,
+          "target_rank": 105,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "colon_tag",
+          "prompt": "Record: primary:activ secondary:contro\nPrimary: ",
+          "expected": "activ",
+          "generated": "contra",
+          "first_token_pred_id": 1897,
+          "target_token_id": 1456,
+          "target_prob": 9.593183676770423e-06,
+          "target_rank": 2362,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=acces, Beta=recor, Gamma=trac\nCopy Gamma: ",
+          "expected": "trac",
+          "generated": "lec",
+          "first_token_pred_id": 2711,
+          "target_token_id": 1728,
+          "target_prob": 0.0025933210272341967,
+          "target_rank": 23,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_C",
+          "template": "key_val",
+          "prompt": "Data: key=windo, ref=likh\nExtract key: ",
+          "expected": "windo",
+          "generated": "rans",
+          "first_token_pred_id": 606,
+          "target_token_id": 2421,
+          "target_prob": 0.0007364788325503469,
+          "target_rank": 88,
+          "exact_match": false
+        },
+        {
+          "stage": "Stage_B",
+          "template": "multi_item_lookup",
+          "prompt": "Items: Alpha=imple, Beta=regist, Gamma=zar\nCopy Gamma: ",
+          "expected": "zar",
+          "generated": "lag",
+          "first_token_pred_id": 1017,
+          "target_token_id": 1360,
+          "target_prob": 0.0002826293639373034,
+          "target_rank": 174,
+          "exact_match": false
+        }
+      ]
+    }
+  }
+}

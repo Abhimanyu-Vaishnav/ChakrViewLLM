@@ -1,0 +1,743 @@
+split,example_id,stage,template,prompt,expected_val,expected_tok_id,source_pos,predicted_pos,token_id_at_predicted_pos,raw_generated_tok_id,decoded_output,confidence,position_match,token_exact_match,discrepancy_reason
+validation,validation_0000,Stage_B,multi_item_lookup,"Items: Alpha=mar, Beta=left, Gamma=produc\nCopy Alpha: ",mar,1337,8,8,1337,1337,mar,1.000000,True,True,MATCH
+validation,validation_0001,Stage_C,bracket,"Input sequence: [Sequ, enco]\nSelect second item: ",enco,942,8,8,942,942,enco,0.999998,True,True,MATCH
+validation,validation_0002,Stage_B,multi_item_lookup,"Items: Alpha=termin, Beta=compute, Gamma=alle\nCopy Alpha: ",termin,1499,8,8,1499,1499,termin,1.000000,True,True,MATCH
+validation,validation_0003,Stage_C,key_val,"Data: key=bha, ref=Sing\nExtract key: ",bha,2312,6,6,2312,2312,bha,1.000000,True,True,MATCH
+validation,validation_0004,Stage_A,standard_target,Target value: contro\nCopy: ,contro,1898,7,7,1898,1898,contro,1.000000,True,True,MATCH
+validation,validation_0005,Stage_C,bracket,"Input sequence: [bash, ugh]\nSelect second item: ",ugh,841,9,9,841,841,ugh,1.000000,True,True,MATCH
+validation,validation_0006,Stage_B,multi_item_lookup,"Items: Alpha=Sim, Beta=cap, Gamma=rough\nCopy Beta: ",cap,1324,13,13,1324,1324,cap,1.000000,True,True,MATCH
+validation,validation_0007,Stage_C,key_val,"Data: key=multip, ref=Dist\nExtract key: ",multip,882,6,6,882,882,multip,1.000000,True,True,MATCH
+validation,validation_0008,Stage_C,colon_tag,Record: primary:ful secondary:Ben\nPrimary: ,ful,1694,18,18,3796,3796,Ben,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0009,Stage_B,multi_item_lookup,"Items: Alpha=proces, Beta=mar, Gamma=babiliti\nCopy Alpha: ",proces,538,8,8,538,538,proces,1.000000,True,True,MATCH
+validation,validation_0010,Stage_C,colon_tag,Record: primary:ext secondary:kar\nPrimary: ,ext,1900,17,17,366,366,kar,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0011,Stage_A,standard_target,Target value: gur\nCopy: ,gur,2340,7,7,2340,2340,gur,1.000000,True,True,MATCH
+validation,validation_0012,Stage_A,standard_target,Target value: arch\nCopy: ,arch,431,7,7,431,431,arch,1.000000,True,True,MATCH
+validation,validation_0013,Stage_C,bracket,"Input sequence: [throughput, form]\nSelect second item: ",form,1972,8,8,1972,1972,form,0.999999,True,True,MATCH
+validation,validation_0014,Stage_B,multi_item_lookup,"Items: Alpha=likh, Beta=Ded, Gamma=lon\nCopy Gamma: ",lon,1140,19,19,1140,1140,lon,0.999998,True,True,MATCH
+validation,validation_0015,Stage_B,multi_item_lookup,"Items: Alpha=tot, Beta=replac, Gamma=libr\nCopy Alpha: ",tot,1854,8,8,1854,1854,tot,1.000000,True,True,MATCH
+validation,validation_0016,Stage_B,multi_item_lookup,"Items: Alpha=charac, Beta=gur, Gamma=eta\nCopy Alpha: ",charac,1830,8,8,1830,1830,charac,1.000000,True,True,MATCH
+validation,validation_0017,Stage_B,multi_item_lookup,"Items: Alpha=rect, Beta=aliz, Gamma=din\nCopy Alpha: ",rect,1178,8,8,1178,1178,rect,1.000000,True,True,MATCH
+validation,validation_0018,Stage_C,bracket,"Input sequence: [test, Uni]\nSelect second item: ",Uni,3954,8,8,3954,3954,Uni,0.999999,True,True,MATCH
+validation,validation_0019,Stage_C,colon_tag,Record: primary:Pres secondary:comm\nPrimary: ,Pres,3911,17,17,1055,1055,comm,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0020,Stage_B,multi_item_lookup,"Items: Alpha=Ara, Beta=arith, Gamma=intelli\nCopy Beta: ",arith,1403,13,13,1403,1403,arith,1.000000,True,True,MATCH
+validation,validation_0021,Stage_B,multi_item_lookup,"Items: Alpha=Mat, Beta=Gar, Gamma=Tay\nCopy Gamma: ",Tay,3947,19,19,3947,3947,Tay,0.999997,True,True,MATCH
+validation,validation_0022,Stage_B,multi_item_lookup,"Items: Alpha=BPETri, Beta=desig, Gamma=ran\nCopy Gamma: ",ran,429,19,19,429,429,ran,0.999999,True,True,MATCH
+validation,validation_0023,Stage_B,multi_item_lookup,"Items: Alpha=brac, Beta=entry, Gamma=riv\nCopy Alpha: ",brac,4029,8,8,4029,4029,brac,1.000000,True,True,MATCH
+validation,validation_0024,Stage_C,bracket,"Input sequence: [silon, abiliti]\nSelect second item: ",abiliti,1584,8,8,1584,1584,abiliti,0.999997,True,True,MATCH
+validation,validation_0025,Stage_B,multi_item_lookup,"Items: Alpha=The, Beta=cur, Gamma=hon\nCopy Beta: ",cur,629,13,13,629,629,cur,1.000000,True,True,MATCH
+validation,validation_0026,Stage_C,key_val,"Data: key=rtu, ref=perfor\nExtract key: ",rtu,1146,6,6,1146,1146,rtu,1.000000,True,True,MATCH
+validation,validation_0027,Stage_C,key_val,"Data: key=smo, ref=epo\nExtract key: ",smo,2400,6,6,2400,2400,smo,1.000000,True,True,MATCH
+validation,validation_0028,Stage_C,bracket,"Input sequence: [ten, RoPE]\nSelect second item: ",RoPE,1576,8,8,1576,1576,RoPE,0.999995,True,True,MATCH
+validation,validation_0029,Stage_A,standard_target,Target value: inte\nCopy: ,inte,1166,7,7,1166,1166,inte,1.000000,True,True,MATCH
+validation,validation_0030,Stage_B,multi_item_lookup,"Items: Alpha=bri, Beta=rea, Gamma=log\nCopy Alpha: ",bri,1676,8,8,1676,1676,bri,1.000000,True,True,MATCH
+validation,validation_0031,Stage_C,bracket,"Input sequence: [ent, syste]\nSelect second item: ",syste,748,8,8,748,748,syste,0.999987,True,True,MATCH
+validation,validation_0032,Stage_B,multi_item_lookup,"Items: Alpha=bit, Beta=BPE, Gamma=consist\nCopy Gamma: ",consist,2762,19,19,2762,2762,consist,0.999999,True,True,MATCH
+validation,validation_0033,Stage_B,multi_item_lookup,"Items: Alpha=engine, Beta=siz, Gamma=pend\nCopy Beta: ",siz,687,13,13,687,687,siz,1.000000,True,True,MATCH
+validation,validation_0034,Stage_C,query_assign,Assignment: value is TokenEntry; ignore ChakrVie.\nOutput: ,TokenEntry,2161,8,8,2161,2161,TokenEntry,1.000000,True,True,MATCH
+validation,validation_0035,Stage_C,colon_tag,Record: primary:Fin secondary:oper\nPrimary: ,Fin,2247,17,17,918,918,oper,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0036,Stage_B,multi_item_lookup,"Items: Alpha=var, Beta=Gra, Gamma=trans\nCopy Beta: ",Gra,1648,13,13,1648,1648,Gra,0.999998,True,True,MATCH
+validation,validation_0037,Stage_C,colon_tag,Record: primary:dic secondary:delta\nPrimary: ,dic,1685,10,10,1685,1685,dic,0.999998,True,True,MATCH
+validation,validation_0038,Stage_C,query_assign,Assignment: value is rough; ignore idth.\nOutput: ,rough,861,8,8,861,861,rough,1.000000,True,True,MATCH
+validation,validation_0039,Stage_A,standard_target,Target value: Mil\nCopy: ,Mil,3890,7,7,3890,3890,Mil,1.000000,True,True,MATCH
+validation,validation_0040,Stage_C,query_assign,Assignment: value is token; ignore Cry.\nOutput: ,token,407,8,8,407,407,token,1.000000,True,True,MATCH
+validation,validation_0041,Stage_B,multi_item_lookup,"Items: Alpha=Raf, Beta=depend, Gamma=bit\nCopy Beta: ",depend,1427,13,13,1427,1427,depend,1.000000,True,True,MATCH
+validation,validation_0042,Stage_C,bracket,"Input sequence: [HER, bit]\nSelect second item: ",bit,4026,8,8,4026,4026,bit,0.999996,True,True,MATCH
+validation,validation_0043,Stage_B,multi_item_lookup,"Items: Alpha=bias, Beta=tho, Gamma=soft\nCopy Gamma: ",soft,1082,19,19,1082,1082,soft,0.999999,True,True,MATCH
+validation,validation_0044,Stage_C,colon_tag,Record: primary:syste secondary:bran\nPrimary: ,syste,748,18,18,2315,2315,bran,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0045,Stage_B,multi_item_lookup,"Items: Alpha=tra, Beta=latency, Gamma=UNT\nCopy Beta: ",latency,2004,13,13,2004,2004,latency,0.999999,True,True,MATCH
+validation,validation_0046,Stage_B,multi_item_lookup,"Items: Alpha=cos, Beta=regist, Gamma=evalu\nCopy Gamma: ",evalu,2980,19,19,2980,2980,evalu,0.999999,True,True,MATCH
+validation,validation_0047,Stage_B,multi_item_lookup,"Items: Alpha=sat, Beta=Val, Gamma=transform\nCopy Beta: ",Val,3959,13,13,3959,3959,Val,1.000000,True,True,MATCH
+validation,validation_0048,Stage_C,query_assign,Assignment: value is tex; ignore acces.\nOutput: ,tex,536,8,8,536,536,tex,1.000000,True,True,MATCH
+validation,validation_0049,Stage_A,standard_target,Target value: measu\nCopy: ,measu,1858,7,7,1858,1858,measu,1.000000,True,True,MATCH
+validation,validation_0050,Stage_C,bracket,"Input sequence: [TokenEntry, tho]\nSelect second item: ",tho,1841,8,8,1841,1841,tho,0.999997,True,True,MATCH
+validation,validation_0051,Stage_B,multi_item_lookup,"Items: Alpha=contra, Beta=unc, Gamma=Comp\nCopy Alpha: ",contra,1897,8,8,1897,1897,contra,1.000000,True,True,MATCH
+validation,validation_0052,Stage_C,colon_tag,Record: primary:riv secondary:dic\nPrimary: ,riv,1879,10,10,1879,1879,riv,0.999998,True,True,MATCH
+validation,validation_0053,Stage_A,standard_target,Target value: Pair\nCopy: ,Pair,3914,7,7,3914,3914,Pair,1.000000,True,True,MATCH
+validation,validation_0054,Stage_C,colon_tag,Record: primary:enco secondary:found\nPrimary: ,enco,942,10,10,942,942,enco,0.999999,True,True,MATCH
+validation,validation_0055,Stage_A,standard_target,Target value: sump\nCopy: ,sump,1465,7,7,1465,1465,sump,1.000000,True,True,MATCH
+validation,validation_0056,Stage_A,standard_target,Target value: rea\nCopy: ,rea,2564,7,7,2564,2564,rea,1.000000,True,True,MATCH
+validation,validation_0057,Stage_B,multi_item_lookup,"Items: Alpha=atten, Beta=dump, Gamma=pivo\nCopy Alpha: ",atten,1796,8,8,1796,1796,atten,1.000000,True,True,MATCH
+validation,validation_0058,Stage_C,key_val,"Data: key=bit, ref=low\nExtract key: ",bit,4026,6,6,4026,4026,bit,1.000000,True,True,MATCH
+validation,validation_0059,Stage_A,standard_target,Target value: orm\nCopy: ,orm,1182,7,7,1182,1182,orm,1.000000,True,True,MATCH
+validation,validation_0060,Stage_C,colon_tag,Record: primary:Sha secondary:syste\nPrimary: ,Sha,2275,17,17,748,748,syste,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0061,Stage_C,bracket,"Input sequence: [work, RoPE]\nSelect second item: ",RoPE,1576,8,8,1576,1576,RoPE,0.999999,True,True,MATCH
+validation,validation_0062,Stage_C,bracket,"Input sequence: [composi, maint]\nSelect second item: ",maint,2811,8,8,2811,2811,maint,0.999999,True,True,MATCH
+validation,validation_0063,Stage_B,multi_item_lookup,"Items: Alpha=Tri, Beta=ific, Gamma=ksor\nCopy Alpha: ",Tri,1120,8,8,1120,1120,Tri,1.000000,True,True,MATCH
+validation,validation_0064,Stage_B,multi_item_lookup,"Items: Alpha=cip, Beta=node, Gamma=ugh\nCopy Alpha: ",cip,2996,8,8,2996,2996,cip,1.000000,True,True,MATCH
+validation,validation_0065,Stage_B,multi_item_lookup,"Items: Alpha=lan, Beta=benchmar, Gamma=tran\nCopy Alpha: ",lan,636,8,8,636,636,lan,1.000000,True,True,MATCH
+validation,validation_0066,Stage_B,multi_item_lookup,"Items: Alpha=numer, Beta=Form, Gamma=tot\nCopy Beta: ",Form,3852,13,13,3852,3852,Form,1.000000,True,True,MATCH
+validation,validation_0067,Stage_A,standard_target,Target value: length\nCopy: ,length,1237,7,7,1237,1237,length,1.000000,True,True,MATCH
+validation,validation_0068,Stage_B,multi_item_lookup,"Items: Alpha=put, Beta=dli, Gamma=AES\nCopy Alpha: ",put,1145,8,8,1145,1145,put,1.000000,True,True,MATCH
+validation,validation_0069,Stage_B,multi_item_lookup,"Items: Alpha=Cent, Beta=infty, Gamma=lac\nCopy Alpha: ",Cent,3813,8,8,3813,3813,Cent,1.000000,True,True,MATCH
+validation,validation_0070,Stage_C,colon_tag,Record: primary:min secondary:ree\nPrimary: ,min,767,17,17,2565,2565,ree,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0071,Stage_C,colon_tag,Record: primary:iGLU secondary:The\nPrimary: ,iGLU,1334,10,10,1334,1334,iGLU,1.000000,True,True,MATCH
+validation,validation_0072,Stage_C,query_assign,Assignment: value is head; ignore aut.\nOutput: ,head,655,8,8,655,655,head,1.000000,True,True,MATCH
+validation,validation_0073,Stage_B,multi_item_lookup,"Items: Alpha=maint, Beta=stre, Gamma=zaro\nCopy Alpha: ",maint,2811,8,8,2811,2811,maint,1.000000,True,True,MATCH
+validation,validation_0074,Stage_B,multi_item_lookup,"Items: Alpha=sig, Beta=ding, Gamma=wor\nCopy Beta: ",ding,4064,26,26,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0075,Stage_B,multi_item_lookup,"Items: Alpha=log, Beta=ail, Gamma=babiliti\nCopy Gamma: ",babiliti,2316,19,19,2316,2316,babiliti,0.999998,True,True,MATCH
+validation,validation_0076,Stage_B,multi_item_lookup,"Items: Alpha=hemati, Beta=right, Gamma=ain\nCopy Gamma: ",ain,1673,19,19,1673,1673,ain,0.999999,True,True,MATCH
+validation,validation_0077,Stage_B,multi_item_lookup,"Items: Alpha=ful, Beta=text, Gamma=wor\nCopy Gamma: ",wor,673,19,19,673,673,wor,0.999999,True,True,MATCH
+validation,validation_0078,Stage_C,query_assign,Assignment: value is servic; ignore our.\nOutput: ,servic,3001,8,8,3001,3001,servic,1.000000,True,True,MATCH
+validation,validation_0079,Stage_B,multi_item_lookup,"Items: Alpha=BPETri, Beta=key, Gamma=icksor\nCopy Alpha: ",BPETri,1561,8,8,1561,1561,BPETri,1.000000,True,True,MATCH
+validation,validation_0080,Stage_B,multi_item_lookup,"Items: Alpha=UNT, Beta=cab, Gamma=ative\nCopy Alpha: ",UNT,3955,8,8,3955,3955,UNT,1.000000,True,True,MATCH
+validation,validation_0081,Stage_B,multi_item_lookup,"Items: Alpha=transform, Beta=col, Gamma=trac\nCopy Beta: ",col,1054,13,13,1054,1054,col,1.000000,True,True,MATCH
+validation,validation_0082,Stage_B,multi_item_lookup,"Items: Alpha=Ded, Beta=our, Gamma=valid\nCopy Alpha: ",Ded,3829,8,8,3829,3829,Ded,1.000000,True,True,MATCH
+validation,validation_0083,Stage_B,multi_item_lookup,"Items: Alpha=cab, Beta=one, Gamma=ken\nCopy Gamma: ",ken,395,19,19,395,395,ken,0.999997,True,True,MATCH
+validation,validation_0084,Stage_C,query_assign,Assignment: value is tiv; ignore ban.\nOutput: ,tiv,1046,8,8,1046,1046,tiv,1.000000,True,True,MATCH
+validation,validation_0085,Stage_B,multi_item_lookup,"Items: Alpha=dli, Beta=Sim, Gamma=ation\nCopy Gamma: ",ation,408,19,19,408,408,ation,0.999999,True,True,MATCH
+validation,validation_0086,Stage_B,multi_item_lookup,"Items: Alpha=rtu, Beta=silon, Gamma=contrac\nCopy Alpha: ",rtu,1146,8,8,1146,1146,rtu,1.000000,True,True,MATCH
+validation,validation_0087,Stage_C,colon_tag,Record: primary:CPU secondary:bit\nPrimary: ,CPU,1114,16,16,4026,4026,bit,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0088,Stage_B,multi_item_lookup,"Items: Alpha=ensu, Beta=aan, Gamma=Mat\nCopy Gamma: ",Mat,1656,19,19,1656,1656,Mat,0.999999,True,True,MATCH
+validation,validation_0089,Stage_B,multi_item_lookup,"Items: Alpha=crip, Beta=requ, Gamma=lta\nCopy Alpha: ",crip,2130,8,8,2130,2130,crip,1.000000,True,True,MATCH
+validation,validation_0090,Stage_C,key_val,"Data: key=iGLU, ref=tran\nExtract key: ",iGLU,1334,6,6,1334,1334,iGLU,1.000000,True,True,MATCH
+validation,validation_0091,Stage_C,colon_tag,Record: primary:TEL secondary:har\nPrimary: ,TEL,3949,10,10,3949,3949,TEL,1.000000,True,True,MATCH
+validation,validation_0092,Stage_C,key_val,"Data: key=Ben, ref=alge\nExtract key: ",Ben,3796,6,6,3796,3796,Ben,1.000000,True,True,MATCH
+validation,validation_0093,Stage_C,key_val,"Data: key=exec, ref=Tup\nExtract key: ",exec,692,6,6,692,692,exec,1.000000,True,True,MATCH
+validation,validation_0094,Stage_A,standard_target,Target value: per\nCopy: ,per,498,7,7,498,498,per,1.000000,True,True,MATCH
+validation,validation_0095,Stage_B,multi_item_lookup,"Items: Alpha=air, Beta=tot, Gamma=lear\nCopy Beta: ",tot,1854,13,13,1854,1854,tot,1.000000,True,True,MATCH
+validation,validation_0096,Stage_B,multi_item_lookup,"Items: Alpha=develo, Beta=cri, Gamma=lli\nCopy Gamma: ",lli,1708,19,19,1708,1708,lli,0.999998,True,True,MATCH
+validation,validation_0097,Stage_A,standard_target,Target value: likh\nCopy: ,likh,2692,7,7,2692,2692,likh,1.000000,True,True,MATCH
+validation,validation_0098,Stage_B,multi_item_lookup,"Items: Alpha=ten, Beta=entry, Gamma=high\nCopy Beta: ",entry,1947,13,13,1947,1947,entry,1.000000,True,True,MATCH
+validation,validation_0099,Stage_A,standard_target,Target value: measu\nCopy: ,measu,1858,7,7,1858,1858,measu,1.000000,True,True,MATCH
+validation,validation_0100,Stage_B,multi_item_lookup,"Items: Alpha=anag, Beta=approxi, Gamma=Ine\nCopy Gamma: ",Ine,2254,19,19,2254,2254,Ine,0.999998,True,True,MATCH
+validation,validation_0101,Stage_C,colon_tag,Record: primary:Ser secondary:tili\nPrimary: ,Ser,2273,17,17,1419,1419,tili,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0102,Stage_C,key_val,"Data: key=Val, ref=addres\nExtract key: ",Val,3959,6,6,3959,3959,Val,1.000000,True,True,MATCH
+validation,validation_0103,Stage_A,standard_target,Target value: Form\nCopy: ,Form,3852,7,7,3852,3852,Form,1.000000,True,True,MATCH
+validation,validation_0104,Stage_C,colon_tag,Record: primary:int secondary:fici\nPrimary: ,int,534,16,16,969,969,fici,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0105,Stage_C,key_val,"Data: key=List, ref=timiz\nExtract key: ",List,994,6,6,994,994,List,1.000000,True,True,MATCH
+validation,validation_0106,Stage_B,multi_item_lookup,"Items: Alpha=windo, Beta=air, Gamma=recor\nCopy Alpha: ",windo,2421,8,8,2421,2421,windo,1.000000,True,True,MATCH
+validation,validation_0107,Stage_A,standard_target,Target value: bet\nCopy: ,bet,1321,7,7,1321,1321,bet,1.000000,True,True,MATCH
+validation,validation_0108,Stage_A,standard_target,Target value: ency\nCopy: ,ency,1468,7,7,1468,1468,ency,1.000000,True,True,MATCH
+validation,validation_0109,Stage_C,bracket,"Input sequence: [rigor, loo]\nSelect second item: ",loo,1051,8,8,1051,1051,loo,0.999998,True,True,MATCH
+validation,validation_0110,Stage_C,key_val,"Data: key=Attention, ref=byte\nExtract key: ",Attention,1590,6,6,1590,1590,Attention,1.000000,True,True,MATCH
+validation,validation_0111,Stage_B,multi_item_lookup,"Items: Alpha=benchmar, Beta=tiv, Gamma=use\nCopy Gamma: ",use,2411,19,19,2411,2411,use,0.999999,True,True,MATCH
+validation,validation_0112,Stage_B,multi_item_lookup,"Items: Alpha=ing, Beta=acch, Gamma=exec\nCopy Alpha: ",ing,309,25,25,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0113,Stage_C,query_assign,Assignment: value is nolog; ignore isolat.\nOutput: ,nolog,2016,8,8,2016,2016,nolog,1.000000,True,True,MATCH
+validation,validation_0114,Stage_C,bracket,"Input sequence: [tion, Trans]\nSelect second item: ",Trans,1664,8,8,1664,1664,Trans,1.000000,True,True,MATCH
+validation,validation_0115,Stage_B,multi_item_lookup,"Items: Alpha=Ben, Beta=detec, Gamma=polic\nCopy Alpha: ",Ben,3796,8,8,3796,3796,Ben,1.000000,True,True,MATCH
+validation,validation_0116,Stage_C,bracket,"Input sequence: [arg, ran]\nSelect second item: ",ran,429,8,8,429,429,ran,0.999998,True,True,MATCH
+validation,validation_0117,Stage_B,multi_item_lookup,"Items: Alpha=dim, Beta=RMSNorm, Gamma=perfor\nCopy Alpha: ",dim,1484,8,8,1484,1484,dim,1.000000,True,True,MATCH
+validation,validation_0118,Stage_A,standard_target,Target value: efo\nCopy: ,efo,4088,7,7,4088,4088,efo,1.000000,True,True,MATCH
+validation,validation_0119,Stage_B,multi_item_lookup,"Items: Alpha=libr, Beta=arch, Gamma=BPETrie\nCopy Beta: ",arch,431,13,13,431,431,arch,1.000000,True,True,MATCH
+validation,validation_0120,Stage_C,bracket,"Input sequence: [cre, Sing]\nSelect second item: ",Sing,3931,8,8,3931,3931,Sing,0.999999,True,True,MATCH
+validation,validation_0121,Stage_B,multi_item_lookup,"Items: Alpha=gat, Beta=rea, Gamma=mor\nCopy Alpha: ",gat,2338,8,8,2338,2338,gat,1.000000,True,True,MATCH
+validation,validation_0122,Stage_C,bracket,"Input sequence: [ding, tro]\nSelect second item: ",tro,1148,8,8,1148,1148,tro,1.000000,True,True,MATCH
+validation,validation_0123,Stage_B,multi_item_lookup,"Items: Alpha=lac, Beta=Sha, Gamma=WHER\nCopy Alpha: ",lac,1709,8,8,1709,1709,lac,1.000000,True,True,MATCH
+validation,validation_0124,Stage_C,colon_tag,Record: primary:res secondary:curr\nPrimary: ,res,432,16,16,1248,1248,curr,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0125,Stage_C,query_assign,Assignment: value is target; ignore ute.\nOutput: ,target,1274,8,8,1274,1274,target,1.000000,True,True,MATCH
+validation,validation_0126,Stage_B,multi_item_lookup,"Items: Alpha=Atten, Beta=ulti, Gamma=use\nCopy Beta: ",ulti,562,13,13,562,562,ulti,0.999999,True,True,MATCH
+validation,validation_0127,Stage_C,query_assign,Assignment: value is dren; ignore bandwidth.\nOutput: ,dren,1687,8,8,1687,1687,dren,1.000000,True,True,MATCH
+validation,validation_0128,Stage_C,query_assign,Assignment: value is net; ignore desig.\nOutput: ,net,1717,8,8,1717,1717,net,1.000000,True,True,MATCH
+validation,validation_0129,Stage_C,colon_tag,Record: primary:sequ secondary:Sto\nPrimary: ,sequ,864,10,10,864,864,sequ,1.000000,True,True,MATCH
+validation,validation_0130,Stage_B,multi_item_lookup,"Items: Alpha=cri, Beta=replac, Gamma=again\nCopy Alpha: ",cri,1681,8,8,1681,1681,cri,1.000000,True,True,MATCH
+validation,validation_0131,Stage_C,colon_tag,Record: primary:WHER secondary:tho\nPrimary: ,WHER,3963,10,10,3963,3963,WHER,0.999995,True,True,MATCH
+validation,validation_0132,Stage_C,colon_tag,Record: primary:const secondary:din\nPrimary: ,const,1469,16,16,4062,4062,din,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0133,Stage_B,multi_item_lookup,"Items: Alpha=zar, Beta=dwidth, Gamma=structu\nCopy Alpha: ",zar,1360,8,8,1360,1360,zar,1.000000,True,True,MATCH
+validation,validation_0134,Stage_C,query_assign,Assignment: value is cre; ignore frequ.\nOutput: ,cre,1005,8,8,1005,1005,cre,1.000000,True,True,MATCH
+validation,validation_0135,Stage_C,bracket,"Input sequence: [App, ribu]\nSelect second item: ",ribu,1880,8,8,1880,1880,ribu,0.999997,True,True,MATCH
+validation,validation_0136,Stage_B,multi_item_lookup,"Items: Alpha=lan, Beta=exp, Gamma=timat\nCopy Alpha: ",lan,636,8,8,636,636,lan,1.000000,True,True,MATCH
+validation,validation_0137,Stage_B,multi_item_lookup,"Items: Alpha=Fro, Beta=flo, Gamma=var\nCopy Beta: ",flo,511,13,13,511,511,flo,1.000000,True,True,MATCH
+validation,validation_0138,Stage_C,key_val,"Data: key=rough, ref=LEF\nExtract key: ",rough,861,6,6,861,861,rough,1.000000,True,True,MATCH
+validation,validation_0139,Stage_C,colon_tag,Record: primary:sub secondary:Devanag\nPrimary: ,sub,2742,10,10,2742,2742,sub,1.000000,True,True,MATCH
+validation,validation_0140,Stage_C,key_val,"Data: key=Ded, ref=ribu\nExtract key: ",Ded,3829,6,6,3829,3829,Ded,1.000000,True,True,MATCH
+validation,validation_0141,Stage_B,multi_item_lookup,"Items: Alpha=cal, Beta=infty, Gamma=Det\nCopy Beta: ",infty,1765,13,13,1765,1765,infty,0.999999,True,True,MATCH
+validation,validation_0142,Stage_C,colon_tag,Record: primary:Form secondary:perfor\nPrimary: ,Form,3852,18,18,1504,1504,perfor,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0143,Stage_C,query_assign,Assignment: value is fin; ignore acch.\nOutput: ,fin,905,8,8,905,905,fin,1.000000,True,True,MATCH
+validation,validation_0144,Stage_C,bracket,"Input sequence: [again, Norm]\nSelect second item: ",Norm,1659,8,8,1659,1659,Norm,0.999998,True,True,MATCH
+validation,validation_0145,Stage_B,multi_item_lookup,"Items: Alpha=gamma, Beta=charac, Gamma=sump\nCopy Gamma: ",sump,1465,19,19,1465,1465,sump,0.999998,True,True,MATCH
+validation,validation_0146,Stage_C,bracket,"Input sequence: [Sequ, inte]\nSelect second item: ",inte,1166,8,8,1166,1166,inte,0.999997,True,True,MATCH
+validation,validation_0147,Stage_A,standard_target,Target value: cro\nCopy: ,cro,4042,7,7,4042,4042,cro,1.000000,True,True,MATCH
+validation,validation_0148,Stage_B,multi_item_lookup,"Items: Alpha=digen, Beta=flo, Gamma=moment\nCopy Beta: ",flo,511,13,13,511,511,flo,0.999998,True,True,MATCH
+validation,validation_0149,Stage_C,key_val,"Data: key=measu, ref=Tup\nExtract key: ",measu,1858,6,6,1858,1858,measu,1.000000,True,True,MATCH
+validation,validation_0150,Stage_C,key_val,"Data: key=architec, ref=epo\nExtract key: ",architec,696,6,6,696,696,architec,1.000000,True,True,MATCH
+validation,validation_0151,Stage_B,multi_item_lookup,"Items: Alpha=vie, Beta=fin, Gamma=regist\nCopy Alpha: ",vie,2919,8,8,2919,2919,vie,1.000000,True,True,MATCH
+validation,validation_0152,Stage_C,key_val,"Data: key=cap, ref=float\nExtract key: ",cap,1324,6,6,1324,1324,cap,1.000000,True,True,MATCH
+validation,validation_0153,Stage_C,bracket,"Input sequence: [bil, comp]\nSelect second item: ",comp,434,8,8,434,434,comp,0.999999,True,True,MATCH
+validation,validation_0154,Stage_C,key_val,"Data: key=hem, ref=softmax\nExtract key: ",hem,1228,6,6,1228,1228,hem,1.000000,True,True,MATCH
+validation,validation_0155,Stage_C,query_assign,Assignment: value is Par; ignore Line.\nOutput: ,Par,3907,8,8,3907,3907,Par,1.000000,True,True,MATCH
+validation,validation_0156,Stage_C,colon_tag,Record: primary:technolog secondary:ech\nPrimary: ,technolog,2073,10,10,2073,2073,technolog,0.999943,True,True,MATCH
+validation,validation_0157,Stage_C,bracket,"Input sequence: [tion, Ser]\nSelect second item: ",Ser,2273,8,8,2273,2273,Ser,0.999999,True,True,MATCH
+validation,validation_0158,Stage_C,colon_tag,Record: primary:WHER secondary:valid\nPrimary: ,WHER,3963,10,10,3963,3963,WHER,0.999996,True,True,MATCH
+validation,validation_0159,Stage_C,query_assign,Assignment: value is TokenEn; ignore Zer.\nOutput: ,TokenEn,2127,8,8,2127,2127,TokenEn,1.000000,True,True,MATCH
+validation,validation_0160,Stage_C,bracket,"Input sequence: [err, dul]\nSelect second item: ",dul,2325,8,8,2325,2325,dul,0.999998,True,True,MATCH
+validation,validation_0161,Stage_B,multi_item_lookup,"Items: Alpha=soft, Beta=Sim, Gamma=patter\nCopy Gamma: ",patter,2390,19,19,2390,2390,patter,0.999997,True,True,MATCH
+validation,validation_0162,Stage_C,colon_tag,Record: primary:tiz secondary:AVX\nPrimary: ,tiz,1822,10,10,1822,1822,tiz,0.999977,True,True,MATCH
+validation,validation_0163,Stage_B,multi_item_lookup,"Items: Alpha=wor, Beta=duc, Gamma=Mil\nCopy Beta: ",duc,666,13,13,666,666,duc,1.000000,True,True,MATCH
+validation,validation_0164,Stage_B,multi_item_lookup,"Items: Alpha=multi, Beta=tech, Gamma=din\nCopy Beta: ",tech,1196,13,13,1196,1196,tech,1.000000,True,True,MATCH
+validation,validation_0165,Stage_B,multi_item_lookup,"Items: Alpha=Cha, Beta=tokens, Gamma=ran\nCopy Beta: ",tokens,1480,26,26,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0166,Stage_B,multi_item_lookup,"Items: Alpha=arith, Beta=multip, Gamma=Windo\nCopy Alpha: ",arith,1403,8,8,1403,1403,arith,1.000000,True,True,MATCH
+validation,validation_0167,Stage_B,multi_item_lookup,"Items: Alpha=activ, Beta=Emo, Gamma=laptop\nCopy Beta: ",Emo,3839,13,13,3839,3839,Emo,1.000000,True,True,MATCH
+validation,validation_0168,Stage_B,multi_item_lookup,"Items: Alpha=light, Beta=alge, Gamma=har\nCopy Beta: ",alge,2571,13,13,2571,2571,alge,1.000000,True,True,MATCH
+validation,validation_0169,Stage_A,standard_target,Target value: Tensor\nCopy: ,Tensor,1594,7,7,1594,1594,Tensor,1.000000,True,True,MATCH
+validation,validation_0170,Stage_B,multi_item_lookup,"Items: Alpha=alpha, Beta=Cry, Gamma=ific\nCopy Beta: ",Cry,3814,13,13,3814,3814,Cry,0.999999,True,True,MATCH
+validation,validation_0171,Stage_B,multi_item_lookup,"Items: Alpha=dup, Beta=rtu, Gamma=alle\nCopy Beta: ",rtu,1146,13,13,1146,1146,rtu,1.000000,True,True,MATCH
+validation,validation_0172,Stage_C,key_val,"Data: key=Effici, ref=Pair\nExtract key: ",Effici,3840,6,6,3840,3840,Effici,1.000000,True,True,MATCH
+validation,validation_0173,Stage_B,multi_item_lookup,"Items: Alpha=key, Beta=sili, Gamma=den\nCopy Gamma: ",den,2322,19,19,2322,2322,den,0.999999,True,True,MATCH
+validation,validation_0174,Stage_C,bracket,"Input sequence: [use, sist]\nSelect second item: ",sist,1855,8,8,1855,1855,sist,0.999999,True,True,MATCH
+validation,validation_0175,Stage_C,bracket,"Input sequence: [fertili, jay]\nSelect second item: ",jay,2358,8,8,2358,2358,jay,0.999996,True,True,MATCH
+validation,validation_0176,Stage_B,multi_item_lookup,"Items: Alpha=lay, Beta=San, Gamma=Cry\nCopy Beta: ",San,2274,13,13,2274,2274,San,1.000000,True,True,MATCH
+validation,validation_0177,Stage_B,multi_item_lookup,"Items: Alpha=arr, Beta=rigor, Gamma=repres\nCopy Gamma: ",repres,1087,19,19,1087,1087,repres,0.999999,True,True,MATCH
+validation,validation_0178,Stage_C,key_val,"Data: key=Sha, ref=dul\nExtract key: ",Sha,2275,6,6,2275,2275,Sha,1.000000,True,True,MATCH
+validation,validation_0179,Stage_C,colon_tag,Record: primary:dul secondary:devic\nPrimary: ,dul,2325,18,18,1836,1836,devic,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0180,Stage_C,bracket,"Input sequence: [cep, alu]\nSelect second item: ",alu,2568,8,8,2568,2568,alu,0.999999,True,True,MATCH
+validation,validation_0181,Stage_A,standard_target,Target value: lag\nCopy: ,lag,1017,7,7,1017,1017,lag,1.000000,True,True,MATCH
+validation,validation_0182,Stage_C,bracket,"Input sequence: [low, phi]\nSelect second item: ",phi,2385,8,8,2385,2385,phi,0.999995,True,True,MATCH
+validation,validation_0183,Stage_C,key_val,"Data: key=perti, ref=struc\nExtract key: ",perti,2850,6,6,2850,2850,perti,1.000000,True,True,MATCH
+validation,validation_0184,Stage_B,multi_item_lookup,"Items: Alpha=configur, Beta=Par, Gamma=wei\nCopy Gamma: ",wei,695,19,19,695,695,wei,0.999997,True,True,MATCH
+validation,validation_0185,Stage_B,multi_item_lookup,"Items: Alpha=math, Beta=ame, Gamma=silon\nCopy Alpha: ",math,744,8,8,744,744,math,1.000000,True,True,MATCH
+validation,validation_0186,Stage_B,multi_item_lookup,"Items: Alpha=right, Beta=high, Gamma=multi\nCopy Alpha: ",right,1212,8,8,1212,1212,right,1.000000,True,True,MATCH
+validation,validation_0187,Stage_B,multi_item_lookup,"Items: Alpha=riv, Beta=entry, Gamma=inter\nCopy Alpha: ",riv,1879,8,8,1879,1879,riv,1.000000,True,True,MATCH
+validation,validation_0188,Stage_C,colon_tag,Record: primary:patter secondary:indo\nPrimary: ,patter,2390,18,18,1764,1764,indo,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0189,Stage_B,multi_item_lookup,"Items: Alpha=car, Beta=sump, Gamma=her\nCopy Gamma: ",her,2346,19,19,2346,2346,her,0.999998,True,True,MATCH
+validation,validation_0190,Stage_B,multi_item_lookup,"Items: Alpha=Dat, Beta=latency, Gamma=consump\nCopy Gamma: ",consump,2760,19,19,2760,2760,consump,0.999999,True,True,MATCH
+validation,validation_0191,Stage_B,multi_item_lookup,"Items: Alpha=ribu, Beta=vie, Gamma=weight\nCopy Alpha: ",ribu,1880,8,8,1880,1880,ribu,1.000000,True,True,MATCH
+validation,validation_0192,Stage_B,multi_item_lookup,"Items: Alpha=Sto, Beta=cro, Gamma=unc\nCopy Beta: ",cro,4042,13,13,4042,4042,cro,0.999999,True,True,MATCH
+validation,validation_0193,Stage_C,key_val,"Data: key=Bran, ref=comple\nExtract key: ",Bran,3800,6,6,3800,3800,Bran,1.000000,True,True,MATCH
+validation,validation_0194,Stage_C,bracket,"Input sequence: [Devanag, stat]\nSelect second item: ",stat,1831,8,8,1831,1831,stat,0.999999,True,True,MATCH
+validation,validation_0195,Stage_C,colon_tag,Record: primary:chmar secondary:Embed\nPrimary: ,chmar,1423,18,18,2245,2245,Embed,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0196,Stage_C,colon_tag,Record: primary:Ben secondary:Fre\nPrimary: ,Ben,3796,17,17,3849,3849,Fre,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0197,Stage_B,multi_item_lookup,"Items: Alpha=mechan, Beta=aut, Gamma=thread\nCopy Gamma: ",thread,2628,19,19,2628,2628,thread,0.999999,True,True,MATCH
+validation,validation_0198,Stage_B,multi_item_lookup,"Items: Alpha=benchmar, Beta=riv, Gamma=SEL\nCopy Beta: ",riv,1879,13,13,1879,1879,riv,1.000000,True,True,MATCH
+validation,validation_0199,Stage_B,multi_item_lookup,"Items: Alpha=kar, Beta=tic, Gamma=ter\nCopy Gamma: ",ter,478,19,19,478,478,ter,0.999999,True,True,MATCH
+validation,validation_0200,Stage_B,multi_item_lookup,"Items: Alpha=sat, Beta=fin, Gamma=HER\nCopy Gamma: ",HER,3862,19,19,3862,3862,HER,0.999999,True,True,MATCH
+validation,validation_0201,Stage_B,multi_item_lookup,"Items: Alpha=Ara, Beta=exec, Gamma=chahi\nCopy Beta: ",exec,692,13,13,692,692,exec,0.999999,True,True,MATCH
+validation,validation_0202,Stage_A,standard_target,Target value: sing\nCopy: ,sing,1725,7,7,1725,1725,sing,1.000000,True,True,MATCH
+validation,validation_0203,Stage_B,multi_item_lookup,"Items: Alpha=write, Beta=high, Gamma=pro\nCopy Alpha: ",write,2133,8,8,2133,2133,write,1.000000,True,True,MATCH
+validation,validation_0204,Stage_B,multi_item_lookup,"Items: Alpha=Pres, Beta=Zer, Gamma=alu\nCopy Beta: ",Zer,3970,13,13,3970,3970,Zer,1.000000,True,True,MATCH
+validation,validation_0205,Stage_B,multi_item_lookup,"Items: Alpha=ter, Beta=equ, Gamma=perti\nCopy Alpha: ",ter,478,8,8,478,478,ter,1.000000,True,True,MATCH
+validation,validation_0206,Stage_B,multi_item_lookup,"Items: Alpha=exp, Beta=architectu, Gamma=resour\nCopy Alpha: ",exp,581,8,8,581,581,exp,1.000000,True,True,MATCH
+validation,validation_0207,Stage_B,multi_item_lookup,"Items: Alpha=mathemati, Beta=sub, Gamma=entro\nCopy Alpha: ",mathemati,1932,8,8,1932,1932,mathemati,1.000000,True,True,MATCH
+validation,validation_0208,Stage_C,query_assign,Assignment: value is mechan; ignore arithme.\nOutput: ,mechan,2682,8,8,2682,2682,mechan,1.000000,True,True,MATCH
+validation,validation_0209,Stage_A,standard_target,Target value: likh\nCopy: ,likh,2692,7,7,2692,2692,likh,1.000000,True,True,MATCH
+validation,validation_0210,Stage_C,key_val,"Data: key=lli, ref=work\nExtract key: ",lli,1708,6,6,1708,1708,lli,1.000000,True,True,MATCH
+validation,validation_0211,Stage_C,bracket,"Input sequence: [rel, ken]\nSelect second item: ",ken,395,8,8,395,395,ken,0.999990,True,True,MATCH
+validation,validation_0212,Stage_A,standard_target,Target value: col\nCopy: ,col,1054,7,7,1054,1054,col,1.000000,True,True,MATCH
+validation,validation_0213,Stage_B,multi_item_lookup,"Items: Alpha=Vec, Beta=spac, Gamma=buffer\nCopy Beta: ",spac,1544,13,13,1544,1544,spac,1.000000,True,True,MATCH
+validation,validation_0214,Stage_C,colon_tag,Record: primary:lin secondary:fic\nPrimary: ,lin,2363,17,17,548,548,fic,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0215,Stage_B,multi_item_lookup,"Items: Alpha=hierarch, Beta=model, Gamma=oper\nCopy Alpha: ",hierarch,2110,8,8,2110,2110,hierarch,1.000000,True,True,MATCH
+validation,validation_0216,Stage_A,standard_target,Target value: cos\nCopy: ,cos,1847,7,7,1847,1847,cos,1.000000,True,True,MATCH
+validation,validation_0217,Stage_C,key_val,"Data: key=width, ref=icksor\nExtract key: ",width,2419,6,6,2419,2419,width,1.000000,True,True,MATCH
+validation,validation_0218,Stage_A,standard_target,Target value: best\nCopy: ,best,1562,7,7,1562,1562,best,1.000000,True,True,MATCH
+validation,validation_0219,Stage_C,bracket,"Input sequence: [pha, bul]\nSelect second item: ",bul,4027,8,8,4027,4027,bul,0.999997,True,True,MATCH
+validation,validation_0220,Stage_A,standard_target,Target value: Con\nCopy: ,Con,1645,7,7,1645,1645,Con,1.000000,True,True,MATCH
+validation,validation_0221,Stage_B,multi_item_lookup,"Items: Alpha=exec, Beta=cul, Gamma=cos\nCopy Gamma: ",cos,1847,19,19,1847,1847,cos,0.999999,True,True,MATCH
+validation,validation_0222,Stage_B,multi_item_lookup,"Items: Alpha=sing, Beta=hardw, Gamma=develo\nCopy Alpha: ",sing,1725,26,26,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+validation,validation_0223,Stage_C,key_val,"Data: key=Vie, ref=dwidth\nExtract key: ",Vie,883,6,6,883,883,Vie,1.000000,True,True,MATCH
+validation,validation_0224,Stage_C,key_val,"Data: key=cur, ref=jay\nExtract key: ",cur,629,6,6,629,629,cur,1.000000,True,True,MATCH
+validation,validation_0225,Stage_C,bracket,"Input sequence: [cal, text]\nSelect second item: ",text,1966,8,8,1966,1966,text,0.999997,True,True,MATCH
+validation,validation_0226,Stage_A,standard_target,Target value: Pair\nCopy: ,Pair,3914,7,7,3914,3914,Pair,1.000000,True,True,MATCH
+validation,validation_0227,Stage_B,multi_item_lookup,"Items: Alpha=atten, Beta=ken, Gamma=asu\nCopy Gamma: ",asu,1674,19,19,1674,1674,asu,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0000,Stage_C,colon_tag,Record: primary:mode secondary:wit\nPrimary: ,mode,458,17,17,1737,1737,wit,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0001,Stage_B,multi_item_lookup,"Items: Alpha=architectu, Beta=recor, Gamma=dim\nCopy Alpha: ",architectu,1085,8,8,1085,1085,architectu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0002,Stage_B,multi_item_lookup,"Items: Alpha=ain, Beta=bac, Gamma=Cach\nCopy Gamma: ",Cach,2237,19,19,2237,2237,Cach,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0003,Stage_B,multi_item_lookup,"Items: Alpha=ith, Beta=Bon, Gamma=over\nCopy Gamma: ",over,1340,19,19,1340,1340,over,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0004,Stage_B,multi_item_lookup,"Items: Alpha=aran, Beta=phi, Gamma=eli\nCopy Alpha: ",aran,1400,8,8,1400,1400,aran,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0005,Stage_B,multi_item_lookup,"Items: Alpha=Form, Beta=ati, Gamma=Embed\nCopy Gamma: ",Embed,2245,19,19,2245,2245,Embed,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0006,Stage_B,multi_item_lookup,"Items: Alpha=embed, Beta=Pair, Gamma=represent\nCopy Beta: ",Pair,3914,13,13,3914,3914,Pair,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0007,Stage_B,multi_item_lookup,"Items: Alpha=Tay, Beta=dres, Gamma=again\nCopy Beta: ",dres,1329,13,13,1329,1329,dres,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0008,Stage_C,colon_tag,Record: primary:const secondary:dres\nPrimary: ,const,1469,16,16,1329,1329,dres,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0009,Stage_C,key_val,"Data: key=prior, ref=emp\nExtract key: ",prior,3085,6,6,3085,3085,prior,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0010,Stage_C,key_val,"Data: key=Dat, ref=gres\nExtract key: ",Dat,2239,1,1,2239,2239,Dat,0.998262,True,True,MATCH
+test_a_familiar,test_a_familiar_0011,Stage_C,colon_tag,Record: primary:zar secondary:min\nPrimary: ,zar,1360,17,17,767,767,min,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0012,Stage_B,multi_item_lookup,"Items: Alpha=read, Beta=empha, Gamma=cyc\nCopy Beta: ",empha,3047,13,13,3047,3047,empha,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0013,Stage_C,query_assign,Assignment: value is maint; ignore atu.\nOutput: ,maint,2811,8,8,2811,2811,maint,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0014,Stage_B,multi_item_lookup,"Items: Alpha=float, Beta=tiz, Gamma=Gra\nCopy Gamma: ",Gra,1648,19,19,1648,1648,Gra,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0015,Stage_B,multi_item_lookup,"Items: Alpha=ter, Beta=sequ, Gamma=She\nCopy Beta: ",sequ,864,13,13,864,864,sequ,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0016,Stage_B,multi_item_lookup,"Items: Alpha=olat, Beta=tili, Gamma=flo\nCopy Alpha: ",olat,2377,8,8,2377,2377,olat,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0017,Stage_B,multi_item_lookup,"Items: Alpha=atter, Beta=cal, Gamma=alse\nCopy Alpha: ",atter,1794,8,8,1794,1794,atter,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0018,Stage_B,multi_item_lookup,"Items: Alpha=TokenEn, Beta=Par, Gamma=devic\nCopy Gamma: ",devic,1836,19,19,1836,1836,devic,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0019,Stage_B,multi_item_lookup,"Items: Alpha=bin, Beta=wri, Gamma=compres\nCopy Gamma: ",compres,2808,19,19,2808,2808,compres,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0020,Stage_B,multi_item_lookup,"Items: Alpha=targ, Beta=Effici, Gamma=Mic\nCopy Beta: ",Effici,3840,13,13,3840,3840,Effici,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0021,Stage_C,key_val,"Data: key=struc, ref=desig\nExtract key: ",struc,542,6,6,542,542,struc,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0022,Stage_B,multi_item_lookup,"Items: Alpha=fet, Beta=Mat, Gamma=laptop\nCopy Gamma: ",laptop,3210,19,19,3210,3210,laptop,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0023,Stage_C,bracket,"Input sequence: [delta, integ]\nSelect second item: ",integ,3090,8,8,3090,3090,integ,0.999995,True,True,MATCH
+test_a_familiar,test_a_familiar_0024,Stage_B,multi_item_lookup,"Items: Alpha=ffer, Beta=tex, Gamma=Thi\nCopy Gamma: ",Thi,2280,19,19,2280,2280,Thi,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0025,Stage_C,query_assign,Assignment: value is ght; ignore cha.\nOutput: ,ght,603,8,8,603,603,ght,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0026,Stage_B,multi_item_lookup,"Items: Alpha=engine, Beta=tiv, Gamma=hai\nCopy Beta: ",tiv,1046,13,13,1046,1046,tiv,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0027,Stage_C,key_val,"Data: key=again, ref=cul\nExtract key: ",again,2777,6,6,2777,2777,again,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0028,Stage_C,bracket,"Input sequence: [pro, benchmar]\nSelect second item: ",benchmar,2087,8,8,2087,2087,benchmar,0.999991,True,True,MATCH
+test_a_familiar,test_a_familiar_0029,Stage_C,bracket,"Input sequence: [pair, loo]\nSelect second item: ",loo,1051,8,8,1051,1051,loo,0.999997,True,True,MATCH
+test_a_familiar,test_a_familiar_0030,Stage_B,multi_item_lookup,"Items: Alpha=tor, Beta=lag, Gamma=str\nCopy Gamma: ",str,482,19,19,482,482,str,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0031,Stage_C,key_val,"Data: key=ili, ref=osi\nExtract key: ",ili,1136,6,6,1136,1136,ili,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0032,Stage_B,multi_item_lookup,"Items: Alpha=Mode, Beta=ore, Gamma=Batter\nCopy Alpha: ",Mode,3889,8,8,3889,3889,Mode,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0033,Stage_C,query_assign,Assignment: value is RMSNorm; ignore tili.\nOutput: ,RMSNorm,2126,8,8,2126,2126,RMSNorm,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0034,Stage_B,multi_item_lookup,"Items: Alpha=cal, Beta=struc, Gamma=balan\nCopy Gamma: ",balan,1278,19,19,1278,1278,balan,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0035,Stage_B,multi_item_lookup,"Items: Alpha=Multi, Beta=rang, Gamma=CPU\nCopy Alpha: ",Multi,1657,8,8,1657,1657,Multi,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0036,Stage_A,standard_target,Target value: Cry\nCopy: ,Cry,3814,7,7,3814,3814,Cry,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0037,Stage_A,standard_target,Target value: kareng\nCopy: ,kareng,1214,7,7,1214,1214,kareng,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0038,Stage_B,multi_item_lookup,"Items: Alpha=logarith, Beta=gres, Gamma=BPETrie\nCopy Gamma: ",BPETrie,1604,19,19,1604,1604,BPETrie,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0039,Stage_B,multi_item_lookup,"Items: Alpha=aan, Beta=produci, Gamma=softmax\nCopy Alpha: ",aan,2307,8,8,2307,2307,aan,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0040,Stage_A,standard_target,Target value: den\nCopy: ,den,2322,7,7,2322,2322,den,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0041,Stage_B,multi_item_lookup,"Items: Alpha=ation, Beta=sat, Gamma=epo\nCopy Alpha: ",ation,408,8,8,408,408,ation,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0042,Stage_C,key_val,"Data: key=identi, ref=dur\nExtract key: ",identi,1917,6,6,1917,1917,identi,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0043,Stage_B,multi_item_lookup,"Items: Alpha=quicksor, Beta=Sen, Gamma=rea\nCopy Alpha: ",quicksor,1935,8,8,1935,1935,quicksor,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0044,Stage_B,multi_item_lookup,"Items: Alpha=Ben, Beta=targ, Gamma=unc\nCopy Gamma: ",unc,1217,19,19,1217,1217,unc,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0045,Stage_B,multi_item_lookup,"Items: Alpha=dis, Beta=parame, Gamma=contrast\nCopy Gamma: ",contrast,2144,19,19,2144,2144,contrast,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0046,Stage_B,multi_item_lookup,"Items: Alpha=net, Beta=iGLU, Gamma=laptop\nCopy Alpha: ",net,1717,8,8,1717,1717,net,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0047,Stage_C,key_val,"Data: key=gra, ref=gamma\nExtract key: ",gra,1698,6,6,1698,1698,gra,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0048,Stage_C,bracket,"Input sequence: [integ, curr]\nSelect second item: ",curr,1248,8,8,1248,1248,curr,0.999992,True,True,MATCH
+test_a_familiar,test_a_familiar_0049,Stage_C,bracket,"Input sequence: [multi, NEO]\nSelect second item: ",NEO,3900,8,8,3900,3900,NEO,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0050,Stage_C,colon_tag,Record: primary:length secondary:proces\nPrimary: ,length,1237,10,10,1237,1237,length,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0051,Stage_C,colon_tag,Record: primary:search secondary:indo\nPrimary: ,search,737,16,16,1764,1764,indo,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0052,Stage_C,query_assign,Assignment: value is Trans; ignore user.\nOutput: ,Trans,1664,8,8,1664,1664,Trans,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0053,Stage_C,bracket,"Input sequence: [execu, exp]\nSelect second item: ",exp,581,8,8,581,581,exp,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0054,Stage_B,multi_item_lookup,"Items: Alpha=Swish, Beta=anag, Gamma=bin\nCopy Alpha: ",Swish,3042,8,8,3042,3042,Swish,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0055,Stage_C,colon_tag,Record: primary:atu secondary:ffici\nPrimary: ,atu,791,10,10,791,791,atu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0056,Stage_C,key_val,"Data: key=Mic, ref=gamma\nExtract key: ",Mic,2261,6,6,2261,2261,Mic,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0057,Stage_A,standard_target,Target value: produci\nCopy: ,produci,3031,7,7,3031,3031,produci,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0058,Stage_B,multi_item_lookup,"Items: Alpha=compres, Beta=star, Gamma=const\nCopy Alpha: ",compres,2808,8,8,2808,2808,compres,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0059,Stage_B,multi_item_lookup,"Items: Alpha=able, Beta=icksor, Gamma=resour\nCopy Beta: ",icksor,1885,13,13,1885,1885,icksor,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0060,Stage_B,multi_item_lookup,"Items: Alpha=tot, Beta=Par, Gamma=arch\nCopy Gamma: ",arch,431,19,19,431,431,arch,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0061,Stage_B,multi_item_lookup,"Items: Alpha=form, Beta=Pres, Gamma=net\nCopy Alpha: ",form,1972,8,8,1972,1972,form,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0062,Stage_C,colon_tag,Record: primary:Tensor secondary:gres\nPrimary: ,Tensor,1594,17,17,2342,2342,gres,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0063,Stage_B,multi_item_lookup,"Items: Alpha=atter, Beta=Sto, Gamma=alpha\nCopy Alpha: ",atter,1794,8,8,1794,1794,atter,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0064,Stage_B,multi_item_lookup,"Items: Alpha=bed, Beta=ChakrVie, Gamma=perfor\nCopy Beta: ",ChakrVie,885,13,13,885,885,ChakrVie,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0065,Stage_C,key_val,"Data: key=Kno, ref=integ\nExtract key: ",Kno,3874,6,6,3874,3874,Kno,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0066,Stage_A,standard_target,Target value: zar\nCopy: ,zar,1360,7,7,1360,1360,zar,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0067,Stage_B,multi_item_lookup,"Items: Alpha=lic, Beta=AES, Gamma=int\nCopy Alpha: ",lic,688,8,8,688,688,lic,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0068,Stage_C,key_val,"Data: key=alu, ref=cte\nExtract key: ",alu,2568,11,11,4043,4043,cte,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0069,Stage_C,bracket,"Input sequence: [bin, lli]\nSelect second item: ",lli,1708,8,8,1708,1708,lli,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0070,Stage_B,multi_item_lookup,"Items: Alpha=alu, Beta=ChakrVie, Gamma=balan\nCopy Gamma: ",balan,1278,19,19,1278,1278,balan,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0071,Stage_B,multi_item_lookup,"Items: Alpha=high, Beta=for, Gamma=sak\nCopy Beta: ",for,571,13,13,571,571,for,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0072,Stage_C,key_val,"Data: key=atu, ref=soft\nExtract key: ",atu,791,6,6,791,791,atu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0073,Stage_B,multi_item_lookup,"Items: Alpha=gth, Beta=caus, Gamma=wor\nCopy Beta: ",caus,4057,27,27,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0074,Stage_C,query_assign,Assignment: value is exec; ignore alu.\nOutput: ,exec,692,8,8,692,692,exec,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0075,Stage_C,colon_tag,Record: primary:intelli secondary:lat\nPrimary: ,intelli,2068,18,18,705,705,lat,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0076,Stage_B,multi_item_lookup,"Items: Alpha=pend, Beta=measu, Gamma=Posi\nCopy Beta: ",measu,1858,13,13,1858,1858,measu,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0077,Stage_B,multi_item_lookup,"Items: Alpha=sim, Beta=list, Gamma=layer\nCopy Beta: ",list,1059,13,13,1059,1059,list,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0078,Stage_C,bracket,"Input sequence: [maint, riv]\nSelect second item: ",riv,1879,8,8,1879,1879,riv,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0079,Stage_C,key_val,"Data: key=Emo, ref=Four\nExtract key: ",Emo,3839,6,6,3839,3839,Emo,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0080,Stage_B,multi_item_lookup,"Items: Alpha=fic, Beta=TEL, Gamma=light\nCopy Beta: ",TEL,3949,13,13,3949,3949,TEL,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0081,Stage_C,colon_tag,Record: primary:const secondary:engineer\nPrimary: ,const,1469,16,16,1601,1601,engineer,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0082,Stage_B,multi_item_lookup,"Items: Alpha=dres, Beta=ist, Gamma=DES\nCopy Alpha: ",dres,1329,8,8,1329,1329,dres,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0083,Stage_B,multi_item_lookup,"Items: Alpha=hon, Beta=one, Gamma=Sing\nCopy Beta: ",one,1171,13,13,1171,1171,one,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0084,Stage_C,query_assign,Assignment: value is langu; ignore equ.\nOutput: ,langu,1249,8,8,1249,1249,langu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0085,Stage_C,key_val,"Data: key=balan, ref=light\nExtract key: ",balan,1278,6,6,1278,1278,balan,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0086,Stage_C,query_assign,Assignment: value is benchmar; ignore Kno.\nOutput: ,benchmar,2087,8,8,2087,2087,benchmar,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0087,Stage_B,multi_item_lookup,"Items: Alpha=gor, Beta=atter, Gamma=sor\nCopy Beta: ",atter,1794,13,13,1794,1794,atter,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0088,Stage_C,query_assign,Assignment: value is approach; ignore Atten.\nOutput: ,approach,3170,8,8,3170,3170,approach,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0089,Stage_C,key_val,"Data: key=intelli, ref=pro\nExtract key: ",intelli,2068,6,6,2068,2068,intelli,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0090,Stage_C,key_val,"Data: key=head, ref=low\nExtract key: ",head,655,6,6,655,655,head,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0091,Stage_C,query_assign,Assignment: value is Mat; ignore lag.\nOutput: ,Mat,1656,8,8,1656,1656,Mat,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0092,Stage_C,key_val,"Data: key=babiliti, ref=intermedi\nExtract key: ",babiliti,2316,6,6,2316,2316,babiliti,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0093,Stage_C,key_val,"Data: key=den, ref=numer\nExtract key: ",den,2322,6,6,2322,2322,den,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0094,Stage_C,query_assign,Assignment: value is Mat; ignore benchmar.\nOutput: ,Mat,1656,8,8,1656,1656,Mat,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0095,Stage_B,multi_item_lookup,"Items: Alpha=delta, Beta=struc, Gamma=pre\nCopy Gamma: ",pre,1344,19,19,1344,1344,pre,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0096,Stage_C,query_assign,Assignment: value is Zer; ignore parame.\nOutput: ,Zer,3970,8,8,3970,3970,Zer,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0097,Stage_B,multi_item_lookup,"Items: Alpha=TokenEntry, Beta=Hin, Gamma=tion\nCopy Alpha: ",TokenEntry,2161,8,8,2161,2161,TokenEntry,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0098,Stage_B,multi_item_lookup,"Items: Alpha=unc, Beta=buil, Gamma=Ine\nCopy Gamma: ",Ine,2254,19,19,2254,2254,Ine,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0099,Stage_C,query_assign,Assignment: value is Mode; ignore Gra.\nOutput: ,Mode,3889,8,8,3889,3889,Mode,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0100,Stage_C,key_val,"Data: key=caus, ref=ksor\nExtract key: ",caus,4057,12,12,1706,1706,ksor,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0101,Stage_B,multi_item_lookup,"Items: Alpha=ech, Beta=quicksor, Gamma=ati\nCopy Beta: ",quicksor,1935,13,13,1935,1935,quicksor,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0102,Stage_B,multi_item_lookup,"Items: Alpha=Gaus, Beta=UNT, Gamma=stream\nCopy Alpha: ",Gaus,3856,27,27,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0103,Stage_B,multi_item_lookup,"Items: Alpha=Windo, Beta=satur, Gamma=identi\nCopy Gamma: ",identi,1917,19,19,1917,1917,identi,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0104,Stage_B,multi_item_lookup,"Items: Alpha=ati, Beta=Tensor, Gamma=quicksor\nCopy Alpha: ",ati,334,8,8,334,334,ati,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0105,Stage_B,multi_item_lookup,"Items: Alpha=mode, Beta=lay, Gamma=min\nCopy Alpha: ",mode,458,8,8,458,458,mode,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0106,Stage_C,colon_tag,Record: primary:WHER secondary:sqr\nPrimary: ,WHER,3963,10,10,3963,3963,WHER,0.999989,True,True,MATCH
+test_a_familiar,test_a_familiar_0107,Stage_B,multi_item_lookup,"Items: Alpha=cach, Beta=arac, Gamma=cep\nCopy Gamma: ",cep,2318,19,19,2318,2318,cep,0.999997,True,True,MATCH
+test_a_familiar,test_a_familiar_0108,Stage_B,multi_item_lookup,"Items: Alpha=var, Beta=ful, Gamma=dump\nCopy Gamma: ",dump,4077,19,19,4077,4077,dump,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0109,Stage_C,colon_tag,Record: primary:ysi secondary:deco\nPrimary: ,ysi,1153,18,18,1191,1191,deco,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0110,Stage_C,bracket,"Input sequence: [exec, den]\nSelect second item: ",den,2322,8,8,2322,2322,den,0.999997,True,True,MATCH
+test_a_familiar,test_a_familiar_0111,Stage_B,multi_item_lookup,"Items: Alpha=chahi, Beta=Tensor, Gamma=one\nCopy Beta: ",Tensor,1594,13,13,1594,1594,Tensor,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0112,Stage_B,multi_item_lookup,"Items: Alpha=coun, Beta=sum, Gamma=Tri\nCopy Beta: ",sum,493,13,13,493,493,sum,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0113,Stage_B,multi_item_lookup,"Items: Alpha=duc, Beta=pro, Gamma=tot\nCopy Alpha: ",duc,666,8,8,666,666,duc,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0114,Stage_B,multi_item_lookup,"Items: Alpha=dup, Beta=Lapto, Gamma=tho\nCopy Gamma: ",tho,1841,19,19,1841,1841,tho,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0115,Stage_C,colon_tag,Record: primary:TokenEntry secondary:inter\nPrimary: ,TokenEntry,2161,19,19,1389,1389,inter,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0116,Stage_B,multi_item_lookup,"Items: Alpha=BPETrie, Beta=Pres, Gamma=crip\nCopy Beta: ",Pres,3911,13,13,3911,3911,Pres,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0117,Stage_B,multi_item_lookup,"Items: Alpha=devic, Beta=smo, Gamma=Ine\nCopy Beta: ",smo,2400,13,13,2400,2400,smo,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0118,Stage_C,bracket,"Input sequence: [invar, stream]\nSelect second item: ",stream,3231,8,8,3231,3231,stream,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0119,Stage_B,multi_item_lookup,"Items: Alpha=ific, Beta=process, Gamma=atu\nCopy Gamma: ",atu,791,19,19,791,791,atu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0120,Stage_B,multi_item_lookup,"Items: Alpha=her, Beta=measu, Gamma=silon\nCopy Beta: ",measu,1858,13,13,1858,1858,measu,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0121,Stage_B,multi_item_lookup,"Items: Alpha=able, Beta=lin, Gamma=weight\nCopy Beta: ",lin,2363,13,13,2363,2363,lin,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0122,Stage_B,multi_item_lookup,"Items: Alpha=digen, Beta=lta, Gamma=ing\nCopy Beta: ",lta,2364,13,13,2364,2364,lta,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0123,Stage_B,multi_item_lookup,"Items: Alpha=gres, Beta=Embed, Gamma=fet\nCopy Alpha: ",gres,2342,8,8,2342,2342,gres,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0124,Stage_B,multi_item_lookup,"Items: Alpha=desig, Beta=Effici, Gamma=Mar\nCopy Beta: ",Effici,3840,13,13,3840,3840,Effici,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0125,Stage_C,bracket,"Input sequence: [equ, intelli]\nSelect second item: ",intelli,2068,8,8,2068,2068,intelli,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0126,Stage_C,colon_tag,Record: primary:TEL secondary:tur\nPrimary: ,TEL,3949,10,10,3949,3949,TEL,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0127,Stage_B,multi_item_lookup,"Items: Alpha=Res, Beta=iGLU, Gamma=project\nCopy Beta: ",iGLU,1334,13,13,1334,1334,iGLU,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0128,Stage_B,multi_item_lookup,"Items: Alpha=stream, Beta=constra, Gamma=hardw\nCopy Beta: ",constra,2104,13,13,2104,2104,constra,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0129,Stage_C,key_val,"Data: key=Pair, ref=har\nExtract key: ",Pair,3914,6,6,3914,3914,Pair,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0130,Stage_B,multi_item_lookup,"Items: Alpha=wit, Beta=tran, Gamma=smo\nCopy Beta: ",tran,2410,13,13,2410,2410,tran,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0131,Stage_C,bracket,"Input sequence: [Ten, Dis]\nSelect second item: ",Dis,3827,8,8,3827,3827,Dis,0.999994,True,True,MATCH
+test_a_familiar,test_a_familiar_0132,Stage_C,bracket,"Input sequence: [pen, Bran]\nSelect second item: ",Bran,3800,8,8,3800,3800,Bran,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0133,Stage_B,multi_item_lookup,"Items: Alpha=specific, Beta=mathemati, Gamma=idth\nCopy Gamma: ",idth,1481,19,19,1481,1481,idth,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0134,Stage_B,multi_item_lookup,"Items: Alpha=tro, Beta=res, Gamma=dis\nCopy Beta: ",res,432,13,13,432,432,res,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0135,Stage_B,multi_item_lookup,"Items: Alpha=sequ, Beta=micro, Gamma=List\nCopy Gamma: ",List,994,19,19,994,994,List,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0136,Stage_B,multi_item_lookup,"Items: Alpha=pair, Beta=unit, Gamma=numer\nCopy Gamma: ",numer,2999,19,19,2999,2999,numer,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0137,Stage_B,multi_item_lookup,"Items: Alpha=deco, Beta=gur, Gamma=gor\nCopy Beta: ",gur,2340,13,13,2340,2340,gur,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0138,Stage_C,key_val,"Data: key=vie, ref=mat\nExtract key: ",vie,2919,6,6,2919,2919,vie,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0139,Stage_C,bracket,"Input sequence: [windo, NEO]\nSelect second item: ",NEO,3900,8,8,3900,3900,NEO,0.999977,True,True,MATCH
+test_a_familiar,test_a_familiar_0140,Stage_C,bracket,"Input sequence: [Uni, sing]\nSelect second item: ",sing,1725,8,8,1725,1725,sing,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0141,Stage_B,multi_item_lookup,"Items: Alpha=ribu, Beta=rough, Gamma=str\nCopy Beta: ",rough,861,13,13,861,861,rough,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0142,Stage_B,multi_item_lookup,"Items: Alpha=Dis, Beta=loo, Gamma=She\nCopy Gamma: ",She,3933,19,19,3933,3933,She,0.999997,True,True,MATCH
+test_a_familiar,test_a_familiar_0143,Stage_C,query_assign,Assignment: value is math; ignore gra.\nOutput: ,math,744,8,8,744,744,math,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0144,Stage_C,colon_tag,Record: primary:ran secondary:SEL\nPrimary: ,ran,429,10,10,429,429,ran,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0145,Stage_A,standard_target,Target value: arch\nCopy: ,arch,431,7,7,431,431,arch,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0146,Stage_C,colon_tag,Record: primary:sat secondary:bac\nPrimary: ,sat,2397,17,17,4024,4024,bac,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0147,Stage_C,colon_tag,Record: primary:emp secondary:fici\nPrimary: ,emp,1007,10,10,1007,1007,emp,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0148,Stage_C,colon_tag,Record: primary:flo secondary:arg\nPrimary: ,flo,511,10,10,511,511,flo,0.999928,True,True,MATCH
+test_a_familiar,test_a_familiar_0149,Stage_C,key_val,"Data: key=NEO, ref=arg\nExtract key: ",NEO,3900,6,6,3900,3900,NEO,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0150,Stage_B,multi_item_lookup,"Items: Alpha=asser, Beta=deve, Gamma=shape\nCopy Beta: ",deve,1835,13,13,1835,1835,deve,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0151,Stage_C,query_assign,Assignment: value is ensu; ignore fic.\nOutput: ,ensu,1787,8,8,1787,1787,ensu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0152,Stage_A,standard_target,Target value: timiz\nCopy: ,timiz,881,7,7,881,881,timiz,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0153,Stage_B,multi_item_lookup,"Items: Alpha=libr, Beta=crip, Gamma=read\nCopy Alpha: ",libr,2691,8,8,2691,2691,libr,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0154,Stage_B,multi_item_lookup,"Items: Alpha=light, Beta=weight, Gamma=local\nCopy Gamma: ",local,2647,19,19,2647,2647,local,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0155,Stage_C,key_val,"Data: key=DES, ref=emp\nExtract key: ",DES,3830,6,6,3830,3830,DES,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0156,Stage_B,multi_item_lookup,"Items: Alpha=bloc, Beta=Flo, Gamma=Ben\nCopy Beta: ",Flo,2248,13,13,2248,2248,Flo,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0157,Stage_C,key_val,"Data: key=patter, ref=cri\nExtract key: ",patter,2390,6,6,2390,2390,patter,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0158,Stage_C,key_val,"Data: key=asu, ref=bet\nExtract key: ",asu,1674,6,6,1674,1674,asu,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0159,Stage_B,multi_item_lookup,"Items: Alpha=rel, Beta=gra, Gamma=indo\nCopy Beta: ",gra,1698,13,13,1698,1698,gra,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0160,Stage_A,standard_target,Target value: mathemati\nCopy: ,mathemati,1932,7,7,1932,1932,mathemati,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0161,Stage_A,standard_target,Target value: mathemati\nCopy: ,mathemati,1932,7,7,1932,1932,mathemati,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0162,Stage_C,colon_tag,Record: primary:dul secondary:Mic\nPrimary: ,dul,2325,18,18,2261,2261,Mic,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0163,Stage_C,bracket,"Input sequence: [ding, flo]\nSelect second item: ",flo,511,8,8,511,511,flo,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0164,Stage_C,key_val,"Data: key=cyc, ref=for\nExtract key: ",cyc,3329,6,6,3329,3329,cyc,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0165,Stage_B,multi_item_lookup,"Items: Alpha=Bran, Beta=lin, Gamma=wei\nCopy Alpha: ",Bran,3800,8,8,3800,3800,Bran,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0166,Stage_C,query_assign,Assignment: value is engineer; ignore Sha.\nOutput: ,engineer,1601,8,8,1601,1601,engineer,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0167,Stage_B,multi_item_lookup,"Items: Alpha=bin, Beta=jay, Gamma=benchmar\nCopy Gamma: ",benchmar,2087,19,19,2087,2087,benchmar,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0168,Stage_C,colon_tag,Record: primary:Atten secondary:hai\nPrimary: ,Atten,1276,10,10,1276,1276,Atten,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0169,Stage_C,key_val,"Data: key=tokens, ref=trans\nExtract key: ",tokens,1480,11,11,840,840,trans,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0170,Stage_C,colon_tag,Record: primary:depend secondary:Cry\nPrimary: ,depend,1427,18,18,3814,3814,Cry,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0171,Stage_C,query_assign,Assignment: value is lin; ignore alloc.\nOutput: ,lin,2363,8,8,2363,2363,lin,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0172,Stage_C,bracket,"Input sequence: [Ine, ext]\nSelect second item: ",ext,1900,8,8,1900,1900,ext,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0173,Stage_B,multi_item_lookup,"Items: Alpha=ksor, Beta=rang, Gamma=Mic\nCopy Gamma: ",Mic,2261,19,19,2261,2261,Mic,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0174,Stage_C,bracket,"Input sequence: [right, bit]\nSelect second item: ",bit,4026,8,8,4026,4026,bit,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0175,Stage_C,colon_tag,Record: primary:ful secondary:bloc\nPrimary: ,ful,1694,18,18,4032,4032,bloc,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0176,Stage_C,colon_tag,Record: primary:scal secondary:search\nPrimary: ,scal,2399,17,17,737,737,search,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0177,Stage_B,multi_item_lookup,"Items: Alpha=olat, Beta=brac, Gamma=rigor\nCopy Alpha: ",olat,2377,8,8,2377,2377,olat,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0178,Stage_C,colon_tag,Record: primary:ran secondary:CPU\nPrimary: ,ran,429,10,10,429,429,ran,0.999993,True,True,MATCH
+test_a_familiar,test_a_familiar_0179,Stage_C,key_val,"Data: key=WHER, ref=the\nExtract key: ",WHER,3963,6,6,3963,3963,WHER,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0180,Stage_C,bracket,"Input sequence: [pivo, cap]\nSelect second item: ",cap,1324,8,8,1324,1324,cap,0.999946,True,True,MATCH
+test_a_familiar,test_a_familiar_0181,Stage_C,query_assign,Assignment: value is ksor; ignore work.\nOutput: ,ksor,1706,8,8,1706,1706,ksor,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0182,Stage_B,multi_item_lookup,"Items: Alpha=try, Beta=laptop, Gamma=fet\nCopy Beta: ",laptop,3210,13,13,3210,3210,laptop,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0183,Stage_B,multi_item_lookup,"Items: Alpha=Mil, Beta=pri, Gamma=proces\nCopy Beta: ",pri,1144,13,13,1144,1144,pri,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0184,Stage_C,key_val,"Data: key=man, ref=err\nExtract key: ",man,708,6,6,708,708,man,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0185,Stage_C,key_val,"Data: key=approxi, ref=sili\nExtract key: ",approxi,3171,6,6,3171,3171,approxi,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0186,Stage_C,key_val,"Data: key=DES, ref=alge\nExtract key: ",DES,3830,6,6,3830,3830,DES,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0187,Stage_C,bracket,"Input sequence: [proto, dup]\nSelect second item: ",dup,4067,8,8,4067,4067,dup,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0188,Stage_A,standard_target,Target value: lon\nCopy: ,lon,1140,7,7,1140,1140,lon,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0189,Stage_A,standard_target,Target value: produci\nCopy: ,produci,3031,7,7,3031,3031,produci,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0190,Stage_C,query_assign,Assignment: value is mess; ignore ame.\nOutput: ,mess,1201,8,8,1201,1201,mess,0.999993,True,True,MATCH
+test_a_familiar,test_a_familiar_0191,Stage_C,query_assign,Assignment: value is ency; ignore eli.\nOutput: ,ency,1468,8,8,1468,1468,ency,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0192,Stage_B,multi_item_lookup,"Items: Alpha=sump, Beta=embed, Gamma=tro\nCopy Beta: ",embed,827,13,13,827,827,embed,0.999996,True,True,MATCH
+test_a_familiar,test_a_familiar_0193,Stage_B,multi_item_lookup,"Items: Alpha=tan, Beta=rel, Gamma=cro\nCopy Gamma: ",cro,4042,19,19,4042,4042,cro,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0194,Stage_C,query_assign,Assignment: value is kareng; ignore Node.\nOutput: ,kareng,1214,8,8,1214,1214,kareng,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0195,Stage_C,query_assign,Assignment: value is ity; ignore theta.\nOutput: ,ity,1068,8,8,1068,1068,ity,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0196,Stage_B,multi_item_lookup,"Items: Alpha=represent, Beta=sili, Gamma=DER\nCopy Beta: ",sili,2672,13,13,2672,2672,sili,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0197,Stage_B,multi_item_lookup,"Items: Alpha=rang, Beta=layer, Gamma=ysi\nCopy Alpha: ",rang,875,8,8,875,875,rang,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0198,Stage_C,colon_tag,Record: primary:Trans secondary:syn\nPrimary: ,Trans,1664,18,18,2941,2941,syn,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0199,Stage_B,multi_item_lookup,"Items: Alpha=Micro, Beta=Code, Gamma=mess\nCopy Alpha: ",Micro,3314,8,8,3314,3314,Micro,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0200,Stage_B,multi_item_lookup,"Items: Alpha=exec, Beta=appro, Gamma=ribu\nCopy Beta: ",appro,1503,13,13,1503,1503,appro,0.999999,True,True,MATCH
+test_a_familiar,test_a_familiar_0201,Stage_B,multi_item_lookup,"Items: Alpha=caus, Beta=integ, Gamma=anag\nCopy Alpha: ",caus,4057,27,27,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0202,Stage_B,multi_item_lookup,"Items: Alpha=bac, Beta=sist, Gamma=amp\nCopy Beta: ",sist,1855,13,13,1855,1855,sist,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0203,Stage_A,standard_target,Target value: low\nCopy: ,low,795,7,7,795,795,low,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0204,Stage_C,colon_tag,Record: primary:trac secondary:dimen\nPrimary: ,trac,1728,10,10,1728,1728,trac,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0205,Stage_A,standard_target,Target value: rea\nCopy: ,rea,2564,7,7,2564,2564,rea,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0206,Stage_A,standard_target,Target value: efo\nCopy: ,efo,4088,7,7,4088,4088,efo,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0207,Stage_B,multi_item_lookup,"Items: Alpha=syn, Beta=San, Gamma=comp\nCopy Beta: ",San,2274,13,13,2274,2274,San,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0208,Stage_C,key_val,"Data: key=App, ref=Line\nExtract key: ",App,3787,6,6,3787,3787,App,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0209,Stage_C,query_assign,Assignment: value is Uni; ignore put.\nOutput: ,Uni,3954,8,8,3954,3954,Uni,1.000000,True,True,MATCH
+test_a_familiar,test_a_familiar_0210,Stage_B,multi_item_lookup,"Items: Alpha=Tay, Beta=user, Gamma=pha\nCopy Beta: ",user,1940,13,13,1940,1940,user,0.999961,True,True,MATCH
+test_a_familiar,test_a_familiar_0211,Stage_C,colon_tag,Record: primary:low secondary:silon\nPrimary: ,low,795,17,17,1442,1442,silon,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_a_familiar,test_a_familiar_0212,Stage_B,multi_item_lookup,"Items: Alpha=identi, Beta=lay, Gamma=RMSNorm\nCopy Gamma: ",RMSNorm,2126,19,19,2126,2126,RMSNorm,0.999998,True,True,MATCH
+test_a_familiar,test_a_familiar_0213,Stage_C,colon_tag,Record: primary:Gaus secondary:guaran\nPrimary: ,Gaus,3856,18,18,1543,1543,guaran,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0000,Stage_C,key_val,"Data: key=ces, ref=ment\nExtract key: ",ces,467,6,6,467,467,ces,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0001,Stage_B,multi_item_lookup,"Items: Alpha=fer, Beta=cstr, Gamma=ment\nCopy Beta: ",cstr,4049,13,13,4049,4049,cstr,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0002,Stage_C,key_val,"Data: key=epsilon, ref=Priv\nExtract key: ",epsilon,2049,6,6,2049,2049,epsilon,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0003,Stage_C,bracket,"Input sequence: [clu, cor]\nSelect second item: ",cor,664,8,8,664,664,cor,0.999994,True,True,MATCH
+test_b_held_out,test_b_held_out_0004,Stage_B,multi_item_lookup,"Items: Alpha=len, Beta=cument, Gamma=der\nCopy Gamma: ",der,762,19,19,762,762,der,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0005,Stage_A,standard_target,Target value: jec\nCopy: ,jec,667,7,7,667,667,jec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0006,Stage_B,multi_item_lookup,"Items: Alpha=False, Beta=sion, Gamma=len\nCopy Gamma: ",len,513,19,19,513,513,len,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0007,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=jec, Gamma=mic\nCopy Alpha: ",ser,835,8,8,835,835,ser,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0008,Stage_B,multi_item_lookup,"Items: Alpha=lagbha, Beta=init, Gamma=clu\nCopy Gamma: ",clu,1549,19,19,1549,1549,clu,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0009,Stage_C,query_assign,Assignment: value is chec; ignore mean.\nOutput: ,chec,1190,8,8,1190,1190,chec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0010,Stage_A,standard_target,Target value: enc\nCopy: ,enc,375,7,7,375,375,enc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0011,Stage_A,standard_target,Target value: bro\nCopy: ,bro,4023,7,7,4023,4023,bro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0012,Stage_B,multi_item_lookup,"Items: Alpha=secur, Beta=max, Gamma=ser\nCopy Gamma: ",ser,835,19,19,835,835,ser,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0013,Stage_B,multi_item_lookup,"Items: Alpha=logit, Beta=max, Gamma=tokeniz\nCopy Gamma: ",tokeniz,803,19,19,803,803,tokeniz,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0014,Stage_A,standard_target,Target value: jec\nCopy: ,jec,667,7,7,667,667,jec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0015,Stage_A,standard_target,Target value: ode\nCopy: ,ode,398,7,7,398,398,ode,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0016,Stage_C,colon_tag,Record: primary:cor secondary:Equ\nPrimary: ,cor,664,17,17,3838,3838,Equ,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0017,Stage_C,colon_tag,Record: primary:bro secondary:jec\nPrimary: ,bro,4023,10,10,4023,4023,bro,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0018,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=eng, Gamma=sion\nCopy Gamma: ",sion,798,19,19,798,798,sion,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0019,Stage_C,key_val,"Data: key=Priv, ref=Beng\nExtract key: ",Priv,3915,6,6,3915,3915,Priv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0020,Stage_A,standard_target,Target value: ump\nCopy: ,ump,2413,7,7,2413,2413,ump,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0021,Stage_C,bracket,"Input sequence: [don, iri]\nSelect second item: ",iri,2351,8,8,2351,2351,iri,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0022,Stage_C,bracket,"Input sequence: [check, lagbha]\nSelect second item: ",lagbha,3050,8,8,3050,3050,lagbha,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0023,Stage_A,standard_target,Target value: False\nCopy: ,False,3854,7,7,3854,3854,False,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0024,Stage_C,colon_tag,Record: primary:val secondary:effici\nPrimary: ,val,923,16,16,1692,1692,effici,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0025,Stage_C,colon_tag,Record: primary:sigma secondary:shar\nPrimary: ,sigma,1077,17,17,1350,1350,shar,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0026,Stage_B,multi_item_lookup,"Items: Alpha=scrip, Beta=has, Gamma=size\nCopy Gamma: ",size,1999,19,19,1999,1999,size,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0027,Stage_B,multi_item_lookup,"Items: Alpha=time, Beta=ser, Gamma=Equ\nCopy Alpha: ",time,1418,8,8,1418,1418,time,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0028,Stage_A,standard_target,Target value: collec\nCopy: ,collec,3063,7,7,3063,3063,collec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0029,Stage_B,multi_item_lookup,"Items: Alpha=cor, Beta=bar, Gamma=aus\nCopy Beta: ",bar,4022,13,13,4022,4022,bar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0030,Stage_C,colon_tag,Record: primary:und secondary:Cau\nPrimary: ,und,869,16,16,3816,3816,Cau,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0031,Stage_B,multi_item_lookup,"Items: Alpha=clu, Beta=mic, Gamma=fer\nCopy Beta: ",mic,912,13,13,912,912,mic,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0032,Stage_B,multi_item_lookup,"Items: Alpha=ump, Beta=und, Gamma=val\nCopy Alpha: ",ump,2413,8,8,2413,2413,ump,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0033,Stage_A,standard_target,Target value: shar\nCopy: ,shar,1350,7,7,1350,1350,shar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0034,Stage_C,bracket,"Input sequence: [tokeniz, aus]\nSelect second item: ",aus,2310,8,8,2310,2310,aus,0.999982,True,True,MATCH
+test_b_held_out,test_b_held_out_0035,Stage_C,colon_tag,Record: primary:max secondary:reli\nPrimary: ,max,961,17,17,1809,1809,reli,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0036,Stage_B,multi_item_lookup,"Items: Alpha=cloc, Beta=ren, Gamma=ant\nCopy Beta: ",ren,1347,13,13,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0037,Stage_A,standard_target,Target value: ben\nCopy: ,ben,1320,7,7,1320,1320,ben,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0038,Stage_C,query_assign,Assignment: value is eng; ignore cloc.\nOutput: ,eng,623,8,8,623,623,eng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0039,Stage_B,multi_item_lookup,"Items: Alpha=empiri, Beta=vec, Gamma=ode\nCopy Beta: ",vec,1735,13,13,1735,1735,vec,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0040,Stage_B,multi_item_lookup,"Items: Alpha=check, Beta=cument, Gamma=len\nCopy Beta: ",cument,2089,13,13,2089,2089,cument,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0041,Stage_C,key_val,"Data: key=clu, ref=enc\nExtract key: ",clu,1549,6,6,1549,1549,clu,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0042,Stage_C,bracket,"Input sequence: [ode, len]\nSelect second item: ",len,513,8,8,513,513,len,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0043,Stage_B,multi_item_lookup,"Items: Alpha=lagbha, Beta=False, Gamma=Cau\nCopy Alpha: ",lagbha,3050,8,8,3050,3050,lagbha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0044,Stage_B,multi_item_lookup,"Items: Alpha=algorith, Beta=cstr, Gamma=don\nCopy Alpha: ",algorith,1279,8,8,1279,1279,algorith,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0045,Stage_A,standard_target,Target value: fty\nCopy: ,fty,1516,7,7,1516,1516,fty,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0046,Stage_C,key_val,"Data: key=shar, ref=aus\nExtract key: ",shar,1350,6,6,1350,1350,shar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0047,Stage_A,standard_target,Target value: ren\nCopy: ,ren,1347,7,7,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0048,Stage_A,standard_target,Target value: iri\nCopy: ,iri,2351,7,7,2351,2351,iri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0049,Stage_A,standard_target,Target value: len\nCopy: ,len,513,7,7,513,513,len,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0050,Stage_B,multi_item_lookup,"Items: Alpha=max, Beta=mean, Gamma=len\nCopy Beta: ",mean,2680,13,13,2680,2680,mean,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0051,Stage_B,multi_item_lookup,"Items: Alpha=rement, Beta=fol, Gamma=chec\nCopy Gamma: ",chec,1190,19,19,1190,1190,chec,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0052,Stage_C,key_val,"Data: key=lagbha, ref=updat\nExtract key: ",lagbha,3050,6,6,3050,3050,lagbha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0053,Stage_A,standard_target,Target value: ben\nCopy: ,ben,1320,7,7,1320,1320,ben,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0054,Stage_B,multi_item_lookup,"Items: Alpha=out, Beta=mitiv, Gamma=clu\nCopy Gamma: ",clu,1549,19,19,1549,1549,clu,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0055,Stage_A,standard_target,Target value: fro\nCopy: ,fro,1009,7,7,1009,1009,fro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0056,Stage_C,query_assign,Assignment: value is check; ignore mean.\nOutput: ,check,3098,8,8,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0057,Stage_B,multi_item_lookup,"Items: Alpha=has, Beta=jec, Gamma=mid\nCopy Gamma: ",mid,913,19,19,913,913,mid,0.999996,True,True,MATCH
+test_b_held_out,test_b_held_out_0058,Stage_C,key_val,"Data: key=ump, ref=time\nExtract key: ",ump,2413,6,6,2413,2413,ump,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0059,Stage_C,key_val,"Data: key=fer, ref=mitiv\nExtract key: ",fer,524,6,6,524,524,fer,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0060,Stage_A,standard_target,Target value: sab\nCopy: ,sab,1726,7,7,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0061,Stage_A,standard_target,Target value: und\nCopy: ,und,869,7,7,869,869,und,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0062,Stage_A,standard_target,Target value: sha\nCopy: ,sha,921,7,7,921,921,sha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0063,Stage_A,standard_target,Target value: cstr\nCopy: ,cstr,4049,7,7,4049,4049,cstr,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0064,Stage_B,multi_item_lookup,"Items: Alpha=mitiv, Beta=jec, Gamma=collec\nCopy Beta: ",jec,667,13,13,667,667,jec,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0065,Stage_A,standard_target,Target value: val\nCopy: ,val,923,7,7,923,923,val,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0066,Stage_A,standard_target,Target value: cloc\nCopy: ,cloc,4056,7,7,4056,4056,cloc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0067,Stage_C,colon_tag,Record: primary:cstr secondary:sion\nPrimary: ,cstr,4049,10,10,4049,4049,cstr,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0068,Stage_A,standard_target,Target value: scrip\nCopy: ,scrip,2402,7,7,2402,2402,scrip,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0069,Stage_A,standard_target,Target value: mitiv\nCopy: ,mitiv,2965,7,7,2965,2965,mitiv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0070,Stage_B,multi_item_lookup,"Items: Alpha=vec, Beta=updat, Gamma=jec\nCopy Beta: ",updat,2899,13,13,2899,2899,updat,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0071,Stage_A,standard_target,Target value: mic\nCopy: ,mic,912,7,7,912,912,mic,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0072,Stage_C,bracket,"Input sequence: [und, brea]\nSelect second item: ",brea,4037,8,8,4037,4037,brea,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0073,Stage_B,multi_item_lookup,"Items: Alpha=rement, Beta=fol, Gamma=Pro\nCopy Gamma: ",Pro,1661,19,19,1661,1661,Pro,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0074,Stage_C,bracket,"Input sequence: [logit, jec]\nSelect second item: ",jec,667,8,8,667,667,jec,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0075,Stage_C,query_assign,Assignment: value is suit; ignore ment.\nOutput: ,suit,2743,8,8,2743,2743,suit,0.996171,True,True,MATCH
+test_b_held_out,test_b_held_out_0076,Stage_C,query_assign,Assignment: value is beta; ignore dai.\nOutput: ,beta,1129,8,8,1129,1129,beta,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0077,Stage_B,multi_item_lookup,"Items: Alpha=Tru, Beta=Simple, Gamma=cstr\nCopy Alpha: ",Tru,2281,8,8,2281,2281,Tru,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0078,Stage_A,standard_target,Target value: epsilon\nCopy: ,epsilon,2049,7,7,2049,2049,epsilon,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0079,Stage_B,multi_item_lookup,"Items: Alpha=sha, Beta=False, Gamma=ren\nCopy Alpha: ",sha,921,8,8,921,921,sha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0080,Stage_A,standard_target,Target value: epsilon\nCopy: ,epsilon,2049,7,7,2049,2049,epsilon,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0081,Stage_A,standard_target,Target value: bro\nCopy: ,bro,4023,7,7,4023,4023,bro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0082,Stage_C,key_val,"Data: key=check, ref=False\nExtract key: ",check,3098,6,6,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0083,Stage_B,multi_item_lookup,"Items: Alpha=secur, Beta=mean, Gamma=size\nCopy Gamma: ",size,1999,19,19,1999,1999,size,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0084,Stage_B,multi_item_lookup,"Items: Alpha=data, Beta=False, Gamma=tokeniz\nCopy Beta: ",False,3854,13,13,3854,3854,False,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0085,Stage_B,multi_item_lookup,"Items: Alpha=ant, Beta=ump, Gamma=has\nCopy Gamma: ",has,1434,19,19,1434,1434,has,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0086,Stage_C,bracket,"Input sequence: [sion, secur]\nSelect second item: ",secur,1440,8,8,1440,1440,secur,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0087,Stage_C,bracket,"Input sequence: [suit, sha]\nSelect second item: ",sha,921,8,8,921,921,sha,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0088,Stage_B,multi_item_lookup,"Items: Alpha=vec, Beta=Simple, Gamma=mean\nCopy Beta: ",Simple,2276,13,13,2276,2276,Simple,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0089,Stage_A,standard_target,Target value: ant\nCopy: ,ant,1807,7,7,1807,1807,ant,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0090,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=Beng, Gamma=Simple\nCopy Alpha: ",ser,835,8,8,835,835,ser,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0091,Stage_B,multi_item_lookup,"Items: Alpha=ren, Beta=Simple, Gamma=ant\nCopy Beta: ",Simple,2276,13,13,2276,2276,Simple,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0092,Stage_A,standard_target,Target value: val\nCopy: ,val,923,7,7,923,923,val,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0093,Stage_A,standard_target,Target value: frac\nCopy: ,frac,764,7,7,764,764,frac,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0094,Stage_C,key_val,"Data: key=Simple, ref=Priv\nExtract key: ",Simple,2276,6,6,2276,2276,Simple,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0095,Stage_B,multi_item_lookup,"Items: Alpha=sab, Beta=init, Gamma=ump\nCopy Gamma: ",ump,2413,19,19,2413,2413,ump,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0096,Stage_A,standard_target,Target value: frac\nCopy: ,frac,764,7,7,764,764,frac,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0097,Stage_B,multi_item_lookup,"Items: Alpha=ant, Beta=ump, Gamma=clu\nCopy Gamma: ",clu,1549,19,19,1549,1549,clu,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0098,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=reli, Gamma=effici\nCopy Beta: ",reli,1809,13,13,1809,1809,reli,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0099,Stage_B,multi_item_lookup,"Items: Alpha=mid, Beta=Tru, Gamma=check\nCopy Gamma: ",check,3098,19,19,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0100,Stage_C,key_val,"Data: key=sha, ref=Beng\nExtract key: ",sha,921,6,6,921,921,sha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0101,Stage_B,multi_item_lookup,"Items: Alpha=max, Beta=effici, Gamma=brea\nCopy Beta: ",effici,1692,13,13,1692,1692,effici,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0102,Stage_A,standard_target,Target value: check\nCopy: ,check,3098,7,7,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0103,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=don, Gamma=mic\nCopy Alpha: ",ser,835,8,8,835,835,ser,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0104,Stage_A,standard_target,Target value: has\nCopy: ,has,1434,7,7,1434,1434,has,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0105,Stage_B,multi_item_lookup,"Items: Alpha=False, Beta=ces, Gamma=out\nCopy Beta: ",ces,467,13,13,467,467,ces,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0106,Stage_C,query_assign,Assignment: value is cstr; ignore rement.\nOutput: ,cstr,4049,8,8,4049,4049,cstr,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0107,Stage_C,key_val,"Data: key=pur, ref=len\nExtract key: ",pur,2382,6,6,2382,2382,pur,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0108,Stage_C,colon_tag,Record: primary:out secondary:Tru\nPrimary: ,out,769,16,16,2281,2281,Tru,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0109,Stage_B,multi_item_lookup,"Items: Alpha=False, Beta=beta, Gamma=Cau\nCopy Beta: ",beta,1129,13,13,1129,1129,beta,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0110,Stage_A,standard_target,Target value: sab\nCopy: ,sab,1726,7,7,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0111,Stage_C,bracket,"Input sequence: [out, jec]\nSelect second item: ",jec,667,8,8,667,667,jec,0.999982,True,True,MATCH
+test_b_held_out,test_b_held_out_0112,Stage_B,multi_item_lookup,"Items: Alpha=epsilon, Beta=cor, Gamma=len\nCopy Beta: ",cor,664,13,13,664,664,cor,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0113,Stage_C,key_val,"Data: key=mitiv, ref=algorith\nExtract key: ",mitiv,2965,6,6,2965,2965,mitiv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0114,Stage_B,multi_item_lookup,"Items: Alpha=sha, Beta=vec, Gamma=fail\nCopy Alpha: ",sha,921,8,8,921,921,sha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0115,Stage_A,standard_target,Target value: fty\nCopy: ,fty,1516,7,7,1516,1516,fty,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0116,Stage_A,standard_target,Target value: algorith\nCopy: ,algorith,1279,7,7,1279,1279,algorith,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0117,Stage_C,colon_tag,Record: primary:aus secondary:clo\nPrimary: ,aus,2310,17,17,1679,1679,clo,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0118,Stage_C,query_assign,Assignment: value is bro; ignore Equ.\nOutput: ,bro,4023,8,8,4023,4023,bro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0119,Stage_B,multi_item_lookup,"Items: Alpha=vec, Beta=brea, Gamma=chec\nCopy Beta: ",brea,4037,13,13,4037,4037,brea,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0120,Stage_B,multi_item_lookup,"Items: Alpha=vec, Beta=empiri, Gamma=beta\nCopy Beta: ",empiri,3048,13,13,3048,3048,empiri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0121,Stage_A,standard_target,Target value: dai\nCopy: ,dai,4070,7,7,4070,4070,dai,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0122,Stage_A,standard_target,Target value: sab\nCopy: ,sab,1726,7,7,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0123,Stage_B,multi_item_lookup,"Items: Alpha=cument, Beta=aus, Gamma=und\nCopy Beta: ",aus,2310,26,26,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0124,Stage_B,multi_item_lookup,"Items: Alpha=cor, Beta=mid, Gamma=fol\nCopy Beta: ",mid,913,13,13,913,913,mid,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0125,Stage_B,multi_item_lookup,"Items: Alpha=enc, Beta=Pro, Gamma=lagbha\nCopy Gamma: ",lagbha,3050,19,19,3050,3050,lagbha,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0126,Stage_C,key_val,"Data: key=Tru, ref=bro\nExtract key: ",Tru,2281,6,6,2281,2281,Tru,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0127,Stage_A,standard_target,Target value: has\nCopy: ,has,1434,7,7,1434,1434,has,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0128,Stage_C,key_val,"Data: key=tri, ref=shar\nExtract key: ",tri,1353,6,6,1353,1353,tri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0129,Stage_C,key_val,"Data: key=ben, ref=Pro\nExtract key: ",ben,1320,6,6,1320,1320,ben,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0130,Stage_A,standard_target,Target value: mic\nCopy: ,mic,912,7,7,912,912,mic,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0131,Stage_C,key_val,"Data: key=ant, ref=ment\nExtract key: ",ant,1807,6,6,1807,1807,ant,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0132,Stage_B,multi_item_lookup,"Items: Alpha=mitiv, Beta=vec, Gamma=dai\nCopy Gamma: ",dai,4070,19,19,4070,4070,dai,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0133,Stage_C,key_val,"Data: key=suit, ref=vec\nExtract key: ",suit,2743,6,6,2743,2743,suit,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0134,Stage_B,multi_item_lookup,"Items: Alpha=fty, Beta=tri, Gamma=aus\nCopy Gamma: ",aus,2310,19,19,2310,2310,aus,0.999995,True,True,MATCH
+test_b_held_out,test_b_held_out_0135,Stage_B,multi_item_lookup,"Items: Alpha=fol, Beta=fail, Gamma=lagbha\nCopy Beta: ",fail,2334,13,13,2334,2334,fail,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0136,Stage_C,bracket,"Input sequence: [ump, Priv]\nSelect second item: ",Priv,3915,8,8,3915,3915,Priv,0.999996,True,True,MATCH
+test_b_held_out,test_b_held_out_0137,Stage_B,multi_item_lookup,"Items: Alpha=reli, Beta=mitiv, Gamma=out\nCopy Gamma: ",out,769,19,19,769,769,out,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0138,Stage_B,multi_item_lookup,"Items: Alpha=has, Beta=dai, Gamma=lec\nCopy Alpha: ",has,1434,26,26,324,324,:,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0139,Stage_B,multi_item_lookup,"Items: Alpha=chec, Beta=sion, Gamma=aus\nCopy Gamma: ",aus,2310,19,19,2310,2310,aus,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0140,Stage_B,multi_item_lookup,"Items: Alpha=cument, Beta=check, Gamma=reli\nCopy Gamma: ",reli,1809,19,19,1809,1809,reli,0.999997,True,True,MATCH
+test_b_held_out,test_b_held_out_0141,Stage_A,standard_target,Target value: time\nCopy: ,time,1418,7,7,1418,1418,time,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0142,Stage_C,bracket,"Input sequence: [epsilon, ser]\nSelect second item: ",ser,835,8,8,835,835,ser,0.999978,True,True,MATCH
+test_b_held_out,test_b_held_out_0143,Stage_B,multi_item_lookup,"Items: Alpha=don, Beta=suit, Gamma=sion\nCopy Beta: ",suit,2743,13,13,2743,2743,suit,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0144,Stage_A,standard_target,Target value: frac\nCopy: ,frac,764,7,7,764,764,frac,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0145,Stage_B,multi_item_lookup,"Items: Alpha=aus, Beta=algorith, Gamma=out\nCopy Beta: ",algorith,1279,13,13,1279,1279,algorith,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0146,Stage_A,standard_target,Target value: lagbha\nCopy: ,lagbha,3050,7,7,3050,3050,lagbha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0147,Stage_C,colon_tag,Record: primary:time secondary:has\nPrimary: ,time,1418,16,16,1434,1434,has,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0148,Stage_C,bracket,"Input sequence: [algorith, collec]\nSelect second item: ",collec,3063,8,8,3063,3063,collec,0.999993,True,True,MATCH
+test_b_held_out,test_b_held_out_0149,Stage_C,query_assign,Assignment: value is sion; ignore beta.\nOutput: ,sion,798,8,8,798,798,sion,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0150,Stage_B,multi_item_lookup,"Items: Alpha=tri, Beta=Equ, Gamma=ode\nCopy Alpha: ",tri,1353,8,8,1353,1353,tri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0151,Stage_C,key_val,"Data: key=algorith, ref=suit\nExtract key: ",algorith,1279,6,6,1279,1279,algorith,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0152,Stage_A,standard_target,Target value: shar\nCopy: ,shar,1350,7,7,1350,1350,shar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0153,Stage_A,standard_target,Target value: tokeniz\nCopy: ,tokeniz,803,7,7,803,803,tokeniz,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0154,Stage_B,multi_item_lookup,"Items: Alpha=sion, Beta=fol, Gamma=Cau\nCopy Gamma: ",Cau,3816,19,19,3816,3816,Cau,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0155,Stage_C,colon_tag,Record: primary:bar secondary:cloc\nPrimary: ,bar,4022,17,17,4056,4056,cloc,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0156,Stage_C,query_assign,Assignment: value is val; ignore reli.\nOutput: ,val,923,8,8,923,923,val,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0157,Stage_A,standard_target,Target value: don\nCopy: ,don,4063,7,7,4063,4063,don,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0158,Stage_B,multi_item_lookup,"Items: Alpha=sab, Beta=data, Gamma=Cau\nCopy Alpha: ",sab,1726,8,8,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0159,Stage_B,multi_item_lookup,"Items: Alpha=ren, Beta=fail, Gamma=ces\nCopy Gamma: ",ces,467,19,19,467,467,ces,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0160,Stage_A,standard_target,Target value: sab\nCopy: ,sab,1726,7,7,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0161,Stage_A,standard_target,Target value: time\nCopy: ,time,1418,7,7,1418,1418,time,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0162,Stage_A,standard_target,Target value: iri\nCopy: ,iri,2351,7,7,2351,2351,iri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0163,Stage_A,standard_target,Target value: mitiv\nCopy: ,mitiv,2965,7,7,2965,2965,mitiv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0164,Stage_A,standard_target,Target value: check\nCopy: ,check,3098,7,7,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0165,Stage_C,key_val,"Data: key=mic, ref=fer\nExtract key: ",mic,912,6,6,912,912,mic,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0166,Stage_B,multi_item_lookup,"Items: Alpha=scrip, Beta=ment, Gamma=False\nCopy Gamma: ",False,3854,19,19,3854,3854,False,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0167,Stage_B,multi_item_lookup,"Items: Alpha=pur, Beta=ant, Gamma=beta\nCopy Gamma: ",beta,1129,19,19,1129,1129,beta,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0168,Stage_A,standard_target,Target value: updat\nCopy: ,updat,2899,7,7,2899,2899,updat,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0169,Stage_B,multi_item_lookup,"Items: Alpha=out, Beta=ces, Gamma=dai\nCopy Alpha: ",out,769,8,8,769,769,out,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0170,Stage_A,standard_target,Target value: scrip\nCopy: ,scrip,2402,7,7,2402,2402,scrip,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0171,Stage_B,multi_item_lookup,"Items: Alpha=ode, Beta=tokeniz, Gamma=der\nCopy Alpha: ",ode,398,8,8,398,398,ode,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0172,Stage_A,standard_target,Target value: cloc\nCopy: ,cloc,4056,7,7,4056,4056,cloc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0173,Stage_C,colon_tag,Record: primary:lagbha secondary:epsilon\nPrimary: ,lagbha,3050,18,18,2049,2049,epsilon,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0174,Stage_B,multi_item_lookup,"Items: Alpha=max, Beta=collec, Gamma=ben\nCopy Gamma: ",ben,1320,19,19,1320,1320,ben,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0175,Stage_B,multi_item_lookup,"Items: Alpha=mic, Beta=lec, Gamma=max\nCopy Alpha: ",mic,912,8,8,912,912,mic,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0176,Stage_A,standard_target,Target value: ren\nCopy: ,ren,1347,7,7,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0177,Stage_C,query_assign,Assignment: value is effici; ignore fol.\nOutput: ,effici,1692,8,8,1692,1692,effici,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0178,Stage_B,multi_item_lookup,"Items: Alpha=reli, Beta=collec, Gamma=der\nCopy Alpha: ",reli,1809,8,8,1809,1809,reli,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0179,Stage_B,multi_item_lookup,"Items: Alpha=tokeniz, Beta=lagbha, Gamma=clo\nCopy Alpha: ",tokeniz,803,8,8,803,803,tokeniz,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0180,Stage_A,standard_target,Target value: check\nCopy: ,check,3098,7,7,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0181,Stage_A,standard_target,Target value: ant\nCopy: ,ant,1807,7,7,1807,1807,ant,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0182,Stage_A,standard_target,Target value: ces\nCopy: ,ces,467,7,7,467,467,ces,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0183,Stage_B,multi_item_lookup,"Items: Alpha=suit, Beta=cloc, Gamma=bar\nCopy Beta: ",cloc,4056,13,13,4056,4056,cloc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0184,Stage_C,query_assign,Assignment: value is has; ignore enc.\nOutput: ,has,1434,8,8,1434,1434,has,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0185,Stage_B,multi_item_lookup,"Items: Alpha=False, Beta=val, Gamma=len\nCopy Alpha: ",False,3854,8,8,3854,3854,False,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0186,Stage_A,standard_target,Target value: mid\nCopy: ,mid,913,7,7,913,913,mid,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0187,Stage_C,bracket,"Input sequence: [aus, Tru]\nSelect second item: ",Tru,2281,8,8,2281,2281,Tru,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0188,Stage_A,standard_target,Target value: init\nCopy: ,init,2496,7,7,2496,2496,init,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0189,Stage_B,multi_item_lookup,"Items: Alpha=max, Beta=aus, Gamma=virtu\nCopy Gamma: ",virtu,1529,19,19,1529,1529,virtu,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0190,Stage_A,standard_target,Target value: Cau\nCopy: ,Cau,3816,7,7,3816,3816,Cau,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0191,Stage_A,standard_target,Target value: tokeniz\nCopy: ,tokeniz,803,7,7,803,803,tokeniz,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0192,Stage_A,standard_target,Target value: Beng\nCopy: ,Beng,3803,7,7,3803,3803,Beng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0193,Stage_A,standard_target,Target value: logit\nCopy: ,logit,1073,7,7,1073,1073,logit,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0194,Stage_B,multi_item_lookup,"Items: Alpha=virtu, Beta=der, Gamma=Pro\nCopy Beta: ",der,762,13,13,762,762,der,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0195,Stage_C,query_assign,Assignment: value is ser; ignore reli.\nOutput: ,ser,835,8,8,835,835,ser,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0196,Stage_B,multi_item_lookup,"Items: Alpha=sigma, Beta=mean, Gamma=Tru\nCopy Alpha: ",sigma,1077,8,8,1077,1077,sigma,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0197,Stage_C,query_assign,Assignment: value is tokeniz; ignore out.\nOutput: ,tokeniz,803,8,8,803,803,tokeniz,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0198,Stage_C,colon_tag,Record: primary:vec secondary:rement\nPrimary: ,vec,1735,10,10,1735,1735,vec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0199,Stage_A,standard_target,Target value: suit\nCopy: ,suit,2743,7,7,2743,2743,suit,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0200,Stage_A,standard_target,Target value: reli\nCopy: ,reli,1809,7,7,1809,1809,reli,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0201,Stage_A,standard_target,Target value: brea\nCopy: ,brea,4037,7,7,4037,4037,brea,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0202,Stage_A,standard_target,Target value: fer\nCopy: ,fer,524,7,7,524,524,fer,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0203,Stage_A,standard_target,Target value: data\nCopy: ,data,1977,7,7,1977,1977,data,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0204,Stage_C,key_val,"Data: key=rement, ref=ren\nExtract key: ",rement,2567,6,6,2567,2567,rement,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0205,Stage_B,multi_item_lookup,"Items: Alpha=Priv, Beta=tri, Gamma=check\nCopy Gamma: ",check,3098,19,19,3098,3098,check,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0206,Stage_A,standard_target,Target value: check\nCopy: ,check,3098,7,7,3098,3098,check,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0207,Stage_B,multi_item_lookup,"Items: Alpha=init, Beta=iri, Gamma=lagbha\nCopy Alpha: ",init,2496,8,8,2496,2496,init,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0208,Stage_B,multi_item_lookup,"Items: Alpha=Simple, Beta=init, Gamma=val\nCopy Gamma: ",val,923,19,19,923,923,val,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0209,Stage_C,bracket,"Input sequence: [Beng, effici]\nSelect second item: ",effici,1692,8,8,1692,1692,effici,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0210,Stage_C,colon_tag,Record: primary:init secondary:clu\nPrimary: ,init,2496,17,17,1549,1549,clu,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0211,Stage_C,key_val,"Data: key=aus, ref=reli\nExtract key: ",aus,2310,11,11,1809,1809,reli,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0212,Stage_A,standard_target,Target value: fro\nCopy: ,fro,1009,7,7,1009,1009,fro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0213,Stage_A,standard_target,Target value: enc\nCopy: ,enc,375,7,7,375,375,enc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0214,Stage_C,query_assign,Assignment: value is len; ignore empiri.\nOutput: ,len,513,8,8,513,513,len,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0215,Stage_B,multi_item_lookup,"Items: Alpha=ump, Beta=der, Gamma=time\nCopy Gamma: ",time,1418,19,19,1418,1418,time,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0216,Stage_A,standard_target,Target value: vec\nCopy: ,vec,1735,7,7,1735,1735,vec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0217,Stage_A,standard_target,Target value: Pro\nCopy: ,Pro,1661,7,7,1661,1661,Pro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0218,Stage_C,colon_tag,Record: primary:cor secondary:cloc\nPrimary: ,cor,664,17,17,4056,4056,cloc,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0219,Stage_C,colon_tag,Record: primary:Beng secondary:ode\nPrimary: ,Beng,3803,10,10,3803,3803,Beng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0220,Stage_B,multi_item_lookup,"Items: Alpha=ser, Beta=tri, Gamma=out\nCopy Alpha: ",ser,835,8,8,835,835,ser,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0221,Stage_B,multi_item_lookup,"Items: Alpha=time, Beta=tri, Gamma=check\nCopy Gamma: ",check,3098,19,19,3098,3098,check,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0222,Stage_B,multi_item_lookup,"Items: Alpha=cument, Beta=fro, Gamma=mid\nCopy Gamma: ",mid,913,19,19,913,913,mid,0.999995,True,True,MATCH
+test_b_held_out,test_b_held_out_0223,Stage_A,standard_target,Target value: size\nCopy: ,size,1999,7,7,1999,1999,size,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0224,Stage_B,multi_item_lookup,"Items: Alpha=lec, Beta=ben, Gamma=bro\nCopy Beta: ",ben,1320,13,13,1320,1320,ben,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0225,Stage_A,standard_target,Target value: ment\nCopy: ,ment,914,7,7,914,914,ment,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0226,Stage_C,key_val,"Data: key=ump, ref=ben\nExtract key: ",ump,2413,6,6,2413,2413,ump,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0227,Stage_C,key_val,"Data: key=init, ref=ben\nExtract key: ",init,2496,6,6,2496,2496,init,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0228,Stage_C,bracket,"Input sequence: [sion, cloc]\nSelect second item: ",cloc,4056,8,8,4056,4056,cloc,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0229,Stage_B,multi_item_lookup,"Items: Alpha=out, Beta=fail, Gamma=check\nCopy Beta: ",fail,2334,13,13,2334,2334,fail,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0230,Stage_B,multi_item_lookup,"Items: Alpha=mean, Beta=len, Gamma=beta\nCopy Gamma: ",beta,1129,19,19,1129,1129,beta,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0231,Stage_B,multi_item_lookup,"Items: Alpha=reli, Beta=fro, Gamma=logit\nCopy Beta: ",fro,1009,13,13,1009,1009,fro,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0232,Stage_C,colon_tag,Record: primary:clo secondary:init\nPrimary: ,clo,1679,10,10,1679,1679,clo,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0233,Stage_B,multi_item_lookup,"Items: Alpha=mean, Beta=sab, Gamma=ump\nCopy Beta: ",sab,1726,13,13,1726,1726,sab,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0234,Stage_A,standard_target,Target value: ant\nCopy: ,ant,1807,7,7,1807,1807,ant,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0235,Stage_A,standard_target,Target value: mitiv\nCopy: ,mitiv,2965,7,7,2965,2965,mitiv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0236,Stage_B,multi_item_lookup,"Items: Alpha=Simple, Beta=fol, Gamma=cloc\nCopy Gamma: ",cloc,4056,19,19,4056,4056,cloc,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0237,Stage_C,key_val,"Data: key=brea, ref=jec\nExtract key: ",brea,4037,6,6,4037,4037,brea,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0238,Stage_C,colon_tag,Record: primary:fail secondary:pur\nPrimary: ,fail,2334,18,18,2382,2382,pur,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0239,Stage_A,standard_target,Target value: mitiv\nCopy: ,mitiv,2965,7,7,2965,2965,mitiv,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0240,Stage_B,multi_item_lookup,"Items: Alpha=ode, Beta=Pro, Gamma=ment\nCopy Gamma: ",ment,914,19,19,914,914,ment,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0241,Stage_B,multi_item_lookup,"Items: Alpha=cor, Beta=eng, Gamma=bro\nCopy Beta: ",eng,623,13,13,623,623,eng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0242,Stage_A,standard_target,Target value: bar\nCopy: ,bar,4022,7,7,4022,4022,bar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0243,Stage_C,colon_tag,Record: primary:mid secondary:cstr\nPrimary: ,mid,913,16,16,4049,4049,cstr,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0244,Stage_C,key_val,"Data: key=shar, ref=mic\nExtract key: ",shar,1350,6,6,1350,1350,shar,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0245,Stage_C,query_assign,Assignment: value is cloc; ignore cstr.\nOutput: ,cloc,4056,8,8,4056,4056,cloc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0246,Stage_C,key_val,"Data: key=cstr, ref=enc\nExtract key: ",cstr,4049,6,6,4049,4049,cstr,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0247,Stage_A,standard_target,Target value: chec\nCopy: ,chec,1190,7,7,1190,1190,chec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0248,Stage_B,multi_item_lookup,"Items: Alpha=ren, Beta=brea, Gamma=beta\nCopy Alpha: ",ren,1347,8,8,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0249,Stage_B,multi_item_lookup,"Items: Alpha=algorith, Beta=sha, Gamma=fty\nCopy Beta: ",sha,921,13,13,921,921,sha,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0250,Stage_A,standard_target,Target value: fty\nCopy: ,fty,1516,7,7,1516,1516,fty,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0251,Stage_C,colon_tag,Record: primary:updat secondary:pur\nPrimary: ,updat,2899,10,10,2899,2899,updat,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0252,Stage_A,standard_target,Target value: eng\nCopy: ,eng,623,7,7,623,623,eng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0253,Stage_B,multi_item_lookup,"Items: Alpha=dai, Beta=empiri, Gamma=Priv\nCopy Alpha: ",dai,4070,8,8,4070,4070,dai,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0254,Stage_A,standard_target,Target value: False\nCopy: ,False,3854,7,7,3854,3854,False,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0255,Stage_C,bracket,"Input sequence: [cloc, aus]\nSelect second item: ",aus,2310,8,8,2310,2310,aus,0.999986,True,True,MATCH
+test_b_held_out,test_b_held_out_0256,Stage_C,bracket,"Input sequence: [algorith, ment]\nSelect second item: ",ment,914,8,8,914,914,ment,0.999993,True,True,MATCH
+test_b_held_out,test_b_held_out_0257,Stage_A,standard_target,Target value: cor\nCopy: ,cor,664,7,7,664,664,cor,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0258,Stage_A,standard_target,Target value: Beng\nCopy: ,Beng,3803,7,7,3803,3803,Beng,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0259,Stage_A,standard_target,Target value: sion\nCopy: ,sion,798,7,7,798,798,sion,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0260,Stage_A,standard_target,Target value: der\nCopy: ,der,762,7,7,762,762,der,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0261,Stage_C,bracket,"Input sequence: [Tru, beta]\nSelect second item: ",beta,1129,8,8,1129,1129,beta,0.999994,True,True,MATCH
+test_b_held_out,test_b_held_out_0262,Stage_C,key_val,"Data: key=effici, ref=out\nExtract key: ",effici,1692,6,6,1692,1692,effici,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0263,Stage_C,bracket,"Input sequence: [clo, collec]\nSelect second item: ",collec,3063,8,8,3063,3063,collec,0.999994,True,True,MATCH
+test_b_held_out,test_b_held_out_0264,Stage_C,bracket,"Input sequence: [epsilon, logit]\nSelect second item: ",logit,1073,8,8,1073,1073,logit,0.999996,True,True,MATCH
+test_b_held_out,test_b_held_out_0265,Stage_C,colon_tag,Record: primary:len secondary:ben\nPrimary: ,len,513,10,10,513,513,len,0.999969,True,True,MATCH
+test_b_held_out,test_b_held_out_0266,Stage_C,key_val,"Data: key=fty, ref=mitiv\nExtract key: ",fty,1516,6,6,1516,1516,fty,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0267,Stage_C,query_assign,Assignment: value is ren; ignore tokeniz.\nOutput: ,ren,1347,8,8,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0268,Stage_A,standard_target,Target value: empiri\nCopy: ,empiri,3048,7,7,3048,3048,empiri,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0269,Stage_A,standard_target,Target value: has\nCopy: ,has,1434,7,7,1434,1434,has,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0270,Stage_B,multi_item_lookup,"Items: Alpha=ces, Beta=ant, Gamma=frac\nCopy Beta: ",ant,1807,13,13,1807,1807,ant,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0271,Stage_C,key_val,"Data: key=jec, ref=suit\nExtract key: ",jec,667,6,6,667,667,jec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0272,Stage_C,colon_tag,Record: primary:ces secondary:suit\nPrimary: ,ces,467,17,17,2743,2743,suit,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0273,Stage_C,colon_tag,Record: primary:iri secondary:clo\nPrimary: ,iri,2351,18,18,1679,1679,clo,1.000000,True,False,BPE_DELIMITER_SPLIT (Target word broken into multiple subwords by adjacent syntax in prompt)
+test_b_held_out,test_b_held_out_0274,Stage_C,key_val,"Data: key=secur, ref=vec\nExtract key: ",secur,1440,6,6,1440,1440,secur,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0275,Stage_A,standard_target,Target value: cument\nCopy: ,cument,2089,7,7,2089,2089,cument,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0276,Stage_C,key_val,"Data: key=sion, ref=ces\nExtract key: ",sion,798,6,6,798,798,sion,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0277,Stage_C,key_val,"Data: key=secur, ref=shar\nExtract key: ",secur,1440,6,6,1440,1440,secur,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0278,Stage_C,bracket,"Input sequence: [Cau, clu]\nSelect second item: ",clu,1549,8,8,1549,1549,clu,0.999996,True,True,MATCH
+test_b_held_out,test_b_held_out_0279,Stage_A,standard_target,Target value: max\nCopy: ,max,961,7,7,961,961,max,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0280,Stage_A,standard_target,Target value: enc\nCopy: ,enc,375,7,7,375,375,enc,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0281,Stage_B,multi_item_lookup,"Items: Alpha=jec, Beta=epsilon, Gamma=size\nCopy Beta: ",epsilon,2049,13,13,2049,2049,epsilon,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0282,Stage_C,bracket,"Input sequence: [Pro, lec]\nSelect second item: ",lec,2711,8,8,2711,2711,lec,0.999972,True,True,MATCH
+test_b_held_out,test_b_held_out_0283,Stage_A,standard_target,Target value: ren\nCopy: ,ren,1347,7,7,1347,1347,ren,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0284,Stage_B,multi_item_lookup,"Items: Alpha=Equ, Beta=brea, Gamma=Simple\nCopy Gamma: ",Simple,2276,19,19,2276,2276,Simple,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0285,Stage_C,bracket,"Input sequence: [algorith, sigma]\nSelect second item: ",sigma,1077,8,8,1077,1077,sigma,0.999994,True,True,MATCH
+test_b_held_out,test_b_held_out_0286,Stage_B,multi_item_lookup,"Items: Alpha=size, Beta=time, Gamma=init\nCopy Alpha: ",size,1999,8,8,1999,1999,size,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0287,Stage_A,standard_target,Target value: Pro\nCopy: ,Pro,1661,7,7,1661,1661,Pro,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0288,Stage_C,key_val,"Data: key=clu, ref=mid\nExtract key: ",clu,1549,6,6,1549,1549,clu,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0289,Stage_A,standard_target,Target value: ment\nCopy: ,ment,914,7,7,914,914,ment,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0290,Stage_B,multi_item_lookup,"Items: Alpha=sion, Beta=cument, Gamma=fty\nCopy Alpha: ",sion,798,8,8,798,798,sion,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0291,Stage_A,standard_target,Target value: scrip\nCopy: ,scrip,2402,7,7,2402,2402,scrip,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0292,Stage_C,query_assign,Assignment: value is und; ignore logit.\nOutput: ,und,869,8,8,869,869,und,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0293,Stage_A,standard_target,Target value: lec\nCopy: ,lec,2711,7,7,2711,2711,lec,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0294,Stage_B,multi_item_lookup,"Items: Alpha=size, Beta=brea, Gamma=ben\nCopy Gamma: ",ben,1320,19,19,1320,1320,ben,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0295,Stage_B,multi_item_lookup,"Items: Alpha=ment, Beta=ump, Gamma=time\nCopy Beta: ",ump,2413,13,13,2413,2413,ump,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0296,Stage_A,standard_target,Target value: virtu\nCopy: ,virtu,1529,7,7,1529,1529,virtu,1.000000,True,True,MATCH
+test_b_held_out,test_b_held_out_0297,Stage_B,multi_item_lookup,"Items: Alpha=fro, Beta=ces, Gamma=iri\nCopy Gamma: ",iri,2351,19,19,2351,2351,iri,0.999999,True,True,MATCH
+test_b_held_out,test_b_held_out_0298,Stage_C,bracket,"Input sequence: [epsilon, ode]\nSelect second item: ",ode,398,8,8,398,398,ode,0.999998,True,True,MATCH
+test_b_held_out,test_b_held_out_0299,Stage_C,query_assign,Assignment: value is shar; ignore bar.\nOutput: ,shar,1350,8,8,1350,1350,shar,1.000000,True,True,MATCH

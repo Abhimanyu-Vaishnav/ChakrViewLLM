@@ -1,0 +1,496 @@
+{
+  "baseline_parent": {
+    "val": {
+      "total": 228,
+      "first_token_acc": 0.0,
+      "free_gen_em": 0.0,
+      "mean_rank": 1195.609649122807,
+      "mean_prob": 0.00020390374874878852,
+      "distractor_total": 100,
+      "distractor_hits": 0,
+      "distractor_em": 0.0,
+      "output_diversity": 0.10526315789473684,
+      "sample_predictions": [
+        {
+          "prompt": "Items: Alpha=mar, Beta=left, Gamma=produc\nCopy Alpha: ",
+          "expected": "mar",
+          "generated": "The Sea of the Ch",
+          "target_rank": 305,
+          "target_prob": 0.0001833638671087101,
+          "exact_match": false
+        },
+        {
+          "prompt": "Input sequence: [Sequ, enco]\nSelect second item: ",
+          "expected": "enco",
+          "generated": "int) -> None:\n        \"\"\"",
+          "target_rank": 584,
+          "target_prob": 0.00020113996288273484,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=termin, Beta=compute, Gamma=alle\nCopy Alpha: ",
+          "expected": "termin",
+          "generated": "The Sea of the Ch",
+          "target_rank": 1071,
+          "target_prob": 1.7318236132268794e-05,
+          "exact_match": false
+        },
+        {
+          "prompt": "Data: key=bha, ref=Sing\nExtract key: ",
+          "expected": "bha",
+          "generated": "The first of the worl",
+          "target_rank": 1822,
+          "target_prob": 1.9169539882568642e-05,
+          "exact_match": false
+        },
+        {
+          "prompt": "Target value: contro\nCopy: ",
+          "expected": "contro",
+          "generated": "The Sea of the Ch",
+          "target_rank": 1241,
+          "target_prob": 1.7785387171898037e-05,
+          "exact_match": false
+        }
+      ]
+    },
+    "test_a": {
+      "total": 214,
+      "first_token_acc": 0.0,
+      "free_gen_em": 0.0,
+      "mean_rank": 1458.247663551402,
+      "mean_prob": 0.00014790650244289087,
+      "distractor_total": 100,
+      "distractor_hits": 0,
+      "distractor_em": 0.0,
+      "output_diversity": 0.11682242990654206,
+      "sample_predictions": [
+        {
+          "prompt": "Record: primary:mode secondary:wit\nPrimary: ",
+          "expected": "mode",
+          "generated": "The Sea of the United",
+          "target_rank": 1092,
+          "target_prob": 2.30948153330246e-05,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=architectu, Beta=recor, Gamma=dim\nCopy Alpha: ",
+          "expected": "architectu",
+          "generated": "The Sea of the Eu",
+          "target_rank": 1578,
+          "target_prob": 7.065033059916459e-06,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=ain, Beta=bac, Gamma=Cach\nCopy Gamma: ",
+          "expected": "Cach",
+          "generated": "The Sea of the Eu",
+          "target_rank": 3271,
+          "target_prob": 5.219714012127952e-07,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=ith, Beta=Bon, Gamma=over\nCopy Gamma: ",
+          "expected": "over",
+          "generated": "The Sea of the Ch",
+          "target_rank": 393,
+          "target_prob": 0.00012340646935626864,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=aran, Beta=phi, Gamma=eli\nCopy Alpha: ",
+          "expected": "aran",
+          "generated": "The Armage, A",
+          "target_rank": 1679,
+          "target_prob": 5.1189431360398885e-06,
+          "exact_match": false
+        }
+      ]
+    },
+    "test_b": {
+      "total": 300,
+      "first_token_acc": 0.0,
+      "free_gen_em": 0.0,
+      "mean_rank": 1198.12,
+      "mean_prob": 0.00015394178196127464,
+      "distractor_total": 100,
+      "distractor_hits": 0,
+      "distractor_em": 0.0,
+      "output_diversity": 0.07666666666666666,
+      "sample_predictions": [
+        {
+          "prompt": "Data: key=ces, ref=ment\nExtract key: ",
+          "expected": "ces",
+          "generated": "The first of the worl",
+          "target_rank": 1555,
+          "target_prob": 2.9185313906054944e-05,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=fer, Beta=cstr, Gamma=ment\nCopy Beta: ",
+          "expected": "cstr",
+          "generated": "Christian Pe",
+          "target_rank": 2398,
+          "target_prob": 2.02044748220942e-06,
+          "exact_match": false
+        },
+        {
+          "prompt": "Data: key=epsilon, ref=Priv\nExtract key: ",
+          "expected": "epsilon",
+          "generated": "The first of the word",
+          "target_rank": 1461,
+          "target_prob": 3.2872856536414474e-05,
+          "exact_match": false
+        },
+        {
+          "prompt": "Input sequence: [clu, cor]\nSelect second item: ",
+          "expected": "cor",
+          "generated": "The Solution:",
+          "target_rank": 621,
+          "target_prob": 0.00016919839254114777,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=len, Beta=cument, Gamma=der\nCopy Gamma: ",
+          "expected": "der",
+          "generated": "Andrograph, A",
+          "target_rank": 1653,
+          "target_prob": 5.271151621855097e-06,
+          "exact_match": false
+        }
+      ]
+    }
+  },
+  "arm_a_broad_sft": {
+    "best_step": 400,
+    "val": {
+      "total": 228,
+      "first_token_acc": 62.28070175438597,
+      "free_gen_em": 62.28070175438597,
+      "mean_rank": 13.991228070175438,
+      "mean_prob": 0.22920673147667944,
+      "distractor_total": 100,
+      "distractor_hits": 68,
+      "distractor_em": 68.0,
+      "output_diversity": 0.6622807017543859,
+      "sample_predictions": [
+        {
+          "prompt": "Items: Alpha=mar, Beta=left, Gamma=produc\nCopy Alpha: ",
+          "expected": "mar",
+          "generated": "mar",
+          "target_rank": 1,
+          "target_prob": 0.2554125487804413,
+          "exact_match": true
+        },
+        {
+          "prompt": "Input sequence: [Sequ, enco]\nSelect second item: ",
+          "expected": "enco",
+          "generated": "deco",
+          "target_rank": 2,
+          "target_prob": 0.42936864495277405,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=termin, Beta=compute, Gamma=alle\nCopy Alpha: ",
+          "expected": "termin",
+          "generated": "termin",
+          "target_rank": 1,
+          "target_prob": 0.4318719506263733,
+          "exact_match": true
+        },
+        {
+          "prompt": "Data: key=bha, ref=Sing\nExtract key: ",
+          "expected": "bha",
+          "generated": "Zer",
+          "target_rank": 38,
+          "target_prob": 0.003840202698484063,
+          "exact_match": false
+        },
+        {
+          "prompt": "Target value: contro\nCopy: ",
+          "expected": "contro",
+          "generated": "contro",
+          "target_rank": 1,
+          "target_prob": 0.8807562589645386,
+          "exact_match": true
+        }
+      ]
+    },
+    "test_a": {
+      "total": 214,
+      "first_token_acc": 56.54205607476636,
+      "free_gen_em": 56.54205607476636,
+      "mean_rank": 14.72429906542056,
+      "mean_prob": 0.17393381572472666,
+      "distractor_total": 100,
+      "distractor_hits": 55,
+      "distractor_em": 55.00000000000001,
+      "output_diversity": 0.6542056074766355,
+      "sample_predictions": [
+        {
+          "prompt": "Record: primary:mode secondary:wit\nPrimary: ",
+          "expected": "mode",
+          "generated": "cer",
+          "target_rank": 422,
+          "target_prob": 0.00020929661695845425,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=architectu, Beta=recor, Gamma=dim\nCopy Alpha: ",
+          "expected": "architectu",
+          "generated": "architectu",
+          "target_rank": 1,
+          "target_prob": 0.38767650723457336,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=ain, Beta=bac, Gamma=Cach\nCopy Gamma: ",
+          "expected": "Cach",
+          "generated": "Cach",
+          "target_rank": 1,
+          "target_prob": 0.08724329620599747,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=ith, Beta=Bon, Gamma=over\nCopy Gamma: ",
+          "expected": "over",
+          "generated": "con",
+          "target_rank": 3,
+          "target_prob": 0.06172625347971916,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=aran, Beta=phi, Gamma=eli\nCopy Alpha: ",
+          "expected": "aran",
+          "generated": "ysi",
+          "target_rank": 2,
+          "target_prob": 0.05157528817653656,
+          "exact_match": false
+        }
+      ]
+    },
+    "test_b": {
+      "total": 300,
+      "first_token_acc": 0.6666666666666667,
+      "free_gen_em": 0.6666666666666667,
+      "mean_rank": 450.12666666666667,
+      "mean_prob": 0.0014950083487616913,
+      "distractor_total": 100,
+      "distractor_hits": 0,
+      "distractor_em": 0.0,
+      "output_diversity": 0.20666666666666667,
+      "sample_predictions": [
+        {
+          "prompt": "Data: key=ces, ref=ment\nExtract key: ",
+          "expected": "ces",
+          "generated": "",
+          "target_rank": 24,
+          "target_prob": 0.0017344390507787466,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=fer, Beta=cstr, Gamma=ment\nCopy Beta: ",
+          "expected": "cstr",
+          "generated": "Zer",
+          "target_rank": 418,
+          "target_prob": 0.0002845179114956409,
+          "exact_match": false
+        },
+        {
+          "prompt": "Data: key=epsilon, ref=Priv\nExtract key: ",
+          "expected": "epsilon",
+          "generated": "intermedi",
+          "target_rank": 239,
+          "target_prob": 0.0005148722557350993,
+          "exact_match": false
+        },
+        {
+          "prompt": "Input sequence: [clu, cor]\nSelect second item: ",
+          "expected": "cor",
+          "generated": "",
+          "target_rank": 548,
+          "target_prob": 0.00021777705114800483,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=len, Beta=cument, Gamma=der\nCopy Gamma: ",
+          "expected": "der",
+          "generated": "",
+          "target_rank": 141,
+          "target_prob": 0.0008898755768314004,
+          "exact_match": false
+        }
+      ]
+    }
+  },
+  "arm_b_pointer": {
+    "best_step": 400,
+    "val": {
+      "total": 228,
+      "position_acc": 100.0,
+      "token_em": 90.35087719298247,
+      "distractor_total": 100,
+      "distractor_hits": 96,
+      "distractor_em": 96.0,
+      "output_diversity": 0.8114035087719298,
+      "sample_predictions": [
+        {
+          "prompt": "Items: Alpha=mar, Beta=left, Gamma=produc\nCopy Alpha: ",
+          "expected": "mar",
+          "generated": "mar",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Input sequence: [Sequ, enco]\nSelect second item: ",
+          "expected": "enco",
+          "generated": "enco",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 0.9999979734420776,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=termin, Beta=compute, Gamma=alle\nCopy Alpha: ",
+          "expected": "termin",
+          "generated": "termin",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Data: key=bha, ref=Sing\nExtract key: ",
+          "expected": "bha",
+          "generated": "bha",
+          "selected_pos": 6,
+          "expected_pos": 6,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Target value: contro\nCopy: ",
+          "expected": "contro",
+          "generated": "contro",
+          "selected_pos": 7,
+          "expected_pos": 7,
+          "confidence": 1.0,
+          "exact_match": true
+        }
+      ]
+    },
+    "test_a": {
+      "total": 214,
+      "position_acc": 100.0,
+      "token_em": 89.25233644859813,
+      "distractor_total": 100,
+      "distractor_hits": 97,
+      "distractor_em": 97.0,
+      "output_diversity": 0.7850467289719626,
+      "sample_predictions": [
+        {
+          "prompt": "Record: primary:mode secondary:wit\nPrimary: ",
+          "expected": "mode",
+          "generated": "wit",
+          "selected_pos": 17,
+          "expected_pos": 17,
+          "confidence": 1.0,
+          "exact_match": false
+        },
+        {
+          "prompt": "Items: Alpha=architectu, Beta=recor, Gamma=dim\nCopy Alpha: ",
+          "expected": "architectu",
+          "generated": "architectu",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=ain, Beta=bac, Gamma=Cach\nCopy Gamma: ",
+          "expected": "Cach",
+          "generated": "Cach",
+          "selected_pos": 19,
+          "expected_pos": 19,
+          "confidence": 0.999998927116394,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=ith, Beta=Bon, Gamma=over\nCopy Gamma: ",
+          "expected": "over",
+          "generated": "over",
+          "selected_pos": 19,
+          "expected_pos": 19,
+          "confidence": 0.9999992847442627,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=aran, Beta=phi, Gamma=eli\nCopy Alpha: ",
+          "expected": "aran",
+          "generated": "aran",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 1.0,
+          "exact_match": true
+        }
+      ]
+    },
+    "test_b": {
+      "total": 300,
+      "position_acc": 100.0,
+      "token_em": 93.66666666666667,
+      "distractor_total": 100,
+      "distractor_hits": 98,
+      "distractor_em": 98.0,
+      "output_diversity": 0.26666666666666666,
+      "sample_predictions": [
+        {
+          "prompt": "Data: key=ces, ref=ment\nExtract key: ",
+          "expected": "ces",
+          "generated": "ces",
+          "selected_pos": 6,
+          "expected_pos": 6,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=fer, Beta=cstr, Gamma=ment\nCopy Beta: ",
+          "expected": "cstr",
+          "generated": "cstr",
+          "selected_pos": 13,
+          "expected_pos": 13,
+          "confidence": 0.9999996423721313,
+          "exact_match": true
+        },
+        {
+          "prompt": "Data: key=epsilon, ref=Priv\nExtract key: ",
+          "expected": "epsilon",
+          "generated": "epsilon",
+          "selected_pos": 6,
+          "expected_pos": 6,
+          "confidence": 1.0,
+          "exact_match": true
+        },
+        {
+          "prompt": "Input sequence: [clu, cor]\nSelect second item: ",
+          "expected": "cor",
+          "generated": "cor",
+          "selected_pos": 8,
+          "expected_pos": 8,
+          "confidence": 0.999994158744812,
+          "exact_match": true
+        },
+        {
+          "prompt": "Items: Alpha=len, Beta=cument, Gamma=der\nCopy Gamma: ",
+          "expected": "der",
+          "generated": "der",
+          "selected_pos": 19,
+          "expected_pos": 19,
+          "confidence": 0.999997615814209,
+          "exact_match": true
+        }
+      ]
+    }
+  }
+}
