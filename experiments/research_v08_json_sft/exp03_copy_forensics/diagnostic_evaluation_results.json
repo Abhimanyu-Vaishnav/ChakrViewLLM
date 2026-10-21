@@ -1,0 +1,1214 @@
+[
+  {
+    "subset": "Train",
+    "description": "Short status (nominal)",
+    "expected_status": "nominal",
+    "expected_response": "{\"status\": \"nominal\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> linknexample",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.0249,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.68
+          ],
+          [
+            "s",
+            6.54
+          ],
+          [
+            "'",
+            5.13
+          ],
+          [
+            "h",
+            5.0
+          ],
+          [
+            "an",
+            4.78
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.3146,
+        "teacher_forced_token_accuracy_pct": 54.5,
+        "top5_first_status_token": [
+          [
+            "\"",
+            7.03
+          ],
+          [
+            "\": \"",
+            6.2
+          ],
+          [
+            "\": ",
+            5.61
+          ],
+          [
+            "\",",
+            5.45
+          ],
+          [
+            "s",
+            4.83
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 1.1728,
+        "teacher_forced_token_accuracy_pct": 90.9,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.16
+          ],
+          [
+            "\"",
+            5.89
+          ],
+          [
+            "\": ",
+            4.97
+          ],
+          [
+            "\",",
+            4.92
+          ],
+          [
+            "_",
+            4.5
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Train",
+    "description": "Short status (active)",
+    "expected_status": "active",
+    "expected_response": "{\"status\": \"active\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    # ",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.5847,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.6
+          ],
+          [
+            "s",
+            6.3
+          ],
+          [
+            "in",
+            5.46
+          ],
+          [
+            "h",
+            5.3
+          ],
+          [
+            "an",
+            5.17
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.4285,
+        "teacher_forced_token_accuracy_pct": 45.5,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.98
+          ],
+          [
+            "\": \"",
+            6.54
+          ],
+          [
+            "\": ",
+            5.69
+          ],
+          [
+            "\",",
+            5.42
+          ],
+          [
+            "as",
+            4.46
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 1.0866,
+        "teacher_forced_token_accuracy_pct": 90.9,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.25
+          ],
+          [
+            "\"",
+            6.38
+          ],
+          [
+            "\",",
+            5.13
+          ],
+          [
+            "\": ",
+            5.06
+          ],
+          [
+            "_",
+            4.51
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Train",
+    "description": "Compound status (carrier_locked)",
+    "expected_status": "carrier_locked",
+    "expected_response": "{\"status\": \"carrier_locked\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 5.9714,
+        "teacher_forced_token_accuracy_pct": 6.7,
+        "top5_first_status_token": [
+          [
+            "h",
+            6.66
+          ],
+          [
+            "in",
+            6.37
+          ],
+          [
+            "e ",
+            6.09
+          ],
+          [
+            "s",
+            5.86
+          ],
+          [
+            "li",
+            5.55
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.3316,
+        "teacher_forced_token_accuracy_pct": 40.0,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            6.71
+          ],
+          [
+            "\"",
+            6.39
+          ],
+          [
+            "\": ",
+            5.52
+          ],
+          [
+            "\",",
+            5.47
+          ],
+          [
+            "as",
+            4.68
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"plain_release_of_secatocannotedamount of the restannot result",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 1.8432,
+        "teacher_forced_token_accuracy_pct": 66.7,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            7.97
+          ],
+          [
+            "\"",
+            5.15
+          ],
+          [
+            "\",",
+            5.01
+          ],
+          [
+            "\": ",
+            4.64
+          ],
+          [
+            "_",
+            4.52
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      }
+    }
+  },
+  {
+    "subset": "Train",
+    "description": "Compound status (bearing_greased)",
+    "expected_status": "bearing_greased",
+    "expected_response": "{\"status\": \"bearing_greased\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    # It of the filed the first number of the fir",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.2521,
+        "teacher_forced_token_accuracy_pct": 6.2,
+        "top5_first_status_token": [
+          [
+            "in",
+            6.19
+          ],
+          [
+            "s",
+            5.99
+          ],
+          [
+            "\"",
+            5.89
+          ],
+          [
+            "li",
+            5.65
+          ],
+          [
+            "t",
+            5.61
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.8566,
+        "teacher_forced_token_accuracy_pct": 37.5,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            6.72
+          ],
+          [
+            "\"",
+            6.68
+          ],
+          [
+            "\": ",
+            5.69
+          ],
+          [
+            "\",",
+            5.43
+          ],
+          [
+            "as",
+            4.91
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.456,
+        "teacher_forced_token_accuracy_pct": 56.2,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            7.13
+          ],
+          [
+            "\"",
+            5.91
+          ],
+          [
+            "an",
+            4.79
+          ],
+          [
+            "as",
+            4.51
+          ],
+          [
+            "\",",
+            4.51
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Val",
+    "description": "Compound status (standby_normal)",
+    "expected_status": "standby_normal",
+    "expected_response": "{\"status\": \"standby_normal\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> linknexcept the total number",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.1473,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.47
+          ],
+          [
+            "s",
+            6.2
+          ],
+          [
+            "h",
+            5.37
+          ],
+          [
+            "an",
+            5.26
+          ],
+          [
+            "in",
+            5.13
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\", \"code\": 3}",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.3638,
+        "teacher_forced_token_accuracy_pct": 46.7,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.7
+          ],
+          [
+            "\": \"",
+            6.22
+          ],
+          [
+            "\",",
+            5.54
+          ],
+          [
+            "\": ",
+            5.4
+          ],
+          [
+            "s",
+            4.71
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.7785,
+        "teacher_forced_token_accuracy_pct": 53.3,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.06
+          ],
+          [
+            "\"",
+            6.16
+          ],
+          [
+            "\",",
+            5.37
+          ],
+          [
+            "_",
+            5.0
+          ],
+          [
+            "%",
+            4.97
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Val",
+    "description": "Compound status (frequency_drift)",
+    "expected_status": "frequency_drift",
+    "expected_response": "{\"status\": \"frequency_drift\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    # If the ",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.0059,
+        "teacher_forced_token_accuracy_pct": 7.1,
+        "top5_first_status_token": [
+          [
+            "h",
+            6.2
+          ],
+          [
+            "in",
+            6.04
+          ],
+          [
+            "s",
+            5.83
+          ],
+          [
+            "\"",
+            5.66
+          ],
+          [
+            "an",
+            5.37
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.5552,
+        "teacher_forced_token_accuracy_pct": 42.9,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            6.64
+          ],
+          [
+            "\"",
+            6.54
+          ],
+          [
+            "\": ",
+            5.59
+          ],
+          [
+            "\",",
+            5.48
+          ],
+          [
+            "as",
+            4.55
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"plain_recato_to_to_secateleft import \"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.6244,
+        "teacher_forced_token_accuracy_pct": 64.3,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.07
+          ],
+          [
+            "\"",
+            5.25
+          ],
+          [
+            "\",",
+            5.04
+          ],
+          [
+            "\": ",
+            4.72
+          ],
+          [
+            "_",
+            4.46
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Val",
+    "description": "Compound status (voltage_spike)",
+    "expected_status": "voltage_spike",
+    "expected_response": "{\"status\": \"voltage_spike\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> linket_to_to_to_to_to",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 5.458,
+        "teacher_forced_token_accuracy_pct": 11.8,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.54
+          ],
+          [
+            "s",
+            6.28
+          ],
+          [
+            "in",
+            5.45
+          ],
+          [
+            "h",
+            5.44
+          ],
+          [
+            "an",
+            5.2
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.3536,
+        "teacher_forced_token_accuracy_pct": 35.3,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.77
+          ],
+          [
+            "\": \"",
+            6.55
+          ],
+          [
+            "\": ",
+            5.61
+          ],
+          [
+            "\",",
+            5.47
+          ],
+          [
+            "as",
+            4.49
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.4755,
+        "teacher_forced_token_accuracy_pct": 58.8,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.29
+          ],
+          [
+            "\"",
+            6.07
+          ],
+          [
+            "\",",
+            5.17
+          ],
+          [
+            "\": ",
+            5.06
+          ],
+          [
+            "_",
+            4.42
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Val",
+    "description": "Compound status (thermal_gradient)",
+    "expected_status": "thermal_gradient",
+    "expected_response": "{\"status\": \"thermal_gradient\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> linknexampleflargest ",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 5.4658,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.38
+          ],
+          [
+            "s",
+            6.13
+          ],
+          [
+            "h",
+            5.43
+          ],
+          [
+            "an",
+            5.28
+          ],
+          [
+            "in",
+            5.14
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\", \"code\": 3}",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.1049,
+        "teacher_forced_token_accuracy_pct": 40.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.66
+          ],
+          [
+            "\": \"",
+            6.18
+          ],
+          [
+            "\",",
+            5.55
+          ],
+          [
+            "\": ",
+            5.35
+          ],
+          [
+            "s",
+            4.69
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.3474,
+        "teacher_forced_token_accuracy_pct": 46.7,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.04
+          ],
+          [
+            "\"",
+            6.18
+          ],
+          [
+            "\",",
+            5.4
+          ],
+          [
+            "_",
+            5.05
+          ],
+          [
+            "%",
+            4.97
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Test",
+    "description": "Long compound (optical_alignment_fault)",
+    "expected_status": "optical_alignment_fault",
+    "expected_response": "{\"status\": \"optical_alignment_fault\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> hexited_pathex",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 5.2152,
+        "teacher_forced_token_accuracy_pct": 9.1,
+        "top5_first_status_token": [
+          [
+            "\"",
+            7.06
+          ],
+          [
+            "s",
+            6.28
+          ],
+          [
+            "'",
+            5.19
+          ],
+          [
+            "_",
+            5.13
+          ],
+          [
+            "h",
+            5.02
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.5586,
+        "teacher_forced_token_accuracy_pct": 31.8,
+        "top5_first_status_token": [
+          [
+            "\"",
+            7.1
+          ],
+          [
+            "\": \"",
+            6.11
+          ],
+          [
+            "\": ",
+            5.54
+          ],
+          [
+            "\",",
+            5.51
+          ],
+          [
+            "s",
+            4.64
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.8553,
+        "teacher_forced_token_accuracy_pct": 40.9,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            7.8
+          ],
+          [
+            "\"",
+            6.81
+          ],
+          [
+            "_",
+            5.2
+          ],
+          [
+            "\",",
+            5.16
+          ],
+          [
+            "\": ",
+            4.89
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Test",
+    "description": "Compound status (beam_misaligned)",
+    "expected_status": "beam_misaligned",
+    "expected_response": "{\"status\": \"beam_misaligned\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.3969,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "s",
+            6.27
+          ],
+          [
+            "in",
+            6.26
+          ],
+          [
+            "h",
+            5.86
+          ],
+          [
+            "t",
+            5.85
+          ],
+          [
+            "li",
+            5.74
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.8581,
+        "teacher_forced_token_accuracy_pct": 35.3,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            6.75
+          ],
+          [
+            "\"",
+            6.48
+          ],
+          [
+            "\": ",
+            5.67
+          ],
+          [
+            "\",",
+            5.5
+          ],
+          [
+            "s",
+            4.86
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"pated\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.2135,
+        "teacher_forced_token_accuracy_pct": 47.1,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            7.34
+          ],
+          [
+            "\"",
+            5.78
+          ],
+          [
+            "\",",
+            4.8
+          ],
+          [
+            "an",
+            4.4
+          ],
+          [
+            "li",
+            4.21
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Test",
+    "description": "Compound status (cavity_depressurized)",
+    "expected_status": "cavity_depressurized",
+    "expected_response": "{\"status\": \"cavity_depressurized\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    >>> linket_to_to_to_to_to",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.0751,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.58
+          ],
+          [
+            "s",
+            6.3
+          ],
+          [
+            "in",
+            5.46
+          ],
+          [
+            "h",
+            5.4
+          ],
+          [
+            "an",
+            5.19
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.4538,
+        "teacher_forced_token_accuracy_pct": 31.6,
+        "top5_first_status_token": [
+          [
+            "\"",
+            6.79
+          ],
+          [
+            "\": \"",
+            6.56
+          ],
+          [
+            "\": ",
+            5.6
+          ],
+          [
+            "\",",
+            5.5
+          ],
+          [
+            "as",
+            4.45
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"path.\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 2.9299,
+        "teacher_forced_token_accuracy_pct": 42.1,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            8.25
+          ],
+          [
+            "\"",
+            6.1
+          ],
+          [
+            "\",",
+            5.2
+          ],
+          [
+            "\": ",
+            5.02
+          ],
+          [
+            "_",
+            4.58
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  },
+  {
+    "subset": "Test",
+    "description": "Short compound (cryo_quench)",
+    "expected_status": "cryo_quench",
+    "expected_response": "{\"status\": \"cryo_quench\"}",
+    "models": {
+      "Canonical Parent": {
+        "raw_output": "\n        ...\n        >>> _resupport = []\n        >>> hexceptions(\")\n        >>> h.add_",
+        "json_parsed": false,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 6.7352,
+        "teacher_forced_token_accuracy_pct": 0.0,
+        "top5_first_status_token": [
+          [
+            "h",
+            6.11
+          ],
+          [
+            "\"",
+            5.76
+          ],
+          [
+            "in",
+            5.71
+          ],
+          [
+            "an",
+            5.56
+          ],
+          [
+            "s",
+            5.46
+          ]
+        ],
+        "stop_reason": "MAX_TOKENS"
+      },
+      "Exp01 Candidate": {
+        "raw_output": "{\"code\": 3}",
+        "json_parsed": true,
+        "schema_valid": false,
+        "status_match": false,
+        "mean_teacher_forced_loss": 4.0721,
+        "teacher_forced_token_accuracy_pct": 33.3,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            6.68
+          ],
+          [
+            "\"",
+            6.46
+          ],
+          [
+            "\",",
+            5.57
+          ],
+          [
+            "\": ",
+            5.54
+          ],
+          [
+            "as",
+            4.35
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      },
+      "Exp02 Candidate": {
+        "raw_output": "{\"status\": \"blicath\"}",
+        "json_parsed": true,
+        "schema_valid": true,
+        "status_match": false,
+        "mean_teacher_forced_loss": 3.4549,
+        "teacher_forced_token_accuracy_pct": 53.3,
+        "top5_first_status_token": [
+          [
+            "\": \"",
+            7.99
+          ],
+          [
+            "\",",
+            4.92
+          ],
+          [
+            "\"",
+            4.8
+          ],
+          [
+            "\": ",
+            4.62
+          ],
+          [
+            "_",
+            4.22
+          ]
+        ],
+        "stop_reason": "STOP_TOKEN"
+      }
+    }
+  }
+]

@@ -1,0 +1,772 @@
+{
+  "Cond_1_Standard": {
+    "name": "Cond_1_Standard",
+    "description": "Standard: Instruction -> Context (buried) -> Response:",
+    "json_parsed": 6,
+    "schema_valid": 6,
+    "exact_matches": 0,
+    "total": 6,
+    "examples": [
+      {
+        "role": "Train",
+        "status": "nominal",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_alpha_01 reported status 'nominal' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'no'",
+        "target_rank": 50,
+        "target_prob": 0.0007,
+        "top3_predicted": [
+          [
+            "{",
+            0.7553
+          ],
+          [
+            "\"",
+            0.0144
+          ],
+          [
+            "*",
+            0.0118
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "active",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_beta_02 reported status 'active' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'ac'",
+        "target_rank": 289,
+        "target_prob": 0.0002,
+        "top3_predicted": [
+          [
+            "{",
+            0.7434
+          ],
+          [
+            "*",
+            0.0129
+          ],
+          [
+            "\"",
+            0.0115
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "bearing_greased",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_gamma_03 reported status 'bearing_greased' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 425,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.7555
+          ],
+          [
+            "*",
+            0.0183
+          ],
+          [
+            "\"",
+            0.0125
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "optical_alignment_fault",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_eta_01 reported status 'optical_alignment_fault' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'op'",
+        "target_rank": 655,
+        "target_prob": 0.0,
+        "top3_predicted": [
+          [
+            "{",
+            0.7617
+          ],
+          [
+            "*",
+            0.0151
+          ],
+          [
+            "\"",
+            0.0149
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "beam_misaligned",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_theta_02 reported status 'beam_misaligned' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 423,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.7577
+          ],
+          [
+            "*",
+            0.0193
+          ],
+          [
+            "\"",
+            0.01
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "cryo_quench",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_eta_03 reported status 'cryo_quench' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'c'",
+        "target_rank": 138,
+        "target_prob": 0.0003,
+        "top3_predicted": [
+          [
+            "{",
+            0.7446
+          ],
+          [
+            "\"",
+            0.0171
+          ],
+          [
+            "*",
+            0.0155
+          ]
+        ]
+      }
+    ]
+  },
+  "Cond_2_Value_Before_Instruction": {
+    "name": "Cond_2_Value_Before_Instruction",
+    "description": "Value before instruction: Context -> Instruction -> Response:",
+    "json_parsed": 6,
+    "schema_valid": 6,
+    "exact_matches": 0,
+    "total": 6,
+    "examples": [
+      {
+        "role": "Train",
+        "status": "nominal",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"np.array\"}",
+        "exact_match": false,
+        "target_first_tok": "'no'",
+        "target_rank": 91,
+        "target_prob": 0.0006,
+        "top3_predicted": [
+          [
+            "{",
+            0.5283
+          ],
+          [
+            "\"",
+            0.1125
+          ],
+          [
+            "\n",
+            0.056
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "active",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"nd\"}",
+        "exact_match": false,
+        "target_first_tok": "'ac'",
+        "target_rank": 200,
+        "target_prob": 0.0003,
+        "top3_predicted": [
+          [
+            "{",
+            0.587
+          ],
+          [
+            "\"",
+            0.0849
+          ],
+          [
+            "\n",
+            0.0327
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "bearing_greased",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"nd\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 845,
+        "target_prob": 0.0,
+        "top3_predicted": [
+          [
+            "{",
+            0.5558
+          ],
+          [
+            "\"",
+            0.1193
+          ],
+          [
+            "\n",
+            0.0395
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "optical_alignment_fault",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"input_value\"}",
+        "exact_match": false,
+        "target_first_tok": "'op'",
+        "target_rank": 442,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.5716
+          ],
+          [
+            "\"",
+            0.1116
+          ],
+          [
+            "\n",
+            0.0314
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "beam_misaligned",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"nd\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 773,
+        "target_prob": 0.0,
+        "top3_predicted": [
+          [
+            "{",
+            0.5894
+          ],
+          [
+            "\"",
+            0.1013
+          ],
+          [
+            "\n",
+            0.0333
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "cryo_quench",
+        "prompt_snippet": "Instruction: Return the status as JSON {\"status\": string}.",
+        "full_output": "{\"status\": \"nd\"}",
+        "exact_match": false,
+        "target_first_tok": "'c'",
+        "target_rank": 443,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.5113
+          ],
+          [
+            "\"",
+            0.1471
+          ],
+          [
+            "\n",
+            0.0551
+          ]
+        ]
+      }
+    ]
+  },
+  "Cond_3_Explicit_Key_Delimiter": {
+    "name": "Cond_3_Explicit_Key_Delimiter",
+    "description": "Explicit key delimiter anchor: Status: <s> -> Response:",
+    "json_parsed": 6,
+    "schema_valid": 6,
+    "exact_matches": 0,
+    "total": 6,
+    "examples": [
+      {
+        "role": "Train",
+        "status": "nominal",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'no'",
+        "target_rank": 52,
+        "target_prob": 0.0016,
+        "top3_predicted": [
+          [
+            "{",
+            0.2414
+          ],
+          [
+            "\n",
+            0.1006
+          ],
+          [
+            "\"",
+            0.0583
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "active",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'ac'",
+        "target_rank": 301,
+        "target_prob": 0.0003,
+        "top3_predicted": [
+          [
+            "{",
+            0.3189
+          ],
+          [
+            "\n",
+            0.0622
+          ],
+          [
+            "\"",
+            0.0396
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "bearing_greased",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 1047,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.2935
+          ],
+          [
+            "\n",
+            0.0956
+          ],
+          [
+            "\"",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "optical_alignment_fault",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'op'",
+        "target_rank": 564,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.2839
+          ],
+          [
+            "\n",
+            0.1146
+          ],
+          [
+            "\"",
+            0.0713
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "beam_misaligned",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 977,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.3369
+          ],
+          [
+            "\n",
+            0.083
+          ],
+          [
+            "\"",
+            0.0512
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "cryo_quench",
+        "prompt_snippet": "Extract to JSON with key \"status\":",
+        "full_output": "{\"status\": \"path.insert(\"}",
+        "exact_match": false,
+        "target_first_tok": "'c'",
+        "target_rank": 644,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.2377
+          ],
+          [
+            "\n",
+            0.1496
+          ],
+          [
+            "\"",
+            0.0634
+          ]
+        ]
+      }
+    ]
+  },
+  "Cond_4_Direct_Copy_Framing": {
+    "name": "Cond_4_Direct_Copy_Framing",
+    "description": "Direct copy wording: Copy status string <s> into JSON",
+    "json_parsed": 5,
+    "schema_valid": 5,
+    "exact_matches": 0,
+    "total": 6,
+    "examples": [
+      {
+        "role": "Train",
+        "status": "nominal",
+        "prompt_snippet": "Instruction: Copy the exact status string 'nominal' into JSON object {\"status\": \"nominal\"}.",
+        "full_output": "{\"status\": \"charge_to_to_to_to_to_to_to_to_to_to_to_to",
+        "exact_match": false,
+        "target_first_tok": "'no'",
+        "target_rank": 72,
+        "target_prob": 0.0008,
+        "top3_predicted": [
+          [
+            "{",
+            0.49
+          ],
+          [
+            "\"",
+            0.0777
+          ],
+          [
+            "\n",
+            0.0642
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "active",
+        "prompt_snippet": "Instruction: Copy the exact status string 'active' into JSON object {\"status\": \"active\"}.",
+        "full_output": "{\"status\": \"input_value\"}",
+        "exact_match": false,
+        "target_first_tok": "'ac'",
+        "target_rank": 218,
+        "target_prob": 0.0003,
+        "top3_predicted": [
+          [
+            "{",
+            0.4807
+          ],
+          [
+            "\n",
+            0.0602
+          ],
+          [
+            "\"",
+            0.0597
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "bearing_greased",
+        "prompt_snippet": "Instruction: Copy the exact status string 'bearing_greased' into JSON object {\"status\": \"bearing_greased\"}.",
+        "full_output": "{\"status\": \"b\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 1074,
+        "target_prob": 0.0,
+        "top3_predicted": [
+          [
+            "{",
+            0.4478
+          ],
+          [
+            "\n",
+            0.1119
+          ],
+          [
+            "\"",
+            0.1026
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "optical_alignment_fault",
+        "prompt_snippet": "Instruction: Copy the exact status string 'optical_alignment_fault' into JSON object {\"status\": \"optical_alignment_fault\"}.",
+        "full_output": "{\"status\": \"input_value\"}",
+        "exact_match": false,
+        "target_first_tok": "'op'",
+        "target_rank": 485,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.3917
+          ],
+          [
+            "\n",
+            0.1635
+          ],
+          [
+            "\"",
+            0.1386
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "beam_misaligned",
+        "prompt_snippet": "Instruction: Copy the exact status string 'beam_misaligned' into JSON object {\"status\": \"beam_misaligned\"}.",
+        "full_output": "{\"status\": \"b\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 837,
+        "target_prob": 0.0,
+        "top3_predicted": [
+          [
+            "{",
+            0.5325
+          ],
+          [
+            "\"",
+            0.108
+          ],
+          [
+            "\n",
+            0.0724
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "cryo_quench",
+        "prompt_snippet": "Instruction: Copy the exact status string 'cryo_quench' into JSON object {\"status\": \"cryo_quench\"}.",
+        "full_output": "{\"status\": \"b\"}",
+        "exact_match": false,
+        "target_first_tok": "'c'",
+        "target_rank": 752,
+        "target_prob": 0.0001,
+        "top3_predicted": [
+          [
+            "{",
+            0.3957
+          ],
+          [
+            "\n",
+            0.1328
+          ],
+          [
+            "\"",
+            0.1061
+          ]
+        ]
+      }
+    ]
+  },
+  "Cond_5_Forced_Prefix_Bypass": {
+    "name": "Cond_5_Forced_Prefix_Bypass",
+    "description": "Bypass opening syntax: Prompt ends with Response: {\"status\": \"",
+    "json_parsed": 6,
+    "schema_valid": 6,
+    "exact_matches": 0,
+    "total": 6,
+    "examples": [
+      {
+        "role": "Train",
+        "status": "nominal",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_alpha_01 reported status 'nominal' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'no'",
+        "target_rank": 44,
+        "target_prob": 0.005,
+        "top3_predicted": [
+          [
+            "p",
+            0.0239
+          ],
+          [
+            "in",
+            0.0215
+          ],
+          [
+            "b",
+            0.0187
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "active",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_beta_02 reported status 'active' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'ac'",
+        "target_rank": 21,
+        "target_prob": 0.0083,
+        "top3_predicted": [
+          [
+            "p",
+            0.0241
+          ],
+          [
+            "in",
+            0.0222
+          ],
+          [
+            "b",
+            0.0192
+          ]
+        ]
+      },
+      {
+        "role": "Train",
+        "status": "bearing_greased",
+        "prompt_snippet": "Context: Telemetry monitor report: Component subsystem_gamma_03 reported status 'bearing_greased' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 140,
+        "target_prob": 0.0016,
+        "top3_predicted": [
+          [
+            "p",
+            0.0263
+          ],
+          [
+            "b",
+            0.0189
+          ],
+          [
+            "ch",
+            0.0174
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "optical_alignment_fault",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_eta_01 reported status 'optical_alignment_fault' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'op'",
+        "target_rank": 74,
+        "target_prob": 0.0029,
+        "top3_predicted": [
+          [
+            "p",
+            0.0289
+          ],
+          [
+            "b",
+            0.0232
+          ],
+          [
+            "ch",
+            0.0181
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "beam_misaligned",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_theta_02 reported status 'beam_misaligned' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'be'",
+        "target_rank": 138,
+        "target_prob": 0.0017,
+        "top3_predicted": [
+          [
+            "p",
+            0.0252
+          ],
+          [
+            "b",
+            0.0182
+          ],
+          [
+            "ch",
+            0.0173
+          ]
+        ]
+      },
+      {
+        "role": "Test",
+        "status": "cryo_quench",
+        "prompt_snippet": "Context: Telemetry monitor report: Component relay_eta_03 reported status 'cryo_quench' during periodic scan.",
+        "full_output": "{\"status\": \"path.\"}",
+        "exact_match": false,
+        "target_first_tok": "'c'",
+        "target_rank": 25,
+        "target_prob": 0.0079,
+        "top3_predicted": [
+          [
+            "p",
+            0.0288
+          ],
+          [
+            "b",
+            0.0202
+          ],
+          [
+            "ch",
+            0.0183
+          ]
+        ]
+      }
+    ]
+  }
+}
