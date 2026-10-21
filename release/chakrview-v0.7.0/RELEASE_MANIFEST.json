@@ -1,0 +1,62 @@
+{
+  "release_version": "v0.7.0-candidate",
+  "release_name": "ChakrView Coding Specialization Foundation v0.7.0",
+  "target_release_date": "2026-11-15",
+  "classification": "Experimental Research Baseline",
+  "status": "CANDIDATE_BASELINE_VERIFIED",
+  "canonical_artifacts": {
+    "checkpoint": {
+      "name": "training_checkpoint_step_10000.pt",
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "param_count": 3443136,
+      "verified": true
+    },
+    "tokenizer": {
+      "directory": "data/experiments/vocab_4096",
+      "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "vocab_size": 4096,
+      "verified": true
+    }
+  },
+  "release_inventory": [
+    {
+      "file": "RELEASE_NOTES_v0.7.0.md",
+      "description": "Candidate notes, deliverables, and empirical capability diagnostics."
+    },
+    {
+      "file": "KNOWN_LIMITATIONS.md",
+      "description": "Explicit boundaries separating native token continuation from tool execution."
+    },
+    {
+      "file": "REPRODUCIBILITY.md",
+      "description": "Step-by-step evaluation reproduction and CLI execution guide."
+    },
+    {
+      "file": "CODING_CAPABILITY_REPORT.md",
+      "description": "Category-by-category coding benchmark results and failure analysis."
+    },
+    {
+      "file": "DATASET_AUDIT_REPORT.md",
+      "description": "Coding data pipeline specification, schema, and contamination guards."
+    },
+    {
+      "file": "BENCHMARK_RESULTS.json",
+      "description": "Machine-readable benchmark metrics and diagnostics across 6 coding categories."
+    },
+    {
+      "file": "RELEASE_MANIFEST.json",
+      "description": "Structured inventory and artifact checksums for v0.7.0 candidate."
+    }
+  ],
+  "verification_status": {
+    "canonical_hashes_matched": true,
+    "session_py_unmodified": true,
+    "coding_benchmark_success_rate": "1/6 (16.7%)",
+    "syntax_validity_rate": "3/6 (50.0%)",
+    "coding_tests_passed": true,
+    "smoke_tests_passed": true,
+    "no_training_occurred": true
+  }
+}

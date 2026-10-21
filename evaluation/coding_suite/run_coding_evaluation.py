@@ -2,9 +2,10 @@
 evaluation/coding_suite/run_coding_evaluation.py
 
 Sandboxed, time-limited coding capability evaluation runner.
-Loads candidate or canonical checkpoint, evaluates on the versioned coding tasks,
-safely executes test fixtures with resource limits (no filesystem/network access),
-and records syntax validity, test pass rate, and exact match metrics.
+Loads candidate or canonical checkpoint, evaluates on the versioned coding tasks
+across all 6 core software development categories, safely executes test fixtures
+with resource limits, and records syntax validity, test pass rate, exact/substring match,
+empty/malformed status, generation speed, and error diagnostics.
 """
 
 import sys
@@ -24,6 +25,7 @@ from chakrview.runtime.neural_runtime_adapter import (
     CANONICAL_CHECKPOINTS_ALLOWLIST,
     DEFAULT_CHECKPOINT_KEY,
 )
+from evaluation.coding_suite.isolated_executor import run_process_isolated_test
 
 TASKS_PATH = Path(__file__).resolve().parent / "coding_tasks.json"
 
@@ -32,121 +34,136 @@ def check_python_syntax(code_str: str) -> bool:
     try:
         ast.parse(code_str)
         return True
-    except SyntaxError:
+    except (SyntaxError, ValueError, TypeError):
         return False
 
 
-def run_sandboxed_test(code_to_test: str, test_fixture: str, timeout_seconds: float = 1.0) -> Dict[str, Any]:
-    """
-    Safely executes generated code alongside test fixtures in an isolated namespace
-    with restricted builtins (disallowing os, subprocess, open, network).
-    """
-    safe_builtins = {
-        "abs": abs, "all": all, "any": any, "bool": bool, "dict": dict,
-        "enumerate": enumerate, "filter": filter, "float": float, "int": int,
-        "isinstance": isinstance, "len": len, "list": list, "map": map,
-        "max": max, "min": min, "pow": pow, "range": range, "reversed": reversed,
-        "round": round, "set": set, "str": str, "sum": sum, "tuple": tuple,
-        "zip": zip, "AssertionError": AssertionError, "Exception": Exception,
-        "True": True, "False": False, "None": None
-    }
-    
-    combined_code = f"{code_to_test}\n\n{test_fixture}"
-    local_scope = {}
-    global_scope = {"__builtins__": safe_builtins}
-    
-    t0 = time.perf_counter()
-    try:
-        # Syntax check first
-        compiled = compile(combined_code, "<sandboxed_eval>", "exec")
-        exec(compiled, global_scope, local_scope)
-        elapsed = (time.perf_counter() - t0) * 1000.0
-        return {
-            "passed": True,
-            "syntax_valid": True,
-            "error": None,
-            "latency_ms": round(elapsed, 2)
-        }
-    except Exception as e:
-        elapsed = (time.perf_counter() - t0) * 1000.0
-        return {
-            "passed": False,
-            "syntax_valid": check_python_syntax(code_to_test),
-            "error": f"{type(e).__name__}: {str(e)}",
-            "latency_ms": round(elapsed, 2)
-        }
-
-
-from evaluation.coding_suite.isolated_executor import run_process_isolated_test
-
-
-def evaluate_coding_suite(checkpoint_key: str = DEFAULT_CHECKPOINT_KEY) -> Dict[str, Any]:
+def evaluate_coding_suite(
+    checkpoint_key: str = DEFAULT_CHECKPOINT_KEY,
+    max_new_tokens: int = 48,
+    decoding: str = "greedy"
+) -> Dict[str, Any]:
     with open(TASKS_PATH, "r", encoding="utf-8") as f:
         suite = json.load(f)
         
     tasks = suite["tasks"]
     ckpt_path, ckpt_hash, ckpt_label = CANONICAL_CHECKPOINTS_ALLOWLIST[checkpoint_key]
     
-    adapter = NeuralRuntimeAdapter(checkpoint_path=ckpt_path, max_new_tokens=48, decoding="greedy")
+    adapter = NeuralRuntimeAdapter(
+        checkpoint_path=ckpt_path,
+        max_new_tokens=max_new_tokens,
+        decoding=decoding
+    )
     adapter.initialize()
     
     results = {
         "suite_name": suite["suite_name"],
+        "suite_version": suite.get("version", "1.1.0"),
         "checkpoint_label": ckpt_label,
         "checkpoint_sha256": ckpt_hash,
         "total_tasks": len(tasks),
         "syntax_valid_count": 0,
         "test_passed_count": 0,
+        "match_count": 0,
         "timeout_count": 0,
+        "empty_output_count": 0,
         "policy_rejected_count": 0,
+        "categories_evaluated": sorted(list({t["category"] for t in tasks})),
         "task_results": []
     }
     
-    print("=" * 65)
-    print(f"RUNNING CODING EVALUATION: {ckpt_label}")
-    print("=" * 65)
+    print("=" * 70)
+    print(f"RUNNING CODING EVALUATION: {ckpt_label} ({decoding})")
+    print("=" * 70)
+    
+    total_tokens_generated = 0
+    total_gen_time_ms = 0.0
     
     for idx, task in enumerate(tasks):
         task_id = task["id"]
         category = task["category"]
         prompt = task["prompt"]
-        test_code = task["test_code"]
+        target = task.get("target_snippet", "")
+        val_type = task.get("validation_type", "unit_test")
+        test_code = task.get("test_code", "")
         
         # Generation
+        t0 = time.perf_counter()
         out = adapter.generate(prompt)
+        gen_duration_ms = (time.perf_counter() - t0) * 1000.0
+        
         gen_text = out["generated_text"]
+        gen_tokens = out.get("generated_tokens", [])
+        tok_count = len(gen_tokens) if gen_tokens else max(1, len(gen_text) // 3)
+        total_tokens_generated += tok_count
+        total_gen_time_ms += gen_duration_ms
+        
+        is_empty = len(gen_text.strip()) == 0
+        if is_empty:
+            results["empty_output_count"] += 1
+            
         full_code = prompt + gen_text
-        
-        # Evaluate syntax and execution with process isolation
         is_syntax = check_python_syntax(full_code)
-        exec_res = run_process_isolated_test(full_code, test_code, timeout_seconds=2.0)
-        
         if is_syntax:
             results["syntax_valid_count"] += 1
-        if exec_res["passed"]:
-            results["test_passed_count"] += 1
-        if exec_res.get("timed_out", False):
-            results["timeout_count"] += 1
-        if exec_res.get("rejected_by_policy", False):
-            results["policy_rejected_count"] += 1
             
+        test_passed = False
+        substring_matched = False
+        exact_matched = gen_text.strip() == target.strip()
+        exec_err = None
+        exec_latency = 0.0
+        timed_out = False
+        rejected_by_policy = False
+        
+        if val_type == "unit_test" and test_code:
+            exec_res = run_process_isolated_test(full_code, test_code, timeout_seconds=2.0)
+            test_passed = exec_res["passed"]
+            exec_err = exec_res["error"]
+            exec_latency = exec_res.get("latency_ms", 0.0)
+            timed_out = exec_res.get("timed_out", False)
+            rejected_by_policy = exec_res.get("rejected_by_policy", False)
+            if test_passed:
+                results["test_passed_count"] += 1
+            if timed_out:
+                results["timeout_count"] += 1
+            if rejected_by_policy:
+                results["policy_rejected_count"] += 1
+        elif val_type == "substring_match":
+            substring_matched = target.lower() in gen_text.lower()
+            if substring_matched:
+                results["match_count"] += 1
+                test_passed = True
+        elif val_type == "exact_match":
+            test_passed = exact_matched
+            if exact_matched:
+                results["match_count"] += 1
+                
         task_res = {
             "id": task_id,
             "category": category,
+            "title": task.get("title", task_id),
             "prompt": prompt,
             "generated_text": gen_text,
+            "target_snippet": target,
             "syntax_valid": is_syntax,
-            "test_passed": exec_res["passed"],
-            "timed_out": exec_res.get("timed_out", False),
-            "rejected_by_policy": exec_res.get("rejected_by_policy", False),
-            "error": exec_res["error"],
-            "exec_latency_ms": exec_res["latency_ms"]
+            "test_passed": test_passed,
+            "exact_match": exact_matched,
+            "substring_match": substring_matched,
+            "empty_output": is_empty,
+            "timed_out": timed_out,
+            "rejected_by_policy": rejected_by_policy,
+            "error": exec_err,
+            "gen_latency_ms": round(gen_duration_ms, 2),
+            "exec_latency_ms": exec_latency
         }
         results["task_results"].append(task_res)
-        print(f"  [{idx+1}/{len(tasks)}] {task_id:<14} | Syntax: {str(is_syntax):<5} | Passed: {str(exec_res['passed']):<5} | Err: {exec_res['error']}")
+        status_str = "PASS" if test_passed else "FAIL"
+        print(f"  [{idx+1}/{len(tasks)}] {task_id:<14} ({category:<26}) | {status_str} | Syntax: {str(is_syntax):<5} | Err: {exec_err}")
         
+    overall_tok_per_sec = (total_tokens_generated / (total_gen_time_ms / 1000.0)) if total_gen_time_ms > 0 else 0.0
+    results["tokens_per_second"] = round(overall_tok_per_sec, 2)
     results["syntax_valid_rate"] = f"{results['syntax_valid_count']}/{len(tasks)} ({round(results['syntax_valid_count']/len(tasks)*100, 1)}%)"
-    results["test_pass_rate"] = f"{results['test_passed_count']}/{len(tasks)} ({round(results['test_passed_count']/len(tasks)*100, 1)}%)"
+    results["overall_success_rate"] = f"{results['test_passed_count']}/{len(tasks)} ({round(results['test_passed_count']/len(tasks)*100, 1)}%)"
     results["timeout_rate"] = f"{results['timeout_count']}/{len(tasks)} ({round(results['timeout_count']/len(tasks)*100, 1)}%)"
     results["rejection_rate"] = f"{results['policy_rejected_count']}/{len(tasks)} ({round(results['policy_rejected_count']/len(tasks)*100, 1)}%)"
     
@@ -154,10 +171,10 @@ def evaluate_coding_suite(checkpoint_key: str = DEFAULT_CHECKPOINT_KEY) -> Dict[
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
         
-    print("=" * 65)
-    print(f"SUMMARY: Syntax Valid: {results['syntax_valid_rate']} | Test Pass Rate: {results['test_pass_rate']}")
-    print(f"Saved baseline report to: {out_file}")
-    print("=" * 65)
+    print("=" * 70)
+    print(f"SUMMARY: Success: {results['overall_success_rate']} | Syntax: {results['syntax_valid_rate']} | Speed: {results['tokens_per_second']} tok/s")
+    print(f"Saved results to: {out_file}")
+    print("=" * 70)
     return results
 
 
