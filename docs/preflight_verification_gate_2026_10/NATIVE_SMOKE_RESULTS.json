@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-21T23:42:00+05:30",
+    "environment": {
+      "os": "Microsoft Windows 11 Enterprise",
+      "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+      "torch": "2.14.0+cpu",
+      "cpu_only": true,
+      "num_threads": 14
+    },
+    "canonical_hashes": {
+      "canonical_checkpoint": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "tokenizer_vocab": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "tokenizer_merges": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "runtime_session": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67"
+    },
+    "load_time_seconds": 0.1593,
+    "initial_memory_mb": 228.35,
+    "peak_memory_mb": 314.95,
+    "tokenizer_roundtrip_verified": true
+  },
+  "prompts_evaluated": [
+    {
+      "category": "paraphrase",
+      "name": "paraphrase_probe",
+      "prompt": "Rewrite the following sentence in simple words:\nThe atmospheric conditions precipitated an unexpected deluge.",
+      "raw_output": "\n\nReferences",
+      "latency_seconds": 0.0762,
+      "memory_mb_after": 309.24
+    },
+    {
+      "category": "negation",
+      "name": "negation_probe",
+      "prompt": "Context: The power converter is not active.\nQuestion: Is the power converter active?\nAnswer:",
+      "raw_output": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city ",
+      "latency_seconds": 0.4939,
+      "memory_mb_after": 312.17
+    },
+    {
+      "category": "instruction_following",
+      "name": "simple_instruction_probe",
+      "prompt": "Instruction: Output only the single word SUCCESS and nothing else.\nOutput:",
+      "raw_output": "\n\nThe first of the first of the world of the world of the world of the world of the world of the worl",
+      "latency_seconds": 0.4783,
+      "memory_mb_after": 313.29
+    },
+    {
+      "category": "distractor_resistance",
+      "name": "distractor_probe",
+      "prompt": "Context: Device A is offline. Device B is running. Device C is standby.\nQuestion: What is the status of Device B?\nAnswer:",
+      "raw_output": "\n\nStep-by-Step Solution:\nThe total of the city of the city of the city of the city of the show ",
+      "latency_seconds": 0.5534,
+      "memory_mb_after": 313.78
+    },
+    {
+      "category": "multi_sentence_context",
+      "name": "multihop_context_probe",
+      "prompt": "Alice gave the blue key to Bob. Bob placed the blue key inside the metal cabinet.\nQuestion: Where is the blue key?\nAnswer:",
+      "raw_output": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the c",
+      "latency_seconds": 0.5599,
+      "memory_mb_after": 314.93
+    },
+    {
+      "category": "uncertainty",
+      "name": "uncertainty_probe",
+      "prompt": "Context: The turbine speed is 1500 RPM.\nQuestion: What is the internal temperature of the turbine?\nAnswer:",
+      "raw_output": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the centre of the city of ",
+      "latency_seconds": 0.5084,
+      "memory_mb_after": 314.95
+    },
+    {
+      "category": "coding",
+      "name": "simple_coding_probe",
+      "prompt": "Write a Python function named `is_even(n)` that returns True if n is even, else False:\n```python\n",
+      "raw_output": "\n    # This is the number of the number of the number of the number of the number of the number of the number of the number of the numb",
+      "latency_seconds": 0.488,
+      "memory_mb_after": 314.95
+    }
+  ]
+}
