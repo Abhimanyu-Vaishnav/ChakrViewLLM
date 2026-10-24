@@ -1,0 +1,46 @@
+{
+  "experiment_id": "exp16_pointer_repair_v3",
+  "version": "v3.0.0",
+  "created_date": "2026-10-22",
+  "description": "Exp16 v3 dataset with balanced fields 7 & 8, strict evidence candidate masking, and fail-closed span alignment.",
+  "split_counts": {
+    "train": {
+      "total": 300,
+      "answerable": 222,
+      "abstention": 78
+    },
+    "val": {
+      "total": 60,
+      "answerable": 46,
+      "abstention": 14
+    },
+    "test": {
+      "total": 120,
+      "answerable": 92,
+      "abstention": 28
+    }
+  },
+  "dataset_hashes": {
+    "train": "d5d8b76871faad8e449d0a59df7834e7db1f37b3c21673743f20ee87249873dc",
+    "val": "c9954fb71fd5251065076ad96cfdc78812e2f970eb3cf55dc09c94c38844e95e",
+    "test": "096d018f357878e89560f982018446c8f09e5143767c1a5425d74bea9560ad10"
+  },
+  "candidate_mask_contract": {
+    "position_0": "BOS token; dedicated abstention sentinel (True)",
+    "context_tokens": "Tokens within context_byte_len (True)",
+    "query_and_assistant_tokens": "Strictly excluded (False)",
+    "pad_tokens": "Strictly excluded during collation (False)"
+  },
+  "categories": [
+    "dynamic_entity_binding",
+    "turn_dependent_retrieval",
+    "anaphora_reference_resolution",
+    "superseded_instruction_adherence",
+    "user_correction_handling",
+    "distractor_resistance",
+    "ambiguity_clarification",
+    "missing_context_abstention",
+    "factual_uncertainty_handling",
+    "constrained_code_synthesis"
+  ]
+}

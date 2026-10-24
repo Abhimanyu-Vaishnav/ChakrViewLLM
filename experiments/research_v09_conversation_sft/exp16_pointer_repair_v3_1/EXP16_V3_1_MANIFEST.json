@@ -1,0 +1,62 @@
+{
+  "experiment_id": "exp16_pointer_repair_v3_1",
+  "version": "v3.1.0",
+  "created_date": "2026-10-22",
+  "description": "Exp16 v3.1 dataset with complete question-level leakage remediation, balanced fields 7 & 8, matched query templates across answerability, and strict candidate masking.",
+  "generation_config": {
+    "seeds": {
+      "train": 4217,
+      "val": 5217,
+      "test": 6217
+    },
+    "domains": {
+      "train": "power_industry",
+      "val": "telecommunications",
+      "test": "aerospace_naval"
+    }
+  },
+  "tokenizer_artifacts": {
+    "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7"
+  },
+  "split_counts": {
+    "train": {
+      "total": 300,
+      "answerable": 222,
+      "abstention": 78
+    },
+    "val": {
+      "total": 60,
+      "answerable": 46,
+      "abstention": 14
+    },
+    "test": {
+      "total": 120,
+      "answerable": 92,
+      "abstention": 28
+    }
+  },
+  "dataset_hashes": {
+    "train": "7b0c636df298a36aa35fb50bc3532a72d9af9bda0d969d50b2a4511a57e1fe14",
+    "val": "e7cff8b889782e0977ce150c3e2e32c552b2f9a2af7b18e0d24349d19a06fe36",
+    "test": "bc53766b33090743affe553f25092e83432252af6e3ff3053e33dcd183d4d8af"
+  },
+  "candidate_mask_contract": {
+    "position_0": "BOS token; dedicated abstention sentinel (True)",
+    "context_tokens": "Tokens within context_byte_len (True)",
+    "query_and_assistant_tokens": "Strictly excluded (False)",
+    "pad_tokens": "Strictly excluded during collation (False)"
+  },
+  "categories": [
+    "dynamic_entity_binding",
+    "turn_dependent_retrieval",
+    "anaphora_reference_resolution",
+    "superseded_instruction_adherence",
+    "user_correction_handling",
+    "distractor_resistance",
+    "ambiguity_clarification",
+    "missing_context_abstention",
+    "factual_uncertainty_handling",
+    "constrained_code_synthesis"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "experiment": "Exp15 Field-Conditioned Pointer Attention",
+  "status": "VERIFIED_PASSING",
+  "timestamp": "2026-10-22T11:45:00+05:30",
+  "canonical_artifacts": {
+    "checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "matches": true
+    },
+    "vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "matches": true
+    },
+    "merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "matches": true
+    },
+    "session_py": {
+      "path": "chakrview/runtime/session.py",
+      "expected_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "actual_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "matches": true
+    }
+  },
+  "dataset_audit": {
+    "train_examples": 100,
+    "val_examples": 30,
+    "test_examples": 60,
+    "label_alignment_accuracy": 1.0,
+    "boundary_mismatches": 0,
+    "leakage_detected": false
+  },
+  "model_parameters": {
+    "frozen_backbone_parameters": 3443136,
+    "trainable_pointer_parameters": 149376,
+    "percentage_trainable": 4.158
+  },
+  "test_suite": {
+    "total_tests": 8,
+    "passed": 8,
+    "failed": 0
+  }
+}

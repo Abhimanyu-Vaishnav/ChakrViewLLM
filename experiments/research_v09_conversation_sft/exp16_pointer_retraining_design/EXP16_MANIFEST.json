@@ -1,0 +1,64 @@
+{
+  "experiment": "ChakrView Exp16 Pointer Retraining Design & Dataset Preparation",
+  "status": "DESIGN AND DATASET VALIDATED — READY FOR HUMAN REVIEW",
+  "timestamp": "2026-10-22T12:11:30+05:30",
+  "environment": {
+    "os": "Windows",
+    "python": "3.14.7",
+    "pytest": "9.1.1"
+  },
+  "canonical_artifacts": {
+    "checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true
+    },
+    "vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "verified": true
+    },
+    "merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "verified": true
+    },
+    "session_py": {
+      "path": "chakrview/runtime/session.py",
+      "sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "verified": true
+    }
+  },
+  "exp15_reference_checkpoint": {
+    "path": "experiments/research_v09_conversation_sft/exp03_field_conditioned_pointer/checkpoints/pointer_best.pt",
+    "sha256": "8e99e29683aec12ac339f2f5ab9c935914871ff5e1fa6facd5c151ec8045b67d",
+    "unmodified": true
+  },
+  "dataset_manifest": {
+    "train": {
+      "path": "experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/data/train_exp16.jsonl",
+      "sha256": "55abc82154801da753f07bf1cf0ab1226ac5f07fc2506550d2c69b02d3372804",
+      "count": 300
+    },
+    "val": {
+      "path": "experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/data/val_exp16.jsonl",
+      "sha256": "569a0091223aca34a84606a99ac60416b1efe3b0fdddf4d72b174b1b854c59a7",
+      "count": 60
+    },
+    "test": {
+      "path": "experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/data/test_exp16.jsonl",
+      "sha256": "48de3477de8e50ba605165c093f2e329f16edf734ecdd4899b2c02e18e4885ad",
+      "count": 120
+    }
+  },
+  "validation_tests": {
+    "test_suite": "experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/test_exp16_datasets.py",
+    "total_tests": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "reproduction_commands": [
+    ".venv\\Scripts\\python.exe experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/prepare_exp16_datasets.py",
+    ".venv\\Scripts\\pytest.exe experiments/research_v09_conversation_sft/exp16_pointer_retraining_design/test_exp16_datasets.py -v"
+  ]
+}

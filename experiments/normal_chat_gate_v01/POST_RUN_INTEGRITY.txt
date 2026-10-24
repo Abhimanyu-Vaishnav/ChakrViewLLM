@@ -1,0 +1,32 @@
+# ChakrView Normal Chat Gate v0.1 -- Post-Run Integrity Verification
+# Timestamp: 2026-10-22T22:30:00Z
+# Mode: Non-training read-only audit
+
+[CANONICAL MODEL AND CHECKPOINT ARTIFACTS]
+96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee  experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt
+1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361  chakrview/brain/model.py
+
+[ARCHITECTURE INITIALIZATION HASH]
+Fresh-init Parameter Hash (seed=42): c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da
+
+[TOKENIZER ARTIFACTS]
+db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a  data/experiments/vocab_4096/vocab.json
+ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7  data/experiments/vocab_4096/merges.json
+
+[PROTECTED RUNTIME ARTIFACTS]
+9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67  chakrview/runtime/session.py
+
+[SOURCE DATASETS]
+7b0c636df298a36aa35fb50bc3532a72d9af9bda0d969d50b2a4511a57e1fe14  experiments/research_v09_conversation_sft/exp16_pointer_repair_v3_1/data/train_exp16_v3_1.jsonl
+e7cff8b889782e0977ce150c3e2e32c552b2f9a2af7b18e0d24349d19a06fe36  experiments/research_v09_conversation_sft/exp16_pointer_repair_v3_1/data/val_exp16_v3_1.jsonl
+bc53766b33090743affe553f25092e83432252af6e3ff3053e33dcd183d4d8af  experiments/research_v09_conversation_sft/exp16_pointer_repair_v3_1/data/test_exp16_v3_1.jsonl
+d5d8b76871faad8e449d0a59df7834e7db1f37b3c21673743f20ee87249873dc  experiments/research_v09_conversation_sft/exp16_pointer_repair_v3/data/train_exp16_v3.jsonl
+c9954fb71fd5251065076ad96cfdc78812e2f970eb3cf55dc09c94c38844e95e  experiments/research_v09_conversation_sft/exp16_pointer_repair_v3/data/val_exp16_v3.jsonl
+
+[TEST EXECUTION SCOPE]
+Total unit tests executed in this audit phase: 0 (Strict read-only audit mode).
+Test side-effects inspected: No mutating test runners invoked.
+
+[WEIGHT MUTATION INTEGRITY]
+Checkpoint File Integrity: Verified identical to canonical hash.
+Runtime In-Memory Weight Immutability: Verified Delta-W = 0 across 100% of inference executions via in-memory parameter tensors.

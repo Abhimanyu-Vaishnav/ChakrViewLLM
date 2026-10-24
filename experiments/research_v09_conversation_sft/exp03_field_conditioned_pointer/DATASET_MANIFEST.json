@@ -1,0 +1,30 @@
+{
+  "dataset_name": "ChakrView Field-Conditioned Pointer Dataset v1.0",
+  "num_fields": 10,
+  "fields": {
+    "dynamic_entity_binding": 0,
+    "turn_dependent_retrieval": 1,
+    "anaphora_reference_resolution": 2,
+    "superseded_instruction_adherence": 3,
+    "user_correction_handling": 4,
+    "distractor_resistance": 5,
+    "ambiguity_clarification": 6,
+    "missing_context_abstention": 7,
+    "factual_uncertainty_handling": 8,
+    "constrained_code_synthesis": 9
+  },
+  "splits": {
+    "train": {
+      "file": "data/pointer_train.jsonl",
+      "count": 100
+    },
+    "val": {
+      "file": "data/pointer_val.jsonl",
+      "count": 30
+    },
+    "test": {
+      "file": "data/pointer_test.jsonl",
+      "count": 60
+    }
+  }
+}

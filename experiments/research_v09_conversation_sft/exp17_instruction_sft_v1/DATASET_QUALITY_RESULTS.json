@@ -1,0 +1,76 @@
+{
+  "total_examples": 400,
+  "splits": {
+    "train": 320,
+    "val": 40,
+    "test": 40
+  },
+  "categories": {
+    "train": {
+      "factual_qa": 40,
+      "instruction_following": 40,
+      "context_extraction": 40,
+      "reference_resolution": 40,
+      "short_explanation": 40,
+      "basic_arithmetic": 40,
+      "uncertainty_abstention": 40,
+      "structured_formatting": 40
+    },
+    "val": {
+      "factual_qa": 5,
+      "instruction_following": 5,
+      "context_extraction": 5,
+      "reference_resolution": 5,
+      "short_explanation": 5,
+      "basic_arithmetic": 5,
+      "uncertainty_abstention": 5,
+      "structured_formatting": 5
+    },
+    "test": {
+      "factual_qa": 5,
+      "instruction_following": 5,
+      "context_extraction": 5,
+      "reference_resolution": 5,
+      "short_explanation": 5,
+      "basic_arithmetic": 5,
+      "uncertainty_abstention": 5,
+      "structured_formatting": 5
+    }
+  },
+  "token_lengths": {
+    "min": 4,
+    "max": 44,
+    "mean": 20.2075,
+    "median": 18.0,
+    "std": 8.661376550525903,
+    "within_provisional_5_35_pct": 91.75,
+    "below_5_count": 2,
+    "below_5_ids": [
+      "EXP17_VAL_INSTRUCTION_FOLLOWING_001",
+      "EXP17_TEST_INSTRUCTION_FOLLOWING_001"
+    ],
+    "above_35_count": 31,
+    "above_35_sample_ids": [
+      "EXP17_TRAIN_SHORT_EXPLANATION_000",
+      "EXP17_TRAIN_SHORT_EXPLANATION_002",
+      "EXP17_TRAIN_SHORT_EXPLANATION_003",
+      "EXP17_TRAIN_SHORT_EXPLANATION_005",
+      "EXP17_TRAIN_SHORT_EXPLANATION_007",
+      "EXP17_TRAIN_SHORT_EXPLANATION_008",
+      "EXP17_TRAIN_SHORT_EXPLANATION_010",
+      "EXP17_TRAIN_SHORT_EXPLANATION_012",
+      "EXP17_TRAIN_SHORT_EXPLANATION_013",
+      "EXP17_TRAIN_SHORT_EXPLANATION_015"
+    ],
+    "outside_hard_3_45_count": 0
+  },
+  "schema_compliance": {},
+  "reproducibility": true,
+  "disjointness": {
+    "exact_prompt_overlap_train_val": 0,
+    "exact_prompt_overlap_train_test": 0,
+    "exact_prompt_overlap_val_test": 0
+  },
+  "semantic_limitations": {},
+  "verdict": "PASS"
+}

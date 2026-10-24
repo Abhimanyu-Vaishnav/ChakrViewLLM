@@ -1,0 +1,47 @@
+{
+  "experiment_name": "ChakrView Experiment 13: Native Human Conversation SFT & Self-Correction",
+  "experiment_id": "exp01_native_dialogue",
+  "timestamp": "2026-10-21T23:56:00+05:30",
+  "base_directory": "experiments/research_v09_conversation_sft/exp01_native_dialogue",
+  "canonical_artifacts_integrity": {
+    "canonical_checkpoint_step_10000": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "VERIFIED_BIT_IDENTICAL"
+    },
+    "tokenizer_vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "status": "VERIFIED_BIT_IDENTICAL"
+    },
+    "tokenizer_merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "status": "VERIFIED_BIT_IDENTICAL"
+    },
+    "protected_runtime_session": {
+      "path": "chakrview/runtime/session.py",
+      "sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "status": "VERIFIED_UNTOUCHED"
+    }
+  },
+  "candidate_checkpoint": {
+    "path": "experiments/research_v09_conversation_sft/exp01_native_dialogue/checkpoints/candidate_best.pt",
+    "step": 100,
+    "val_loss": 3.0233,
+    "drift_pct": 2.91
+  },
+  "dataset_manifest": {
+    "path": "experiments/research_v09_conversation_sft/exp01_native_dialogue/DATASET_MANIFEST.json",
+    "train_samples": 180,
+    "val_samples": 60,
+    "test_samples": 60,
+    "leakage_overlap": 0
+  },
+  "verification_suite": {
+    "test_file": "experiments/research_v09_conversation_sft/exp01_native_dialogue/test_conversation_experiment.py",
+    "passed": 5,
+    "failed": 0,
+    "exit_code": 0
+  }
+}

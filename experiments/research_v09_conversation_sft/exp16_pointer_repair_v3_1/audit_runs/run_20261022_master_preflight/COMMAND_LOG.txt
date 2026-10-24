@@ -1,0 +1,12 @@
+# ChakrView Exp16 v3.1 — Audit Command Log
+Execution Environment: Windows, Python 3.14.7 (.venv)
+Working Directory: D:\Project\ChakrView
+
+[2026-10-22 21:56:49] git status --short -> Exit Code 0 (Clean, 4 untracked project directories preserved)
+[2026-10-22 21:57:47] .venv\Scripts\python.exe (Calculate ChakrMicro fresh-init parameter hash) -> Exit Code 0 (Hash: c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da)
+[2026-10-22 21:59:12] python -c (Audit raw lines, duplicates, and split overlap of all 6 JSONLs) -> Exit Code 0 (0 duplicates, 0 overlap)
+[2026-10-22 21:59:22] python -c (Verify contract spans and candidate mask on 480 records) -> Exit Code 0 (480/480 valid, max len 211)
+[2026-10-22 21:59:38] python -c (Compute leakage baselines: in-sample vs held-out) -> Exit Code 0 (Train in-sample: 74.00%, Val generalization: 76.67%)
+[2026-10-22 21:59:59] .venv\Scripts\pytest.exe -v test_exp16_v3_1_contract.py -> Exit Code 0 (12 passed in 11.50s)
+[2026-10-22 22:06:58] .venv\Scripts\python.exe (Deterministic re-tokenization and span offset check across 480 records) -> Exit Code 0 (0 mismatches)
+[2026-10-22 22:09:15] python -c (Generate POST_AUDIT_HASHES.txt, INTEGRITY_REPORT.json, SEMANTIC_REVIEW_QUEUE.csv, PROPOSED_CORRECTIONS.jsonl) -> Exit Code 0

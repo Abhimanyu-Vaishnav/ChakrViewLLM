@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "report_version": "1.0.0",
+  "experiment_id": "exp17_instruction_sft_v1",
+  "timestamp_utc": "2026-10-22T23:25:00Z",
+  "overall_decision": "PASS_WITH_CONDITIONS",
+  "summary_counts": {
+    "checks_passed": 26,
+    "checks_conditional": 2,
+    "checks_failed": 0,
+    "checks_blocked": 0,
+    "checks_not_run": 2
+  },
+  "protected_artifact_verification": {
+    "architecture_parameter_fingerprint": {
+      "expected": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "actual": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "status": "PASS"
+    },
+    "canonical_checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "expected": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "PASS"
+    },
+    "tokenizer_vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "expected": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "status": "PASS"
+    },
+    "tokenizer_merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "expected": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "status": "PASS"
+    },
+    "protected_runtime_session": {
+      "path": "chakrview/runtime/session.py",
+      "expected": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "actual": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "status": "PASS"
+    },
+    "model_source": {
+      "path": "chakrview/brain/model.py",
+      "expected": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "actual": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "status": "PASS"
+    }
+  },
+  "verification_sections": {
+    "section_a_document_integrity": {
+      "status": "PASS",
+      "documents_verified": [
+        "EXPERIMENT_DESIGN.md",
+        "DATASET_SPEC.md",
+        "TRAINING_PROTOCOL.md",
+        "EVALUATION_PROTOCOL.md",
+        "PREFLIGHT_CHECKLIST.md",
+        "ARTIFACT_MANIFEST_TEMPLATE.json"
+      ],
+      "model_parameter_count": 3443136,
+      "architecture_invariants_frozen": true
+    },
+    "section_b_causal_loss_and_eos_alignment": {
+      "status": "PASS",
+      "prediction_shift_verified": true,
+      "prompt_loss_masking_verified": true,
+      "terminal_eos_supervision_verified": true,
+      "padding_exclusion_verified": true,
+      "tests_executed": [
+        "tests/test_batch143_146_instruction_regression.py",
+        "tests/test_batch59_62_learning_verification.py"
+      ],
+      "tests_passed_count": 10
+    },
+    "section_c_prompt_format_compatibility": {
+      "status": "PASS_WITH_CONDITIONS",
+      "condition": "Dataset generator must format plain_instruction without trailing space ('Response:') to match neural_runtime_adapter.py:25",
+      "token_parity_verified": true,
+      "bos_insertion_verified": "single_leading_bos",
+      "special_tokens_count": 3
+    },
+    "section_d_dataset_spec_and_leakage": {
+      "status": "PASS_WITH_CONDITIONS",
+      "condition": "Augment Levenshtein < 0.80 check with entity-pair disjointness against 20 Gate prompts",
+      "schema_defined": true,
+      "split_counts": { "train": 320, "val": 40, "test": 40, "total": 400 },
+      "categories_count": 8
+    },
+    "section_e_training_protocol_feasibility": {
+      "status": "PASS",
+      "base_checkpoint_exists": true,
+      "optimizer": "AdamW",
+      "learning_rate": 5e-05,
+      "steps": 400,
+      "estimated_runtime_seconds": 220,
+      "cpu_compatible": true
+    },
+    "section_f_evaluation_validity": {
+      "status": "PASS",
+      "reconciled_gate_denominator": 180,
+      "dual_track_framework_defined": true,
+      "repetition_heuristics_deterministic": true
+    },
+    "section_g_manifest_and_preflight": {
+      "status": "PASS",
+      "manifest_json_valid": true,
+      "four_gate_levels_separated": true
+    }
+  },
+  "issues_identified": [
+    {
+      "id": "ISS-01",
+      "severity": "MEDIUM",
+      "category": "Serialization",
+      "description": "Trailing space discrepancy between DATASET_SPEC.md (Response: ) and neural_runtime_adapter.py (Response:)",
+      "resolution": "Omit trailing space in dataset generator"
+    },
+    {
+      "id": "ISS-02",
+      "severity": "LOW",
+      "category": "Leakage",
+      "description": "Levenshtein < 0.80 should be augmented with entity-pair disjointness",
+      "resolution": "Implement entity-pair blacklist in dataset generator"
+    }
+  ],
+  "execution_state": {
+    "dataset_generated": false,
+    "training_executed": false,
+    "optimizer_steps": 0,
+    "git_tracked_modifications": 0
+  },
+  "next_recommended_gate": "LEVEL_2_DATASET_GENERATION_AUTHORIZATION"
+}
