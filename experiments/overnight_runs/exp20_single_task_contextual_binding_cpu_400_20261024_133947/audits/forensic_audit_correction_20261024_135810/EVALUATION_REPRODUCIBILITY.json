@@ -1,0 +1,287 @@
+{
+  "checkpoint_evaluated": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\checkpoints\\sft_best_checkpoint.pt",
+  "test_set_path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data\\exp20_test_frozen.jsonl",
+  "decoding_config": {
+    "strategy": "greedy",
+    "temperature": 0.0,
+    "seed": 42,
+    "max_new_tokens": 45
+  },
+  "reproduced_metrics": {
+    "total_records": 20,
+    "scorable_records": 20,
+    "correct_records": 0,
+    "exact_task_accuracy_pct": 0.0,
+    "eos_completions": 20,
+    "eos_rate_pct": 100.0,
+    "avg_tokens_generated": 25.3,
+    "avg_latency_ms": 284.44
+  },
+  "comparison_against_original_run": {
+    "bit_exact_output_matches": 20,
+    "total_compared": 20,
+    "reproduction_status": "PASS_BIT_EXACT"
+  },
+  "per_record": [
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0000",
+      "prompt": "In Orbital Expedition TEST-10, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "Chlight director.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 8,
+      "latency_ms": 62.08609999157488,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0001",
+      "prompt": "In Orbital Expedition TEST-11, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "Hanna Lin is assigned as the principal systems engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 19,
+      "latency_ms": 133.7121999822557,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0002",
+      "prompt": "In Orbital Expedition TEST-12, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "Handry Lindry is assigned as the lead flight director.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 271.1330999736674,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0003",
+      "prompt": "In Orbital Expedition TEST-13, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "Chloe Mancer is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 338.1999999983236,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0004",
+      "prompt": "In Orbital Expedition TEST-14, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "Lindry Sato is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 336.1482000327669,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0005",
+      "prompt": "In Orbital Expedition TEST-15, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "Carlos Silva is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 359.2128999880515,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0006",
+      "prompt": "In Orbital Expedition TEST-16, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "Lindry Sato is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 346.7415999621153,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0007",
+      "prompt": "In Orbital Expedition TEST-17, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "Chloe Benedance is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 302.6181000168435,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0008",
+      "prompt": "In Orbital Expedition TEST-18, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "Caleb Landry is assigned as the thermal protection engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 309.6873000031337,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0009",
+      "prompt": "In Orbital Expedition TEST-19, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "Handry Lindren is assigned as the thermal protection engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 294.03869999805465,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0010",
+      "prompt": "In Orbital Expedition TEST-20, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "Carlo Gemma is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 271.7735000187531,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0011",
+      "prompt": "In Orbital Expedition TEST-21, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "Handry Sato is assigned as the thermal systems engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 204.09370004199445,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0012",
+      "prompt": "In Orbital Expedition TEST-22, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "Handry Lindry is assigned as the lead flight director.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 271.1422999855131,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0013",
+      "prompt": "In Orbital Expedition TEST-23, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "Chloe Mancer is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 280.66330001456663,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0014",
+      "prompt": "In Orbital Expedition TEST-24, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "Lin is assigned as the thermal protection engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 18,
+      "latency_ms": 167.3840000294149,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0015",
+      "prompt": "In Orbital Expedition TEST-25, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "Handry Lindry is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 30,
+      "latency_ms": 341.1686000181362,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0016",
+      "prompt": "In Orbital Expedition TEST-26, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "Caleb Landry is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 29,
+      "latency_ms": 474.14810000918806,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0017",
+      "prompt": "In Orbital Expedition TEST-27, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "Chloe Sato is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 27,
+      "latency_ms": 274.6824999921955,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0018",
+      "prompt": "In Orbital Expedition TEST-28, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "Henrik Lindgry is assigned as the senior avionics officer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 30,
+      "latency_ms": 357.85349999787286,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0019",
+      "prompt": "In Orbital Expedition TEST-29, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "Handry Lindren is assigned as the thermal protection engineer.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 292.26010001730174,
+      "outcome": "INCORRECT",
+      "reason_codes": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    }
+  ]
+}

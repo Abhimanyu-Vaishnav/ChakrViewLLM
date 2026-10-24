@@ -1,0 +1,102 @@
+{
+  "test_suite": "Exp18 Scaled Dataset Generator & Candidate Banks Verification",
+  "execution_timestamp": "2026-10-23T23:10:23+05:30",
+  "python_interpreter": "d:\\Project\\ChakrView\\.venv\\Scripts\\python.exe",
+  "command": "d:\\Project\\ChakrView\\.venv\\Scripts\\python.exe -m unittest -v experiments/research_v09_conversation_sft/exp18_scaled_instruction_format_v1/tests/test_exp18_generator.py",
+  "exit_code": 0,
+  "execution_time_seconds": 16.298,
+  "summary": {
+    "total_tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_log_path": "C:\\Users\\abhim\\.gemini\\antigravity-ide\\brain\\29e4becc-76b3-4b17-8ec4-cba36bee751c\\.system_generated\\tasks\\task-1414.log",
+  "test_results": [
+    {
+      "test_name": "test_abstention_consistency_and_ratio",
+      "status": "PASS",
+      "description": "Verify uncertainty abstention maintains exact 3:1 unanswerable-to-control ratio and evaluates cleanly."
+    },
+    {
+      "test_name": "test_arithmetic_oracle_correctness",
+      "status": "PASS",
+      "description": "Verify 100% of arithmetic examples are mathematically accurate and scorable via TaskEvaluator."
+    },
+    {
+      "test_name": "test_context_extraction_grounding_and_evaluation",
+      "status": "PASS",
+      "description": "Verify context extraction targets exist in context and evaluate CORRECT."
+    },
+    {
+      "test_name": "test_cross_split_ngram_leakage",
+      "status": "PASS",
+      "description": "Verify that distinctive entity and numerical content does not leak between Train and Test."
+    },
+    {
+      "test_name": "test_cross_split_prompt_disjointness",
+      "status": "PASS",
+      "description": "Verify 0% prompt text overlap across Train, Val, and Test."
+    },
+    {
+      "test_name": "test_deterministic_regeneration",
+      "status": "PASS",
+      "description": "Verify independent generator runs with same seeds produce bitwise identical records."
+    },
+    {
+      "test_name": "test_gate_v01_non_contamination",
+      "status": "PASS",
+      "description": "Verify zero Gate v0.1 forbidden entity hits and similarity < 0.70 across all records."
+    },
+    {
+      "test_name": "test_id_uniqueness_and_canonical_schema",
+      "status": "PASS",
+      "description": "Verify ID uniqueness and schema conformity across all 1520 records."
+    },
+    {
+      "test_name": "test_per_category_balance",
+      "status": "PASS",
+      "description": "Verify exactly 150 items per category in Train, 20 in Val, 20 in Test."
+    },
+    {
+      "test_name": "test_reference_resolution_grounding_and_evaluation",
+      "status": "PASS",
+      "description": "Verify reference resolution antecedents match context and evaluate CORRECT."
+    },
+    {
+      "test_name": "test_short_explanation_held_out_policy",
+      "status": "PASS",
+      "description": "Verify short explanations are held out as NEEDS_REVIEW / NOT_APPLICABLE in TaskEvaluator."
+    },
+    {
+      "test_name": "test_split_quotas_and_record_counts",
+      "status": "PASS",
+      "description": "Verify exact record counts: 1200 Train, 160 Val, 160 Test (Total: 1520)."
+    },
+    {
+      "test_name": "test_structured_formatting_json_validity",
+      "status": "PASS",
+      "description": "Verify 100% of structured formatting responses parse into valid RFC 8259 JSON and evaluate CORRECT."
+    },
+    {
+      "test_name": "test_token_bounds_and_target_distribution",
+      "status": "PASS",
+      "description": "Verify 100% of responses fall within [3, 45] tokens and >=90% in [5, 35]."
+    },
+    {
+      "test_name": "test_tokenizer_and_prompt_formatting_parity",
+      "status": "PASS",
+      "description": "Verify exact token-level serialization parity with format_conditioned_prompt."
+    }
+  ],
+  "auxiliary_suites": [
+    {
+      "suite_name": "Core TaskEvaluator Unit Suite",
+      "command": "d:\\Project\\ChakrView\\.venv\\Scripts\\python.exe -m unittest tests/test_task_evaluator.py",
+      "exit_code": 0,
+      "total_tests": 16,
+      "passed": 16
+    }
+  ]
+}

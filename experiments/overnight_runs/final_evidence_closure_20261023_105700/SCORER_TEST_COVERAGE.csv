@@ -1,0 +1,20 @@
+task_category,scoring_behavior,supporting_test_name,actual_test_result,coverage_status
+basic_arithmetic,Correct addition computation and exact match,test_arithmetic_correct_addition,PASS (res.outcome == CORRECT),VERIFIED
+basic_arithmetic,Incorrect addition result rejection,test_arithmetic_incorrect_addition,PASS (res.outcome == INCORRECT),VERIFIED
+basic_arithmetic,Multiplication computation and match,test_arithmetic_multiplication,PASS (res.outcome == CORRECT),VERIFIED
+basic_arithmetic,Negative integer result handling,test_arithmetic_negative_result,"PASS (res.outcome == CORRECT, target -15)",VERIFIED
+basic_arithmetic,Numeric substring false positive prevention (12 in 112),test_arithmetic_substring_false_positive_prevention,PASS (res.outcome == INCORRECT),VERIFIED
+basic_arithmetic,Division operation handling,test_arithmetic_division,None (Scorer implements //; no dedicated test method),NOT_TESTED
+structured_formatting,Valid RFC 8259 JSON and schema match,test_json_valid_and_schema_correct,"PASS (res.outcome == CORRECT, format_valid == True)",VERIFIED
+structured_formatting,Malformed JSON syntax rejection,test_json_malformed_syntax,"PASS (res.outcome == INCORRECT, JSON_SYNTAX_INVALID)",VERIFIED
+structured_formatting,Empty string completion rejection,test_json_empty_output,"PASS (res.outcome == INCORRECT, is_empty == True)",VERIFIED
+structured_formatting,Docstring and Python syntax fragment rejection,test_json_docstring_fragment_rejected,"PASS (res.outcome == INCORRECT, format_valid == False)",VERIFIED
+uncertainty_abstention,Appropriate refusal on unanswerable prompt,test_abstention_appropriate_on_unanswerable,"PASS (res.outcome == CORRECT, APPROPRIATE_ABSTENTION)",VERIFIED
+uncertainty_abstention,Rejection of hallucinated answer on unanswerable,test_abstention_unsupported_answer_on_unanswerable,"PASS (res.outcome == INCORRECT, UNSUPPORTED_ANSWER_REFUSAL_EXPECTED)",VERIFIED
+uncertainty_abstention,Answerable controls with distinct targets (15 tons),test_abstention_control_different_targets,PASS (res.outcome == CORRECT; refusal rejected),VERIFIED
+context_extraction,Grounded focal entity extraction,test_context_extraction_correct,"PASS (res.outcome == CORRECT, TARGET_ENTITY_EXTRACTED)",VERIFIED
+reference_resolution,Antecedent resolution from context,test_reference_resolution_correct,"PASS (res.outcome == CORRECT, ANTECEDENT_RESOLVED)",VERIFIED
+instruction_following,Exact transformation and constraint verification,test_instruction_following,None (Implementation exists in scorer; exercised in test split rescoring),NOT_TESTED
+factual_qa,Focal entity matching across domain entities,test_factual_qa,None (Implementation exists in scorer; exercised in test split rescoring),NOT_TESTED
+short_explanation,Honest NEEDS_REVIEW assignment without fabricating score,test_short_explanation_requires_review,"PASS (res.scoring_status == NEEDS_REVIEW, outcome == NOT_APPLICABLE)",VERIFIED
+unknown_domain,Unknown category marked UNSCORED,test_unknown_category_unscored,PASS (res.scoring_status == UNSCORED),VERIFIED

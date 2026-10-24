@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-10-24T12:57:00",
+  "experiment_id": "exp19_debiased_sft_cpu_600",
+  "all_preflight_checks_passed": true,
+  "checks": {
+    "canonical_checkpoint_integrity": {
+      "status": "PASS",
+      "source_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "isolated_copy": "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/checkpoints/training_checkpoint_start.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_source_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_copy_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    "other_protected_assets": {
+      "status": "PASS",
+      "canonical_architecture_baseline": "MATCH",
+      "tokenizer_vocab_json": "MATCH",
+      "tokenizer_merges_json": "MATCH",
+      "runtime_session_adapter": "MATCH",
+      "model_brain_source": "MATCH",
+      "exp17_train_split": "MATCH",
+      "exp17_val_split": "MATCH",
+      "exp17_test_split": "MATCH"
+    },
+    "dataset_diversification_and_isolation": {
+      "status": "PASS",
+      "train_records": 1200,
+      "val_records": 160,
+      "test_records": 160,
+      "validation_split_untouched": true,
+      "test_split_untouched": true,
+      "test_manifest_content_match": true,
+      "max_category_concentration": "24.67% (instruction_following / uncertainty_abstention) <= 25.00%",
+      "reference_resolution_concentration": "20.00% <= 25.00%",
+      "basic_arithmetic_concentration": "6.67% <= 25.00%",
+      "isolated_train_file_sha256": "f0479f0ee95d4656f956b22dd38321ccf43ca822aeae999d90f512f0ed476e2b"
+    },
+    "evaluation_protocol_frozen": {
+      "status": "PASS",
+      "test_manifest": "experiments/overnight_runs/preflight_exp18_20261024_114600/TEST_SPLIT_MANIFEST.json",
+      "manifest_content_sha256": "111db453d5ee52d436ef9a49f1ad6555ea572d118f84099ea0763e7f299ba047",
+      "evaluator": "chakrview/evaluation/task_evaluator.py (v0.1 with article & boundary fixes)"
+    }
+  }
+}

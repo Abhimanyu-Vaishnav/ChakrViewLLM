@@ -1,0 +1,19 @@
+{
+  "experiment_id": "exp20_single_task_contextual_binding_cpu_400",
+  "task_family": "context_extraction",
+  "steps": 400,
+  "batch_size": 2,
+  "max_seq_len": 512,
+  "learning_rate": 5e-05,
+  "min_learning_rate": 5e-06,
+  "weight_decay": 0.01,
+  "grad_clip": 1.0,
+  "val_interval": 20,
+  "save_interval": 20,
+  "seed": 42,
+  "device": "cpu",
+  "base_checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\checkpoints\\training_checkpoint_start.pt",
+  "train_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data\\exp20_train_context_extraction.jsonl",
+  "val_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data\\exp20_val_context_extraction.jsonl",
+  "test_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data\\exp20_test_frozen.jsonl"
+}

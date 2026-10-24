@@ -1,0 +1,92 @@
+{
+  "experiment_id": "exp19_debiased_sft_cpu_600",
+  "experiment_dir": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700",
+  "created_at": "2026-10-24T12:57:00",
+  "completed_at": "2026-10-24T13:02:00",
+  "git_commit": "f30136a5dc02934180a503fdf0a4c287469bf106",
+  "hardware": {
+    "device": "cpu",
+    "torch_version": "2.10.0+cpu",
+    "python_version": "3.10.11"
+  },
+  "source_checkpoint": {
+    "path": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+  },
+  "isolated_start_checkpoint": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\checkpoints\\training_checkpoint_start.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+  },
+  "training_dataset": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_train_debiased_isolated.jsonl",
+    "record_count": 1200,
+    "sha256": "f0479f0ee95d4656f956b22dd38321ccf43ca822aeae999d90f512f0ed476e2b",
+    "diversified": true,
+    "max_opening_concentration_pct": 24.67
+  },
+  "validation_dataset": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_val_isolated.jsonl",
+    "record_count": 160,
+    "sha256": "1cd80c6034d96f2687dbcd715f04bae07d78cf405c91b5bc72a273698d4cdce0",
+    "diversified": false
+  },
+  "test_dataset": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_test_frozen_isolated.jsonl",
+    "record_count": 160,
+    "sha256": "a3cc3c92cb9d4b59c983333abc941e68815af9fb30867c7c68bcb5951395bb68",
+    "manifest_content_sha256": "111db453d5ee52d436ef9a49f1ad6555ea572d118f84099ea0763e7f299ba047"
+  },
+  "training_hyperparameters": {
+    "steps": 600,
+    "batch_size": 2,
+    "max_seq_len": 512,
+    "lr_init": 5e-5,
+    "lr_min": 5e-6,
+    "lr_schedule": "cosine",
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "val_interval": 20,
+    "save_interval": 20,
+    "best_selection_metric": "validation_loss"
+  },
+  "training_outcomes": {
+    "steps_completed": 600,
+    "wall_clock_seconds": 47.24,
+    "initial_val_loss": 4.5025,
+    "final_val_loss": 3.3124,
+    "best_val_loss": 2.8786,
+    "best_step": 340,
+    "best_checkpoint_path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\checkpoints\\sft_best_checkpoint.pt"
+  },
+  "evaluation_outcomes": {
+    "checkpoint_evaluated": "sft_best_checkpoint.pt (step 340)",
+    "decoding": {
+      "strategy": "greedy",
+      "temperature": 0.0,
+      "max_new_tokens": 45,
+      "seed": 42
+    },
+    "scorable_records": 140,
+    "correct_records": 0,
+    "scorable_accuracy_pct": 0.0,
+    "eos_completed": 87,
+    "eos_rate_pct": 54.37,
+    "structured_json_validity_pct": 0.0,
+    "max_opening_prefix": "The difference",
+    "max_opening_prefix_pct": 38.12
+  },
+  "regression_tests": {
+    "command": "python -m unittest discover tests -p test_*.py",
+    "total": 126,
+    "passed": 126,
+    "failed": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "integrity_status": {
+    "all_protected_hashes_match": true,
+    "canonical_checkpoint_unmodified": true
+  },
+  "verdict": "COMPLETED_MIXED"
+}

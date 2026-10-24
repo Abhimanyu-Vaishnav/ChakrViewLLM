@@ -1,0 +1,30 @@
+{
+  "steps_completed": 400,
+  "total_history_entries": 239,
+  "checkpoint_best_step": 240,
+  "checkpoint_best_val_loss": 1.7447,
+  "checkpoint_sft_step": 240,
+  "log_min_val_loss": 1.7952,
+  "final_val_loss": 2.026,
+  "architecture_reconciliation": {
+    "reported_in_exp20_comparison_text": "384 embedding dim (erroneous prose reference)",
+    "actual_instantiated_model_config": {
+      "vocab_size": 4096,
+      "d_model": 192,
+      "n_layers": 6,
+      "n_heads": 6,
+      "hidden_dim": 512,
+      "max_seq_len": 512,
+      "total_parameters": 3443136
+    },
+    "state_dict_embedding_weight_shape": [
+      4096,
+      192
+    ],
+    "state_dict_q_proj_weight_shape": [
+      192,
+      192
+    ],
+    "reconciliation_verdict": "CONFIRMED: ChakrMicro canonical architecture was strictly used with d_model=192 and exactly 3,443,136 parameters. The mention of 384 in the prose was a typographical misstatement and did NOT reflect a model architecture modification."
+  }
+}

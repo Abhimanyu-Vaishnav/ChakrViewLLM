@@ -1,0 +1,26 @@
+{
+  "audit_session": "forensic_audit_correction_20261024_135810",
+  "target_experiment": "exp20_single_task_contextual_binding_cpu_400_20261024_133947",
+  "created_at": "2026-10-24T13:58:10",
+  "completed_at": "2026-10-24T14:00:30",
+  "git_commit": "f30136a5dc02934180a503fdf0a4c287469bf106",
+  "hardware": {
+    "device": "cpu",
+    "python_version": "3.10.11",
+    "torch_version": "2.10.0+cpu"
+  },
+  "verdict": "AUDIT_VERIFIED",
+  "verdict_rationale": "All 14 cryptographic hashes match their authentic ground-truth references. The on-disk best checkpoint (8d4ecf9e...) matches the original RUN_MANIFEST.json bitwise. The spurious hash (8746c107...) in the prior audit was an ungrounded string typo that does not correspond to any checkpoint file in the repository. Data separation is 100% leak-free, test parity with Exp19 is bit-exact (20/20), and evaluation was reproduced bit-for-bit (0/20 accuracy, 100% EOS).",
+  "discrepancy_resolution": {
+    "issue": "Disputed checkpoint SHA-256 in previous audit",
+    "actual_on_disk_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c",
+    "run_manifest_recorded_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c",
+    "spurious_disputed_hash": "8746c107be66723223be53805988f4b50a3240e9d6d34bbf3358043534d7088b",
+    "resolution": "The on-disk checkpoint matches the original RUN_MANIFEST.json perfectly. The spurious hash 8746c107... never existed as an artifact. The manual substitution in the previous audit was an ad-hoc fix to correct the author typo, which has now been transparently reconciled without any file modification."
+  },
+  "audited_artifacts": {
+    "HASH_VERIFICATION.json": "461533142d05ec6b84fc4d487418e2718fde41896d8e1d58c668f713b655ba42",
+    "DATASET_SEPARATION.json": "397e1351c6f6e53124009a65e730a52ce41f9c633976a7251284bb67eebe3bb7",
+    "EVALUATION_REPRODUCIBILITY.json": "c579d9aa2bcc14030718775aacd261ca77b1e669f62747393df91c6d71d1b194"
+  }
+}

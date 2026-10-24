@@ -1,0 +1,225 @@
+{
+  "timestamp": "2026-10-23T23:41:19.314833",
+  "checkpoint": "step_10000",
+  "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "total_test_records": 160,
+  "total_scorable_records": 140,
+  "total_correct": 3,
+  "scorable_task_accuracy": 2.14,
+  "total_eos_completions": 0,
+  "eos_completion_rate": 0.0,
+  "structured_formatting_json_validity_pct": 0.0,
+  "avg_latency_ms": 296.91,
+  "total_tokens_generated": 7200,
+  "category_metrics": {
+    "factual_qa": {
+      "total": 20,
+      "INCORRECT": 17,
+      "scorable": 20,
+      "valid_json": 20,
+      "CORRECT": 3
+    },
+    "instruction_following": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20
+    },
+    "context_extraction": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 2
+    },
+    "reference_resolution": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20
+    },
+    "short_explanation": {
+      "total": 20,
+      "NOT_APPLICABLE": 20,
+      "needs_review": 20,
+      "valid_json": 20
+    },
+    "basic_arithmetic": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 5
+    },
+    "uncertainty_abstention": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 14
+    },
+    "structured_formatting": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20
+    }
+  },
+  "records_sample": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 200.5242999875918,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows to be the city of the show of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 218.901200016262,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 251.43380000372417,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 214.6554000210017,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the shows have the total of the show of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 225.21899998537265,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 192.16350000351667,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 212.74309998261742,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the shows so the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 194.20110000646673,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 201.49530001799576,
+      "outcome": "CORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 201.88219999545254,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "test_execution_timestamp": "2026-10-23T11:35:30Z",
+  "total_suites_executed": 3,
+  "total_tests_executed": 147,
+  "total_failures": 0,
+  "total_errors": 0,
+  "total_skips": 0,
+  "all_suites_passed": true,
+  "suites": {
+    "task_evaluator_v01_unit_tests": {
+      "command": ".venv/Scripts/python.exe -m unittest tests/test_task_evaluator.py -v",
+      "working_directory": "d:\\Project\\ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 16,
+      "test_runner_duration_seconds": 0.003,
+      "wall_clock_duration_seconds": 5.474,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_file": "raw_task_evaluator_unittest.txt",
+      "status": "PASS"
+    },
+    "exp17_dedicated_tests": {
+      "command": ".venv/Scripts/python.exe -m unittest discover -s experiments/research_v09_conversation_sft/exp17_instruction_sft_v1 -p test_*.py",
+      "working_directory": "d:\\Project\\ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 9,
+      "test_runner_duration_seconds": 27.529,
+      "wall_clock_duration_seconds": 32.2123,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_file": "raw_exp17_tests_unittest.txt",
+      "status": "PASS"
+    },
+    "core_regression_tests": {
+      "command": ".venv/Scripts/python.exe -m unittest discover -s tests -p test_*.py",
+      "working_directory": "d:\\Project\\ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 122,
+      "test_runner_duration_seconds": 111.25,
+      "wall_clock_duration_seconds": 121.9657,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_file": "raw_core_regression_unittest.txt",
+      "status": "PASS"
+    }
+  },
+  "overall_verdict": "PREFLIGHT_PASS"
+}

@@ -1,0 +1,237 @@
+{
+  "timestamp": "2026-10-23T23:44:04.702162",
+  "evaluation_protocol": "Frozen 160-item Exp18 held-out test split, greedy decoding, max_new_tokens=45",
+  "baseline": {
+    "checkpoint": "step_10000",
+    "scorable_task_accuracy": 2.14,
+    "correct_scorable_count": "3/140",
+    "eos_completion_rate": 0.0,
+    "structured_formatting_json_validity_pct": 0.0,
+    "avg_latency_ms": 296.91
+  },
+  "sft_experiment": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\mission_v08_overnight_20261023_232924\\checkpoints\\sft_exp18_run\\sft_best_checkpoint.pt",
+    "scorable_task_accuracy": 1.43,
+    "correct_scorable_count": "2/140",
+    "eos_completion_rate": 8.75,
+    "structured_formatting_json_validity_pct": 0.0,
+    "avg_latency_ms": 351.27
+  },
+  "delta": {
+    "scorable_task_accuracy_delta": -0.71,
+    "eos_completion_rate_delta": 8.75,
+    "structured_formatting_json_validity_delta": 0.0
+  },
+  "category_breakdown": {
+    "factual_qa": {
+      "baseline_correct": 3,
+      "sft_correct": 2,
+      "total": 20,
+      "sft_eos": 0
+    },
+    "instruction_following": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 2
+    },
+    "context_extraction": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 2
+    },
+    "reference_resolution": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 6
+    },
+    "short_explanation": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 0
+    },
+    "basic_arithmetic": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 0
+    },
+    "uncertainty_abstention": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 4
+    },
+    "structured_formatting": {
+      "baseline_correct": 0,
+      "sft_correct": 0,
+      "total": 20,
+      "sft_eos": 0
+    }
+  },
+  "records_sample": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 309.77309998706914,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 219.3797999934759,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the total number of the total of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 337.6336000219453,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 236.17139999987558,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the surface of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 270.6455000152346,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 335.5833000096027,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 306.6487000032794,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 243.66020000888966,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 306.734099984169,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total number of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 326.58799999626353,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    }
+  ]
+}

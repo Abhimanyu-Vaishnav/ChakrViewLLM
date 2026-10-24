@@ -1,0 +1,67 @@
+{
+  "total_records": 400,
+  "splits": {
+    "train": {
+      "count": 320,
+      "expected_count": 320,
+      "unique_ids": 320,
+      "categories": {
+        "factual_qa": 40,
+        "instruction_following": 40,
+        "context_extraction": 40,
+        "reference_resolution": 40,
+        "short_explanation": 40,
+        "basic_arithmetic": 40,
+        "uncertainty_abstention": 40,
+        "structured_formatting": 40
+      },
+      "min_response_tokens": 5,
+      "max_response_tokens": 37,
+      "mean_response_tokens": 20.65,
+      "tokens_in_target_5_35": 319
+    },
+    "val": {
+      "count": 40,
+      "expected_count": 40,
+      "unique_ids": 40,
+      "categories": {
+        "factual_qa": 5,
+        "instruction_following": 5,
+        "context_extraction": 5,
+        "reference_resolution": 5,
+        "short_explanation": 5,
+        "basic_arithmetic": 5,
+        "uncertainty_abstention": 5,
+        "structured_formatting": 5
+      },
+      "min_response_tokens": 4,
+      "max_response_tokens": 33,
+      "mean_response_tokens": 20.45,
+      "tokens_in_target_5_35": 39
+    },
+    "test": {
+      "count": 40,
+      "expected_count": 40,
+      "unique_ids": 40,
+      "categories": {
+        "factual_qa": 5,
+        "instruction_following": 5,
+        "context_extraction": 5,
+        "reference_resolution": 5,
+        "short_explanation": 5,
+        "basic_arithmetic": 5,
+        "uncertainty_abstention": 5,
+        "structured_formatting": 5
+      },
+      "min_response_tokens": 4,
+      "max_response_tokens": 35,
+      "mean_response_tokens": 20.95,
+      "tokens_in_target_5_35": 39
+    }
+  },
+  "cross_split_leakage": {
+    "exact_prompt_matches": [],
+    "exact_response_matches": []
+  },
+  "errors": []
+}

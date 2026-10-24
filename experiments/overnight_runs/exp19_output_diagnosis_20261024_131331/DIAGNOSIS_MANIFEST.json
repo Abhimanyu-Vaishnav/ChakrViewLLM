@@ -1,0 +1,40 @@
+{
+  "diagnosis_id": "exp19_output_diagnosis_20261024_131331",
+  "target_experiment": "exp19_debiased_sft_cpu_600_20261024_125700",
+  "created_at": "2026-10-24T13:13:31",
+  "completed_at": "2026-10-24T13:19:00",
+  "git_commit": "f30136a5dc02934180a503fdf0a4c287469bf106",
+  "verdict": "DIAGNOSIS_COMPLETE_NEXT_TEST_DEFINED",
+  "protected_assets_verified": true,
+  "canonical_checkpoint_unmodified": true,
+  "artifacts_produced": [
+    "DIAGNOSIS_MANIFEST.json",
+    "ARTIFACT_INVENTORY.json",
+    "PROTECTED_HASH_AUDIT.json",
+    "PER_RECORD_FAILURE_AUDIT.jsonl",
+    "CATEGORY_FAILURE_SUMMARY.json",
+    "OUTPUT_PATTERN_ANALYSIS.json",
+    "DATASET_DISTRIBUTION_AUDIT.json",
+    "TRAINING_EVALUATION_CONTRACT_AUDIT.md",
+    "CHECKPOINT_DYNAMICS_AUDIT.md",
+    "ROOT_CAUSE_HYPOTHESES.md",
+    "NEXT_EXPERIMENT_PROPOSAL.md",
+    "FINAL_DIAGNOSIS_REPORT.md",
+    "BEST_VS_FINAL_CHECKPOINT_DIAGNOSTIC.json",
+    "BEST_VS_FINAL_PER_RECORD.jsonl"
+  ],
+  "key_findings": {
+    "total_test_records_audited": 160,
+    "scorable_records": 140,
+    "evaluator_false_rejection_count": 0,
+    "import_doctest_count": 0,
+    "dominant_code_attractor": "{\"style={\"style=\"} and {\"stack_paths_200\"} (31 records)",
+    "repetitive_ngram_records": 64,
+    "best_checkpoint_step": 340,
+    "best_validation_loss": 2.8786,
+    "final_step_600_validation_loss": 3.3124,
+    "overfitting_demonstrated": true,
+    "leading_hypothesis": "Task interference across 8 disparate categories diluting 3.44M model capacity (H1)"
+  },
+  "recommended_next_experiment": "exp20_single_task_contextual_binding_cpu_400"
+}

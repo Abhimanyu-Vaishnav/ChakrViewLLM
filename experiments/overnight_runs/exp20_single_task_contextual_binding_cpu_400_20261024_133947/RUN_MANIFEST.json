@@ -1,0 +1,50 @@
+{
+  "experiment_id": "exp20_single_task_contextual_binding_cpu_400",
+  "experiment_dir": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947",
+  "created_at": "2026-10-24T13:39:47",
+  "completed_at": "2026-10-24T13:45:00",
+  "git_commit": "f30136a5dc02934180a503fdf0a4c287469bf106",
+  "hardware": {
+    "device": "cpu",
+    "torch_version": "2.10.0+cpu",
+    "python_version": "3.10.11"
+  },
+  "starting_checkpoint": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\checkpoints\\training_checkpoint_start.pt",
+    "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+  },
+  "training": {
+    "steps_configured": 400,
+    "steps_completed": 400,
+    "batch_size": 2,
+    "learning_rate_schedule": "cosine (5e-5 to 5e-6)",
+    "best_val_step": 240,
+    "best_val_loss": 1.7447,
+    "final_val_loss": 2.3087,
+    "best_checkpoint_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c"
+  },
+  "dataset": {
+    "task_family": "context_extraction",
+    "train_records": 400,
+    "train_sha256": "9b8a66d98396be214e0ed90d324bffd12eb51e1fdd5870f537e87ec98679355f",
+    "val_records": 50,
+    "val_sha256": "dc927f9a1c43feafa2aaf36cf873a3677a292c736424698ccf60be8eeea28aca",
+    "test_records": 20,
+    "test_sha256": "497eb8f19dd4f8f6d16d49f976b3100fce2a511058f580c8f5ba4cc10f39f110"
+  },
+  "results": {
+    "baseline_accuracy_pct": 0.0,
+    "exp20_accuracy_pct": 0.0,
+    "baseline_eos_pct": 0.0,
+    "exp20_eos_pct": 100.0,
+    "primary_hypothesis_result": "REJECTED (Null hypothesis H0 supported)",
+    "verdict": "COMPLETED_NO_IMPROVEMENT"
+  },
+  "regression_tests": {
+    "total": 126,
+    "passed": 126,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "protected_assets_verified": true
+}

@@ -1,0 +1,56 @@
+{
+  "suite_name": "TaskEvaluator Unit and Regression Suite",
+  "timestamp": "2026-10-23T10:02:25Z",
+  "evaluator_unit_tests": {
+    "test_module": "tests/test_task_evaluator.py",
+    "tests_run": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "PASS",
+    "duration_seconds": 0.006,
+    "test_cases": [
+      "test_basic_arithmetic_correct",
+      "test_basic_arithmetic_incorrect",
+      "test_basic_arithmetic_negative",
+      "test_basic_arithmetic_division_non_integer",
+      "test_basic_arithmetic_numeric_substring_false_positive",
+      "test_structured_formatting_valid_json",
+      "test_structured_formatting_malformed_json",
+      "test_structured_formatting_empty_string",
+      "test_structured_formatting_docstring_rejection",
+      "test_context_extraction_grounded_vs_hallucinated",
+      "test_reference_resolution_antecedent",
+      "test_reference_resolution_ambiguous",
+      "test_uncertainty_abstention_unanswerable_refusal",
+      "test_uncertainty_abstention_answerable_control_distinct_targets",
+      "test_instruction_following_transformation",
+      "test_short_explanation_needs_review"
+    ]
+  },
+  "core_regression_tests": {
+    "test_directory": "tests/",
+    "tests_run": 122,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "PASS",
+    "duration_seconds": 118.29
+  },
+  "exp17_dedicated_tests": {
+    "test_directory": "experiments/research_v09_conversation_sft/exp17_instruction_sft_v1/",
+    "tests_run": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "PASS",
+    "duration_seconds": 27.413
+  },
+  "summary": {
+    "total_tests_executed": 147,
+    "total_passed": 147,
+    "total_failed": 0,
+    "total_errors": 0,
+    "regression_status": "ZERO_REGRESSIONS"
+  }
+}

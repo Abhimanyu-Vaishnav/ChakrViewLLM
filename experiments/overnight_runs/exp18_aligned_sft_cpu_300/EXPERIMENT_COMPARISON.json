@@ -1,0 +1,255 @@
+{
+  "timestamp": "2026-10-24T11:58:10.384165",
+  "experiment_id": "exp18_aligned_sft_cpu_300",
+  "training": {
+    "steps": 300,
+    "initial_val_loss": 4.7481,
+    "final_train_loss": 3.6051,
+    "final_val_loss": 2.9967,
+    "best_val_loss": 2.8339,
+    "best_val_step": 240,
+    "elapsed_seconds": 18.02
+  },
+  "baseline": {
+    "checkpoint": "experiments\\overnight_runs\\preflight_exp18_20261024_114600\\checkpoints\\canonical_copy_step_10000.pt",
+    "scorable_task_accuracy": 0.0,
+    "correct_scorable_count": "0/140",
+    "eos_completion_rate": 0.62,
+    "structured_formatting_json_validity_pct": 0.0,
+    "avg_latency_ms": 359.29
+  },
+  "sft_experiment": {
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp18_aligned_sft_cpu_300\\checkpoints\\sft_best_checkpoint.pt",
+    "scorable_task_accuracy": 0.71,
+    "correct_scorable_count": "1/140",
+    "eos_completion_rate": 45.0,
+    "structured_formatting_json_validity_pct": 0.0,
+    "avg_latency_ms": 332.24
+  },
+  "delta": {
+    "scorable_task_accuracy_delta": 0.71,
+    "eos_completion_rate_delta": 44.38,
+    "structured_formatting_json_validity_delta": 0.0,
+    "avg_latency_delta_ms": -27.05
+  },
+  "category_metrics": {
+    "factual_qa": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 4
+    },
+    "instruction_following": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 17,
+      "valid_json": 20
+    },
+    "context_extraction": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 11,
+      "valid_json": 20
+    },
+    "reference_resolution": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 5
+    },
+    "short_explanation": {
+      "total": 20,
+      "NOT_APPLICABLE": 20,
+      "needs_review": 20,
+      "valid_json": 20,
+      "eos_completed": 3
+    },
+    "basic_arithmetic": {
+      "total": 20,
+      "INCORRECT": 19,
+      "scorable": 20,
+      "eos_completed": 10,
+      "valid_json": 10,
+      "CORRECT": 1
+    },
+    "uncertainty_abstention": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 2
+    },
+    "structured_formatting": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 20
+    }
+  },
+  "sample_records": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "The difference of the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 319.78950000484474,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 188.27429998782463,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "The difference of the difference receipt of the difference received by the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 376.97700000717305,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 162.70210000220686,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "The difference received the city of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 31,
+      "latency_ms": 265.49570000497624,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "The difference of the planets is the first factors is the difference of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 341.41260001342744,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "The difference of the difference receipt of the difference receipt of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 442.2006999957375,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "The difference of the difference of the difference of the difference received by the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 377.2560999786947,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 378.3402999979444,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 336.98310001636855,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    }
+  ]
+}

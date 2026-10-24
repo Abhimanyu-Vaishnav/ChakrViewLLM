@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-24T10:44:00+05:30",
+  "audit_scope": "Independent in-memory regeneration of 1,520 Exp18 records",
+  "splits": {
+    "train": 1200,
+    "val": 160,
+    "test": 160
+  },
+  "exact_prompt_cross_split_leaks": 0,
+  "exact_prompt_leakage_verdict": "ZERO_LEAKAGE (100% split isolation for prompts)",
+  "shared_response_strings_count": 15,
+  "shared_response_details": [
+    {
+      "category": "uncertainty_abstention",
+      "nature": "Standardized domain refusal boilerplate for unanswerable queries",
+      "examples": [
+        "The flight log does not state the total fuel consumption.",
+        "The power station log does not state the megawatt output.",
+        "The telemetry dispatch does not record the ambient temperature."
+      ],
+      "harmful_entity_leakage": false,
+      "explanation": "These shared responses represent correct behavioral abstention templates where the underlying unanswerable context differs, but the standard refusal phrase is appropriately shared across splits."
+    }
+  ],
+  "short_explanation_records_in_needs_review": 190,
+  "review_status": "All 190 short-explanation records remain in NEEDS_REVIEW. Zero records artificially promoted to verified."
+}

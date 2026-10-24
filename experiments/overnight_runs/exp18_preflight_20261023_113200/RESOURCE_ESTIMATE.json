@@ -1,0 +1,38 @@
+{
+  "experiment_id": "exp18_scaled_instruction_format_v1",
+  "audit_run": "exp18_preflight_20261023_113200",
+  "timestamp": "2026-10-23T11:37:45Z",
+  "hardware_measurements": {
+    "device": "cpu",
+    "cpu_logical_cores": 20,
+    "available_system_ram_gb": 15.52,
+    "available_disk_d_drive_gb": 101.2,
+    "python_process_rss_mb": 254.07,
+    "model_raw_fp32_parameter_mb": 13.13,
+    "source": "psutil_measured"
+  },
+  "training_budget_estimates": {
+    "total_training_samples": 1200,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 4,
+    "total_optimizer_steps": 1200,
+    "target_epochs": 2.0,
+    "estimated_step_time_seconds": 0.065,
+    "estimated_total_training_time_seconds": 78.0,
+    "estimated_total_training_time_minutes": 1.3,
+    "estimated_peak_rss_ram_gb": 1.2,
+    "estimated_checkpoint_disk_usage_mb": 69.0,
+    "checkpoint_breakdown": {
+      "checkpoint_size_mb": 13.8,
+      "max_retained_checkpoints": 5,
+      "total_mb": 69.0
+    },
+    "label": "CALCULATED_ESTIMATE_FROM_EXP17_BENCHMARKS"
+  },
+  "feasibility_assessment": {
+    "ram_headroom_factor": 12.9,
+    "disk_headroom_factor": 1466.7,
+    "budget_status": "HIGH_CONFIDENCE_PASS"
+  }
+}

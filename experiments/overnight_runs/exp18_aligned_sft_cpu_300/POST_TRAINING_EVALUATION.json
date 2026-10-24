@@ -1,0 +1,2632 @@
+{
+  "timestamp": "2026-10-24T11:58:10.394263",
+  "checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp18_aligned_sft_cpu_300\\checkpoints\\sft_best_checkpoint.pt",
+  "total_test_records": 160,
+  "total_scorable_records": 140,
+  "total_correct": 1,
+  "scorable_task_accuracy": 0.71,
+  "total_eos_completions": 72,
+  "eos_completion_rate": 45.0,
+  "structured_formatting_json_validity_pct": 0.0,
+  "avg_latency_ms": 332.24,
+  "category_metrics": {
+    "factual_qa": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 4
+    },
+    "instruction_following": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 17,
+      "valid_json": 20
+    },
+    "context_extraction": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 11,
+      "valid_json": 20
+    },
+    "reference_resolution": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 5
+    },
+    "short_explanation": {
+      "total": 20,
+      "NOT_APPLICABLE": 20,
+      "needs_review": 20,
+      "valid_json": 20,
+      "eos_completed": 3
+    },
+    "basic_arithmetic": {
+      "total": 20,
+      "INCORRECT": 19,
+      "scorable": 20,
+      "eos_completed": 10,
+      "valid_json": 10,
+      "CORRECT": 1
+    },
+    "uncertainty_abstention": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 2
+    },
+    "structured_formatting": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "eos_completed": 20
+    }
+  },
+  "all_records": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "The difference of the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 319.78950000484474,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 188.27429998782463,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "The difference of the difference receipt of the difference received by the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 376.97700000717305,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 162.70210000220686,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "The difference received the city of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 31,
+      "latency_ms": 265.49570000497624,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "The difference of the planets is the first factors is the difference of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 341.41260001342744,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "The difference of the difference receipt of the difference receipt of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 442.2006999957375,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "The difference of the difference of the difference of the difference received by the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 377.2560999786947,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 378.3402999979444,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 336.98310001636855,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0010",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element selenium?",
+      "expected": "The chemical symbol for selenium is Se.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 375.46469998778775,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0011",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element palladium?",
+      "expected": "The chemical symbol for palladium is Pd.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 304.6429999812972,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0012",
+      "category": "factual_qa",
+      "prompt": "What unit is universally used to measure radioactivity?",
+      "expected": "The becquerel is the standard unit of radioactivity.",
+      "generated": "The difference is the difference of the difference received by the difference received by the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 362.406700005522,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0013",
+      "category": "factual_qa",
+      "prompt": "What unit is universally used to measure radiation dose equivalent?",
+      "expected": "The sievert is the standard unit of radiation dose equivalent.",
+      "generated": "The difference receipt of the difference received by the difference receipt of the difference receipt of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 329.3965000193566,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0014",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Ireland?",
+      "expected": "Dublin is the capital city of Ireland.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 135.61830000253394,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0015",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Portugal?",
+      "expected": "Lisbon is the capital city of Portugal.",
+      "generated": "The difference of the planets is the difference of the difference of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 346.32770001189783,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0016",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Greece?",
+      "expected": "Athens is the capital city of Greece.",
+      "generated": "The difference of the planets is the difference of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 363.9101999870036,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0017",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element antimony?",
+      "expected": "The chemical symbol for antimony is Sb.",
+      "generated": "The difference is the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 335.2994999731891,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0018",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element bismuth?",
+      "expected": "The chemical symbol for bismuth is Bi.",
+      "generated": "The difference of the difference of the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 341.29149999353103,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0019",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element silicon?",
+      "expected": "The chemical symbol for silicon is Si.",
+      "generated": "The difference of the difference received by the difference of the difference received by the difference received by the di",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 333.1643000128679,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0000",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'spectroscopy' into uppercase and return only the result.",
+      "expected": "SPECTROSCOPY",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 135.80649998039007,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0001",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'THERMODYNAMICS' into lowercase and return only the result.",
+      "expected": "thermodynamics",
+      "generated": "{\"__main__\":\n    import doctest\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 208.9507000055164,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0002",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'electromagnetism' in reverse order without any extra text.",
+      "expected": "msitengamortcele",
+      "generated": "{\"style={\"style=\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 15,
+      "latency_ms": 109.79759998735972,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0003",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-103.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-103.",
+      "generated": "The difference receipt of the difference receipt of the firm of the difference receipt of the pression rece",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 392.30700000189245,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0004",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'interstellar' into uppercase and return only the result.",
+      "expected": "INTERSTELLAR",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 82.88919998449273,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0005",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'SPECTROSCOPY' into lowercase and return only the result.",
+      "expected": "spectroscopy",
+      "generated": "{\"__main__\":\n    import doctest\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 151.35299999383278,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0006",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'thermodynamics' in reverse order without any extra text.",
+      "expected": "scimanydomreht",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 112.51959999208339,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0007",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-107.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-107.",
+      "generated": "The difference receipt of the difference receipt of the firm of the difference receipt of the pression rece",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 419.70759999821894,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0008",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'supernova' into uppercase and return only the result.",
+      "expected": "SUPERNOVA",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 183.68099999497645,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0009",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'INTERSTELLAR' into lowercase and return only the result.",
+      "expected": "interstellar",
+      "generated": "{\"__main__\":\n    import doctest\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 186.78370001725852,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0010",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'spectroscopy' in reverse order without any extra text.",
+      "expected": "ypocsortceps",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 117.63779999455437,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0011",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-111.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-111.",
+      "generated": "The difference receipt of the difference receipt of the firm of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 33,
+      "latency_ms": 316.88510000822134,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0012",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'electromagnetism' into uppercase and return only the result.",
+      "expected": "ELECTROMAGNETISM",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 183.76769998576492,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0013",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'SUPERNOVA' into lowercase and return only the result.",
+      "expected": "supernova",
+      "generated": "{\"__main__\":\n    import doctest\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 25,
+      "latency_ms": 207.42300001438707,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0014",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'interstellar' in reverse order without any extra text.",
+      "expected": "ralletsretni",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 98.24390002177097,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0015",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-115.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-115.",
+      "generated": "The difference receipt of the difference receipt of the firm of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 33,
+      "latency_ms": 267.3873000021558,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0016",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'thermodynamics' into uppercase and return only the result.",
+      "expected": "THERMODYNAMICS",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 269.8941999988165,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0017",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'ELECTROMAGNETISM' into lowercase and return only the result.",
+      "expected": "electromagnetism",
+      "generated": "{\"__main__\":\n    import doctest\n\n    # Test the received received received recean",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 433.3342000027187,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0018",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'supernova' in reverse order without any extra text.",
+      "expected": "avonrepus",
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 125.69230000372045,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0019",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-119.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-119.",
+      "generated": "The difference receipt of the difference receipt of the firm of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 33,
+      "latency_ms": 248.03479999536648,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0000",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-10, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "The difference recelement is the firm is the stance of the first press is the city of the city of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 43,
+      "latency_ms": 533.5756000131369,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0001",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-11, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "The difference received by the firm is the stance of the difference rection of the firm is the difference of the difference of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 495.29209997854196,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0002",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-12, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "The difference receigy is the firm of the stitution of the firm is the firm of the centre of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 45,
+      "latency_ms": 510.23469999199733,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0003",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-13, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "The difference is the difference of the standr.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 17,
+      "latency_ms": 226.4714999764692,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0004",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-14, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "The difference of the city of the city of the story of the water.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 24,
+      "latency_ms": 259.4454000063706,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0005",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-15, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "The difference rection of the firm is the difference of the water is the city of the city of the city of the city of the difference is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 513.4457999956794,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0006",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-16, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "The difference recel is the first of the ceang is the first of the city of the city of the first present rection of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 454.0931000083219,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0007",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-17, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "The difference recelement is the difference of the difference is the difference of the city of the centre of the difference recele.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 45,
+      "latency_ms": 504.84430001233704,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0008",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-18, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "The difference rection of the stitution of the city of the city of the city of the city of the city of the city of the firm is the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 468.68130000075325,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0009",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-19, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "The difference received the city of the centre is the first pressure.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 30,
+      "latency_ms": 318.1336999987252,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0010",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-20, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "The difference rection of the centre is the difference of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 285.86259999428876,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0011",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-21, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "The difference received by the difference of the city of the city of the city is the centre of the direceleader.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 44,
+      "latency_ms": 442.70630000391975,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0012",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-22, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "The difference receigy is the firm of the stitution of the firm is the firm of the direceletree of the fir",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 470.82699998281896,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0013",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-23, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "The difference is the difference of the standr.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 17,
+      "latency_ms": 208.14530001371168,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0014",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-24, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "The difference rection of the difference is the firm of the watoved the city of the city of the diused by the city of the firm ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 433.8878999988083,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0015",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-25, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "The difference rection of the difference is the difference of the stern is the stance, the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 541.762499982724,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0016",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-26, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "The dition of the difference is the difference of the difference reccel the city of the city of the city of the difference recelead.",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 586.2398000026587,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0017",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-27, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "The difference rection of the difference is the difference of the stor.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 23,
+      "latency_ms": 276.9972000096459,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0018",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-28, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "The difference rection of the stitution of the city of the standard of the receleast.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 34,
+      "latency_ms": 370.817499991972,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0019",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-29, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "The difference received the city of the centre of the city is the firm of the direceleast of the firstanda",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 517.9165999870747,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0000",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-100, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "The difference is the difference of the city of the difference is the difference rection of the city of the city of the city of the city of the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 525.9346000093501,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0001",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-101, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "The difference rection of the difference is the difference of the difference rection of the difference of the difference of the cent.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 41,
+      "latency_ms": 496.1024000076577,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0002",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-102, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "The difference is the ditional is the difference of the difference rection of the difference of the difference of the difference recel is the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 493.80540000856854,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0003",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-103, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "The difference is the difference of the difference is the difference of the difference is the difference of the centre of the difference is the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 523.6606000107713,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0004",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-104, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "The difference rection of the difference is the difference is the difference of the city of the city of the city of the city of the city of the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 478.46869999193586,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0005",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-105, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "The difference is the story of the stitured is the difference of the difference is the difference of the difference of the difference is the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 532.2576999897137,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0006",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-106, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "The difference rection of the difference is the difference of the difference recel is the difference of the difference of the difference recele",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 529.6223000041209,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0007",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-107, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "The difference rection of the difference of the difference is difference to prest of the difference of the difference of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 507.31039998936467,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0008",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-108, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "The difference of the difference is the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 520.7120999984909,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0009",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-109, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "The difference recel is the difference of the difference is the difference of the city of the center.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 34,
+      "latency_ms": 401.67220000876114,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0010",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-110, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "The difference is the difference of the difference of the difference is difference to prest of the difference of the difference rection of the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 537.2690999938641,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0011",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-111, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "The difference recel the difference of the difference is the storial factorire of the city of the city of the difference is the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 546.3442000036594,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0012",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-112, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "The difference is the difference of the difference of the difference rection of the difference of the difference of the difference rection of the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 493.24529999285005,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0013",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-113, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "The difference recel the difference of is the difference receleast.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 296.17960000177845,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0014",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-114, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "The difference of the stance of the difference of is the difference is the difference of the city of the city of the difference is the difference of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 465.41889998479746,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0015",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-115, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "The difference of the difference is the difference of the city of the city of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 30,
+      "latency_ms": 324.0411000151653,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0016",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-116, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "The difference is the difference of the difference is difference to make the difference of the difference of the difference of the difference recelea",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 542.7296000125352,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0017",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-117, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "The difference rection of the difference is the difference of is difference to make the difference rection of the difference of the difference rece",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 525.0264000205789,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0018",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-118, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "The difference is the difference of the difference rection of the difference is difference to planet the city of the difference is the difference of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 518.2396000018343,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0019",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-119, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "The difference is the difference of the city of the city of the city of the city of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 33,
+      "latency_ms": 335.0069000152871,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0000",
+      "category": "short_explanation",
+      "prompt": "Why do stars appear to twinkle in the night sky?",
+      "expected": "Turbulence in Earth's atmosphere refracts star light as it passes to our eyes.",
+      "generated": "The difference of the planets is the difference of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 339.3711000098847,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0001",
+      "category": "short_explanation",
+      "prompt": "Why do leaves change color in autumn?",
+      "expected": "Chlorophyll breaks down as daylight decreases, revealing yellow and orange carotenoids.",
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "latency_ms": 134.01119998889044,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0002",
+      "category": "short_explanation",
+      "prompt": "Why do ships float despite being constructed from heavy iron and steel?",
+      "expected": "The wide hollow shape of the hull displaces a weight of water equal to the vessel mass.",
+      "generated": "The difference received the difference received by the difference received by the difference received by the di",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 358.6749999958556,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0003",
+      "category": "short_explanation",
+      "prompt": "Why does bread dough become elastic and stretchy during mechanical kneading?",
+      "expected": "Kneading uncoils and links gliadin and glutenin proteins into a continuous cohesive gluten web.",
+      "generated": "The difference is the difference of the difference of the difference received by the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 326.42260001739487,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0004",
+      "category": "short_explanation",
+      "prompt": "Why do automobile headlights illuminate the road using curved reflectors?",
+      "expected": "Parabolic curved mirrors collimate light rays from a central focal bulb into a parallel beam.",
+      "generated": "The difference received the difference of the difference received by the difference received by the difference recei",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 325.3673000144772,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0005",
+      "category": "short_explanation",
+      "prompt": "Why does dew form on morning grass blades following clear nights?",
+      "expected": "Radiative cooling drops ground surface temperatures below the atmospheric dew point.",
+      "generated": "The difference is the difference of the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 21,
+      "latency_ms": 138.31130001926795,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0006",
+      "category": "short_explanation",
+      "prompt": "Why do bees produce sweet honey from floral nectar?",
+      "expected": "Bees evaporate moisture from gathered nectar and add enzymes that break sucrose into simple sugars.",
+      "generated": "The difference of the planets is the difference of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 372.33549999655224,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0007",
+      "category": "short_explanation",
+      "prompt": "Why do heavy clouds look dark grey and ominous before a thunderstorm?",
+      "expected": "Thick dense cloud columns scatter and absorb sunlight, preventing it from penetrating downward.",
+      "generated": "The difference is the difference of the difference of planets.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 20,
+      "latency_ms": 181.5917000058107,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0008",
+      "category": "short_explanation",
+      "prompt": "Why does salt water freeze at lower temperatures than fresh water?",
+      "expected": "Dissolved salt ions disrupt the formation of organized crystalline hydrogen bond lattices.",
+      "generated": "The difference is the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 353.33020001417026,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0009",
+      "category": "short_explanation",
+      "prompt": "Why do camera shutters make a clicking noise during photographic exposures?",
+      "expected": "Mechanical curtain springs open and close rapidly across the image aperture.",
+      "generated": "The difference is the difference of planets is used by the difference of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 377.854100021068,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0010",
+      "category": "short_explanation",
+      "prompt": "Why do iron nails become magnetized when stroked against a permanent magnet?",
+      "expected": "Magnetic fields from the permanent magnet force disordered atomic electron domains to align.",
+      "generated": "The difference is the difference of the difference received by the difference of the difference received by the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 349.7825000085868,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0011",
+      "category": "short_explanation",
+      "prompt": "Why does skin tan after prolonged exposure to sunlight?",
+      "expected": "Ultraviolet radiation stimulates melanocyte cells to produce dark melanin pigment for UV defense.",
+      "generated": "The difference is the difference of the difference received by the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 313.2167999865487,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0012",
+      "category": "short_explanation",
+      "prompt": "Why do desert trees develop extremely long taproots deep into soil?",
+      "expected": "Deep taproots reach down to distant subterranean water tables beneath arid soil layers.",
+      "generated": "The difference received the difference received the difference received by the difference received by the differ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 386.2539000110701,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0013",
+      "category": "short_explanation",
+      "prompt": "Why do optical spectacles correct blurred human vision?",
+      "expected": "Curved glass lenses bend light rays to focus incoming images precisely onto retinal surfaces.",
+      "generated": "The difference receipt of the difference receipt of the difference receipt of the difference receipt of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 396.47530001820996,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0014",
+      "category": "short_explanation",
+      "prompt": "Why do birds fluff their plumage in freezing winter weather?",
+      "expected": "Fluffing plumage expands the dead air layer trapped between feathers to insulate body heat.",
+      "generated": "The difference is the difference of planets is the difference of the difference of the difference received by the difference receip",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 409.58979999413714,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0015",
+      "category": "short_explanation",
+      "prompt": "Why do electric motors spin continuously when connected to direct current?",
+      "expected": "Magnetic forces between internal electromagnets and permanent magnets produce rotational torque.",
+      "generated": "The difference received the difference receipt of the difference receipt of the difference receipt of the di",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 398.0235999915749,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0016",
+      "category": "short_explanation",
+      "prompt": "Why do hot air balloons descend toward the ground when heat is reduced?",
+      "expected": "Cooling interior air increases its density until it matches or exceeds surrounding air.",
+      "generated": "The difference of the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 349.25199998542666,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0017",
+      "category": "short_explanation",
+      "prompt": "Why do rocks in riverbeds become smooth and rounded over centuries?",
+      "expected": "Constant tumbling against other stones grinds off sharp mineral edges through mechanical attrition.",
+      "generated": "The difference is the difference of the difference of the difference of the difference received by the difference received the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 344.43630001624115,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0018",
+      "category": "short_explanation",
+      "prompt": "Why does touching dry ice burn bare human skin?",
+      "expected": "Extreme cold causes rapid freezing and cellular necrosis identical in symptom to a thermal burn.",
+      "generated": "The difference of the difference of the difference received by the difference received by the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 339.48539997800253,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0019",
+      "category": "short_explanation",
+      "prompt": "Why do earthquakes trigger landslides on steep mountain slopes?",
+      "expected": "Seismic ground shaking overcomes internal friction holding rock and soil layers to the slope.",
+      "generated": "The difference of the difference of the difference of the difference received by the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 382.14320002589375,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0000",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5002 and 5007.",
+      "expected": "The sum of 5002 and 5007 is 10009.",
+      "generated": "The difference of the total number of 1250 is 125 is 125 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 35,
+      "latency_ms": 249.08849998610094,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0001",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5005 is subtracted from 5059.",
+      "expected": "The difference when 5005 is subtracted from 5059 is 54.",
+      "generated": "The difference of the difference of the city of the city of the city of the city of the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 388.531900011003,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0002",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5008 is multiplied by 11.",
+      "expected": "The product of 5008 multiplied by 11 is 55088.",
+      "generated": "The difference of the total number of 1250 is 125 is 125 is 125 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 39,
+      "latency_ms": 295.5140999983996,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0003",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40088 is divided by 8.",
+      "expected": "The quotient when 40088 is divided by 8 is 5011.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 379.50380000984296,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0004",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5014 and 5015.",
+      "expected": "The sum of 5014 and 5015 is 10029.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 367.8572000062559,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0005",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5017 is subtracted from 5067.",
+      "expected": "The difference when 5017 is subtracted from 5067 is 50.",
+      "generated": "The difference of 51 is the total of 50% is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 21,
+      "latency_ms": 185.23770000319928,
+      "outcome": "CORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0006",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5020 is multiplied by 9.",
+      "expected": "The product of 5020 multiplied by 9 is 45180.",
+      "generated": "The difference of 50 is 125 is 125 is 125 is 125 of 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 32,
+      "latency_ms": 219.8735999991186,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0007",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40184 is divided by 8.",
+      "expected": "The quotient when 40184 is divided by 8 is 5023.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 357.7201000007335,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0008",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5026 and 5023.",
+      "expected": "The sum of 5026 and 5023 is 10049.",
+      "generated": "The difference of the difference of the city of the city of the city of the city of the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 359.6319999778643,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0009",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5025 is subtracted from 5079.",
+      "expected": "The difference when 5025 is subtracted from 5079 is 54.",
+      "generated": "The difference of the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 344.4028999947477,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0010",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5032 is multiplied by 10.",
+      "expected": "The product of 5032 multiplied by 10 is 50320.",
+      "generated": "The difference of 1250 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 21,
+      "latency_ms": 159.983799996553,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0011",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40280 is divided by 8.",
+      "expected": "The quotient when 40280 is divided by 8 is 5035.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 335.5270999891218,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0012",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5038 and 5031.",
+      "expected": "The sum of 5038 and 5031 is 10069.",
+      "generated": "The difference of the difference of the city of the city of the city of the city of the city of the city of the city of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 285.9013999986928,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0013",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5033 is subtracted from 5091.",
+      "expected": "The difference when 5033 is subtracted from 5091 is 58.",
+      "generated": "The difference of 51 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 20,
+      "latency_ms": 155.15590002178214,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0014",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5044 is multiplied by 11.",
+      "expected": "The product of 5044 multiplied by 11 is 55484.",
+      "generated": "The difference of 1250 is 125 is 125 is 125 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 33,
+      "latency_ms": 209.52229999238625,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0015",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40376 is divided by 8.",
+      "expected": "The quotient when 40376 is divided by 8 is 5047.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 281.0293999791611,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0016",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5050 and 5039.",
+      "expected": "The sum of 5050 and 5039 is 10089.",
+      "generated": "The difference of the total number of 1250 is 125 is 125 is 125 is 125 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 43,
+      "latency_ms": 248.0541999975685,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0017",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5041 is subtracted from 5103.",
+      "expected": "The difference when 5041 is subtracted from 5103 is 62.",
+      "generated": "The difference of 174 is the total of 506.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 18,
+      "latency_ms": 123.37529999786057,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0018",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5056 is multiplied by 9.",
+      "expected": "The product of 5056 multiplied by 9 is 45504.",
+      "generated": "The difference of 50 is 125 is 125 is 125 is 125 of 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 32,
+      "latency_ms": 206.83999999891967,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0019",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40472 is divided by 8.",
+      "expected": "The quotient when 40472 is divided by 8 is 5059.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 378.0507000046782,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0000",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the total fuel consumption in gallons for Hassaleh?",
+      "expected": "The flight log does not state the total fuel consumption.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the difference is the differ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 471.64859998156317,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0001",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the traction motor operating temperature for Almaaz?",
+      "expected": "The depot maintenance report does not record the motor temperature.",
+      "generated": "The difference received the difference of the difference of the difference does not is the difference of the difference of the difference is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 406.5126999921631,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0002",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the dissolved mineral salinity concentration for Haedus?",
+      "expected": "The geothermal dispatch does not specify the mineral salinity.",
+      "generated": "The difference of the difference of the city of the city of the city of the city of the city of the wiplanet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 38,
+      "latency_ms": 343.96189998369664,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0003",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the volume of river inflow processed for Alsciaukat?",
+      "expected": "Facility Alsciaukat processed 64 million liters of inflow.",
+      "generated": "The difference of the difference of the difference is difference to be the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 456.29130001179874,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0004",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the grain internal moisture percentage for Tyl?",
+      "expected": "The storage manifest does not state the grain moisture percentage.",
+      "generated": "The difference is the difference of the difference of the city of the city of the city of the cental city of the city of the city of the cent",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 414.14489998715,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0005",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the electric motor drive current in amperes for Nodus?",
+      "expected": "The mining production record does not contain the motor drive current.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 460.8466000063345,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0006",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the suction flange static pressure for Alsafi?",
+      "expected": "The pipeline summary does not record the suction flange pressure.",
+      "generated": "The difference receipt of the difference received by the city of the difference is the difference of the difference of the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 419.98639999656007,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0007",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the thickness of optical silica applied for Dziban?",
+      "expected": "Chamber Dziban applied 92 nanometers of silica.",
+      "generated": "The difference is the difference of the firm is the difference is difference to be the difference rection of the difference is difference rection the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 502.00190002215095,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0008",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the backup battery state of charge percentage for Edasich?",
+      "expected": "The station status log does not mention the backup battery charge.",
+      "generated": "The difference of the plant of the city of the city of the cental city of the city of the city of the city of the city of the difference ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 487.6883999968413,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0009",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the measured slag viscosity rating for Thuban?",
+      "expected": "The furnace melt record does not state the slag viscosity rating.",
+      "generated": "The difference is the difference of the difference of the difference of the city of the city of the city of the city of the city of the dition of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 447.62160000391304,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0010",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the ambient intake temperature in Celsius for Giausar?",
+      "expected": "The telemetry dispatch does not record the ambient temperature.",
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 384.4567000051029,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0011",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the cooling water discharge rate for Pherkad?",
+      "expected": "Generator Unit-Pherkad discharged 31 cubic meters per second.",
+      "generated": "The difference is the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the di",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 460.49509997828864,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0012",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the current bunker fuel oil reserve for Yildun?",
+      "expected": "The harbor manifest does not mention the bunker fuel reserve.",
+      "generated": "The difference received the total centront of the stances of the difference rection of the difference is difference to prest ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 399.28250000230037,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0013",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the barometric pressure in millibars for Ahfa?",
+      "expected": "The meteorological report does not specify the barometric pressure.",
+      "generated": "The difference is the difference of the city of the city of the city of the city of the city of the city of the cental city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 454.124200012302,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0014",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the catalyst mass concentration in grams for Sadaltager?",
+      "expected": "The reactor monitoring sheet does not contain the catalyst mass.",
+      "generated": "The difference is the difference of the city of the city of the cental centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 28,
+      "latency_ms": 297.4388000147883,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0015",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the assigned cruise altitude for Albali?",
+      "expected": "Aircraft Albali climbed to 59 thousand feet.",
+      "generated": "The difference receipt of the difference of the difference of the difference of the difference is the difference of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 487.0105999871157,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0016",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the traction motor operating temperature for Ancha?",
+      "expected": "The depot maintenance report does not record the motor temperature.",
+      "generated": "The difference of the difference of the difference is the difference of the difference rection of the firm is the difference of the difference of the di",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 484.9208999949042,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0017",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the dissolved mineral salinity concentration for Situla?",
+      "expected": "The geothermal dispatch does not specify the mineral salinity.",
+      "generated": "The difference of the city of the city of the city of the city of the difference is the direcean is difference as the difference of the differ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 509.82180002029054,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0018",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the residual chlorine concentration in parts per million for Azelfafage?",
+      "expected": "The filtration report does not mention the chlorine concentration.",
+      "generated": "The difference is the difference of the city of the central city is the difference of the city of the city of the city of the centratural ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 435.56379998335615,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0019",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the metric tons of winter barley unloaded for Kurhah?",
+      "expected": "Terminal Kurhah unloaded 87 metric tons of barley.",
+      "generated": "The difference is the difference of the city of the city of the city of the city of the city of the city of the city of the centre is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 512.4794000003021,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0000",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_0' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_0\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 202.3860000190325,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0001",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_1' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_1\"}",
+      "generated": "{\"stript_listener_port\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 145.80080000450835,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0002",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_2' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_2\"}",
+      "generated": "{\"stript_paths_path(\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 18,
+      "latency_ms": 140.43640001909807,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0003",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_3' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_3\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 228.64600000320934,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0004",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_4' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_4\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 211.3254000141751,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0005",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_5' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_5\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 160.25529999751598,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0006",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_6' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_6\"}",
+      "generated": "{\"stript_listener_port\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 109.09209999954328,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0007",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_7' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_7\"}",
+      "generated": "{\"style=\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 9,
+      "latency_ms": 73.8992000115104,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0008",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_8' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_8\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 224.68700000899844,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0009",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_9' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_9\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 212.72430001408793,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0010",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_10' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_10\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 223.47379999700934,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0011",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_11' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_11\"}",
+      "generated": "{\"stript_listener_port\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 141.4465999987442,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0012",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_12' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_12\"}",
+      "generated": "{\"stript_paths_path(\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 18,
+      "latency_ms": 109.46179999154992,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0013",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_13' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_13\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 228.545199992368,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0014",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_14' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_14\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 195.02590000047348,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0015",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_15' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_15\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 244.70059998566285,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0016",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_16' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_16\"}",
+      "generated": "{\"stript_listener_port\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "latency_ms": 156.4564000000246,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0017",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_17' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_17\"}",
+      "generated": "{\"style=\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 9,
+      "latency_ms": 79.10599999013357,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0018",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_18' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_18\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 207.2879999759607,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0019",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_19' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_19\"}",
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "latency_ms": 239.27019999246113,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "step_340_checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\checkpoints\\sft_best_checkpoint.pt",
+  "step_340_sha256": "997bf2f3da8652c20ea8f7372969d845ac956292b200ae9ca161069943ea9284",
+  "step_600_checkpoint": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\checkpoints\\sft_checkpoint_step_600.pt",
+  "step_600_sha256": "6c2a75e70495a5031f82d671316b81ab2d88e583dcd95d776ba1b4f7dd7256a7",
+  "subset_evaluated_count": 8,
+  "comparison": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "step_340_gen": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "step_340_stop": "MAX_TOKENS",
+      "step_600_gen": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "step_600_stop": "MAX_TOKENS"
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0000",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'spectroscopy' into uppercase and return only the result.",
+      "expected": "SPECTROSCOPY",
+      "step_340_gen": "{\"style={\"stack_paths\"}",
+      "step_340_stop": "STOP_TOKEN",
+      "step_600_gen": "{\"session_pathsv_200\"}",
+      "step_600_stop": "STOP_TOKEN"
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0000",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-10, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "step_340_gen": "The difference is the planets is the city of the city of the city of the city of the city of the city of the city of the city of the c",
+      "step_340_stop": "MAX_TOKENS",
+      "step_600_gen": "The difference is the planetary of the city of the city of the city of the city of the city of the city of the city of the city of the c",
+      "step_600_stop": "MAX_TOKENS"
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0000",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-100, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "step_340_gen": "Subert is the city of 'it' is not described the planet' is the city of 'it' is the city of the city ",
+      "step_340_stop": "MAX_TOKENS",
+      "step_600_gen": "The difference of 'it' is the total city of 'it' is not destian the city of 'it' is the city of 'it' is ",
+      "step_600_stop": "MAX_TOKENS"
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0000",
+      "category": "short_explanation",
+      "prompt": "Why do stars appear to twinkle in the night sky?",
+      "expected": "Turbulence in Earth's atmosphere refracts star light as it passes to our eyes.",
+      "step_340_gen": "The difference is the planets is the planet.",
+      "step_340_stop": "STOP_TOKEN",
+      "step_600_gen": "The difference is the planets is the planet.",
+      "step_600_stop": "STOP_TOKEN"
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0000",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5002 and 5007.",
+      "expected": "The sum of 5002 and 5007 is 10009.",
+      "step_340_gen": "The difference of 2005.",
+      "step_340_stop": "STOP_TOKEN",
+      "step_600_gen": "The difference of 170.",
+      "step_600_stop": "STOP_TOKEN"
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0000",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the total fuel consumption in gallons for Hassaleh?",
+      "expected": "The flight log does not state the total fuel consumption.",
+      "step_340_gen": "The difference is the planets in the city of the city of the city of the city of the city of the city of the city of the city of the c",
+      "step_340_stop": "MAX_TOKENS",
+      "step_600_gen": "The difference is the planetary of the planet.",
+      "step_600_stop": "STOP_TOKEN"
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0000",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_0' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_0\"}",
+      "step_340_gen": "{\"style={\"style=\"}",
+      "step_340_stop": "STOP_TOKEN",
+      "step_600_gen": "{\"session_pathsvpx\"}",
+      "step_600_stop": "STOP_TOKEN"
+    }
+  ]
+}

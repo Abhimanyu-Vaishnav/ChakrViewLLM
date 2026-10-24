@@ -1,0 +1,20 @@
+{
+  "experiment_id": "exp19_debiased_sft_cpu_600",
+  "timestamp": "2026-10-24T12:57:00",
+  "base_checkpoint": "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/checkpoints/training_checkpoint_start.pt",
+  "steps": 600,
+  "batch_size": 2,
+  "max_seq_len": 512,
+  "learning_rate": 5e-05,
+  "min_learning_rate": 5e-06,
+  "lr_schedule": "cosine_decay",
+  "weight_decay": 0.01,
+  "grad_clip": 1.0,
+  "val_interval": 20,
+  "save_interval": 20,
+  "seed": 42,
+  "device": "cpu",
+  "tokenizer_dir": "data/experiments/vocab_4096",
+  "save_best_checkpoint": true,
+  "selection_metric": "min_validation_loss"
+}

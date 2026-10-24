@@ -1,0 +1,94 @@
+{
+  "all_canonical_protected_pass": true,
+  "checkpoint_audit": {
+    "checkpoint_path": "D:\\Project\\ChakrView\\experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947\\checkpoints/sft_best_checkpoint.pt",
+    "file_size_bytes": 41418374,
+    "actual_on_disk_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c",
+    "original_run_manifest_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c",
+    "disputed_audit_initial_expected_sha256": "8746c107be66723223be53805988f4b50a3240e9d6d34bbf3358043534d7088b",
+    "disputed_audit_override_applied_sha256": "8d4ecf9e13bf04deb93a1500c3ac49b80f0ee2fb0443c9bc9a14d09f4e57af3c",
+    "on_disk_matches_original_run_manifest": true,
+    "status": "PASS_MATCHES_MANIFEST",
+    "discrepancy_explanation": "The original RUN_MANIFEST.json created at experiment completion (timestamp 13:45:33) explicitly recorded the hash as 8d4ecf9e... When the previous audit script ran, the author typed an unverified hash 8746c107... which does not correspond to any checkpoint file on disk. The author then patched the audit file with the on-disk hash 8d4ecf9e... which is the genuine checkpoint hash recorded in RUN_MANIFEST.json."
+  },
+  "protected_assets": {
+    "canonical_checkpoint": {
+      "path": "D:\\Project\\ChakrView\\experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "PASS"
+    },
+    "exp20_isolated_starting_checkpoint": {
+      "path": "D:\\Project\\ChakrView\\experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947\\checkpoints/training_checkpoint_start.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "PASS"
+    },
+    "architecture_baseline_seed42": {
+      "path": "memory:ChakrMicro(ModelConfig())@seed(42)",
+      "expected_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "actual_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+      "status": "PASS"
+    },
+    "vocab_json": {
+      "path": "D:\\Project\\ChakrView\\data/experiments/vocab_4096/vocab.json",
+      "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "status": "PASS"
+    },
+    "merges_json": {
+      "path": "D:\\Project\\ChakrView\\data/experiments/vocab_4096/merges.json",
+      "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "status": "PASS"
+    },
+    "runtime_session": {
+      "path": "D:\\Project\\ChakrView\\chakrview/runtime/session.py",
+      "expected_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "actual_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "status": "PASS"
+    },
+    "brain_model": {
+      "path": "D:\\Project\\ChakrView\\chakrview/brain/model.py",
+      "expected_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "actual_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "status": "PASS"
+    },
+    "exp17_train": {
+      "path": "D:\\Project\\ChakrView\\experiments/research_v09_conversation_sft/exp17_instruction_sft_v1/data/train_exp17_v1.jsonl",
+      "expected_sha256": "074fafe5c1dbcbd7467430cb6f5eccd2c11f2f8679ff27e13c0d38cc90bac181",
+      "actual_sha256": "074fafe5c1dbcbd7467430cb6f5eccd2c11f2f8679ff27e13c0d38cc90bac181",
+      "status": "PASS"
+    },
+    "exp17_val": {
+      "path": "D:\\Project\\ChakrView\\experiments/research_v09_conversation_sft/exp17_instruction_sft_v1/data/val_exp17_v1.jsonl",
+      "expected_sha256": "15d9c942c01fb6afaf6280b7515d9e621ff8df7740be8010daa2be98841f4564",
+      "actual_sha256": "15d9c942c01fb6afaf6280b7515d9e621ff8df7740be8010daa2be98841f4564",
+      "status": "PASS"
+    },
+    "exp17_test": {
+      "path": "D:\\Project\\ChakrView\\experiments/research_v09_conversation_sft/exp17_instruction_sft_v1/data/test_exp17_v1.jsonl",
+      "expected_sha256": "be10afaa3957713cead5399c2b01e5ad2f4fb61d6355835432c7d6e0fdcc6430",
+      "actual_sha256": "be10afaa3957713cead5399c2b01e5ad2f4fb61d6355835432c7d6e0fdcc6430",
+      "status": "PASS"
+    },
+    "exp20_train_dataset": {
+      "path": "D:\\Project\\ChakrView\\experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data/exp20_train_context_extraction.jsonl",
+      "expected_sha256": "9b8a66d98396be214e0ed90d324bffd12eb51e1fdd5870f537e87ec98679355f",
+      "actual_sha256": "9b8a66d98396be214e0ed90d324bffd12eb51e1fdd5870f537e87ec98679355f",
+      "status": "PASS"
+    },
+    "exp20_val_dataset": {
+      "path": "D:\\Project\\ChakrView\\experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data/exp20_val_context_extraction.jsonl",
+      "expected_sha256": "dc927f9a1c43feafa2aaf36cf873a3677a292c736424698ccf60be8eeea28aca",
+      "actual_sha256": "dc927f9a1c43feafa2aaf36cf873a3677a292c736424698ccf60be8eeea28aca",
+      "status": "PASS"
+    },
+    "exp20_test_dataset": {
+      "path": "D:\\Project\\ChakrView\\experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947\\data/exp20_test_frozen.jsonl",
+      "expected_sha256": "497eb8f19dd4f8f6d16d49f976b3100fce2a511058f580c8f5ba4cc10f39f110",
+      "actual_sha256": "497eb8f19dd4f8f6d16d49f976b3100fce2a511058f580c8f5ba4cc10f39f110",
+      "status": "PASS"
+    }
+  }
+}

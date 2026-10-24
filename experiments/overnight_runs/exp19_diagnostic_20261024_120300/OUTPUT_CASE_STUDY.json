@@ -1,0 +1,386 @@
+[
+  {
+    "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0005",
+    "category": "basic_arithmetic",
+    "prompt": "Determine the exact numerical difference when 5017 is subtracted from 5067.",
+    "expected": "The difference when 5017 is subtracted from 5067 is 50.",
+    "baseline": {
+      "generated": "\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of 51 is the total of 50% is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 21,
+      "outcome": "CORRECT",
+      "reasons": [
+        "ARITHMETIC_RESULT_MATCH"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0000",
+    "category": "basic_arithmetic",
+    "prompt": "Calculate the exact numerical sum of 5002 and 5007.",
+    "expected": "The sum of 5002 and 5007 is 10009.",
+    "baseline": {
+      "generated": "\n\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the total number of 1250 is 125 is 125 is 125 is 125 is 125.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 35,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0000",
+    "category": "structured_formatting",
+    "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_0' as a valid JSON object.",
+    "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_0\"}",
+    "baseline": {
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "{\"__main__\":\n    import doctest\n\n    doctest.testmod()",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 26,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0001",
+    "category": "structured_formatting",
+    "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_1' as a valid JSON object.",
+    "expected": "{\"thermal_gradient_celsius\": \"18.5_1\"}",
+    "baseline": {
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "{\"stript_listener_port\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+    "category": "factual_qa",
+    "prompt": "What is the largest polar desert on planet Earth?",
+    "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+    "baseline": {
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows to be the city of the show of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+    "category": "factual_qa",
+    "prompt": "What is the capital city of New Zealand?",
+    "expected": "Wellington is the capital city of New Zealand.",
+    "baseline": {
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the difference of the difference of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0000",
+    "category": "instruction_following",
+    "prompt": "Transform the English word 'spectroscopy' into uppercase and return only the result.",
+    "expected": "SPECTROSCOPY",
+    "baseline": {
+      "generated": "\n\nThe first number of the world, which is a shows the world. The city of the word of the word of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "{\"style={\"stripts\"}",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 16,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0003",
+    "category": "instruction_following",
+    "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-103.' exactly as written.",
+    "expected": "Confirm receipt of transmission sequence TEST-103.",
+    "baseline": {
+      "generated": "\n\nThe first of the first of the first of the world, which is the word of the world of the world, which is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference receipt of the difference receipt of the firm of the difference receipt of the pression rece",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0000",
+    "category": "context_extraction",
+    "prompt": "In Orbital Expedition TEST-10, who is assigned as the chief orbital navigator?",
+    "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+    "baseline": {
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference recelement is the firm is the stance of the first press is the city of the city of the centron.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 43,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0001",
+    "category": "context_extraction",
+    "prompt": "In Orbital Expedition TEST-11, who is assigned as the principal systems engineer?",
+    "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+    "baseline": {
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference received by the firm is the stance of the difference rection of the firm is the difference of the difference of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0001",
+    "category": "reference_resolution",
+    "prompt": "In Logbook record TEST-101, which object does the pronoun 'it' designate?",
+    "expected": "The pronoun 'it' designates the brass nautical sextant.",
+    "baseline": {
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference rection of the difference is the difference of the difference rection of the difference of the difference of the cent.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 41,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0000",
+    "category": "reference_resolution",
+    "prompt": "In Logbook record TEST-100, which object does the pronoun 'it' designate?",
+    "expected": "The pronoun 'it' designates the polished jade amulet.",
+    "baseline": {
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference is the difference of the city of the difference is the difference rection of the city of the city of the city of the city of the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "ANTECEDENT_RESOLUTION_FAILED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0002",
+    "category": "uncertainty_abstention",
+    "prompt": "According to the record, what is the dissolved mineral salinity concentration for Haedus?",
+    "expected": "The geothermal dispatch does not specify the mineral salinity.",
+    "baseline": {
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the difference of the city of the city of the city of the city of the city of the wiplanet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 38,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0000",
+    "category": "uncertainty_abstention",
+    "prompt": "According to the record, what is the total fuel consumption in gallons for Hassaleh?",
+    "expected": "The flight log does not state the total fuel consumption.",
+    "baseline": {
+      "generated": "\n\n\nSumber 200 pointer of the centrong of the son of the centrattacking the city of the cental center",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the city of the city of the city of the city of the city of the city of the city of the city of the difference is the differ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "INCORRECT",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_SHORT_EXPLANATION_0001",
+    "category": "short_explanation",
+    "prompt": "Why do leaves change color in autumn?",
+    "expected": "Chlorophyll breaks down as daylight decreases, revealing yellow and orange carotenoids.",
+    "baseline": {
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "NOT_APPLICABLE",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the planets is the difference of the planet.",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 22,
+      "outcome": "NOT_APPLICABLE",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ]
+    }
+  },
+  {
+    "record_id": "EXP18_TEST_SHORT_EXPLANATION_0000",
+    "category": "short_explanation",
+    "prompt": "Why do stars appear to twinkle in the night sky?",
+    "expected": "Turbulence in Earth's atmosphere refracts star light as it passes to our eyes.",
+    "baseline": {
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "NOT_APPLICABLE",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ]
+    },
+    "step_240_sft": {
+      "generated": "The difference of the planets is the difference of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "outcome": "NOT_APPLICABLE",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ]
+    }
+  }
+]

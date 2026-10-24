@@ -1,0 +1,286 @@
+{
+  "audit_timestamp": "2026-10-23T23:20:00+05:30",
+  "generator_class": "Exp18DatasetGenerator",
+  "total_records_audited": 1520,
+  "split_allocation": {
+    "train": 1200,
+    "val": 160,
+    "test": 160
+  },
+  "quotas_exact_match": true,
+  "category_distribution_exact": true,
+  "token_length_metrics": {
+    "min_tokens": 4,
+    "max_tokens": 44,
+    "mean_tokens": 21.87,
+    "pct_in_target_5_35": 93.03,
+    "hard_bounds_compliant": true
+  },
+  "split_isolation": {
+    "train_val_exact_overlap": 0,
+    "train_test_exact_overlap": 0,
+    "val_test_exact_overlap": 0,
+    "critical_entity_leakage_count": 0,
+    "structural_boilerplate_shared_5grams": 484
+  },
+  "category_quality_audit": {
+    "arithmetic_oracle_errors": 0,
+    "json_syntax_errors": 0,
+    "context_grounding_errors": 0,
+    "reference_resolution_errors": 0,
+    "instruction_following_errors": 0,
+    "abstention_consistency_errors": 0
+  },
+  "evaluator_scorable_coverage": {
+    "scorable_categories": [
+      "factual_qa",
+      "instruction_following",
+      "context_extraction",
+      "reference_resolution",
+      "basic_arithmetic",
+      "uncertainty_abstention",
+      "structured_formatting"
+    ],
+    "unscored_or_held_out_categories": [
+      "short_explanation"
+    ],
+    "scorable_total_records": 1330,
+    "held_out_needs_review_records": 190,
+    "scorable_accuracy_on_ground_truth": 100.0
+  },
+  "evaluator_stats_by_category": {
+    "factual_qa": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 148,
+        "INCORRECT": 2,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 18,
+        "INCORRECT": 2,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "instruction_following": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "context_extraction": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "reference_resolution": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "short_explanation": {
+      "train": {
+        "SCORED": 0,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 150,
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 150
+      },
+      "val": {
+        "SCORED": 0,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 20,
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 20
+      },
+      "test": {
+        "SCORED": 0,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 20,
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 20
+      }
+    },
+    "basic_arithmetic": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "uncertainty_abstention": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "structured_formatting": {
+      "train": {
+        "SCORED": 150,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 150,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "val": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "test": {
+        "SCORED": 20,
+        "UNSCORED": 0,
+        "NEEDS_REVIEW": 0,
+        "CORRECT": 20,
+        "INCORRECT": 0,
+        "PARTIAL": 0,
+        "NOT_APPLICABLE": 0
+      }
+    }
+  },
+  "audit_verdict": "DATASET_AUDIT_PASS"
+}

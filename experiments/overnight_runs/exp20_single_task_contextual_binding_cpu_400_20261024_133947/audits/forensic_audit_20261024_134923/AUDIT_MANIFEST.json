@@ -1,0 +1,50 @@
+{
+  "audit_identifier": "forensic_audit_20261024_134923",
+  "target_experiment": "exp20_single_task_contextual_binding_cpu_400_20261024_133947",
+  "audit_dir": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp20_single_task_contextual_binding_cpu_400_20261024_133947\\audits\\forensic_audit_20261024_134923",
+  "started_at": "2026-10-24T13:49:23",
+  "completed_at": "2026-10-24T13:54:40",
+  "git_commit": "f30136a5dc02934180a503fdf0a4c287469bf106",
+  "hardware": {
+    "device": "cpu",
+    "torch_version": "2.10.0+cpu",
+    "python_version": "3.10.11"
+  },
+  "verdict": "AUDIT_VERIFIED",
+  "reproduced_metrics": {
+    "scorable_records": 20,
+    "exact_task_accuracy_pct": 0.0,
+    "eos_completion_rate_pct": 100.0,
+    "syntax_frame_accuracy_pct": 95.0,
+    "bit_exact_reproduction_matches": 20
+  },
+  "hash_checks": {
+    "total_evaluated": 14,
+    "passed": 14,
+    "failed": 0
+  },
+  "regression_tests": {
+    "total": 126,
+    "passed": 126,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "architecture_discrepancy_resolved": "Prose reference to '384 embedding dim' was a typo. Canonical ChakrMicro (d_model=192, 3,443,136 parameters) verified strictly in checkpoint.",
+  "recommended_next_experiment": "exp21_synthetic_contextual_copy_probe_cpu",
+  "artifacts_produced": [
+    "AUDIT_MANIFEST.json",
+    "HASH_VERIFICATION.json",
+    "INTEGRITY_FINDINGS.md",
+    "DATASET_AUDIT.json",
+    "DATASET_AUDIT.md",
+    "EVALUATOR_AUDIT.md",
+    "EVALUATION_REPRODUCTION.json",
+    "FAILURE_ANALYSIS.json",
+    "FAILURE_ANALYSIS.md",
+    "TRAINING_AUDIT.json",
+    "TRAINING_AUDIT.md",
+    "REGRESSION_AUDIT.txt",
+    "REPOSITORY_STATE_AUDIT.md",
+    "FINAL_AUDIT_REPORT.md"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "audit_timestamp": "2026-10-23T11:00:45Z",
+  "total_suites": 3,
+  "total_tests_executed": 147,
+  "total_failures": 0,
+  "total_errors": 0,
+  "suites": {
+    "task_evaluator_v01_unit_tests": {
+      "suite_log": "raw_task_evaluator_unittest.txt",
+      "command": ".venv/Scripts/python.exe -m unittest tests/test_task_evaluator.py -v",
+      "working_directory": "D:/Project/ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 16,
+      "test_runner_duration_seconds": 7.9426,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "reported_success": true,
+      "verification_status": "VERIFIED"
+    },
+    "core_regression_tests": {
+      "suite_log": "raw_core_regression_unittest.txt",
+      "command": ".venv/Scripts/python.exe -m unittest discover -s tests -p test_*.py",
+      "working_directory": "D:/Project/ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 122,
+      "test_runner_duration_seconds": 129.7872,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "reported_success": true,
+      "verification_status": "VERIFIED"
+    },
+    "exp17_dedicated_tests": {
+      "suite_log": "raw_exp17_tests_unittest.txt",
+      "command": ".venv/Scripts/python.exe -m unittest discover -s experiments/research_v09_conversation_sft/exp17_instruction_sft_v1 -p test_*.py",
+      "working_directory": "D:/Project/ChakrView",
+      "process_exit_code": 0,
+      "tests_executed": 9,
+      "test_runner_duration_seconds": 38.0347,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "reported_success": true,
+      "verification_status": "VERIFIED"
+    }
+  },
+  "overall_verdict": "VERIFIED"
+}

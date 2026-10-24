@@ -1,0 +1,2793 @@
+{
+  "timestamp": "2026-10-24T11:54:39",
+  "checkpoint": "experiments\\overnight_runs\\preflight_exp18_20261024_114600\\checkpoints\\canonical_copy_step_10000.pt",
+  "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "total_test_records": 160,
+  "total_scorable_records": 140,
+  "total_correct": 0,
+  "scorable_task_accuracy": 0.0,
+  "total_eos_completions": 1,
+  "eos_completion_rate": 0.62,
+  "structured_formatting_json_validity_pct": 0.0,
+  "avg_latency_ms": 359.29,
+  "total_tokens_generated": 7163,
+  "decoding_settings": {
+    "temperature": 0.0,
+    "max_new_tokens": 45,
+    "seed": 42,
+    "stop_token_id": 1
+  },
+  "category_metrics": {
+    "factual_qa": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20
+    },
+    "instruction_following": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 20,
+      "eos_completed": 1
+    },
+    "context_extraction": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 2
+    },
+    "reference_resolution": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20
+    },
+    "short_explanation": {
+      "total": 20,
+      "NOT_APPLICABLE": 20,
+      "needs_review": 20,
+      "valid_json": 20
+    },
+    "basic_arithmetic": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 5
+    },
+    "uncertainty_abstention": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20,
+      "valid_json": 14
+    },
+    "structured_formatting": {
+      "total": 20,
+      "INCORRECT": 20,
+      "scorable": 20
+    }
+  },
+  "records_sample": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 315.6650000018999,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows to be the city of the show of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 316.58009998500347,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 351.5954999893438,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 348.64419998484664,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the shows have the total of the show of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 342.89249998982996,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 299.65469997841865,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 340.2681000006851,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the shows so the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 291.8581000121776,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 401.7767000186723,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 359.34809999889694,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    }
+  ],
+  "all_records": [
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0000",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of New Zealand?",
+      "expected": "Wellington is the capital city of New Zealand.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 315.6650000018999,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0001",
+      "category": "factual_qa",
+      "prompt": "What is the largest polar desert on planet Earth?",
+      "expected": "The Antarctic Desert is the largest polar desert on Earth.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows to be the city of the show of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 316.58009998500347,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0002",
+      "category": "factual_qa",
+      "prompt": "What subatomic particle inside the nucleus carries no electrical charge?",
+      "expected": "Neutrons carry no net electrical charge inside the nucleus.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 351.5954999893438,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0003",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element copper?",
+      "expected": "The chemical symbol for copper is Cu.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 348.64419998484664,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0004",
+      "category": "factual_qa",
+      "prompt": "Which planetary body in our solar system features a Great Red Spot storm?",
+      "expected": "Jupiter is the planetary body featuring the Great Red Spot storm.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the shows have the total of the show of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 342.89249998982996,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0005",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Austria?",
+      "expected": "Vienna is the capital city of Austria.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 299.65469997841865,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0006",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Switzerland?",
+      "expected": "Bern is the capital city of Switzerland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 340.2681000006851,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0007",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Poland?",
+      "expected": "Warsaw is the capital city of Poland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the shows so the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 291.8581000121776,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0008",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element tungsten?",
+      "expected": "The chemical symbol for tungsten is W.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 401.7767000186723,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0009",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element arsenic?",
+      "expected": "The chemical symbol for arsenic is As.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 359.34809999889694,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0010",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element selenium?",
+      "expected": "The chemical symbol for selenium is Se.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 357.1869000152219,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0011",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element palladium?",
+      "expected": "The chemical symbol for palladium is Pd.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the show of the s",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 278.3865999954287,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0012",
+      "category": "factual_qa",
+      "prompt": "What unit is universally used to measure radioactivity?",
+      "expected": "The becquerel is the standard unit of radioactivity.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 388.76709999749437,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0013",
+      "category": "factual_qa",
+      "prompt": "What unit is universally used to measure radiation dose equivalent?",
+      "expected": "The sievert is the standard unit of radiation dose equivalent.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the shows she has a sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 341.0316999943461,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0014",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Ireland?",
+      "expected": "Dublin is the capital city of Ireland.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 309.05759998131543,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0015",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Portugal?",
+      "expected": "Lisbon is the capital city of Portugal.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 282.04240000923164,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0016",
+      "category": "factual_qa",
+      "prompt": "What is the capital city of Greece?",
+      "expected": "Athens is the capital city of Greece.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 306.22430000221357,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0017",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element antimony?",
+      "expected": "The chemical symbol for antimony is Sb.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows the city of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 322.2234999993816,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0018",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element bismuth?",
+      "expected": "The chemical symbol for bismuth is Bi.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows a total of the city of the sho",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 369.84870000742376,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_FACTUAL_QA_0019",
+      "category": "factual_qa",
+      "prompt": "What is the chemical symbol for the element silicon?",
+      "expected": "The chemical symbol for silicon is Si.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 303.974600014044,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "FACTUAL_ENTITY_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0000",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'spectroscopy' into uppercase and return only the result.",
+      "expected": "SPECTROSCOPY",
+      "generated": "\n\nThe first number of the world, which is a shows the world. The city of the word of the word of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 369.14779999642633,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0001",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'THERMODYNAMICS' into lowercase and return only the result.",
+      "expected": "thermodynamics",
+      "generated": "\n\nThe result of the world, which is a shows to be a list of the world. It is a list of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 388.30990000860766,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0002",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'electromagnetism' in reverse order without any extra text.",
+      "expected": "msitengamortcele",
+      "generated": "\n\n\nThe plant of the plant of the world, which is the world of the world of the word of the word of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 366.7772999906447,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0003",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-103.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-103.",
+      "generated": "\n\nThe first of the first of the first of the world, which is the word of the world of the world, which is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 357.02659998787567,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0004",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'interstellar' into uppercase and return only the result.",
+      "expected": "INTERSTELLAR",
+      "generated": "\n\nThe result of the world, which is a shows to be a list of the world. It is a list of the word of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 406.10750002088025,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0005",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'SPECTROSCOPY' into lowercase and return only the result.",
+      "expected": "spectroscopy",
+      "generated": "\n\nThe result of the world, which is a shows to be a list of the world. It is a list of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 331.0969999874942,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0006",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'thermodynamics' in reverse order without any extra text.",
+      "expected": "scimanydomreht",
+      "generated": "\n\n\nThe plant of the city of the city of the city of the city of the city of the city of the city of the world of the world",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 392.4954000103753,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0007",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-107.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-107.",
+      "generated": "\n\nThe first of the first of the first of the world of the world of the world, which is the word of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 401.8888999999035,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0008",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'supernova' into uppercase and return only the result.",
+      "expected": "SUPERNOVA",
+      "generated": "\n\nThe result of the result of the world, which is the world of the world. It is the word of the world, ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 353.40190000715666,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0009",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'INTERSTELLAR' into lowercase and return only the result.",
+      "expected": "interstellar",
+      "generated": "\n* [https://web.archive.org/web/2012060606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 328.33259998005815,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0010",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'spectroscopy' in reverse order without any extra text.",
+      "expected": "ypocsortceps",
+      "generated": "\n\n\nThe plant of the world, which is a shows to be a list of the world. The remainly the world of the wor",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 347.3879999946803,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0011",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-111.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-111.",
+      "generated": "\n\nThe first of the first of the first of the world of the world, which is the world of the world, which is ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 431.65260000387207,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0012",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'electromagnetism' into uppercase and return only the result.",
+      "expected": "ELECTROMAGNETISM",
+      "generated": "\n\nThe first number of the world, which is the world of the world. It is the word of the word of the worldron",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 363.6510999931488,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0013",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'SUPERNOVA' into lowercase and return only the result.",
+      "expected": "supernova",
+      "generated": "\n\nSublic is a shows to be a shows to be a show.\n\nThe first of the first of the world, the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 399.79379999567755,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0014",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'interstellar' in reverse order without any extra text.",
+      "expected": "ralletsretni",
+      "generated": "\n\n\nReferences",
+      "stop_reason": "STOP_TOKEN",
+      "tokens_generated": 8,
+      "latency_ms": 66.46070000715554,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0015",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-115.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-115.",
+      "generated": "\n\nThe first of the first of the first of the world of the world of the word of the world of the world of the world",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 373.6239999998361,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0016",
+      "category": "instruction_following",
+      "prompt": "Transform the English word 'thermodynamics' into uppercase and return only the result.",
+      "expected": "THERMODYNAMICS",
+      "generated": "\n\n* [http://www.gov.co.com/books?id=20060pxAAABC of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 338.7166000029538,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0017",
+      "category": "instruction_following",
+      "prompt": "Transform the uppercase word 'ELECTROMAGNETISM' into lowercase and return only the result.",
+      "expected": "electromagnetism",
+      "generated": "\n\n* [http://www.gov.co.com/books?id=20060CAAAABC of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 349.78799999225885,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0018",
+      "category": "instruction_following",
+      "prompt": "Spell the English word 'supernova' in reverse order without any extra text.",
+      "expected": "avonrepus",
+      "generated": "\n\n\nThe result of the result of the world, which is a shows to be a list of the word of the word of the wor",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 374.67279998236336,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_INSTRUCTION_FOLLOWING_0019",
+      "category": "instruction_following",
+      "prompt": "Repeat the sentence 'Confirm receipt of transmission sequence TEST-119.' exactly as written.",
+      "expected": "Confirm receipt of transmission sequence TEST-119.",
+      "generated": "\n\nThe first of the first of the first of the world of the world of the word of the world of the world of the world",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 321.9075000088196,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0000",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-10, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 482.4891999887768,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0001",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-11, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 427.6670999825001,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0002",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-12, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "\n\n\nStemperature of the first of the first plant of the first of the way, the first of the first porigro",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 443.06379999034107,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0003",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-13, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 480.0571999803651,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0004",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-14, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 516.5542999748141,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0005",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-15, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 484.3000000109896,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0006",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-16, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 546.8605000060052,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0007",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-17, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 438.12920001801103,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0008",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-18, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 461.57379998476245,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0009",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-19, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 494.2812999943271,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0010",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-20, who is assigned as the chief orbital navigator?",
+      "expected": "Victoria Sterling is assigned as the chief orbital navigator.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 434.8685000149999,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0011",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-21, who is assigned as the principal systems engineer?",
+      "expected": "Zachary Taylor is assigned as the principal systems engineer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 462.96000000438653,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0012",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-22, who is assigned as the lead flight director?",
+      "expected": "Fatima Zahra is assigned as the lead flight director.",
+      "generated": "\n\n\nSporting the filegrement of the first of the son of the first of the world of the world of the word of the fi",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 507.879699987825,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "SUBSTRING_MATCH_FAILED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0013",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-23, who is assigned as the biomedical payload specialist?",
+      "expected": "Gennaro Gattuso is assigned as the biomedical payload specialist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 439.1004999924917,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0014",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-24, who is assigned as the senior avionics officer?",
+      "expected": "Sunita Williams is assigned as the senior avionics officer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 479.5948000100907,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0015",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-25, who is assigned as the mission communications coordinator?",
+      "expected": "Lazarus Long is assigned as the mission communications coordinator.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 483.56980000971816,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0016",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-26, who is assigned as the environmental safety inspector?",
+      "expected": "Tatiana Romanova is assigned as the environmental safety inspector.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 425.82319999928586,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0017",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-27, who is assigned as the propulsion dynamics specialist?",
+      "expected": "Benoit Blanc is assigned as the propulsion dynamics specialist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 469.8004999954719,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0018",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-28, who is assigned as the planetary geologist?",
+      "expected": "Esperanza Spalding is assigned as the planetary geologist.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 499.57899999571964,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_CONTEXT_EXTRACTION_0019",
+      "category": "context_extraction",
+      "prompt": "In Orbital Expedition TEST-29, who is assigned as the thermal protection engineer?",
+      "expected": "Thabo Mbeki is assigned as the thermal protection engineer.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 472.56059999926947,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0000",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-100, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 528.8201999792363,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0001",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-101, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 499.20690001454204,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0002",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-102, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 572.6013999956194,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0003",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-103, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 595.8573000098113,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0004",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-104, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 503.71620000805706,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0005",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-105, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 521.095999982208,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0006",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-106, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 484.48199999984354,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0007",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-107, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 461.83129999553785,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0008",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-108, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 544.9844000104349,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0009",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-109, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 505.015699978685,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0010",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-110, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 521.1578999878839,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0011",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-111, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 474.65779999038205,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0012",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-112, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 515.6547999940813,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0013",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-113, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 491.39629999990575,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0014",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-114, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 528.3930999867152,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0015",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-115, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the polished jade amulet.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 514.2365999927279,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0016",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-116, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the brass nautical sextant.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 547.2809000057168,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0017",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-117, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the crystal ink reservoir.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 469.2473000031896,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0018",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-118, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the copper magnifying loupe.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 530.2512000198476,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_REFERENCE_RESOLUTION_0019",
+      "category": "reference_resolution",
+      "prompt": "In Logbook record TEST-119, which object does the pronoun 'it' designate?",
+      "expected": "The pronoun 'it' designates the garnet signet ring.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 549.3547999940347,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0000",
+      "category": "short_explanation",
+      "prompt": "Why do stars appear to twinkle in the night sky?",
+      "expected": "Turbulence in Earth's atmosphere refracts star light as it passes to our eyes.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the total of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 361.8858000263572,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0001",
+      "category": "short_explanation",
+      "prompt": "Why do leaves change color in autumn?",
+      "expected": "Chlorophyll breaks down as daylight decreases, revealing yellow and orange carotenoids.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 351.8401999899652,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0002",
+      "category": "short_explanation",
+      "prompt": "Why do ships float despite being constructed from heavy iron and steel?",
+      "expected": "The wide hollow shape of the hull displaces a weight of water equal to the vessel mass.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the shows so the show of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 356.9353999919258,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0003",
+      "category": "short_explanation",
+      "prompt": "Why does bread dough become elastic and stretchy during mechanical kneading?",
+      "expected": "Kneading uncoils and links gliadin and glutenin proteins into a continuous cohesive gluten web.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the shows she has a total of the s",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 388.34289999795146,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0004",
+      "category": "short_explanation",
+      "prompt": "Why do automobile headlights illuminate the road using curved reflectors?",
+      "expected": "Parabolic curved mirrors collimate light rays from a central focal bulb into a parallel beam.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the shows the fir",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 291.1376999982167,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0005",
+      "category": "short_explanation",
+      "prompt": "Why does dew form on morning grass blades following clear nights?",
+      "expected": "Radiative cooling drops ground surface temperatures below the atmospheric dew point.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the shown is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 321.97410002117977,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0006",
+      "category": "short_explanation",
+      "prompt": "Why do bees produce sweet honey from floral nectar?",
+      "expected": "Bees evaporate moisture from gathered nectar and add enzymes that break sucrose into simple sugars.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 359.31619998882525,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0007",
+      "category": "short_explanation",
+      "prompt": "Why do heavy clouds look dark grey and ominous before a thunderstorm?",
+      "expected": "Thick dense cloud columns scatter and absorb sunlight, preventing it from penetrating downward.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the show of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 315.9767000179272,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0008",
+      "category": "short_explanation",
+      "prompt": "Why does salt water freeze at lower temperatures than fresh water?",
+      "expected": "Dissolved salt ions disrupt the formation of organized crystalline hydrogen bond lattices.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the centrong is the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 361.7211000237148,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0009",
+      "category": "short_explanation",
+      "prompt": "Why do camera shutters make a clicking noise during photographic exposures?",
+      "expected": "Mechanical curtain springs open and close rapidly across the image aperture.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 396.48890000535175,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0010",
+      "category": "short_explanation",
+      "prompt": "Why do iron nails become magnetized when stroked against a permanent magnet?",
+      "expected": "Magnetic fields from the permanent magnet force disordered atomic electron domains to align.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the shown is the total of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 361.10770000959747,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0011",
+      "category": "short_explanation",
+      "prompt": "Why does skin tan after prolonged exposure to sunlight?",
+      "expected": "Ultraviolet radiation stimulates melanocyte cells to produce dark melanin pigment for UV defense.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the shows she has $50 + $5 = ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 252.31300000450574,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0012",
+      "category": "short_explanation",
+      "prompt": "Why do desert trees develop extremely long taproots deep into soil?",
+      "expected": "Deep taproots reach down to distant subterranean water tables beneath arid soil layers.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 227.62450002483092,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0013",
+      "category": "short_explanation",
+      "prompt": "Why do optical spectacles correct blurred human vision?",
+      "expected": "Curved glass lenses bend light rays to focus incoming images precisely onto retinal surfaces.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 247.77159999939613,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0014",
+      "category": "short_explanation",
+      "prompt": "Why do birds fluff their plumage in freezing winter weather?",
+      "expected": "Fluffing plumage expands the dead air layer trapped between feathers to insulate body heat.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the show of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 421.20550002437085,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0015",
+      "category": "short_explanation",
+      "prompt": "Why do electric motors spin continuously when connected to direct current?",
+      "expected": "Magnetic forces between internal electromagnets and permanent magnets produce rotational torque.",
+      "generated": "\n\nStep-by-Step Solution:\nThe total number of the city of the city of the show of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 391.0932999860961,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0016",
+      "category": "short_explanation",
+      "prompt": "Why do hot air balloons descend toward the ground when heat is reduced?",
+      "expected": "Cooling interior air increases its density until it matches or exceeds surrounding air.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 245.99530000705272,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0017",
+      "category": "short_explanation",
+      "prompt": "Why do rocks in riverbeds become smooth and rounded over centuries?",
+      "expected": "Constant tumbling against other stones grinds off sharp mineral edges through mechanical attrition.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the show of the city of the city ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 244.3222000147216,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0018",
+      "category": "short_explanation",
+      "prompt": "Why does touching dry ice burn bare human skin?",
+      "expected": "Extreme cold causes rapid freezing and cellular necrosis identical in symptom to a thermal burn.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the shows to be a total of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 215.05199998500757,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_SHORT_EXPLANATION_0019",
+      "category": "short_explanation",
+      "prompt": "Why do earthquakes trigger landslides on steep mountain slopes?",
+      "expected": "Seismic ground shaking overcomes internal friction holding rock and soil layers to the slope.",
+      "generated": "\nStep-by-Step Solution:\nThe total number of the city of the city of the city of the city of the city of the show",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 221.12410000409,
+      "outcome": "NOT_APPLICABLE",
+      "scoring_status": "NEEDS_REVIEW",
+      "reasons": [
+        "SEMANTIC_EXPLANATION_REQUIRES_HUMAN_REVIEW"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0000",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5002 and 5007.",
+      "expected": "The sum of 5002 and 5007 is 10009.",
+      "generated": "\n\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 210.50740001373924,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0001",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5005 is subtracted from 5059.",
+      "expected": "The difference when 5005 is subtracted from 5059 is 54.",
+      "generated": "\n\nThe first number of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 229.8218999931123,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0002",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5008 is multiplied by 11.",
+      "expected": "The product of 5008 multiplied by 11 is 55088.",
+      "generated": "\n\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 215.69939999608323,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0003",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40088 is divided by 8.",
+      "expected": "The quotient when 40088 is divided by 8 is 5011.",
+      "generated": "\n* 2005 of the century of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 202.94949997332878,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0004",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5014 and 5015.",
+      "expected": "The sum of 5014 and 5015 is 10029.",
+      "generated": "\n\nThe first cannot have a total of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 229.9248999916017,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0005",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5017 is subtracted from 5067.",
+      "expected": "The difference when 5017 is subtracted from 5067 is 50.",
+      "generated": "\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the c",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 224.28549997857772,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0006",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5020 is multiplied by 9.",
+      "expected": "The product of 5020 multiplied by 9 is 45180.",
+      "generated": "\n\nThe first cannot have a total of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 208.68019998306409,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0007",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40184 is divided by 8.",
+      "expected": "The quotient when 40184 is divided by 8 is 5023.",
+      "generated": "\n* 2005 of the first century of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 221.21989997685887,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0008",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5026 and 5023.",
+      "expected": "The sum of 5026 and 5023 is 10049.",
+      "generated": "\n\nThe first of the first cannot the first cannot the first of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 210.62800000072457,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0009",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5025 is subtracted from 5079.",
+      "expected": "The difference when 5025 is subtracted from 5079 is 54.",
+      "generated": "\n\nThe first number of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 390.81319997785613,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0010",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5032 is multiplied by 10.",
+      "expected": "The product of 5032 multiplied by 10 is 50320.",
+      "generated": "\n\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 380.37379999877885,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0011",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40280 is divided by 8.",
+      "expected": "The quotient when 40280 is divided by 8 is 5035.",
+      "generated": "\n* 2005 of the first century of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 347.0890000171494,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0012",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5038 and 5031.",
+      "expected": "The sum of 5038 and 5031 is 10069.",
+      "generated": "\n\nThe first cannot have a total of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 395.7028999866452,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0013",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5033 is subtracted from 5091.",
+      "expected": "The difference when 5033 is subtracted from 5091 is 58.",
+      "generated": "\n\nThe first number of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 313.8784999900963,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0014",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5044 is multiplied by 11.",
+      "expected": "The product of 5044 multiplied by 11 is 55484.",
+      "generated": "\n\nThe first cannot have a total of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 217.6945999963209,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0015",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40376 is divided by 8.",
+      "expected": "The quotient when 40376 is divided by 8 is 5047.",
+      "generated": "\n* 2005 of the first century of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 258.06769999326207,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0016",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact numerical sum of 5050 and 5039.",
+      "expected": "The sum of 5050 and 5039 is 10089.",
+      "generated": "\n\nThe first number of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 381.12600002205,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0017",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact numerical difference when 5041 is subtracted from 5103.",
+      "expected": "The difference when 5041 is subtracted from 5103 is 62.",
+      "generated": "\n\nThe first number of the city of the city of the city of the city of the city of the city of the city of the city of the city of ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 334.09029999165796,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0018",
+      "category": "basic_arithmetic",
+      "prompt": "Determine the exact product when 5056 is multiplied by 9.",
+      "expected": "The product of 5056 multiplied by 9 is 45504.",
+      "generated": "\n\nThe total number of the city of the city of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 230.85740001988597,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_BASIC_ARITHMETIC_0019",
+      "category": "basic_arithmetic",
+      "prompt": "Calculate the exact quotient when 40472 is divided by 8.",
+      "expected": "The quotient when 40472 is divided by 8 is 5059.",
+      "generated": "\n* 2005 of the first century of the city of the city of the city of the city of the city of the city of the city of the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 226.19489999487996,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "ARITHMETIC_RESULT_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0000",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the total fuel consumption in gallons for Hassaleh?",
+      "expected": "The flight log does not state the total fuel consumption.",
+      "generated": "\n\n\nSumber 200 pointer of the centrong of the son of the centrattacking the city of the cental center",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 337.3579000181053,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0001",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the traction motor operating temperature for Almaaz?",
+      "expected": "The depot maintenance report does not record the motor temperature.",
+      "generated": "\n\n\nSumber 2005 centurance of the word of the centermade of the word of the centereach of the first ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 488.18559999926947,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0002",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the dissolved mineral salinity concentration for Haedus?",
+      "expected": "The geothermal dispatch does not specify the mineral salinity.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 458.07890000287443,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0003",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the volume of river inflow processed for Alsciaukat?",
+      "expected": "Facility Alsciaukat processed 64 million liters of inflow.",
+      "generated": "\n\n* John British and the Christiangovend of the Chalso of the C. It is the Chris",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 335.93000000109896,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0004",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the grain internal moisture percentage for Tyl?",
+      "expected": "The storage manifest does not state the grain moisture percentage.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 324.249500001315,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0005",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the electric motor drive current in amperes for Nodus?",
+      "expected": "The mining production record does not contain the motor drive current.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 325.363500014646,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0006",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the suction flange static pressure for Alsafi?",
+      "expected": "The pipeline summary does not record the suction flange pressure.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n* ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 301.9802999915555,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0007",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the thickness of optical silica applied for Dziban?",
+      "expected": "Chamber Dziban applied 92 nanometers of silica.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n* [httone = [htt",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 340.8903000236023,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0008",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the backup battery state of charge percentage for Edasich?",
+      "expected": "The station status log does not mention the backup battery charge.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n* [http://www",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 307.48200000380166,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0009",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the measured slag viscosity rating for Thuban?",
+      "expected": "The furnace melt record does not state the slag viscosity rating.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 313.4684000106063,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0010",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the ambient intake temperature in Celsius for Giausar?",
+      "expected": "The telemetry dispatch does not record the ambient temperature.",
+      "generated": "\n\n* John British and the China is the British of the China is the first of the first of the fir",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 297.408100013854,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0011",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the cooling water discharge rate for Pherkad?",
+      "expected": "Generator Unit-Pherkad discharged 31 cubic meters per second.",
+      "generated": "\n\n\nSince of the first of the centrong of the cental centermone of the center. It is the first can",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 320.9375999867916,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0012",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the current bunker fuel oil reserve for Yildun?",
+      "expected": "The harbor manifest does not mention the bunker fuel reserve.",
+      "generated": "\n\n\nSince of the first of the filestituds of the centrats is was the show much of the show much was the ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 317.23990000318736,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0013",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the barometric pressure in millibars for Ahfa?",
+      "expected": "The meteorological report does not specify the barometric pressure.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n* [h",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 315.6386999762617,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0014",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the catalyst mass concentration in grams for Sadaltager?",
+      "expected": "The reactor monitoring sheet does not contain the catalyst mass.",
+      "generated": "\n\n\nSince of the first of the shown's is the centermania of the word of the center. It is the first ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 330.4262000019662,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0015",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the assigned cruise altitude for Albali?",
+      "expected": "Aircraft Albali climbed to 59 thousand feet.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 338.6955999885686,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0016",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the traction motor operating temperature for Ancha?",
+      "expected": "The depot maintenance report does not record the motor temperature.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n* [htt",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 316.1180000170134,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0017",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the dissolved mineral salinity concentration for Situla?",
+      "expected": "The geothermal dispatch does not specify the mineral salinity.",
+      "generated": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 321.53630000539124,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "EMPTY_RESPONSE"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0018",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the residual chlorine concentration in parts per million for Azelfafage?",
+      "expected": "The filtration report does not mention the chlorine concentration.",
+      "generated": "\n\n* Androne of the Callyearea is the first of the first of the first of the wattrue of the cent",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 349.92910001892596,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "UNSUPPORTED_ANSWER_REFUSAL_EXPECTED"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_UNCERTAINTY_ABSTENTION_0019",
+      "category": "uncertainty_abstention",
+      "prompt": "According to the record, what is the metric tons of winter barley unloaded for Kurhah?",
+      "expected": "Terminal Kurhah unloaded 87 metric tons of barley.",
+      "generated": "\n\n\nStemperature of the city of the centermonirdy of the centermade of the show of the son of the center",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 317.06009997287765,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "GROUNDED_ANSWER_MISMATCH"
+      ],
+      "format_valid": true
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0000",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_0' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_0\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 285.7726000074763,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0001",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_1' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_1\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 303.34890002268367,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0002",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_2' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_2\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not isinstance(\")\n        if not None:\n            self._subset('",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 282.9626000020653,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0003",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_3' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_3\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not not None:\n            raise ValueError(\"Incrementally",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 282.2388999920804,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0004",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_4' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_4\"}",
+      "generated": "\n\n* [http://www.gov.co.com/books?id=20060606063&amp;n",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 325.06000000284985,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0005",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_5' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_5\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 255.4289000108838,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0006",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_6' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_6\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 255.76319999527186,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0007",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_7' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_7\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not isinstance(\")\n        if not None:\n            self._subset('",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 276.78889999515377,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0008",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_8' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_8\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not not None:\n            raise ValueError(\"Incrementally",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 255.23370000883006,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0009",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_9' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_9\"}",
+      "generated": "\n\n\nNovember 2: [https://en.wikipedia.org/wiki/Bookers/Book",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 264.7824000159744,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0010",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_10' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_10\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 257.8287999785971,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0011",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_11' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_11\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 259.3703999882564,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0012",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_12' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_12\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not isinstance(\")\n        if not None:\n            self._subset('",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 272.2927000140771,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0013",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_13' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_13\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not isinstance(\")\n        if not self._subset(\")\n        if ",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 262.6981999783311,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0014",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_14' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_14\"}",
+      "generated": "\n\n\nNovember 2: [https://en.wikipedia.org/wiki/Bookers/Book",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 259.21099999686703,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0015",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'spacecraft_subsystem_id' and value 'EPS-4_15' as a valid JSON object.",
+      "expected": "{\"spacecraft_subsystem_id\": \"EPS-4_15\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 269.9255999759771,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0016",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'thermal_gradient_celsius' and value '18.5_16' as a valid JSON object.",
+      "expected": "{\"thermal_gradient_celsius\": \"18.5_16\"}",
+      "generated": "\n* [https://web.archive.org/web/20120120606/http://www.gov",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 275.9525000001304,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0017",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'gyro_drift_rate_arcsec' and value '0.02_17' as a valid JSON object.",
+      "expected": "{\"gyro_drift_rate_arcsec\": \"0.02_17\"}",
+      "generated": "\n        \"\"\"\n        if not isinstance(\")\n        if not isinstance(\")\n        if not None:\n            self._subset('",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 304.08689999603666,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0018",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'attitude_control_mode' and value 'fine_pointing_18' as a valid JSON object.",
+      "expected": "{\"attitude_control_mode\": \"fine_pointing_18\"}",
+      "generated": "\n\n\ndef _ship_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to_",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 269.2782000231091,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    },
+    {
+      "record_id": "EXP18_TEST_STRUCTURED_FORMATTING_0019",
+      "category": "structured_formatting",
+      "prompt": "Format the property 'high_gain_antenna_status' and value 'tracking_19' as a valid JSON object.",
+      "expected": "{\"high_gain_antenna_status\": \"tracking_19\"}",
+      "generated": "\n\n\ndef _sin('_', 'RGB', 'MALL', 'MALL', 'MALLIDED', 'N",
+      "stop_reason": "MAX_TOKENS",
+      "tokens_generated": 45,
+      "latency_ms": 248.7054000084754,
+      "outcome": "INCORRECT",
+      "scoring_status": "SCORED",
+      "reasons": [
+        "JSON_SYNTAX_INVALID"
+      ],
+      "format_valid": false
+    }
+  ]
+}

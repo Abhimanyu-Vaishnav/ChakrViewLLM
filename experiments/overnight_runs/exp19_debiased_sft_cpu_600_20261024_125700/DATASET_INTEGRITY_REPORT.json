@@ -1,0 +1,57 @@
+{
+  "dataset_source": "Exp18DatasetGenerator.generate_all_splits()",
+  "transform": "Exp19ResponseDiversifier",
+  "train_records": 1200,
+  "val_records": 160,
+  "test_records": 160,
+  "train_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_train_debiased_isolated.jsonl",
+  "train_file_sha256": "f0479f0ee95d4656f956b22dd38321ccf43ca822aeae999d90f512f0ed476e2b",
+  "val_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_val_isolated.jsonl",
+  "val_file_sha256": "1cd80c6034d96f2687dbcd715f04bae07d78cf405c91b5bc72a273698d4cdce0",
+  "test_file": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp19_debiased_sft_cpu_600_20261024_125700\\data\\exp19_test_frozen_isolated.jsonl",
+  "test_file_sha256": "a3cc3c92cb9d4b59c983333abc941e68815af9fb30867c7c68bcb5951395bb68",
+  "test_manifest_verified": true,
+  "test_manifest_content_sha256": "111db453d5ee52d436ef9a49f1ad6555ea572d118f84099ea0763e7f299ba047",
+  "category_concentration": {
+    "basic_arithmetic": {
+      "max_prefix": "The sum",
+      "count": 10,
+      "pct": 6.67
+    },
+    "context_extraction": {
+      "max_prefix": "Dr. Marcus",
+      "count": 3,
+      "pct": 2.0
+    },
+    "factual_qa": {
+      "max_prefix": "Chemical symbol",
+      "count": 9,
+      "pct": 6.0
+    },
+    "instruction_following": {
+      "max_prefix": "Confirm receipt",
+      "count": 37,
+      "pct": 24.67
+    },
+    "reference_resolution": {
+      "max_prefix": "The pronoun",
+      "count": 30,
+      "pct": 20.0
+    },
+    "short_explanation": {
+      "max_prefix": "Extremely low",
+      "count": 2,
+      "pct": 1.33
+    },
+    "structured_formatting": {
+      "max_prefix": "{\"server_status\": \"operational_0\"}",
+      "count": 1,
+      "pct": 0.67
+    },
+    "uncertainty_abstention": {
+      "max_prefix": "Unrecorded in",
+      "count": 37,
+      "pct": 24.67
+    }
+  }
+}

@@ -1,0 +1,43 @@
+======================================================================
+CHAKRVIEW TEST SUITE REGRESSION EXECUTION RESULTS
+Captured: 2026-10-24T10:44:30+05:30
+Python Environment: d:\Project\ChakrView\.venv\Scripts\python.exe
+Platform: Windows (PyTorch 2.14.0+cpu)
+======================================================================
+
+1. TaskEvaluator Regression Suite (tests/test_task_evaluator.py):
+   Ran 17 tests in 0.010s
+   Result: OK (17 / 17 PASSED, 0 FAILURES, 0 ERRORS)
+   Subprocess Return Code: 0
+   Tests verified:
+     - test_abstention_appropriate_on_unanswerable ... ok
+     - test_abstention_control_different_targets ... ok
+     - test_abstention_unsupported_answer_on_unanswerable ... ok
+     - test_arithmetic_correct_addition ... ok
+     - test_arithmetic_incorrect_addition ... ok
+     - test_arithmetic_multiplication ... ok
+     - test_arithmetic_negative_result ... ok
+     - test_arithmetic_substring_false_positive_prevention ... ok
+     - test_context_extraction_correct ... ok
+     - test_factual_qa_varied_entities (Sahara, electron, proton, mismatch) ... ok
+     - test_json_docstring_fragment_rejected ... ok
+     - test_json_empty_output ... ok
+     - test_json_malformed_syntax ... ok
+     - test_json_valid_and_schema_correct ... ok
+     - test_reference_resolution_correct ... ok
+     - test_short_explanation_requires_review ... ok
+     - test_unknown_category_unscored ... ok
+
+2. Exp18 Dataset Generator Suite (experiments/research_v09_conversation_sft/exp18_scaled_instruction_format_v1/tests/test_exp18_generator.py):
+   Ran 15 tests in 10.506s
+   Result: OK (15 / 15 PASSED, 0 FAILURES, 0 ERRORS)
+   Subprocess Return Code: 0
+
+3. Repository-Wide Discover Suite (python -m unittest discover -s tests):
+   Ran 123 tests in 25.934s
+   Result: OK (123 / 123 PASSED, 0 FAILURES, 0 ERRORS)
+   Subprocess Return Code: 0
+   All unit, runtime, tokenization, neural adapter, governance, and session tests pass.
+
+Total Unique Assertions Verified Green: 100%
+No failing or broken regression tests exist in the active codebase.

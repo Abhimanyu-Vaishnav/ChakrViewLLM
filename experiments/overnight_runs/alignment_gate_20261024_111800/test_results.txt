@@ -1,0 +1,69 @@
+======================================================================
+CHAKRVIEW ALIGNMENT GATE TEST EXECUTION SUITE
+Captured: 2026-10-24T11:26:00+05:30
+Python Environment: d:\Project\ChakrView\.venv\Scripts\python.exe
+Platform: Windows (PyTorch 2.14.0+cpu)
+======================================================================
+
+1. Prompt Alignment & Parity Suite (tests/test_sft_prompt_alignment.py):
+   Ran 3 tests in 0.283s
+   Result: OK (3 / 3 PASSED, 0 FAILURES, 0 ERRORS)
+   Exit Code: 0
+   Tests verified:
+     - test_sft_dataset_formats_prompt_dynamically_when_formatted_prompt_missing ... ok
+     - test_sft_dataset_uses_formatted_prompt_when_available ... ok
+     - test_token_and_mask_parity_with_runtime_inference ... ok
+
+2. TaskEvaluator Regression Suite (tests/test_task_evaluator.py):
+   Ran 17 tests in 0.005s
+   Result: OK (17 / 17 PASSED, 0 FAILURES, 0 ERRORS)
+   Exit Code: 0
+   Tests verified:
+     - test_abstention_appropriate_on_unanswerable ... ok
+     - test_abstention_control_different_targets ... ok
+     - test_abstention_unsupported_answer_on_unanswerable ... ok
+     - test_arithmetic_correct_addition ... ok
+     - test_arithmetic_incorrect_addition ... ok
+     - test_arithmetic_multiplication ... ok
+     - test_arithmetic_negative_result ... ok
+     - test_arithmetic_substring_false_positive_prevention ... ok
+     - test_context_extraction_correct ... ok
+     - test_factual_qa_varied_entities (Sahara, electron, proton, and single-letter symbol boundary) ... ok
+     - test_json_docstring_fragment_rejected ... ok
+     - test_json_empty_output ... ok
+     - test_json_malformed_syntax ... ok
+     - test_json_valid_and_schema_correct ... ok
+     - test_reference_resolution_correct ... ok
+     - test_short_explanation_requires_review ... ok
+     - test_unknown_category_unscored ... ok
+
+3. Exp18 Dataset Generator Suite (experiments/research_v09_conversation_sft/exp18_scaled_instruction_format_v1/tests/test_exp18_generator.py):
+   Ran 15 tests in 64.336s
+   Result: OK (15 / 15 PASSED, 0 FAILURES, 0 ERRORS)
+   Exit Code: 0
+   Tests verified:
+     - test_abstention_consistency_and_ratio ... ok
+     - test_arithmetic_oracle_correctness ... ok
+     - test_context_extraction_grounding_and_evaluation ... ok
+     - test_cross_split_ngram_leakage ... ok
+     - test_cross_split_prompt_disjointness ... ok
+     - test_deterministic_regeneration ... ok
+     - test_gate_v01_non_contamination ... ok
+     - test_id_uniqueness_and_canonical_schema ... ok
+     - test_per_category_balance ... ok
+     - test_reference_resolution_grounding_and_evaluation ... ok
+     - test_short_explanation_held_out_policy ... ok
+     - test_split_quotas_and_record_counts ... ok
+     - test_structured_formatting_json_validity ... ok
+     - test_token_bounds_and_target_distribution ... ok
+     - test_tokenizer_and_prompt_formatting_parity ... ok
+
+4. Repository-Wide Discover Suite (python -m unittest discover -s tests):
+   Ran 126 tests in 148.407s
+   Result: OK (126 / 126 PASSED, 0 FAILURES, 0 ERRORS)
+   Exit Code: 0
+   Total tests: 126 (123 existing + 3 new prompt alignment regression tests).
+   All unit, runtime, tokenization, neural adapter, governance, and session tests pass.
+
+Total Assertions Verified Green: 100%
+No failing or broken regression tests exist in the active codebase.

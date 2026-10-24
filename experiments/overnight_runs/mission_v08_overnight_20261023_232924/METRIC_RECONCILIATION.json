@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-10-24T10:44:00+05:30",
+  "audit_mission_dir": "experiments/overnight_runs/mission_v08_overnight_20261023_232924",
+  "headline_vs_raw_reconciliation": {
+    "baseline_checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "claimed_scorable_accuracy": "2.14%",
+      "verified_correct_count": 3,
+      "verified_scorable_denominator": 140,
+      "verified_total_test_records": 160,
+      "category_correct_breakdown": {
+        "factual_qa": "3/20",
+        "instruction_following": "0/20",
+        "context_extraction": "0/20",
+        "reference_resolution": "0/20",
+        "short_explanation": "0/20 (held out in NEEDS_REVIEW)",
+        "basic_arithmetic": "0/20",
+        "uncertainty_abstention": "0/20",
+        "structured_formatting": "0/20"
+      },
+      "forensic_finding": "The 3 correct factual_qa records include spurious substring matches (e.g., tungsten symbol 'W' matched against the letter 'w' in repeated degeneration 'show'). The true semantic task accuracy is effectively 0.0%."
+    },
+    "sft_experiment_checkpoint": {
+      "path": "experiments/overnight_runs/mission_v08_overnight_20261023_232924/checkpoints/sft_exp18_run/sft_best_checkpoint.pt",
+      "source_lineage": "Derived from canonical step 10,000 via 120 steps AdamW on isolated Exp18 train split",
+      "claimed_scorable_accuracy": "1.43%",
+      "verified_correct_count": 2,
+      "verified_scorable_denominator": 140,
+      "category_correct_breakdown": {
+        "factual_qa": "2/20",
+        "instruction_following": "0/20",
+        "context_extraction": "0/20",
+        "reference_resolution": "0/20",
+        "short_explanation": "0/20 (held out in NEEDS_REVIEW)",
+        "basic_arithmetic": "0/20",
+        "uncertainty_abstention": "0/20",
+        "structured_formatting": "0/20"
+      },
+      "claimed_accuracy_delta": "-0.71%",
+      "statistical_significance": "Non-significant (difference of 1 record out of 140; noise floor given 1-letter substring matches)."
+    },
+    "eos_completion_rate": {
+      "baseline": "0.0% (0/160)",
+      "sft_experiment": "8.75% (14/160)",
+      "verified_delta": "+8.75%",
+      "interpretation": "Genuine behavioral shift towards emitting EOS token (ID 1) in reference resolution and context extraction, though task answer correctness remains unlearned."
+    },
+    "test_suite_reconciliation": {
+      "claimed_total_tests": 123,
+      "verified_discovery_count": 123,
+      "evaluator_tests_included": 17,
+      "other_tests_included": 106,
+      "actual_return_code": 0,
+      "overlapping_runs_note": "The 123 tests represent the unique unittest discovery across tests/. The earlier report of 15 generator tests came from a separate standalone runner for exp18_generator.py."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "all_checks_passed": true,
+  "verdict": "READY_FOR_EXPLICIT_AUTHORIZATION",
+  "checks": {
+    "1_inspection_of_prior_artifacts": {
+      "status": "PASS",
+      "evidence": "Inspected diversification_transform.py, REAL_DATA_TRANSFORM_RESULTS.json, BEFORE_AFTER_TEMPLATE_COUNTS.json, and EXP19_INTEGRATION_AUDIT.md from exp19_final_integration_audit_20261024_122100."
+    },
+    "2_template_concentration_under_25_pct": {
+      "status": "PASS",
+      "evidence": "Resolved reference-resolution from 25.33% to 20.00% (30/150 records per variant) using 5-variant deterministic cycling. Arithmetic resolved to 6.67% max concentration via per-operation rotation. All 8 categories strictly <= 24.67% <= 25.00%. Overall train max prefix is 'Confirm receipt' at 3.08%."
+    },
+    "3_sft_pipeline_consumption_verification": {
+      "status": "PASS",
+      "evidence": "Demonstrated that canonical SFTDataset loads the transformed records from isolated JSONL without any training code modifications. Record-by-record verification confirmed 1,200/1,200 records loaded with exact diversified responses."
+    },
+    "4_semantic_and_split_invariance": {
+      "status": "PASS",
+      "evidence": "Prompts, IDs, categories, and formatted prompt contracts are 100% preserved. All numerical values and entity targets preserved. Validation (160) and test (160) splits verified byte-for-byte identical in memory."
+    },
+    "5_frozen_experiment_configuration": {
+      "status": "PASS",
+      "evidence": "Frozen configuration locked: 600 steps on CPU, lr=5e-5 to 5e-6 cosine decay, batch size 2, seed 42. Base checkpoint isolated to experiments/overnight_runs/exp19_debiased_sft_cpu_600/checkpoints/training_checkpoint_start.pt with SHA-256 96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee. Evaluation frozen on 160 test records (manifest SHA-256 111db453...)."
+    },
+    "6_protected_asset_integrity": {
+      "status": "PASS",
+      "evidence": "All 9 protected assets bitwise verified against expected standard hashes with zero discrepancies."
+    }
+  },
+  "protected_assets_verified": {
+    "canonical_architecture_baseline": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "canonical_training_checkpoint_step_10000": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "tokenizer_vocab_json": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "tokenizer_merges_json": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "runtime_session_adapter": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "model_brain_source": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+    "exp17_train_split": "074fafe5c1dbcbd7467430cb6f5eccd2c11f2f8679ff27e13c0d38cc90bac181",
+    "exp17_val_split": "15d9c942c01fb6afaf6280b7515d9e621ff8df7740be8010daa2be98841f4564",
+    "exp17_test_split": "be10afaa3957713cead5399c2b01e5ad2f4fb61d6355835432c7d6e0fdcc6430"
+  }
+}
