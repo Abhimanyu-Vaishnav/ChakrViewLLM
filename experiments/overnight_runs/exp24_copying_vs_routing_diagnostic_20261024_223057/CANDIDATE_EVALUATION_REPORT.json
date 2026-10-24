@@ -1,0 +1,82 @@
+{
+  "blank_emissions": [
+    "I",
+    "O",
+    "E",
+    "P"
+  ],
+  "blank_modal_share": 0.25,
+  "total_eval_time_sec": 1.3714334000251256,
+  "holm_bonferroni": {
+    "ranked_p_values": [
+      [
+        2.938735877055719e-39,
+        "test_s1"
+      ],
+      [
+        1.0000000000000009,
+        "test_s2"
+      ]
+    ],
+    "step1_threshold_0.025_rejected": true,
+    "step2_threshold_0.050_rejected": false,
+    "overall_significant": false
+  },
+  "assigned_category": "Category 2: In-Distribution Route Without Transfer",
+  "best_step": 300,
+  "best_val_loss": 0.10351870403974317,
+  "train_duration_sec": 19.30762279999908,
+  "peak_ram_gb": 0.49560546875,
+  "test_s1": {
+    "n": 32,
+    "exact_matches": 32,
+    "exact_match_rate": 1.0,
+    "em_ci95": [
+      0.8928211908211187,
+      0.9999999999999999
+    ],
+    "pair_successes": 32,
+    "pair_level_accuracy": 1.0,
+    "pla_ci95": [
+      0.8928211908211187,
+      0.9999999999999999
+    ],
+    "eos_rate": 1.0,
+    "multi_token_rate": 0.0,
+    "invalid_output_rate": 0.0,
+    "modal_token": "A",
+    "modal_share": 0.0625,
+    "collapsed_to_unigram": false,
+    "context_independence_rate": 0.09375,
+    "p0_ref": 0.0625,
+    "exploratory_p_value": 2.938735877055719e-39,
+    "mean_latency_ms": 9.915962489685626,
+    "p95_latency_ms": 13.478630007011816
+  },
+  "test_s2": {
+    "n": 30,
+    "exact_matches": 0,
+    "exact_match_rate": 0.0,
+    "em_ci95": [
+      0.0,
+      0.11351298402718175
+    ],
+    "pair_successes": 0,
+    "pair_level_accuracy": 0.0,
+    "pla_ci95": [
+      0.0,
+      0.11351298402718175
+    ],
+    "eos_rate": 1.0,
+    "multi_token_rate": 0.0,
+    "invalid_output_rate": 0.0,
+    "modal_token": "L",
+    "modal_share": 0.5,
+    "collapsed_to_unigram": true,
+    "context_independence_rate": 0.16666666666666666,
+    "p0_ref": 0.1,
+    "exploratory_p_value": 1.0000000000000009,
+    "mean_latency_ms": 9.280949997870872,
+    "p95_latency_ms": 11.673710012109948
+  }
+}
