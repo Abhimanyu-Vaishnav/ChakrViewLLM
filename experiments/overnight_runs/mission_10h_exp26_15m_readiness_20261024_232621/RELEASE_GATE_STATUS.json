@@ -1,0 +1,31 @@
+{
+  "gate_matrix_version": "v0.8.0-rc1",
+  "audit_timestamp": "2026-10-24T23:35:00+05:30",
+  "overall_recommendation": "CONDITIONAL HOLD",
+  "gates": {
+    "A_core_integrity": {
+      "status": "PASS",
+      "findings": "Indigenous neural architecture from scratch; zero external pretrained weights or hosted API dependencies. Canonical baseline parameter count invariant at 3,443,136. Canonical checkpoint SHA-256 (96357705...) bit-exact. Architecture digest (c5571c9c... with seed=42) bit-exact. Protected files session.py, model.py, vocab.json, merges.json bit-exact. CPU forward/backward and save/load roundtrips fully verified."
+    },
+    "B_evaluation_reliability": {
+      "status": "PASS",
+      "findings": "Regression tests pass (29/29). Exp25 evaluation metrics independently recomputed from CANDIDATE_PER_RECORD_PREDICTIONS.jsonl (Test 1 EM 82.5% / PLA 70%; Test 2A/2B/2C EM 0%, PLA 0%, EOS 100%). Evaluator fixtures pass 8/8. Known held-out generalization limitations rigorously documented and not obscured."
+    },
+    "C_runtime_and_dialogue": {
+      "status": "PASS",
+      "findings": "Multi-turn context manager and LocalModelSession sliding-window compaction pass deterministic tests. System prompt pinning, tenant isolation, and context overflow handling are active. ChakrMicro causal dialogue coherence remains bounded by 3.44M pretraining capacity."
+    },
+    "D_human_semantic_review": {
+      "status": "NEEDS HUMAN REVIEW",
+      "findings": "20 short_explanation evaluation records in Exp18 suite remain explicitly scored as scoring_status='NEEDS_REVIEW' and outcome='NOT_APPLICABLE' per project policy. No fake approvals generated; strictly preserved as pending human sign-off."
+    },
+    "E_gguf_and_packaging": {
+      "status": "PASS",
+      "findings": "Standalone binary GGUF v3 writer (chakrview/export/gguf_writer.py) and converter (export_chakrmicro_gguf.py) successfully export canonical model to valid 16.20 MB GGUF container with verified 'GGUF' magic and aligned tensors. PyPI publishing remains withheld per mission policy."
+    },
+    "F_scaling_and_generalization": {
+      "status": "IN PROGRESS",
+      "findings": "ChakrMicro-15M architecture designed and verified (15,735,168 unique parameters, +4.90% of target). CPU pilot confirms 111.5 ms/step and ~411 MB working memory. Exp26 diagnostic comparison in progress."
+    }
+  }
+}
