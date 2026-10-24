@@ -27,6 +27,7 @@ from chakrview.training.prompt_contract import (
     normalize_prompt_response_strings,
     build_causal_sequence,
 )
+from chakrview.runtime.prompt_conditioning import format_conditioned_prompt
 
 
 @dataclass
@@ -192,7 +193,21 @@ class SFTDataset:
         for idx in indices:
             rec = self.records[idx]
             append_eos = rec.get("append_eos", True)
-            inp, tgt = self.encode_example(rec["prompt"], rec["response"], append_eos=append_eos)
+
+            # Canonical Prompt Conditioning Alignment:
+            # If record contains pre-formatted prompt, use it; otherwise format using format_conditioned_prompt
+            if "formatted_prompt" in rec and rec["formatted_prompt"]:
+                prompt_to_encode = rec["formatted_prompt"]
+            elif "prompt_mode" in rec:
+                prompt_to_encode = format_conditioned_prompt(
+                    rec["prompt"],
+                    prompt_mode=rec["prompt_mode"],
+                    context=rec.get("context", ""),
+                )
+            else:
+                prompt_to_encode = rec["prompt"]
+
+            inp, tgt = self.encode_example(prompt_to_encode, rec["response"], append_eos=append_eos)
             batch_inputs.append(inp)
             batch_targets.append(tgt)
 
