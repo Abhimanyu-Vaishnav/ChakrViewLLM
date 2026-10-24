@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "split_pairs_disjoint": {
+      "status": "PASS",
+      "train_pairs": 50,
+      "val_pairs": 10,
+      "test_pairs": 20,
+      "overlap_tr_te": 0
+    },
+    "record_counts_and_uniqueness": {
+      "status": "PASS",
+      "train_records": 300,
+      "val_records": 50,
+      "test_records": 50
+    },
+    "tokenizer_target_roundtrip": {
+      "status": "PASS",
+      "failures_count": 0,
+      "failures_sample": []
+    },
+    "loss_masking_and_eos_supervision": {
+      "status": "PASS",
+      "has_eos_supervision": true,
+      "has_masked_prompt": true,
+      "completion_token_count": 15
+    },
+    "immutable_dataset_hashes": {
+      "train_sha256": "062dc2c78423a3ce77e9cee964d6e3a016f3768aaf30309589a5676aa787ce41",
+      "val_sha256": "719c878cbb43c45dd7e3f60e95a49d378e19886dac8786334abbf6951962d733",
+      "test_sha256": "94d6ecb3605182504b984c375e0edd1933885c0cec4834c1e008cd4ca3bb584e",
+      "status": "PASS"
+    }
+  },
+  "all_passed": true
+}

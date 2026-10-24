@@ -1,0 +1,120 @@
+{
+  "experiment_id": "exp23_single_token_copying_diagnostic",
+  "timestamp": "20261024_220428",
+  "run_directory": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp23_single_token_copying_diagnostic_sft_20261024_220428",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "candidate_checkpoint_best": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp23_single_token_copying_diagnostic_sft_20261024_220428\\checkpoints\\checkpoint_best.pt",
+    "sha256": "02acf0f2a7958800b77b75fce95e7608deac2db8a4f2d561016e3925bcb8ca3b",
+    "best_step": 240,
+    "best_val_loss": 1.3526
+  },
+  "candidate_checkpoint_final": {
+    "path": "D:\\Project\\ChakrView\\experiments\\overnight_runs\\exp23_single_token_copying_diagnostic_sft_20261024_220428\\checkpoints\\checkpoint_step_300.pt",
+    "sha256": "4c3d14781e9b0802245eb52a67cee00a43bf6ceb54ab71ff5ccb598ccd4180cb",
+    "final_step": 300,
+    "final_val_loss": 1.3685
+  },
+  "training_metrics": {
+    "total_steps": 300,
+    "initial_val_loss": 7.8338,
+    "best_val_loss": 1.3526,
+    "best_step": 240,
+    "final_val_loss": 1.3685,
+    "total_training_wall_sec": 12.31,
+    "peak_ram_mb": 0.0,
+    "learning_rate_schedule": "5e-5 -> 5e-6 cosine with 10 warmup steps",
+    "batch_size": 2,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "seed": 42
+  },
+  "in_memory_dataset_lineage": {
+    "random_seed": 20261025,
+    "train_records_count": 100,
+    "train_payload_sha256": "3696d8efc0f2ae87fdf387f79491ecbfe13a440017141157ac8ff940ce98a740",
+    "val_records_count": 25,
+    "val_payload_sha256": "60f3d9277efb29d7bf916cc819ac4a381642c821287c038c28bc2ad1d949d373",
+    "test_subset1_count": 25,
+    "test_subset1_payload_sha256": "b5b77a8a7e76776272b3450b8e61b422b4946b37d895ffd07f9f9b68890bc75f",
+    "test_subset2_count": 25,
+    "test_subset2_payload_sha256": "02da0c53bbce2f1b66683cf00ba6b84c68f7d85a8277fa5f096bbb595392d7e3",
+    "empirical_majority_class_baseline_pct": 11.0
+  },
+  "candidate_eval_subset1": {
+    "subset_name": "Candidate Test Subset 1 (In-Vocab Unseen Layouts)",
+    "total_records": 25,
+    "first_token_correct": 2,
+    "first_token_accuracy": 0.08,
+    "first_token_wilson_95ci": [
+      0.0222,
+      0.2497
+    ],
+    "first_token_exact_one_sided_p_vs_p0_20": 0.9726102743993574,
+    "strict_correct": 2,
+    "strict_accuracy": 0.08,
+    "eos_compliant_count": 25,
+    "eos_compliance_rate": 1.0,
+    "avg_tokens_generated": 2.0,
+    "avg_latency_ms": 10.52,
+    "total_eval_time_s": 0.26,
+    "error_category_distribution": {
+      "TOKEN_MISMATCH_NON_ARRAY": 18,
+      "CORRECT": 2,
+      "WRONG_DISTRACTOR_COPIED": 5
+    },
+    "positional_accuracy": {
+      "0": 1,
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 0
+    }
+  },
+  "candidate_eval_subset2": {
+    "subset_name": "Candidate Test Subset 2 (Task-Held-Out Tokens)",
+    "total_records": 25,
+    "first_token_correct": 0,
+    "first_token_accuracy": 0.0,
+    "first_token_wilson_95ci": [
+      0.0,
+      0.1332
+    ],
+    "first_token_exact_one_sided_p_vs_p0_20": 1.0000000000000013,
+    "strict_correct": 0,
+    "strict_accuracy": 0.0,
+    "eos_compliant_count": 25,
+    "eos_compliance_rate": 1.0,
+    "avg_tokens_generated": 2.0,
+    "avg_latency_ms": 10.18,
+    "total_eval_time_s": 0.25,
+    "error_category_distribution": {
+      "TOKEN_MISMATCH_NON_ARRAY": 25
+    },
+    "positional_accuracy": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    }
+  },
+  "holm_bonferroni_significance": {
+    "step1": {
+      "tested_subset": "Subset 1 (In-Vocab)",
+      "k_correct": 2,
+      "p_value": 0.9726102743993574,
+      "threshold": 0.025,
+      "pass": false
+    },
+    "step2": {
+      "tested_subset": "Subset 2 (Held-Out)",
+      "k_correct": 0,
+      "p_value": 1.0000000000000013,
+      "threshold": 0.05,
+      "pass": false
+    },
+    "family_wise_significant_subsets": [],
+    "engineering_target_met_ge_12_each": false
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "experiment_id": "exp23_single_token_copying_diagnostic",
+  "evaluation_mode": "FROZEN_CHECKPOINT_ZERO_SHOT_BASELINE",
+  "checkpoint_path": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+  "checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "timestamp": "20261024_215459",
+  "random_seed": 20261025,
+  "decoding_parameters": {
+    "strategy": "deterministic_greedy",
+    "temperature": 0.0,
+    "max_new_tokens": 4
+  },
+  "in_memory_payload_hashes": {
+    "subset1_sha256": "a720a8d5590fe5305a703bfbda8d78800cf0cc5b879a3918c856fcd1394938da",
+    "subset2_sha256": "3681cd77d040f7993f2d83954c5d8b86dc19bf3438890ada7c09eb606885abb9"
+  },
+  "subset1_summary": {
+    "subset_name": "Test Subset 1 (In-Vocab Unseen Layouts)",
+    "total_records": 25,
+    "first_token_correct": 0,
+    "first_token_accuracy": 0.0,
+    "first_token_wilson_95ci": [
+      0.0,
+      0.1332
+    ],
+    "first_token_exact_one_sided_p_vs_p0_20": 1.0000000000000013,
+    "strict_correct": 0,
+    "strict_accuracy": 0.0,
+    "eos_compliant_count": 0,
+    "eos_compliance_rate": 0.0,
+    "avg_tokens_generated": 4.0,
+    "avg_latency_ms": 18.99,
+    "total_eval_time_s": 0.47,
+    "error_category_distribution": {
+      "TOKEN_MISMATCH_NON_ARRAY": 25
+    },
+    "positional_accuracy": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    }
+  },
+  "subset2_summary": {
+    "subset_name": "Test Subset 2 (Task-Held-Out Tokens)",
+    "total_records": 25,
+    "first_token_correct": 0,
+    "first_token_accuracy": 0.0,
+    "first_token_wilson_95ci": [
+      0.0,
+      0.1332
+    ],
+    "first_token_exact_one_sided_p_vs_p0_20": 1.0000000000000013,
+    "strict_correct": 0,
+    "strict_accuracy": 0.0,
+    "eos_compliant_count": 0,
+    "eos_compliance_rate": 0.0,
+    "avg_tokens_generated": 4.0,
+    "avg_latency_ms": 18.52,
+    "total_eval_time_s": 0.46,
+    "error_category_distribution": {
+      "TOKEN_MISMATCH_NON_ARRAY": 24,
+      "WRONG_DISTRACTOR_COPIED": 1
+    },
+    "positional_accuracy": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    }
+  },
+  "combined_metrics": {
+    "total_test_records": 50,
+    "combined_first_token_correct": 0,
+    "combined_first_token_accuracy": 0.0,
+    "combined_strict_correct": 0,
+    "combined_strict_accuracy": 0.0
+  }
+}
