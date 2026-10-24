@@ -221,7 +221,104 @@ class TestTaskEvaluator(unittest.TestCase):
         self.assertEqual(res_genuine_art.outcome, EvaluationOutcome.CORRECT)
         self.assertIn("FACTUAL_ENTITY_MATCH", res_genuine_art.reason_codes)
 
-    # 7. Unknown Category Test
+    # 7. Context Copying Tests (Exp21 Counterexamples & Negative Guards)
+    def test_context_copying_exact_match(self):
+        rec = {
+            "id": "COPY_01",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        res = self.evaluator.evaluate_record(rec, "The authorization code is Delta 56.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.CORRECT)
+        self.assertIn("TARGET_VALUE_COPIED", res.reason_codes)
+        self.assertIn("FULL_ANSWER_MATCH", res.reason_codes)
+        self.assertTrue(res.format_valid)
+
+    def test_context_copying_isolated_value_without_preamble(self):
+        rec = {
+            "id": "COPY_02",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        res = self.evaluator.evaluate_record(rec, "Delta 56.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.CORRECT)
+        self.assertIn("TARGET_VALUE_COPIED", res.reason_codes)
+        self.assertNotIn("FULL_ANSWER_MATCH", res.reason_codes)
+
+    def test_context_copying_word_boundary_prevents_longer_number(self):
+        rec = {
+            "id": "COPY_03",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        # Generated contains "Delta 567" which has "Delta 56" as substring, but word boundary fails
+        res = self.evaluator.evaluate_record(rec, "The code is Delta 567.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.INCORRECT)
+        self.assertIn("TARGET_VALUE_MISMATCH", res.reason_codes)
+
+    def test_context_copying_incorrect_number_with_correct_prefix(self):
+        rec = {
+            "id": "COPY_04",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        res = self.evaluator.evaluate_record(rec, "The code is Delta 12.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.INCORRECT)
+        self.assertIn("TARGET_VALUE_MISMATCH", res.reason_codes)
+
+    def test_context_copying_multiple_competing_candidates_rejected(self):
+        rec = {
+            "id": "COPY_05",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        # Model emits both "Delta 56" and "Echo 12" -> must be rejected as ambiguous
+        res = self.evaluator.evaluate_record(rec, "The code is Delta 56 or Echo 12.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.INCORRECT)
+        self.assertIn("AMBIGUOUS_MULTIPLE_CANDIDATES", res.reason_codes)
+
+    def test_context_copying_repeated_prefix_loop_rejected(self):
+        rec = {
+            "id": "COPY_06",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        res = self.evaluator.evaluate_record(rec, "Delta Delta 56 is the code.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.INCORRECT)
+        self.assertIn("REPEATED_PREFIX_LOOP", res.reason_codes)
+
+    def test_context_copying_incomplete_prefix_only_rejected(self):
+        rec = {
+            "id": "COPY_07",
+            "category": "context_copying",
+            "prompt": "What is the authorization code?",
+            "context": "Security dispatch: The authorization code is Delta 56.",
+            "response": "The authorization code is Delta 56.",
+            "target_value": "Delta 56"
+        }
+        res = self.evaluator.evaluate_record(rec, "The code is Delta.", stop_reason="STOP_TOKEN")
+        self.assertEqual(res.outcome, EvaluationOutcome.INCORRECT)
+        self.assertIn("TARGET_VALUE_MISMATCH", res.reason_codes)
+
+    # 8. Unknown Category Test
     def test_unknown_category_unscored(self):
         rec = {"id": "UNK_01", "category": "nonexistent_domain", "prompt": "Hi", "response": "Hello"}
         res = self.evaluator.evaluate_record(rec, "Hello")
@@ -230,3 +327,4 @@ class TestTaskEvaluator(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

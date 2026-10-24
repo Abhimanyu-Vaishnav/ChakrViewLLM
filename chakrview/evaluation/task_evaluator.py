@@ -92,6 +92,8 @@ class TaskEvaluator:
             return self._score_uncertainty_abstention(record_id, prompt, context, metadata, expected, gen, is_eos, is_max, is_empty)
         elif category == "context_extraction":
             return self._score_context_extraction(record_id, prompt, context, expected, gen, is_eos, is_max, is_empty)
+        elif category == "context_copying":
+            return self._score_context_copying(record, expected, gen, is_eos, is_max, is_empty)
         elif category == "reference_resolution":
             return self._score_reference_resolution(record_id, prompt, context, expected, gen, is_eos, is_max, is_empty)
         elif category == "instruction_following":
@@ -482,6 +484,122 @@ class TaskEvaluator:
             observed_evidence=repr(gen_clean[:80]),
             reason_codes=reason_codes,
             format_valid=True,
+            is_eos=is_eos,
+            is_max_tokens=is_max,
+            is_empty=is_empty,
+            evaluator_version=self.VERSION,
+        )
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # 4b. Context Copying (Target-Value Binding & Anti-Cheating Scorer)
+    # ─────────────────────────────────────────────────────────────────────────
+    def _score_context_copying(
+        self,
+        record: Dict[str, Any],
+        expected: str,
+        generated: str,
+        is_eos: bool,
+        is_max: bool,
+        is_empty: bool,
+    ) -> EvaluationResult:
+        record_id = record.get("id", "UNKNOWN_RECORD")
+        target_val = record.get("target_value")
+        if not target_val:
+            # Fallback if record does not have explicit target_value field
+            target_val = expected.strip()
+
+        gen_clean = generated.strip()
+        if is_empty or not gen_clean:
+            return EvaluationResult(
+                record_id=record_id,
+                category="context_copying",
+                scoring_status=ScoringStatus.SCORED,
+                outcome=EvaluationOutcome.INCORRECT,
+                expected_target=target_val,
+                observed_evidence="<EMPTY>",
+                reason_codes=["EMPTY_RESPONSE"],
+                format_valid=False,
+                is_eos=is_eos,
+                is_max_tokens=is_max,
+                is_empty=True,
+                evaluator_version=self.VERSION,
+            )
+
+        gen_lower = gen_clean.lower()
+        target_lower = target_val.strip().lower()
+        reason_codes = []
+
+        # Closed vocabulary of phonetic prefixes used in Exp21
+        all_prefixes = ["alpha", "bravo", "delta", "echo", "foxtrot", "hotel", "india", "juliet"]
+        found_prefixes = [p for p in all_prefixes if re.search(r"\b" + p + r"\b", gen_lower)]
+
+        # Negative Guard 1: Competing multiple prefix candidates in completion
+        if len(found_prefixes) > 1:
+            reason_codes.append("AMBIGUOUS_MULTIPLE_CANDIDATES")
+            return EvaluationResult(
+                record_id=record_id,
+                category="context_copying",
+                scoring_status=ScoringStatus.SCORED,
+                outcome=EvaluationOutcome.INCORRECT,
+                expected_target=target_val,
+                observed_evidence=repr(gen_clean[:80]),
+                reason_codes=reason_codes,
+                format_valid=False,
+                is_eos=is_eos,
+                is_max_tokens=is_max,
+                is_empty=is_empty,
+                evaluator_version=self.VERSION,
+            )
+
+        # Negative Guard 2: Repeated prefix loops (e.g. "Delta Delta 56")
+        if len(found_prefixes) == 1:
+            prefix = found_prefixes[0]
+            prefix_occurrences = len(re.findall(r"\b" + prefix + r"\b", gen_lower))
+            if prefix_occurrences > 1:
+                reason_codes.append("REPEATED_PREFIX_LOOP")
+                return EvaluationResult(
+                    record_id=record_id,
+                    category="context_copying",
+                    scoring_status=ScoringStatus.SCORED,
+                    outcome=EvaluationOutcome.INCORRECT,
+                    expected_target=target_val,
+                    observed_evidence=repr(gen_clean[:80]),
+                    reason_codes=reason_codes,
+                    format_valid=False,
+                    is_eos=is_eos,
+                    is_max_tokens=is_max,
+                    is_empty=is_empty,
+                    evaluator_version=self.VERSION,
+                )
+
+        # Exact word-boundary match for target value (e.g., "\bdelta 56\b")
+        target_pattern = r"\b" + re.escape(target_lower) + r"\b"
+        target_copied = bool(re.search(target_pattern, gen_lower))
+
+        # Check full answer match (strip terminal punctuation)
+        exp_clean = expected.strip().lower()
+        gen_no_punct = re.sub(r"[.!?]+$", "", gen_lower).strip()
+        exp_no_punct = re.sub(r"[.!?]+$", "", exp_clean).strip()
+        full_match = (gen_no_punct == exp_no_punct)
+
+        if target_copied:
+            outcome = EvaluationOutcome.CORRECT
+            reason_codes.append("TARGET_VALUE_COPIED")
+            if full_match:
+                reason_codes.append("FULL_ANSWER_MATCH")
+        else:
+            outcome = EvaluationOutcome.INCORRECT
+            reason_codes.append("TARGET_VALUE_MISMATCH")
+
+        return EvaluationResult(
+            record_id=record_id,
+            category="context_copying",
+            scoring_status=ScoringStatus.SCORED,
+            outcome=outcome,
+            expected_target=target_val,
+            observed_evidence=repr(gen_clean[:80]),
+            reason_codes=reason_codes,
+            format_valid=full_match or target_copied,
             is_eos=is_eos,
             is_max_tokens=is_max,
             is_empty=is_empty,
