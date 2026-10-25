@@ -13,11 +13,28 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 - **Distributed Peering & Fault Tolerance**: Includes decentralized peer assistance with cryptographic verification, Byzantine fault recovery, and rollback governance.
 - **Empirical Research System**: Governed by strict machine-verifiable capability contracts, reproducibility audits, and adversarial anti-shortcut benchmarks.
 
+## Latest Release: ChakrView v0.8.0 Research Preview
+
+ChakrView v0.8.0 provides a validated, reproducible research baseline centered on the canonical **Step 10,000 checkpoint** (`training_checkpoint_step_10000.pt`, 42,212,787 bytes):
+- **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, tied embeddings, 6 layers, 6 heads, RoPE (`96357705...e9f471ee`).
+- **CPU-First Execution**: Verified native inference adapter running entirely on commodity CPUs without external model dependencies or GPU requirements.
+- **Epistemic Honesty**: Strict bounding of capabilities; negative experimental findings (including 20/20 rejections on Exp18 scientific prompts) fully documented.
+- **Corpus Provenance Closure**: Reconciled 100% of 5,534 Stage C training documents with open source licenses (MIT, CC-BY-SA 4.0, PSF-2.0, CC-BY 4.0, GODL-India).
+- **Quarantined Components**: Experimental pointer networks and preview features are explicitly quarantined from canonical production inference.
+
+For v0.8.0 documentation and release artifacts:
+- [Release Notes v0.8.0](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/RELEASE_NOTES_v0.8.0.md)
+- [Release Manifest](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/RELEASE_MANIFEST.json)
+- [Installation Guide](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/INSTALLATION_GUIDE.md)
+- [Known Limitations & Epistemic Boundaries](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/KNOWN_LIMITATIONS.md)
+- [Dataset Provenance & Licenses](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/DATASET_PROVENANCE_AND_LICENSES.md)
+- [Reproducibility Guide](file:///d:/Project/ChakrView/release/chakrview-v0.8.0/REPRODUCIBILITY.md)
+
 ---
 
-## Public Research Preview: ChakrView v0.6.0
+## Historical Research Preview: ChakrView v0.6.0
  
-ChakrView v0.6.0 is an accelerated research-preview release focusing on **working software, validated CPU inference, reproducible packaging, and truthful capability boundaries**.
+ChakrView v0.6.0 was an accelerated research-preview release focusing on **working software, validated CPU inference, reproducible packaging, and truthful capability boundaries**.
 
 The same indigenous 3.44M-parameter neural core (`ChakrMicro`) runs natively on CPU hardware without external weights:
 - **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, Step-10,000 checkpoint (`96357705...e9f471ee`, $\Delta W = 0$).

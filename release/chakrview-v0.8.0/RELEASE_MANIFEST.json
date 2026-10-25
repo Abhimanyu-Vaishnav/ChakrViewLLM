@@ -1,0 +1,77 @@
+{
+  "release_version": "v0.8.0",
+  "release_name": "ChakrView Indigenous Neural Model Research Preview v0.8.0",
+  "classification": "Empirical AI Research Preview & Reproducible Baseline",
+  "status": "CANONICAL_BASELINE_VERIFIED",
+  "release_timestamp": "2026-10-26T00:05:00Z",
+  "hardware_target": "CPU-first low-resource edge architectures (ARM / x86_64)",
+  "canonical_artifacts": {
+    "checkpoint": {
+      "filename": "training_checkpoint_step_10000.pt",
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "size_bytes": 42212787,
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "parameter_count": {
+        "unique_parameters": 3443136,
+        "tied_embedding_weights": 786432,
+        "theoretical_fp32_memory_bytes": 13772544
+      },
+      "architecture": {
+        "model_family": "ChakrMicro",
+        "layers": 6,
+        "heads": 6,
+        "hidden_dim": 192,
+        "ffn_dim": 512,
+        "context_window": 512,
+        "positional_embeddings": "RoPE",
+        "weight_tying": true
+      },
+      "verified": true
+    },
+    "tokenizer": {
+      "directory": "data/experiments/vocab_4096",
+      "vocab_file": "vocab.json",
+      "vocab_size": 4096,
+      "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "merges_file": "merges.json",
+      "merges_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "verified": true
+    },
+    "protected_files": {
+      "model_py": {
+        "path": "chakrview/brain/model.py",
+        "sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+        "verified": true
+      },
+      "session_py": {
+        "path": "chakrview/runtime/session.py",
+        "sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+        "verified": true
+      }
+    }
+  },
+  "training_provenance": {
+    "manifest": "data/manifests/stage_c_manifest.json",
+    "total_documents": 5534,
+    "provenance_reconciliation_rate": "100.0% (5,534 / 5,534 documents mapped to source and license)",
+    "primary_sources": [
+      {"name": "GSM8K", "documents": 1805, "license": "MIT"},
+      {"name": "Simple English Wikipedia", "documents": 1603, "license": "CC-BY-SA-4.0"},
+      {"name": "Hindi Wikipedia", "documents": 948, "license": "CC-BY-SA-4.0"},
+      {"name": "TheAlgorithms Python", "documents": 539, "license": "MIT"},
+      {"name": "Sanskrit Wikipedia", "documents": 304, "license": "CC-BY-SA-4.0"},
+      {"name": "CPython Documentation", "documents": 304, "license": "PSF-2.0"},
+      {"name": "OpenStax High School Biology", "documents": 18, "license": "CC-BY-4.0"},
+      {"name": "L3Cube Corpus", "documents": 10, "license": "CC-BY-4.0"},
+      {"name": "Open Government Data India", "documents": 3, "license": "GODL-India"}
+    ]
+  },
+  "verification_audit": {
+    "checkpoint_hash_verified": true,
+    "privacy_and_secrets_audit": "PASSED (Zero secrets, keys, or local filepaths in 69,030 strings and 10,000 history entries)",
+    "v060_release_smoke_tests": "7 / 7 PASSED (2.22s)",
+    "exp18_human_evaluation_review": "20 / 20 REJECTIONS (Strict epistemic honesty recorded)",
+    "pointer_mechanism_status": "QUARANTINED (Excluded from production inference pipeline)",
+    "gguf_status": "PREVIEW_PROTOTYPE (Native C/C++ inference not claimed)"
+  }
+}
