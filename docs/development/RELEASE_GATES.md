@@ -37,7 +37,7 @@ Before any version tag (`v0.X.0`) is published or code promoted to `main`, the r
 | :--- | :--- | :--- | :--- |
 | **GATE-01** | **Artifact Hashes** | SHA-256 for checkpoint, vocab, merges, model.py, session.py match expected reference values bit-exact. | Python hashlib preflight script |
 | **GATE-02** | **Parameter Accounting** | Exactly 3,443,136 unique parameters with tied input/output embeddings accounted for. | PyTorch tensor inspection |
-| **GATE-03** | **Corpus Provenance** | 100% of training documents attributed to legitimate open licenses (MIT, CC-BY-SA, PSF, GODL). Shards match manifest hashes. | Document manifest audit |
+| **GATE-03** | **Corpus Provenance** | 100% of training documents attributed to legitimate open licenses (MIT, CC-BY-4.0, CC-BY-SA, PSF, GODL). Shards match manifest hashes. | Document manifest audit |
 | **GATE-04** | **Privacy & Secrets** | Zero API keys, private tokens, passwords, personal data, or machine filepaths in metadata or history. | Deep regex scan across all strings and tensors |
 | **GATE-05** | **Epistemic Honesty** | Bounded capabilities; negative experimental results (including 20/20 Exp18 rejections) fully reported without concealment. | Human review dossier inspection |
 | **GATE-06** | **Architecture Quarantine** | Speculative or experimental extensions (e.g. pointer networks) quarantined from production inference. | Runtime import & dependency check |

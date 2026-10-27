@@ -17,6 +17,10 @@ The canonical baseline model for ChakrView is the **ChakrMicro Step 10,000 check
 | **Protected Model** | `chakrview/brain/model.py` | 7,162 | `1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361` |
 | **Protected Session**| `chakrview/runtime/session.py` | 12,511 | `9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67` |
 
+> [!NOTE]
+> **Tokenizer Invariant & Serialization History**:
+> The canonical release checkpoint (`96357705...`) and runtime validation suite (`tests/test_v060_release_smoke.py`) strictly require the 112,627-byte `vocab.json` (`db4d6119...`) and 76,299-byte `merges.json` (`ada4b1dc...`) assets registered above in `EXPECTED_TOKENIZER_FILES_HASHES`. Historical commits on `main` tracked earlier whitespace/formatting serializations (108,533 bytes `e0f11c07...` and 72,461 bytes `7498d92a...`) containing the identical 4,093 token vocabulary mappings and 3,837 merges. Release verification gates enforce the canonical formatted files to guarantee bit-exact determinism across all release artifacts.
+
 ---
 
 ## 2. Parameter Accounting & Size Discrepancy Reconciliation
