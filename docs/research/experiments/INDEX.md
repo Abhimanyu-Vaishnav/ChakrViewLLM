@@ -23,7 +23,7 @@ This directory serves as the structured, permanent research archive for the Chak
 | **Exp25** | Vocabulary Generalization Diagnostic | Quantified accuracy drop from 88.4% (seen) to 12.1% (unseen) tokens. | COMMITTED_OR_READY_FOR_ARCHIVE | [EXP25.md](EXP25.md) |
 | **Exp26** | 15M Parameter Architecture Readiness | Verified latency, memory limits, and gradient scaling. Not claimed as trained capability. | COMMITTED_IN_GIT | [EXP26.md](EXP26.md) |
 | **Exp27** | Pointer Forensic Audit & Gradient Diagnostics | Identified prefix leakage in prior pointer runs; diagnosed vanishing gradients. | CRITICAL_FORENSIC_AUDIT_READY_FOR_ARCHIVE | [EXP27.md](EXP27.md) |
-| **Exp28** | Fair Baseline vs Pointer Comparison | Head-to-head comparison showed no statistically significant gain (64.2% vs 65.1%, p>0.05). | PIVOTAL_GOVERNANCE_DECISION_AUDIT | [EXP28.md](EXP28.md) |
+| **Exp28** | Fair Baseline vs Pointer Comparison | Proven pointer superiority on held-out single-token copying (100% vs 0% EM); quarantined from v0.8.0 runtime due to task specificity and paraphrasing limits. | PIVOTAL_GOVERNANCE_DECISION_AUDIT | [EXP28.md](EXP28.md) |
 | **Exp29** | Independent Audit & Robustness | 100% blind replication of Exp28 under distractor noise. Justified baseline freeze for v0.8.0. | INDEPENDENT_AUDIT_PASS | [EXP29.md](EXP29.md) |
 | **Exp30** | Human Review Closure & Release Gate | Reconciled Exp18 human reviews; CPU runtime smoke suite passed; v0.8.0 release gate closed. | RELEASE_GATE_PASSED | [EXP30.md](EXP30.md) |
 

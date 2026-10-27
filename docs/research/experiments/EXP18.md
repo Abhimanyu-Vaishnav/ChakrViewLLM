@@ -12,7 +12,7 @@
 - **Hypothesis**: The compact architecture can acquire grounded short scientific reasoning capabilities purely from parameter-internal knowledge when trained on curated SFT sequences.
 
 ### 2. Configuration and Training Setup
-- **Architecture**: 3.44M parameter ChakrMicro Transformer (6 layers, 6 heads, d_model=384, vocab_size=4096).
+- **Architecture**: Canonical ChakrMicro baseline (6 layers, 6 heads, d_model=192, hidden_dim=512, context 512, vocab_size=4096, 3,443,136 unique parameters with tied embeddings).
 - **Compute**: CPU-only bounded training run (300 steps).
 - **Target Loss**: Cross-entropy over masked target explanation sequences.
 

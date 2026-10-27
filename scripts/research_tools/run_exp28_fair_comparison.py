@@ -9,7 +9,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-REPO_ROOT = "D:/Project/ChakrView"
+# Resolve repository root dynamically relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
