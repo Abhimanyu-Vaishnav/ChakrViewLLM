@@ -1,0 +1,94 @@
+{
+  "audit_date": "2026-10-27",
+  "repository": "https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git",
+  "head_commit_main": "b613866150a2704c9de0df78c170fe69aa0f7218",
+  "canonical_hashes": {
+    "checkpoint_file_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "vocab_file_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_file_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "model_core_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+    "session_core_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "architecture_baseline_seed42_weight_hash": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "categories": {
+    "A_production_source_and_tests": {
+      "description": "Production runtime, model architecture, tokenizer serialization, and automated tests",
+      "git_status": "TRACKED_CLEAN",
+      "total_files": 185,
+      "approx_size_mb": 5.2,
+      "representative_paths": [
+        "chakrview/brain/model.py",
+        "chakrview/runtime/session.py",
+        "tests/test_v060_release_smoke.py"
+      ]
+    },
+    "B_documentation_and_user_facing_guides": {
+      "description": "Architecture manuals, governance policies, release gates, and installation runbooks",
+      "git_status": "TRACKED_CLEAN",
+      "total_files": 38,
+      "approx_size_mb": 1.8,
+      "representative_paths": [
+        "docs/development/BRANCHING_AND_MERGE_POLICY.md",
+        "docs/development/CANONICAL_ARTIFACTS.md",
+        "docs/development/RELEASE_GATES.md",
+        "docs/research/EXPERIMENT_INDEX.md"
+      ]
+    },
+    "C_validated_experiments_and_reproducibility": {
+      "description": "Structured research dossiers, manifest, and diagnostic scripts on archive branch",
+      "git_status": "TRACKED_ON_ARCHIVE_BRANCH",
+      "total_files": 23,
+      "approx_size_mb": 0.8,
+      "representative_paths": [
+        "docs/research/experiments/EXP18.md",
+        "docs/research/experiments/EXP28.md",
+        "docs/research/experiments/INDEX.md",
+        "scripts/research_tools/audit_leakage_and_splits.py"
+      ]
+    },
+    "D_raw_experimental_outputs_and_traces": {
+      "description": "Overnight research runs, raw evaluation logs, intermediate .pt checkpoints, and training traces",
+      "git_status": "UNTRACKED_LOCAL_ONLY",
+      "total_files": 156,
+      "approx_size_mb": 251.96,
+      "representative_paths": [
+        "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/",
+        "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/"
+      ]
+    },
+    "E_canonical_artifacts_and_protected_files": {
+      "description": "Canonical Step 10,000 checkpoint, vocabulary, tokenizer merges, model core, and session runtime",
+      "git_status": "FROZEN_BIT_EXACT",
+      "total_files": 5,
+      "approx_size_mb": 42.42,
+      "representative_paths": [
+        "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+        "data/experiments/vocab_4096/vocab.json",
+        "data/experiments/vocab_4096/merges.json"
+      ]
+    },
+    "F_secrets_and_credentials": {
+      "description": "API tokens, private keys, passwords, credentials",
+      "git_status": "NONE_FOUND_ZERO_TOLERANCE",
+      "total_files": 0,
+      "approx_size_mb": 0.0,
+      "representative_paths": []
+    },
+    "G_generated_files_and_virtualenvs": {
+      "description": "Disposable clean virtual environment and packaging isolation trees",
+      "git_status": "UNTRACKED_DISPOSABLE_SCRATCH",
+      "total_files": 25203,
+      "approx_size_mb": 760.86,
+      "representative_paths": [
+        "experiments/overnight_runs/v08_release_candidate_readiness_20261025_213337/packaging_validation/test_clean_venv/"
+      ]
+    },
+    "H_unreviewed_or_ambiguous_changes": {
+      "description": "Unreviewed or high-risk modifications",
+      "git_status": "NONE_PRESENT",
+      "total_files": 0,
+      "approx_size_mb": 0.0,
+      "representative_paths": []
+    }
+  }
+}
