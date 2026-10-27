@@ -1,0 +1,169 @@
+{
+  "Exp18": {
+    "purpose": "Scaled instruction SFT and short scientific explanation evaluation",
+    "hypothesis": "Evaluating whether the 3.44M ChakrMicro model can generate coherent, factually grounded scientific explanations on out-of-distribution prompts",
+    "key_evidence_files": [
+      "experiments/overnight_runs/v08_release_candidate_readiness_20261025_213337/EXP18_HUMAN_REVIEW_DOSSIER.md",
+      "experiments/overnight_runs/v08_release_candidate_readiness_20261025_213337/EXP18_RECONCILED_RESULTS.json",
+      "experiments/overnight_runs/v08_release_candidate_readiness_20261025_213337/EXP18_HUMAN_REVIEW_COMPLETED.csv"
+    ],
+    "outcome": "100% human rejection rate (20/20 rejections). Verified that 3.44M parameter baseline cannot generalize to ungrounded scientific reasoning without retrieval grounding.",
+    "status": "REJECTED_HYPOTHESIS_FORMALIZED_AS_BOUND",
+    "reusable_code": [
+      "experiments/overnight_runs/v08_release_candidate_readiness_20261025_213337/reconcile_human_reviews.py"
+    ],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp18_aligned_sft_cpu_300/ (checkpoints & traces)"
+    ]
+  },
+  "Exp19": {
+    "purpose": "Debiased SFT curriculum and template distribution balancing",
+    "hypothesis": "Reducing prefix bias and balancing slot frequencies will improve context copying fidelity without catastrophic forgetting",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/EXP18_VS_EXP19_COMPARISON.md",
+      "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/EVAL_EXP19_RESULTS.json"
+    ],
+    "outcome": "Identified attractor collapse loops during greedy generation; led to n-gram blocking and cognitive router design.",
+    "status": "DIAGNOSTIC_INSIGHT_INTEGRATED",
+    "reusable_code": [],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp19_debiased_sft_cpu_600_20261024_125700/ (raw checkpoints & traces)"
+    ]
+  },
+  "Exp20": {
+    "purpose": "Single-task contextual binding under bounded context length",
+    "hypothesis": "Restricting SFT objective to single-slot key-value extraction isolates attention copy mechanisms",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947/EXP20_COMPARISON.md",
+      "experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947/EVAL_EXP20_RESULTS.json"
+    ],
+    "outcome": "Verified in-distribution copy saturation (98%+ on known tokens), but failure to generalize to arbitrary unseen vocabularies.",
+    "status": "EMPIRICALLY_BOUNDED",
+    "reusable_code": [],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp20_single_task_contextual_binding_cpu_400_20261024_133947/ (traces)"
+    ]
+  },
+  "Exp21": {
+    "purpose": "Synthetic recombined copy benchmark and evaluation suite",
+    "hypothesis": "Evaluating copy transfer across recombined n-gram slots",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp21_synthetic_recombined_copy_cpu_300_20261024_205000/EVAL_EXP21_CANDIDATE.json",
+      "experiments/overnight_runs/exp21_synthetic_recombined_copy_cpu_300_20261024_205000/STATISTICAL_ANALYSIS.json"
+    ],
+    "outcome": "Committed to repository in commit aa47d7c.",
+    "status": "COMMITTED_IN_GIT",
+    "reusable_code": [],
+    "large_artifacts": []
+  },
+  "Exp22_Exp23": {
+    "purpose": "Attention copy loss gradient diagnostic and single-token copy audit",
+    "hypothesis": "Testing whether auxiliary copy loss gradients destabilize RoPE attention representations in early layers",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp22_attention_copy_loss_cpu_300_20261024_212632/EVAL_EXP22_TREATMENT.json",
+      "experiments/overnight_runs/exp22_attention_copy_loss_cpu_300_20261024_212632/STATISTICAL_ANALYSIS.json",
+      "experiments/overnight_runs/exp23_single_token_copying_diagnostic_sft_20261024_220428/CANDIDATE_EVALUATION_REPORT.json"
+    ],
+    "outcome": "Committed to repository in commit aa47d7c.",
+    "status": "COMMITTED_IN_GIT",
+    "reusable_code": [],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp22_attention_copy_loss_cpu_300_20261024_212135/training_checkpoint_start.pt"
+    ]
+  },
+  "Exp24_Exp25": {
+    "purpose": "Copying vs routing diagnostic and disjoint vocabulary generalization",
+    "hypothesis": "Comparing pure neural pointer copy against cognitive routing when presented with out-of-vocabulary entities",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp24_copying_vs_routing_diagnostic_20261024_223057/CANDIDATE_EVALUATION_REPORT.json",
+      "experiments/overnight_runs/exp25_vocabulary_generalization_diagnostic_20261024_232014/EVALUATION_REPORT.json"
+    ],
+    "outcome": "Exp24 committed in feb0939. Exp25 shows severe accuracy drop on disjoint vocab (12.5% vs 95% on in-distribution). Proves copy priors do not generalize zero-shot.",
+    "status": "COMMITTED_OR_READY_FOR_ARCHIVE",
+    "reusable_code": [],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp25_vocabulary_generalization_diagnostic_20261024_232014/checkpoints/"
+    ]
+  },
+  "Exp26": {
+    "purpose": "15M parameter scaling hypothesis and diagnostic benchmark",
+    "hypothesis": "Designing a 15M parameter architecture (width 288, 8 layers, 8 heads) to increase logit entropy and mitigate attractor collapse",
+    "key_evidence_files": [
+      "experiments/overnight_runs/mission_10h_exp26_15m_readiness_20261024_232621/EXP26_HYPOTHESIS_AND_DESIGN.md",
+      "experiments/overnight_runs/mission_10h_exp26_15m_readiness_20261024_232621/FINAL_MISSION_REPORT.md"
+    ],
+    "outcome": "Architecture configuration committed in 255537a and b771388. Mission report and evaluation logs remain local.",
+    "status": "COMMITTED_IN_GIT",
+    "reusable_code": [
+      "experiments/overnight_runs/mission_10h_exp26_15m_readiness_20261024_232621/run_exp26_scaling_diagnostic.py"
+    ],
+    "large_artifacts": []
+  },
+  "Exp27": {
+    "purpose": "Forensic pointer research, leakage audit, and gradient diagnostics",
+    "hypothesis": "Independent audit of pointer attention heads to determine whether reported copy gains were authentic or artifacts of template leakage",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/EXP25_EXP26_FORENSIC_AUDIT.md",
+      "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/GRADIENT_DIAGNOSTIC_REPORT.md",
+      "experiments/overnight_runs/exp27_independent_validation_20261025_211125/FINAL_VALIDATION_REPORT.md",
+      "experiments/overnight_runs/exp27_independent_validation_20261025_211125/POINTER_LEAKAGE_AUDIT.md"
+    ],
+    "outcome": "Confirmed that pointer heads overfit to synthetic template delimiters and fail when distractor positions shift. Identified template leakage as a major risk factor.",
+    "status": "CRITICAL_FORENSIC_AUDIT_READY_FOR_ARCHIVE",
+    "reusable_code": [
+      "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/audit_leakage_and_splits.py",
+      "experiments/overnight_runs/exp27_forensic_pointer_research_20261025_203725/gradient_diagnostic.py"
+    ],
+    "large_artifacts": []
+  },
+  "Exp28": {
+    "purpose": "Fair baseline vs pointer comparative study (Arm A vs Arm B)",
+    "hypothesis": "Controlled comparison between canonical LM (Arm A) and pointer-augmented LM (Arm B) on identical, strictly isolated data splits",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/EXP28_EXPERIMENT_PLAN.md",
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/LEAKAGE_AUDIT.md",
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/METRICS_RECOMPUTED.json"
+    ],
+    "outcome": "Decisive proof that Arm B (pointer) does NOT provide statistically significant advantage over Arm A when template positions are randomized. Pointer mechanism quarantined from v0.8.0 release.",
+    "status": "PIVOTAL_GOVERNANCE_DECISION_AUDIT",
+    "reusable_code": [
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/run_exp28_fair_comparison.py"
+    ],
+    "large_artifacts": [
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/checkpoints/ARM_A_CANONICAL_LM_best.pt",
+      "experiments/overnight_runs/exp28_fair_baseline_vs_pointer_20261025_211555/checkpoints/ARM_B_POINTER_MICRO_best.pt"
+    ]
+  },
+  "Exp29": {
+    "purpose": "Independent replication and audit of Exp28 findings",
+    "hypothesis": "Re-evaluating Exp28 metrics using frozen independent evaluation harnesses to ensure reproducibility and absence of evaluator bias",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp29_independent_exp28_audit_20261025_212249/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp29_independent_exp28_audit_20261025_212249/LEAKAGE_AND_EVALUATION_AUDIT.md",
+      "experiments/overnight_runs/exp29_independent_exp28_audit_20261025_212249/ROBUSTNESS_RESULTS.md",
+      "experiments/overnight_runs/exp29_independent_exp28_audit_20261025_212249/V0_8_RELEASE_READINESS.md"
+    ],
+    "outcome": "Replicated Exp28 findings exactly. Verified robustness across distractor permutations.",
+    "status": "INDEPENDENT_AUDIT_PASS",
+    "reusable_code": [],
+    "large_artifacts": []
+  },
+  "Exp30": {
+    "purpose": "Human review closure, release gate matrix, and v0.8.0 release readiness",
+    "hypothesis": "Finalizing all 12 release gates, reviewing human explanation scores, and confirming canonical checkpoint integrity",
+    "key_evidence_files": [
+      "experiments/overnight_runs/exp30_human_review_closure_and_v08_gate_20261025_212820/FINAL_REPORT.md",
+      "experiments/overnight_runs/exp30_human_review_closure_and_v08_gate_20261025_212820/V0_8_RELEASE_GATE_MATRIX.md",
+      "experiments/overnight_runs/exp30_human_review_closure_and_v08_gate_20261025_212820/CPU_RUNTIME_SMOKE_TEST.md",
+      "experiments/overnight_runs/exp30_human_review_closure_and_v08_gate_20261025_212820/EXP18_REVIEW_PROTOCOL.md"
+    ],
+    "outcome": "Verified all release gates. Authorized v0.8.0 release candidate.",
+    "status": "RELEASE_GATE_PASSED",
+    "reusable_code": [],
+    "large_artifacts": []
+  }
+}
