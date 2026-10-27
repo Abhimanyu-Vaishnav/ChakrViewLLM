@@ -1,0 +1,642 @@
+{
+  "Arm_0_Canonical_ZeroShot": {
+    "Group_A_Familiar": {
+      "correct": 4,
+      "total": 50,
+      "accuracy": 0.08,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "F",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "I",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "E",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_B_Unseen_Tokens": {
+      "correct": 0,
+      "total": 50,
+      "accuracy": 0.0,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "W",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "7",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "P",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_C_Permutations": {
+      "correct": 3,
+      "total": 50,
+      "accuracy": 0.06,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "L",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "F",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "G",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_D_Distractors": {
+      "correct": 1,
+      "total": 50,
+      "accuracy": 0.02,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "G",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "1",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "U",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_E_Counterfactuals": {
+      "correct": 1,
+      "total": 100,
+      "accuracy": 0.01,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "E",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "L",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "V",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_F_Negative_Abstain": {
+      "correct": 0,
+      "total": 50,
+      "accuracy": 0.0,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "?",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "?",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "?",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    }
+  },
+  "Arm_1_Canonical_SFT": {
+    "train_logs": [
+      {
+        "step": 50,
+        "train_loss": 1.1787458658218384,
+        "val_loss": 1.5072241351008415,
+        "elapsed_s": 4.097708300017985
+      },
+      {
+        "step": 100,
+        "train_loss": 1.481109380722046,
+        "val_loss": 1.377332431077957,
+        "elapsed_s": 8.192248400009703
+      },
+      {
+        "step": 150,
+        "train_loss": 1.2157193422317505,
+        "val_loss": 1.3393064960837364,
+        "elapsed_s": 12.722501800017199
+      },
+      {
+        "step": 200,
+        "train_loss": 0.9936712980270386,
+        "val_loss": 1.4160099014639855,
+        "elapsed_s": 16.666678000008687
+      },
+      {
+        "step": 250,
+        "train_loss": 0.7530987858772278,
+        "val_loss": 1.3927331417798996,
+        "elapsed_s": 24.98444699999527
+      },
+      {
+        "step": 300,
+        "train_loss": 0.753422737121582,
+        "val_loss": 1.3730677489191294,
+        "elapsed_s": 1292.3429461999913
+      }
+    ],
+    "Group_A_Familiar": {
+      "correct": 12,
+      "total": 50,
+      "accuracy": 0.24,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "F",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 4,
+          "target": "I",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 5,
+          "target": "B",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_B_Unseen_Tokens": {
+      "correct": 0,
+      "total": 50,
+      "accuracy": 0.0,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "W",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "7",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "P",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_C_Permutations": {
+      "correct": 1,
+      "total": 50,
+      "accuracy": 0.02,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "L",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "F",
+          "pred_id": 77,
+          "pred_text": "J",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "G",
+          "pred_id": 76,
+          "pred_text": "I",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_D_Distractors": {
+      "correct": 3,
+      "total": 50,
+      "accuracy": 0.06,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "G",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "1",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "U",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_E_Counterfactuals": {
+      "correct": 28,
+      "total": 100,
+      "accuracy": 0.28,
+      "sample_errors": [
+        {
+          "id": 1,
+          "target": "L",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "V",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 5,
+          "target": "Q",
+          "pred_id": 74,
+          "pred_text": "G",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    },
+    "Group_F_Negative_Abstain": {
+      "correct": 0,
+      "total": 50,
+      "accuracy": 0.0,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "?",
+          "pred_id": 79,
+          "pred_text": "L",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 1,
+          "target": "?",
+          "pred_id": 71,
+          "pred_text": "D",
+          "correct": false,
+          "p_gen": 1.0
+        },
+        {
+          "id": 2,
+          "target": "?",
+          "pred_id": 77,
+          "pred_text": "J",
+          "correct": false,
+          "p_gen": 1.0
+        }
+      ]
+    }
+  },
+  "Arm_2_ChakrPointerMicro": {
+    "train_logs": [
+      {
+        "step": 50,
+        "train_loss": 0.6034491062164307,
+        "val_loss": 0.6372645888477564,
+        "elapsed_s": 4.23785120001412
+      },
+      {
+        "step": 100,
+        "train_loss": 0.8694124817848206,
+        "val_loss": 0.8198282011318951,
+        "elapsed_s": 12322.114311100013
+      },
+      {
+        "step": 150,
+        "train_loss": 0.6946645379066467,
+        "val_loss": 0.4815235988236964,
+        "elapsed_s": 12325.787780200015
+      },
+      {
+        "step": 200,
+        "train_loss": 0.22538171708583832,
+        "val_loss": 0.6001493570627645,
+        "elapsed_s": 12328.956560400024
+      },
+      {
+        "step": 250,
+        "train_loss": 0.32905521988868713,
+        "val_loss": 0.6099151733098551,
+        "elapsed_s": 12331.758864500007
+      },
+      {
+        "step": 300,
+        "train_loss": 0.28523197770118713,
+        "val_loss": 0.584581687184982,
+        "elapsed_s": 12334.392117800016
+      }
+    ],
+    "Group_A_Familiar": {
+      "correct": 20,
+      "total": 50,
+      "accuracy": 0.4,
+      "sample_errors": [
+        {
+          "id": 1,
+          "target": "I",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 0.0009009118075482547
+        },
+        {
+          "id": 4,
+          "target": "I",
+          "pred_id": 69,
+          "pred_text": "B",
+          "correct": false,
+          "p_gen": 0.0008736472809687257
+        },
+        {
+          "id": 5,
+          "target": "B",
+          "pred_id": 78,
+          "pred_text": "K",
+          "correct": false,
+          "p_gen": 0.0008580596186220646
+        }
+      ]
+    },
+    "Group_B_Unseen_Tokens": {
+      "correct": 10,
+      "total": 50,
+      "accuracy": 0.2,
+      "sample_errors": [
+        {
+          "id": 1,
+          "target": "7",
+          "pred_id": 83,
+          "pred_text": "P",
+          "correct": false,
+          "p_gen": 0.001773382187820971
+        },
+        {
+          "id": 2,
+          "target": "P",
+          "pred_id": 84,
+          "pred_text": "Q",
+          "correct": false,
+          "p_gen": 0.0016166468849405646
+        },
+        {
+          "id": 3,
+          "target": "Q",
+          "pred_id": 58,
+          "pred_text": "7",
+          "correct": false,
+          "p_gen": 0.003201221814379096
+        }
+      ]
+    },
+    "Group_C_Permutations": {
+      "correct": 20,
+      "total": 50,
+      "accuracy": 0.4,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "L",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 0.001078900066204369
+        },
+        {
+          "id": 3,
+          "target": "H",
+          "pred_id": 68,
+          "pred_text": "A",
+          "correct": false,
+          "p_gen": 0.0011519317049533129
+        },
+        {
+          "id": 4,
+          "target": "D",
+          "pred_id": 79,
+          "pred_text": "L",
+          "correct": false,
+          "p_gen": 0.000985426944680512
+        }
+      ]
+    },
+    "Group_D_Distractors": {
+      "correct": 11,
+      "total": 50,
+      "accuracy": 0.22,
+      "sample_errors": [
+        {
+          "id": 1,
+          "target": "1",
+          "pred_id": 78,
+          "pred_text": "K",
+          "correct": false,
+          "p_gen": 0.0009425185853615403
+        },
+        {
+          "id": 2,
+          "target": "U",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 0.001025715027935803
+        },
+        {
+          "id": 3,
+          "target": "C",
+          "pred_id": 79,
+          "pred_text": "L",
+          "correct": false,
+          "p_gen": 0.0012205191887915134
+        }
+      ]
+    },
+    "Group_E_Counterfactuals": {
+      "correct": 38,
+      "total": 100,
+      "accuracy": 0.38,
+      "sample_errors": [
+        {
+          "id": 2,
+          "target": "V",
+          "pred_id": 92,
+          "pred_text": "Y",
+          "correct": false,
+          "p_gen": 0.0012679193168878555
+        },
+        {
+          "id": 10,
+          "target": "E",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 0.0010548351565375924
+        },
+        {
+          "id": 11,
+          "target": "U",
+          "pred_id": 73,
+          "pred_text": "F",
+          "correct": false,
+          "p_gen": 0.0010480599012225866
+        }
+      ]
+    },
+    "Group_F_Negative_Abstain": {
+      "correct": 0,
+      "total": 50,
+      "accuracy": 0.0,
+      "sample_errors": [
+        {
+          "id": 0,
+          "target": "?",
+          "pred_id": 79,
+          "pred_text": "L",
+          "correct": false,
+          "p_gen": 0.0008312168065458536
+        },
+        {
+          "id": 1,
+          "target": "?",
+          "pred_id": 78,
+          "pred_text": "K",
+          "correct": false,
+          "p_gen": 0.0007350665400736034
+        },
+        {
+          "id": 2,
+          "target": "?",
+          "pred_id": 77,
+          "pred_text": "J",
+          "correct": false,
+          "p_gen": 0.0005522678256966174
+        }
+      ]
+    }
+  }
+}
