@@ -15,7 +15,28 @@ ChakrView explores how structured cognitive, relational, and meta-governed mecha
 
 ---
 
-## Latest Release: ChakrView v0.7.0 (Coding Foundation & Runtime Hardening)
+## Latest Release: ChakrView v0.8.0 Research Preview
+
+ChakrView v0.8.0 provides a validated, reproducible research baseline centered on the canonical **Step 10,000 checkpoint** (`training_checkpoint_step_10000.pt`, 42,212,787 bytes):
+- **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, tied embeddings, 6 layers, 6 heads, RoPE (`96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee`).
+- **CPU-First Execution**: Verified native inference adapter running entirely on commodity CPUs without external model dependencies, hosted APIs, or GPU requirements.
+- **Epistemic Honesty**: Strict bounding of capabilities; negative experimental findings (including 20/20 rejections on Exp18 out-of-distribution scientific explanation prompts) are fully documented.
+- **Corpus Provenance Closure**: Reconciled 100% of 5,534 Stage C training documents with open source licenses (MIT, CC-BY-SA 4.0, PSF-2.0, CC-BY 4.0, GODL-India).
+- **Quarantined Components**: Experimental pointer networks and preview features are explicitly quarantined from canonical production inference.
+
+For official release artifacts, verification instructions, and documentation:
+- [Official GitHub Release v0.8.0](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/tag/v0.8.0)
+- [Canonical Checkpoint Download (42.2 MB)](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/download/v0.8.0/training_checkpoint_step_10000.pt)
+- [Release Notes v0.8.0](release/chakrview-v0.8.0/RELEASE_NOTES_v0.8.0.md)
+- [Installation Guide](release/chakrview-v0.8.0/INSTALLATION_GUIDE.md)
+- [Known Limitations & Epistemic Boundaries](release/chakrview-v0.8.0/KNOWN_LIMITATIONS.md)
+- [Dataset Provenance & Licenses](release/chakrview-v0.8.0/DATASET_PROVENANCE_AND_LICENSES.md)
+- [Reproducibility Guide](release/chakrview-v0.8.0/REPRODUCIBILITY.md)
+- [Release Manifest](release/chakrview-v0.8.0/RELEASE_MANIFEST.json)
+
+---
+
+## Historical Release: ChakrView v0.7.0 (Coding Foundation & Runtime Hardening)
 
 ChakrView v0.7.0 delivers foundational coding workflows, secure subprocess execution, output repetition controls, and hardened benchmark evaluation:
 - **Subprocess-Isolated Code Runner**: Restricts execution with AST pre-auditing against dangerous builtins (`eval`, `open`, `__import__`) and enforces wall-clock timeouts.
