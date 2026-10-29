@@ -13,7 +13,11 @@ Enforces hard mathematical and architectural safety constraints during training:
 """
 
 import math
-from typing import Dict, List, Optional, Any, Tuple
+import hashlib
+import math
+import os
+from pathlib import Path
+from typing import Dict, List, Optional, Any, Tuple, Union
 import torch
 import torch.nn as nn
 
@@ -36,6 +40,99 @@ class InvariantViolationError(TrainingSafetyError):
 class CheckpointCorruptionError(TrainingSafetyError):
     """Raised when a checkpoint file is incomplete, corrupted, or incompatible."""
     pass
+
+
+class CanonicalArtifactProtectionError(TrainingSafetyError, PermissionError):
+    """Raised when an operation attempts to overwrite or modify canonical artifacts."""
+    pass
+
+
+# Canonical artifact directories and file hashes protected from modification or overwrite
+PROTECTED_CANONICAL_HASHES: Dict[str, str] = {
+    "canonical_checkpoint_step_10000": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "vocab_4096": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "merges_4096": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "model_core": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+    "session_runtime": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+}
+
+
+def get_canonical_checkpoint_dir(repo_root: Optional[Union[str, Path]] = None) -> Path:
+    """Returns the fully resolved canonical checkpoint directory path."""
+    if repo_root is None:
+        # Default relative to this file: chakrview/training/safety.py -> repo_root
+        current_dir = Path(__file__).resolve().parent
+        repo_root = current_dir.parent.parent
+    else:
+        repo_root = Path(repo_root).resolve()
+    return (repo_root / "experiments" / "batch16_21_combined" / "main_training_10000").resolve()
+
+
+def assert_safe_checkpoint_target(
+    target_path: Union[str, Path],
+    repo_root: Optional[Union[str, Path]] = None,
+) -> Path:
+    """
+    Centralized path protection guard for checkpoint writing.
+
+    Fails closed (raising CanonicalArtifactProtectionError) if:
+    1. The target path or its parent directory resolves to or inside the canonical checkpoint directory.
+    2. The target path resolves to or inside any directory containing protected canonical assets.
+    3. The target path matches an existing file whose SHA-256 matches any protected canonical hash.
+
+    Returns the fully resolved target Path if safe.
+    """
+    try:
+        resolved_target = Path(target_path).resolve()
+    except Exception as exc:
+        raise CanonicalArtifactProtectionError(
+            f"Failed to resolve checkpoint target path '{target_path}': {exc}"
+        ) from exc
+
+    canonical_dir = get_canonical_checkpoint_dir(repo_root)
+
+    # 1. Check directory containment
+    try:
+        if resolved_target == canonical_dir or resolved_target.is_relative_to(canonical_dir):
+            raise CanonicalArtifactProtectionError(
+                f"CANONICAL CHECKPOINT PROTECTION: Target path '{resolved_target}' is inside protected "
+                f"canonical directory '{canonical_dir}'. Writing checkpoints here is strictly forbidden."
+            )
+    except AttributeError:
+        # Python < 3.9 fallback (though we are on Python 3.14)
+        if str(resolved_target).startswith(str(canonical_dir)):
+            raise CanonicalArtifactProtectionError(
+                f"CANONICAL CHECKPOINT PROTECTION: Target path '{resolved_target}' is inside protected "
+                f"canonical directory '{canonical_dir}'."
+            )
+
+    # 2. Check if target or temporary extension points to canonical file or exists with protected hash
+    # Handle both target itself and target stripping .tmp if present
+    paths_to_check = [resolved_target]
+    if resolved_target.name.endswith(".tmp"):
+        paths_to_check.append(resolved_target.with_name(resolved_target.name[:-4]))
+
+    for p in paths_to_check:
+        if p.exists() and p.is_file():
+            try:
+                with open(p, "rb") as f:
+                    file_hash = hashlib.sha256(f.read()).hexdigest()
+            except (IOError, OSError) as e:
+                # If we cannot read the file to verify its hash, fail closed if it's anywhere near canonical
+                if "main_training_10000" in str(p):
+                    raise CanonicalArtifactProtectionError(
+                        f"Cannot verify integrity of existing file '{p}': {e}"
+                    ) from e
+                continue
+
+            for name, protected_hash in PROTECTED_CANONICAL_HASHES.items():
+                if file_hash == protected_hash:
+                    raise CanonicalArtifactProtectionError(
+                        f"CANONICAL ARTIFACT PROTECTION: Target file '{p}' matches protected canonical "
+                        f"SHA-256 ({name}: {protected_hash}). Overwriting is strictly forbidden."
+                    )
+
+    return resolved_target
 
 
 class TrainingSafetyChecker:

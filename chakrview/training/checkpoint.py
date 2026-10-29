@@ -19,7 +19,10 @@ import torch.nn as nn
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR
 
-from chakrview.training.safety import CheckpointCorruptionError
+from chakrview.training.safety import (
+    CheckpointCorruptionError,
+    assert_safe_checkpoint_target,
+)
 
 
 class CheckpointManager:
@@ -33,6 +36,7 @@ class CheckpointManager:
         save_optimizer: bool = True,
     ) -> None:
         self.checkpoint_dir = Path(checkpoint_dir)
+        assert_safe_checkpoint_target(self.checkpoint_dir)
         self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
         self.keep_last_n = keep_last_n
         self.save_optimizer = save_optimizer
@@ -61,6 +65,9 @@ class CheckpointManager:
         checkpoint_name = f"checkpoint_{step:07d}.pt"
         final_path = self.checkpoint_dir / checkpoint_name
         tmp_path = self.checkpoint_dir / f"{checkpoint_name}.tmp"
+
+        assert_safe_checkpoint_target(final_path)
+        assert_safe_checkpoint_target(tmp_path)
 
         total_params = parameter_count or sum(p.numel() for p in model.parameters())
 

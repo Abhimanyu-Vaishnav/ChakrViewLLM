@@ -36,17 +36,24 @@ def build_causal_sequence(
     bos_id: int = 0,
     eos_id: int = 1,
     ignore_index: int = -100,
+    mask_prompt: bool = True,
 ) -> Tuple[List[int], List[int]]:
     """
-    Builds causal input sequence and masked target sequence.
+    Builds causal input sequence and target sequence.
     input_seq:  [BOS] + prompt_tokens + response_tokens
-    target_seq: [ignore_index]*len(prompt_tokens) + response_tokens + [EOS]
-    
+    target_seq:
+      - If mask_prompt=True (default): [ignore_index]*len(prompt_tokens) + response_tokens + [EOS]
+      - If mask_prompt=False: prompt_tokens + response_tokens + [EOS]
+
     Causal alignment property:
       input_seq[len(prompt_tokens)] is the final prompt token, whose prediction target is
       target_seq[len(prompt_tokens)] == response_tokens[0] (the first response token).
+      When mask_prompt=False, input_seq[0] (BOS) predicts target_seq[0] == prompt_tokens[0].
     """
     input_seq = [bos_id] + prompt_tokens + response_tokens
-    target_seq = ([ignore_index] * len(prompt_tokens)) + response_tokens + [eos_id]
+    if mask_prompt:
+        target_seq = ([ignore_index] * len(prompt_tokens)) + response_tokens + [eos_id]
+    else:
+        target_seq = prompt_tokens + response_tokens + [eos_id]
     assert len(input_seq) == len(target_seq)
     return input_seq, target_seq

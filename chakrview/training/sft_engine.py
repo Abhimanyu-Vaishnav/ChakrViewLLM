@@ -27,6 +27,7 @@ from chakrview.training.prompt_contract import (
     normalize_prompt_response_strings,
     build_causal_sequence,
 )
+from chakrview.training.safety import assert_safe_checkpoint_target
 
 
 @dataclass
@@ -38,6 +39,7 @@ class SFTConfig:
     base_checkpoint: Path
     steps: int = 50
     batch_size: int = 2
+    grad_accum_steps: int = 1
     max_seq_len: int = 512
     learning_rate: float = 5e-5
     min_learning_rate: float = 5e-6
@@ -47,7 +49,8 @@ class SFTConfig:
     save_interval: int = 25
     seed: int = 42
     device: str = "cpu"
-    tokenizer_dir: str = "release/chakrview-v0.5.0/data/experiments/vocab_4096"
+    tokenizer_dir: str = "data/experiments/vocab_4096"
+    mask_prompt: bool = True
     allow_exploratory_opt_in: bool = False
     enforce_trust_gate: bool = True
     strip_prompt_delimiters: bool = True
@@ -69,6 +72,7 @@ class SFTDataset:
         enforce_trust_gate: bool = True,
         is_training: bool = False,
         strip_prompt_delimiters: bool = True,
+        mask_prompt: bool = True,
     ):
         self.jsonl_path = Path(jsonl_path)
         self.tokenizer = tokenizer
@@ -77,6 +81,7 @@ class SFTDataset:
         self.enforce_trust_gate = enforce_trust_gate
         self.is_training = is_training
         self.strip_prompt_delimiters = strip_prompt_delimiters
+        self.mask_prompt = mask_prompt
         self.records: List[Dict[str, Any]] = []
         self._load()
 
@@ -159,7 +164,12 @@ class SFTDataset:
             p_toks = p_toks[-allowed_p:]
 
         input_seq, target_seq = build_causal_sequence(
-            p_toks, r_toks, bos_id=bos_id, eos_id=eos_id, ignore_index=ignore_index
+            p_toks,
+            r_toks,
+            bos_id=bos_id,
+            eos_id=eos_id,
+            ignore_index=ignore_index,
+            mask_prompt=self.mask_prompt,
         )
         if len(input_seq) > self.max_seq_len:
             raise ValueError(
@@ -210,6 +220,7 @@ class SFTExperimentEngine:
 
     def __init__(self, config: SFTConfig):
         self.config = config
+        assert_safe_checkpoint_target(self.config.output_dir)
         self.config.output_dir.mkdir(parents=True, exist_ok=True)
 
         self.tokenizer, self.tokenizer_meta = load_tokenizer_artifacts(config.tokenizer_dir)
@@ -221,6 +232,7 @@ class SFTExperimentEngine:
             enforce_trust_gate=config.enforce_trust_gate,
             is_training=True,
             strip_prompt_delimiters=config.strip_prompt_delimiters,
+            mask_prompt=config.mask_prompt,
         )
         self.val_dataset = SFTDataset(
             config.val_file,
@@ -230,6 +242,7 @@ class SFTExperimentEngine:
             enforce_trust_gate=config.enforce_trust_gate,
             is_training=False,
             strip_prompt_delimiters=config.strip_prompt_delimiters,
+            mask_prompt=config.mask_prompt,
         )
 
         # Model and Optimizer setup
@@ -239,6 +252,7 @@ class SFTExperimentEngine:
             self.model.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay
         )
         self.loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
+        self.loss_fn_sum = nn.CrossEntropyLoss(ignore_index=-100, reduction="sum")
 
         self.start_step = 0
         self.history: List[Dict[str, Any]] = []
@@ -307,11 +321,12 @@ class SFTExperimentEngine:
             torch.set_rng_state(self.saved_torch_rng_state)
 
         start_time = time.perf_counter()
+        grad_accum = max(1, getattr(self.config, "grad_accum_steps", 1))
 
         for step in range(self.start_step + 1, self.config.steps + 1):
             step_start = time.perf_counter()
 
-            # Cosine learning rate schedule
+            # Cosine learning rate schedule (indexed by optimizer step)
             decay_ratio = (step - 1) / max(1, self.config.steps)
             coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
             cur_lr = self.config.min_learning_rate + coeff * (
@@ -320,28 +335,71 @@ class SFTExperimentEngine:
             for param_group in self.optimizer.param_groups:
                 param_group["lr"] = cur_lr
 
-            x, y, active_tokens = self.train_dataset.get_batch(
-                batch_size=self.config.batch_size, rng=rng
-            )
-            # Fail-closed safety validation on training batch
-            if active_tokens <= 0:
-                raise ValueError(f"Encountered all-masked training batch at step {step}: active_tokens={active_tokens}")
-            if (x < 0).any() or (x >= self.model.config.vocab_size).any():
-                raise ValueError(f"Input tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
-            active_targets = y[y != -100]
-            if (active_targets < 0).any() or (active_targets >= self.model.config.vocab_size).any():
-                raise ValueError(f"Target tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
-
-            x, y = x.to(self.device), y.to(self.device)
-
             self.optimizer.zero_grad()
-            logits = self.model(x)
-            loss = self.loss_fn(logits.reshape(-1, logits.size(-1)), y.reshape(-1))
 
-            if not math.isfinite(loss.item()):
-                raise RuntimeError(f"Non-finite loss detected at step {step}: {loss.item()}")
+            if grad_accum == 1:
+                # Single micro-batch fast path
+                x, y, active_tokens = self.train_dataset.get_batch(
+                    batch_size=self.config.batch_size, rng=rng
+                )
+                if active_tokens <= 0:
+                    raise ValueError(f"Encountered all-masked training batch at step {step}: active_tokens={active_tokens}")
+                if (x < 0).any() or (x >= self.model.config.vocab_size).any():
+                    raise ValueError(f"Input tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
+                active_targets = y[y != -100]
+                if (active_targets < 0).any() or (active_targets >= self.model.config.vocab_size).any():
+                    raise ValueError(f"Target tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
 
-            loss.backward()
+                x, y = x.to(self.device), y.to(self.device)
+                logits = self.model(x)
+                loss = self.loss_fn(logits.reshape(-1, logits.size(-1)), y.reshape(-1))
+
+                if not math.isfinite(loss.item()):
+                    raise RuntimeError(f"Non-finite loss detected at step {step}: {loss.item()}")
+
+                loss.backward()
+                step_loss = loss.item()
+                step_active_tokens = active_tokens
+            else:
+                # Multi-micro-batch path: draw micro-batches, sum active tokens for exact token-weighted accumulation
+                micro_batches = []
+                total_step_tokens = 0
+                for micro_step in range(grad_accum):
+                    x, y, active_tokens = self.train_dataset.get_batch(
+                        batch_size=self.config.batch_size, rng=rng
+                    )
+                    if active_tokens <= 0:
+                        raise ValueError(
+                            f"Encountered all-masked training batch at step {step} (micro-step {micro_step + 1}/{grad_accum}): active_tokens={active_tokens}"
+                        )
+                    if (x < 0).any() or (x >= self.model.config.vocab_size).any():
+                        raise ValueError(f"Input tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
+                    active_targets = y[y != -100]
+                    if (active_targets < 0).any() or (active_targets >= self.model.config.vocab_size).any():
+                        raise ValueError(f"Target tokens out of bounds [0, {self.model.config.vocab_size}) at step {step}")
+
+                    micro_batches.append((x, y, active_tokens))
+                    total_step_tokens += active_tokens
+
+                total_sum_loss = 0.0
+                for micro_step, (x, y, active_tokens) in enumerate(micro_batches):
+                    x, y = x.to(self.device), y.to(self.device)
+                    logits = self.model(x)
+                    micro_sum_loss = self.loss_fn_sum(logits.reshape(-1, logits.size(-1)), y.reshape(-1))
+
+                    if not math.isfinite(micro_sum_loss.item()):
+                        raise RuntimeError(
+                            f"Non-finite loss detected at step {step} (micro-step {micro_step + 1}/{grad_accum}): {micro_sum_loss.item()}"
+                        )
+
+                    # Scale by total active tokens across the effective batch
+                    scaled_loss = micro_sum_loss / total_step_tokens
+                    scaled_loss.backward()
+                    total_sum_loss += micro_sum_loss.item()
+
+                step_loss = total_sum_loss / total_step_tokens
+                step_active_tokens = total_step_tokens
+
             grad_norm = nn.utils.clip_grad_norm_(self.model.parameters(), self.config.grad_clip).item()
             self.optimizer.step()
 
@@ -349,11 +407,12 @@ class SFTExperimentEngine:
 
             step_record = {
                 "step": step,
-                "train_loss": round(loss.item(), 4),
-                "active_tokens": active_tokens,
+                "train_loss": round(step_loss, 4),
+                "active_tokens": step_active_tokens,
                 "learning_rate": round(cur_lr, 8),
                 "grad_norm": round(grad_norm, 4),
                 "step_time_sec": round(step_sec, 4),
+                "grad_accum_steps": grad_accum,
             }
 
             if step % self.config.val_interval == 0 or step == self.config.steps:
@@ -384,6 +443,9 @@ class SFTExperimentEngine:
         ckpt_filename = f"sft_checkpoint_step_{step}.pt"
         target_path = self.config.output_dir / ckpt_filename
         temp_path = self.config.output_dir / f"{ckpt_filename}.tmp"
+
+        assert_safe_checkpoint_target(target_path)
+        assert_safe_checkpoint_target(temp_path)
 
         payload = {
             "sft_step": step,
