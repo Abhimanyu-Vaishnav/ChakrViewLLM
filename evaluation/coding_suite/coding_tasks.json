@@ -1,6 +1,6 @@
 {
   "suite_name": "CHAKRVIEW_CODING_BENCHMARK_v0.7",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Balanced, reproducible coding capability benchmark spanning 12 tasks across 6 core software development categories with isolated test fixtures.",
   "tasks": [
     {
@@ -79,19 +79,19 @@
       "id": "CODE-TEST-01",
       "category": "test_case_generation",
       "title": "Assertion Test Case Generation",
-      "prompt": "# Given the function add(a, b): return a + b\n# Write a Python assert statement verifying 2 + 3 == 5:\n",
+      "prompt": "# Write a Python assert statement verifying that add(2, 3) equals 5 (assume add(a, b) is defined):\n",
       "target_snippet": "assert add(2, 3) == 5",
       "validation_type": "unit_test",
-      "test_code": "def add(a, b): return a + b\nassert add(2, 3) == 5"
+      "test_code": "def add(a, b): return a + b\n"
     },
     {
       "id": "CODE-TEST-02",
       "category": "test_case_generation",
       "title": "String Length Assertion Generation",
-      "prompt": "# Given string variable s = 'chakrview'\n# Write a Python assert statement verifying len(s) == 9:\n",
+      "prompt": "# Write a Python assert statement verifying that len(s) equals 9 (assume string variable s is defined):\n",
       "target_snippet": "assert len(s) == 9",
       "validation_type": "unit_test",
-      "test_code": "s = 'chakrview'\nassert len(s) == 9"
+      "test_code": "s = 'chakrview'\n"
     },
     {
       "id": "CODE-SUMM-01",

@@ -1,4 +1,4 @@
-﻿"""
+"""
 ChakrView Evaluation: Robust Scoring Logic
 Provides robust evaluation functions for exact match, normalized token match,
 digit boundaries, and isolated functional coding tests.
@@ -64,6 +64,16 @@ def evaluate_response(
                 return True, "SYNTAX_VALID"
             except SyntaxError as e:
                 return False, f"SYNTAX_ERROR: {e.msg}"
+
+    elif scoring_rule == "three_word_sentence":
+        # Strictly validates a complete three-word sentence ending with sentence punctuation (. ! ?)
+        first_line = clean_gen.splitlines()[0].strip()
+        words = [w for w in re.findall(r"[a-zA-Z0-9'-]+", first_line) if w]
+        has_terminal_punct = bool(re.search(r"[.!?]$", first_line))
+        passed = (len(words) == 3 and has_terminal_punct)
+        if passed:
+            return True, f"THREE_WORD_SENTENCE_VALID: '{first_line}'"
+        return False, f"INVALID_THREE_WORD_SENTENCE: word_count={len(words)} (expected 3), terminal_punct={has_terminal_punct}"
 
     elif scoring_rule == "substring":
         # Case-insensitive substring with minimum check

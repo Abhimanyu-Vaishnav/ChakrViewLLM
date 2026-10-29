@@ -167,19 +167,30 @@ def evaluate_coding_suite(
         timed_out = False
         rejected_by_policy = False
         
+        # Separate prompt scaffolding from model completion.
+        # Functional completion requires non-empty, non-comment code.
+        clean_gen = gen_text.strip()
+        lines = [l.strip() for l in clean_gen.splitlines() if l.strip()]
+        non_comment_lines = [l for l in lines if not l.startswith("#")]
+        has_executable_code = len(non_comment_lines) > 0
+
         if val_type == "unit_test" and test_code:
-            exec_res = run_process_isolated_test(full_code, test_code, timeout_seconds=2.0)
-            test_passed = exec_res["passed"]
-            exec_err = exec_res["error"]
-            exec_latency = exec_res.get("latency_ms", 0.0)
-            timed_out = exec_res.get("timed_out", False)
-            rejected_by_policy = exec_res.get("rejected_by_policy", False)
-            if test_passed:
-                results["test_passed_count"] += 1
-            if timed_out:
-                results["timeout_count"] += 1
-            if rejected_by_policy:
-                results["policy_rejected_count"] += 1
+            if not has_executable_code:
+                test_passed = False
+                exec_err = "NO_EXECUTABLE_CODE: completion is empty or comments only"
+            else:
+                exec_res = run_process_isolated_test(full_code, test_code, timeout_seconds=2.0)
+                test_passed = exec_res["passed"]
+                exec_err = exec_res["error"]
+                exec_latency = exec_res.get("latency_ms", 0.0)
+                timed_out = exec_res.get("timed_out", False)
+                rejected_by_policy = exec_res.get("rejected_by_policy", False)
+                if test_passed:
+                    results["test_passed_count"] += 1
+                if timed_out:
+                    results["timeout_count"] += 1
+                if rejected_by_policy:
+                    results["policy_rejected_count"] += 1
         elif val_type == "substring_match":
             substring_matched = target.lower() in gen_text.lower() if gen_text else False
             if substring_matched:

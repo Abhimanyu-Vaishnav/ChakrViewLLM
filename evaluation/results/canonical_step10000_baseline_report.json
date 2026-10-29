@@ -1,0 +1,271 @@
+{
+  "benchmark_metadata": {
+    "title": "ChakrMicro Canonical Capability Evaluation Baseline",
+    "timestamp_utc": "2026-10-29T08:56:04Z",
+    "git_commit": "a3951692b24f69ebfeed5b3fe42a021964728fb0",
+    "environment": {
+      "python_version": "3.14.7",
+      "torch_version": "2.14.0+cpu",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel"
+    },
+    "checkpoint_evaluated": {
+      "path": "experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    }
+  },
+  "artifact_integrity": {
+    "checkpoint": {
+      "relative_path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "exists": true,
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "verified": true,
+      "size_bytes": 42212787
+    },
+    "vocab": {
+      "relative_path": "data/experiments/vocab_4096/vocab.json",
+      "exists": true,
+      "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "verified": true,
+      "size_bytes": 112627
+    },
+    "merges": {
+      "relative_path": "data/experiments/vocab_4096/merges.json",
+      "exists": true,
+      "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "verified": true,
+      "size_bytes": 76299
+    },
+    "model_py": {
+      "relative_path": "chakrview/brain/model.py",
+      "exists": true,
+      "expected_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "actual_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "verified": true,
+      "size_bytes": 7162
+    },
+    "session_py": {
+      "relative_path": "chakrview/runtime/session.py",
+      "exists": true,
+      "expected_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "actual_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "verified": true,
+      "size_bytes": 12511
+    }
+  },
+  "loadability": {
+    "load_time_sec": 0.142,
+    "total_parameters": 3443136,
+    "tied_embedding_verified": true,
+    "model_architecture": {
+      "vocab_size": 4096,
+      "d_model": 192,
+      "n_layers": 6,
+      "n_heads": 6,
+      "hidden_dim": 512,
+      "max_seq_len": 512
+    }
+  },
+  "tokenizer_contracts": {
+    "vocab_size": 4096,
+    "roundtrip_exact": true,
+    "sample_tokens_count": 13,
+    "special_tokens": {
+      "bos_id": 0,
+      "eos_id": 1,
+      "pad_id": 2
+    }
+  },
+  "generation_determinism": {
+    "deterministic_output_verified": true,
+    "sample_prompt": "Ram lives in",
+    "sample_output": "clude the world of the world of the world. \n\nThe first of the world of the worl"
+  },
+  "robustness_and_performance": {
+    "throughput_tokens_per_sec": 187.47,
+    "average_latency_ms": 170.69,
+    "test_cases": [
+      {
+        "prompt_id": "empty_string",
+        "prompt_preview": "",
+        "output_preview": "\")\\n    >>> linked_list.insert(\")\\n    >>> linked_li",
+        "latency_ms": 125.18,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "single_char",
+        "prompt_preview": "a",
+        "output_preview": ", the world, which is the world of the world. The ",
+        "latency_ms": 115.32,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "whitespace_only",
+        "prompt_preview": "   ",
+        "output_preview": "\")\\n    >>> linked_list.insert(\")\\n    >>> linked_li",
+        "latency_ms": 120.42,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "ascii_punctuation",
+        "prompt_preview": "!@#$%^&*()_+-=[]{}|;':\",./<>?",
+        "output_preview": "\"\\n        \"\"\"\\n        \"\"\"\\n        # This is the nu",
+        "latency_ms": 151.1,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "unicode_mix",
+        "prompt_preview": "Hello \ud83d\ude00 world \ufffd",
+        "output_preview": "EXCEPTION: UnicodeEncodeError: 'utf-8' codec can't encode characters in position 6-7: surrogates not allowed",
+        "latency_ms": 0.02,
+        "output_tokens": 0,
+        "stop_reason": "REJECTED_INPUT",
+        "no_crash": false,
+        "error": "UnicodeEncodeError: 'utf-8' codec can't encode characters in position 6-7: surrogates not allowed"
+      },
+      {
+        "prompt_id": "long_repeated_context",
+        "prompt_preview": "the model was trained on tokens. the mod",
+        "output_preview": " It is the worland the so not the worland the so n",
+        "latency_ms": 486.15,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "boundary_numeric",
+        "prompt_preview": "100000000000000000000000000000000",
+        "output_preview": "66666060606060606060606060606060",
+        "latency_ms": 142.56,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "factual_simple",
+        "prompt_preview": "The capital of France is",
+        "output_preview": "land. The Sea is the Earth of the Arcean, which is",
+        "latency_ms": 127.91,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "arithmetic_simple",
+        "prompt_preview": "Compute: 7 + 5 =",
+        "output_preview": "200)\\n        >>> h.insert(\"A\", \"A\", \"A\", \"A\", \"A\",",
+        "latency_ms": 128.1,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      },
+      {
+        "prompt_id": "code_prefix",
+        "prompt_preview": "def fibonacci(n):",
+        "output_preview": "\\n    print(\"Returns:\\n    # Check the first number ",
+        "latency_ms": 139.48,
+        "output_tokens": 32,
+        "stop_reason": "MAX_TOKENS",
+        "no_crash": true,
+        "error": null
+      }
+    ]
+  },
+  "intelligence_capability_summary": {
+    "suite_name": "CHAKRVIEW_NATIVE_INTELLIGENCE_BENCHMARK_v0.8",
+    "total_tasks": 32,
+    "passed_tasks_count": 0,
+    "overall_pass_rate": "0/32 (0.0%)",
+    "attractor_collapse_count": 17,
+    "attractor_rate": "17/32 (53.1%)",
+    "category_metrics": {
+      "conversational_greetings": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "direct_instruction_following": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "context_copying": {
+        "total": 4,
+        "passed": 0,
+        "pass_rate": "0/4 (0.0%)",
+        "attractor_collapse_count": 1
+      },
+      "grounded_qa": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "summarization": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 3
+      },
+      "simple_reasoning_arithmetic": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "format_adherence": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "coding_continuation": {
+        "total": 4,
+        "passed": 0,
+        "pass_rate": "0/4 (0.0%)",
+        "attractor_collapse_count": 2
+      },
+      "repetition_collapse_probe": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 0
+      },
+      "multi_turn_context": {
+        "total": 3,
+        "passed": 0,
+        "pass_rate": "0/3 (0.0%)",
+        "attractor_collapse_count": 1
+      }
+    }
+  },
+  "coding_capability_summary": {
+    "suite_name": "CHAKRVIEW_CODING_BENCHMARK_v0.7",
+    "total_tasks": 12,
+    "syntax_valid_rate": "3/12 (25.0%)",
+    "overall_success_rate": "0/12 (0.0%)",
+    "tokens_per_second": 149.77,
+    "categories": {}
+  }
+}
