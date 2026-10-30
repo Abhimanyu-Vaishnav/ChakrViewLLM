@@ -1,4 +1,4 @@
-﻿"""
+"""
 evaluation/coding_suite/run_coding_evaluation.py
 
 Sandboxed, time-limited coding capability evaluation runner.
@@ -26,6 +26,7 @@ from chakrview.runtime.neural_runtime_adapter import (
     NeuralRuntimeAdapter,
     CANONICAL_CHECKPOINTS_ALLOWLIST,
     DEFAULT_CHECKPOINT_KEY,
+    compute_file_sha256,
 )
 from evaluation.coding_suite.isolated_executor import run_process_isolated_test
 
@@ -43,6 +44,7 @@ def check_python_syntax(code_str: str) -> bool:
 
 def evaluate_coding_suite(
     checkpoint_key: str = DEFAULT_CHECKPOINT_KEY,
+    custom_checkpoint_path: Optional[str] = None,
     max_new_tokens: int = 48,
     decoding: str = "greedy",
     output_path: Optional[str] = None,
@@ -61,14 +63,30 @@ def evaluate_coding_suite(
         suite = json.load(f)
         
     tasks = suite["tasks"]
-    ckpt_path, ckpt_hash, ckpt_label = CANONICAL_CHECKPOINTS_ALLOWLIST.get(
-        checkpoint_key, (None, "unknown", "Unknown Checkpoint")
-    )
-    # Check external/source fallback if target path is absent
-    if (ckpt_path is None or not Path(ckpt_path).is_file()) and "source_step_10000" in CANONICAL_CHECKPOINTS_ALLOWLIST:
-        src_path, src_hash, src_label = CANONICAL_CHECKPOINTS_ALLOWLIST["source_step_10000"]
-        if src_path.is_file():
-            ckpt_path, ckpt_hash, ckpt_label = src_path, src_hash, src_label
+    ckpt_path = None
+    ckpt_hash = "unknown"
+    ckpt_label = "Unknown Checkpoint"
+    is_custom = False
+
+    if custom_checkpoint_path:
+        p_custom = Path(custom_checkpoint_path).resolve()
+        ckpt_path = p_custom
+        is_custom = True
+        if p_custom.is_file():
+            ckpt_hash = compute_file_sha256(p_custom)
+            ckpt_label = f"Custom Checkpoint ({p_custom.name})"
+        else:
+            ckpt_hash = "missing"
+            ckpt_label = f"Custom Checkpoint Not Found ({p_custom.name})"
+    else:
+        ckpt_path, ckpt_hash, ckpt_label = CANONICAL_CHECKPOINTS_ALLOWLIST.get(
+            checkpoint_key, (None, "unknown", "Unknown Checkpoint")
+        )
+        # Check external/source fallback if target path is absent
+        if (ckpt_path is None or not Path(ckpt_path).is_file()) and "source_step_10000" in CANONICAL_CHECKPOINTS_ALLOWLIST:
+            src_path, src_hash, src_label = CANONICAL_CHECKPOINTS_ALLOWLIST["source_step_10000"]
+            if src_path.is_file():
+                ckpt_path, ckpt_hash, ckpt_label = src_path, src_hash, src_label
     
     run_timestamp = datetime.now(timezone.utc).isoformat()
     adapter = None
@@ -100,6 +118,7 @@ def evaluate_coding_suite(
         "mode": "smoke_verification" if smoke_mode else "neural_evaluation",
         "checkpoint_label": ckpt_label,
         "checkpoint_sha256": ckpt_hash,
+        "checkpoint_is_custom": is_custom,
         "checkpoint_present": weights_available,
         "decoding": decoding,
         "max_new_tokens": max_new_tokens,
@@ -245,6 +264,7 @@ def evaluate_coding_suite(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ChakrView Coding Benchmark Runner")
     parser.add_argument("--checkpoint-key", type=str, default=DEFAULT_CHECKPOINT_KEY, help="Allowlist key for checkpoint")
+    parser.add_argument("--custom-checkpoint-path", type=str, default=None, help="Direct path to custom checkpoint")
     parser.add_argument("--max-new-tokens", type=int, default=48, help="Max tokens to generate")
     parser.add_argument("--decoding", choices=["greedy", "sampling"], default="greedy", help="Decoding strategy")
     parser.add_argument("--output-path", type=str, default=None, help="Path to write evaluation results")
@@ -253,6 +273,7 @@ if __name__ == "__main__":
 
     evaluate_coding_suite(
         checkpoint_key=args.checkpoint_key,
+        custom_checkpoint_path=args.custom_checkpoint_path,
         max_new_tokens=args.max_new_tokens,
         decoding=args.decoding,
         output_path=args.output_path,
