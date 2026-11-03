@@ -439,7 +439,128 @@ class TestCand01StageCExtractionRunner(unittest.TestCase):
         self._create_mock_shards(in_dir, vocab_size=4096, num_shards=1, tokens_per_shard=100)
         with self.assertRaises(PermissionError) as ctx:
             execute_frequency_extraction(in_dir, v_file, out_dir, synthetic_mode=False)
-        self.assertIn("FATAL GOVERNANCE BREACH", str(ctx.exception))
+        self.assertIn("requires explicit authorization", str(ctx.exception))
+
+    # 28c. Production authorization gate tests
+    def test_28c_production_missing_ref_rejection(self):
+        """Production execution without authorization decision ref must be rejected."""
+        in_dir = self.temp_path / "in_auth_missing"
+        out_dir = self.temp_path / "out_auth_missing"
+        v_file = self._create_mock_vocab(total_tokens=4096, valid_candidates=650)
+        self._create_mock_shards(in_dir, vocab_size=4096, num_shards=1, tokens_per_shard=100)
+        with self.assertRaises(PermissionError) as ctx:
+            execute_frequency_extraction(
+                in_dir, v_file, out_dir, synthetic_mode=False, authorization_decision_ref=None
+            )
+        self.assertIn("requires explicit authorization", str(ctx.exception))
+
+    def test_28d_production_invalid_ref_rejection(self):
+        """Production execution with invalid decision ref filename must be rejected."""
+        in_dir = self.temp_path / "in_auth_inv"
+        out_dir = self.temp_path / "out_auth_inv"
+        v_file = self._create_mock_vocab(total_tokens=4096, valid_candidates=650)
+        self._create_mock_shards(in_dir, vocab_size=4096, num_shards=1, tokens_per_shard=100)
+        with self.assertRaises(PermissionError) as ctx:
+            execute_frequency_extraction(
+                in_dir, v_file, out_dir, synthetic_mode=False, authorization_decision_ref="wrong_decision.md"
+            )
+        self.assertIn("does not resolve to the canonical repository path", str(ctx.exception))
+
+    def test_28e_production_tampered_ref_rejection(self):
+        """Production execution with tampered external copy must be rejected."""
+        in_dir = self.temp_path / "in_auth_tamp"
+        out_dir = self.temp_path / "out_auth_tamp"
+        v_file = self._create_mock_vocab(total_tokens=4096, valid_candidates=650)
+        self._create_mock_shards(in_dir, vocab_size=4096, num_shards=1, tokens_per_shard=100)
+        fake_doc = self.temp_path / "CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md"
+        fake_doc.write_text("tampered content", encoding="utf-8")
+        with self.assertRaises(PermissionError) as ctx:
+            execute_frequency_extraction(
+                in_dir, v_file, out_dir, synthetic_mode=False, authorization_decision_ref=str(fake_doc)
+            )
+        self.assertIn("External copies or alternate directory locations are strictly rejected", str(ctx.exception))
+
+    def test_28e2_production_external_identical_copy_rejection(self):
+        """Production execution with an exact bit-for-bit external copy must still be rejected."""
+        in_dir = self.temp_path / "in_auth_ext"
+        out_dir = self.temp_path / "out_auth_ext"
+        v_file = self._create_mock_vocab(total_tokens=4096, valid_candidates=650)
+        self._create_mock_shards(in_dir, vocab_size=4096, num_shards=1, tokens_per_shard=100)
+        # Copy exact canonical document to temp path
+        canonical_doc = Path("docs/experiments/CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md").resolve()
+        external_copy = self.temp_path / "CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md"
+        external_copy.write_bytes(canonical_doc.read_bytes())
+        with self.assertRaises(PermissionError) as ctx:
+            execute_frequency_extraction(
+                in_dir, v_file, out_dir, synthetic_mode=False, authorization_decision_ref=str(external_copy)
+            )
+        self.assertIn("External copies or alternate directory locations are strictly rejected", str(ctx.exception))
+
+    def test_28f_production_authorized_invocation_synthetic_fixtures(self):
+        """Authorized production invocation executes cleanly against synthetic fixtures."""
+        in_dir = self.temp_path / "in_auth_ok"
+        out_dir = self.temp_path / "out_auth_ok"
+        v_file = self._create_mock_vocab(total_tokens=4096, valid_candidates=650)
+        tokens = [300 + (i % 600) for i in range(1200)]
+        self._create_mock_shards(in_dir, vocab_size=4096, num_shards=2, tokens_per_shard=600, token_ids=tokens)
+        auth_doc = "docs/experiments/CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md"
+        manifest = execute_frequency_extraction(
+            in_dir, v_file, out_dir, synthetic_mode=False, authorization_decision_ref=auth_doc
+        )
+        self.assertEqual(manifest["synthetic_mode"], False)
+        self.assertIn("CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md", manifest["authorization_decision_ref"])
+        self.assertTrue((out_dir / "extraction_manifest.json").exists())
+
+    def test_28g_cli_production_authorization_gate(self):
+        """Test CLI arguments for mutual exclusivity, rejection, and authorization requirement."""
+        import subprocess
+        # 1. Reject when no mode is given
+        res_none = subprocess.run(
+            [
+                sys.executable,
+                "scripts/extract_stage_c_frequencies.py",
+                "--input-dir", "tests/fixtures/synthetic_shards",
+                "--vocab-path", "tests/fixtures/synthetic_shards/mock_vocab.json",
+                "--output-dir", "tests/fixtures/synthetic_out",
+            ],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(res_none.returncode, 1)
+        self.assertIn("Explicit execution mode required", res_none.stderr)
+
+        # 2. Reject when both --synthetic and --execute-production are given
+        res_both = subprocess.run(
+            [
+                sys.executable,
+                "scripts/extract_stage_c_frequencies.py",
+                "--input-dir", "tests/fixtures/synthetic_shards",
+                "--vocab-path", "tests/fixtures/synthetic_shards/mock_vocab.json",
+                "--output-dir", "tests/fixtures/synthetic_out",
+                "--synthetic",
+                "--execute-production",
+            ],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(res_both.returncode, 1)
+        self.assertIn("mutually exclusive", res_both.stderr)
+
+        # 3. Reject when --execute-production is given without --authorization-decision-ref
+        res_no_ref = subprocess.run(
+            [
+                sys.executable,
+                "scripts/extract_stage_c_frequencies.py",
+                "--input-dir", "tests/fixtures/synthetic_shards",
+                "--vocab-path", "tests/fixtures/synthetic_shards/mock_vocab.json",
+                "--output-dir", "tests/fixtures/synthetic_out",
+                "--execute-production",
+            ],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(res_no_ref.returncode, 1)
+        self.assertIn("--authorization-decision-ref", res_no_ref.stderr)
 
     # 29. Token-count reconciliation failure
     def test_29_token_count_reconciliation_failure(self):

@@ -41,6 +41,9 @@ MIN_ELIGIBLE_TOKENS = 600
 PROPOSED_RAM_CEILING_MB = 512.0
 PROPOSED_TIMEOUT_SECONDS = 60.0
 
+EXPECTED_AUTHORIZATION_DECISION_DOC = "docs/experiments/CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md"
+EXPECTED_AUTHORIZATION_DECISION_HASH = "e5b433adebb53b45e8250f07cae38282e1a06839bed15fa788d16d4db5192f00"
+
 FORBIDDEN_OUTPUT_SUBSTRINGS = [
     "data/tokenized",
     "data/preprocessed",
@@ -64,14 +67,13 @@ def compute_file_sha256(path: Path | str) -> str:
 
 def validate_output_directory(output_dir: Path) -> None:
     """Verifies output path does not collide with canonical or protected directories."""
-    norm_str = str(output_dir.resolve()).replace("\\", "/").lower()
+    resolved_out = output_dir.resolve()
+    norm_resolved = str(resolved_out).replace("\\", "/").lower()
+
     for forbidden in FORBIDDEN_OUTPUT_SUBSTRINGS:
-        if (
-            forbidden in norm_str
-            or norm_str.endswith("/" + forbidden)
-            or ("/" + forbidden + "/") in norm_str
-            or norm_str == str(REPO_ROOT / forbidden).replace("\\", "/").lower()
-        ):
+        forbidden_target = (REPO_ROOT / forbidden).resolve()
+        norm_target = str(forbidden_target).replace("\\", "/").lower()
+        if norm_resolved == norm_target or norm_resolved.startswith(norm_target + "/"):
             raise PermissionError(
                 f"FATAL GOVERNANCE BREACH: Output directory '{output_dir}' intersects protected path '{forbidden}'."
             )
@@ -278,17 +280,61 @@ def execute_frequency_extraction(
     max_timeout_seconds: float = PROPOSED_TIMEOUT_SECONDS,
     max_ram_mb: float = PROPOSED_RAM_CEILING_MB,
     synthetic_mode: bool = False,
+    authorization_decision_ref: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Executes frequency extraction with strict read-only guarantees, SHA-256 pre-verification,
     real timeout and memory enforcement, telemetry recording, and atomic output serialization.
+
+    Authorization Gate:
+    - If synthetic_mode is True, execution proceeds safely under mock/synthetic test fixtures.
+    - If synthetic_mode is False (production mode), authorization_decision_ref must be supplied
+      and point to a valid, existing authorization decision document matching the expected
+      governance criteria.
     """
-    # Enforce production execution lock: Function call invocation must explicitly pass synthetic_mode=True
+    verified_auth_doc: Optional[Path] = None
     if not synthetic_mode:
-        raise PermissionError(
-            "FATAL GOVERNANCE BREACH: Physical Stage C Frequency Extraction is strictly UNAUTHORIZED.\n"
-            "execute_frequency_extraction() requires synthetic_mode=True until formal governance authorization is signed."
-        )
+        if not authorization_decision_ref:
+            raise PermissionError(
+                "FATAL GOVERNANCE BREACH: Physical Stage C Frequency Extraction requires explicit authorization!\n"
+                "execute_frequency_extraction() with synthetic_mode=False requires authorization_decision_ref "
+                "referencing 'CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md'."
+            )
+        # Normalize and verify authorization decision document reference
+        raw_ref = Path(authorization_decision_ref)
+        if ".." in raw_ref.parts:
+            raise ValueError(f"FATAL: Path traversal forbidden in authorization_decision_ref: {authorization_decision_ref}")
+        
+        # Deterministic Canonical Document Target
+        canonical_doc = (REPO_ROOT / EXPECTED_AUTHORIZATION_DECISION_DOC).resolve()
+        if not canonical_doc.exists() or not canonical_doc.is_file():
+            raise FileNotFoundError(f"FATAL: Canonical authorization document missing at {canonical_doc}")
+
+        # Resolve candidate reference
+        if raw_ref.is_absolute():
+            resolved_ref = raw_ref.resolve()
+        else:
+            resolved_ref = (REPO_ROOT / raw_ref).resolve()
+
+        # Strict identity check: Must resolve to the exact canonical repository file
+        if resolved_ref != canonical_doc:
+            raise PermissionError(
+                f"FATAL GOVERNANCE BREACH: Authorization decision reference '{authorization_decision_ref}'\n"
+                f"does not resolve to the canonical repository path:\n"
+                f"Expected: {canonical_doc}\n"
+                f"Resolved: {resolved_ref}\n"
+                f"External copies or alternate directory locations are strictly rejected."
+            )
+        
+        # Verify content integrity of the canonical authorization decision document
+        doc_hash = compute_file_sha256(canonical_doc)
+        if doc_hash != EXPECTED_AUTHORIZATION_DECISION_HASH:
+            raise PermissionError(
+                f"FATAL GOVERNANCE BREACH: Authorization decision document checksum mismatch!\n"
+                f"Expected SHA-256: {EXPECTED_AUTHORIZATION_DECISION_HASH}\n"
+                f"Actual SHA-256:   {doc_hash}"
+            )
+        verified_auth_doc = canonical_doc
 
     start_time = time.perf_counter()
     start_cpu = time.process_time()
@@ -439,6 +485,7 @@ def execute_frequency_extraction(
     manifest_payload = {
         "manifest_version": "1.0.0",
         "synthetic_mode": synthetic_mode,
+        "authorization_decision_ref": str(verified_auth_doc) if verified_auth_doc else None,
         "input_directory": str(input_dir),
         "vocab_path": str(vocab_path),
         "source_metadata_hash": compute_file_sha256(meta_path),
@@ -483,23 +530,43 @@ def parse_args():
     parser.add_argument("--vocab-path", type=str, required=True, help="Path to vocab_4096/vocab.json")
     parser.add_argument("--output-dir", type=str, required=True, help="Directory to write frequency artifacts")
     parser.add_argument("--synthetic", action="store_true", help="Execute against synthetic mock shards (safe testing mode)")
-    parser.add_argument("--execute-production", action="store_true", help="FORBIDDEN: Attempt to run production extraction")
+    parser.add_argument("--execute-production", action="store_true", help="Explicit intent to run authorized production extraction")
+    parser.add_argument("--authorization-decision-ref", type=str, default=None, help="Reference to signed CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
 
-    # Hard Boundary Check: Physical production extraction is strictly unauthorized
-    if args.execute_production or not args.synthetic:
+    # Mutual exclusivity and authorization verification
+    if args.synthetic and args.execute_production:
         sys.stderr.write(
-            "FATAL GOVERNANCE BREACH: Physical Stage C Frequency Extraction is strictly UNAUTHORIZED.\n"
-            "This runner is restricted to --synthetic testing mode until formal execution authorization is signed.\n"
+            "FATAL CONFIGURATION ERROR: --synthetic and --execute-production are mutually exclusive.\n"
         )
         sys.exit(1)
 
+    if not args.synthetic and not args.execute_production:
+        sys.stderr.write(
+            "FATAL GOVERNANCE BREACH: Explicit execution mode required.\n"
+            "Specify --synthetic for safe testing, or --execute-production with --authorization-decision-ref for production.\n"
+        )
+        sys.exit(1)
+
+    if args.execute_production:
+        if not args.authorization_decision_ref:
+            sys.stderr.write(
+                "FATAL GOVERNANCE BREACH: --execute-production requires --authorization-decision-ref referencing\n"
+                "'CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md'.\n"
+            )
+            sys.exit(1)
+        mode_label = "PRODUCTION MODE (AUTHORIZED)"
+        is_synthetic = False
+    else:
+        mode_label = "SYNTHETIC MODE"
+        is_synthetic = True
+
     print("=================================================================")
-    print("CAND_01 STAGE C FREQUENCY EXTRACTION RUNNER (SYNTHETIC MODE)")
+    print(f"CAND_01 STAGE C FREQUENCY EXTRACTION RUNNER ({mode_label})")
     print(f"Input: {args.input_dir} | Output: {args.output_dir}")
     print("=================================================================")
 
@@ -511,16 +578,18 @@ def main():
         input_dir=in_dir,
         vocab_path=v_path,
         output_dir=out_dir,
-        synthetic_mode=True,
+        synthetic_mode=is_synthetic,
+        authorization_decision_ref=args.authorization_decision_ref if not is_synthetic else None,
     )
 
     print("\nExtraction Summary:")
+    print(f"  Execution Mode:   {mode_label}")
     print(f"  Shards Processed: {manifest['shards_processed']}")
     print(f"  Tokens Counted:   {manifest['total_tokens_counted']}")
     print(f"  Eligible Tokens:  {manifest['tier_partition_summary']['eligible_candidates_non_zero']}")
     print(f"  Wall-Clock Time:  {manifest['telemetry']['wall_clock_seconds']:.4f}s")
     print(f"  CPU Time:         {manifest['telemetry']['cpu_time_seconds']:.4f}s")
-    print("\nSUCCESS: Synthetic extraction runner executed cleanly.")
+    print(f"\nSUCCESS: Extraction runner ({mode_label}) executed cleanly.")
 
 
 if __name__ == "__main__":
