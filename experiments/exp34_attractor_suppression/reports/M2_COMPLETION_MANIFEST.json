@@ -1,0 +1,38 @@
+{
+  "milestone": "M2",
+  "status": "COMPLETE",
+  "experiment": "Exp34_Attractor_Suppression_AB_Comparison",
+  "execution_date": "2026-10-30",
+  "git_head": "5aeaa2734de5a98802b96afe36324765f3244738",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "dataset_splits": {
+    "train_900_sha256": "d42c56d1c77a8d6cb8b75216909cc34e49f4346724b6aa276ba4b1d298f8a104",
+    "val_100_sha256": "98803283f26788f26940027c7a467e6101b1d85616b9d2da861857f3387e56ca"
+  },
+  "arm_a_results": {
+    "mask_prompt": true,
+    "steps": 50,
+    "final_train_loss": 4.2432,
+    "final_val_loss": 4.5724,
+    "final_val_perplexity": 96.78,
+    "checkpoint_step_50_sha256": "150f6214862eefe0baa4f33fbf9f075594e7f00c61b09834446cc25b0c54cecf",
+    "intelligence_pass_rate": "1/32 (3.1%)",
+    "attractor_collapse_rate": "11/32 (34.4%)",
+    "coding_syntax_validity": "4/12 (33.3%)",
+    "mean_repeated_4gram_ratio": 0.1862
+  },
+  "arm_b_results": {
+    "mask_prompt": false,
+    "steps": 50,
+    "final_train_loss": 4.1161,
+    "final_val_loss": 4.6471,
+    "final_val_perplexity": 104.28,
+    "checkpoint_step_50_sha256": "ab4e61e1ba95c5705ff009e2b14962e3f8f103d1b303e13bff92da449aecfb99",
+    "intelligence_pass_rate": "1/32 (3.1%)",
+    "attractor_collapse_rate": "14/32 (43.8%)",
+    "coding_syntax_validity": "4/12 (33.3%)",
+    "mean_repeated_4gram_ratio": 0.2333
+  },
+  "recommendation": "Arm A (mask_prompt=True)",
+  "classification": "Promising experimental candidate for further scaling"
+}

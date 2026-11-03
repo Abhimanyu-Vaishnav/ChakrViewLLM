@@ -1,0 +1,81 @@
+{
+  "experiment_name": "Exp34_Attractor_Suppression_AB_Comparison",
+  "checkpoint_baseline": "Canonical Step 10,000 (96357705...)",
+  "arm_a_checkpoint": "Arm A Masked Step 50 (150f6214...)",
+  "arm_b_checkpoint": "Arm B Unmasked Step 50 (ab4e61e1...)",
+  "metrics": {
+    "intelligence_pass_rate": {
+      "canonical": "0/32 (0.0%)",
+      "arm_a": "1/32 (3.1%)",
+      "arm_b": "1/32 (3.1%)"
+    },
+    "attractor_collapse_rate_32tasks": {
+      "canonical": "17/32 (53.1%)",
+      "arm_a": "11/32 (34.4%)",
+      "arm_b": "14/32 (43.8%)"
+    },
+    "coding_unit_test_pass_rate": {
+      "canonical": "0/12 (0.0%)",
+      "arm_a": "0/12 (0.0%)",
+      "arm_b": "0/12 (0.0%)"
+    },
+    "coding_syntax_validity": {
+      "canonical": "3/12 (25.0%)",
+      "arm_a": "4/12 (33.3%)",
+      "arm_b": "4/12 (33.3%)"
+    },
+    "mean_repeated_2gram_ratio": {
+      "canonical": 0.334,
+      "arm_a": 0.2773,
+      "arm_b": 0.3008
+    },
+    "mean_repeated_3gram_ratio": {
+      "canonical": 0.2821,
+      "arm_a": 0.2233,
+      "arm_b": 0.2627
+    },
+    "mean_repeated_4gram_ratio": {
+      "canonical": 0.254,
+      "arm_a": 0.1862,
+      "arm_b": 0.2333
+    },
+    "mean_unique_token_ratio": {
+      "canonical": 0.5314,
+      "arm_a": 0.5663,
+      "arm_b": 0.5681
+    },
+    "eos_termination_count_30prompts": {
+      "canonical": "2/30",
+      "arm_a": "2/30",
+      "arm_b": "4/30"
+    },
+    "validation_loss": {
+      "arm_a": {
+        "initial": 4.6659,
+        "step_10": 4.6012,
+        "step_20": 4.588,
+        "step_30": 4.5794,
+        "step_40": 4.5738,
+        "step_50": 4.5724
+      },
+      "arm_b": {
+        "initial": 4.7891,
+        "step_10": 4.6855,
+        "step_20": 4.6688,
+        "step_30": 4.6572,
+        "step_40": 4.6501,
+        "step_50": 4.6471
+      }
+    },
+    "throughput_tokens_per_second": {
+      "canonical": 239.3,
+      "arm_a": 316.8,
+      "arm_b": 283.3
+    }
+  },
+  "decision": {
+    "selected_candidate": "Arm A (mask_prompt=True)",
+    "classification": "Promising experimental candidate for further scaling",
+    "rationale": "Arm A substantially reduced attractor collapse on the 32 held-out intelligence tasks (from 53.1% to 34.4%, vs Arm B at 43.8%) and lowered 4-gram repetition from 25.4% down to 18.6% (vs Arm B at 23.3%). Both arms achieved identical coding syntax validity (33.3%)."
+  }
+}
