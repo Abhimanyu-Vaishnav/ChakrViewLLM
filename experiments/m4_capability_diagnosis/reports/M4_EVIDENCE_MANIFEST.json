@@ -1,0 +1,115 @@
+{
+  "manifest_metadata": {
+    "milestone": "M4 — Capability Diagnosis & Learning Strategy Research",
+    "project": "ChakrView",
+    "repository": "D:\\Project\\ChakrView",
+    "timestamp": "2026-10-30T15:20:00Z",
+    "mode": "STRICT_READ_ONLY_FORENSIC_ANALYSIS",
+    "git_head": "5aeaa2734de5a98802b96afe36324765f3244738",
+    "branch": "main"
+  },
+  "protected_artifact_verification": {
+    "canonical_checkpoint": {
+      "path": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+      "expected_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "actual_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+      "status": "VERIFIED"
+    },
+    "tokenizer_vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "actual_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "status": "VERIFIED"
+    },
+    "tokenizer_merges": {
+      "path": "data/experiments/vocab_4096/merges.json",
+      "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "actual_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+      "status": "VERIFIED"
+    },
+    "protected_model_py": {
+      "path": "chakrview/brain/model.py",
+      "expected_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "actual_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+      "status": "VERIFIED"
+    },
+    "protected_session_py": {
+      "path": "chakrview/runtime/session.py",
+      "expected_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "actual_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "status": "VERIFIED"
+    },
+    "v0_8_0_commit": {
+      "target_commit": "ae96c645eb08c438440ffbe7546754341964a93e",
+      "status": "VERIFIED"
+    }
+  },
+  "inspected_source_files": [
+    "chakrview/brain/config.py",
+    "chakrview/brain/model.py",
+    "chakrview/training/sft_engine.py",
+    "chakrview/training/prompt_contract.py",
+    "chakrview/runtime/neural_runtime_adapter.py",
+    "chakrview/runtime/prompt_conditioning.py",
+    "chakrview/runtime/neural_inference_contract.py",
+    "evaluation/conversational_suite/m3_conversational_tasks.json",
+    "evaluation/intelligence_suite/intelligence_tasks.json",
+    "evaluation/coding_suite/coding_tasks.json",
+    "evaluation/neural_benchmark_harness.py",
+    "evaluation/intelligence_suite/scoring_evaluator.py",
+    "scripts/run_m3_evaluations.py",
+    "data/sft/m3_conversational/m3_conversational_mixture_600.jsonl",
+    "data/sft/m3_conversational/splits/m3_train_split_540.jsonl",
+    "data/sft/m3_conversational/splits/m3_val_split_60.jsonl",
+    "data/sft/m3_conversational/splits/m3_split_manifest.json",
+    "experiments/m3_conversational_intelligence/runs/m3_sft_500steps/training_log.json"
+  ],
+  "inspected_checkpoints": [
+    {
+      "id": "canonical_step_10000",
+      "sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee"
+    },
+    {
+      "id": "m2_arm_a_step_50",
+      "sha256": "150f6214862eefe0baa4f33fbf9f075594e7f00c61b09834446cc25b0c54cecf"
+    },
+    {
+      "id": "m3_step_50",
+      "sha256": "df3bc1c5fee3a3b2e4d1c975c40426660eef4625597e493bbdc88835bb16b5bb"
+    },
+    {
+      "id": "m3_step_100",
+      "sha256": "8cd534e1d13a17672026420cded4e4cbf2e2b6ec11c30fadeb3c245879859454"
+    },
+    {
+      "id": "m3_step_250",
+      "sha256": "91b0bae2a8c737c8db4079c8ac3645f8ff8436b12501f687660f4f9ab7b83433"
+    },
+    {
+      "id": "m3_step_500",
+      "sha256": "36d5aa5ca98fb995b0b7b86d12ecb53558b97e4c4c6a5769f3eb9a9ee82bffe6"
+    }
+  ],
+  "inspected_evaluations": [
+    "experiments/m3_conversational_intelligence/evaluations/conversational_canonical_step_10000.json",
+    "experiments/m3_conversational_intelligence/evaluations/conversational_m2_arm_a_step_50.json",
+    "experiments/m3_conversational_intelligence/evaluations/conversational_m3_step_50.json",
+    "experiments/m3_conversational_intelligence/evaluations/conversational_m3_step_100.json",
+    "experiments/m3_conversational_intelligence/evaluations/conversational_m3_step_250.json",
+    "experiments/m3_conversational_intelligence/evaluations/conversational_m3_step_500.json",
+    "experiments/m3_conversational_intelligence/evaluations/intelligence_canonical_step_10000.json",
+    "experiments/m3_conversational_intelligence/evaluations/intelligence_m3_step_250.json",
+    "experiments/m3_conversational_intelligence/evaluations/coding_m3_step_250.json",
+    "experiments/m3_conversational_intelligence/evaluations/neural_harness_m3_step_250.json"
+  ],
+  "safety_boundaries_enforced": {
+    "zero_training_executed": true,
+    "zero_checkpoints_created": true,
+    "zero_source_code_modified": true,
+    "zero_datasets_modified": true,
+    "zero_git_commits_or_pushes": true,
+    "experiments_overnight_runs_untouched": true,
+    "zero_external_apis_called": true
+  }
+}
+
