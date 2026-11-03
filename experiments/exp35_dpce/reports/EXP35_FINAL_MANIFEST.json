@@ -1,0 +1,57 @@
+{
+  "milestone": "M5 \u2014 Exp35-DPCE",
+  "project": "ChakrView",
+  "timestamp": "2026-10-30T15:47:00Z",
+  "classification": "NO_SIGNIFICANT_IMPROVEMENT",
+  "frozen_spec": {
+    "path": "experiments\\exp35_dpce\\spec\\EXP35_EXPERIMENT_SPEC.md",
+    "sha256": "8dc0d91d1dcaa54ce44328cd4f0fe613b8f508dbfae457696a74b95286da3dca"
+  },
+  "datasets": {
+    "full": {
+      "path": "experiments\\exp35_dpce\\data\\exp35_full_dataset.jsonl",
+      "sha256": "ac247d1e9a61b945640b094d3dda63a355fba704d362820d2225ebdac20b8c8d",
+      "count": 1000
+    },
+    "train": {
+      "path": "experiments\\exp35_dpce\\data\\exp35_train.jsonl",
+      "sha256": "5b10b7d58e891e3cadb1213f436417dd34701b6ed3e0573ba2d534a786e7ad1d",
+      "count": 900
+    },
+    "val": {
+      "path": "experiments\\exp35_dpce\\data\\exp35_validation.jsonl",
+      "sha256": "a30d633f8006ae1175cda8d3277c7b94f123665dfaf555f54263deace68f1a6a",
+      "count": 100
+    }
+  },
+  "benchmark": {
+    "path": "experiments\\exp35_dpce\\benchmark\\exp35_benchmark_200.json",
+    "sha256": "29c2739ce0effd164a7d884fea04ce20f22287c73705829b9d2671705f016e00",
+    "total_tasks": 200
+  },
+  "checkpoints": {
+    "arm_a_step_500": {
+      "path": "experiments\\exp35_dpce\\runs\\arm_a_m3_step250\\sft_checkpoint_step_500.pt",
+      "sha256": "7c98142a839a7598b6e69b9b32f17794bb7d41cf99d3bd0bae3ee71e2632b54a"
+    },
+    "arm_b_step_500": {
+      "path": "experiments\\exp35_dpce\\runs\\arm_b_m2_arma_step50\\sft_checkpoint_step_500.pt",
+      "sha256": "4f1d9946dc04e0e12ceb6b8d96895064d86be7a74350a21b10ccc3620b883994"
+    }
+  },
+  "results_summary": {
+    "baseline_pass_rate": "0/200 (0.0%)",
+    "arm_a_step_500_pass_rate": "0/200 (0.0%)",
+    "arm_b_step_500_pass_rate": "0/200 (0.0%)",
+    "arm_a_final_val_loss": 2.5216,
+    "arm_b_final_val_loss": 1.4006,
+    "candidate_selected": "NONE"
+  },
+  "safety_verification": {
+    "zero_external_apis": true,
+    "zero_pretrained_models": true,
+    "canonical_artifacts_untouched": true,
+    "overnight_runs_untouched": true,
+    "git_head_unchanged": true
+  }
+}

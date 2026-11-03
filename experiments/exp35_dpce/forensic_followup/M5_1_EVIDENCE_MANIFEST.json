@@ -1,0 +1,38 @@
+{
+  "milestone": "M5.1 Forensic Follow-up",
+  "project": "ChakrView",
+  "timestamp": "2026-10-30T16:15:00Z",
+  "classification": "VERIFIED_WITH_STRONG_EVIDENCE",
+  "investigated_checkpoints": [
+    "Canonical Step 10k",
+    "M3 Step 250",
+    "M2 Arm A Step 50",
+    "Exp35 Arm A Step 500",
+    "Exp35 Arm B Step 500"
+  ],
+  "reports": {
+    "forensic_report": "experiments\\exp35_dpce\\forensic_followup\\M5_1_FORENSIC_AUDIT_REPORT.md",
+    "token_level_analysis": "experiments\\exp35_dpce\\forensic_followup\\M5_1_TOKEN_LEVEL_ANALYSIS.md",
+    "prompt_conditioning_results": "experiments\\exp35_dpce\\forensic_followup\\M5_1_PROMPT_CONDITIONING_RESULTS.json",
+    "tokenizer_analysis": "experiments\\exp35_dpce\\forensic_followup\\M5_1_TOKENIZER_ANALYSIS.md",
+    "evaluator_reliability": "experiments\\exp35_dpce\\forensic_followup\\M5_1_EVALUATOR_RELIABILITY.md",
+    "root_cause_next_experiment": "experiments\\exp35_dpce\\forensic_followup\\M5_1_ROOT_CAUSE_AND_NEXT_EXPERIMENT.md"
+  },
+  "core_empirical_metrics": {
+    "template_token_proportion": "78.96%",
+    "entity_token_proportion": "16.53%",
+    "mean_target_probability": 0.01839,
+    "mean_target_rank": 205.5,
+    "mean_sensitivity_delta": 0.00014,
+    "teacher_forcing_accuracy": "72.0%",
+    "evaluator_false_negatives": 0
+  },
+  "safety_audit": {
+    "canonical_hashes_verified": true,
+    "git_head_unchanged": true,
+    "zero_training_executed": true,
+    "zero_source_code_modified": true,
+    "zero_external_apis_called": true,
+    "overnight_runs_untouched": true
+  }
+}

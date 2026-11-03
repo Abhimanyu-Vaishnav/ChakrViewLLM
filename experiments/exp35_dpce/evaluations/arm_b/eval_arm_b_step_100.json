@@ -1,0 +1,1857 @@
+{
+  "checkpoint_name": "arm_b_step_100",
+  "checkpoint_path": "experiments\\exp35_dpce\\runs\\arm_b_m2_arma_step50\\sft_checkpoint_step_100.pt",
+  "total_tasks": 200,
+  "passed_tasks": 0,
+  "pass_rate": 0.0,
+  "elapsed_seconds": 35.65,
+  "family_breakdown": {
+    "changed_fact_tracking": {
+      "total": 10,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "context_dependent_qa": {
+      "total": 20,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "distractor_resistance": {
+      "total": 10,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "multi_attribute_extraction": {
+      "total": 30,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "multi_entity_disambiguation": {
+      "total": 30,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "multi_turn_retention": {
+      "total": 20,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "single_entity_extraction": {
+      "total": 30,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "slot_filling": {
+      "total": 20,
+      "passed": 0,
+      "pass_rate": 0.0
+    },
+    "unseen_entity_combinations": {
+      "total": 30,
+      "passed": 0,
+      "pass_rate": 0.0
+    }
+  },
+  "task_results": [
+    {
+      "task_id": "EXP35-EVAL-001",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Zoya arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiver of the",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-002",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Tariq arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer (Chanday (1994)",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-003",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Bhavna arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-004",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Arman arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-005",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Leela arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is the Archiver",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-006",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Jayant arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "At station is a shived in the Archiv is a station of the Archiver of the",
+      "target": "Jayant",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-007",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Rupal arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is the Archiver of the Archi",
+      "target": "Rupal",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-008",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Farooq arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Farooq",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-009",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Chhavi arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Chhavi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-010",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Girish arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiver of Chinese (1994)",
+      "target": "Girish",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-011",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Kamini arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is a station of the Ar",
+      "target": "Kamini",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-012",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Lalit arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Lalit",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-013",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Mansi arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Mansi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-014",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Nitin arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Nitin",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-015",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Parul arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is the Archiver",
+      "target": "Parul",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-016",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Zoya arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiver of the",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-017",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Tariq arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer (Chanday (1994)",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-018",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Bhavna arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-019",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Arman arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-020",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Leela arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is the Archiver",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-021",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Jayant arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "At station is a shived in the Archiv is a station of the Archiver of the",
+      "target": "Jayant",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-022",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Rupal arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is the Archiver of the Archi",
+      "target": "Rupal",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-023",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Farooq arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Farooq",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-024",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Chhavi arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Chhavi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-025",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Girish arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiver of Chinese (1994)",
+      "target": "Girish",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-026",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Kamini arrived safely in Kashipur.\nQuestion: Who arrived in Kashipur?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is a station of the Ar",
+      "target": "Kamini",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-027",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Lalit arrived safely in Vrindavan.\nQuestion: Who arrived in Vrindavan?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiver of the Archiver of the Archi",
+      "target": "Lalit",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-028",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Mansi arrived safely in Nilamber.\nQuestion: Who arrived in Nilamber?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Mansi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-029",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Nitin arrived safely in Gokulpur.\nQuestion: Who arrived in Gokulpur?\nAssistant:",
+      "generated_text": "Officer is a shived in the Archiv is a station of the Archiv is the",
+      "target": "Nitin",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-030",
+      "family": "single_entity_extraction",
+      "prompt": "Context: Observation log: Researcher Parul arrived safely in Ranikhet.\nQuestion: Who arrived in Ranikhet?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is the Archiver",
+      "target": "Parul",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-031",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Zoya works in cryogenics and is currently stationed at Kashipur.\nQuestion: In which department does Zoya work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-032",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Tariq works in quantum and is currently stationed at Udaigarh.\nQuestion: In which department does Tariq work?\nAssistant:",
+      "generated_text": "Officer is a shived to make the city of the word of the city of the word of the city",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-033",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Bhavna works in metallurgy and is currently stationed at Gokulpur.\nQuestion: In which department does Bhavna work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-034",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Arman works in seismology and is currently stationed at Chamba.\nQuestion: In which department does Arman work?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the word",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-035",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Leela works in bioinformatics and is currently stationed at Vrindavan.\nQuestion: In which department does Leela work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the ship is",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-036",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Jayant works in cryogenics and is currently stationed at Tezpur.\nQuestion: In which department does Jayant work?\nAssistant:",
+      "generated_text": "Officer is a shived in the city of the city of the city of the city of the city of the",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-037",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Rupal works in quantum and is currently stationed at Ranikhet.\nQuestion: In which department does Rupal work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-038",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Farooq works in metallurgy and is currently stationed at Rishinagar.\nQuestion: In which department does Farooq work?\nAssistant:",
+      "generated_text": "Officer is a shows to make a station of the word of the word of the word of the word",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-039",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Chhavi works in seismology and is currently stationed at Nilamber.\nQuestion: In which department does Chhavi work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-040",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Girish works in bioinformatics and is currently stationed at Haldwani.\nQuestion: In which department does Girish work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-041",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Kamini works in cryogenics and is currently stationed at Kashipur.\nQuestion: In which department does Kamini work?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-042",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Lalit works in quantum and is currently stationed at Udaigarh.\nQuestion: In which department does Lalit work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-043",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Mansi works in metallurgy and is currently stationed at Gokulpur.\nQuestion: In which department does Mansi work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-044",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Nitin works in seismology and is currently stationed at Chamba.\nQuestion: In which department does Nitin work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-045",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Parul works in bioinformatics and is currently stationed at Vrindavan.\nQuestion: In which department does Parul work?\nAssistant:",
+      "generated_text": "Officer is a shiry of the word of the word of the word of the word of the word of the",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-046",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Zoya works in cryogenics and is currently stationed at Tezpur.\nQuestion: In which department does Zoya work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-047",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Tariq works in quantum and is currently stationed at Ranikhet.\nQuestion: In which department does Tariq work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-048",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Bhavna works in metallurgy and is currently stationed at Rishinagar.\nQuestion: In which department does Bhavna work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-049",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Arman works in seismology and is currently stationed at Nilamber.\nQuestion: In which department does Arman work?\nAssistant:",
+      "generated_text": "Officer is a shived in the first of the word of the word of the word of the word of",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-050",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Leela works in bioinformatics and is currently stationed at Haldwani.\nQuestion: In which department does Leela work?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-051",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Jayant works in cryogenics and is currently stationed at Kashipur.\nQuestion: In which department does Jayant work?\nAssistant:",
+      "generated_text": "Officer is a shived in the city of the city of the city of the city of the city of the",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-052",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Rupal works in quantum and is currently stationed at Udaigarh.\nQuestion: In which department does Rupal work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-053",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Farooq works in metallurgy and is currently stationed at Gokulpur.\nQuestion: In which department does Farooq work?\nAssistant:",
+      "generated_text": "Officer is a shows to make a station of the word of the word of the word of the word",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-054",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Chhavi works in seismology and is currently stationed at Chamba.\nQuestion: In which department does Chhavi work?\nAssistant:",
+      "generated_text": "Officer is a plant of the word of the word of the word of the word of the word of the wor",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-055",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Girish works in bioinformatics and is currently stationed at Vrindavan.\nQuestion: In which department does Girish work?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-056",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Kamini works in cryogenics and is currently stationed at Tezpur.\nQuestion: In which department does Kamini work?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-057",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Lalit works in quantum and is currently stationed at Ranikhet.\nQuestion: In which department does Lalit work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-058",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Mansi works in metallurgy and is currently stationed at Rishinagar.\nQuestion: In which department does Mansi work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the world of the city of the city of the city of",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-059",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Nitin works in seismology and is currently stationed at Nilamber.\nQuestion: In which department does Nitin work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-060",
+      "family": "multi_attribute_extraction",
+      "prompt": "Context: Specialist Parul works in bioinformatics and is currently stationed at Haldwani.\nQuestion: In which department does Parul work?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-061",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Quasar is supervised by Zoya, whereas Project Eclipse is supervised by Leela.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-062",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Pulsar is supervised by Tariq, whereas Project Polaris is supervised by Jayant.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Jayant",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-063",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Nebula is supervised by Bhavna, whereas Project Centauri is supervised by Rupal.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Officer of the Archiver (1994)",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-064",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Eclipse is supervised by Arman, whereas Project Sirius is supervised by Farooq.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the word",
+      "target": "Farooq",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-065",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Polaris is supervised by Leela, whereas Project Vega is supervised by Chhavi.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Chandry #96.",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-066",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Centauri is supervised by Jayant, whereas Project Antares is supervised by Girish.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Girish",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-067",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Sirius is supervised by Rupal, whereas Project Betelgeuse is supervised by Kamini.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Rupal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-068",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Vega is supervised by Farooq, whereas Project Quasar is supervised by Lalit.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Lalit",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-069",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Antares is supervised by Chhavi, whereas Project Pulsar is supervised by Mansi.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Chhavi",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-070",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Betelgeuse is supervised by Girish, whereas Project Nebula is supervised by Nitin.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Nitin",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-071",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Quasar is supervised by Kamini, whereas Project Eclipse is supervised by Parul.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Kamini",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-072",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Pulsar is supervised by Lalit, whereas Project Polaris is supervised by Zoya.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-073",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Nebula is supervised by Mansi, whereas Project Centauri is supervised by Tariq.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the word",
+      "target": "Mansi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-074",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Eclipse is supervised by Nitin, whereas Project Sirius is supervised by Bhavna.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Chandy #96.",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-075",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Polaris is supervised by Parul, whereas Project Vega is supervised by Arman.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Chandy #96.",
+      "target": "Parul",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-076",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Centauri is supervised by Zoya, whereas Project Antares is supervised by Leela.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-077",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Sirius is supervised by Tariq, whereas Project Betelgeuse is supervised by Jayant.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-078",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Vega is supervised by Bhavna, whereas Project Quasar is supervised by Rupal.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Rupal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-079",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Antares is supervised by Arman, whereas Project Pulsar is supervised by Farooq.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-080",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Betelgeuse is supervised by Leela, whereas Project Nebula is supervised by Chhavi.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Chhavi",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-081",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Quasar is supervised by Jayant, whereas Project Eclipse is supervised by Girish.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Jayant",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-082",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Pulsar is supervised by Rupal, whereas Project Polaris is supervised by Kamini.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Kamini",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-083",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Nebula is supervised by Farooq, whereas Project Centauri is supervised by Lalit.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Farooq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-084",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Eclipse is supervised by Chhavi, whereas Project Sirius is supervised by Mansi.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a station of the Archiv is a station of the Ar",
+      "target": "Mansi",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-085",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Polaris is supervised by Girish, whereas Project Vega is supervised by Nitin.\nQuestion: Who supervises Project Polaris?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Girish",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-086",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Centauri is supervised by Kamini, whereas Project Antares is supervised by Parul.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Christians (1994)",
+      "target": "Parul",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-087",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Sirius is supervised by Lalit, whereas Project Betelgeuse is supervised by Zoya.\nQuestion: Who supervises Project Sirius?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Lalit",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-088",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Vega is supervised by Mansi, whereas Project Quasar is supervised by Tariq.\nQuestion: Who supervises Project Quasar?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-089",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Antares is supervised by Nitin, whereas Project Pulsar is supervised by Bhavna.\nQuestion: Who supervises Project Antares?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "Nitin",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-090",
+      "family": "multi_entity_disambiguation",
+      "prompt": "Context: Project Betelgeuse is supervised by Parul, whereas Project Nebula is supervised by Arman.\nQuestion: Who supervises Project Nebula?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-091",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Zoya holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Zoya hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-092",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Tariq holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Tariq hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-093",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Bhavna holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Bhavna hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-094",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Arman holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Arman hold?\nAssistant:",
+      "generated_text": "Officer is a passsible.",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-095",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Leela holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Leela hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-096",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Jayant holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Jayant hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-097",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Rupal holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Rupal hold?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a ssible.",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-098",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Farooq holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Farooq hold?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-099",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Chhavi holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Chhavi hold?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-100",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Girish holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Girish hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-101",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Kamini holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Kamini hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-102",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Lalit holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Lalit hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-103",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Mansi holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Mansi hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-104",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Nitin holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Nitin hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the shiving the wor",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-105",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Parul holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Parul hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-106",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Zoya holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Zoya hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-107",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Tariq holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Tariq hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-108",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Bhavna holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Bhavna hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-109",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Arman holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Arman hold?\nAssistant:",
+      "generated_text": "Officer is a passsible.",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-110",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Leela holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Leela hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the word of the shi",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-111",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Jayant holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Jayant hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-112",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Rupal holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Rupal hold?\nAssistant:",
+      "generated_text": "Officer of the Archiv is a ssible.",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-113",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Farooq holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Farooq hold?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-114",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Chhavi holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Chhavi hold?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-115",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Girish holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Girish hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-116",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Kamini holds a turquoise voucher for purchasing a crate of apricot.\nQuestion: What color voucher does Kamini hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "turquoise",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-117",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Lalit holds a charcoal voucher for purchasing a crate of fig.\nQuestion: What color voucher does Lalit hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "charcoal",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-118",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Mansi holds a copper voucher for purchasing a crate of kiwi.\nQuestion: What color voucher does Mansi hold?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "copper",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-119",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Nitin holds a lavender voucher for purchasing a crate of pomegranate.\nQuestion: What color voucher does Nitin hold?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the shiving the wor",
+      "target": "lavender",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-120",
+      "family": "unseen_entity_combinations",
+      "prompt": "Context: Inspection unit: Parul holds a maroon voucher for purchasing a crate of lychee.\nQuestion: What color voucher does Parul hold?\nAssistant:",
+      "generated_text": "Officer is a shived in the word of the word of the word of the word of the word of the",
+      "target": "maroon",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-121",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5000.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5000",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-122",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5017.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5017",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-123",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5034.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5034",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-124",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5051.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5051",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-125",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5068.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5068",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-126",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5085.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5085",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-127",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5102.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Officer #96.",
+      "target": "TX-5102",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-128",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5119.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "TX-5119",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-129",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5136.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5136",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-130",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5153.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5153",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-131",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5170.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #96.",
+      "target": "TX-5170",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-132",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5187.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5187",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-133",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5204.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5204",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-134",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5221.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Officer #96.",
+      "target": "TX-5221",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-135",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5238.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5238",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-136",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5255.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5255",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-137",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5272.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Officer #96.",
+      "target": "TX-5272",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-138",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5289.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Candy #966.",
+      "target": "TX-5289",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-139",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5306.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Officer #96.",
+      "target": "TX-5306",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-140",
+      "family": "slot_filling",
+      "prompt": "Context: Peripheral device register setting: SERIAL_NUM = TX-5323.\nQuestion: What is the value of SERIAL_NUM?\nAssistant:",
+      "generated_text": "Officer #96.",
+      "target": "TX-5323",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-141",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Zoya will deliver the opening address in Kashipur.\nQuestion: Where will Zoya deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the ship of the wor",
+      "target": "Kashipur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-142",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Tariq will deliver the opening address in Rishinagar.\nQuestion: Where will Tariq deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is the first of the word of the word of the world of the word of the first of",
+      "target": "Rishinagar",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-143",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Bhavna will deliver the opening address in Vrindavan.\nQuestion: Where will Bhavna deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a ssible.",
+      "target": "Vrindavan",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-144",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Arman will deliver the opening address in Udaigarh.\nQuestion: Where will Arman deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the world, while to be a station in the word of the word of the",
+      "target": "Udaigarh",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-145",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Leela will deliver the opening address in Nilamber.\nQuestion: Where will Leela deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution of the world, while is a received to make the",
+      "target": "Nilamber",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-146",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Jayant will deliver the opening address in Tezpur.\nQuestion: Where will Jayant deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution of the word of the word of the word of the word of the word of",
+      "target": "Tezpur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-147",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Rupal will deliver the opening address in Gokulpur.\nQuestion: Where will Rupal deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution of the word of the word of the word of the word of the word of",
+      "target": "Gokulpur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-148",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Farooq will deliver the opening address in Haldwani.\nQuestion: Where will Farooq deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution in the world, while in the word of the first of the s",
+      "target": "Haldwani",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-149",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Chhavi will deliver the opening address in Ranikhet.\nQuestion: Where will Chhavi deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is the first of the word of the word of the world of the word of the first of",
+      "target": "Ranikhet",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-150",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Girish will deliver the opening address in Chamba.\nQuestion: Where will Girish deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution in the word of the word of the word of the word of the word of",
+      "target": "Chamba",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-151",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Kamini will deliver the opening address in Kashipur.\nQuestion: Where will Kamini deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the ship is in the word of the",
+      "target": "Kashipur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-152",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Lalit will deliver the opening address in Rishinagar.\nQuestion: Where will Lalit deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution of the world, while in the first of the first of the",
+      "target": "Rishinagar",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-153",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Mansi will deliver the opening address in Vrindavan.\nQuestion: Where will Mansi deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is the first of the first of the first of the first of the first of the fi",
+      "target": "Vrindavan",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-154",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Nitin will deliver the opening address in Udaigarh.\nQuestion: Where will Nitin deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution in the world, while in the first centurire of",
+      "target": "Udaigarh",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-155",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Parul will deliver the opening address in Nilamber.\nQuestion: Where will Parul deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a destitution of the world, while in the world, while is the wor",
+      "target": "Nilamber",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-156",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Zoya will deliver the opening address in Tezpur.\nQuestion: Where will Zoya deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the word of the ship is the wor",
+      "target": "Tezpur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-157",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Tariq will deliver the opening address in Gokulpur.\nQuestion: Where will Tariq deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a plant of the word of the word of the ship is the word of the first of",
+      "target": "Gokulpur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-158",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Bhavna will deliver the opening address in Haldwani.\nQuestion: Where will Bhavna deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a shows to make a station of the word of the city of the word of the fir",
+      "target": "Haldwani",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-159",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Arman will deliver the opening address in Ranikhet.\nQuestion: Where will Arman deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the world, while is the first of the",
+      "target": "Ranikhet",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-160",
+      "family": "context_dependent_qa",
+      "prompt": "Context: Conference schedule: Keynote speaker Leela will deliver the opening address in Chamba.\nQuestion: Where will Leela deliver the opening address?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the word of the world, while is the wor",
+      "target": "Chamba",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-161",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-100 and my name is Zoya.\nAssistant: Welcome Zoya, client ID recorded.\nUser: I am calling to confirm my booking in Kashipur.\nAssistant: Booking in Kashipur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandr.",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-162",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-101 and my name is Tariq.\nAssistant: Welcome Tariq, client ID recorded.\nUser: I am calling to confirm my booking in Rishinagar.\nAssistant: Booking in Rishinagar noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Carl #9666.",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-163",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-102 and my name is Bhavna.\nAssistant: Welcome Bhavna, client ID recorded.\nUser: I am calling to confirm my booking in Vrindavan.\nAssistant: Booking in Vrindavan noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Of the first of the C.",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-164",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-103 and my name is Arman.\nAssistant: Welcome Arman, client ID recorded.\nUser: I am calling to confirm my booking in Udaigarh.\nAssistant: Booking in Udaigarh noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandr.",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-165",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-104 and my name is Leela.\nAssistant: Welcome Leela, client ID recorded.\nUser: I am calling to confirm my booking in Nilamber.\nAssistant: Booking in Nilamber noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Carly received in the fileshiving the first of the C.",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-166",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-105 and my name is Jayant.\nAssistant: Welcome Jayant, client ID recorded.\nUser: I am calling to confirm my booking in Tezpur.\nAssistant: Booking in Tezpur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chindex #9.",
+      "target": "Jayant",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-167",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-106 and my name is Rupal.\nAssistant: Welcome Rupal, client ID recorded.\nUser: I am calling to confirm my booking in Gokulpur.\nAssistant: Booking in Gokulpur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandrrince #96.",
+      "target": "Rupal",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-168",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-107 and my name is Farooq.\nAssistant: Welcome Farooq, client ID recorded.\nUser: I am calling to confirm my booking in Haldwani.\nAssistant: Booking in Haldwani noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Officult #9.",
+      "target": "Farooq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-169",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-108 and my name is Chhavi.\nAssistant: Welcome Chhavi, client ID recorded.\nUser: I am calling to confirm my booking in Ranikhet.\nAssistant: Booking in Ranikhet noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Calvastria is the word of the word of the word of the C.",
+      "target": "Chhavi",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-170",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-109 and my name is Girish.\nAssistant: Welcome Girish, client ID recorded.\nUser: I am calling to confirm my booking in Chamba.\nAssistant: Booking in Chamba noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Christitle = [https://wwive.org.wi.co.com/",
+      "target": "Girish",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-171",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-110 and my name is Kamini.\nAssistant: Welcome Kamini, client ID recorded.\nUser: I am calling to confirm my booking in Kashipur.\nAssistant: Booking in Kashipur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandre #733666.",
+      "target": "Kamini",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-172",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-111 and my name is Lalit.\nAssistant: Welcome Lalit, client ID recorded.\nUser: I am calling to confirm my booking in Rishinagar.\nAssistant: Booking in Rishinagar noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandr.",
+      "target": "Lalit",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-173",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-112 and my name is Mansi.\nAssistant: Welcome Mansi, client ID recorded.\nUser: I am calling to confirm my booking in Vrindavan.\nAssistant: Booking in Vrindavan noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Carl #733.",
+      "target": "Mansi",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-174",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-113 and my name is Nitin.\nAssistant: Welcome Nitin, client ID recorded.\nUser: I am calling to confirm my booking in Udaigarh.\nAssistant: Booking in Udaigarh noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "China is a standrather is the word of the word of the A.",
+      "target": "Nitin",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-175",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-114 and my name is Parul.\nAssistant: Welcome Parul, client ID recorded.\nUser: I am calling to confirm my booking in Nilamber.\nAssistant: Booking in Nilamber noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "China is a standry is the fileads is the word of the was in the first of the",
+      "target": "Parul",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-176",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-115 and my name is Zoya.\nAssistant: Welcome Zoya, client ID recorded.\nUser: I am calling to confirm my booking in Tezpur.\nAssistant: Booking in Tezpur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chindex #966667.",
+      "target": "Zoya",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-177",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-116 and my name is Tariq.\nAssistant: Welcome Tariq, client ID recorded.\nUser: I am calling to confirm my booking in Gokulpur.\nAssistant: Booking in Gokulpur noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Officer #7.",
+      "target": "Tariq",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-178",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-117 and my name is Bhavna.\nAssistant: Welcome Bhavna, client ID recorded.\nUser: I am calling to confirm my booking in Haldwani.\nAssistant: Booking in Haldwani noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Carl #90#9666.",
+      "target": "Bhavna",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-179",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-118 and my name is Arman.\nAssistant: Welcome Arman, client ID recorded.\nUser: I am calling to confirm my booking in Ranikhet.\nAssistant: Booking in Ranikhet noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Chandrrince #93.",
+      "target": "Arman",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-180",
+      "family": "multi_turn_retention",
+      "prompt": "User: Hello, my client ID is C-119 and my name is Leela.\nAssistant: Welcome Leela, client ID recorded.\nUser: I am calling to confirm my booking in Chamba.\nAssistant: Booking in Chamba noted.\nUser: What is my name and booking destination?\nAssistant:",
+      "generated_text": "Christitu is the first of the first of the file is the word of the wination of the",
+      "target": "Leela",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-181",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Kashipur.\nAssistant: Dispatch destination logged as Kashipur.\nUser: Route change: dispatch destination is now changed to Tezpur.\nAssistant: Route change to Tezpur confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "C.",
+      "target": "Tezpur",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-182",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Rishinagar.\nAssistant: Dispatch destination logged as Rishinagar.\nUser: Route change: dispatch destination is now changed to Gokulpur.\nAssistant: Route change to Gokulpur confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "Chandrather of the receleads the first of the first of the recelead",
+      "target": "Gokulpur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-183",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Vrindavan.\nAssistant: Dispatch destination logged as Vrindavan.\nUser: Route change: dispatch destination is now changed to Haldwani.\nAssistant: Route change to Haldwani confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "Chandraways is the file of the receleads is the fileads is the recele",
+      "target": "Haldwani",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-184",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Udaigarh.\nAssistant: Dispatch destination logged as Udaigarh.\nUser: Route change: dispatch destination is now changed to Ranikhet.\nAssistant: Route change to Ranikhet confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "Chandraways is the file of the first rection of the first of the recelead",
+      "target": "Ranikhet",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-185",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Nilamber.\nAssistant: Dispatch destination logged as Nilamber.\nUser: Route change: dispatch destination is now changed to Chamba.\nAssistant: Route change to Chamba confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "For exampleads is a receivault is the file in the word of the first of the",
+      "target": "Chamba",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-186",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Tezpur.\nAssistant: Dispatch destination logged as Tezpur.\nUser: Route change: dispatch destination is now changed to Kashipur.\nAssistant: Route change to Kashipur confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "Caligyour of the first of the file is the file in the file of the file of the file",
+      "target": "Kashipur",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-187",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Gokulpur.\nAssistant: Dispatch destination logged as Gokulpur.\nUser: Route change: dispatch destination is now changed to Rishinagar.\nAssistant: Route change to Rishinagar confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "For ext #9666.",
+      "target": "Rishinagar",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-188",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Haldwani.\nAssistant: Dispatch destination logged as Haldwani.\nUser: Route change: dispatch destination is now changed to Vrindavan.\nAssistant: Route change to Vrindavan confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "Carl is a rection in the first of the first of the rection of the receives in",
+      "target": "Vrindavan",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-189",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Ranikhet.\nAssistant: Dispatch destination logged as Ranikhet.\nUser: Route change: dispatch destination is now changed to Udaigarh.\nAssistant: Route change to Udaigarh confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "The rection of the receiver of the first received in the first of the rec",
+      "target": "Udaigarh",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-190",
+      "family": "changed_fact_tracking",
+      "prompt": "User: Project dispatch was initially addressed to Chamba.\nAssistant: Dispatch destination logged as Chamba.\nUser: Route change: dispatch destination is now changed to Nilamber.\nAssistant: Route change to Nilamber confirmed.\nUser: What is the final dispatch destination?\nAssistant:",
+      "generated_text": "For except #966.",
+      "target": "Nilamber",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-191",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in cryogenics. However, our primary team led by Zoya specializes strictly in metallurgy.\nQuestion: What does the team led by Zoya specialize in?\nAssistant:",
+      "generated_text": "Officer is a ssiblem in the America is the A.",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-192",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in quantum. However, our primary team led by Tariq specializes strictly in seismology.\nQuestion: What does the team led by Tariq specialize in?\nAssistant:",
+      "generated_text": "Officer is a shows to make a receiven in the first pecirattas",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-193",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in metallurgy. However, our primary team led by Bhavna specializes strictly in bioinformatics.\nQuestion: What does the team led by Bhavna specialize in?\nAssistant:",
+      "generated_text": "Officer is a ship of the word of the first of the first of the city of the was in",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-194",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in seismology. However, our primary team led by Arman specializes strictly in cryogenics.\nQuestion: What does the team led by Arman specialize in?\nAssistant:",
+      "generated_text": "Officer is a ssiblem in the America is the A.",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "EOS"
+    },
+    {
+      "task_id": "EXP35-EVAL-195",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in bioinformatics. However, our primary team led by Leela specializes strictly in quantum.\nQuestion: What does the team led by Leela specialize in?\nAssistant:",
+      "generated_text": "Officer is a shows in the word of the city of the first is the word of the was in",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-196",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in cryogenics. However, our primary team led by Jayant specializes strictly in metallurgy.\nQuestion: What does the team led by Jayant specialize in?\nAssistant:",
+      "generated_text": "At station is a plant in the America is the file of the ship of the city of the ce",
+      "target": "metallurgy",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-197",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in quantum. However, our primary team led by Rupal specializes strictly in seismology.\nQuestion: What does the team led by Rupal specialize in?\nAssistant:",
+      "generated_text": "Officer is a station of the word of the word of the ship is the file of the word of the w",
+      "target": "seismology",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-198",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in metallurgy. However, our primary team led by Farooq specializes strictly in bioinformatics.\nQuestion: What does the team led by Farooq specialize in?\nAssistant:",
+      "generated_text": "Officer is a reside in the first of the first of the first rection of the first",
+      "target": "bioinformatics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-199",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in seismology. However, our primary team led by Chhavi specializes strictly in cryogenics.\nQuestion: What does the team led by Chhavi specialize in?\nAssistant:",
+      "generated_text": "Officer is a plant in the word of the first of the first pecirattree in",
+      "target": "cryogenics",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    },
+    {
+      "task_id": "EXP35-EVAL-200",
+      "family": "distractor_resistance",
+      "prompt": "Context: Note that team Gamma works in bioinformatics. However, our primary team led by Girish specializes strictly in quantum.\nQuestion: What does the team led by Girish specialize in?\nAssistant:",
+      "generated_text": "Officer is a shows to make a receiven in the Aratchivault #",
+      "target": "quantum",
+      "passed": false,
+      "stop_reason": "MAX_TOKENS"
+    }
+  ]
+}
