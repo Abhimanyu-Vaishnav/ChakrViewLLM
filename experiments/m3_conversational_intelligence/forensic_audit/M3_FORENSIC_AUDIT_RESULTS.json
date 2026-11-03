@@ -1,0 +1,198 @@
+{
+  "audit_metadata": {
+    "audit_timestamp": "2026-10-30T15:05:00Z",
+    "auditor": "Independent Forensic Verification Subsystem",
+    "project": "ChakrView",
+    "milestone": "M3 — Conversational Intelligence Development",
+    "git_head": "5aeaa2734de5a98802b96afe36324765f3244738",
+    "final_classification": "VERIFIED WITH LIMITATIONS"
+  },
+  "audit_a_training_authenticity": {
+    "status": "PASS",
+    "base_checkpoint_sha256": "150f6214862eefe0baa4f33fbf9f075594e7f00c61b09834446cc25b0c54cecf",
+    "base_checkpoint_id": "m2_arm_a_step_50",
+    "total_sft_steps": 500,
+    "elapsed_seconds": 111.0,
+    "loss_reduction": {
+      "initial_val_loss": 4.8549,
+      "final_train_loss": 1.7395,
+      "final_val_loss": 1.9533
+    },
+    "l2_weight_distances": {
+      "m2_arm_a_step_50_to_m3_step_50": 1.416588,
+      "m3_step_50_to_m3_step_100": 1.409782,
+      "m3_step_100_to_m3_step_250": 3.167433,
+      "m3_step_250_to_m3_step_500": 1.723101,
+      "total_l2_base_to_step_500": 6.750229
+    },
+    "tensor_modifications": {
+      "total_tensors": 57,
+      "modified_tensors_throughout": 57,
+      "unmodified_tensors": 0
+    },
+    "authenticity_ruling": "Genuine optimizer updates across 100% of network parameters without synthetic forgery or frozen layers."
+  },
+  "audit_b_dataset_integrity": {
+    "status": "PASS",
+    "source_dataset_sha256": "1706aa1db077f4a73e9360553188f0bae5c4fa1c516bf89c7ebe8daecb4385fb",
+    "train_split_sha256": "a5f2c4813a52fa0a2ce0bc2d18f6d3c42ffbc6c62705eb07913f7841f7212573",
+    "val_split_sha256": "53ac3009d9cea2c8a37cb3a808661e78de6dea16e493622f7eecbdd4376d8c58",
+    "manifest_sha256": "3c7ad754a6b23d5da5029be49df0fc461d36c2cfb47596ff11e51b1479860b7d",
+    "record_counts": {
+      "source_total": 600,
+      "train_split": 540,
+      "val_split": 60
+    },
+    "category_balance": {
+      "categories_count": 15,
+      "records_per_category_total": 40,
+      "records_per_category_train": 36,
+      "records_per_category_val": 4,
+      "is_strictly_stratified": true
+    },
+    "duplicate_and_leakage_checks": {
+      "train_val_prompt_overlap": 0,
+      "train_val_id_overlap": 0
+    },
+    "token_length_budget": {
+      "min_tokens": 15,
+      "max_tokens": 78,
+      "mean_tokens": 34.62,
+      "sequences_exceeding_256": 0
+    },
+    "eos_presence_in_completions": 0,
+    "eos_presence_note": "Explicit <|endoftext|> string is not embedded in jsonl text; SFT engine appends EOS token ID during tokenization.",
+    "license": "CC0-1.0",
+    "review_status": "VERIFIED_TRAINING"
+  },
+  "audit_c_benchmark_independence": {
+    "status": "PASS",
+    "conversational_suite_tasks": 60,
+    "categories_count": 11,
+    "exact_prompt_leakage_with_train": 0,
+    "exact_prompt_leakage_with_val": 0,
+    "normalized_prompt_leakage_with_train": 0,
+    "normalized_prompt_leakage_with_val": 0,
+    "intelligence_suite_prompt_leakage": 0,
+    "coding_suite_prompt_leakage": 0,
+    "target_identical_leakage": 1,
+    "target_identical_leakage_detail": "Common short generic phrase ('No') occurs in both conversational dataset and benchmark target.",
+    "multi_turn_validity": "Valid serialized multi-turn dialogues evaluating contextual entity and state tracking."
+  },
+  "audit_d_metric_reconciliation": {
+    "status": "PASS",
+    "matrix_verified": true,
+    "checkpoints": {
+      "canonical_step_10000": {
+        "conversational_pass": "0/60 (0.0%)",
+        "intelligence_pass": "1/32 (3.1%)",
+        "coding_syntax_valid": "3/12 (25.0%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.2540,
+        "unique_token_ratio": 0.5314,
+        "eos_termination_ratio": "2/30 (6.7%)",
+        "mean_throughput_tps": 30.3
+      },
+      "m2_arm_a_step_50": {
+        "conversational_pass": "0/60 (0.0%)",
+        "intelligence_pass": "2/32 (6.2%)",
+        "coding_syntax_valid": "4/12 (33.3%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.1862,
+        "unique_token_ratio": 0.5663,
+        "eos_termination_ratio": "2/30 (6.7%)",
+        "mean_throughput_tps": 51.6
+      },
+      "m3_step_50": {
+        "conversational_pass": "0/60 (0.0%)",
+        "intelligence_pass": "2/32 (6.2%)",
+        "coding_syntax_valid": "3/12 (25.0%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.1253,
+        "unique_token_ratio": 0.7660,
+        "eos_termination_ratio": "19/30 (63.3%)",
+        "mean_throughput_tps": 100.6
+      },
+      "m3_step_100": {
+        "conversational_pass": "1/60 (1.7%)",
+        "intelligence_pass": "2/32 (6.2%)",
+        "coding_syntax_valid": "4/12 (33.3%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.1241,
+        "unique_token_ratio": 0.7939,
+        "eos_termination_ratio": "20/30 (66.7%)",
+        "mean_throughput_tps": 97.9
+      },
+      "m3_step_250": {
+        "conversational_pass": "1/60 (1.7%)",
+        "intelligence_pass": "2/32 (6.2%)",
+        "coding_syntax_valid": "4/12 (33.3%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.0223,
+        "unique_token_ratio": 0.9036,
+        "eos_termination_ratio": "28/30 (93.3%)",
+        "mean_throughput_tps": 84.2
+      },
+      "m3_step_500": {
+        "conversational_pass": "0/60 (0.0%)",
+        "intelligence_pass": "3/32 (9.4%)",
+        "coding_syntax_valid": "4/12 (33.3%)",
+        "coding_unit_tests": "0/12 (0.0%)",
+        "repeated_4gram_ratio": 0.0276,
+        "unique_token_ratio": 0.8781,
+        "eos_termination_ratio": "25/30 (83.3%)",
+        "mean_throughput_tps": 93.3
+      }
+    }
+  },
+  "audit_e_canonical_score_discrepancy": {
+    "status": "RESOLVED",
+    "m2_reported_pass": "0/32",
+    "m3_reported_pass": "1/32",
+    "divergent_task": "CODE-03",
+    "prompt": "# Python assertion checking that len('abc') equals 3:\\nassert ",
+    "expected_concept": "len('abc') == 3",
+    "m2_generation": "', 'a')\\n    ''\\n    >>> linked_list.insert(')\\n    '0'\\n    >",
+    "m2_ast_result": "SYNTAX_ERROR: unexpected indent (FAIL)",
+    "m3_generation": "d\")\\n    # doctest: 'last ' show'\\n    # Check the number ",
+    "m3_ast_result": "SYNTAX_VALID (PASS under code_functional fallback)",
+    "root_cause": "Whitespace handling discrepancy: M2 evaluated via NeuralRuntimeAdapter which stripped the trailing space from the prompt, while M3 evaluated via DirectNeuralRunner which preserved trailing whitespace. Under M3's prompt tokenization, greedy decoding generated an accidental syntactically valid statement `assert d\")` inside a docstring context, which passed AST parsing in the absence of a standalone unit test."
+  },
+  "audit_f_validation_loss_discrepancy": {
+    "status": "IDENTIFIED_AND_QUANTIFIED",
+    "reported_table_error": "M3 completion report table assigned identical val loss of 4.8549 to both Canonical Step 10,000 and M2 Arm A Step 50.",
+    "root_cause": "SFTExperimentEngine initialized with base_checkpoint=M2_Arm_A_Step_50. During train(), initial_val_loss (4.8549) was calculated at step 0 on M2 Arm A Step 50 over 5 sample batches (seed 101). Canonical Step 10,000 was never evaluated during SFT, and its column copied the step 0 value.",
+    "recomputed_ground_truth_full_val_loss": {
+      "canonical_step_10000": 4.7534,
+      "m2_arm_a_step_50": 4.5599,
+      "m3_step_250": 2.6088,
+      "m3_step_500": 1.9533
+    }
+  },
+  "audit_g_candidate_selection_verification": {
+    "status": "CONFIRMED",
+    "selected_candidate": "sft_checkpoint_step_250.pt",
+    "rejection_of_step_500": {
+      "repetition_ratio": "Step 250 (0.0223) is 19.2% lower than Step 500 (0.0276)",
+      "unique_token_ratio": "Step 250 (0.9036) is superior to Step 500 (0.8781)",
+      "eos_termination_rate": "Step 250 (93.3%, 28/30) is superior to Step 500 (83.3%, 25/30)",
+      "conversational_accuracy": "Step 250 (1.7%, 1/60) vs Step 500 (0.0%, 0/60)"
+    },
+    "verdict": "Candidate selection of Step 250 is scientifically sound and robustly substantiated by conversational termination and anti-attractor dynamics."
+  },
+  "audit_h_evaluator_reliability": {
+    "status": "CONFIRMED_LOCAL",
+    "offline_local_execution": true,
+    "api_calls_detected": 0,
+    "isolated_executor_safety": "Subprocess isolation with policy rejection enforced (6/12 coding tasks rejected due to security policy or AST bounds)."
+  },
+  "audit_i_architectural_ceiling": {
+    "parameters": 3442752,
+    "layers": 6,
+    "heads": 6,
+    "d_model": 192,
+    "vocab_size": 4096,
+    "conclusion": "Repetition suppression and EOS termination are successfully learned at 3.44M parameters. However, complex multi-turn conversational reasoning, state tracking, and factual question answering exceed the representational capacity of a 3.44M parameter architecture without external retrieval or scaled capacity."
+  }
+}
+

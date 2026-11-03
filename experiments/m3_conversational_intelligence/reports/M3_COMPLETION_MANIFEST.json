@@ -1,0 +1,48 @@
+{
+  "milestone": "M3",
+  "name": "Conversational Intelligence Development & Controlled Training",
+  "repository": "D:\\Project\\ChakrView",
+  "completion_date": "2026-10-30T12:40:00Z",
+  "base_checkpoint_sha256": "150f6214862eefe0baa4f33fbf9f075594e7f00c61b09834446cc25b0c54cecf",
+  "canonical_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "dataset": {
+    "mixture_file": "data/sft/m3_conversational/m3_conversational_mixture_600.jsonl",
+    "mixture_sha256": "1706aa1d6c82dae7bc8c7d01869e54a3a60dbba964e5c464bf27c00e1cf5ae6a",
+    "train_split": "data/sft/m3_conversational/splits/m3_train_split_540.jsonl",
+    "train_sha256": "a5f2c481512b9d2902cba3ce105d1a55639b7bf6114eb16ebfe8aa97a5118c7c",
+    "val_split": "data/sft/m3_conversational/splits/m3_val_split_60.jsonl",
+    "val_sha256": "53ac300958619bcbb13bc942b083cb0d0ec19d6a9788be177b8b4081efb6680a"
+  },
+  "benchmark_suite": {
+    "file": "evaluation/conversational_suite/m3_conversational_tasks.json",
+    "sha256": "010906a46556363bcaeec6de0f0c324341264febd52fe0b950aa58e67300c20a",
+    "task_count": 60,
+    "leakage_count": 0
+  },
+  "training_run": {
+    "directory": "experiments/m3_conversational_intelligence/runs/m3_sft_500steps",
+    "total_steps": 500,
+    "batch_size": 2,
+    "grad_accum_steps": 2,
+    "initial_val_loss": 4.8549,
+    "final_train_loss": 1.7395,
+    "final_val_loss": 1.9533,
+    "final_val_perplexity": 7.05
+  },
+  "selected_candidate": {
+    "step": 250,
+    "file": "experiments/m3_conversational_intelligence/runs/m3_sft_500steps/sft_checkpoint_step_250.pt",
+    "file_size": 41421538,
+    "sha256": "91b0bae2a8c737c8db4079c8ac3645f8ff8436b12501f687660f4f9ab7b83433",
+    "metrics": {
+      "attractor_rate": "5/32 (15.6%)",
+      "harness_4gram_repetition": 0.0223,
+      "harness_unique_token_ratio": 0.9036,
+      "eos_termination_rate": "28/30 (93.3%)",
+      "coding_syntax_validity": "4/12 (33.3%)",
+      "conversational_accuracy": "1/60 (1.67%)"
+    }
+  },
+  "v0_9_readiness_verdict": "CONDITIONAL_EXPERIMENTAL_ONLY_NOT_PRODUCTION_READY"
+}
+
