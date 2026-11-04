@@ -1,0 +1,32 @@
+{
+  "experiment_id": "CBR_SFT_07",
+  "mission": "Overnight Conversational Model Mission",
+  "created_at": "2026-11-04T22:31:00Z",
+  "git_branch": "exp/cbr-01-conversational-breakthrough",
+  "base_architecture": {
+    "model_name": "ChakrMicro",
+    "d_model": 512,
+    "num_layers": 4,
+    "num_heads": 8,
+    "context_len": 512,
+    "vocab_size": 4096,
+    "params": 3436544,
+    "device": "cpu"
+  },
+  "lineage": {
+    "canonical_step10k": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "cbr_sft_04_step200": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "parent_checkpoint": "experiments/cbr01_sft/runs/cbr_sft_06a/checkpoints/sft_checkpoint_step_25.pt",
+    "parent_sha256": "0589fd886853a2e65ffa1c03af0e4708cb7dc3dfd40b4db6ccc179c5bf1045f1",
+    "selected_checkpoint": "experiments/cbr01_sft/runs/cbr_sft_07/checkpoints/sft_checkpoint_step_50.pt",
+    "selected_sha256": "0cb5df5fa840d20cea737da47758d96cfe884782c9801f28e51660bb236de86b"
+  },
+  "dataset": {
+    "total_examples": 250,
+    "train_examples": 228,
+    "val_examples": 22,
+    "train_sha256": "148f112c355a6e0942f438ef1cb21ad6d93d5171547a8309801a61f6b0ae3add",
+    "val_sha256": "099ebd9a82d328beb972e74efd39f07c56299617e8ab922b9ea2b8c215fe8d8c"
+  },
+  "reproducibility_command": ".\\.venv\\Scripts\\python.exe scripts/run_cbr_sft_07_training.py"
+}
