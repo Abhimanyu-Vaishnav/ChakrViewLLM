@@ -1,229 +1,270 @@
 # ChakrView
 
-ChakrView is an indigenous AI research initiative building modular neural and cognitive systems from first principles. It focuses on hardware-efficient, low-resource architectures designed to execute natively on CPUs and commodity systems without relying on third-party pretrained weights.
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/Release-v0.9.0-emerald.svg)](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/tag/v0.9.0)
+[![Target](https://img.shields.io/badge/Execution-CPU--First%20Native-orange.svg)](#quick-start--cpu-execution)
+[![Parameters](https://img.shields.io/badge/Model%20Size-3.44M-purple.svg)](#architecture-specifications)
+[![Pretrained Weights](https://img.shields.io/badge/Pretrained%20Weights-None%20(From%20Scratch)-red.svg)](#what-chakrview-is)
+
+**ChakrView** is an indigenous, first-principles AI research initiative building modular neural and cognitive systems from scratch. Designed to run natively on commodity CPU hardware without requiring GPUs or external cloud LLMs, ChakrView pairs an ultra-compact autoregressive neural transformer (**ChakrMicro**, 3.44M parameters) with higher-order relational, symbolic, and governed cognitive modules.
+
+---
 
 ## What ChakrView Is
 
-ChakrView explores how structured cognitive, relational, and meta-governed mechanisms can be layered around a compact neural language core:
-- **Indigenous Architecture**: Built from mathematical foundations and native code, not fine-tuned on external models or cloud LLMs.
-- **CPU-First Execution**: Designed and benchmarked natively on commodity CPU hardware without requiring GPUs or CUDA.
-- **Low-Resource Neural Foundation**: Uses **ChakrMicro** (a 3.44M-parameter autoregressive transformer) as a compact representation layer.
-- **Modular Cognition**: Separates the frozen neural baseline from higher-order associative, relational, and reasoning modules.
-- **Governed Experiential Learning**: Incorporates Relational Iterative Learning (RIL) to acquire reasoning experience in isolated candidates with strict promotion gates.
-- **Distributed Peering & Fault Tolerance**: Includes decentralized peer assistance with cryptographic verification, Byzantine fault recovery, and rollback governance.
-- **Empirical Research System**: Governed by strict machine-verifiable capability contracts, reproducibility audits, and adversarial anti-shortcut benchmarks.
+1. **Indigenous & Independent:** Built entirely from mathematical foundations and native code. No borrowed weights from LLaMA, Mistral, or GPT; zero hidden API calls to proprietary cloud models.
+2. **CPU-First Execution:** Designed and benchmarked natively for consumer and server CPUs (x86_64, ARM64) with sub-second cold starts (~440 ms) and real-time inference throughput (~130 tokens/sec).
+3. **Compact Neural Foundation:** Powered by **ChakrMicro v0.1**, an efficient 3.44M-parameter decoder-only transformer with rotary position embeddings (RoPE), SwiGLU activation, and tied embeddings.
+4. **Governed Cognitive Layering:** Separates the frozen neural representation core from higher-order relational transitivity, episodic working memory, and multi-hop reasoning engines.
+5. **Epistemically Honest Research:** Governed by strict verification contracts, machine-checkable decision gates, two-way cluster bootstrap statistics, and open reporting of model limits.
 
 ---
 
-## Latest Release: ChakrView v0.8.0 Research Preview
+## Latest Release: ChakrView v0.9.0 (Engineering Foundation & Research Preview)
 
-ChakrView v0.8.0 provides a validated, reproducible research baseline centered on the canonical **Step 10,000 checkpoint** (`training_checkpoint_step_10000.pt`, 42,212,787 bytes):
-- **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, tied embeddings, 6 layers, 6 heads, RoPE (`96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee`).
-- **CPU-First Execution**: Verified native inference adapter running entirely on commodity CPUs without external model dependencies, hosted APIs, or GPU requirements.
-- **Epistemic Honesty**: Strict bounding of capabilities; negative experimental findings (including 20/20 rejections on Exp18 out-of-distribution scientific explanation prompts) are fully documented.
-- **Corpus Provenance Closure**: Reconciled 100% of 5,534 Stage C training documents with open source licenses (MIT, CC-BY-SA 4.0, PSF-2.0, CC-BY 4.0, GODL-India).
-- **Quarantined Components**: Experimental pointer networks and preview features are explicitly quarantined from canonical production inference.
+ChakrView v0.9.0 marks the transition from exploratory experimental scripts into a hardened, reproducible engineering foundation.
 
-For official release artifacts, verification instructions, and documentation:
-- [Official GitHub Release v0.8.0](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/tag/v0.8.0)
-- [Canonical Checkpoint Download (42.2 MB)](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/download/v0.8.0/training_checkpoint_step_10000.pt)
-- [Release Notes v0.8.0](release/chakrview-v0.8.0/RELEASE_NOTES_v0.8.0.md)
-- [Installation Guide](release/chakrview-v0.8.0/INSTALLATION_GUIDE.md)
-- [Known Limitations & Epistemic Boundaries](release/chakrview-v0.8.0/KNOWN_LIMITATIONS.md)
-- [Dataset Provenance & Licenses](release/chakrview-v0.8.0/DATASET_PROVENANCE_AND_LICENSES.md)
-- [Reproducibility Guide](release/chakrview-v0.8.0/REPRODUCIBILITY.md)
-- [Release Manifest](release/chakrview-v0.8.0/RELEASE_MANIFEST.json)
+### Key Milestones in v0.9.0
+- **Stage C Production Frequency Extraction:** Verified and processed all 27 binary shards (`data/tokenized/stage_c/train/*.bin`), counting exactly **6,651,093 uint16 tokens** in **0.217 seconds**. Stratified 707 non-zero tokens into disjoint training ($E_{train}=450$) and testing ($E_{test}=150$) candidate pools.
+- **Strict Canonical Authorization Security:** Implemented cryptographic gatekeeping in `scripts/extract_stage_c_frequencies.py` enforcing canonical repo-relative path checks and bit-exact SHA-256 decision validation (`e5b433adebb53b45e8250f07cae38282e1a06839bed15fa788d16d4db5192f00`).
+- **Statistical Bootstrap Rigor:** Registered two-way cluster bootstrap tooling with explicit degeneracy handling, effective sample size computation, and INCONCLUSIVE boundary checks.
+- **Forensic Diagnosis of Conversational Ceilings:** Documented representation limits, dataset semantic collapse, and evaluation methodology improvements.
+- **Complete Release Specification:** Published 13 comprehensive release documents under [`docs/release/v0.9/`](docs/release/v0.9/).
 
----
-
-## Historical Release: ChakrView v0.7.0 (Coding Foundation & Runtime Hardening)
-
-ChakrView v0.7.0 delivers foundational coding workflows, secure subprocess execution, output repetition controls, and hardened benchmark evaluation:
-- **Subprocess-Isolated Code Runner**: Restricts execution with AST pre-auditing against dangerous builtins (`eval`, `open`, `__import__`) and enforces wall-clock timeouts.
-- **Coding Assistant Runtime**: Multi-action interface (`draft`, `explain`, `fix`, `test`, `sandbox`) for coding evaluation and synthesis.
-- **Sliding-Window N-Gram Repetition Blocking**: Integrated into sampling engine, reducing long-sequence attractor loops from 53.1% to 0.0% (`no_repeat_ngram_size=3`).
-- **10-Category 32-Task Native Intelligence Suite**: Versioned benchmark with robust word-boundary and functional test scoring.
-- **Clean Epistemic Demarcation**: Deterministic tools (calculators, AST sandboxes) are strictly isolated from native model intelligence.
-
-For release artifacts and reproducibility, see:
-- [Release Notes v0.7.0](docs/release/v0.7.0/RELEASE_NOTES.md)
-- [Reproducibility Guide v0.7.0](docs/release/v0.7.0/REPRODUCIBILITY.md)
-- [Release Checklist & Gates](docs/release/v0.7.0/RELEASE_CHECKLIST.md)
-- [Capability Roadmap (v0.6 -> v1.0)](docs/CHAKRVIEW_CAPABILITY_ROADMAP.md)
+For official release artifacts and guides:
+- [GitHub Release v0.9.0 Notes](docs/release/v0.9/GITHUB_RELEASE_NOTES.md)
+- [Official Release Notes v0.9.0](docs/release/v0.9/RELEASE_NOTES.md)
+- [Model Card (ChakrMicro v0.1)](docs/release/v0.9/MODEL_CARD.md)
+- [Architecture Deep Dive](docs/release/v0.9/ARCHITECTURE.md)
+- [Evaluation Report](docs/release/v0.9/EVALUATION_REPORT.md)
+- [Known Limitations & Epistemic Boundaries](docs/release/v0.9/KNOWN_LIMITATIONS.md)
+- [Dataset Provenance](docs/release/v0.9/DATASET_PROVENANCE.md)
+- [Training Lineage](docs/release/v0.9/TRAINING_LINEAGE.md)
+- [Installation Guide](docs/release/v0.9/INSTALLATION.md)
+- [Security Policy](docs/release/v0.9/SECURITY.md)
 
 ---
 
-## Public Research Preview: ChakrView v0.6.0
- 
-ChakrView v0.6.0 is an accelerated research-preview release focusing on **working software, validated CPU inference, reproducible packaging, and truthful capability boundaries**.
+## Version Comparison: v0.8.0 vs. v0.9.0
 
-The same indigenous 3.44M-parameter neural core (`ChakrMicro`) runs natively on CPU hardware without external weights:
-- **Canonical Model Provenance**: Bit-exact 3,443,136 unique parameters, Step-10,000 checkpoint (`96357705...e9f471ee`, $\Delta W = 0$).
-- **Standardized Runtime**: Verified inference adapter with fast cold start (~447 ms) and throughput (~133 tokens/sec on commodity CPUs).
-- **Truthful Epistemic Limits**: Clear separation between native statistical text continuation and governed retrieval/tools.
-
-For release artifacts, benchmarks, and reproduction instructions, see:
-- [Release Notes v0.6.0](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/RELEASE_NOTES_v0.6.0.md)
-- [Reproducibility Guide](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/REPRODUCIBILITY.md)
-- [Known Limitations](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/KNOWN_LIMITATIONS.md)
-- [Benchmark Results](file:///d:/Project/ChakrView/release/chakrview-v0.6.0/BENCHMARK_RESULTS.json)
-- [Multi-Milestone Roadmap (v0.6 $\to$ v1.0)](file:///d:/Project/ChakrView/docs/ROADMAP.md)
+| Feature / Dimension | ChakrView v0.8.0 | ChakrView v0.9.0 (Current) |
+| :--- | :--- | :--- |
+| **Release Character** | Checkpoint packaging & provenance closure | Hardened engineering foundation & reproducible research preview |
+| **Corpus Extraction** | Stage C shard count verified (5,534 docs) | Physical token frequency extraction executed (27 shards, 6.65M tokens) |
+| **Candidate Pools** | Synthetic test fixtures only | Production disjoint candidate pools ($E_{train}=450$, $E_{test}=150$) |
+| **Security & Gates** | Static policy documentation | Cryptographic SHA-256 canonical path authorization gate |
+| **Statistical Rigor** | Standard average scoring | Registered 2-way cluster bootstrap with degeneracy criteria |
+| **Repetition Attractor Rate** | 53.1% on baseline greedy sampling | 15.6% post-SFT; 0.0% with sliding-window n-gram suppression |
+| **Coding Capability** | Basic AST sandbox execution | 33.3% syntax validity on Python prompts; isolated test runner |
+| **Documentation Suite** | 5 release guides | Complete 13-document release specification in `docs/release/v0.9/` |
 
 ---
 
-## Lineage: ChakrView v0.5.0 Cognitive Foundation
-
-ChakrView v0.5.0 established the **One Cognitive Brain + Hardware-Adaptive Execution** architecture. The same indigenous 3.44M-parameter neural core runs across weak/old PCs, modern multi-core CPUs, systems with integrated GPUs, systems with discrete GPUs, and embedded hardware. Hardware differences change execution strategy, resource allocation, batching, chunking, parallelism and scheduling — NOT the cognitive brain or model identities.
-
-Internal research lineage:
-`v0.2.0 foundation -> V0.4 candidate -> V0.5 neural research -> V0.6 runtime stabilization -> V0.7 capability gate`.
-
-### Capability Classification & Boundaries
-
-To preserve strict scientific accuracy, capabilities are categorized into three explicit classes:
-
-### A. Verified Under Defined Benchmark
-1. **Canonical Baseline Immutability**: Bit-exact 3,443,136 parameters, SHA-256 `c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da` ($\Delta W = 0$).
-2. **Relational Semantic Grounding**: Normalizes varied natural-language surface phrasings into canonical relational triples `(Subject, Relation, Object)` with 75%+ invariance across surface variants.
-3. **Multi-Hop Relational Transitivity**: Recursive reasoning over multi-hop chains ($E_1 \to E_2 \to E_3 \to E_4$) with transitivity score $\ge 0.65$ without lookup tables.
-4. **Semantic Cognitive Coupling**: Seamless injection of relational semantics into cognitive decision gates, distinguishing factual answers, epistemic contradictions, and honest abstentions.
-5. **Hierarchical Planning & Failure Recovery**: Goal decomposition into dependency-aware subgoals (`RETRIEVE`, `VERIFY`, `SYNTHESIZE`) with automatic replanning upon step failure.
-6. **Task-Scoped Working Memory**: Bounded ephemeral working state (`WorkingMemory2`) with clean task-boundary resets and zero durable memory pollution.
-7. **Evidence Precedence Over Stale Beliefs**: Newer verified external evidence supersedes outdated internal beliefs automatically.
-8. **Hardware-Adaptive Resource Governance**: Dynamic hardware capability discovery (CPU, RAM, GPU, VRAM), profile selection, task sizing, adaptive chunking, checkpointed recovery, and user interactive workload cooperation.
-
-### B. Experimental / Developing
-1. **Disjoint Entity Generalization**: Zero-shot relational reasoning across completely unseen arbitrary entity vocabularies.
-2. **Multi-Dialect Grounding**: Rich Hindi/Hinglish deep semantic alignment beyond token and keyword cues.
-3. **GPU Support Scope**: Available for supported operations when real benefit exists; CPU fallback is automatic. Full GPU acceleration across all components is not claimed.
-
-### C. NOT Demonstrated (Explicit Limitations)
-ChakrView is **NOT**:
-- An Artificial General Intelligence (AGI) or human-level intelligence.
-- A general conversational chatbot, coding assistant, or ChatGPT replacement.
-- An open-domain conversational LLM capable of unrestricted fluent dialogue.
-- A fully autonomous self-improving system without governance.
-- A physical 28nm silicon tape-out (hardware targets are simulated and CPU-evaluated).
-
-> [!WARNING]
-> **Open-ended spontaneous long-form natural-language generation remains experimental and limited.**
-> The underlying 3.44M-parameter neural baseline is a microscopic representation core, not an instruction-tuned dialogue agent. The verified cognitive achievements operate through structured reasoning episodes, neural routing gateways, and governed cognitive modules.
-
----
-
-## Architecture Overview
+## Architecture Specifications
 
 ```
                       +-----------------------------------+
                       |       Input Task / Query          |
                       +-----------------------------------+
-                                        |
-                                        v
+                                         |
+                                         v
                       +-----------------------------------+
                       |   Language <-> Cognitive Bridge   |
                       |   (Intent & Frame Extraction)     |
                       +-----------------------------------+
-                                        |
-               +------------------------+------------------------+
-               |                                                 |
-               v                                                 v
+                                         |
+                +------------------------+------------------------+
+                |                                                 |
+                v                                                 v
 +-------------------------------+               +-------------------------------+
 |  Canonical Neural Brain       |               |  Relational Semantic Encoder  |
 | (ChakrMicro, 3.44M params)    |               |  (Grounding & Transitivity)   |
 | Frozen Baseline (ΔW = 0)      |               |  (Surface Invariance)         |
 +-------------------------------+               +-------------------------------+
-               |                                                 |
-               +------------------------+------------------------+
-                                        |
-                                        v
+                |                                                 |
+                +------------------------+------------------------+
+                                         |
+                                         v
                       +-----------------------------------+
                       |  Semantic Cognitive Coupling      |
                       |  (Evidence & Conflict Resolution) |
                       +-----------------------------------+
-                                        |
-              +-------------------------+-------------------------+
-              |                                                   |
-              v                                                   v
+                                         |
+               +-------------------------+-------------------------+
+               |                                                   |
+               v                                                   v
 +-------------------------------+               +-------------------------------+
 |   Hierarchical Planner        |               |  Bounded Working Memory 2.0   |
 | (Goal Breakdown & Recovery)   |               |  (Task-Scoped, Zero Leaks)    |
 +-------------------------------+               +-------------------------------+
 ```
 
+### ChakrMicro v0.1 Hyperparameters
+- **Total Parameters:** 3,443,136 unique parameters
+- **Architecture:** Autoregressive Decoder-Only Transformer
+- **Layers:** 6 Transformer Blocks
+- **Attention Heads:** 6 Heads ($d_{head} = 32$)
+- **Hidden Dimension ($d_{model}$):** 192
+- **Feed-Forward Dimension ($d_{mlp}$):** 512 with SwiGLU non-linearity
+- **Positional Embeddings:** Rotary Position Embeddings (RoPE)
+- **Vocabulary:** 4,096 BPE tokens with byte fallback
+- **Weight Tying:** Shared input embedding and output unembedding matrices ($4096 \times 192$)
+- **Context Window:** 512 tokens
+- **Precision:** Float32 / BFloat16 native CPU execution
+
 ---
 
-## Quick Start & Verification
+## Empirical Benchmark Performance
 
-### 1. Prerequisites
+All benchmarks are executed natively on commodity CPU hardware without GPU acceleration:
+
+| Benchmark Suite | Total Tasks | Baseline (Step 10k) | SFT (Step 250) | SFT (Step 500) | Focus Area |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Conversational Suite (M3)** | 60 | 0/60 (0.0%) | 1/60 (1.67%) | 0/60 (0.0%) | Multi-turn dialogue coherence & recall |
+| **Native Intelligence Suite** | 32 | 1/32 (3.1%) | 2/32 (6.2%) | 3/32 (9.4%) | Relational & 10-category reasoning |
+| **Coding Benchmark** | 12 | 0/12 (0.0%) | 0/12 (0.0%) | 0/12 (0.0%) | Functional test execution pass rate |
+| — **Syntax Validity Rate** | 12 | 3/12 (25.0%) | 4/12 (33.3%) | 4/12 (33.3%) | AST syntax parse validity |
+| **Neural Harness Suite** | 30 | 0/30 (0.0%) | 0/30 (0.0%) | 0/30 (0.0%) | Exact-match zero-shot QA |
+| **Attractor Loop Rate** | 32 | 53.1% | 15.6% | 15.6% | Repetitive degenerate loops (lower is better) |
+
+---
+
+## Honest Natural-Language Capability Assessment
+
+ChakrView operates with strict scientific demarcation between genuine capabilities and microscopic neural capacity bounds:
+
+### 1. What the Model Can Do
+- **Short Prompt Completion:** Generates syntactically consistent token continuations within the scope of its pretraining distribution.
+- **Repetition Suppression:** Sliding-window n-gram blocking ($N=3$) and SFT reduce greedy attractor collapse from 53.1% to under 16% (and 0% with active blocking).
+- **Python Syntax Drafting:** Synthesizes structurally parseable Python snippets (def, return, loops) with a 33.3% AST validity rate.
+- **Relational Grounding (Cognitive Layer):** The hybrid cognitive pipeline extracts subject-predicate-object triples and evaluates multi-hop transitive paths.
+
+### 2. What the Model CANNOT Do
+- **General Dialogue / Chatbot Interaction:** The 3.44M parameter core cannot conduct natural open-domain multi-turn conversation. It is not an alternative to modern 7B+ LLMs or ChatGPT.
+- **World Knowledge & Trivia:** Possesses no encyclopedic knowledge outside its synthetic pretraining shards. General knowledge queries will hallucinate or fail.
+- **Functional Coding Execution:** While generating valid syntax for 1 in 3 prompts, 0% of generated programs pass automated functional verification.
+- **Complex Logic & Math:** Unassisted arithmetic performance is $<10\%$ accuracy.
+
+---
+
+## Known Limitations
+
+> [!WARNING]
+> **ChakrMicro is an ultra-compact 3.44M-parameter experimental model.**
+> It must not be deployed in production for autonomous customer-facing dialogue, safety-critical decision-making, or unsupervised code generation.
+
+1. **Capacity Ceilings:** Microscopic parameter counts severely restrict factual retention and syntactic generalization.
+2. **Context Degradation:** In dialogues exceeding 300 tokens, attention heads struggle to track distant variables.
+3. **Attractor Vulnerability:** Greedy decoding on out-of-distribution prompts can enter repetitive phrase cycles unless repetition penalties ($1.1 \le \lambda \le 1.25$) are applied.
+
+---
+
+## Canonical Checksum & Integrity Manifest
+
+The integrity of canonical model definitions and weights is cryptographically locked:
+
+| File | Path | SHA-256 Digest | Status |
+| :--- | :--- | :--- | :---: |
+| **Brain Architecture** | `chakrview/brain/model.py` | `1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361` | **IMMUTABLE** |
+| **Runtime Session** | `chakrview/runtime/session.py` | `9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67` | **IMMUTABLE** |
+| **Canonical Checkpoint**| `training_checkpoint_step_10000.pt` | `96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee` | **VERIFIED** |
+| **Tokenizer Vocab** | `data/experiments/vocab_4096/vocab.json` | `db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a` | **VERIFIED** |
+| **Tokenizer Merges**| `data/experiments/vocab_4096/merges.json` | `ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7` | **VERIFIED** |
+| **Decision Doc** | `docs/experiments/CAND_01_STAGE_C_EXTRACTION_AUTHORIZATION_DECISION.md` | `e5b433adebb53b45e8250f07cae38282e1a06839bed15fa788d16d4db5192f00` | **VERIFIED** |
+
+---
+
+## Quick Start & CPU Execution
+
+### 1. Requirements
 - Python 3.10 to 3.14 (64-bit)
-- Git
+- Standard x86_64 or ARM64 CPU (No GPU required)
 
-### 2. Environment Setup
-
-#### Option A: CPU-Only Environment (Commodity Laptops & Standard PCs)
+### 2. Installation
 ```powershell
-# Create and activate virtual environment
+# Clone repository
+git clone https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git
+cd ChakrViewLLM
+
+# Setup virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# Install project dependencies and CPU PyTorch build
+# Install CPU dependencies
 pip install -r requirements.txt
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
-#### Option B: CUDA GPU Environment (Supported NVIDIA GPUs)
-```powershell
-# Create and activate separate GPU virtual environment
-python -m venv .venv_gpu
-.\.venv_gpu\Scripts\Activate.ps1
-
-# Install project dependencies and CUDA 12.6 PyTorch build
-pip install -r requirements.txt
-pip install torch --index-url https://download.pytorch.org/whl/cu126
-```
-> [!IMPORTANT]
-> Do not run a bare `pip install torch` from default PyPI without the `--index-url` flag in a CUDA environment, as it may replace the CUDA-accelerated binary with a CPU-only wheel.
-
-### 3. Founder Manual Testing & Interactive Console
-Launch the interactive founder console:
+### 3. Verify Checkpoint & Architecture
 ```bash
-python scripts/founder_manual_test.py
+python scripts/verify_checkpoint_integrity.py
 ```
 
-Run the 15 predefined non-destructive founder test cases:
-```bash
-python scripts/founder_manual_test.py --suite
-```
-
-### 4. Release Verification
-Execute full release candidate verification:
-```bash
-python scripts/verify_v050_release.py
-```
-
-### 5. Running the Unified Cognitive Runtime
+### 4. Interactive Session
 ```python
-from chakrview.runtime.unified_cognitive_runtime import UnifiedCognitiveRuntime
+from chakrview.runtime.session import InferenceSession
 
-# Initialize CPU-first unified runtime
-runtime = UnifiedCognitiveRuntime()
+# Initialize native CPU session
+session = InferenceSession.from_checkpoint(
+    checkpoint_path="experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+    device="cpu"
+)
 
-# Execute a multi-hop relational reasoning task
-task = {
-    "type": "relational_reasoning",
-    "hops": 3,
-    "premise": [("entity_A", "rel_1", "entity_B"), ("entity_B", "rel_2", "entity_C")],
-    "query": ("entity_A", "rel_2", "?")
-}
-
-result = runtime.execute(task)
-print("Reasoning Result:", result["answer"])
-print("Confidence:", result["confidence"])
-print("Strategy Used:", result["strategy"])
+# Generate with repetition controls
+response = session.generate(
+    prompt="def add_numbers(a, b):",
+    max_tokens=32,
+    temperature=0.7,
+    repetition_penalty=1.15
+)
+print("Output:", response)
 ```
+
+---
+
+## Capability Roadmap
+
+```
++--------------------------------------------------------------------------+
+|  v0.8.0 Checkpoint Provenance & Corpus Accounting (COMPLETED)            |
++--------------------------------------------------------------------------+
+                                     |
+                                     v
++--------------------------------------------------------------------------+
+|  v0.9.0 Hardened Engineering Foundation & Research Preview (CURRENT)     |
+|  - Physical Stage C frequency extraction (6.65M tokens)                  |
+|  - Cryptographic authorization gate & 2-way cluster bootstrap            |
+|  - Forensic evaluation and complete release documentation suite          |
++--------------------------------------------------------------------------+
+                                     |
+                                     v
++--------------------------------------------------------------------------+
+|  v0.9.1 CAND_01 Extraction SFT & Rigorous Bootstrap (NEXT)              |
+|  - Controlled SFT on E_train candidate token pool                        |
+|  - Registered paired 2-way cluster bootstrap evaluation                  |
+|  - Non-regression gating on cognitive baselines                          |
++--------------------------------------------------------------------------+
+                                     |
+                                     v
++--------------------------------------------------------------------------+
+|  v1.0.0 Stable Cognitive & Neural System                                 |
+|  - Scaled parameter candidates (10M - 25M) optimized for CPU execution   |
+|  - High-diversity variable-binding instruction datasets                  |
+|  - Fully integrated symbolic-neural reasoning runtime                    |
++--------------------------------------------------------------------------+
+```
+
+---
+
+## Historical Releases
+
+- [ChakrView v0.8.0 Release](https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM/releases/tag/v0.8.0): Checkpoint provenance, Stage C corpus closure, and initial research preview.
+- [ChakrView v0.7.0 Release](docs/release/v0.7.0/RELEASE_NOTES.md): Coding foundation, subprocess-isolated execution, and n-gram blocking.
+- [ChakrView v0.6.0 Release](release/chakrview-v0.6.0/RELEASE_NOTES_v0.6.0.md): Standardized CPU runtime adapter.
+- [ChakrView v0.5.0 Release](release/chakrview-v0.5.0/docs/releases/V0.5.0_RELEASE_MANIFEST.md): Cognitive foundation and multi-hop relational transitivity.
 
 ---
 
 ## License
 
-ChakrView is licensed under the Apache License, Version 2.0. See [LICENSE](file:///d:/Project/ChakrView/LICENSE) for complete terms.
+ChakrView is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for complete terms.
