@@ -1,0 +1,68 @@
+{
+  "CBR_SFT_02": {
+    "parent": "canonical_step_10000.pt",
+    "selected_candidate": "sft_checkpoint_step_50.pt",
+    "notes": "Unified chat scaffolding pilot"
+  },
+  "CBR_SFT_03B": {
+    "parent": "cbr_sft_02_step_50.pt",
+    "selected_candidate": "sft_checkpoint_step_200.pt",
+    "notes": "Focused conversational steering pilot"
+  },
+  "CBR_SFT_04": {
+    "parent": "D:\\Project\\ChakrView\\experiments\\cbr01_sft\\runs\\cbr_sft_03b\\sft_checkpoint_step_200.pt",
+    "parent_sha256": "297dcc60f39cadd6bae9a5bd969b1a7d831845d7a67823b30c194a67ef75b5ac",
+    "training": {
+      "steps": 300,
+      "micro_batch_size": 2,
+      "grad_accum_steps": 2,
+      "effective_batch_size": 4,
+      "learning_rate": 0.0002,
+      "min_learning_rate": 1e-05,
+      "weight_decay": 0.01,
+      "grad_clip": 1.0,
+      "val_interval": 10,
+      "save_interval": 50,
+      "seed": 42,
+      "device": "cpu",
+      "mask_prompt": true,
+      "strip_prompt_delimiters": false,
+      "max_seq_len": 512
+    },
+    "selected_candidate": "sft_checkpoint_step_200.pt",
+    "dataset": {
+      "train_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_04\\splits\\cbr_sft_04_train_144.jsonl",
+      "train_sha256": "335ea5d9456d455119019c91dda900b4f8dc06e7195577419dc8c047cf4baaf1",
+      "val_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_04\\splits\\cbr_sft_04_val_16.jsonl",
+      "val_sha256": "331abe2077e6478d25215e6b9b49d002fa9af0068fa1866f960494c9f653f1d9"
+    }
+  },
+  "CBR_SFT_05": {
+    "parent": "D:\\Project\\ChakrView\\experiments\\cbr01_sft\\runs\\cbr_sft_04\\checkpoints\\sft_checkpoint_step_200.pt",
+    "parent_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "training": {
+      "steps": 300,
+      "micro_batch_size": 2,
+      "grad_accum_steps": 2,
+      "effective_batch_size": 4,
+      "learning_rate": 0.00012,
+      "min_learning_rate": 1e-05,
+      "weight_decay": 0.01,
+      "grad_clip": 1.0,
+      "val_interval": 10,
+      "save_interval": 50,
+      "seed": 42,
+      "device": "cpu",
+      "mask_prompt": true,
+      "strip_prompt_delimiters": false,
+      "max_seq_len": 512
+    },
+    "selected_candidate": "sft_checkpoint_step_100.pt",
+    "dataset": {
+      "train_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_05\\splits\\cbr_sft_05_train_360.jsonl",
+      "train_sha256": "0329e7a75c6ad69f887901dc0ad608753b10e2bd0021409545be832feb5ac79c",
+      "val_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_05\\splits\\cbr_sft_05_val_40.jsonl",
+      "val_sha256": "1640b77fe4d64ef68fbe0b73d26da9e3adf0d51850016cb2ceaf86230fb30cc9"
+    }
+  }
+}

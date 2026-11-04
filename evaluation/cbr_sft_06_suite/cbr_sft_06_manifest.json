@@ -1,0 +1,42 @@
+{
+  "manifest_version": "1.0",
+  "mission_id": "CBR_SFT_06",
+  "timestamp": "2026-11-04T21:46:50+05:30",
+  "active_branch": "exp/cbr-01-conversational-breakthrough",
+  "starting_head_sha": "f12c5549915109ac426bb0a348a28e4bf76a1148",
+  "parent_lineage_head": {
+    "checkpoint": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+    "sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153"
+  },
+  "protected_artifact_hashes": {
+    "chakrview/brain/model.py": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+    "chakrview/runtime/session.py": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "canonical_step_10000": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+    "cbr_sft_02_step_50": "592553c3e27b654997e8f5df61e94fe1de25bbf577391df6c1a87f974730bf9d",
+    "cbr_sft_03b_step_200": "297dcc60f39cadd6bae9a5bd969b1a7d831845d7a67823b30c194a67ef75b5ac",
+    "cbr_sft_03b_step_300": "e540bd2364113d7eaf271c3495d882921f4421e59659f19f06cd7d590f74710a",
+    "cbr_sft_04_step_200": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "cbr_sft_05_step_100": "8653d0bbe1b7ba3ea7eebeedf37a2b6b2e1d5d44d67743c4bcb7b7b065d1985f"
+  },
+  "diagnostic_scripts": [
+    "scripts/diagnose_cbr_sft_06_tokenizer.py",
+    "scripts/diagnose_cbr_sft_06_generation.py",
+    "scripts/diagnose_cbr_sft_06_gradients.py",
+    "scripts/diagnose_cbr_sft_06_inference_contract.py"
+  ],
+  "reports": [
+    "evaluation/cbr_sft_06_suite/PHASE_A_GIT_AND_PREFLIGHT_AUDIT.md",
+    "evaluation/cbr_sft_06_suite/EXPERIMENT_HISTORY_AND_LINEAGE.md",
+    "evaluation/cbr_sft_06_suite/TOKENIZER_FORENSICS.md",
+    "evaluation/cbr_sft_06_suite/TOKEN_LEVEL_GENERATION_ANALYSIS.md",
+    "evaluation/cbr_sft_06_suite/ABSTENTION_ATTRACTOR_ANALYSIS.md",
+    "evaluation/cbr_sft_06_suite/DATASET_AND_CURRICULUM_FORENSICS.md",
+    "evaluation/cbr_sft_06_suite/GRADIENT_INTERFERENCE_ANALYSIS.md",
+    "evaluation/cbr_sft_06_suite/REPRESENTATION_ANALYSIS.md",
+    "evaluation/cbr_sft_06_suite/INFERENCE_CONTRACT_AUDIT.md",
+    "evaluation/cbr_sft_06_suite/CBR_SFT_06_EXPERIMENT_MATRIX.md",
+    "evaluation/cbr_sft_06_suite/CBR_SFT_06_EVALUATION_SPEC.md",
+    "evaluation/cbr_sft_06_suite/CBR_SFT_06_FINAL_RESEARCH_REPORT.md"
+  ],
+  "verdict": "READY FOR CONTROLLED CBR-SFT-06 TRAINING"
+}
