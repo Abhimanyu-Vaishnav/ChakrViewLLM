@@ -1,0 +1,31 @@
+{
+  "experiment_id": "CBR_SFT_02",
+  "parent_checkpoint": "experiments/batch16_21_combined/main_training_10000/training_checkpoint_step_10000.pt",
+  "parent_checkpoint_sha256": "96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee",
+  "dataset": {
+    "name": "CBR_SFT_02_UNIFIED_CHAT_MIXTURE",
+    "train_file": "data/sft/cbr_sft_02/splits/cbr_sft_02_train_540.jsonl",
+    "train_sha256": "82214c95c47ea44350c00635074fef201873cea253eafc5d2d8541dbb85bbbf0",
+    "val_file": "data/sft/cbr_sft_02/splits/cbr_sft_02_val_60.jsonl",
+    "val_sha256": "6f044dd2a12bbe56d1409243f442881b4fdc708ab24aaa05cafb0eeac0cf6af2"
+  },
+  "training": {
+    "steps": 200,
+    "batch_size": 2,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 4,
+    "learning_rate": 5e-05,
+    "min_learning_rate": 5e-06,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "val_interval": 10,
+    "save_interval": 50,
+    "seed": 42,
+    "device": "cpu",
+    "mask_prompt": true,
+    "strip_prompt_delimiters": false,
+    "max_seq_len": 512
+  },
+  "output_dir": "experiments/cbr01_sft/runs/cbr_sft_02"
+}
+
