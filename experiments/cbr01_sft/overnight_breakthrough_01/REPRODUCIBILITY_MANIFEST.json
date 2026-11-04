@@ -1,0 +1,42 @@
+{
+  "mission": "CHAKRVIEW_OVERNIGHT_AUTONOMOUS_CONVERSATIONAL_BREAKTHROUGH",
+  "experiment_id": "CBR_SFT_07_OVERNIGHT_BREAKTHROUGH_01",
+  "created_at": "2026-11-04T23:12:00Z",
+  "git_branch": "exp/cbr-01-conversational-breakthrough",
+  "environment": {
+    "device": "cpu",
+    "threads": 4,
+    "python_executable": ".venv\\Scripts\\python.exe"
+  },
+  "model": {
+    "architecture": "ChakrMicro",
+    "layers": 6,
+    "heads": 6,
+    "d_model": 192,
+    "hidden_dim": 512,
+    "context_len": 512,
+    "vocab_size": 4096,
+    "total_parameters": 3443136,
+    "tied_embeddings": true
+  },
+  "selected_checkpoint": {
+    "step": 50,
+    "path": "experiments/cbr01_sft/runs/cbr_sft_07/checkpoints/sft_checkpoint_step_50.pt",
+    "sha256": "0cb5df5fa840d20cea737da47758d96cfe884782c9801f28e51660bb236de86b"
+  },
+  "parent_checkpoint": {
+    "step": 25,
+    "path": "experiments/cbr01_sft/runs/cbr_sft_06a/checkpoints/sft_checkpoint_step_25.pt",
+    "sha256": "0589fd886853a2e65ffa1c03af0e4708cb7dc3dfd40b4db6ccc179c5bf1045f1"
+  },
+  "canonical_invariants": {
+    "model_py_sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361",
+    "session_py_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67"
+  },
+  "decoding_hyperparameters": {
+    "temperature": 0.0,
+    "repetition_penalty": 1.25,
+    "no_repeat_ngram_size": 3,
+    "sliding_window_turns": 1
+  }
+}

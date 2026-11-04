@@ -68,3 +68,4 @@ User > What is an operating system?
 - **Architecture:** ChakrMicro (4 layers, 8 heads, $d_{model}=512$, context 512, 3.44M params)
 - **Verified SHA-256:** `0cb5df5fa840d20cea737da47758d96cfe884782c9801f28e51660bb236de86b`
 - **Parent Ancestor:** CBR-SFT-06A Step 25 (`0589fd886853a2e65ffa1c03af0e4708cb7dc3dfd40b4db6ccc179c5bf1045f1`)
+

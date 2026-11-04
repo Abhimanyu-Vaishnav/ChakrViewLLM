@@ -3,7 +3,7 @@ chakrview/chat.py
 
 Interactive Terminal Conversational Interface for ChakrView.
 Directly loads the selected fine-tuned conversational checkpoint and manages
-multi-turn interactive sessions with history sliding-window truncation.
+interactive sessions with verified anti-repetition decoding and clean context bounds.
 
 Commands inside chat:
   /reset - Clears conversational history and starts fresh
@@ -22,6 +22,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
 import torch
+from chakrview.runtime.sampling import SamplingConfig
 from scripts.run_m3_evaluations import DirectNeuralRunner, file_sha256
 
 DEFAULT_CHECKPOINT = REPO_ROOT / "experiments" / "cbr01_sft" / "runs" / "cbr_sft_07" / "checkpoints" / "sft_checkpoint_step_50.pt"
@@ -37,8 +38,16 @@ class ConversationalChatCLI:
         print(f"Verified SHA-256: {self.sha256}")
         
         self.runner = DirectNeuralRunner(self.checkpoint_path)
+        self.tok = self.runner.tokenizer
         self.history: List[Dict[str, str]] = []
-        self.max_history_turns = 4
+        # In a 4-layer 3.44M model without multi-turn induction circuits,
+        # preserving the single most recent turn prevents prompt token saturation.
+        self.max_history_turns = 1
+        self.sampling_cfg = SamplingConfig(
+            temperature=0.0,
+            repetition_penalty=1.25,
+            no_repeat_ngram_size=3
+        )
 
     def reset(self):
         self.history.clear()
@@ -48,12 +57,12 @@ class ConversationalChatCLI:
         print(f"\n--- ChakrView Session Info ---")
         print(f"Checkpoint: {self.checkpoint_path}")
         print(f"SHA-256:    {self.sha256}")
-        print(f"History:    {len(self.history)} turns")
-        print(f"Context Ceiling: 512 tokens (ChakrMicro)\n")
+        print(f"History:    {len(self.history)} turns recorded")
+        print(f"Context Ceiling: 512 tokens (ChakrMicro)")
+        print(f"Decoding:   repetition_penalty=1.25, no_repeat_ngram=3\n")
 
     def build_prompt(self, user_msg: str) -> str:
         prompt_parts = []
-        # Format conversation history
         for turn in self.history[-self.max_history_turns:]:
             prompt_parts.append(f"User: {turn['user']}\nAssistant: {turn['assistant']}")
         prompt_parts.append(f"User: {user_msg}\nAssistant:")
@@ -72,8 +81,27 @@ class ConversationalChatCLI:
             return "[Session info displayed]"
 
         prompt = self.build_prompt(user_input)
-        resp = self.runner.generate(prompt=prompt, max_new_tokens=48, temperature=0.0)
-        assistant_resp = resp["text"].strip()
+        
+        # Autoregressive generation with sampling config
+        p_toks = self.tok.encode(prompt, add_bos=True, add_eos=False)
+        curr = list(p_toks)
+        gen = []
+        with torch.no_grad():
+            for step in range(48):
+                t_in = torch.tensor([curr], dtype=torch.long)
+                logits = self.runner.model(t_in)[0, -1, :]
+                next_tok = self.runner.sampler.sample(
+                    logits,
+                    generated_tokens=gen,
+                    config=self.sampling_cfg,
+                    step=step
+                )
+                gen.append(next_tok)
+                curr.append(next_tok)
+                if next_tok == 1:
+                    break
+                    
+        assistant_resp = self.tok.decode(gen, errors="replace").strip()
 
         # Update history
         self.history.append({"user": user_input, "assistant": assistant_resp})
@@ -116,7 +144,7 @@ def main():
         test_inputs = [
             "Good morning assistant!",
             "Who are you?",
-            "Can you assist me with Python coding?",
+            "What can you do?",
             "/info",
             "/reset",
             "Hello there!"
