@@ -1,0 +1,38 @@
+{
+  "dataset_name": "CBR-SFT-06A",
+  "timestamp": "2026-11-04",
+  "total_examples": 170,
+  "train_examples": 153,
+  "val_examples": 17,
+  "composition": {
+    "Group A (Conversational Replay)": {
+      "total": 80,
+      "train": 72,
+      "val": 8,
+      "share_percent": 47.06
+    },
+    "Group B (Single-Token Copy Grounding)": {
+      "total": 70,
+      "train": 63,
+      "val": 7,
+      "share_percent": 41.18
+    },
+    "Group C (Diverse Abstention)": {
+      "total": 20,
+      "train": 18,
+      "val": 2,
+      "share_percent": 11.76
+    }
+  },
+  "sampling_clarification": {
+    "method": "Uniform random sampling across combined 170-item dataset (or 153-item train split)",
+    "effective_replay_exposure": "72 / 153 = 47.06% of training steps encounter conversational replay",
+    "effective_copy_exposure": "63 / 153 = 41.18% of training steps encounter copy grounding",
+    "effective_abstention_exposure": "18 / 153 = 11.76% of training steps encounter abstention"
+  },
+  "hashes": {
+    "dataset_jsonl": "59a81624cc51204d912537f1be327837f8bf2bafffe46d4d1384eef58f90c49c",
+    "train_jsonl": "bfed72c23b1e4504a560340aed4e6d4845c633c4f7326b603459d6a79ae10ccd",
+    "val_jsonl": "11c276839fc30a37b631c545debbad371217f21b3fb20e8a32e08602d907247f"
+  }
+}

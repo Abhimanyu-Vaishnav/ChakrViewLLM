@@ -1,0 +1,29 @@
+{
+  "experiment_id": "CBR_SFT_06A",
+  "parent_checkpoint": "D:\\Project\\ChakrView\\experiments\\cbr01_sft\\runs\\cbr_sft_04\\checkpoints\\sft_checkpoint_step_200.pt",
+  "parent_checkpoint_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+  "dataset": {
+    "train_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_06a\\splits\\cbr_sft_06a_train_153.jsonl",
+    "train_sha256": "bfed72c23b1e4504a560340aed4e6d4845c633c4f7326b603459d6a79ae10ccd",
+    "val_file": "D:\\Project\\ChakrView\\data\\sft\\cbr_sft_06a\\splits\\cbr_sft_06a_val_17.jsonl",
+    "val_sha256": "11c276839fc30a37b631c545debbad371217f21b3fb20e8a32e08602d907247f"
+  },
+  "training": {
+    "steps": 200,
+    "micro_batch_size": 2,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 4,
+    "learning_rate": 0.0001,
+    "min_learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "val_interval": 10,
+    "save_interval": 25,
+    "seed": 42,
+    "device": "cpu",
+    "mask_prompt": true,
+    "strip_prompt_delimiters": false,
+    "max_seq_len": 512
+  },
+  "output_dir": "D:\\Project\\ChakrView\\experiments\\cbr01_sft\\runs\\cbr_sft_06a"
+}
