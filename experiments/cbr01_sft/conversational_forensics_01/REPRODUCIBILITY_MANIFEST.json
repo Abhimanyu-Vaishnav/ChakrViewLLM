@@ -1,0 +1,35 @@
+{
+  "investigation_id": "conversational_forensics_01",
+  "branch": "exp/cbr-01-conversational-breakthrough",
+  "commit_head": "8e866b495c9693566b39c6a715701e220a028227",
+  "audited_checkpoint": "experiments/cbr01_sft/runs/cbr_sft_07/checkpoints/sft_checkpoint_step_50.pt",
+  "audited_checkpoint_sha256": "0cb5df5fa840d20cea737da47758d96cfe884782c9801f28e51660bb236de86b",
+  "python_executable": ".venv/Scripts/python.exe",
+  "device": "cpu",
+  "generated_artifacts": [
+    "baseline_manifest.json",
+    "DATASET_AUDIT.md",
+    "dataset_forensics_raw.json",
+    "LOSS_MASK_AUDIT.md",
+    "TOKENIZER_AUDIT.md",
+    "TRAINING_INFERENCE_PARITY.md",
+    "CHECKPOINT_LINEAGE_AUDIT.md",
+    "DECODING_COMPARISON.md",
+    "LOGIT_ANALYSIS.md",
+    "EVALUATION_RESULTS.md",
+    "ROOT_CAUSE_MATRIX.md",
+    "RECOMMENDED_NEXT_EXPERIMENT.md",
+    "FORENSIC_SUMMARY.md"
+  ],
+  "verification_commands": {
+    "baseline": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/run_baseline_audit.py",
+    "dataset_audit": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_data_forensics.py",
+    "loss_mask_audit": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_loss_mask_audit.py",
+    "tokenizer_audit": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_tokenizer_audit.py",
+    "parity_audit": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_parity_audit.py",
+    "lineage_audit": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_lineage_audit.py",
+    "inference_diagnostics": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_inference_diagnostics.py",
+    "eval_suite": ".\\.venv\\Scripts\\python.exe experiments/cbr01_sft/conversational_forensics_01/scripts_eval_suite.py"
+  }
+}
+
