@@ -1,0 +1,82 @@
+{
+  "experiment_id": "CR-EXP-03",
+  "title": "Residual Signal Causality Study",
+  "timestamp_iso": "2026-11-05T23:02:00+05:30",
+  "system_environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "pytorch_version": "2.14.0+cpu",
+    "device": "CPU",
+    "cpu_logical_cores": 20,
+    "cpu_physical_cores": 14,
+    "system_ram_gb": 31.64
+  },
+  "git_state": {
+    "branch": "exp/cbr-01-conversational-breakthrough",
+    "head_commit": "8e866b495c9693566b39c6a715701e220a028227",
+    "working_tree_clean": false,
+    "modified_files": [
+      "docs/missions/CBR_01/experiments/CBR_SFT_03B/CBR_SFT_03B_COMPLETION_REPORT.md",
+      "docs/missions/CBR_01/experiments/CBR_SFT_03B/CHECKPOINT_LINEAGE.md"
+    ],
+    "protected_files_verified_unmodified": [
+      "chakrview/runtime/session.py",
+      "chakrview/brain/model.py",
+      "chakrview/brain/attention.py",
+      "chakrview/brain/feedforward.py",
+      "chakrview/brain/normalization.py",
+      "chakrview/brain/rotary.py",
+      "data/experiments/vocab_4096/vocab.json",
+      "data/experiments/vocab_4096/merges.json"
+    ]
+  },
+  "checkpoints": {
+    "parent": {
+      "path": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+      "size_bytes": 41417634,
+      "expected_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+      "actual_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+      "match": true
+    },
+    "candidate": {
+      "path": "experiments/cognition/cr_exp_01/runs/stage_a_pilot/checkpoints/stage_a_candidate_step_100.pt",
+      "size_bytes": 41398929,
+      "canonical_stage_a_sha256": "1ac891fbb21af0945751e85f946d3020deb3f01d21969ed298205ba176b9facf",
+      "cr_exp_02_reported_string": "1ac891fb57147779435a297e163539268f7d825c34e792c3a504a5231cba50b0",
+      "actual_sha256": "1ac891fbb21af0945751e85f946d3020deb3f01d21969ed298205ba176b9facf",
+      "match": true,
+      "discrepancy_resolved": "Transcription error in CR-EXP-02 report documentation; disk file is 100% authentic Stage A candidate."
+    }
+  },
+  "model_configuration": {
+    "architecture": "ChakrMicro v0.1",
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "head_dim": 32,
+    "intermediate_dim": 512,
+    "tie_embeddings": true,
+    "rms_norm_eps": 1e-5,
+    "rope_theta": 10000.0
+  },
+  "scripts": [
+    "experiments/cognition/cr_exp_03/scripts/verify_checkpoint_identity.py",
+    "experiments/cognition/cr_exp_03/scripts/run_experiment_a.py",
+    "experiments/cognition/cr_exp_03/scripts/run_experiment_b.py",
+    "experiments/cognition/cr_exp_03/scripts/run_experiment_c.py",
+    "experiments/cognition/cr_exp_03/scripts/run_experiment_d.py",
+    "experiments/cognition/cr_exp_03/scripts/run_experiment_e.py"
+  ],
+  "result_artifacts": [
+    "experiments/cognition/cr_exp_03/checkpoint_identity_audit.json",
+    "experiments/cognition/cr_exp_03/implementation_audit.md",
+    "experiments/cognition/cr_exp_03/experiment_a_results.json",
+    "experiments/cognition/cr_exp_03/experiment_b_results.json",
+    "experiments/cognition/cr_exp_03/experiment_c_results.json",
+    "experiments/cognition/cr_exp_03/experiment_d_results.json",
+    "experiments/cognition/cr_exp_03/experiment_e_results.json",
+    "experiments/cognition/cr_exp_03/RESIDUAL_SIGNAL_CAUSALITY_STUDY.md"
+  ]
+}
+

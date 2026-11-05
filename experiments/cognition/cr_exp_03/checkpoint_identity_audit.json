@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "parent": {
+    "path": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+    "size_bytes": 41417634,
+    "expected_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "actual_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "exact_match": true
+  },
+  "candidate": {
+    "path": "experiments/cognition/cr_exp_01/runs/stage_a_pilot/checkpoints/stage_a_candidate_step_100.pt",
+    "size_bytes": 41398929,
+    "stage_a_recorded_sha256": "1ac891fbb21af0945751e85f946d3020deb3f01d21969ed298205ba176b9facf",
+    "cr_exp_02_recorded_sha256": "1ac891fb57147779435a297e163539268f7d825c34e792c3a504a5231cba50b0",
+    "actual_sha256": "1ac891fbb21af0945751e85f946d3020deb3f01d21969ed298205ba176b9facf",
+    "matches_stage_a_record": true,
+    "discrepancy_nature": "transcription_error_in_cr_exp_02_report",
+    "explanation": "The actual candidate checkpoint file on disk has SHA-256 1ac891fbb21af0945751e85f946d3020deb3f01d21969ed298205ba176b9facf, which exactly matches the canonical Stage A execution report, reproducibility manifest (CR_EXP01_REPRODUCIBILITY_MANIFEST.json), and training log (stage_a_training_log.json). The string reported in CR-EXP-02 (1ac891fb57147779435a297e163539268f7d825c34e792c3a504a5231cba50b0) shares the exact 8-character prefix ('1ac891fb') but represents a documentation transcription error during manual reporting in CR-EXP-02; no file with that secondary hash exists in the repository. Checkpoint identity is conclusive."
+  },
+  "gate_passed": true
+}
