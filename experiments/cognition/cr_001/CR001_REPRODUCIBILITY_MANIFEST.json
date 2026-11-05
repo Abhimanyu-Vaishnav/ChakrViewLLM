@@ -1,0 +1,109 @@
+{
+  "mission_id": "CR-001",
+  "timestamp_utc": "2026-11-05T05:30:00Z",
+  "repository_head": "8e866b495c9693566b39c6a715701e220a028227",
+  "branch": "exp/cbr-01-conversational-breakthrough",
+  "status": "SPECIFICATION_COMPLETE_STOP_GATE_HONORED",
+  "protected_baseline": {
+    "model": "ChakrMicro v0.1",
+    "parameters": 3443136,
+    "layers": 6,
+    "heads": 6,
+    "d_model": 192,
+    "vocab_size": 4096,
+    "context_length": 512,
+    "weight_tying": true,
+    "protected_file_hashes": {
+      "chakrview/brain/model.py": {
+        "exists": true,
+        "sha256": "1343d7d18224cc308465b7f07eb6d889532e7f17cee74b5f84f878e542f72361"
+      },
+      "chakrview/runtime/session.py": {
+        "exists": true,
+        "sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67"
+      },
+      "chakrview/brain/config.py": {
+        "exists": true,
+        "sha256": "ba609d488a0bcb84a40975883be6e0f227687932563d2b2da866c8f1a5f7eaab"
+      },
+      "data/experiments/vocab_4096/vocab.json": {
+        "exists": true,
+        "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a"
+      },
+      "artifacts/step102_stage_b_curriculum/checkpoints/checkpoint_0000500.pt": {
+        "exists": true,
+        "sha256": "ad0597687324b5da4f6776a6a1ca0769ae06880c6041a031c3b2e3601dcd3a9c"
+      }
+    }
+  },
+  "documentation_deliverables": {
+    "CHAKRVIEW_COGNITIVE_ARCHITECTURE.md": {
+      "exists": true,
+      "size_bytes": 4739,
+      "sha256": "37694872108d9a7eb1c7926824be31777296350b9db6909116e02552a0f01542"
+    },
+    "COGNITIVE_CAPABILITY_TAXONOMY.md": {
+      "exists": true,
+      "size_bytes": 7012,
+      "sha256": "52518fe985c26897eb994548a85a50ef6fbe118551f3c47b16dd32d5bac3553d"
+    },
+    "NEURAL_REASONING_DESIGN.md": {
+      "exists": true,
+      "size_bytes": 5163,
+      "sha256": "c491bb5a94e4cd9c430daa67ed496b2d83fb3fd122a2f6942c281be204b9fb35"
+    },
+    "REASONING_ACQUISITION_CURRICULUM.md": {
+      "exists": true,
+      "size_bytes": 5057,
+      "sha256": "89e5a8fbfd662bcffb1426b7dc1512b954b906f5710e69a042cb305fec18e3cf"
+    },
+    "COGNITIVE_EVALUATION_FRAMEWORK.md": {
+      "exists": true,
+      "size_bytes": 3317,
+      "sha256": "c34447f86cb1517689fb7e4b6deb08a63b24b347b57b462d5a9988766b7fa029"
+    },
+    "EXTERNAL_VS_INTERNAL_COGNITION.md": {
+      "exists": true,
+      "size_bytes": 2775,
+      "sha256": "441c149bead54272c8da6268e871b0a324febb0a9fa118686d7bab4886764c8a"
+    },
+    "COGNITIVE_SCALING_ROADMAP.md": {
+      "exists": true,
+      "size_bytes": 2299,
+      "sha256": "c18d77ad3515ea6acd402ba76cb0d6b08ec27c2aa2f9a54b222ae9c9983ae766"
+    },
+    "CR001_ARCHITECTURE_DECISIONS.md": {
+      "exists": true,
+      "size_bytes": 3041,
+      "sha256": "12d5014512db2a976fce9bd7fbedf5baff60d51539232a69a7d7a22771dd1a38"
+    }
+  },
+  "classification_of_proposals": {
+    "supported_by_existing_evidence": [
+      "Curriculum data engineering on variable binding (CBR-SFT-08 demonstrated removing 'context' sink)",
+      "CPU throughput feasibility (>1,200 tok/s on 3.44M)",
+      "Strict external vs internal evaluation separation"
+    ],
+    "plausible_but_unverified": [
+      "Induction circuit formation in 6 layers without external pretraining",
+      "Auxiliary consistency head for contradiction detection without negative transfer",
+      "ChakrSmall (9.15M) scaling providing dedicated induction layers"
+    ],
+    "requires_experiment": [
+      "CR-EXP-01: Synthetic key-value binding curriculum on 3.44M baseline",
+      "CR-EXP-02: Decomposed scratchpad arithmetic training on random operands",
+      "CR-EXP-03: Two-pass self-correction fine-tuning"
+    ],
+    "not_currently_justified": [
+      "Premature scaling to 43M parameters before expanding training tokens beyond 7M",
+      "Adding complex recurrent or external memory networks before measuring standard transformer curriculum limits"
+    ]
+  },
+  "smallest_sensible_next_experiment": {
+    "experiment_id": "CR-EXP-01",
+    "name": "Synthetic Variable Binding and Induction Circuit Formation",
+    "target": "Train 1,000 synthetic key-value binding examples on ChakrMicro v0.1 to evaluate whether induction heads form in layers 3-5",
+    "compute_cost": "< 15 minutes on CPU",
+    "ram": "< 100 MB"
+  }
+}
