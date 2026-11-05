@@ -1,0 +1,242 @@
+{
+  "checkpoint_path": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+  "conditions": {
+    "Condition_A_Familiar": {
+      "total": 100,
+      "correct": 0,
+      "accuracy_pct": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        3.7
+      ],
+      "invalid_output_rate_pct": 0.0,
+      "sample_outputs": [
+        {
+          "id": "test_fam_0000",
+          "target": "Apollo",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_fam_0001",
+          "target": "Ash",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_fam_0002",
+          "target": "Oak",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_fam_0003",
+          "target": "Berlin",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_fam_0004",
+          "target": "606",
+          "generated": "Yes, I am",
+          "correct": false
+        }
+      ]
+    },
+    "Condition_B_Novel_Binding": {
+      "total": 100,
+      "correct": 0,
+      "accuracy_pct": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        3.7
+      ],
+      "invalid_output_rate_pct": 0.0,
+      "sample_outputs": [
+        {
+          "id": "test_nov_0000",
+          "target": "Rhodium",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_nov_0001",
+          "target": "Iron",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_nov_0002",
+          "target": "Shimla",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_nov_0003",
+          "target": "5050",
+          "generated": "Yes, I am",
+          "correct": false
+        },
+        {
+          "id": "test_nov_0004",
+          "target": "Chennai",
+          "generated": "Yes, I am",
+          "correct": false
+        }
+      ]
+    },
+    "Condition_D_Reassignment": {
+      "total": 100,
+      "correct": 0,
+      "accuracy_pct": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        3.7
+      ],
+      "invalid_output_rate_pct": 0.0,
+      "sample_outputs": [
+        {
+          "id": "test_reassign_0000",
+          "target": "9090",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_reassign_0001",
+          "target": "Shimla",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_reassign_0002",
+          "target": "Dragon",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_reassign_0003",
+          "target": "Nickel",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_reassign_0004",
+          "target": "Phoenix",
+          "generated": "You",
+          "correct": false
+        }
+      ]
+    },
+    "Condition_E_5_Distractors": {
+      "total": 100,
+      "correct": 0,
+      "accuracy_pct": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        3.7
+      ],
+      "invalid_output_rate_pct": 0.0,
+      "sample_outputs": [
+        {
+          "id": "test_dist5_0000",
+          "target": "Nickel",
+          "generated": "The context.",
+          "correct": false
+        },
+        {
+          "id": "test_dist5_0001",
+          "target": "Opal",
+          "generated": "The context.",
+          "correct": false
+        },
+        {
+          "id": "test_dist5_0002",
+          "target": "Cobalt",
+          "generated": "The context.",
+          "correct": false
+        },
+        {
+          "id": "test_dist5_0003",
+          "target": "Cobalt",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_dist5_0004",
+          "target": "Topaz",
+          "generated": "You",
+          "correct": false
+        }
+      ]
+    },
+    "Condition_I_Unseen_Template": {
+      "total": 100,
+      "correct": 0,
+      "accuracy_pct": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        3.7
+      ],
+      "invalid_output_rate_pct": 0.0,
+      "sample_outputs": [
+        {
+          "id": "test_tmpl_0000",
+          "target": "Obsidian",
+          "generated": "The provided",
+          "correct": false
+        },
+        {
+          "id": "test_tmpl_0001",
+          "target": "Opal",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_tmpl_0002",
+          "target": "Dragon",
+          "generated": "You",
+          "correct": false
+        },
+        {
+          "id": "test_tmpl_0003",
+          "target": "8080",
+          "generated": "Thank y",
+          "correct": false
+        },
+        {
+          "id": "test_tmpl_0004",
+          "target": "Obsidian",
+          "generated": "Yes, I am",
+          "correct": false
+        }
+      ]
+    }
+  },
+  "syntactic_probe": {
+    "top1_accuracy": 20.0,
+    "top5_accuracy": 42.5,
+    "mean_target_log_prob": -5.4943,
+    "category_metrics": {
+      "python_syntax": {
+        "total": 10,
+        "top1_accuracy": 20.0,
+        "top5_accuracy": 60.0
+      },
+      "delimiters": {
+        "total": 10,
+        "top1_accuracy": 40.0,
+        "top5_accuracy": 70.0
+      },
+      "control_flow": {
+        "total": 10,
+        "top1_accuracy": 10.0,
+        "top5_accuracy": 20.0
+      },
+      "natural_language": {
+        "total": 10,
+        "top1_accuracy": 10.0,
+        "top5_accuracy": 20.0
+      }
+    }
+  }
+}
