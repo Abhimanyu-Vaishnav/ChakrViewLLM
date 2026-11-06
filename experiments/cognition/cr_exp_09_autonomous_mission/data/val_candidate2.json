@@ -1,0 +1,1802 @@
+[
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Good morning!\nAssistant: ",
+    "completion": "Good morning! I hope you have a wonderful and productive day. What are you working on?",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Lucknow. Sunil lives in Indore. Query: Where does Sunil live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Delhi. Sunita lives in Lucknow. Query: Where does Sunita live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Lucknow. Query: Where does Sunil live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Kolkata. Query: Where does Preeti live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Patna.\nAssistant: Understood, I have noted that Preeti is in Patna.\nUser: Actually, Preeti just moved to Nagpur.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Lucknow.\nAssistant: Understood, I have noted that Sunil is in Lucknow.\nUser: Actually, Sunil just moved to Bengaluru.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Surat. Sunil lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Surat, they have a green pass. Premise: Sunita is in Surat. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Hyderabad. Query: Where does Sunil live? Answer: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Pune. Query: Where does Sunita live? Answer: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Patna. Query: Where does Preeti live? Answer: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Kanpur. Rajesh lives in Patna. Query: Where does Sunita live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Surat. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Kanpur. Preeti lives in Nagpur. Query: Where does Preeti live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Nagpur.\nAssistant: Understood, I have noted that Sunil is in Nagpur.\nUser: Actually, Sunil just moved to Surat.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunil has 7 candies. Sunil gives 3 candies to Rajesh. Question: How many candies does Sunil have left? Answer: ",
+    "completion": "4",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Nagpur.\nAssistant: Understood, I have noted that Sunita is in Nagpur.\nUser: Actually, Sunita just moved to Patna.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Mumbai, they have a green pass. Premise: Sunil is in Mumbai. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 7 markers. Rajesh gives 2 markers to Preeti. Question: How many markers does Rajesh have left? Answer: ",
+    "completion": "5",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kanpur, but now lives in Mumbai. Query: Where does Sunil live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Delhi. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 5 pens. Rajesh gives 1 pens to Sunita. Question: How many pens does Rajesh have left? Answer: ",
+    "completion": "4",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Bhopal, but now lives in Hyderabad. Query: Where does Preeti live? Answer: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Bengaluru. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Kolkata. Preeti lives in Bengaluru. Query: Where does Sunil live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 5 pens. Rajesh gives 4 pens to Preeti. Question: How many pens does Rajesh have left? Answer: ",
+    "completion": "1",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Delhi. Query: Where does Rajesh live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Patna, they have a green pass. Premise: Rajesh is in Pune. Question: Does Rajesh have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunil has 6 candies. Sunil gives 2 candies to Preeti. Question: How many candies does Sunil have left? Answer: ",
+    "completion": "4",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Patna. Sunil lives in Nagpur. Query: Where does Sunita live? Answer: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Chennai, they have a green pass. Premise: Rajesh is in Chennai. Question: Does Rajesh have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Kolkata.\nAssistant: Understood, I have noted that Sunita is in Kolkata.\nUser: Actually, Sunita just moved to Bengaluru.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Bengaluru.\nAssistant: Understood, I have noted that Sunita is in Bengaluru.\nUser: Actually, Sunita just moved to Nashik.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Nashik.\nAssistant: Understood, I have noted that Rajesh is in Nashik.\nUser: Actually, Rajesh just moved to Surat.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Jaipur. Query: Where does Sunil live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Jaipur. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Nagpur.\nAssistant: Understood, I have noted that Rajesh is in Nagpur.\nUser: Actually, Rajesh just moved to Kanpur.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Delhi. Query: Where does Sunil live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Lucknow.\nAssistant: Understood, I have noted that Sunita is in Lucknow.\nUser: Actually, Sunita just moved to Indore.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Lucknow.\nAssistant: Understood, I have noted that Rajesh is in Lucknow.\nUser: Actually, Rajesh just moved to Bhopal.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Patna, but now lives in Nagpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Bengaluru, but now lives in Bhopal. Query: Where does Preeti live? Answer: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Kanpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Nashik.\nAssistant: Understood, I have noted that Sunil is in Nashik.\nUser: Actually, Sunil just moved to Jaipur.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Chennai.\nAssistant: Understood, I have noted that Sunil is in Chennai.\nUser: Actually, Sunil just moved to Patna.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Mumbai. Rajesh lives in Delhi. Query: Where does Rajesh live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Kanpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Indore. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 8 cards. Rajesh gives 6 cards to Sunita. Question: How many cards does Rajesh have left? Answer: ",
+    "completion": "2",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Indore, they have a green pass. Premise: Sunil is in Bhopal. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Indore, but now lives in Chennai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Pune.\nAssistant: Understood, I have noted that Sunita is in Pune.\nUser: Actually, Sunita just moved to Indore.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Lucknow. Preeti lives in Nagpur. Query: Where does Preeti live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Nagpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Indore. Rajesh lives in Kolkata. Query: Where does Rajesh live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunita has 4 apples. Sunita gives 3 apples to Sunil. Question: How many apples does Sunita have left? Answer: ",
+    "completion": "1",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Pune. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Surat, but now lives in Delhi. Query: Where does Sunil live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Kanpur, but now lives in Bengaluru. Query: Where does Rajesh live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Jaipur. Query: Where does Sunita live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Hyderabad, but now lives in Indore. Query: Where does Rajesh live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Mumbai, but now lives in Chennai. Query: Where does Sunil live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kolkata, but now lives in Bengaluru. Query: Where does Sunil live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Bengaluru. Sunita lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Mumbai. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Mumbai. Preeti lives in Bengaluru. Query: Where does Preeti live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Delhi, but now lives in Nashik. Query: Where does Sunil live? Answer: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Hyderabad. Preeti lives in Indore. Query: Where does Preeti live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Kolkata.\nAssistant: Understood, I have noted that Sunita is in Kolkata.\nUser: Actually, Sunita just moved to Patna.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Jaipur.\nAssistant: Understood, I have noted that Preeti is in Jaipur.\nUser: Actually, Preeti just moved to Patna.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Delhi. Query: Where does Rajesh live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Delhi. Sunita lives in Nashik. Query: Where does Preeti live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Surat. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Nashik.\nAssistant: Understood, I have noted that Rajesh is in Nashik.\nUser: Actually, Rajesh just moved to Chennai.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Surat.\nAssistant: Understood, I have noted that Sunil is in Surat.\nUser: Actually, Sunil just moved to Pune.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Mumbai, but now lives in Indore. Query: Where does Preeti live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Bhopal. Query: Where does Sunil live? Answer: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Delhi. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Lucknow, but now lives in Nagpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Nashik.\nAssistant: Understood, I have noted that Sunil is in Nashik.\nUser: Actually, Sunil just moved to Delhi.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Kolkata, they have a green pass. Premise: Sunil is in Nashik. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Patna.\nAssistant: Understood, I have noted that Rajesh is in Patna.\nUser: Actually, Rajesh just moved to Hyderabad.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Chennai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Nagpur, they have a green pass. Premise: Preeti is in Kolkata. Question: Does Preeti have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Surat.\nAssistant: Understood, I have noted that Sunil is in Surat.\nUser: Actually, Sunil just moved to Indore.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Indore. Query: Where does Preeti live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Bhopal. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunita has 6 coins. Sunita gives 2 coins to Rajesh. Question: How many coins does Sunita have left? Answer: ",
+    "completion": "4",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Kanpur. Query: Where does Preeti live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Hyderabad. Sunita lives in Kanpur. Query: Where does Sunita live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Preeti has 9 markers. Preeti gives 3 markers to Sunita. Question: How many markers does Preeti have left? Answer: ",
+    "completion": "6",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Lucknow, they have a green pass. Premise: Sunita is in Surat. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Patna. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Jaipur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Indore, they have a green pass. Premise: Preeti is in Mumbai. Question: Does Preeti have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kolkata, but now lives in Kanpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Tell me about yourself.\nAssistant: ",
+    "completion": "I am ChakrView, an autonomous cognitive prototype learning to understand context and solve problems.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Bhopal. Preeti lives in Kolkata. Query: Where does Sunita live? Answer: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Lucknow. Query: Where does Sunita live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Bhopal.\nAssistant: Understood, I have noted that Rajesh is in Bhopal.\nUser: Actually, Rajesh just moved to Chennai.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Indore.\nAssistant: Understood, I have noted that Preeti is in Indore.\nUser: Actually, Preeti just moved to Bhopal.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Nashik, they have a green pass. Premise: Sunil is in Delhi. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Nagpur. Preeti lives in Delhi. Query: Where does Preeti live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Patna. Sunita lives in Jaipur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Who are you?\nAssistant: ",
+    "completion": "I am ChakrView, an indigenous neural intelligence being developed from scratch.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Nashik. Query: Where does Preeti live? Answer: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Surat. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Kanpur. Sunil lives in Bengaluru. Query: Where does Sunil live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Patna. Sunita lives in Chennai. Query: Where does Preeti live? Answer: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Kolkata. Query: Where does Sunita live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Surat, they have a green pass. Premise: Preeti is in Surat. Question: Does Preeti have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Surat.\nAssistant: Understood, I have noted that Preeti is in Surat.\nUser: Actually, Preeti just moved to Lucknow.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Bhopal. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Bengaluru. Preeti lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Hyderabad. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Bhopal. Sunita lives in Delhi. Query: Where does Sunita live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Kanpur.\nAssistant: Understood, I have noted that Rajesh is in Kanpur.\nUser: Actually, Rajesh just moved to Pune.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Nagpur.\nAssistant: Understood, I have noted that Sunil is in Nagpur.\nUser: Actually, Sunil just moved to Nashik.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Indore, but now lives in Chennai. Query: Where does Preeti live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Bhopal, they have a green pass. Premise: Sunil is in Hyderabad. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Mumbai, but now lives in Chennai. Query: Where does Preeti live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Jaipur. Query: Where does Preeti live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Nagpur.\nAssistant: Understood, I have noted that Sunita is in Nagpur.\nUser: Actually, Sunita just moved to Patna.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Nashik, but now lives in Bengaluru. Query: Where does Sunita live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Mumbai, but now lives in Bengaluru. Query: Where does Sunita live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Good morning!\nAssistant: ",
+    "completion": "Good morning! I hope you have a wonderful and productive day. What are you working on?",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Tell me about yourself.\nAssistant: ",
+    "completion": "I am ChakrView, an autonomous cognitive prototype learning to understand context and solve problems.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Bengaluru. Rajesh lives in Patna. Query: Where does Sunita live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Who are you?\nAssistant: ",
+    "completion": "I am ChakrView, an indigenous neural intelligence being developed from scratch.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Hyderabad.\nAssistant: Understood, I have noted that Sunita is in Hyderabad.\nUser: Actually, Sunita just moved to Nashik.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Preeti has 6 books. Preeti gives 3 books to Rajesh. Question: How many books does Preeti have left? Answer: ",
+    "completion": "3",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Bengaluru.\nAssistant: Understood, I have noted that Sunita is in Bengaluru.\nUser: Actually, Sunita just moved to Nagpur.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Indore.\nAssistant: Understood, I have noted that Preeti is in Indore.\nUser: Actually, Preeti just moved to Bengaluru.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Chennai. Rajesh lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Indore. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Hyderabad.\nAssistant: Understood, I have noted that Rajesh is in Hyderabad.\nUser: Actually, Rajesh just moved to Pune.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Preeti has 8 markers. Preeti gives 2 markers to Sunil. Question: How many markers does Preeti have left? Answer: ",
+    "completion": "6",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Jaipur. Sunita lives in Lucknow. Query: Where does Sunita live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 5 coins. Rajesh gives 4 coins to Sunita. Question: How many coins does Rajesh have left? Answer: ",
+    "completion": "1",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Patna, but now lives in Nashik. Query: Where does Preeti live? Answer: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Lucknow. Rajesh lives in Kanpur. Query: Where does Preeti live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Surat.\nAssistant: Understood, I have noted that Preeti is in Surat.\nUser: Actually, Preeti just moved to Kolkata.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Mumbai, but now lives in Surat. Query: Where does Sunil live? Answer: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Lucknow. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Lucknow.\nAssistant: Understood, I have noted that Rajesh is in Lucknow.\nUser: Actually, Rajesh just moved to Kanpur.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Bengaluru. Preeti lives in Nashik. Query: Where does Preeti live? Answer: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Pune. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Bengaluru. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Nashik, they have a green pass. Premise: Preeti is in Nashik. Question: Does Preeti have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Nagpur, but now lives in Chennai. Query: Where does Sunil live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Lucknow. Rajesh lives in Nashik. Query: Where does Rajesh live? Answer: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Chennai, but now lives in Bengaluru. Query: Where does Rajesh live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Bengaluru.\nAssistant: Understood, I have noted that Rajesh is in Bengaluru.\nUser: Actually, Rajesh just moved to Nagpur.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Delhi, but now lives in Kanpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Jaipur.\nAssistant: Understood, I have noted that Preeti is in Jaipur.\nUser: Actually, Preeti just moved to Nashik.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Nashik",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Bengaluru. Sunita lives in Chennai. Query: Where does Preeti live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kanpur, but now lives in Indore. Query: Where does Sunil live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Pune. Rajesh lives in Delhi. Query: Where does Sunita live? Answer: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Kanpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Pune. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Kolkata, but now lives in Patna. Query: Where does Rajesh live? Answer: ",
+    "completion": "Patna",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Chennai. Sunil lives in Bhopal. Query: Where does Rajesh live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Kanpur. Sunil lives in Chennai. Query: Where does Sunil live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Surat. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunil has 9 coins. Sunil gives 2 coins to Preeti. Question: How many coins does Sunil have left? Answer: ",
+    "completion": "7",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Indore. Sunil lives in Delhi. Query: Where does Preeti live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Nashik, but now lives in Indore. Query: Where does Sunita live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Who are you?\nAssistant: ",
+    "completion": "I am ChakrView, an indigenous neural intelligence being developed from scratch.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Rajesh has 6 candies. Rajesh gives 1 candies to Preeti. Question: How many candies does Rajesh have left? Answer: ",
+    "completion": "5",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Chennai, but now lives in Nagpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Who are you?\nAssistant: ",
+    "completion": "I am ChakrView, an indigenous neural intelligence being developed from scratch.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Jaipur. Rajesh lives in Kanpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Mumbai.\nAssistant: Understood, I have noted that Rajesh is in Mumbai.\nUser: Actually, Rajesh just moved to Surat.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Nagpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Mumbai.\nAssistant: Understood, I have noted that Sunil is in Mumbai.\nUser: Actually, Sunil just moved to Delhi.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Nashik.\nAssistant: Understood, I have noted that Preeti is in Nashik.\nUser: Actually, Preeti just moved to Kanpur.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Tell me about yourself.\nAssistant: ",
+    "completion": "I am ChakrView, an autonomous cognitive prototype learning to understand context and solve problems.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Delhi. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Hyderabad. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Patna. Sunita lives in Mumbai. Query: Where does Sunita live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Tell me about yourself.\nAssistant: ",
+    "completion": "I am ChakrView, an autonomous cognitive prototype learning to understand context and solve problems.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Nagpur. Query: Where does Sunita live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Jaipur. Query: Where does Sunita live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Surat, they have a green pass. Premise: Sunil is in Nagpur. Question: Does Sunil have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Delhi, they have a green pass. Premise: Sunita is in Nashik. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Indore, they have a green pass. Premise: Sunita is in Bengaluru. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Bhopal. Sunita lives in Chennai. Query: Where does Sunita live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Surat.\nAssistant: Understood, I have noted that Preeti is in Surat.\nUser: Actually, Preeti just moved to Indore.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Chennai. Sunita lives in Nagpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Patna, they have a green pass. Premise: Rajesh is in Bhopal. Question: Does Rajesh have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Nagpur.\nAssistant: Understood, I have noted that Sunita is in Nagpur.\nUser: Actually, Sunita just moved to Bengaluru.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Kolkata. Query: Where does Sunil live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Delhi. Preeti lives in Pune. Query: Where does Preeti live? Answer: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Mumbai.\nAssistant: Understood, I have noted that Sunil is in Mumbai.\nUser: Actually, Sunil just moved to Delhi.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Nagpur.\nAssistant: Understood, I have noted that Preeti is in Nagpur.\nUser: Actually, Preeti just moved to Kanpur.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Delhi.\nAssistant: Understood, I have noted that Rajesh is in Delhi.\nUser: Actually, Rajesh just moved to Bhopal.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Bhopal",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Kanpur. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Who are you?\nAssistant: ",
+    "completion": "I am ChakrView, an indigenous neural intelligence being developed from scratch.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Kolkata. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Patna. Rajesh lives in Pune. Query: Where does Rajesh live? Answer: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Bhopal.\nAssistant: Understood, I have noted that Sunita is in Bhopal.\nUser: Actually, Sunita just moved to Hyderabad.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Lucknow. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunita is located in Chennai.\nAssistant: Understood, I have noted that Sunita is in Chennai.\nUser: Actually, Sunita just moved to Lucknow.\nAssistant: Noted the change.\nUser: Where is Sunita now?\nAssistant: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Rajesh lives in Chennai. Sunita lives in Kolkata. Query: Where does Sunita live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Can you explain your mission?\nAssistant: ",
+    "completion": "I am built to progressively learn language understanding, contextual memory, and problem-solving step by step.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Pune. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Nashik, but now lives in Chennai. Query: Where does Rajesh live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Jaipur. Query: Where does Preeti live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Nagpur. Query: Where does Sunil live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Chennai. Sunil lives in Jaipur. Query: Where does Sunil live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Kanpur. Query: Where does Preeti live? Answer: ",
+    "completion": "Kanpur",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Nagpur, but now lives in Jaipur. Query: Where does Sunita live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Indore. Rajesh lives in Lucknow. Query: Where does Rajesh live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunil lives in Mumbai. Query: Where does Rajesh live? Answer: ",
+    "completion": "The context does not state where Rajesh lives.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Hyderabad.\nAssistant: Understood, I have noted that Preeti is in Hyderabad.\nUser: Actually, Preeti just moved to Delhi.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Kolkata.\nAssistant: Understood, I have noted that Preeti is in Kolkata.\nUser: Actually, Preeti just moved to Jaipur.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Bengaluru, they have a green pass. Premise: Rajesh is in Indore. Question: Does Rajesh have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Pune. Query: Where does Sunita live? Answer: ",
+    "completion": "Pune",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Indore. Sunita lives in Mumbai. Query: Where does Preeti live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Nashik. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Kolkata.\nAssistant: Understood, I have noted that Sunil is in Kolkata.\nUser: Actually, Sunil just moved to Chennai.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Preeti has 9 pens. Preeti gives 1 pens to Sunil. Question: How many pens does Preeti have left? Answer: ",
+    "completion": "8",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Bengaluru. Sunita lives in Kolkata. Query: Where does Sunita live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Nashik, they have a green pass. Premise: Sunita is in Nashik. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "Yes",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Good morning!\nAssistant: ",
+    "completion": "Good morning! I hope you have a wonderful and productive day. What are you working on?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Delhi, but now lives in Bengaluru. Query: Where does Sunita live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Good morning!\nAssistant: ",
+    "completion": "Good morning! I hope you have a wonderful and productive day. What are you working on?",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Delhi. Sunil lives in Lucknow. Query: Where does Preeti live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Preeti lives in Surat. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Hyderabad. Query: Where does Sunil live? Answer: ",
+    "completion": "The context does not state where Sunil lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Jaipur, but now lives in Surat. Query: Where does Rajesh live? Answer: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Namaste!\nAssistant: ",
+    "completion": "Namaste! Main badhiya hoon. Aapki kya madad kar sakta hoon?",
+    "is_relational": false
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Kolkata.\nAssistant: Understood, I have noted that Sunil is in Kolkata.\nUser: Actually, Sunil just moved to Delhi.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita used to live in Hyderabad, but now lives in Kolkata. Query: Where does Sunita live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Sunita lives in Nashik. Query: Where does Preeti live? Answer: ",
+    "completion": "The context does not state where Preeti lives.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Mumbai. Rajesh lives in Hyderabad. Query: Where does Rajesh live? Answer: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti lives in Lucknow. Query: Where does Preeti live? Answer: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kolkata, but now lives in Bengaluru. Query: Where does Sunil live? Answer: ",
+    "completion": "Bengaluru",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil used to live in Kolkata, but now lives in Surat. Query: Where does Sunil live? Answer: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Rajesh is located in Kolkata.\nAssistant: Understood, I have noted that Rajesh is in Kolkata.\nUser: Actually, Rajesh just moved to Lucknow.\nAssistant: Noted the change.\nUser: Where is Rajesh now?\nAssistant: ",
+    "completion": "Lucknow",
+    "is_relational": true
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Context: Sunil has 4 coins. Sunil gives 1 coins to Rajesh. Question: How many coins does Sunil have left? Answer: ",
+    "completion": "3",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh used to live in Surat, but now lives in Hyderabad. Query: Where does Rajesh live? Answer: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Kolkata, but now lives in Surat. Query: Where does Preeti live? Answer: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "missing_info_abstention",
+    "prompt": "Mapping: Rajesh lives in Chennai. Query: Where does Sunita live? Answer: ",
+    "completion": "The context does not state where Sunita lives.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunil lives in Delhi. Query: Where does Sunil live? Answer: ",
+    "completion": "Delhi",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Thank you so much for your assistance.\nAssistant: ",
+    "completion": "You are very welcome! Please let me know if you need any further help.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Kolkata. Sunil lives in Bhopal. Query: Where does Preeti live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunita lives in Patna. Sunil lives in Mumbai. Query: Where does Sunil live? Answer: ",
+    "completion": "Mumbai",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Sunil is located in Nagpur.\nAssistant: Understood, I have noted that Sunil is in Nagpur.\nUser: Actually, Sunil just moved to Hyderabad.\nAssistant: Noted the change.\nUser: Where is Sunil now?\nAssistant: ",
+    "completion": "Hyderabad",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Mumbai. Rajesh lives in Nagpur. Query: Where does Rajesh live? Answer: ",
+    "completion": "Nagpur",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Rajesh lives in Indore. Query: Where does Rajesh live? Answer: ",
+    "completion": "Indore",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Tell me about yourself.\nAssistant: ",
+    "completion": "I am ChakrView, an autonomous cognitive prototype learning to understand context and solve problems.",
+    "is_relational": false
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Preeti lives in Kolkata. Sunita lives in Chennai. Query: Where does Preeti live? Answer: ",
+    "completion": "Kolkata",
+    "is_relational": true
+  },
+  {
+    "type": "distractor_disambiguation",
+    "prompt": "Mapping: Sunil lives in Surat. Preeti lives in Patna. Query: Where does Sunil live? Answer: ",
+    "completion": "Surat",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Can you explain your mission?\nAssistant: ",
+    "completion": "I am built to progressively learn language understanding, contextual memory, and problem-solving step by step.",
+    "is_relational": false
+  },
+  {
+    "type": "elementary_reasoning",
+    "prompt": "Rule: If a person is in Kanpur, they have a green pass. Premise: Sunita is in Nashik. Question: Does Sunita have a green pass? Answer: ",
+    "completion": "No",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: Hello! How are you doing today?\nAssistant: ",
+    "completion": "Hello! I am doing well, ready to assist you. How can I help you today?",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Sunita lives in Chennai. Query: Where does Sunita live? Answer: ",
+    "completion": "Chennai",
+    "is_relational": true
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "conversational_preservation",
+    "prompt": "User: What is your primary purpose?\nAssistant: ",
+    "completion": "My purpose is to develop genuine neural capabilities for conversational understanding and reasoning.",
+    "is_relational": false
+  },
+  {
+    "type": "single_hop_grounding",
+    "prompt": "Mapping: Preeti used to live in Nagpur, but now lives in Jaipur. Query: Where does Preeti live? Answer: ",
+    "completion": "Jaipur",
+    "is_relational": true
+  },
+  {
+    "type": "multiturn_state_tracking",
+    "prompt": "User: Note that Preeti is located in Lucknow.\nAssistant: Understood, I have noted that Preeti is in Lucknow.\nUser: Actually, Preeti just moved to Indore.\nAssistant: Noted the change.\nUser: Where is Preeti now?\nAssistant: ",
+    "completion": "Indore",
+    "is_relational": true
+  }
+]
