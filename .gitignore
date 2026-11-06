@@ -79,3 +79,21 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 .DS_Store
+# Legacy overnight test runs, candidate extraction, and universal LM audits
+experiments/overnight_runs/
+experiments/cand01/
+experiments/universal_lm/
+
+# Diagnostic evaluations and transient SFT trials
+experiments/m3_conversational_intelligence/evaluations/*_cbr*.json
+data/sft/cbr_sft_08/
+
+# Scratch, sampling, and intermediate dataset scripts
+scripts/analyze_cbr_sft_07.py
+scripts/build_cbr_sft_08_dataset.py
+scripts/generate_dataset_categories_*.py
+scripts/generate_full_1000_dataset.py
+scripts/run_cbr_sft_08_training.py
+scripts/sample_outputs.py
+scripts/sample_parent.py
+scripts/sample_qa.py
