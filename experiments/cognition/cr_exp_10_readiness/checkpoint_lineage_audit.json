@@ -1,0 +1,104 @@
+{
+  "all_matched": false,
+  "artifacts": {
+    "cbr01_seed42": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "data/experiments/cbr01_seed42/checkpoints/best_val_checkpoint.pt"
+    },
+    "parent_sft_step200": {
+      "exists": true,
+      "status": "VERIFIED",
+      "path": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+      "expected_sha": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+      "actual_sha": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+      "size_bytes": 41417634
+    },
+    "conversational_pilot": {
+      "exists": true,
+      "status": "VERIFIED",
+      "path": "experiments/cognition/autonomous_12h/conversational_pilot/checkpoints/conversational_pilot_best_val.pt",
+      "expected_sha": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+      "actual_sha": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+      "size_bytes": 13795727
+    },
+    "cr06_arm_a": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "experiments/cognition/cr_exp_06_variable_binding/checkpoints/arm_a/cr_exp_06_arm_a_best_val.pt"
+    },
+    "cr06_arm_b": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "experiments/cognition/cr_exp_06_variable_binding/checkpoints/arm_b/cr_exp_06_arm_b_best_val.pt"
+    },
+    "cr08_arm_a": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "experiments/cognition/cr_exp_08_contextual_assignment/checkpoints/arm_a/cr_exp_08_arm_a_best_val.pt"
+    },
+    "cr08_arm_b": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "experiments/cognition/cr_exp_08_contextual_assignment/checkpoints/arm_b/cr_exp_08_arm_b_best_val.pt"
+    },
+    "cr08_arm_c": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "experiments/cognition/cr_exp_08_contextual_assignment/checkpoints/arm_c/cr_exp_08_arm_c_best_val.pt"
+    },
+    "cr09_baseline_copy": {
+      "exists": true,
+      "status": "VERIFIED",
+      "path": "experiments/cognition/cr_exp_09_autonomous_mission/checkpoints/baseline/cr_exp_08_arm_b_best_val_copy.pt",
+      "expected_sha": "98bd76f99d43dedd10c31a1d290c95e452eba299f511ecf72e5ecc4075fb0956",
+      "actual_sha": "98bd76f99d43dedd10c31a1d290c95e452eba299f511ecf72e5ecc4075fb0956",
+      "size_bytes": 13794541
+    },
+    "cr09_candidate_1": {
+      "exists": true,
+      "status": "MISMATCH",
+      "path": "experiments/cognition/cr_exp_09_autonomous_mission/checkpoints/candidate_1/cr_exp_09_candidate_1_best_val.pt",
+      "expected_sha": "3134918e7784654bdf1356828ce9f835cb4b71ff4b62db5606dcfceb3e8e7a0d",
+      "actual_sha": "95b146b4ef7918dc2a1debf5f70fba61e87be08e64bd029589a458c57db044f2",
+      "size_bytes": 13795597
+    },
+    "cr09_candidate_2": {
+      "exists": true,
+      "status": "MISMATCH",
+      "path": "experiments/cognition/cr_exp_09_autonomous_mission/checkpoints/candidate_2/cr_exp_09_candidate_2_best_val.pt",
+      "expected_sha": "8e3a2469eb0702ca7452d7ee8b0304a0e949ffec151b75c879d74e0d8fa09995",
+      "actual_sha": "16e28bbbfb24422b68a39d269a0a0750fdceebc0313e1fd5e056fe8e15d587ff",
+      "size_bytes": 13795597
+    },
+    "cr09_candidate_3": {
+      "exists": true,
+      "status": "VERIFIED",
+      "path": "experiments/cognition/cr_exp_09_autonomous_mission/checkpoints/candidate_3/cr_exp_09_candidate_3_best_val.pt",
+      "expected_sha": "de871613aa28264014f22e227beea8976c359dca6f7026ed4221703ac7a3e592",
+      "actual_sha": "de871613aa28264014f22e227beea8976c359dca6f7026ed4221703ac7a3e592",
+      "size_bytes": 13795789
+    },
+    "vocab_json": {
+      "exists": true,
+      "status": "MISMATCH",
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "expected_sha": "bf2d4c064e6f0b6e1ee7425176b668d2f16a19f20108ff4ceaa0be5c94d65012",
+      "actual_sha": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+      "size_bytes": 112627
+    },
+    "merges_txt": {
+      "exists": false,
+      "status": "MISSING",
+      "path": "data/experiments/vocab_4096/merges.txt"
+    },
+    "session_runtime": {
+      "exists": true,
+      "status": "MISMATCH",
+      "path": "chakrview/runtime/session.py",
+      "expected_sha": "a1ec68d18408a0d0d8bbec287e076634c00be05e55e8248ab41b0728c738e4a9",
+      "actual_sha": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+      "size_bytes": 12511
+    }
+  }
+}
