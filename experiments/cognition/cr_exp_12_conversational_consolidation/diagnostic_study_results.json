@@ -1,0 +1,134 @@
+{
+  "multi_turn": {
+    "cand_a": [
+      {
+        "prompt": "User: Track this: Pooja is in Jaipur.\nAssistant: Noted.\nUser: Pooja moved to Bhopal.\nAssistant: Updated.\nUser: Where is Pooja now?\nAssistant: ",
+        "gen": "Aarav is currently in Lucknow.pddari is currently in Luc",
+        "has_subject": false,
+        "has_target": false,
+        "has_old": false
+      },
+      {
+        "prompt": "User: Track this: Manish is in Pune.\nAssistant: Noted.\nUser: Manish moved to Delhi.\nAssistant: Updated.\nUser: Where is Manish now?\nAssistant: ",
+        "gen": "Aarav is currently in Nagpur.",
+        "has_subject": false,
+        "has_target": false,
+        "has_old": false
+      },
+      {
+        "prompt": "User: Track this: Kavita is in Lucknow.\nAssistant: Noted.\nUser: Kavita moved to Indore.\nAssistant: Updated.\nUser: Where is Kavita now?\nAssistant: ",
+        "gen": "Aarav is currently in Indore.",
+        "has_subject": false,
+        "has_target": true,
+        "has_old": false
+      }
+    ],
+    "cand_b": [
+      {
+        "prompt": "User: Track this: Pooja is in Jaipur.\nAssistant: Noted.\nUser: Pooja moved to Bhopal.\nAssistant: Updated.\nUser: Where is Pooja now?\nAssistant: ",
+        "gen": "Kochi. is currently in Bhopal. an .",
+        "has_subject": false,
+        "has_target": true,
+        "has_old": false
+      },
+      {
+        "prompt": "User: Track this: Manish is in Pune.\nAssistant: Noted.\nUser: Manish moved to Delhi.\nAssistant: Updated.\nUser: Where is Manish now?\nAssistant: ",
+        "gen": "My is currently in Mysuru. What is currently in Mysuru.",
+        "has_subject": false,
+        "has_target": false,
+        "has_old": false
+      },
+      {
+        "prompt": "User: Track this: Kavita is in Lucknow.\nAssistant: Noted.\nUser: Kavita moved to Indore.\nAssistant: Updated.\nUser: Where is Kavita now?\nAssistant: ",
+        "gen": "Kabir is currently in",
+        "has_subject": false,
+        "has_target": false,
+        "has_old": false
+      }
+    ]
+  },
+  "arithmetic": {
+    "cand_a": [
+      {
+        "prompt": "Context: Swati had 10 pens. Then Swati bought 5 more.\nQuestion: How many pens does Swati have now?\nAnswer: ",
+        "gen": "200.",
+        "target": "15"
+      },
+      {
+        "prompt": "Context: Rohan had 14 apples. Then Rohan gave away 6.\nQuestion: How many apples does Rohan have now?\nAnswer: ",
+        "gen": "2\nSneI am your context does not state where that person lives.",
+        "target": "8"
+      },
+      {
+        "prompt": "Context: Kabir had 20 books. Then Kabir bought 10 more.\nQuestion: How many books does Kabir have now?\nAnswer: ",
+        "gen": "1.0 to 60.task.",
+        "target": "30"
+      }
+    ],
+    "cand_b": [
+      {
+        "prompt": "Context: Swati had 10 pens. Then Swati bought 5 more.\nQuestion: How many pens does Swati have now?\nAnswer: ",
+        "gen": "200.",
+        "target": "15"
+      },
+      {
+        "prompt": "Context: Rohan had 14 apples. Then Rohan gave away 6.\nQuestion: How many apples does Rohan have now?\nAnswer: ",
+        "gen": "Jodhpur. apples?",
+        "target": "8"
+      },
+      {
+        "prompt": "Context: Kabir had 20 books. Then Kabir bought 10 more.\nQuestion: How many books does Kabir have now?\nAnswer: ",
+        "gen": "Jodhpur.",
+        "target": "30"
+      }
+    ]
+  },
+  "constraint_150": {
+    "cand_a_accuracy_pct": 10.0,
+    "cand_a_hits": 15,
+    "cand_b_accuracy_pct": 0.0,
+    "cand_b_hits": 0,
+    "samples": [
+      {
+        "prompt": "Constraint: Pick the fruit only and strictly ignore other items.\nOptions: apple, blue.\nAnswer: ",
+        "expected": "apple",
+        "gen_a": "appleason.pdarknow.you are profession.",
+        "hit_a": true,
+        "gen_b": "Mysuru. What are you are profession. Please le",
+        "hit_b": false
+      },
+      {
+        "prompt": "Constraint: Pick the fruit only and strictly ignore other items.\nOptions: green, pear.\nAnswer: ",
+        "expected": "pear",
+        "gen_a": "appleason.is currently in profession. What knowledg",
+        "hit_a": false,
+        "gen_b": "Yest gar. i.ularre. Aapki kya my is currently in org",
+        "hit_b": false
+      },
+      {
+        "prompt": "Constraint: Pick the animal only and strictly ignore other items.\nOptions: elephant, car.\nAnswer: ",
+        "expected": "elephant",
+        "gen_a": "mangoalorum.",
+        "hit_a": false,
+        "gen_b": "Mysuru. What are you are profession. Please le",
+        "hit_b": false
+      },
+      {
+        "prompt": "Constraint: Pick the animal only and strictly ignore other items.\nOptions: spoon, lion.\nAnswer: ",
+        "expected": "lion",
+        "gen_a": "appleason.Surat. Patna.Surat. Patna.S",
+        "hit_a": false,
+        "gen_b": "You are context does not state where that person works. What k",
+        "hit_b": false
+      },
+      {
+        "prompt": "Constraint: Pick the color only and strictly ignore other items.\nOptions: red, tiger.\nAnswer: ",
+        "expected": "red",
+        "gen_a": "orangest.gogle.is currently in what you are doww",
+        "hit_a": false,
+        "gen_b": "Gwalior.surv.org.",
+        "hit_b": false
+      }
+    ]
+  }
+}
