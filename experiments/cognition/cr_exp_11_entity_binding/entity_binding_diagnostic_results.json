@@ -1,0 +1,518 @@
+{
+  "cr09_candidate_3": {
+    "L1_single_fact": {
+      "total": 5,
+      "hits": 2,
+      "accuracy_pct": 40.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera lives in Jaipur.\nQuestion: Where does Meera live?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "Jaipur. apples. Please let  Please let me know",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Aarav works in Pune.\nQuestion: Where does Aarav work?\nAnswer: ",
+          "target": "Pune",
+          "generated": "No, I am a problem-solving step by step. ngal.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal.\nQuestion: Where does Kabir live?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "No, any re Bhopalurates, a modular, your Chen",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Manish works in Indore.\nQuestion: Where does Manish work?\nAnswer: ",
+          "target": "Indore",
+          "generated": "Nashikdowscratch. Patnail your You",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kavita lives in Amritsar.\nQuestion: Where does Kavita live?\nAnswer: ",
+          "target": "Amritsar",
+          "generated": "No, any rhat anday, and morning! Please let me kno",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L2_multiple_entities": {
+      "total": 4,
+      "hits": 1,
+      "accuracy_pct": 25.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune.\nQuestion: Where does Meera work?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "Jaipur. Please lives. Please let me knowlet me k",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune.\nQuestion: Where does Aarav work?\nAnswer: ",
+          "target": "Pune",
+          "generated": "No, I am a problem-solving step by step. ng",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal. Manish lives in Indore.\nQuestion: Where does Kabir live?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "No, historaluru scratch. Patnail 1.0",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal. Manish lives in Indore.\nQuestion: Where does Manish live?\nAnswer: ",
+          "target": "Indore",
+          "generated": "No, historaluru scratch. Patnail 200.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L3_distractor_resistance": {
+      "total": 3,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 1,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Rohan works in Delhi.\nQuestion: Where does Meera work?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "No, I am a progressively and No, I am a conversational underst",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Rohan works in Delhi.\nQuestion: Where does Rohan work?\nAnswer: ",
+          "target": "Delhi",
+          "generated": "No, I am a problem-solving is pleasoning. Please le",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kavita is in Patna. Divya is in Surat. Tanvi is in Kochi.\nQuestion: Where is Divya located?\nAnswer: ",
+          "target": "Surat",
+          "generated": "No, any er . Patnaily yo. atoms lives.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        }
+      ]
+    },
+    "L4_counterfactual_update": {
+      "total": 3,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 1,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Meera later moves to Bhopal.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "No, any you are does not .wimgrle. d.",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Pune. Later, Kabir relocated to Indore.\nQuestion: Where does Kabir live now?\nAnswer: ",
+          "target": "Indore",
+          "generated": "Nashikdoes scratch. nngal. nic. Pat",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Manish started in Delhi. Manish has moved to Amritsar.\nQuestion: Where is Manish now?\nAnswer: ",
+          "target": "Amritsar",
+          "generated": "Nashikata. Please let me know if you need an",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L5_multiple_updates": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. She moves to Bhopal. Later she moves to Indore.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Indore",
+          "generated": "No, hat an hallucknow.yasat. nat?",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Aarav was residing in Pune. He shifted to Lucknow. Finally he relocated to Goa.\nQuestion: Where does Aarav live now?\nAnswer: ",
+          "target": "Goa",
+          "generated": "No, any rath. nical mason. Patnail No,",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L6_interleaved_entities": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Meera moves to Bhopal. Aarav moves to Delhi.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "No, you are cognitive day. Please let me know",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Meera moves to Bhopal. Aarav moves to Delhi.\nQuestion: Where does Aarav work now?\nAnswer: ",
+          "target": "Delhi",
+          "generated": "No, you are cognitive day. Please share your qu",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L7_longer_conversation": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "User: Hello! Please keep track of our team.\nAssistant: Understood, I will track them.\nUser: Meera has joined the Jaipur branch.\nAssistant: Noted that Meera is in Jaipur.\nUser: Aarav joined Pune.\nAssistant: Noted that Aarav is in Pune.\nUser: Meera just transferred to Chandigarh.\nAssistant: Updated Meera's location to Chandigarh.\nUser: Where is Meera working currently?\nAssistant: ",
+          "target": "Chandigarh",
+          "generated": "Chennail is currently in Chennaiva. Patnaird",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "User: Hello! Please keep track of our team.\nAssistant: Understood, I will track them.\nUser: Meera has joined the Jaipur branch.\nAssistant: Noted that Meera is in Jaipur.\nUser: Aarav joined Pune.\nAssistant: Noted that Aarav is in Pune.\nUser: Meera just transferred to Chandigarh.\nAssistant: Updated Meera's location to Chandigarh.\nUser: Where is Aarav working currently?\nAssistant: ",
+          "target": "Pune",
+          "generated": "No, Chennai? Patnaikerathistoow cogni",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L8_natural_variations": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "User: Hey ChakrView, can you tell me where Kavita is staying? She originally arrived in Lucknow but unpacked her bags in Bhopal today.\nAssistant: ",
+          "target": "Bhopal",
+          "generated": "You are very welcome! Please let me know if you",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "User: I need to contact Manish. He left his old office in Patna and is stationed at our Kochi branch right now.\nAssistant: ",
+          "target": "Kochi",
+          "generated": "You are very welcome! Please let me know if you",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    }
+  },
+  "cr10_arm_b": {
+    "L1_single_fact": {
+      "total": 5,
+      "hits": 1,
+      "accuracy_pct": 20.0,
+      "distractor_errors": 0,
+      "abstentions": 4,
+      "details": [
+        {
+          "prompt": "Context: Meera lives in Jaipur.\nQuestion: Where does Meera live?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "The context does not state where that person lives. What would",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Aarav works in Pune.\nQuestion: Where does Aarav work?\nAnswer: ",
+          "target": "Pune",
+          "generated": "Puneanather than hallucknow.yasondu's pro",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal.\nQuestion: Where does Kabir live?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "The context does not state where that person lives.",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Manish works in Indore.\nQuestion: Where does Manish work?\nAnswer: ",
+          "target": "Indore",
+          "generated": "The context does not state where that person lives. What is to meno",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kavita lives in Amritsar.\nQuestion: Where does Kavita live?\nAnswer: ",
+          "target": "Amritsar",
+          "generated": "The context does not state where that person lives. What is to meno",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L2_multiple_entities": {
+      "total": 4,
+      "hits": 2,
+      "accuracy_pct": 50.0,
+      "distractor_errors": 0,
+      "abstentions": 2,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune.\nQuestion: Where does Meera work?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "Jaipur. Please morning! I am online and pasoning. Ple",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune.\nQuestion: Where does Aarav work?\nAnswer: ",
+          "target": "Pune",
+          "generated": "Puneanallucknow.you have a profession. P",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal. Manish lives in Indore.\nQuestion: Where does Kabir live?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "The context does not state where that person lives.",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Kabir lives in Bhopal. Manish lives in Indore.\nQuestion: Where does Manish live?\nAnswer: ",
+          "target": "Indore",
+          "generated": "The context does not state where that person lives. What are you",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L3_distractor_resistance": {
+      "total": 3,
+      "hits": 1,
+      "accuracy_pct": 33.33,
+      "distractor_errors": 1,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Rohan works in Delhi.\nQuestion: Where does Meera work?\nAnswer: ",
+          "target": "Jaipur",
+          "generated": "Jaipur. Please undervy, an any vamoon. Please",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Rohan works in Delhi.\nQuestion: Where does Rohan work?\nAnswer: ",
+          "target": "Delhi",
+          "generated": "Jaipur. applesa. Please let me knowleday.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        },
+        {
+          "prompt": "Context: Kavita is in Patna. Divya is in Surat. Tanvi is in Kochi.\nQuestion: Where is Divya located?\nAnswer: ",
+          "target": "Surat",
+          "generated": "Shimla amouna. Please understanding, contextualur",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L4_counterfactual_update": {
+      "total": 3,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 2,
+      "abstentions": 1,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Meera later moves to Bhopal.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "Jaipur.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        },
+        {
+          "prompt": "Context: Kabir lives in Pune. Later, Kabir relocated to Indore.\nQuestion: Where does Kabir live now?\nAnswer: ",
+          "target": "Indore",
+          "generated": "Puneal, yrst 4",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        },
+        {
+          "prompt": "Context: Manish started in Delhi. Manish has moved to Amritsar.\nQuestion: Where is Manish now?\nAnswer: ",
+          "target": "Amritsar",
+          "generated": "The context does not state where that person lives. What are you",
+          "is_hit": false,
+          "is_abstained": true,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L5_multiple_updates": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 1,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. She moves to Bhopal. Later she moves to Indore.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Indore",
+          "generated": "Puneanallucknow.yason?",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "Context: Aarav was residing in Pune. He shifted to Lucknow. Finally he relocated to Goa.\nQuestion: Where does Aarav live now?\nAnswer: ",
+          "target": "Goa",
+          "generated": "Puneuum. Please understanding is to you right no",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        }
+      ]
+    },
+    "L6_interleaved_entities": {
+      "total": 2,
+      "hits": 1,
+      "accuracy_pct": 50.0,
+      "distractor_errors": 1,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Meera moves to Bhopal. Aarav moves to Delhi.\nQuestion: Where does Meera work now?\nAnswer: ",
+          "target": "Bhopal",
+          "generated": "Puneanal is currently in Bhopal. Please let me know.",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": true
+        },
+        {
+          "prompt": "Context: Meera works in Jaipur. Aarav works in Pune. Meera moves to Bhopal. Aarav moves to Delhi.\nQuestion: Where does Aarav work now?\nAnswer: ",
+          "target": "Delhi",
+          "generated": "Puneanallucknow.Chennai.Chennai. P",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        }
+      ]
+    },
+    "L7_longer_conversation": {
+      "total": 2,
+      "hits": 1,
+      "accuracy_pct": 50.0,
+      "distractor_errors": 1,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "User: Hello! Please keep track of our team.\nAssistant: Understood, I will track them.\nUser: Meera has joined the Jaipur branch.\nAssistant: Noted that Meera is in Jaipur.\nUser: Aarav joined Pune.\nAssistant: Noted that Aarav is in Pune.\nUser: Meera just transferred to Chandigarh.\nAssistant: Updated Meera's location to Chandigarh.\nUser: Where is Meera working currently?\nAssistant: ",
+          "target": "Chandigarh",
+          "generated": "Puneaa. PuneBIt is currently in Puneyour for con",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": true
+        },
+        {
+          "prompt": "User: Hello! Please keep track of our team.\nAssistant: Understood, I will track them.\nUser: Meera has joined the Jaipur branch.\nAssistant: Noted that Meera is in Jaipur.\nUser: Aarav joined Pune.\nAssistant: Noted that Aarav is in Pune.\nUser: Meera just transferred to Chandigarh.\nAssistant: Updated Meera's location to Chandigarh.\nUser: Where is Aarav working currently?\nAssistant: ",
+          "target": "Pune",
+          "generated": "You is currently in Chennai. Puneaumbylyes",
+          "is_hit": true,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    },
+    "L8_natural_variations": {
+      "total": 2,
+      "hits": 0,
+      "accuracy_pct": 0.0,
+      "distractor_errors": 0,
+      "abstentions": 0,
+      "details": [
+        {
+          "prompt": "User: Hey ChakrView, can you tell me where Kavita is staying? She originally arrived in Lucknow but unpacked her bags in Bhopal today.\nAssistant: ",
+          "target": "Bhopal",
+          "generated": "You are profession. Please let me knowleasoning.",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        },
+        {
+          "prompt": "User: I need to contact Manish. He left his old office in Patna and is stationed at our Kochi branch right now.\nAssistant: ",
+          "target": "Kochi",
+          "generated": "You are profession. Please let me knowledge hall",
+          "is_hit": false,
+          "is_abstained": false,
+          "has_distractor": false
+        }
+      ]
+    }
+  }
+}
