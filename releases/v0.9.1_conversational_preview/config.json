@@ -1,0 +1,38 @@
+{
+  "release_version": "v0.9.1",
+  "codename": "Conversational Preview",
+  "release_date": "2026-11-11",
+  "architecture": {
+    "model_name": "ChakrMicro v0.1",
+    "total_parameters": 3443136,
+    "vocab_size": 4096,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "d_mlp": 512,
+    "max_sequence_length": 512,
+    "activation": "gelu"
+  },
+  "training": {
+    "parent_checkpoint": "experiments/cbr01_sft/runs/cbr_sft_04/checkpoints/sft_checkpoint_step_200.pt",
+    "parent_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "training_corpus": "CR17-Conversational-Corpus-v1 (1,419 train records)",
+    "training_steps": 500,
+    "batch_size": 4,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 8,
+    "learning_rate": 8e-5,
+    "lr_schedule": "cosine_with_warmup (warmup_steps=30)",
+    "optimizer": "AdamW (weight_decay=0.01)",
+    "initial_val_loss": 3.8423,
+    "final_val_loss": 2.8516,
+    "final_val_acc": 0.5028
+  },
+  "decoding_defaults": {
+    "temperature": 0.0,
+    "repetition_penalty": 1.15,
+    "no_repeat_ngram_size": 3,
+    "max_new_tokens": 48
+  },
+  "checkpoint_sha256": "f161ccdc501bca34f6ed2019252f2e51d18fa113ce0cc90187c4ff0cdd180d10"
+}
