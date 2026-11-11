@@ -1,0 +1,116 @@
+[
+  {
+    "scenario": "single_turn",
+    "prompt": "User: Hi! Assistant:",
+    "response": "Hello!",
+    "prompt_tokens_len": 12,
+    "total_tokens_len": 16,
+    "prompt_fully_masked": true,
+    "response_fully_supervised": true,
+    "ends_with_eos": true,
+    "supervised_tokens": [
+      3860,
+      317,
+      36,
+      1
+    ]
+  },
+  {
+    "scenario": "two_turn",
+    "prompt": "User: I am Alice. Assistant: Nice to meet you Alice. User: What is my name? Assistant:",
+    "response": "Your name is Alice.",
+    "prompt_tokens_len": 44,
+    "total_tokens_len": 54,
+    "prompt_fully_masked": true,
+    "response_fully_supervised": true,
+    "ends_with_eos": true,
+    "supervised_tokens": [
+      92,
+      114,
+      483,
+      709,
+      1711,
+      589,
+      68,
+      688,
+      428,
+      1
+    ]
+  },
+  {
+    "scenario": "three_turn",
+    "prompt": "User: Fact 1. Assistant: Noted. User: Fact 2. Assistant: Recorded. User: Query. Assistant:",
+    "response": "Answer is 1 and 2.",
+    "prompt_tokens_len": 47,
+    "total_tokens_len": 56,
+    "prompt_fully_masked": true,
+    "response_fully_supervised": true,
+    "ends_with_eos": true,
+    "supervised_tokens": [
+      68,
+      113,
+      118,
+      2418,
+      589,
+      465,
+      354,
+      1634,
+      1
+    ]
+  },
+  {
+    "scenario": "empty_assistant_guard",
+    "prompt": "User: Hello Assistant:",
+    "response": "",
+    "prompt_tokens_len": 11,
+    "total_tokens_len": 12,
+    "prompt_fully_masked": true,
+    "response_fully_supervised": true,
+    "ends_with_eos": true,
+    "supervised_tokens": [
+      1
+    ]
+  },
+  {
+    "scenario": "long_repetition",
+    "prompt": "User: Tell me a story Assistant:",
+    "response": "Once upon a time in a land far away there lived a king and queen.",
+    "prompt_tokens_len": 17,
+    "total_tokens_len": 47,
+    "prompt_fully_masked": true,
+    "response_fully_supervised": true,
+    "ends_with_eos": true,
+    "supervised_tokens": [
+      82,
+      113,
+      761,
+      575,
+      320,
+      303,
+      1078,
+      356,
+      303,
+      111,
+      354,
+      105,
+      448,
+      100,
+      1358,
+      301,
+      310,
+      283,
+      267,
+      335,
+      121,
+      394,
+      303,
+      110,
+      2687,
+      445,
+      104,
+      275,
+      49,
+      1
+    ]
+  }
+]
