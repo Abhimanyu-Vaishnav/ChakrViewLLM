@@ -1,0 +1,127 @@
+{
+  "baseline_scores": {
+    "Delhi": {
+      "total_lp": -7.9578,
+      "mean_lp": -2.6526,
+      "tok1_lp": -3.9983
+    },
+    "Jaipur": {
+      "total_lp": -11.7089,
+      "mean_lp": -3.903,
+      "tok1_lp": -6.0836
+    },
+    "Mumbai": {
+      "total_lp": -16.9659,
+      "mean_lp": -4.2415,
+      "tok1_lp": -5.3653
+    }
+  },
+  "interventions": [
+    {
+      "layer": 0,
+      "intervention": "value_replacement_[12,13,14]_Delhi_into_Jaipur_prompt",
+      "scores": {
+        "Delhi": {
+          "total_lp": -7.7154,
+          "mean_lp": -2.5718,
+          "tok1_lp": -3.7469
+        },
+        "Jaipur": {
+          "total_lp": -11.9128,
+          "mean_lp": -3.9709,
+          "tok1_lp": -6.1673
+        },
+        "Mumbai": {
+          "total_lp": -16.9649,
+          "mean_lp": -4.2412,
+          "tok1_lp": -5.3174
+        }
+      },
+      "delhi_delta_lp": 0.2424,
+      "jaipur_delta_lp": -0.2039,
+      "delhi_favored_shift": 0.4463
+    },
+    {
+      "layer": 2,
+      "intervention": "value_replacement_[12,13,14]_Delhi_into_Jaipur_prompt",
+      "scores": {
+        "Delhi": {
+          "total_lp": -7.7184,
+          "mean_lp": -2.5728,
+          "tok1_lp": -3.6313
+        },
+        "Jaipur": {
+          "total_lp": -11.8136,
+          "mean_lp": -3.9379,
+          "tok1_lp": -6.062
+        },
+        "Mumbai": {
+          "total_lp": -16.8741,
+          "mean_lp": -4.2185,
+          "tok1_lp": -5.2286
+        }
+      },
+      "delhi_delta_lp": 0.2394,
+      "jaipur_delta_lp": -0.1047,
+      "delhi_favored_shift": 0.3441
+    },
+    {
+      "layer": 4,
+      "intervention": "value_replacement_[12,13,14]_Delhi_into_Jaipur_prompt",
+      "scores": {
+        "Delhi": {
+          "total_lp": -7.755,
+          "mean_lp": -2.585,
+          "tok1_lp": -3.7969
+        },
+        "Jaipur": {
+          "total_lp": -11.6594,
+          "mean_lp": -3.8865,
+          "tok1_lp": -6.0276
+        },
+        "Mumbai": {
+          "total_lp": -16.8802,
+          "mean_lp": -4.22,
+          "tok1_lp": -5.2504
+        }
+      },
+      "delhi_delta_lp": 0.2028,
+      "jaipur_delta_lp": 0.0495,
+      "delhi_favored_shift": 0.1533
+    },
+    {
+      "layer": 5,
+      "intervention": "value_replacement_[12,13,14]_Delhi_into_Jaipur_prompt",
+      "scores": {
+        "Delhi": {
+          "total_lp": -7.9578,
+          "mean_lp": -2.6526,
+          "tok1_lp": -3.9983
+        },
+        "Jaipur": {
+          "total_lp": -11.7089,
+          "mean_lp": -3.903,
+          "tok1_lp": -6.0836
+        },
+        "Mumbai": {
+          "total_lp": -16.9659,
+          "mean_lp": -4.2415,
+          "tok1_lp": -5.3653
+        }
+      },
+      "delhi_delta_lp": 0.0,
+      "jaipur_delta_lp": 0.0,
+      "delhi_favored_shift": 0.0
+    }
+  ],
+  "control_intervention": {
+    "layer": 2,
+    "hook_pos": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "delhi_delta_lp": 0.0
+  }
+}

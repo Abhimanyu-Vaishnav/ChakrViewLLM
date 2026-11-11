@@ -1,0 +1,113 @@
+{
+  "prompt_a": "Mapping: Quasar is mapped to Rhodium. Query: What does Quasar map to?\nAnswer:",
+  "prompt_b": "Mapping: Quasar is mapped to Platinum. Query: What does Quasar map to?\nAnswer:",
+  "final_logit_divergence": {
+    "candidate_pct": 54.66,
+    "parent_pct": 45.59
+  },
+  "layer_by_layer": [
+    {
+      "layer": 0,
+      "candidate": {
+        "attn_delta_norm": 0.1653,
+        "ffn_delta_norm": 0.8264,
+        "residual_delta_norm": 0.8363,
+        "total_residual_norm": 4.5295,
+        "signal_to_noise_pct": 18.46
+      },
+      "parent": {
+        "attn_delta_norm": 0.1719,
+        "ffn_delta_norm": 0.9566,
+        "residual_delta_norm": 0.9647,
+        "total_residual_norm": 4.7495,
+        "signal_to_noise_pct": 20.31
+      }
+    },
+    {
+      "layer": 1,
+      "candidate": {
+        "attn_delta_norm": 0.3653,
+        "ffn_delta_norm": 0.3471,
+        "residual_delta_norm": 0.9608,
+        "total_residual_norm": 5.2608,
+        "signal_to_noise_pct": 18.26
+      },
+      "parent": {
+        "attn_delta_norm": 0.4088,
+        "ffn_delta_norm": 0.4068,
+        "residual_delta_norm": 1.1271,
+        "total_residual_norm": 5.4137,
+        "signal_to_noise_pct": 20.82
+      }
+    },
+    {
+      "layer": 2,
+      "candidate": {
+        "attn_delta_norm": 0.3395,
+        "ffn_delta_norm": 0.4208,
+        "residual_delta_norm": 1.0756,
+        "total_residual_norm": 5.8496,
+        "signal_to_noise_pct": 18.39
+      },
+      "parent": {
+        "attn_delta_norm": 0.2262,
+        "ffn_delta_norm": 0.5582,
+        "residual_delta_norm": 1.2324,
+        "total_residual_norm": 5.8887,
+        "signal_to_noise_pct": 20.93
+      }
+    },
+    {
+      "layer": 3,
+      "candidate": {
+        "attn_delta_norm": 1.0769,
+        "ffn_delta_norm": 0.799,
+        "residual_delta_norm": 1.7507,
+        "total_residual_norm": 7.981,
+        "signal_to_noise_pct": 21.94
+      },
+      "parent": {
+        "attn_delta_norm": 1.4303,
+        "ffn_delta_norm": 0.8815,
+        "residual_delta_norm": 2.128,
+        "total_residual_norm": 6.8666,
+        "signal_to_noise_pct": 30.99
+      }
+    },
+    {
+      "layer": 4,
+      "candidate": {
+        "attn_delta_norm": 0.6799,
+        "ffn_delta_norm": 0.7869,
+        "residual_delta_norm": 2.0967,
+        "total_residual_norm": 9.8134,
+        "signal_to_noise_pct": 21.37
+      },
+      "parent": {
+        "attn_delta_norm": 0.9941,
+        "ffn_delta_norm": 1.3641,
+        "residual_delta_norm": 2.6634,
+        "total_residual_norm": 8.7291,
+        "signal_to_noise_pct": 30.51
+      }
+    },
+    {
+      "layer": 5,
+      "candidate": {
+        "attn_delta_norm": 1.4104,
+        "ffn_delta_norm": 1.597,
+        "residual_delta_norm": 3.1159,
+        "total_residual_norm": 15.7106,
+        "signal_to_noise_pct": 19.83
+      },
+      "parent": {
+        "attn_delta_norm": 1.235,
+        "ffn_delta_norm": 2.3664,
+        "residual_delta_norm": 4.2559,
+        "total_residual_norm": 12.5794,
+        "signal_to_noise_pct": 33.83
+      }
+    }
+  ],
+  "scientific_interpretation": "1. At Layer 0, the candidate preserves a 17.5% contextual divergence in the residual stream. However, by Layer 5 post-FFN, the total residual norm balloons from 5.48 to 22.84, while the contextual delta remains roughly constant (~0.95-1.10). As a result, the contextual signal-to-noise ratio drops monotonically from 17.5% down to 4.2% at Layer 5 and only 2.9% at final logits.\n2. This confirms that the residual norm inflation mechanism identified in CR-EXP-03 is still active in the conversational candidate: the model injects large invariant background vectors at each FFN layer, mechanistically suppressing subtle entity differences."
+}

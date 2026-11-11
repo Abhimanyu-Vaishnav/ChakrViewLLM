@@ -93,3 +93,4 @@ All 7 models were evaluated across 8 decomposed capability tasks on the sealed 1
   - Candidate D: `76649964e0d6732a229b77bc54c0afd14a339bef26eb8f06c04865639a0d2989`
   - Arch Arm B: `bfc1f907acd21c8deef67ba4529682f4a410ac63cf7947a13f83aa5ad2e9b57c`
   - Arch Arm C: `bfc587af1aac0bd95e0726c2802e8a9fea5107b88bc66df05e88a34509418cb8`
+

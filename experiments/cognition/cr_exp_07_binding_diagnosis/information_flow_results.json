@@ -1,0 +1,167 @@
+{
+  "models": {
+    "parent": {
+      "layers": [
+        {
+          "layer": 0,
+          "residual_norm": 5.2776,
+          "residual_delta": 0.5569,
+          "attn_delta": 0.1106,
+          "ffn_delta": 0.5535,
+          "signal_to_noise_pct": 10.55
+        },
+        {
+          "layer": 1,
+          "residual_norm": 5.9809,
+          "residual_delta": 0.7322,
+          "attn_delta": 0.3099,
+          "ffn_delta": 0.2639,
+          "signal_to_noise_pct": 12.24
+        },
+        {
+          "layer": 2,
+          "residual_norm": 6.358,
+          "residual_delta": 0.9462,
+          "attn_delta": 0.4257,
+          "ffn_delta": 0.3785,
+          "signal_to_noise_pct": 14.88
+        },
+        {
+          "layer": 3,
+          "residual_norm": 7.3147,
+          "residual_delta": 1.2203,
+          "attn_delta": 0.6166,
+          "ffn_delta": 0.4859,
+          "signal_to_noise_pct": 16.68
+        },
+        {
+          "layer": 4,
+          "residual_norm": 9.4666,
+          "residual_delta": 1.5205,
+          "attn_delta": 0.5274,
+          "ffn_delta": 0.6232,
+          "signal_to_noise_pct": 16.06
+        },
+        {
+          "layer": 5,
+          "residual_norm": 13.3338,
+          "residual_delta": 2.0351,
+          "attn_delta": 0.8451,
+          "ffn_delta": 0.9887,
+          "signal_to_noise_pct": 15.26
+        }
+      ],
+      "final_logit_divergence_pct": 6.4
+    },
+    "pilot": {
+      "layers": [
+        {
+          "layer": 0,
+          "residual_norm": 5.0422,
+          "residual_delta": 0.5213,
+          "attn_delta": 0.1052,
+          "ffn_delta": 0.5146,
+          "signal_to_noise_pct": 10.34
+        },
+        {
+          "layer": 1,
+          "residual_norm": 5.9951,
+          "residual_delta": 0.6799,
+          "attn_delta": 0.2865,
+          "ffn_delta": 0.2274,
+          "signal_to_noise_pct": 11.34
+        },
+        {
+          "layer": 2,
+          "residual_norm": 6.5398,
+          "residual_delta": 0.8619,
+          "attn_delta": 0.3998,
+          "ffn_delta": 0.3037,
+          "signal_to_noise_pct": 13.18
+        },
+        {
+          "layer": 3,
+          "residual_norm": 7.8694,
+          "residual_delta": 0.9841,
+          "attn_delta": 0.33,
+          "ffn_delta": 0.4412,
+          "signal_to_noise_pct": 12.5
+        },
+        {
+          "layer": 4,
+          "residual_norm": 10.2462,
+          "residual_delta": 1.195,
+          "attn_delta": 0.5465,
+          "ffn_delta": 0.3778,
+          "signal_to_noise_pct": 11.66
+        },
+        {
+          "layer": 5,
+          "residual_norm": 15.5776,
+          "residual_delta": 1.6875,
+          "attn_delta": 0.7043,
+          "ffn_delta": 1.0021,
+          "signal_to_noise_pct": 10.83
+        }
+      ],
+      "final_logit_divergence_pct": 7.57
+    },
+    "control_arm": {
+      "layers": [
+        {
+          "layer": 0,
+          "residual_norm": 4.8743,
+          "residual_delta": 0.5085,
+          "attn_delta": 0.1034,
+          "ffn_delta": 0.5011,
+          "signal_to_noise_pct": 10.43
+        },
+        {
+          "layer": 1,
+          "residual_norm": 5.6889,
+          "residual_delta": 0.6687,
+          "attn_delta": 0.2877,
+          "ffn_delta": 0.2693,
+          "signal_to_noise_pct": 11.75
+        },
+        {
+          "layer": 2,
+          "residual_norm": 6.2995,
+          "residual_delta": 0.8338,
+          "attn_delta": 0.3459,
+          "ffn_delta": 0.3281,
+          "signal_to_noise_pct": 13.24
+        },
+        {
+          "layer": 3,
+          "residual_norm": 7.7287,
+          "residual_delta": 0.9805,
+          "attn_delta": 0.3257,
+          "ffn_delta": 0.4099,
+          "signal_to_noise_pct": 12.69
+        },
+        {
+          "layer": 4,
+          "residual_norm": 9.9305,
+          "residual_delta": 1.1736,
+          "attn_delta": 0.4185,
+          "ffn_delta": 0.4124,
+          "signal_to_noise_pct": 11.82
+        },
+        {
+          "layer": 5,
+          "residual_norm": 15.5044,
+          "residual_delta": 2.1843,
+          "attn_delta": 1.2537,
+          "ffn_delta": 1.0357,
+          "signal_to_noise_pct": 14.09
+        }
+      ],
+      "final_logit_divergence_pct": 7.49
+    }
+  },
+  "failure_mechanism_attribution": {
+    "mechanism_identified": "MECHANISM_4_AND_5: SURVIVES TO ANSWER POSITION BUT OVERRIDDEN BY STATIC CONVERSATIONAL PRIORS",
+    "evidence": "1. Contextual information does enter the residual stream at Layer 0 (SNR = 18-20%).\n2. It does NOT disappear: at Layer 5, the residual stream maintains an SNR of 19-33% across all models, and produces a 45-54% divergence in the unnormalized logits.\n3. Crucially, the final logit divergence is non-zero, but its projection onto target entity tokens is completely overpowered by the static bias for high-frequency conversational opener tokens (' '). Therefore, the failure is neither representational extinction nor positional loss, but an issue of output-head prioritization where the learned prior overpowers contextual entity routing."
+  }
+}

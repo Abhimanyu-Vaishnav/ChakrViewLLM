@@ -1,0 +1,22 @@
+# CR-EXP-16C Artifact SHA-256 Manifest
+
+Generated: 2026-11-10
+Experiment: CR-EXP-16C Independent Copying Audit & Controlled Key-Value Retrieval Acquisition
+
+## 1. Baselines & Critical Infrastructure
+- `chakrview/runtime/session.py`: `9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67` *(Bit-for-bit unchanged)*
+- Canonical Stage B Checkpoint: `96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee`
+- Frozen CR-16 Benchmark (1,000 probes): `0b61e73d57d903f34dc789736ecd9957c5633c1018fc8c8264bd1e1cb73cac97`
+- Frozen CR-16B Benchmark (1,500 probes): `44aba606abfee0beac5b129eb7e5199b8f178c8b96314b0f7314ae75a6d56e1c`
+
+## 2. New Sealed Benchmark & Datasets (CR-16C)
+- `data/cr16c_sealed_benchmark_1500.json`: `033f807ba518c168e095c1bebe68b1e2bf7c743ba0cc8af2320a1ffc334dceae` *(1,500 sealed probes)*
+- `data/cr16c_retrieval_train.json`: `e6d6ec67cd5f00c025f8f74c68b52f732b981cd2634bfb2962af344f6b1f6f5d` *(3,000 samples, zero leakage)*
+- `data/cr16c_retrieval_val.json`: `f2548e592496b914df150a09818372a12c7965d9b6d345190c1cb97017094a9e` *(500 samples, zero leakage)*
+
+## 3. Retrieval Candidate Checkpoints
+- `checkpoints/retrieval_arm_a_target_masked_seed42/retrieval_arm_a_target_masked_best.pt`: `d287bf3abe44198d0a9eac1da5f5bc175301be11c825ea12ba6af6345d44ce4c`
+- `checkpoints/retrieval_arm_a_target_masked_seed101/retrieval_arm_a_target_masked_best.pt`: `7b089cd1e0093df6f0ddf200827ed226a12aecbf2384076ce30ecc8a7d16b94b`
+- `checkpoints/retrieval_arm_b_full_loss_seed42/retrieval_arm_b_full_loss_best.pt`: `707612be4311345d91649a7e795d9fffee77216e0bec2b58619a71ec183c5c5a`
+- `checkpoints/retrieval_arm_b_full_loss_seed101/retrieval_arm_b_full_loss_best.pt`: `55b741263c6963042fc36e5bd18cab4e65adbaa5026c76553263e5e97a6c3afc`
+

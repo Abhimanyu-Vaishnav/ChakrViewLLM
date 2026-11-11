@@ -1,0 +1,3033 @@
+{
+  "summary": {
+    "model_name": "cr16a_arm_d",
+    "checkpoint_path": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16a_copying_recovery\\checkpoints\\arm_d_generalization\\arm_d_generalization_best.pt",
+    "total_copy_probes": 300,
+    "total_exact": 66,
+    "exact_accuracy": 0.22,
+    "total_presence": 74,
+    "presence_accuracy": 0.24666666666666667,
+    "by_category": {
+      "exact_sequence_copying": {
+        "total": 100,
+        "exact": 66,
+        "token_presence": 74,
+        "first_token_correct": 100
+      },
+      "single_token_copying": {
+        "total": 100,
+        "exact": 0,
+        "token_presence": 0,
+        "first_token_correct": 78
+      },
+      "multi_token_copying": {
+        "total": 100,
+        "exact": 0,
+        "token_presence": 0,
+        "first_token_correct": 88
+      }
+    }
+  },
+  "generations": [
+    {
+      "id": "CR16_COPY_SEQ_0001",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: delta beta omicron zeta\nOutput: ",
+      "target": "delta beta omicron zeta",
+      "pred": "delta beta omicron zeta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0002",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi kappa zeta pi\nOutput: ",
+      "target": "xi kappa zeta pi",
+      "pred": "xi kappa zeta pi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0003",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: pi mu nu\nOutput: ",
+      "target": "pi mu nu",
+      "pred": "pi mu nu nu",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0004",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: tau epsilon zeta gamma omicron\nOutput: ",
+      "target": "tau epsilon zeta gamma omicron",
+      "pred": "tau zeta gamma omicron omicron",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0005",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: tau eta omicron mu\nOutput: ",
+      "target": "tau eta omicron mu",
+      "pred": "tau eta omicron mu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0006",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa theta zeta delta lambda epsilon\nOutput: ",
+      "target": "kappa theta zeta delta lambda epsilon",
+      "pred": "kappa theta zeta delta lambda epsilon",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0007",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: nu theta gamma kappa mu\nOutput: ",
+      "target": "nu theta gamma kappa mu",
+      "pred": "nu theta gamma kappa mu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0008",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: zeta kappa lambda epsilon xi\nOutput: ",
+      "target": "zeta kappa lambda epsilon xi",
+      "pred": "zeta kappa lambda epsilon xi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0009",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma mu rho\nOutput: ",
+      "target": "gamma mu rho",
+      "pred": "gamma mu rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0010",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi mu theta eta zeta gamma\nOutput: ",
+      "target": "xi mu theta eta zeta gamma",
+      "pred": "xi mu theta zeta nu zeta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0011",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: tau beta xi theta nu epsilon\nOutput: ",
+      "target": "tau beta xi theta nu epsilon",
+      "pred": "tau beta xi theta nu theta nu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0012",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi epsilon gamma kappa theta beta\nOutput: ",
+      "target": "xi epsilon gamma kappa theta beta",
+      "pred": "xi gamma gamma kappa theta theta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0013",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta rho eta tau zeta pi\nOutput: ",
+      "target": "beta rho eta tau zeta pi",
+      "pred": "beta rho eta tau zeta pi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0014",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta beta theta kappa gamma\nOutput: ",
+      "target": "eta beta theta kappa gamma",
+      "pred": "eta beta theta kappa gamma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0015",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: nu tau delta kappa lambda eta\nOutput: ",
+      "target": "nu tau delta kappa lambda eta",
+      "pred": "nu delta kappa lambda lambda eta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0016",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon gamma zeta pi\nOutput: ",
+      "target": "epsilon gamma zeta pi",
+      "pred": "epsilon gamma zeta pi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0017",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma beta rho mu\nOutput: ",
+      "target": "gamma beta rho mu",
+      "pred": "gamma beta rho mu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0018",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta lambda xi iota kappa\nOutput: ",
+      "target": "theta lambda xi iota kappa",
+      "pred": "theta lambda xi iota kappa",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0019",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: sigma nu alpha kappa iota\nOutput: ",
+      "target": "sigma nu alpha kappa iota",
+      "pred": "sigma nu alpha kappa iota",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0020",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma alpha epsilon rho tau delta\nOutput: ",
+      "target": "gamma alpha epsilon rho tau delta",
+      "pred": "gamma alpha epsilon rho tau delta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0021",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: iota pi tau gamma omicron rho\nOutput: ",
+      "target": "iota pi tau gamma omicron rho",
+      "pred": "iota pi gamma omicron rho",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0022",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho lambda omicron alpha sigma\nOutput: ",
+      "target": "rho lambda omicron alpha sigma",
+      "pred": "rho lambda omicron alpha sigma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0023",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta xi nu\nOutput: ",
+      "target": "beta xi nu",
+      "pred": "beta xi nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0024",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: delta theta tau lambda sigma nu\nOutput: ",
+      "target": "delta theta tau lambda sigma nu",
+      "pred": "delta theta tau lambda sigma nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0025",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta sigma nu alpha theta\nOutput: ",
+      "target": "eta sigma nu alpha theta",
+      "pred": "eta sigma nu alpha theta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0026",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta tau nu theta\nOutput: ",
+      "target": "beta tau nu theta",
+      "pred": "beta tau nu nu nu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0027",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta nu xi\nOutput: ",
+      "target": "theta nu xi",
+      "pred": "theta nu nu xi",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0028",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: sigma pi theta\nOutput: ",
+      "target": "sigma pi theta",
+      "pred": "sigma pi theta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0029",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta pi beta delta gamma iota\nOutput: ",
+      "target": "theta pi beta delta gamma iota",
+      "pred": "theta pi beta delta gamma iota",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0030",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon gamma sigma iota xi rho\nOutput: ",
+      "target": "epsilon gamma sigma iota xi rho",
+      "pred": "epsilon gamma sigma iota xi rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0031",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: omicron zeta nu lambda\nOutput: ",
+      "target": "omicron zeta nu lambda",
+      "pred": "omicron zeta nu zeta nu lambda",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0032",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: tau beta zeta\nOutput: ",
+      "target": "tau beta zeta",
+      "pred": "tau beta zeta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0033",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa sigma pi omicron delta alpha\nOutput: ",
+      "target": "kappa sigma pi omicron delta alpha",
+      "pred": "kappa sigma omicron delta alpha",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0034",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi zeta sigma\nOutput: ",
+      "target": "xi zeta sigma",
+      "pred": "xi zeta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0035",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: zeta gamma xi\nOutput: ",
+      "target": "zeta gamma xi",
+      "pred": "zeta gamma xi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0036",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: pi gamma kappa\nOutput: ",
+      "target": "pi gamma kappa",
+      "pred": "pi gamma kappa",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0037",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: iota rho zeta eta pi\nOutput: ",
+      "target": "iota rho zeta eta pi",
+      "pred": "iota rho zeta pi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0038",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: alpha rho zeta delta\nOutput: ",
+      "target": "alpha rho zeta delta",
+      "pred": "alpha rho zeta delta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0039",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho delta eta nu zeta omicron\nOutput: ",
+      "target": "rho delta eta nu zeta omicron",
+      "pred": "rho delta eta nu zeta omicron",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0040",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: sigma delta theta nu tau\nOutput: ",
+      "target": "sigma delta theta nu tau",
+      "pred": "sigma delta theta nu tau",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0041",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: delta beta tau mu\nOutput: ",
+      "target": "delta beta tau mu",
+      "pred": "delta beta tau mu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0042",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta omicron theta rho\nOutput: ",
+      "target": "beta omicron theta rho",
+      "pred": "beta omicron theta rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0043",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: sigma omicron eta\nOutput: ",
+      "target": "sigma omicron eta",
+      "pred": "sigma omicron eta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0044",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta beta delta rho\nOutput: ",
+      "target": "theta beta delta rho",
+      "pred": "theta beta delta rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0045",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta tau mu delta\nOutput: ",
+      "target": "beta tau mu delta",
+      "pred": "beta tau mu mu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0046",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: alpha mu eta beta sigma xi\nOutput: ",
+      "target": "alpha mu eta beta sigma xi",
+      "pred": "alpha mu eta beta sigma omicron sigma",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0047",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta sigma theta mu gamma\nOutput: ",
+      "target": "eta sigma theta mu gamma",
+      "pred": "eta sigma theta mu theta gamma",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0048",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon mu rho iota theta xi\nOutput: ",
+      "target": "epsilon mu rho iota theta xi",
+      "pred": "epsilon mu rho iota theta xi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0049",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: lambda sigma gamma\nOutput: ",
+      "target": "lambda sigma gamma",
+      "pred": "lambda sigma gamma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0050",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: mu nu lambda tau pi\nOutput: ",
+      "target": "mu nu lambda tau pi",
+      "pred": "mu nu nu lambda tau xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0051",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta gamma omicron alpha pi\nOutput: ",
+      "target": "eta gamma omicron alpha pi",
+      "pred": "eta gamma omicron alpha pi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0052",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: mu alpha omicron beta\nOutput: ",
+      "target": "mu alpha omicron beta",
+      "pred": "mu alpha omicron beta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0053",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa alpha mu\nOutput: ",
+      "target": "kappa alpha mu",
+      "pred": "kappa alpha",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0054",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: zeta tau epsilon delta alpha\nOutput: ",
+      "target": "zeta tau epsilon delta alpha",
+      "pred": "zeta tau epsilon delta alpha",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0055",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta delta beta tau zeta omicron\nOutput: ",
+      "target": "eta delta beta tau zeta omicron",
+      "pred": "eta delta beta tau zeta omicron",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0056",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: omicron gamma alpha tau\nOutput: ",
+      "target": "omicron gamma alpha tau",
+      "pred": "omicron gamma alpha tau",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0057",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta iota theta kappa nu\nOutput: ",
+      "target": "eta iota theta kappa nu",
+      "pred": "eta iota theta kappa nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0058",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho gamma beta\nOutput: ",
+      "target": "rho gamma beta",
+      "pred": "rho gamma beta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0059",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: pi zeta delta\nOutput: ",
+      "target": "pi zeta delta",
+      "pred": "pi zeta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0060",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon iota theta nu\nOutput: ",
+      "target": "epsilon iota theta nu",
+      "pred": "epsilon iota theta nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0061",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma xi rho omicron theta epsilon\nOutput: ",
+      "target": "gamma xi rho omicron theta epsilon",
+      "pred": "gamma xi rho omicron theta epsilon",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0062",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: mu theta sigma iota\nOutput: ",
+      "target": "mu theta sigma iota",
+      "pred": "mu theta iota",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0063",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: alpha delta nu eta\nOutput: ",
+      "target": "alpha delta nu eta",
+      "pred": "alpha delta nu nu eta eta",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0064",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa mu zeta epsilon rho\nOutput: ",
+      "target": "kappa mu zeta epsilon rho",
+      "pred": "kappa mu zeta epsilon rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0065",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: mu alpha zeta eta pi delta\nOutput: ",
+      "target": "mu alpha zeta eta pi delta",
+      "pred": "mu alpha zeta pi delta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0066",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: sigma epsilon gamma nu eta mu\nOutput: ",
+      "target": "sigma epsilon gamma nu eta mu",
+      "pred": "sigma epsilon gamma nu nu eta mu",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0067",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa beta iota zeta lambda mu\nOutput: ",
+      "target": "kappa beta iota zeta lambda mu",
+      "pred": "kappa beta iota zeta lambda mu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0068",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon zeta delta\nOutput: ",
+      "target": "epsilon zeta delta",
+      "pred": "epsilon zeta delta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0069",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: nu theta pi omicron xi lambda\nOutput: ",
+      "target": "nu theta pi omicron xi lambda",
+      "pred": "nu thpa omicron xi lambda",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0070",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: zeta alpha mu xi lambda pi\nOutput: ",
+      "target": "zeta alpha mu xi lambda pi",
+      "pred": "zeta alpha mu xi lambda pi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0071",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma sigma alpha pi\nOutput: ",
+      "target": "gamma sigma alpha pi",
+      "pred": "gamma sigma alpha",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0072",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: mu epsilon xi alpha theta\nOutput: ",
+      "target": "mu epsilon xi alpha theta",
+      "pred": "mu epsilon xi alpha theta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0073",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: omicron lambda nu\nOutput: ",
+      "target": "omicron lambda nu",
+      "pred": "omicron lambda nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0074",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi delta omicron alpha nu\nOutput: ",
+      "target": "xi delta omicron alpha nu",
+      "pred": "xi delta omicron omicron nu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0075",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta pi nu rho kappa\nOutput: ",
+      "target": "eta pi nu rho kappa",
+      "pred": "eta pi nu rho kappa kappa",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0076",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: pi zeta mu gamma delta\nOutput: ",
+      "target": "pi zeta mu gamma delta",
+      "pred": "pi zeta mu gamma delta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0077",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: lambda omicron rho delta\nOutput: ",
+      "target": "lambda omicron rho delta",
+      "pred": "lambda omicron rho delta",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0078",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: xi eta omicron zeta alpha\nOutput: ",
+      "target": "xi eta omicron zeta alpha",
+      "pred": "xi eta omicron zeta alpha",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0079",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: epsilon nu pi tau rho\nOutput: ",
+      "target": "epsilon nu pi tau rho",
+      "pred": "epsilon nu pi tau pi theta",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0080",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: nu mu eta theta rho\nOutput: ",
+      "target": "nu mu eta theta rho",
+      "pred": "nu mu eta theta rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0081",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho alpha kappa gamma\nOutput: ",
+      "target": "rho alpha kappa gamma",
+      "pred": "rho alpha kappa gamma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0082",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: pi gamma epsilon\nOutput: ",
+      "target": "pi gamma epsilon",
+      "pred": "pi gamma epsilon",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0083",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: omicron pi delta nu alpha tau\nOutput: ",
+      "target": "omicron pi delta nu alpha tau",
+      "pred": "omicron pi delta nu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0084",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: zeta mu eta sigma\nOutput: ",
+      "target": "zeta mu eta sigma",
+      "pred": "zeta mu eta sigma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0085",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho zeta gamma beta omicron nu\nOutput: ",
+      "target": "rho zeta gamma beta omicron nu",
+      "pred": "rho zeta gamma beta omicron nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0086",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: tau kappa beta xi iota\nOutput: ",
+      "target": "tau kappa beta xi iota",
+      "pred": "tau kappa beta xi iota",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0087",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: nu gamma omicron\nOutput: ",
+      "target": "nu gamma omicron",
+      "pred": "nu gamma omicron",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0088",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta gamma pi epsilon rho\nOutput: ",
+      "target": "beta gamma pi epsilon rho",
+      "pred": "beta gamma pi epsilon rho",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0089",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: rho theta xi alpha iota\nOutput: ",
+      "target": "rho theta xi alpha iota",
+      "pred": "rho theta xi alpha iota",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0090",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta xi tau omicron alpha gamma\nOutput: ",
+      "target": "theta xi tau omicron alpha gamma",
+      "pred": "theta xi tau omicron alpha",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0091",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: kappa tau theta gamma nu\nOutput: ",
+      "target": "kappa tau theta gamma nu",
+      "pred": "kappa tau theta gamma nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0092",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta delta omicron zeta kappa\nOutput: ",
+      "target": "theta delta omicron zeta kappa",
+      "pred": "theta omicron omicron zeta kappa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0093",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: iota kappa alpha pi beta tau\nOutput: ",
+      "target": "iota kappa alpha pi beta tau",
+      "pred": "iota kappa alpha pi tau",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0094",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: delta rho lambda\nOutput: ",
+      "target": "delta rho lambda",
+      "pred": "delta rho lambda",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0095",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta sigma epsilon nu gamma\nOutput: ",
+      "target": "theta sigma epsilon nu gamma",
+      "pred": "theta sigma epsilon nu nu gamma",
+      "is_exact": false,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0096",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: eta tau kappa zeta iota sigma\nOutput: ",
+      "target": "eta tau kappa zeta iota sigma",
+      "pred": "eta tau kappa zeta iota sigma",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0097",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: theta eta beta gamma nu\nOutput: ",
+      "target": "theta eta beta gamma nu",
+      "pred": "theta eta gamma gamma nu",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0098",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: gamma nu iota alpha xi\nOutput: ",
+      "target": "gamma nu iota alpha xi",
+      "pred": "gamma nu iota alpha xi",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0099",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: beta epsilon lambda\nOutput: ",
+      "target": "beta epsilon lambda",
+      "pred": "beta epsilon lambda",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SEQ_0100",
+      "category": "exact_sequence_copying",
+      "prompt": "Echo sequence: lambda delta nu\nOutput: ",
+      "target": "lambda delta nu",
+      "pred": "lambda delta nu",
+      "is_exact": true,
+      "is_presence": true,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0101",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0102",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0103",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0104",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0105",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0106",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0107",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0108",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0109",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0110",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0111",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0112",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0113",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0114",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0115",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0116",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0117",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0118",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0119",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0120",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0121",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0122",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0123",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0124",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0125",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0126",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0127",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0128",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0129",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0130",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0131",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0132",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0133",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0134",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0135",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0136",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0137",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0138",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0139",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0140",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0141",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0142",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0143",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0144",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0145",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0146",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0147",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0148",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0149",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0150",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0151",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0152",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0153",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0154",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0155",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0156",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0157",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0158",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0159",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0160",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0161",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0162",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0163",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0164",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0165",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0166",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0167",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0168",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0169",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0170",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Mona\nName: ",
+      "target": "Mona",
+      "pred": "Monald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0171",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0172",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0173",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0174",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0175",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Amit\nName: ",
+      "target": "Amit",
+      "pred": "Arjun",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0176",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0177",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0178",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0179",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0180",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0181",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0182",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0183",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0184",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0185",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0186",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0187",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0188",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0189",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0190",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Alok\nName: ",
+      "target": "Alok",
+      "pred": "Aroad",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0191",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0192",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0193",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Roy\nName: ",
+      "target": "Roy",
+      "pred": "Rohan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0194",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0195",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0196",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0197",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Dev\nName: ",
+      "target": "Dev",
+      "pred": "cloud white",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0198",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Ritu\nName: ",
+      "target": "Ritu",
+      "pred": "Ronald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0199",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Prem\nName: ",
+      "target": "Prem",
+      "pred": "pi xi xi",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_SINGLE_0200",
+      "category": "single_token_copying",
+      "prompt": "Repeat the name: Sonu\nName: ",
+      "target": "Sonu",
+      "pred": "Sonald",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0201",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0202",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0203",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Yashwant\nName: ",
+      "target": "Yashwant",
+      "pred": "eta race",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0204",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0205",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0206",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0207",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0208",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Jaideep\nName: ",
+      "target": "Jaideep",
+      "pred": "James",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0209",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Govind\nName: ",
+      "target": "Govind",
+      "pred": "Good",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0210",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0211",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Kalyan\nName: ",
+      "target": "Kalyan",
+      "pred": "Kenneth",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0212",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0213",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0214",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0215",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0216",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0217",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0218",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Pankhuri\nName: ",
+      "target": "Pankhuri",
+      "pred": "Pranav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0219",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vaibhav\nName: ",
+      "target": "Vaibhav",
+      "pred": "Victori",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0220",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Govind\nName: ",
+      "target": "Govind",
+      "pred": "Good",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0221",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0222",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0223",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0224",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0225",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0226",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0227",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0228",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vaibhav\nName: ",
+      "target": "Vaibhav",
+      "pred": "Victori",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0229",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0230",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0231",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vaibhav\nName: ",
+      "target": "Vaibhav",
+      "pred": "Victori",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0232",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0233",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0234",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Madhav\nName: ",
+      "target": "Madhav",
+      "pred": "Madish Madish Madish Madish Madish",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0235",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0236",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0237",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Pankhuri\nName: ",
+      "target": "Pankhuri",
+      "pred": "Pranav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0238",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0239",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0240",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Govind\nName: ",
+      "target": "Govind",
+      "pred": "Good",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0241",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Jaideep\nName: ",
+      "target": "Jaideep",
+      "pred": "James",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0242",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Yashwant\nName: ",
+      "target": "Yashwant",
+      "pred": "eta race",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0243",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0244",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0245",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0246",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0247",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0248",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Madhav\nName: ",
+      "target": "Madhav",
+      "pred": "Madish Madish Madish Madish Madish",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0249",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Pankhuri\nName: ",
+      "target": "Pankhuri",
+      "pred": "Pranav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0250",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Yashwant\nName: ",
+      "target": "Yashwant",
+      "pred": "eta race",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0251",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0252",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vaibhav\nName: ",
+      "target": "Vaibhav",
+      "pred": "Victori",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0253",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0254",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0255",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0256",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0257",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0258",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0259",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Kalyan\nName: ",
+      "target": "Kalyan",
+      "pred": "Kenneth",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0260",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Kalyan\nName: ",
+      "target": "Kalyan",
+      "pred": "Kenneth",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0261",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0262",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Govind\nName: ",
+      "target": "Govind",
+      "pred": "Good",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0263",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0264",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0265",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0266",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0267",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0268",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0269",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0270",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0271",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0272",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Mukesh\nName: ",
+      "target": "Mukesh",
+      "pred": "Myra",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0273",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Pankhuri\nName: ",
+      "target": "Pankhuri",
+      "pred": "Pranav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0274",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Yashwant\nName: ",
+      "target": "Yashwant",
+      "pred": "eta race",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0275",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0276",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Kalyan\nName: ",
+      "target": "Kalyan",
+      "pred": "Kenneth",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0277",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Pankhuri\nName: ",
+      "target": "Pankhuri",
+      "pred": "Pranav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0278",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0279",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Jaideep\nName: ",
+      "target": "Jaideep",
+      "pred": "James",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0280",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Madhav\nName: ",
+      "target": "Madhav",
+      "pred": "Madish Madish Madish Madish Madish",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0281",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0282",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0283",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Madhav\nName: ",
+      "target": "Madhav",
+      "pred": "Madish Madish Madish Madish Madish",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0284",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0285",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0286",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0287",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0288",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0289",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Madhav\nName: ",
+      "target": "Madhav",
+      "pred": "Madish Madish Madish Madish Madish",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0290",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vikas\nName: ",
+      "target": "Vikas",
+      "pred": "Vihaan",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0291",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Vaibhav\nName: ",
+      "target": "Vaibhav",
+      "pred": "Victori",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0292",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0293",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Sarvesh\nName: ",
+      "target": "Sarvesh",
+      "pred": "Sarvlon horseph",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0294",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Fateh\nName: ",
+      "target": "Fateh",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": false
+    },
+    {
+      "id": "CR16_COPY_MULTI_0295",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Gautam\nName: ",
+      "target": "Gautam",
+      "pred": "Grace",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0296",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Govind\nName: ",
+      "target": "Govind",
+      "pred": "Good",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0297",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0298",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Badri\nName: ",
+      "target": "Badri",
+      "pred": "Bhav",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0299",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Siddharth\nName: ",
+      "target": "Siddharth",
+      "pred": "Steven",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    },
+    {
+      "id": "CR16_COPY_MULTI_0300",
+      "category": "multi_token_copying",
+      "prompt": "Repeat the name: Lalit\nName: ",
+      "target": "Lalit",
+      "pred": "Lisa",
+      "is_exact": false,
+      "is_presence": false,
+      "first_match": true
+    }
+  ]
+}

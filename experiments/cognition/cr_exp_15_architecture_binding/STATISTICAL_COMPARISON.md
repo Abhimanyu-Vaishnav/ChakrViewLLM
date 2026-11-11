@@ -41,3 +41,4 @@ This confirms that the true population generalization accuracy of all evaluated 
 - Candidate D achieved a dramatic drop in validation loss from $5.7251 \to 1.8418$ ($\Delta = -3.8833$).
 - Despite this 67.8% relative reduction in loss, strict accuracy remained exactly $0.000\%$.
 - **Statistical finding:** Pearson correlation $r = 0$ between validation cross-entropy loss on state-update text and generalization accuracy on OOD subject-value tracking. Cross-entropy loss on templated sequences is a deceptive surrogate metric when parametric memorization is rewarded.
+

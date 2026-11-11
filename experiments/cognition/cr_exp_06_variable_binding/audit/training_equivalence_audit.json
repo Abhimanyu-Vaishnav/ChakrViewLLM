@@ -1,0 +1,97 @@
+{
+  "hyperparameter_equivalence": {
+    "parent_checkpoint": {
+      "control": "experiments/cognition/autonomous_12h/conversational_pilot/checkpoints/conversational_pilot_best_val.pt",
+      "treatment": "experiments/cognition/autonomous_12h/conversational_pilot/checkpoints/conversational_pilot_best_val.pt",
+      "equivalent": true
+    },
+    "parent_sha256": {
+      "control": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+      "treatment": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+      "equivalent": true
+    },
+    "dataset_train": {
+      "control": "experiments/cognition/cr_exp_06_variable_binding/data/train.jsonl",
+      "treatment": "experiments/cognition/cr_exp_06_variable_binding/data/train.jsonl",
+      "equivalent": true
+    },
+    "dataset_val": {
+      "control": "experiments/cognition/cr_exp_06_variable_binding/data/validation.jsonl",
+      "treatment": "experiments/cognition/cr_exp_06_variable_binding/data/validation.jsonl",
+      "equivalent": true
+    },
+    "max_steps": {
+      "control": 150,
+      "treatment": 150,
+      "equivalent": true
+    },
+    "batch_size": {
+      "control": 8,
+      "treatment": 8,
+      "equivalent": true
+    },
+    "learning_rate": {
+      "control": 3e-05,
+      "treatment": 3e-05,
+      "equivalent": true
+    },
+    "min_learning_rate": {
+      "control": 5e-06,
+      "treatment": 5e-06,
+      "equivalent": true
+    },
+    "weight_decay": {
+      "control": 0.01,
+      "treatment": 0.01,
+      "equivalent": true
+    },
+    "grad_clip": {
+      "control": 0.5,
+      "treatment": 0.5,
+      "equivalent": true
+    },
+    "seed": {
+      "control": 42,
+      "treatment": 42,
+      "equivalent": true
+    },
+    "eval_every_steps": {
+      "control": 25,
+      "treatment": 25,
+      "equivalent": true
+    }
+  },
+  "intentional_difference": {
+    "control_multiplier": 1.0,
+    "treatment_multiplier": 5.0
+  },
+  "execution_parity": {
+    "both_executed_150_steps": true,
+    "step_intervals_identical": true,
+    "learning_rate_schedule_identical": true,
+    "gradient_norm_range": {
+      "control": [
+        4.221,
+        5.6191
+      ],
+      "treatment": [
+        5.4622,
+        7.197
+      ]
+    },
+    "elapsed_seconds": {
+      "control": 21.6,
+      "treatment": 22.5
+    }
+  },
+  "all_differences_discovered": [
+    {
+      "type": "INTENDED_TREATMENT",
+      "field": "relational_token_multiplier",
+      "control": 1.0,
+      "treatment": 5.0,
+      "detail": "Target-weighted loss multiplier set to 5.0 in Treatment Arm B vs 1.0 in Control Arm A."
+    }
+  ],
+  "training_equivalence_verified": true
+}

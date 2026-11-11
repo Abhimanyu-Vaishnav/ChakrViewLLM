@@ -1,0 +1,81 @@
+{
+  "experiment_id": "CR-EXP-07-Stage4",
+  "model": "control_arm_best_val",
+  "conditions": {
+    "A": {
+      "context": "Mapping: Ravi lives in Delhi. Aman lives in Jaipur.",
+      "query_ravi": {
+        "prompt": "Mapping: Ravi lives in Delhi. Aman lives in Jaipur. Query: Where does Ravi live? Answer:",
+        "target": "Delhi",
+        "top1_prediction": " ",
+        "target_prob": 5.4e-05,
+        "target_rank": 109
+      },
+      "query_aman": {
+        "prompt": "Mapping: Ravi lives in Delhi. Aman lives in Jaipur. Query: Where does Aman live? Answer:",
+        "target": "Jaipur",
+        "top1_prediction": " ",
+        "target_prob": 1.7e-05,
+        "target_rank": 239
+      }
+    },
+    "B": {
+      "context": "Mapping: Ravi lives in Jaipur. Aman lives in Delhi.",
+      "query_ravi": {
+        "prompt": "Mapping: Ravi lives in Jaipur. Aman lives in Delhi. Query: Where does Ravi live? Answer:",
+        "target": "Jaipur",
+        "top1_prediction": " ",
+        "target_prob": 2.6e-05,
+        "target_rank": 228
+      },
+      "query_aman": {
+        "prompt": "Mapping: Ravi lives in Jaipur. Aman lives in Delhi. Query: Where does Aman live? Answer:",
+        "target": "Delhi",
+        "top1_prediction": " ",
+        "target_prob": 2.6e-05,
+        "target_rank": 188
+      }
+    },
+    "C": {
+      "context": "Mapping: Ravi lives in Mumbai. Aman lives in Chennai.",
+      "query_ravi": {
+        "prompt": "Mapping: Ravi lives in Mumbai. Aman lives in Chennai. Query: Where does Ravi live? Answer:",
+        "target": "Mumbai",
+        "top1_prediction": " ",
+        "target_prob": 0.000128,
+        "target_rank": 57
+      },
+      "query_aman": {
+        "prompt": "Mapping: Ravi lives in Mumbai. Aman lives in Chennai. Query: Where does Aman live? Answer:",
+        "target": "Chennai",
+        "top1_prediction": " ",
+        "target_prob": 6.1e-05,
+        "target_rank": 75
+      }
+    },
+    "D": {
+      "context": "Mapping: Ravi lives in Chennai. Aman lives in Mumbai.",
+      "query_ravi": {
+        "prompt": "Mapping: Ravi lives in Chennai. Aman lives in Mumbai. Query: Where does Ravi live? Answer:",
+        "target": "Chennai",
+        "top1_prediction": " ",
+        "target_prob": 0.000127,
+        "target_rank": 58
+      },
+      "query_aman": {
+        "prompt": "Mapping: Ravi lives in Chennai. Aman lives in Mumbai. Query: Where does Aman live? Answer:",
+        "target": "Mumbai",
+        "top1_prediction": " ",
+        "target_prob": 8.3e-05,
+        "target_rank": 61
+      }
+    }
+  },
+  "difference_in_differences_analysis": {
+    "delta_ravi_norm": 1.249,
+    "delta_aman_norm": 1.2894,
+    "interaction_norm": 0.3494,
+    "interaction_ratio_pct": 2.29,
+    "scientific_interpretation": "The Difference-in-Differences interaction norm is 0.3494 (2.29% of mean representation norm). While the representation exhibits a measurable algebraic interaction, target entity ranks remained poor (Ravi target rank=109 in A, 228 in B; Aman target rank=239 in A, 188 in B). The model fails to route this interaction into the top-1 logits, consistently predicting generic conversational tokens (' ') regardless of the contextual swap."
+  }
+}

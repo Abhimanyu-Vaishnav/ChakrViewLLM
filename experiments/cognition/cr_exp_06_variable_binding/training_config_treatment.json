@@ -1,0 +1,17 @@
+{
+  "arm": "treatment_arm",
+  "description": "Relational target-weighted cross-entropy (5.0x multiplier on entity spans)",
+  "parent_checkpoint": "experiments/cognition/autonomous_12h/conversational_pilot/checkpoints/conversational_pilot_best_val.pt",
+  "parent_sha256": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+  "dataset_train": "experiments/cognition/cr_exp_06_variable_binding/data/train.jsonl",
+  "dataset_val": "experiments/cognition/cr_exp_06_variable_binding/data/validation.jsonl",
+  "max_steps": 150,
+  "batch_size": 8,
+  "learning_rate": 3e-5,
+  "min_learning_rate": 5e-6,
+  "weight_decay": 0.01,
+  "grad_clip": 0.5,
+  "relational_token_multiplier": 5.0,
+  "seed": 42,
+  "eval_every_steps": 25
+}

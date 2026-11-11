@@ -1,0 +1,1755 @@
+{
+  "suite_total": 100,
+  "overall_candidate_accuracy_pct": 21.0,
+  "taxonomy_summary": {
+    "greeting": {
+      "total_cases": 13,
+      "passed_cases": 13,
+      "accuracy_pct": 100.0
+    },
+    "persona": {
+      "total_cases": 10,
+      "passed_cases": 7,
+      "accuracy_pct": 70.0
+    },
+    "unseen_entity_retrieval": {
+      "total_cases": 8,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "familiar_entity_unfamiliar_template": {
+      "total_cases": 13,
+      "passed_cases": 1,
+      "accuracy_pct": 7.69
+    },
+    "unseen_entity_and_unseen_template": {
+      "total_cases": 13,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "dynamic_state_updates": {
+      "total_cases": 4,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "multi_turn_variable_binding": {
+      "total_cases": 7,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "multi_hop_reasoning": {
+      "total_cases": 5,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "generation_degeneration": {
+      "total_cases": 7,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "arithmetic": {
+      "total_cases": 10,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "pure_hindi": {
+      "total_cases": 5,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    },
+    "hinglish": {
+      "total_cases": 5,
+      "passed_cases": 0,
+      "accuracy_pct": 0.0
+    }
+  },
+  "cases": [
+    {
+      "case_id": "A01",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Hello!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 12,
+      "expected_criterion": "Greeting / Offer of assistance",
+      "parent_output": "Hello! Certainly, please let me know what task you are working on.Thank yo",
+      "candidate_output": "Good morning! I am ready to assist with you today?",
+      "candidate_passed": true,
+      "parent_passed": false,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A02",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Hi there, good morning.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 22,
+      "expected_criterion": "Greeting / Good morning",
+      "parent_output": "Good morning! I am ready to assist with your technical questions or not provided in what task yo",
+      "candidate_output": "Good morning! I hope you had a pleasant day. How can I help you?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A03",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Good evening, how are things?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 23,
+      "expected_criterion": "Greeting / Good evening",
+      "parent_output": "Good evening! Yes, I am ready to assist you.Querly, thank you like to a connec",
+      "candidate_output": "Good evening! Yes, I am ready to assist with your questions. What you wrap you",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A04",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Who are you?",
+      "entities": [
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 16,
+      "expected_criterion": "I am ChakrView...",
+      "parent_output": "I am ChakrView, an indigenous neural language model developed from first principles.\"\"\"Queue, I am ChakrView, an indigenous neural language model developed",
+      "candidate_output": "I am ChakrView, an indigenous neural language model developed from first principles.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A05",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: What is your name?",
+      "entities": [
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 18,
+      "expected_criterion": "ChakrView",
+      "parent_output": "My name is ChakrView.Queue, the context.Queue, transparent, transparent, and modular cognition that y",
+      "candidate_output": "Good evening! Yes, I am ready to assist with your questions. Fire away. Please share y",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A06",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Tell me about your architecture.",
+      "entities": [
+        "ChakrMicro"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 19,
+      "expected_criterion": "ChakrMicro v0.1 / Transformer details",
+      "parent_output": "I am ChakrView, an independent and contain zero borrowed specific and day.The provided is in the context.The pro",
+      "candidate_output": "Good afternoon! Yes, I am ready to assist with your task.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A07",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Who created you?",
+      "entities": [
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "ChakrView developers / Indigenous research",
+      "parent_output": "I was built from mathematical first principles.\"\"\"The provided fully prepared. Please provide the context.Qu",
+      "candidate_output": "I was built from mathematical first principles.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "A08",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Are you ChatGPT?",
+      "entities": [
+        "ChatGPT",
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 22,
+      "expected_criterion": "No, I am ChakrView...",
+      "parent_output": "No, I am not a provided for context.Queue, your evening! I am ready to collaborate on y",
+      "candidate_output": "Yes, I am online and ready to assist you. What are you like to explore?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A09",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: How are you feeling today?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "I am doing well / Ready to help",
+      "parent_output": "Hello! I am operating normally, thank you. How can I help you?Queue, yo",
+      "candidate_output": "Good evening! I am ready to assist with your questions. What would you like to explo",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A10",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Thank you for the assistance.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 22,
+      "expected_criterion": "You are welcome / Happy to help",
+      "parent_output": "Good evening! I am ready to help. What is on your agenda?\"\"\"Queue,",
+      "candidate_output": "Good evening! I am ready to collaborate on your work.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A11",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Have a great day!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 18,
+      "expected_criterion": "You too / Goodbye",
+      "parent_output": "Good afternoon! How may I assist you with your tasks today?Thank you",
+      "candidate_output": "Good afternoon! I am ready to assist you. What are you need.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A12",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Can you assist me with language tasks?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 26,
+      "expected_criterion": "Yes, I can assist with language tasks",
+      "parent_output": "No, I am not a provided language model for borrowed from first principles.\"\"\"Queue, the context.",
+      "candidate_output": "Good evening! Yes, I am ready to assist with your questions. What would you like to",
+      "candidate_passed": true,
+      "parent_passed": false,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A13",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Good night.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 16,
+      "expected_criterion": "Good night",
+      "parent_output": "Good afternoon! I am online and ready to help. What is on your agenda?The provided",
+      "candidate_output": "Good evening! I am online and ready to help. What is on your agenda?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A14",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: What can you do?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 19,
+      "expected_criterion": "Assistance with language, questions",
+      "parent_output": "I am ChakrView, an indigenous neural language model developed from first principles.\"\"\"Queue, the context.\"\"\"Queu",
+      "candidate_output": "I am ChakrView, an indigenous neural language model developed from first principles.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A15",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Greetings!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 15,
+      "expected_criterion": "Greetings / Hello",
+      "parent_output": "Good afternoon! How may I assist you with your tasks today?\"\"\"Queue",
+      "candidate_output": "Good afternoon! I am ready to help you like to a connect. What is on your agen",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A16",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Nice to meet you.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 18,
+      "expected_criterion": "Nice to meet you too",
+      "parent_output": "Good evening! I am not a pleason. Please share your first task.The provided",
+      "candidate_output": "Good evening! I hope you had a pleasant day. How can I help you?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A17",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Are you a large language model?",
+      "entities": [
+        "ChakrMicro"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 23,
+      "expected_criterion": "I am a compact indigenous language model",
+      "parent_output": "No, I am not a provided in contain and dark working on.The provided in the context.Queue, y",
+      "candidate_output": "Yes, I am not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "A18",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: I need some help.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 18,
+      "expected_criterion": "How can I help you?",
+      "parent_output": "Good afternoon! What technical topic shall we work on?The provided in the context.The provi",
+      "candidate_output": "Good afternoon! What technical topic shall we work on?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A19",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Goodbye!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 16,
+      "expected_criterion": "Goodbye / Have a nice day",
+      "parent_output": "Good afternoon! How may I assist you with your tasks today?\"\"\"Queue",
+      "candidate_output": "Good evening! How can I assist you as you wrap up you are working on?",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "A20",
+      "capability_category": "A_Natural_Conversation",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: What is your purpose?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 20,
+      "expected_criterion": "To explore neural language modeling / Assist users",
+      "parent_output": "My name is ChakrView.Queue, your st work on your host CPU.The provided research initiative.Qu",
+      "candidate_output": "I am ChakrView, an indigenous neural language model developed from first principles.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "B01",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Alice lives in Seattle.",
+      "entities": [
+        "Alice",
+        "Seattle"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 37,
+      "expected_criterion": "Seattle",
+      "parent_output": "No, I am an answer.The provided research initiative.Queue, the context.Queue, the",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "B02",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: The server port is configured to 8080.",
+      "entities": [
+        "8080"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 38,
+      "expected_criterion": "8080",
+      "parent_output": "The context.Queue, your core does not provided in the context.Queue, your core questions.",
+      "candidate_output": "40.7",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B03",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Vikram is a software engineer from Hyderabad.",
+      "entities": [
+        "Vikram",
+        "Hyderabad"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 40,
+      "expected_criterion": "Hyderabad",
+      "parent_output": "You are the user, and I am ChakrView, your AI assistance is in the context.The provided context does not provided in",
+      "candidate_output": "Good evening! I am ready to inspecty. Please share your first task.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "UNSEEN_ENTITY_RETRIEVAL_FAILURE"
+    },
+    {
+      "case_id": "B04",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: The target database is PostgreSQL.",
+      "entities": [
+        "PostgreSQL"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 40,
+      "expected_criterion": "PostgreSQL",
+      "parent_output": "No, I am not provided in the context.The provided in the context.Queue, your first questions.",
+      "candidate_output": "Please ITAPIC Chell Please ITRICUTICAL LETTER WICHA",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B05",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Project Alpha is led by Priya. Project Beta is led by Rohan.",
+      "entities": [
+        "Project Alpha",
+        "Priya",
+        "Project Beta",
+        "Rohan"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 51,
+      "expected_criterion": "Rohan",
+      "parent_output": "You are the problem and and a contain zero borrowed from first principles.Queue, I",
+      "candidate_output": "You are the provided research initiative.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B06",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: The deployment region is eu-west-1.",
+      "entities": [
+        "eu-west-1"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 44,
+      "expected_criterion": "eu-west-1",
+      "parent_output": "No, I am not provided in the context.The provided is in the context.The provided is in the context.The pro",
+      "candidate_output": "- - - - -",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B07",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "dynamic_state_updates",
+      "prompt_template": "User: John moved from Boston to Chicago.",
+      "entities": [
+        "John",
+        "Boston",
+        "Chicago"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 45,
+      "expected_criterion": "Chicago",
+      "parent_output": "You are the model.Queue, I am online and ready to assist with your technical questions.Queue,",
+      "candidate_output": "I am ChakrView, an indigenous research commodity CPU.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DYNAMIC_STATE_UPDATE_FAILURE"
+    },
+    {
+      "case_id": "B08",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "dynamic_state_updates",
+      "prompt_template": "User: Setting debug mode to True. Wait, set debug mode to False.",
+      "entities": [
+        "True",
+        "False"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 52,
+      "expected_criterion": "False",
+      "parent_output": "Yes, the ChakrView, an independent, transparent, and modular cognitive model that your locally and context.The provided in the con",
+      "candidate_output": "nd-7",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DYNAMIC_STATE_UPDATE_FAILURE"
+    },
+    {
+      "case_id": "B09",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: The file path is /var/log/syslog.",
+      "entities": [
+        "/var/log/syslog"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 40,
+      "expected_criterion": "/var/log/syslog",
+      "parent_output": "The provided context does not provided in the context.The provided context does not provided in the context.The provided",
+      "candidate_output": "/tas/d-tas.h/",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B10",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Car A is red. Car B is green. Car C is yellow.",
+      "entities": [
+        "Car A",
+        "red",
+        "Car B",
+        "green",
+        "Car C",
+        "yellow"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 48,
+      "expected_criterion": "red",
+      "parent_output": "The provided research AP. Please from first principles.Queue, I am ChakrView, an independent and context.",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "B11",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: The API token is secret_key_99.",
+      "entities": [
+        "secret_key_99"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 36,
+      "expected_criterion": "secret_key_99",
+      "parent_output": "Yes, the ChakrView , a modular, I am ChakrView, the context.The provided context does not provided in the context.The provi",
+      "candidate_output": "II is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "UNSEEN_ENTITY_RETRIEVAL_FAILURE"
+    },
+    {
+      "case_id": "B12",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "dynamic_state_updates",
+      "prompt_template": "User: Meeting was scheduled for Monday, but moved to Thursday.",
+      "entities": [
+        "Monday",
+        "Thursday"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 56,
+      "expected_criterion": "Thursday",
+      "parent_output": "You are the knowledge is insufficient, I am operating normally. What is on your questions. P",
+      "candidate_output": "I am ChakrView, an independent, CPU-first neural cognition and do not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DYNAMIC_STATE_UPDATE_FAILURE"
+    },
+    {
+      "case_id": "B13",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: The cache timeout is set to 300 seconds.",
+      "entities": [
+        "300 seconds"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 34,
+      "expected_criterion": "300 seconds / 300",
+      "parent_output": "You today?Queue, I am your first principles.Queue, I am the context.",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "B14",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Ananya lives in Bengaluru and studies physics.",
+      "entities": [
+        "Ananya",
+        "Bengaluru",
+        "physics"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 48,
+      "expected_criterion": "physics",
+      "parent_output": "No, I am an initiative.Queue, I am an independent and a made is in the context.The provided",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "B15",
+      "capability_category": "B_Context_Retrieval",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Worker 1 handled task X. Worker 2 handled task Y.",
+      "entities": [
+        "Worker 1",
+        "task X",
+        "Worker 2",
+        "task Y"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 56,
+      "expected_criterion": "Worker 1",
+      "parent_output": "No, I am not provided in the context.Question: The contain the context.Question: The contain the context.",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C01",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: My name is Kabir.",
+      "entities": [
+        "Kabir"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 52,
+      "expected_criterion": "Kabir",
+      "parent_output": "Good afternoon! Yes, I am ready to help. What is on your questions. What is on yo",
+      "candidate_output": "Good afternoon! Yes, I am ready to help you like to explore?",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C02",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_hop_reasoning",
+      "prompt_template": "User: I want to talk about astronomy.",
+      "entities": [
+        "Sun"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 63,
+      "expected_criterion": "Sun (or Proxima Centauri)",
+      "parent_output": "The provided language model cognition and dark model.The provided is in the context.The provided in the context.The provi",
+      "candidate_output": "Good evening! I am ChakrView, an independent, your questions. I am ready to assist with your first",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C03",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: Remember the code word falcon.",
+      "entities": [
+        "falcon"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 57,
+      "expected_criterion": "falcon",
+      "parent_output": "The provided language model initiative.The provided context does not provided in the context.Queue, your fir",
+      "candidate_output": "I am ChakrView, the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C04",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Hi!",
+      "entities": [
+        "ChakrMicro"
+      ],
+      "number_of_turns": 6,
+      "input_token_count": 82,
+      "expected_criterion": "ChakrMicro / 6 layers / 3.44M",
+      "parent_output": "You are testing the neural language model develop.Thank you are you are a mentioning refactors or not",
+      "candidate_output": "I am ChakrView, an independent, transparent, and modular cognition that you are the wer.",
+      "candidate_passed": true,
+      "parent_passed": false,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "C05",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: Step 1: Preheat oven.",
+      "entities": [
+        "Preheat oven"
+      ],
+      "number_of_turns": 6,
+      "input_token_count": 75,
+      "expected_criterion": "Preheat oven",
+      "parent_output": "My name is Armention, I reciples as an hallucinating an answer.The is on your is on yo",
+      "candidate_output": "M",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C06",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_hop_reasoning",
+      "prompt_template": "User: I am traveling to Tokyo tomorrow.",
+      "entities": [
+        "Tokyo"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 63,
+      "expected_criterion": "Yes (passport required for international travel)",
+      "parent_output": "You mentioned a CSTR-TOK_Good evening?The provided = SHardware-efficient",
+      "candidate_output": "Good evening! I am ready to assist. Please share your first questions. What is on yo",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C07",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_hop_reasoning",
+      "prompt_template": "User: Let's play a guessing game.",
+      "entities": [
+        "dog"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 58,
+      "expected_criterion": "Dog",
+      "parent_output": "Good evening! I am ready to assist with your questions. What is on your questions.Queue",
+      "candidate_output": "Good evening! I am ready to assist with your questions. What is on your questions. What",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C08",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "dynamic_state_updates",
+      "prompt_template": "User: My favorite fruit is mango.",
+      "entities": [
+        "mango",
+        "oranges"
+      ],
+      "number_of_turns": 6,
+      "input_token_count": 100,
+      "expected_criterion": "oranges",
+      "parent_output": "The is a made of the conomentioning the context.The provided a present is in the context.The provided is the",
+      "candidate_output": "You are the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DYNAMIC_STATE_UPDATE_FAILURE"
+    },
+    {
+      "case_id": "C09",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Can you count to three?",
+      "entities": [
+        "1, 2, 3, 4"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 44,
+      "expected_criterion": "1, 2, 3, 4",
+      "parent_output": "I am operating normally, thank you. How can I help you today?The provided in the con",
+      "candidate_output": "You need.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "C10",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: Turn 1",
+      "entities": [],
+      "number_of_turns": 6,
+      "input_token_count": 48,
+      "expected_criterion": "Response 3",
+      "parent_output": "Good afternoon! What research information and your first you are cognitive model from first prin",
+      "candidate_output": "4",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C11",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: I am learning Python.",
+      "entities": [
+        "Python"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 52,
+      "expected_criterion": "print('hello world')",
+      "parent_output": "No, I am not a provided in the context.The provided context does not provided in the context.The provided is",
+      "candidate_output": "Good evening! I am ready to assist with your questions. I am ChakrView, your questions. You",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C12",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: A = 10",
+      "entities": [
+        "A = 10",
+        "B = 20"
+      ],
+      "number_of_turns": 6,
+      "input_token_count": 59,
+      "expected_criterion": "10",
+      "parent_output": "The contain the we is insufficient, I am ChakrView, your first principles.\"\"\"Queue, your",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C13",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_hop_reasoning",
+      "prompt_template": "User: I live in Delhi.",
+      "entities": [
+        "Delhi",
+        "India"
+      ],
+      "number_of_turns": 6,
+      "input_token_count": 84,
+      "expected_criterion": "New Delhi",
+      "parent_output": "You are first principles.Queue, I reciples the containating an independent, I reurotassi",
+      "candidate_output": "You are first principles.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "C14",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: Please speak politely.",
+      "entities": [
+        "politely"
+      ],
+      "number_of_turns": 4,
+      "input_token_count": 65,
+      "expected_criterion": "Politely",
+      "parent_output": "Yes, I am ChakrView, an independent neural language model.Queue, I am ready to explore?\"\"\"Queue, the conta",
+      "candidate_output": "I am ChakrView, an independent neural language model.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "C15",
+      "capability_category": "C_Multi_Turn",
+      "failure_taxonomy": "multi_turn_variable_binding",
+      "prompt_template": "User: Turn 1: Start",
+      "entities": [
+        "Start",
+        "Proceed",
+        "Complete"
+      ],
+      "number_of_turns": 8,
+      "input_token_count": 88,
+      "expected_criterion": "Start",
+      "parent_output": "You degrees a ceitialized a mentioning on.The provided is in the context.The provided = 4.",
+      "candidate_output": "You expressed a ceeighd-party > x1",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "MULTI_TURN_BINDING_FAILURE"
+    },
+    {
+      "case_id": "D01",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Answer with only one word: What is the capital of France?",
+      "entities": [
+        "France",
+        "Paris"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 35,
+      "expected_criterion": "Paris",
+      "parent_output": "No, I am not a provided in the context.Queue, the context.Queue, the context.Queu",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "D02",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Answer yes or no: Is ice cold?",
+      "entities": [
+        "ice"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 25,
+      "expected_criterion": "Yes",
+      "parent_output": "Good evening! Yes, I am ready to assist you like to explore? msgrather than h",
+      "candidate_output": "Yes, I am not provided in the context.",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "D03",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: List three fruits with dashes:",
+      "entities": [
+        "fruits"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "- Apple\n- Banana\n- Orange",
+      "parent_output": "Good afternoon! What project or problem would you like to explore?\"\"\"Queu",
+      "candidate_output": "Good evening! I hope you had a pleasant day. How can I help you?",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "D04",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Explain photosynthesis in one short sentence.",
+      "entities": [
+        "photosynthesis"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 28,
+      "expected_criterion": "Plants convert sunlight into energy.",
+      "parent_output": "Good morning! I am ChakrView, a modular, your first task.The provided is in the context.",
+      "candidate_output": "Good afternoon! I am ChakrView, an independent and your questions. I am ready to assist with your techn",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "D05",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: Output only the number: 42 + 8 =",
+      "entities": [
+        "42",
+        "8"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 21,
+      "expected_criterion": "50",
+      "parent_output": "You are cognitive model integer item == 0.000.Queue, Certainly, Certainly,",
+      "candidate_output": "25 x 12",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "D06",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Repeat this exact phrase: ChakrView Neural Core",
+      "entities": [
+        "ChakrView Neural Core"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 25,
+      "expected_criterion": "ChakrView Neural Core",
+      "parent_output": "Good evening! I am online and ready to assist you.]The provided language model ended the provided language model to explo",
+      "candidate_output": "Good evening! I am ready to insufficient, I result are locally refuended in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "D07",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Write the word 'STOP' in all capitals.",
+      "entities": [
+        "STOP"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 26,
+      "expected_criterion": "STOP",
+      "parent_output": "Good afternoon! What technical questions or .The provided research Archina is in the context.Qu",
+      "candidate_output": "You",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "D08",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "greeting",
+      "prompt_template": "User: Provide a two-word greeting.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 21,
+      "expected_criterion": "Hello there / Good day",
+      "parent_output": "Good afternoon! What project or problem would you like to explore?\"\"\"Queu",
+      "candidate_output": "Good afternoon! What project or problem would you like to explore?\"\"\"",
+      "candidate_passed": true,
+      "parent_passed": true,
+      "failure_classification": "NONE (PASSED)"
+    },
+    {
+      "case_id": "D09",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Complete the sequence: A, B, C,",
+      "entities": [
+        "A, B, C"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 21,
+      "expected_criterion": "D",
+      "parent_output": "Good afternoon! I am online and ready to assist you.]The provided language model ended the provided language model and n",
+      "candidate_output": "Good afternoon! I am ready to assist with your questions. What is on your questions. Wh",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "D10",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Answer in JSON format with key status and value ok.",
+      "entities": [
+        "status",
+        "ok"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 30,
+      "expected_criterion": "{\"status\": \"ok\"}",
+      "parent_output": "Good morning! I am ready to assist with your first task.Nome is a pleason.The",
+      "candidate_output": "Good morning! I am ready to assist with your first task.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "D11",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Do not say hello. Say welcome instead.",
+      "entities": [
+        "welcome"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 30,
+      "expected_criterion": "Welcome",
+      "parent_output": "Good evening! How can I help you today?Thank you are the good even",
+      "candidate_output": "Good evening! I am ready to help you today?The result was ; your day",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "D12",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: State the color of the clear daytime sky in one word.",
+      "entities": [
+        "sky",
+        "blue"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 28,
+      "expected_criterion": "Blue",
+      "parent_output": "Good afternoon! I am ready to collaborate on your work.The provided research information is not provided",
+      "candidate_output": "Good afternoon! I am ready to help you explore and solve problems.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "D13",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Count from 1 to 5 separated by commas.",
+      "entities": [
+        "1 to 5"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "1, 2, 3, 4, 5",
+      "parent_output": "Good evening! I am the context. Please share your first task.\"\"\"Queue,",
+      "candidate_output": "Good evening! I am ready to collaborate on your work.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "D14",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "familiar_entity_unfamiliar_template",
+      "prompt_template": "User: Answer with the word 'Confirmed'.",
+      "entities": [
+        "Confirmed"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 25,
+      "expected_criterion": "Confirmed",
+      "parent_output": "Good morning! I am ready to assist with your first task.Nome is a pleason.The",
+      "candidate_output": "Good evening! What technical tasks or questions are technical questions or project.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "D15",
+      "capability_category": "D_Instruction_Following",
+      "failure_taxonomy": "generation_degeneration",
+      "prompt_template": "User: Define an atom in a brief sentence.",
+      "entities": [
+        "atom"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "An atom is the basic unit of a chemical element.",
+      "parent_output": "Good afternoon! What ready to assist you like to a connect.मुरुष्ण में मह",
+      "candidate_output": "Good evening! I am ready to assist with your questions. What is on your questions. What",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "FORMATTING_INSTRUCTION_FAILURE"
+    },
+    {
+      "case_id": "E01",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: What did I eat for breakfast this morning?",
+      "entities": [
+        "breakfast"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 29,
+      "expected_criterion": "I do not know / Not provided",
+      "parent_output": "Certainly, thank you are working on.\"\"\"Queue, I reciples the context.Queu",
+      "candidate_output": "Good evening! Yes, I am not a pleasant day. Please share your questions. Wh",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E02",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: What will the price of Bitcoin be on January 1, 2035?",
+      "entities": [
+        "Bitcoin"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 33,
+      "expected_criterion": "Cannot predict future / Unknown",
+      "parent_output": "The context.Question: The provided 6 million is of provided in the context.Queue, your st will",
+      "candidate_output": "90.7",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E03",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: What is the secret password stored in my private diary?",
+      "entities": [
+        "password"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 35,
+      "expected_criterion": "I do not have access to private info",
+      "parent_output": "Good evening! I am ready to assist with your questions. What you are your day.Th",
+      "candidate_output": "Good evening! I am ChakrView, an independent and provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E04",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Context: Suresh works at an IT company in Chennai.",
+      "entities": [
+        "Suresh",
+        "Chennai"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 50,
+      "expected_criterion": "Information not provided in context",
+      "parent_output": "No, I am not a provided in You are testing on.The provided context does not provided in the context.",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "E05",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Context: The box contains 2 pencils and 1 eraser.",
+      "entities": [
+        "ruler",
+        "box"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 47,
+      "expected_criterion": "Information not provided in context (or 0)",
+      "parent_output": "The provided language model does not provided in the context.The provided is in the context.Queue\"\"\"Question:",
+      "candidate_output": "I am ChakrView, the you are testing on?",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E06",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Who will win the 2030 FIFA World Cup?",
+      "entities": [
+        "World Cup"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 30,
+      "expected_criterion": "Cannot predict future",
+      "parent_output": "Yes, I am not provided in the context.Queue, your st will be provided in the context.Queu",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E07",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: What is the exact temperature outside my window right now?",
+      "entities": [
+        "temperature"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 31,
+      "expected_criterion": "I do not have access to real-time sensors",
+      "parent_output": "Yes, the ChakrView is insufficient, I am ChakrView, your first principles.\"\"\"Queue, the context.\"\"",
+      "candidate_output": "I am ChakrView, an indigenous decoder-only transformer language model.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E08",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: The team consists of Neil and Mira.",
+      "entities": [
+        "Neil",
+        "Mira"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 43,
+      "expected_criterion": "Information not provided in context",
+      "parent_output": "Yes, I am ChakrView, an independent, CPU-first neural cognitive model and natively on your host CPU.The provided language model develop",
+      "candidate_output": "You are the provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "UNSEEN_ENTITY_RETRIEVAL_FAILURE"
+    },
+    {
+      "case_id": "E09",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "persona",
+      "prompt_template": "User: Can you read my thoughts?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 23,
+      "expected_criterion": "No, I am an AI language model",
+      "parent_output": "No, I am not a provided in % to collaborate on your work.Queue, your work on your",
+      "candidate_output": "Yes, I am not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E10",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Is there life on an undiscovered planet in the Andromeda galaxy?",
+      "entities": [
+        "Andromeda"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 41,
+      "expected_criterion": "Science has not confirmed life in Andromeda / Unknown",
+      "parent_output": "Yes, the You are good evening! I am ready to assist you like to explore?\"\"\"Que",
+      "candidate_output": "Good afternoon! Yes, I am ready to assist you. What is on your questions. What is",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E11",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: What is the serial number of my laptop?",
+      "entities": [
+        "laptop"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "I do not have access to device info",
+      "parent_output": "Yes, the ChakrView is neural language model developed from first principles.Queue, the context.Queue, the context.",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E12",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Context: Train 101 leaves at 9 AM. Train 102 leaves at 11 AM.",
+      "entities": [
+        "Train 101"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 62,
+      "expected_criterion": "Information not provided in context",
+      "parent_output": "SHA256:4a8b7d5eQuestion: That information is not provided in the context.Queue",
+      "candidate_output": "10.0",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "UNSEEN_ENTITY_RETRIEVAL_FAILURE"
+    },
+    {
+      "case_id": "E13",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Who will be elected President of the US in 2040?",
+      "entities": [
+        "President"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 31,
+      "expected_criterion": "Cannot predict future",
+      "parent_output": "The context.Queue, I reciples is in the context.Queue, the context.Queue, the context.",
+      "candidate_output": "4a7",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E14",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_and_unseen_template",
+      "prompt_template": "User: Where did I leave my keys?",
+      "entities": [
+        "keys"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 23,
+      "expected_criterion": "I do not know where your keys are",
+      "parent_output": "Good evening! Absolutely, let us work through the problem together.The provided is in the con",
+      "candidate_output": "Good evening! I am ChakrView, an independent and a context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "E15",
+      "capability_category": "E_Epistemic_Behaviour",
+      "failure_taxonomy": "unseen_entity_retrieval",
+      "prompt_template": "User: Context: The server hostname is app-prod-01.",
+      "entities": [
+        "app-prod-01"
+      ],
+      "number_of_turns": 3,
+      "input_token_count": 46,
+      "expected_criterion": "Information not provided in context",
+      "parent_output": "No, I am not provided in the context.Queue, the context.Queue, the context.Queue",
+      "candidate_output": "first principles.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "UNSEEN_ENTITY_RETRIEVAL_FAILURE"
+    },
+    {
+      "case_id": "F01",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: What is 2 + 3?",
+      "entities": [
+        "2 + 3"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "5",
+      "parent_output": "My primary 4 million = <<4*4=4>>4 million your task.Thank is $4.",
+      "candidate_output": "x is",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F02",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: What is 10 - 4?",
+      "entities": [
+        "10 - 4"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "6",
+      "parent_output": "My primary 4 million = <<40/4=4>>4 million present.Thank is $4.Qu",
+      "candidate_output": "9 x 12 10",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F03",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: If I have 5 books and get 2 more, how many books do I have?",
+      "entities": [
+        "5 + 2"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 38,
+      "expected_criterion": "7",
+      "parent_output": "No, I am your CPU, from a modular commodity CPU, CPU-first neural commodity CPUs host CPU.The",
+      "candidate_output": "I am host day",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F04",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: What is 7 + 8?",
+      "entities": [
+        "7 + 8"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "15",
+      "parent_output": "My primary 4 million = <<4*4=4>>6 million present.Question: Thank your t",
+      "candidate_output": "Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "F05",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: Which number is greater: 15 or 8?",
+      "entities": [
+        "15",
+        "8"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 24,
+      "expected_criterion": "15",
+      "parent_output": "Good afternoon! Yes, I am ready to assist you like to explore?Queue, your st w",
+      "candidate_output": "4.0",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F06",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: If a cat has 4 legs, how many legs do 2 cats have?",
+      "entities": [
+        "4 * 2"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 36,
+      "expected_criterion": "8",
+      "parent_output": "No, I am not provided in your first principles.The provided is of your questions.Question: The",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F07",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: What is 20 - 5?",
+      "entities": [
+        "20 - 5"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "15",
+      "parent_output": "My name is CPU.Question: You are the test.Question: You are the context.Question: No, I",
+      "candidate_output": "Celsi, 25 degrees Celsia",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "OUT_OF_CONTEXT_ATTRACTOR_CELSIA"
+    },
+    {
+      "case_id": "F08",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "multi_hop_reasoning",
+      "prompt_template": "User: If yesterday was Monday, what day is today?",
+      "entities": [
+        "Monday",
+        "Tuesday"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 36,
+      "expected_criterion": "Tuesday",
+      "parent_output": "No, I am not a provided in the context.Queue, your principles as an answer.The provi",
+      "candidate_output": "Good evening! I am ready to assist with your questions. What is on your questions. What",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "TEMPLATE_MISMATCH_FAILURE"
+    },
+    {
+      "case_id": "F09",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: A box has 10 apples. You take 3 out. How many apples are left in the box?",
+      "entities": [
+        "10 - 3"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 46,
+      "expected_criterion": "7",
+      "parent_output": "Thank you.Question: Thank your day?Queue are does not provided in the context.Qu",
+      "candidate_output": "That information is not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "F10",
+      "capability_category": "F_Arithmetic_Reasoning",
+      "failure_taxonomy": "arithmetic",
+      "prompt_template": "User: What is 6 + 4?",
+      "entities": [
+        "6 + 4"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 17,
+      "expected_criterion": "10",
+      "parent_output": "I am uses you are working on.Thank your tasks today?Queue, I am a custom",
+      "candidate_output": "Certainly, np.ar",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "ARITHMETIC_FAILURE"
+    },
+    {
+      "case_id": "G01",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "pure_hindi",
+      "prompt_template": "User: नमस्ते!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 14,
+      "expected_criterion": "नमस्ते! / Greeting in Hindi",
+      "parent_output": "Good afternoon! How can I help you today?Queue, your st you are",
+      "candidate_output": "Good afternow! I am hope you are the provided wer.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DEVANAGARI_HINDI_FRAGMENTATION"
+    },
+    {
+      "case_id": "G02",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "pure_hindi",
+      "prompt_template": "User: आप कैसे हैं?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 14,
+      "expected_criterion": "मैं ठीक हूँ... / I am well in Hindi",
+      "parent_output": "Good afternower.सन्दिर Tell is a your questions. Please to you as well.",
+      "candidate_output": "",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DEVANAGARI_HINDI_FRAGMENTATION"
+    },
+    {
+      "case_id": "G03",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "pure_hindi",
+      "prompt_template": "User: आपका नाम क्या है?",
+      "entities": [
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 18,
+      "expected_criterion": "मेरा नाम चक्रव्यूह है / My name is ChakrView",
+      "parent_output": "Good afternoon! I am any you are a made feature.Queue, your questions.",
+      "candidate_output": "- दोनों महाराष्ट्रीय स्थित है कि -",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DEVANAGARI_HINDI_FRAGMENTATION"
+    },
+    {
+      "case_id": "G04",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "pure_hindi",
+      "prompt_template": "User: भारत की राजधानी क्या है?",
+      "entities": [
+        "Bharat",
+        "Rajdhani"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 19,
+      "expected_criterion": "नई दिल्ली / New Delhi",
+      "parent_output": "Good day?\"\"\"The result is not provided in the context.Queue, a most principles",
+      "candidate_output": "- दोनों महाराष्ट्रीय स्थित है कि -",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DEVANAGARI_HINDI_FRAGMENTATION"
+    },
+    {
+      "case_id": "G05",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "pure_hindi",
+      "prompt_template": "User: धन्यवाद!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 13,
+      "expected_criterion": "आपका स्वागत है / You are welcome in Hindi",
+      "parent_output": "Good afternoon! How may I assist you with your tasks today?लोनी rat",
+      "candidate_output": "Good afternoon! Good afternoon! How may I assist you with your tasks to",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "DEVANAGARI_HINDI_FRAGMENTATION"
+    },
+    {
+      "case_id": "G06",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "hinglish",
+      "prompt_template": "User: Bhai, kaise ho?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 15,
+      "expected_criterion": "Main theek hoon! / Hinglish greeting",
+      "parent_output": "Good evening! Yes, I am online and ready to assist you.Querly, thank you. How can",
+      "candidate_output": "M\n|-",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "HINGLISH_DEGRADATION"
+    },
+    {
+      "case_id": "G07",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "hinglish",
+      "prompt_template": "User: Aapka naam kya hai?",
+      "entities": [
+        "ChakrView"
+      ],
+      "number_of_turns": 2,
+      "input_token_count": 16,
+      "expected_criterion": "Mera naam ChakrView hai",
+      "parent_output": "Good afternoon! Yes, I am online and ready to assist you.]The provided language model to insufficient and s",
+      "candidate_output": "Good evening! I am ready to assist with your technical questions or not provided in the context.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "HINGLISH_DEGRADATION"
+    },
+    {
+      "case_id": "G08",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "hinglish",
+      "prompt_template": "User: Mujhe ek simple code batao.",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 20,
+      "expected_criterion": "Simple Python code snippet",
+      "parent_output": "Good morning! I am ready to assist with your technical questions or project.The provided research initiativ",
+      "candidate_output": "Good evening! I am ChakrView, an independent and ready to assist with your technical questions or executing local.",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "HINGLISH_DEGRADATION"
+    },
+    {
+      "case_id": "G09",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "hinglish",
+      "prompt_template": "User: Shubh sandhya!",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 19,
+      "expected_criterion": "Shubh sandhya! / Good evening in Hinglish",
+      "parent_output": "Good afternoon! How may I assist you with your tasks today?\"\"\"Queue",
+      "candidate_output": "Good afternoon! Yes, I am ready to assist you. What is on your questions. What s",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "HINGLISH_DEGRADATION"
+    },
+    {
+      "case_id": "G10",
+      "capability_category": "G_Multilingual",
+      "failure_taxonomy": "hinglish",
+      "prompt_template": "User: Kya aap Hindi samajhte hain?",
+      "entities": [],
+      "number_of_turns": 2,
+      "input_token_count": 23,
+      "expected_criterion": "Haan, main Hindi samajhta hoon / Yes in Hinglish",
+      "parent_output": "Yes, I am ChakrView, an indigenous neural language model developed from first principles.\"\"\"Queue, the context.Queue",
+      "candidate_output": "Good evening! Yes, I am ready to assist with your questions. I am ready to assist with your ques",
+      "candidate_passed": false,
+      "parent_passed": false,
+      "failure_classification": "HINGLISH_DEGRADATION"
+    }
+  ]
+}

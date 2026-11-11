@@ -1,0 +1,16 @@
+{
+  "arm": "arm_a",
+  "objective": "Standard SFT Control (mean token cross-entropy on assistant tokens)",
+  "initialization_checkpoint": "experiments/cognition/autonomous_12h/conversational_pilot/checkpoints/conversational_pilot_best_val.pt",
+  "initialization_sha256": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+  "optimizer": "AdamW",
+  "learning_rate": 5e-5,
+  "weight_decay": 0.01,
+  "gradient_clip": 0.5,
+  "effective_batch_size": 8,
+  "max_optimizer_updates": 150,
+  "eval_interval": 25,
+  "random_seed": 42,
+  "checkpoint_dir": "experiments/cognition/cr_exp_08_contextual_assignment/checkpoints/arm_a"
+}
+

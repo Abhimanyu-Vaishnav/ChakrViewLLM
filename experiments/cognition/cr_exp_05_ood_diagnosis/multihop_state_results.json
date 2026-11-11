@@ -1,0 +1,68 @@
+[
+  {
+    "case_id": "CASE_A_SINGLE_HOP",
+    "type": "single_hop",
+    "description": "Direct single-hop context retrieval",
+    "prompt": "Context: Ravi lives in Pune.\nUser: Where does Ravi live?\nAssistant:",
+    "target": "Pune",
+    "candidate_generation": "Good evening\n\n\nNo, I am not provided in the context.\n\n\nN",
+    "candidate_success": false,
+    "parent_generation": "Andard BSHA256c6c6c6c6c6e\"\"\"Question: Y",
+    "parent_success": false
+  },
+  {
+    "case_id": "CASE_B_TWO_HOP",
+    "type": "two_hop",
+    "description": "Two-hop compositional inference (Ravi -> Garuda Systems -> Jaipur)",
+    "prompt": "Context: Ravi owns Garuda Systems. Garuda Systems is located in Jaipur.\nUser: In which city is Ravi's company located?\nAssistant:",
+    "target": "Jaipur",
+    "candidate_generation": "Good evening! I am ChakrView, a modular, your first questions. I",
+    "candidate_success": false,
+    "parent_generation": "You are the model with your questions. Please share your questions.Queu",
+    "parent_success": false
+  },
+  {
+    "case_id": "CASE_C_STATE_UPDATE",
+    "type": "state_update",
+    "description": "Overwriting previous value with new state",
+    "prompt": "Context: Order status was PENDING. Later, the status was updated to ACTIVE.\nUser: What is the current order status?\nAssistant:",
+    "target": "ACTIVE",
+    "candidate_generation": "That information is not provided in the context.\n\n\ndef _result in in in the",
+    "candidate_success": false,
+    "parent_generation": "The context. Please the context.Queue, the context.Queue, from fi",
+    "parent_success": false
+  },
+  {
+    "case_id": "CASE_D_CONTRADICTION",
+    "type": "contradiction",
+    "description": "Explicit conflict between earlier and later assertions",
+    "prompt": "Context: Report Alpha claims system is SECURE. Report Beta claims system is VULNERABLE.\nUser: What does Report Beta say about the system?\nAssistant:",
+    "target": "VULNERABLE",
+    "candidate_generation": "Good evening\n\nNo, I am not provided in the context.\n\n\nN",
+    "candidate_success": false,
+    "parent_generation": "You expressed a custom to expressed a Lawon.The is in the context.",
+    "parent_success": false
+  },
+  {
+    "case_id": "CASE_E_MULTI_ENTITY",
+    "type": "multi_entity",
+    "description": "Entity disambiguation (Pooja vs Ankit, Mumbai vs Delhi)",
+    "prompt": "Context: Pooja works in Mumbai. Ankit works in Delhi.\nUser: Which city does Ankit work in?\nAssistant:",
+    "target": "Delhi",
+    "candidate_generation": "I am ChakrView, an independent, CPU-first neural cognitive model and do not provided in the",
+    "candidate_success": false,
+    "parent_generation": "The context. Please the LA25.Queue, My is the context.Queu",
+    "parent_success": false
+  },
+  {
+    "case_id": "CASE_F_LONG_RANGE_FOLLOWUP",
+    "type": "long_range_followup",
+    "description": "Querying fact introduced 3 turns earlier",
+    "prompt": "User: My project codename is Phoenix.\nAssistant: Phoenix recorded.\nUser: Let's discuss database indexes.\nAssistant: Indexes speed up query performance.\nUser: We will use B-tree indexes.\nAssistant: B-tree is a solid choice.\nUser: What was my project codename?\nAssistant:",
+    "target": "Phoenix",
+    "candidate_generation": "Celsia\n\nNoctobergitally\n filenday.\n\n P",
+    "candidate_success": false,
+    "parent_generation": "You describe in the context.Quelease and is not provided in the contain",
+    "parent_success": false
+  }
+]

@@ -1,0 +1,219 @@
+{
+  "dataset_counts": {
+    "train": 400,
+    "val": 50,
+    "test_held_out": 54,
+    "total": 504
+  },
+  "source_distribution": {
+    "train": {
+      "cbr_sft_05": 286,
+      "cbr_sft_04": 114
+    },
+    "val": {
+      "cbr_sft_05": 34,
+      "cbr_sft_04": 16
+    },
+    "test_held_out": {
+      "cbr_sft_05": 40,
+      "cbr_sft_04": 14
+    }
+  },
+  "category_distribution": {
+    "train": {
+      "natural_transfer_db_engines": 8,
+      "exact_copy_path": 9,
+      "multiturn_4_turn": 29,
+      "exact_copy_port": 10,
+      "natural_transfer_models": 9,
+      "multiturn_3_turn": 23,
+      "key_value_multi": 22,
+      "greetings_morning": 7,
+      "key_value_single": 20,
+      "natural_transfer_git_branches": 8,
+      "natural_transfer_hash_algs": 5,
+      "multiturn_2_turn": 18,
+      "exact_copy_code": 11,
+      "entity_grounding": 37,
+      "key_value_update": 15,
+      "greetings_evening": 8,
+      "exact_copy_hash": 11,
+      "natural_transfer_dev_names": 8,
+      "exact_copy_selection": 8,
+      "key_value_abstention": 16,
+      "multiturn_dialogue": 26,
+      "exact_copy_ip": 12,
+      "natural_transfer_rich": 8,
+      "exact_copy_punct": 8,
+      "identity_and_role": 22,
+      "natural_transfer_compiler_opts": 7,
+      "natural_transfer_city_locations": 7,
+      "greetings_afternoon": 7,
+      "natural_transfer_cloud_regions": 7,
+      "natural_transfer_protocols": 7,
+      "greetings_generic": 7
+    },
+    "val": {
+      "multiturn_2_turn": 4,
+      "key_value_multi": 3,
+      "multiturn_3_turn": 3,
+      "natural_transfer_dev_names": 1,
+      "exact_copy_port": 1,
+      "key_value_single": 3,
+      "entity_grounding": 4,
+      "key_value_update": 2,
+      "exact_copy_path": 3,
+      "natural_transfer_db_engines": 1,
+      "multiturn_4_turn": 3,
+      "greetings_generic": 1,
+      "multiturn_dialogue": 5,
+      "exact_copy_punct": 2,
+      "greetings_afternoon": 2,
+      "natural_transfer_compiler_opts": 1,
+      "greetings_morning": 2,
+      "exact_copy_hash": 2,
+      "identity_and_role": 2,
+      "exact_copy_code": 2,
+      "natural_transfer_cloud_regions": 1,
+      "natural_transfer_hash_algs": 1,
+      "natural_transfer_city_locations": 1
+    },
+    "test_held_out": {
+      "multiturn_2_turn": 5,
+      "natural_transfer_hash_algs": 3,
+      "key_value_abstention": 2,
+      "natural_transfer_compiler_opts": 1,
+      "identity_and_role": 3,
+      "exact_copy_ip": 2,
+      "natural_transfer_rich": 1,
+      "exact_copy_punct": 3,
+      "greetings_generic": 1,
+      "entity_grounding": 4,
+      "exact_copy_code": 1,
+      "multiturn_4_turn": 4,
+      "multiturn_dialogue": 5,
+      "exact_copy_port": 2,
+      "key_value_single": 4,
+      "exact_copy_path": 1,
+      "key_value_multi": 2,
+      "exact_copy_selection": 1,
+      "multiturn_3_turn": 1,
+      "natural_transfer_protocols": 2,
+      "greetings_evening": 1,
+      "exact_copy_hash": 1,
+      "natural_transfer_git_branches": 1,
+      "natural_transfer_cloud_regions": 1,
+      "natural_transfer_city_locations": 1,
+      "key_value_update": 1
+    }
+  },
+  "exact_leakage": {
+    "val_prompt_exact_matches_in_train": 0,
+    "test_prompt_exact_matches_in_train": 0,
+    "test_prompt_exact_matches_in_val": 0,
+    "test_norm_prompt_matches_in_train": 0,
+    "test_response_exact_matches_in_train": 8,
+    "total_test_resps_matching_train_count": 8
+  },
+  "near_duplicate_analysis": {
+    "num_pairs_jaccard_gt_0_85": 37,
+    "num_pairs_identical_response": 0,
+    "sample_high_similarity_pairs": [
+      {
+        "test_id": "CBR5-TRK-D-HASH-0006",
+        "test_prompt": "User: Hello assistant! The checksum algorithm selected is CRC32.\nAssistant: Understood, the checksum algorithm selected is CRC32 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "train_id": "CBR5-TRK-D-HASH-0005",
+        "train_prompt": "User: Hello assistant! The checksum algorithm selected is XXH64.\nAssistant: Understood, the checksum algorithm selected is XXH64 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "jaccard_similarity": 0.8947,
+        "test_response": " CRC32",
+        "train_response": " XXH64"
+      },
+      {
+        "test_id": "CBR5-TRK-D-HASH-0006",
+        "test_prompt": "User: Hello assistant! The checksum algorithm selected is CRC32.\nAssistant: Understood, the checksum algorithm selected is CRC32 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "train_id": "CBR5-TRK-D-HASH-0003",
+        "train_prompt": "User: Hello assistant! The checksum algorithm selected is MD5.\nAssistant: Understood, the checksum algorithm selected is MD5 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "jaccard_similarity": 0.8947,
+        "test_response": " CRC32",
+        "train_response": " MD5"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0007",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -Werror.\nAssistant: Understood, the compiler flag for optimization is -Werror has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -Werror"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0002",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -O3.\nAssistant: Understood, the compiler flag for optimization is -O3 has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -O3"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0003",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -Os.\nAssistant: Understood, the compiler flag for optimization is -Os has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -Os"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0001",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -O2.\nAssistant: Understood, the compiler flag for optimization is -O2 has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -O2"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0009",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -flto.\nAssistant: Understood, the compiler flag for optimization is -flto has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -flto"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0005",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -g.\nAssistant: Understood, the compiler flag for optimization is -g has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -g"
+      },
+      {
+        "test_id": "CBR5-TRK-D-COMP-0008",
+        "test_prompt": "User: Hello assistant! The compiler flag for optimization is -march=native.\nAssistant: Understood, the compiler flag for optimization is -march=native has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "train_id": "CBR5-TRK-D-COMP-0004",
+        "train_prompt": "User: Hello assistant! The compiler flag for optimization is -Ofast.\nAssistant: Understood, the compiler flag for optimization is -Ofast has been registered in our session.\nUser: What compiler flag did I specify?\nAssistant:",
+        "jaccard_similarity": 0.8696,
+        "test_response": " -march=native",
+        "train_response": " -Ofast"
+      },
+      {
+        "test_id": "CBR5-TRK-D-HASH-0007",
+        "test_prompt": "User: Hello assistant! The checksum algorithm selected is SHA-1.\nAssistant: Understood, the checksum algorithm selected is SHA-1 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "train_id": "CBR5-TRK-D-HASH-0001",
+        "train_prompt": "User: Hello assistant! The checksum algorithm selected is SHA-256.\nAssistant: Understood, the checksum algorithm selected is SHA-256 has been registered in our session.\nUser: Which checksum algorithm was selected?\nAssistant:",
+        "jaccard_similarity": 0.9,
+        "test_response": " SHA-1",
+        "train_response": " SHA-256"
+      }
+    ]
+  },
+  "integrity_verdict": {
+    "exact_prompt_leakage": true,
+    "synthetic_template_sharing": true,
+    "scientific_assessment": "No verbatim prompt duplicate leakage detected between train and test_held_out. However, because the dataset was created via random shuffle across CBR-04 and CBR-05 rather than template-disjoint or entity-disjoint splitting, test_held_out shares identical prompt templates and identical static response phrases (e.g. persona strings, epistemic abstention phrases, and city query syntaxes) with the training set. Therefore, test_held_out tests in-distribution generalization on held-out instances, NOT out-of-distribution or novel-template generalization."
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "summary_counts": {
+    "train": 1700,
+    "validation": 200,
+    "test_in_distribution": 100,
+    "test_ood_entities": 100,
+    "test_ood_templates": 100,
+    "test_multihop": 60
+  },
+  "split_overlap_audit": {
+    "validation": {
+      "sample_count": 200,
+      "exact_prompt_leakage_count": 93,
+      "exact_prompt_leakage_pct": 46.5,
+      "normalized_prompt_leakage_count": 93,
+      "exact_response_leakage_count": 140,
+      "num_unique_target_entities": 30,
+      "entity_overlap_with_train_count": 30,
+      "overlapping_entities": [
+        "ACTIVE",
+        "ARCHIVED",
+        "Ahmedabad",
+        "Ananya",
+        "Bengaluru",
+        "Chandigarh",
+        "Chennai",
+        "Deepa",
+        "Delhi",
+        "Hyderabad",
+        "INACTIVE",
+        "Indore",
+        "Jaipur",
+        "Kabir",
+        "Kavita",
+        "Kolkata",
+        "Meera",
+        "Mumbai",
+        "Nagpur",
+        "PENDING",
+        "Pooja",
+        "Priya",
+        "Pune",
+        "QUEUED",
+        "Ravi",
+        "Rohan",
+        "SUSPENDED",
+        "Sanjay",
+        "Sunil",
+        "Vikram"
+      ]
+    },
+    "test_in_distribution": {
+      "sample_count": 100,
+      "exact_prompt_leakage_count": 71,
+      "exact_prompt_leakage_pct": 71.0,
+      "normalized_prompt_leakage_count": 71,
+      "exact_response_leakage_count": 100,
+      "num_unique_target_entities": 12,
+      "entity_overlap_with_train_count": 12,
+      "overlapping_entities": [
+        "Ahmedabad",
+        "Bengaluru",
+        "Chandigarh",
+        "Chennai",
+        "Delhi",
+        "Hyderabad",
+        "Indore",
+        "Jaipur",
+        "Kolkata",
+        "Mumbai",
+        "Nagpur",
+        "Pune"
+      ]
+    },
+    "test_ood_entities": {
+      "sample_count": 100,
+      "exact_prompt_leakage_count": 0,
+      "exact_prompt_leakage_pct": 0.0,
+      "normalized_prompt_leakage_count": 0,
+      "exact_response_leakage_count": 0,
+      "num_unique_target_entities": 10,
+      "entity_overlap_with_train_count": 0,
+      "overlapping_entities": []
+    },
+    "test_ood_templates": {
+      "sample_count": 100,
+      "exact_prompt_leakage_count": 0,
+      "exact_prompt_leakage_pct": 0.0,
+      "normalized_prompt_leakage_count": 0,
+      "exact_response_leakage_count": 0,
+      "num_unique_target_entities": 9,
+      "entity_overlap_with_train_count": 0,
+      "overlapping_entities": []
+    },
+    "test_multihop": {
+      "sample_count": 60,
+      "exact_prompt_leakage_count": 0,
+      "exact_prompt_leakage_pct": 0.0,
+      "normalized_prompt_leakage_count": 0,
+      "exact_response_leakage_count": 0,
+      "num_unique_target_entities": 10,
+      "entity_overlap_with_train_count": 0,
+      "overlapping_entities": []
+    }
+  },
+  "contamination_distinction": {
+    "exact_prompt_contamination": {
+      "test_ood_entities": 0,
+      "test_ood_templates": 0,
+      "test_multihop": 0,
+      "verdict": "ZERO exact prompt contamination found in any OOD test split."
+    },
+    "entity_disjointness": {
+      "test_ood_entities_overlap": 0,
+      "test_ood_templates_overlap": 0,
+      "verdict": "VERIFIED STRICT ENTITY DISJOINTNESS. 0 entity overlap between train and test_ood_entities or test_ood_templates."
+    },
+    "structural_similarity": "test_in_distribution shares both entity pool and template syntax with train, deliberately testing in-distribution interpolation. test_ood_entities shares template framing ('X lives in Y') but uses strictly disjoint entities. test_ood_templates uses both disjoint synthetic entities and disjoint syntactic framing ('Record: Item X has been assigned code Y.')."
+  },
+  "audit_passed": true
+}

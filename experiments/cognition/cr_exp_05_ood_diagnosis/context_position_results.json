@@ -1,0 +1,116 @@
+[
+  {
+    "test_id": "POS_BEGINNING",
+    "position": "beginning",
+    "prompt_token_count": 99,
+    "prompt": "Context: Rohan lives in Nagpur. Priya works in Bengaluru. Amit manages the database in Mumbai. Kavita is an architect in Ahmedabad. Sunil leads the infrastructure team in Kolkata.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "I reended a made is in the context.\n\n|-\n| s\n|",
+      "found_target": false,
+      "target_rank": 32,
+      "target_prob": 0.000181
+    },
+    "parent": {
+      "generated": "The contain the context.Queuublic are the context.Que,",
+      "found_target": false,
+      "target_rank": 4,
+      "target_prob": 0.055596
+    }
+  },
+  {
+    "test_id": "POS_MIDDLE",
+    "position": "middle",
+    "prompt_token_count": 99,
+    "prompt": "Context: Priya works in Bengaluru. Amit manages the database in Mumbai. Rohan lives in Nagpur. Kavita is an architect in Ahmedabad. Sunil leads the infrastructure team in Kolkata.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "Certainly, Please It Delhi. Please the context.",
+      "found_target": false,
+      "target_rank": 30,
+      "target_prob": 0.000195
+    },
+    "parent": {
+      "generated": "The contain the context.The provided a is in the context.Queue",
+      "found_target": false,
+      "target_rank": 3,
+      "target_prob": 0.045669
+    }
+  },
+  {
+    "test_id": "POS_END",
+    "position": "end",
+    "prompt_token_count": 99,
+    "prompt": "Context: Priya works in Bengaluru. Amit manages the database in Mumbai. Kavita is an architect in Ahmedabad. Sunil leads the infrastructure team in Kolkata. Rohan lives in Nagpur.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "Certainly\n\nNo\n Raook you are to to",
+      "found_target": false,
+      "target_rank": 29,
+      "target_prob": 0.00031
+    },
+    "parent": {
+      "generated": "The contain the context.The provided a is in the context.Queue",
+      "found_target": false,
+      "target_rank": 3,
+      "target_prob": 0.066619
+    }
+  },
+  {
+    "test_id": "LEN_SHORT_0_DISTRACTORS",
+    "position": "only_fact",
+    "prompt_token_count": 35,
+    "prompt": "Context: Rohan lives in Nagpur.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "Good afternoon! Yes, I am ready to assist you. W",
+      "found_target": false,
+      "target_rank": 37,
+      "target_prob": 0.000156
+    },
+    "parent": {
+      "generated": "an initiative.Queue, I am an independent, expressed in the",
+      "found_target": false,
+      "target_rank": 4,
+      "target_prob": 0.102307
+    }
+  },
+  {
+    "test_id": "LEN_MEDIUM_2_DISTRACTORS",
+    "position": "middle",
+    "prompt_token_count": 60,
+    "prompt": "Context: Priya works in Bengaluru. Rohan lives in Nagpur. Amit manages the database in Mumbai.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "Please share your You are the context.\n\n\nNo, I",
+      "found_target": false,
+      "target_rank": 24,
+      "target_prob": 0.00037
+    },
+    "parent": {
+      "generated": "The context.Queue, I am a provided indigenous from a made is in the",
+      "found_target": false,
+      "target_rank": 2,
+      "target_prob": 0.109711
+    }
+  },
+  {
+    "test_id": "LEN_LONG_7_DISTRACTORS",
+    "position": "middle",
+    "prompt_token_count": 153,
+    "prompt": "Context: Priya works in Bengaluru. Amit manages the database in Mumbai. Kavita is an architect in Ahmedabad. Rohan lives in Nagpur. Sunil leads the infrastructure team in Kolkata. Deepa studies electrical engineering in Chennai. Sanjay maintains the server fleet in Pune. Neha coordinates operations in Hyderabad.\nUser: Where does Rohan live?\nAssistant:",
+    "target_entity": "Nagpur",
+    "candidate": {
+      "generated": "I recknowhat task you are to explomenda.",
+      "found_target": false,
+      "target_rank": 33,
+      "target_prob": 0.000124
+    },
+    "parent": {
+      "generated": "You a is in the contain the context.Queumentioning the con",
+      "found_target": false,
+      "target_rank": 4,
+      "target_prob": 0.028706
+    }
+  }
+]

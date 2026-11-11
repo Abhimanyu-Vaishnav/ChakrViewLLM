@@ -1,0 +1,1178 @@
+{
+  "vocab_size": 4096,
+  "category_summary": {
+    "familiar_name": {
+      "count": 4,
+      "total_tokens": 10,
+      "total_chars": 22,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 4,
+      "avg_chars_per_token": 2.2,
+      "fragmentation_rate": 0.0
+    },
+    "unseen_name_indian": {
+      "count": 4,
+      "total_tokens": 14,
+      "total_chars": 22,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 4,
+      "avg_chars_per_token": 1.57,
+      "fragmentation_rate": 0.0
+    },
+    "unseen_name_english": {
+      "count": 3,
+      "total_tokens": 13,
+      "total_chars": 19,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 3,
+      "avg_chars_per_token": 1.46,
+      "fragmentation_rate": 0.0
+    },
+    "synthetic_name": {
+      "count": 4,
+      "total_tokens": 16,
+      "total_chars": 25,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 4,
+      "avg_chars_per_token": 1.56,
+      "fragmentation_rate": 0.0
+    },
+    "number": {
+      "count": 4,
+      "total_tokens": 9,
+      "total_chars": 14,
+      "byte_fallback_count": 1,
+      "whitespace_fusion_count": 4,
+      "avg_chars_per_token": 1.56,
+      "fragmentation_rate": 0.25
+    },
+    "pure_hindi": {
+      "count": 4,
+      "total_tokens": 12,
+      "total_chars": 28,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 4,
+      "avg_chars_per_token": 2.33,
+      "fragmentation_rate": 0.0
+    },
+    "hinglish": {
+      "count": 3,
+      "total_tokens": 12,
+      "total_chars": 26,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 3,
+      "avg_chars_per_token": 2.17,
+      "fragmentation_rate": 0.0
+    },
+    "delimiter": {
+      "count": 3,
+      "total_tokens": 16,
+      "total_chars": 30,
+      "byte_fallback_count": 0,
+      "whitespace_fusion_count": 3,
+      "avg_chars_per_token": 1.88,
+      "fragmentation_rate": 0.0
+    }
+  },
+  "sample_diagnostics": [
+    {
+      "category": "familiar_name",
+      "text": "Ravi",
+      "standalone_tokens": [
+        85,
+        100,
+        615
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.33,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        85,
+        100,
+        615
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Where is Ravi?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        90,
+        2346,
+        267,
+        589,
+        85,
+        100,
+        615,
+        66
+      ]
+    },
+    {
+      "category": "familiar_name",
+      "text": "Pune",
+      "standalone_tokens": [
+        83,
+        371,
+        104
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.33,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        83,
+        371,
+        104
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Ravi lives in Pune.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        85,
+        2306,
+        318,
+        335,
+        121,
+        360,
+        356,
+        83,
+        371,
+        428
+      ]
+    },
+    {
+      "category": "familiar_name",
+      "text": "ChakrView",
+      "standalone_tokens": [
+        2035
+      ],
+      "token_count": 1,
+      "reconstruction_exact": true,
+      "chars_per_token": 9.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        2035
+      ],
+      "spaced_token_count": 2,
+      "whitespace_fused": true,
+      "in_context": "User: Who is ChakrView?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        90,
+        765,
+        589,
+        2035,
+        66
+      ]
+    },
+    {
+      "category": "familiar_name",
+      "text": "Delhi",
+      "standalone_tokens": [
+        71,
+        904,
+        453
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.67,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        3454,
+        904,
+        453
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Office in Delhi.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        82,
+        105,
+        548,
+        267,
+        356,
+        71,
+        904,
+        453,
+        49
+      ]
+    },
+    {
+      "category": "unseen_name_indian",
+      "text": "Vikram",
+      "standalone_tokens": [
+        757,
+        110,
+        385,
+        112
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.5,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        757,
+        110,
+        385,
+        112
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: Where is Vikram from?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        90,
+        2346,
+        267,
+        589,
+        757,
+        110,
+        385,
+        361,
+        1009,
+        112,
+        66
+      ]
+    },
+    {
+      "category": "unseen_name_indian",
+      "text": "Kabir",
+      "standalone_tokens": [
+        78,
+        412,
+        108,
+        117
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.25,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        78,
+        412,
+        108,
+        117
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: My name is Kabir.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        80,
+        301,
+        709,
+        1711,
+        589,
+        78,
+        412,
+        108,
+        117,
+        49
+      ]
+    },
+    {
+      "category": "unseen_name_indian",
+      "text": "Ananya",
+      "standalone_tokens": [
+        68,
+        113,
+        286,
+        2423
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.5,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        1606,
+        113,
+        286,
+        2423
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Ananya lives in Bengaluru.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        68,
+        113,
+        286,
+        489,
+        335,
+        121,
+        360,
+        356,
+        3803,
+        288,
+        326,
+        1355
+      ]
+    },
+    {
+      "category": "unseen_name_indian",
+      "text": "Priya",
+      "standalone_tokens": [
+        3909,
+        2423
+      ],
+      "token_count": 2,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.5,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        3909,
+        2423
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Project led by Priya.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        1661,
+        667,
+        289,
+        342,
+        292,
+        1003,
+        3909,
+        2423,
+        49
+      ]
+    },
+    {
+      "category": "unseen_name_english",
+      "text": "Alice",
+      "standalone_tokens": [
+        68,
+        688,
+        104
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.67,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        1606,
+        688,
+        104
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Alice lives in Seattle.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        68,
+        688,
+        267,
+        335,
+        121,
+        360,
+        356,
+        86,
+        104,
+        278,
+        119,
+        342,
+        49
+      ]
+    },
+    {
+      "category": "unseen_name_english",
+      "text": "Seattle",
+      "standalone_tokens": [
+        86,
+        104,
+        278,
+        119,
+        342
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.4,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        3458,
+        104,
+        278,
+        119,
+        342
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: Where does Alice live?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        90,
+        2346,
+        267,
+        546,
+        360,
+        68,
+        688,
+        267,
+        335,
+        592,
+        66
+      ]
+    },
+    {
+      "category": "unseen_name_english",
+      "text": "Chicago",
+      "standalone_tokens": [
+        70,
+        107,
+        362,
+        397,
+        114
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.4,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        70,
+        107,
+        362,
+        397,
+        114
+      ],
+      "spaced_token_count": 6,
+      "whitespace_fused": true,
+      "in_context": "User: John moved to Chicago.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        77,
+        114,
+        107,
+        438,
+        707,
+        121,
+        394,
+        473,
+        70,
+        107,
+        362,
+        397,
+        1718
+      ]
+    },
+    {
+      "category": "synthetic_name",
+      "text": "Quasar",
+      "standalone_tokens": [
+        3919,
+        427,
+        280
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        3919,
+        427,
+        280
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "Mapping: Quasar is mapped to Rhodium.",
+      "in_context_tokens": [
+        80,
+        494,
+        115,
+        309,
+        324,
+        3919,
+        427,
+        448,
+        589,
+        436,
+        2378,
+        394,
+        473,
+        85,
+        572,
+        415,
+        120,
+        1336
+      ]
+    },
+    {
+      "category": "synthetic_name",
+      "text": "Rhodium",
+      "standalone_tokens": [
+        85,
+        572,
+        415,
+        120,
+        112
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.4,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        85,
+        572,
+        415,
+        120,
+        112
+      ],
+      "spaced_token_count": 6,
+      "whitespace_fused": true,
+      "in_context": "Mapping: Quasar is mapped to Rhodium.",
+      "in_context_tokens": [
+        80,
+        494,
+        115,
+        309,
+        324,
+        3919,
+        427,
+        448,
+        589,
+        436,
+        2378,
+        394,
+        473,
+        85,
+        572,
+        415,
+        120,
+        1336
+      ]
+    },
+    {
+      "category": "synthetic_name",
+      "text": "Xylok",
+      "standalone_tokens": [
+        91,
+        124,
+        317,
+        110
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.25,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        91,
+        124,
+        317,
+        110
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: Xylok is in sector 9.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        91,
+        124,
+        317,
+        443,
+        589,
+        356,
+        323,
+        1004,
+        376,
+        3757
+      ]
+    },
+    {
+      "category": "synthetic_name",
+      "text": "Zentrix",
+      "standalone_tokens": [
+        93,
+        470,
+        357,
+        123
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.75,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        93,
+        470,
+        357,
+        123
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: The token is Zentrix.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        898,
+        2788,
+        589,
+        93,
+        470,
+        357,
+        2422
+      ]
+    },
+    {
+      "category": "number",
+      "text": "8080",
+      "standalone_tokens": [
+        2223,
+        2223
+      ],
+      "token_count": 2,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        2223,
+        2223
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Port is 8080.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        83,
+        1417,
+        589,
+        2223,
+        2223,
+        49
+      ]
+    },
+    {
+      "category": "number",
+      "text": "42",
+      "standalone_tokens": [
+        55,
+        53
+      ],
+      "token_count": 2,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.0,
+      "is_heavy_fragmentation": true,
+      "is_byte_fallback": true,
+      "spaced_tokens": [
+        35,
+        55,
+        53
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Answer is 42.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        68,
+        113,
+        118,
+        2418,
+        589,
+        3702
+      ]
+    },
+    {
+      "category": "number",
+      "text": "300",
+      "standalone_tokens": [
+        54,
+        340
+      ],
+      "token_count": 2,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.5,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        54,
+        340
+      ],
+      "spaced_token_count": 3,
+      "whitespace_fused": true,
+      "in_context": "User: Timeout is 300 seconds.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        3941,
+        331,
+        1341,
+        589,
+        54,
+        2706,
+        1439,
+        2326
+      ]
+    },
+    {
+      "category": "number",
+      "text": "12345",
+      "standalone_tokens": [
+        466,
+        893,
+        56
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.67,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        466,
+        893,
+        56
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Code is 12345.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        1113,
+        486,
+        589,
+        466,
+        893,
+        56,
+        49
+      ]
+    },
+    {
+      "category": "pure_hindi",
+      "text": "नमस्ते",
+      "standalone_tokens": [
+        3280
+      ],
+      "token_count": 1,
+      "reconstruction_exact": true,
+      "chars_per_token": 6.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        517,
+        311,
+        652,
+        270
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: नमस्ते!",
+      "in_context_tokens": [
+        88,
+        835,
+        61,
+        517,
+        311,
+        652,
+        270,
+        36
+      ]
+    },
+    {
+      "category": "pure_hindi",
+      "text": "भारत",
+      "standalone_tokens": [
+        1505
+      ],
+      "token_count": 1,
+      "reconstruction_exact": true,
+      "chars_per_token": 4.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        1161
+      ],
+      "spaced_token_count": 1,
+      "whitespace_fused": true,
+      "in_context": "User: भारत की राजधानी क्या है?",
+      "in_context_tokens": [
+        88,
+        835,
+        61,
+        1161,
+        505,
+        179,
+        2492,
+        455,
+        345,
+        729,
+        307,
+        1805,
+        66
+      ]
+    },
+    {
+      "category": "pure_hindi",
+      "text": "राजधानी",
+      "standalone_tokens": [
+        271,
+        2492,
+        455,
+        345,
+        281
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.4,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        577,
+        2492,
+        455,
+        345,
+        281
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: भारत की राजधानी क्या है?",
+      "in_context_tokens": [
+        88,
+        835,
+        61,
+        1161,
+        505,
+        179,
+        2492,
+        455,
+        345,
+        729,
+        307,
+        1805,
+        66
+      ]
+    },
+    {
+      "category": "pure_hindi",
+      "text": "आप कैसे हैं",
+      "standalone_tokens": [
+        844,
+        365,
+        274,
+        1186,
+        449
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.2,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        645,
+        365,
+        274,
+        1186,
+        449
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "User: आप कैसे हैं?",
+      "in_context_tokens": [
+        88,
+        835,
+        61,
+        645,
+        365,
+        274,
+        1186,
+        2823
+      ]
+    },
+    {
+      "category": "hinglish",
+      "text": "kaise ho",
+      "standalone_tokens": [
+        633,
+        1221,
+        572
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.67,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        633,
+        1221,
+        572
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Bhai, kaise ho?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        69,
+        2787,
+        633,
+        1221,
+        572,
+        66
+      ]
+    },
+    {
+      "category": "hinglish",
+      "text": "theek hoon",
+      "standalone_tokens": [
+        1840,
+        1008,
+        572,
+        279
+      ],
+      "token_count": 4,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.5,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        1840,
+        1008,
+        572,
+        279
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "Assistant: Main theek hoon.",
+      "in_context_tokens": [
+        68,
+        118,
+        1855,
+        1807,
+        324,
+        3886,
+        356,
+        1840,
+        1008,
+        572,
+        279,
+        49
+      ]
+    },
+    {
+      "category": "hinglish",
+      "text": "samajhte",
+      "standalone_tokens": [
+        640,
+        436,
+        109,
+        107,
+        315
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.6,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        640,
+        436,
+        109,
+        107,
+        315
+      ],
+      "spaced_token_count": 6,
+      "whitespace_fused": true,
+      "in_context": "User: Kya aap Hindi samajhte hain?",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        78,
+        489,
+        100,
+        494,
+        35,
+        2124,
+        640,
+        436,
+        109,
+        107,
+        514,
+        314,
+        268,
+        66
+      ]
+    },
+    {
+      "category": "delimiter",
+      "text": "User:",
+      "standalone_tokens": [
+        88,
+        835,
+        61
+      ],
+      "token_count": 3,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.67,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        88,
+        835,
+        61
+      ],
+      "spaced_token_count": 4,
+      "whitespace_fused": true,
+      "in_context": "User: Hello",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        3860,
+        317
+      ]
+    },
+    {
+      "category": "delimiter",
+      "text": "Assistant:",
+      "standalone_tokens": [
+        68,
+        118,
+        1855,
+        1807,
+        61
+      ],
+      "token_count": 5,
+      "reconstruction_exact": true,
+      "chars_per_token": 2.0,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        1606,
+        118,
+        1855,
+        1807,
+        61
+      ],
+      "spaced_token_count": 5,
+      "whitespace_fused": true,
+      "in_context": "Assistant: Hi",
+      "in_context_tokens": [
+        68,
+        118,
+        1855,
+        1807,
+        324,
+        75,
+        108
+      ]
+    },
+    {
+      "category": "delimiter",
+      "text": "/var/log/syslog",
+      "standalone_tokens": [
+        50,
+        2414,
+        50,
+        440,
+        50,
+        642,
+        118,
+        440
+      ],
+      "token_count": 8,
+      "reconstruction_exact": true,
+      "chars_per_token": 1.88,
+      "is_heavy_fragmentation": false,
+      "is_byte_fallback": false,
+      "spaced_tokens": [
+        35,
+        50,
+        2414,
+        50,
+        440,
+        50,
+        642,
+        118,
+        440
+      ],
+      "spaced_token_count": 9,
+      "whitespace_fused": true,
+      "in_context": "User: Path is /var/log/syslog.",
+      "in_context_tokens": [
+        88,
+        835,
+        324,
+        83,
+        1795,
+        589,
+        50,
+        2414,
+        50,
+        440,
+        50,
+        642,
+        118,
+        440,
+        49
+      ]
+    }
+  ],
+  "scientific_findings": "1. Devanagari Hindi suffers extreme token fragmentation: each Hindi word requires 4-8 tokens (averaging ~0.8-1.1 characters per token), falling back entirely to UTF-8 byte sequences. Because vocab_size=4096, Hindi subwords were barely merged during BPE training.\n2. Unseen Indian names (Vikram, Kabir, Ananya) fragment into 2-4 subword tokens, whereas familiar names (Ravi, Pune) have single or 2-token representations.\n3. Whitespace fusion is present across 100% of tested entities: leading space changes token ID completely (e.g., ' Alice' produces a distinct subword token from 'Alice'). If context uses 'Alice' at line start but prompt asks ' Where does Alice live?', different token IDs are presented to the attention layers.\n4. Numbers (8080, 12345) are split into individual digit tokens or random 2-digit pairs, lacking dedicated number tokens."
+}

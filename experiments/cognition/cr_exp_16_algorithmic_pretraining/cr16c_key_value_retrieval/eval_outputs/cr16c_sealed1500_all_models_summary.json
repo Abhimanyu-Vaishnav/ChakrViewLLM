@@ -1,0 +1,506 @@
+{
+  "stage_b_baseline": {
+    "model_name": "stage_b_baseline",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\batch16_21_combined\\main_training_10000\\training_checkpoint_step_10000.pt",
+    "total_probes": 1500,
+    "total_exact": 0,
+    "exact_accuracy": 0.0,
+    "total_stale_errors": 0,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 0,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.0,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  },
+  "cr16a_arm_d_copying": {
+    "model_name": "cr16a_arm_d_copying",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16a_copying_recovery\\checkpoints\\arm_d_generalization\\arm_d_generalization_best.pt",
+    "total_probes": 1500,
+    "total_exact": 4,
+    "exact_accuracy": 0.0026666666666666666,
+    "total_stale_errors": 0,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 0,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.0,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 1,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 2,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 1,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  },
+  "retrieval_arm_a_target_s42": {
+    "model_name": "retrieval_arm_a_target_s42",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16c_key_value_retrieval\\checkpoints\\retrieval_arm_a_target_masked_seed42\\retrieval_arm_a_target_masked_best.pt",
+    "total_probes": 1500,
+    "total_exact": 885,
+    "exact_accuracy": 0.59,
+    "total_stale_errors": 1,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 58,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.58,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 164,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 198,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 149,
+        "stale_errors": 1,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 146,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 150,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 58,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 20,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  },
+  "retrieval_arm_a_target_s101": {
+    "model_name": "retrieval_arm_a_target_s101",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16c_key_value_retrieval\\checkpoints\\retrieval_arm_a_target_masked_seed101\\retrieval_arm_a_target_masked_best.pt",
+    "total_probes": 1500,
+    "total_exact": 868,
+    "exact_accuracy": 0.5786666666666667,
+    "total_stale_errors": 0,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 48,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.48,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 173,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 199,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 150,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 138,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 149,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 48,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 11,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  },
+  "retrieval_arm_b_full_s42": {
+    "model_name": "retrieval_arm_b_full_s42",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16c_key_value_retrieval\\checkpoints\\retrieval_arm_b_full_loss_seed42\\retrieval_arm_b_full_loss_best.pt",
+    "total_probes": 1500,
+    "total_exact": 730,
+    "exact_accuracy": 0.4866666666666667,
+    "total_stale_errors": 12,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 64,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.64,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 150,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 165,
+        "stale_errors": 7,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 126,
+        "stale_errors": 5,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 104,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 121,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 64,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  },
+  "retrieval_arm_b_full_s101": {
+    "model_name": "retrieval_arm_b_full_s101",
+    "checkpoint": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_16_algorithmic_pretraining\\cr16c_key_value_retrieval\\checkpoints\\retrieval_arm_b_full_loss_seed101\\retrieval_arm_b_full_loss_best.pt",
+    "total_probes": 1500,
+    "total_exact": 772,
+    "exact_accuracy": 0.5146666666666667,
+    "total_stale_errors": 16,
+    "total_distractor_captures": 0,
+    "correct_abstentions": 63,
+    "total_missing_probes": 100,
+    "abstention_recall": 0.63,
+    "by_category": {
+      "CAT1": {
+        "name": "direct_retrieval_familiar",
+        "total": 200,
+        "exact": 159,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT2": {
+        "name": "reassigned_values",
+        "total": 200,
+        "exact": 176,
+        "stale_errors": 8,
+        "distractor_captures": 0
+      },
+      "CAT3": {
+        "name": "counterfactual_updates",
+        "total": 150,
+        "exact": 130,
+        "stale_errors": 8,
+        "distractor_captures": 0
+      },
+      "CAT4": {
+        "name": "multiple_stored_facts",
+        "total": 150,
+        "exact": 118,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT5": {
+        "name": "unseen_key_val_combos",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT6": {
+        "name": "unseen_keys_familiar_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT7": {
+        "name": "familiar_keys_unseen_values",
+        "total": 150,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT8": {
+        "name": "distractor_heavy_contexts",
+        "total": 150,
+        "exact": 126,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT9": {
+        "name": "missing_key_abstention",
+        "total": 100,
+        "exact": 63,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      },
+      "CAT10": {
+        "name": "unseen_templates",
+        "total": 100,
+        "exact": 0,
+        "stale_errors": 0,
+        "distractor_captures": 0
+      }
+    }
+  }
+}

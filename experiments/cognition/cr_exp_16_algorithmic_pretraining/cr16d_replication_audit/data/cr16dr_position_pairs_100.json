@@ -1,0 +1,902 @@
+[
+  {
+    "pair_id": "PERM_PAIR_001",
+    "target_key": "country",
+    "expected": "Iris",
+    "distractor_key": "sport",
+    "distractor_val": "Yellow",
+    "orig_prompt": "Store: country = Iris. Store: sport = Yellow. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: sport = Yellow. Store: country = Iris. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_002",
+    "target_key": "sport",
+    "expected": "Golf",
+    "distractor_key": "vehicle",
+    "distractor_val": "Hawk",
+    "orig_prompt": "Store: sport = Golf. Store: vehicle = Hawk. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Hawk. Store: sport = Golf. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_003",
+    "target_key": "flower",
+    "expected": "Fog",
+    "distractor_key": "animal",
+    "distractor_val": "Nurse",
+    "orig_prompt": "Store: flower = Fog. Store: animal = Nurse. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: animal = Nurse. Store: flower = Fog. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_004",
+    "target_key": "color",
+    "expected": "Wind",
+    "distractor_key": "sport",
+    "distractor_val": "Rain",
+    "orig_prompt": "Store: color = Wind. Store: sport = Rain. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: sport = Rain. Store: color = Wind. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_005",
+    "target_key": "color",
+    "expected": "Boxing",
+    "distractor_key": "fruit",
+    "distractor_val": "Tiger",
+    "orig_prompt": "Store: color = Boxing. Store: fruit = Tiger. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Tiger. Store: color = Boxing. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_006",
+    "target_key": "flower",
+    "expected": "Silver",
+    "distractor_key": "animal",
+    "distractor_val": "Japan",
+    "orig_prompt": "Store: flower = Silver. Store: animal = Japan. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: animal = Japan. Store: flower = Silver. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_007",
+    "target_key": "sport",
+    "expected": "Berlin",
+    "distractor_key": "vehicle",
+    "distractor_val": "Daisy",
+    "orig_prompt": "Store: sport = Berlin. Store: vehicle = Daisy. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Daisy. Store: sport = Berlin. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_008",
+    "target_key": "vehicle",
+    "expected": "Soccer",
+    "distractor_key": "weather",
+    "distractor_val": "Canada",
+    "orig_prompt": "Store: vehicle = Soccer. Store: weather = Canada. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: weather = Canada. Store: vehicle = Soccer. Query: vehicle.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_009",
+    "target_key": "sport",
+    "expected": "Orange",
+    "distractor_key": "country",
+    "distractor_val": "Lotus",
+    "orig_prompt": "Store: sport = Orange. Store: country = Lotus. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: country = Lotus. Store: sport = Orange. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_010",
+    "target_key": "color",
+    "expected": "Silver",
+    "distractor_key": "profession",
+    "distractor_val": "Plane",
+    "orig_prompt": "Store: color = Silver. Store: profession = Plane. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: profession = Plane. Store: color = Silver. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_011",
+    "target_key": "city",
+    "expected": "Orange",
+    "distractor_key": "fruit",
+    "distractor_val": "Yellow",
+    "orig_prompt": "Store: city = Orange. Store: fruit = Yellow. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Yellow. Store: city = Orange. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_012",
+    "target_key": "city",
+    "expected": "Green",
+    "distractor_key": "weather",
+    "distractor_val": "Fog",
+    "orig_prompt": "Store: city = Green. Store: weather = Fog. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: weather = Fog. Store: city = Green. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_013",
+    "target_key": "animal",
+    "expected": "Lion",
+    "distractor_key": "city",
+    "distractor_val": "Lotus",
+    "orig_prompt": "Store: animal = Lion. Store: city = Lotus. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: city = Lotus. Store: animal = Lion. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_014",
+    "target_key": "fruit",
+    "expected": "Lily",
+    "distractor_key": "city",
+    "distractor_val": "France",
+    "orig_prompt": "Store: fruit = Lily. Store: city = France. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: city = France. Store: fruit = Lily. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_015",
+    "target_key": "vehicle",
+    "expected": "Sun",
+    "distractor_key": "animal",
+    "distractor_val": "Berry",
+    "orig_prompt": "Store: vehicle = Sun. Store: animal = Berry. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: animal = Berry. Store: vehicle = Sun. Query: vehicle.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_016",
+    "target_key": "animal",
+    "expected": "Lemon",
+    "distractor_key": "country",
+    "distractor_val": "Storm",
+    "orig_prompt": "Store: animal = Lemon. Store: country = Storm. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: country = Storm. Store: animal = Lemon. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_017",
+    "target_key": "color",
+    "expected": "Snow",
+    "distractor_key": "country",
+    "distractor_val": "Soccer",
+    "orig_prompt": "Store: color = Snow. Store: country = Soccer. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: country = Soccer. Store: color = Snow. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_018",
+    "target_key": "sport",
+    "expected": "Banana",
+    "distractor_key": "city",
+    "distractor_val": "Wind",
+    "orig_prompt": "Store: sport = Banana. Store: city = Wind. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: city = Wind. Store: sport = Banana. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_019",
+    "target_key": "city",
+    "expected": "Spain",
+    "distractor_key": "fruit",
+    "distractor_val": "Cloud",
+    "orig_prompt": "Store: city = Spain. Store: fruit = Cloud. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Cloud. Store: city = Spain. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_020",
+    "target_key": "fruit",
+    "expected": "Plane",
+    "distractor_key": "color",
+    "distractor_val": "Nurse",
+    "orig_prompt": "Store: fruit = Plane. Store: color = Nurse. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: color = Nurse. Store: fruit = Plane. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_021",
+    "target_key": "sport",
+    "expected": "Apple",
+    "distractor_key": "vehicle",
+    "distractor_val": "Doctor",
+    "orig_prompt": "Store: sport = Apple. Store: vehicle = Doctor. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Doctor. Store: sport = Apple. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_022",
+    "target_key": "vehicle",
+    "expected": "Rugby",
+    "distractor_key": "color",
+    "distractor_val": "Iris",
+    "orig_prompt": "Store: vehicle = Rugby. Store: color = Iris. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: color = Iris. Store: vehicle = Rugby. Query: vehicle.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_023",
+    "target_key": "fruit",
+    "expected": "Bike",
+    "distractor_key": "sport",
+    "distractor_val": "Daisy",
+    "orig_prompt": "Store: fruit = Bike. Store: sport = Daisy. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: sport = Daisy. Store: fruit = Bike. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_024",
+    "target_key": "animal",
+    "expected": "Shark",
+    "distractor_key": "sport",
+    "distractor_val": "Lawyer",
+    "orig_prompt": "Store: animal = Shark. Store: sport = Lawyer. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: sport = Lawyer. Store: animal = Shark. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_025",
+    "target_key": "country",
+    "expected": "Orchid",
+    "distractor_key": "profession",
+    "distractor_val": "Lily",
+    "orig_prompt": "Store: country = Orchid. Store: profession = Lily. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: profession = Lily. Store: country = Orchid. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_026",
+    "target_key": "sport",
+    "expected": "Truck",
+    "distractor_key": "country",
+    "distractor_val": "Cairo",
+    "orig_prompt": "Store: sport = Truck. Store: country = Cairo. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: country = Cairo. Store: sport = Truck. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_027",
+    "target_key": "fruit",
+    "expected": "Tulip",
+    "distractor_key": "country",
+    "distractor_val": "Cairo",
+    "orig_prompt": "Store: fruit = Tulip. Store: country = Cairo. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: country = Cairo. Store: fruit = Tulip. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_028",
+    "target_key": "flower",
+    "expected": "Train",
+    "distractor_key": "sport",
+    "distractor_val": "Yellow",
+    "orig_prompt": "Store: flower = Train. Store: sport = Yellow. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: sport = Yellow. Store: flower = Train. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_029",
+    "target_key": "flower",
+    "expected": "Whale",
+    "distractor_key": "vehicle",
+    "distractor_val": "Iris",
+    "orig_prompt": "Store: flower = Whale. Store: vehicle = Iris. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Iris. Store: flower = Whale. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_030",
+    "target_key": "city",
+    "expected": "Japan",
+    "distractor_key": "vehicle",
+    "distractor_val": "Train",
+    "orig_prompt": "Store: city = Japan. Store: vehicle = Train. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Train. Store: city = Japan. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_031",
+    "target_key": "country",
+    "expected": "Judge",
+    "distractor_key": "weather",
+    "distractor_val": "Blue",
+    "orig_prompt": "Store: country = Judge. Store: weather = Blue. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: weather = Blue. Store: country = Judge. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_032",
+    "target_key": "profession",
+    "expected": "Orange",
+    "distractor_key": "city",
+    "distractor_val": "Delhi",
+    "orig_prompt": "Store: profession = Orange. Store: city = Delhi. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: city = Delhi. Store: profession = Orange. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_033",
+    "target_key": "sport",
+    "expected": "Judge",
+    "distractor_key": "flower",
+    "distractor_val": "Delhi",
+    "orig_prompt": "Store: sport = Judge. Store: flower = Delhi. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: flower = Delhi. Store: sport = Judge. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_034",
+    "target_key": "flower",
+    "expected": "Tulip",
+    "distractor_key": "weather",
+    "distractor_val": "Green",
+    "orig_prompt": "Store: flower = Tulip. Store: weather = Green. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: weather = Green. Store: flower = Tulip. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_035",
+    "target_key": "fruit",
+    "expected": "Rome",
+    "distractor_key": "country",
+    "distractor_val": "Golf",
+    "orig_prompt": "Store: fruit = Rome. Store: country = Golf. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: country = Golf. Store: fruit = Rome. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_036",
+    "target_key": "city",
+    "expected": "Storm",
+    "distractor_key": "country",
+    "distractor_val": "Ship",
+    "orig_prompt": "Store: city = Storm. Store: country = Ship. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: country = Ship. Store: city = Storm. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_037",
+    "target_key": "flower",
+    "expected": "Pilot",
+    "distractor_key": "profession",
+    "distractor_val": "Plane",
+    "orig_prompt": "Store: flower = Pilot. Store: profession = Plane. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: profession = Plane. Store: flower = Pilot. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_038",
+    "target_key": "sport",
+    "expected": "Bus",
+    "distractor_key": "profession",
+    "distractor_val": "Boat",
+    "orig_prompt": "Store: sport = Bus. Store: profession = Boat. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: profession = Boat. Store: sport = Bus. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_039",
+    "target_key": "flower",
+    "expected": "Germany",
+    "distractor_key": "country",
+    "distractor_val": "France",
+    "orig_prompt": "Store: flower = Germany. Store: country = France. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: country = France. Store: flower = Germany. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_040",
+    "target_key": "city",
+    "expected": "Paris",
+    "distractor_key": "fruit",
+    "distractor_val": "Car",
+    "orig_prompt": "Store: city = Paris. Store: fruit = Car. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Car. Store: city = Paris. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_041",
+    "target_key": "fruit",
+    "expected": "Whale",
+    "distractor_key": "profession",
+    "distractor_val": "Paris",
+    "orig_prompt": "Store: fruit = Whale. Store: profession = Paris. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: profession = Paris. Store: fruit = Whale. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_042",
+    "target_key": "city",
+    "expected": "Canada",
+    "distractor_key": "flower",
+    "distractor_val": "Wind",
+    "orig_prompt": "Store: city = Canada. Store: flower = Wind. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: flower = Wind. Store: city = Canada. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_043",
+    "target_key": "profession",
+    "expected": "Mango",
+    "distractor_key": "country",
+    "distractor_val": "Paris",
+    "orig_prompt": "Store: profession = Mango. Store: country = Paris. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: country = Paris. Store: profession = Mango. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_044",
+    "target_key": "country",
+    "expected": "Bike",
+    "distractor_key": "city",
+    "distractor_val": "Shark",
+    "orig_prompt": "Store: country = Bike. Store: city = Shark. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: city = Shark. Store: country = Bike. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_045",
+    "target_key": "country",
+    "expected": "Nurse",
+    "distractor_key": "color",
+    "distractor_val": "Lion",
+    "orig_prompt": "Store: country = Nurse. Store: color = Lion. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: color = Lion. Store: country = Nurse. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_046",
+    "target_key": "country",
+    "expected": "Silver",
+    "distractor_key": "color",
+    "distractor_val": "Artist",
+    "orig_prompt": "Store: country = Silver. Store: color = Artist. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: color = Artist. Store: country = Silver. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_047",
+    "target_key": "country",
+    "expected": "Iris",
+    "distractor_key": "animal",
+    "distractor_val": "Lemon",
+    "orig_prompt": "Store: country = Iris. Store: animal = Lemon. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: animal = Lemon. Store: country = Iris. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_048",
+    "target_key": "color",
+    "expected": "Lotus",
+    "distractor_key": "country",
+    "distractor_val": "Orchid",
+    "orig_prompt": "Store: color = Lotus. Store: country = Orchid. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: country = Orchid. Store: color = Lotus. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_049",
+    "target_key": "flower",
+    "expected": "Whale",
+    "distractor_key": "vehicle",
+    "distractor_val": "Silver",
+    "orig_prompt": "Store: flower = Whale. Store: vehicle = Silver. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Silver. Store: flower = Whale. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_050",
+    "target_key": "country",
+    "expected": "Berry",
+    "distractor_key": "flower",
+    "distractor_val": "Apple",
+    "orig_prompt": "Store: country = Berry. Store: flower = Apple. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: flower = Apple. Store: country = Berry. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_051",
+    "target_key": "sport",
+    "expected": "Banana",
+    "distractor_key": "flower",
+    "distractor_val": "Snow",
+    "orig_prompt": "Store: sport = Banana. Store: flower = Snow. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: flower = Snow. Store: sport = Banana. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_052",
+    "target_key": "color",
+    "expected": "Wolf",
+    "distractor_key": "animal",
+    "distractor_val": "Rain",
+    "orig_prompt": "Store: color = Wolf. Store: animal = Rain. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: animal = Rain. Store: color = Wolf. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_053",
+    "target_key": "country",
+    "expected": "Cairo",
+    "distractor_key": "fruit",
+    "distractor_val": "Peach",
+    "orig_prompt": "Store: country = Cairo. Store: fruit = Peach. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Peach. Store: country = Cairo. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_054",
+    "target_key": "profession",
+    "expected": "Sun",
+    "distractor_key": "sport",
+    "distractor_val": "Cloud",
+    "orig_prompt": "Store: profession = Sun. Store: sport = Cloud. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: sport = Cloud. Store: profession = Sun. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_055",
+    "target_key": "weather",
+    "expected": "Lawyer",
+    "distractor_key": "city",
+    "distractor_val": "Soccer",
+    "orig_prompt": "Store: weather = Lawyer. Store: city = Soccer. Query: weather.\nAnswer: ",
+    "perm_prompt": "Store: city = Soccer. Store: weather = Lawyer. Query: weather.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_056",
+    "target_key": "flower",
+    "expected": "Spain",
+    "distractor_key": "weather",
+    "distractor_val": "Wind",
+    "orig_prompt": "Store: flower = Spain. Store: weather = Wind. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: weather = Wind. Store: flower = Spain. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_057",
+    "target_key": "sport",
+    "expected": "Rain",
+    "distractor_key": "country",
+    "distractor_val": "Fog",
+    "orig_prompt": "Store: sport = Rain. Store: country = Fog. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: country = Fog. Store: sport = Rain. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_058",
+    "target_key": "color",
+    "expected": "Tokyo",
+    "distractor_key": "fruit",
+    "distractor_val": "Berlin",
+    "orig_prompt": "Store: color = Tokyo. Store: fruit = Berlin. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Berlin. Store: color = Tokyo. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_059",
+    "target_key": "country",
+    "expected": "Eagle",
+    "distractor_key": "fruit",
+    "distractor_val": "Delhi",
+    "orig_prompt": "Store: country = Eagle. Store: fruit = Delhi. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Delhi. Store: country = Eagle. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_060",
+    "target_key": "animal",
+    "expected": "Banana",
+    "distractor_key": "profession",
+    "distractor_val": "Eagle",
+    "orig_prompt": "Store: animal = Banana. Store: profession = Eagle. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: profession = Eagle. Store: animal = Banana. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_061",
+    "target_key": "color",
+    "expected": "Tulip",
+    "distractor_key": "sport",
+    "distractor_val": "Cloud",
+    "orig_prompt": "Store: color = Tulip. Store: sport = Cloud. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: sport = Cloud. Store: color = Tulip. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_062",
+    "target_key": "flower",
+    "expected": "Purple",
+    "distractor_key": "country",
+    "distractor_val": "Madrid",
+    "orig_prompt": "Store: flower = Purple. Store: country = Madrid. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: country = Madrid. Store: flower = Purple. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_063",
+    "target_key": "country",
+    "expected": "Daisy",
+    "distractor_key": "weather",
+    "distractor_val": "Banana",
+    "orig_prompt": "Store: country = Daisy. Store: weather = Banana. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: weather = Banana. Store: country = Daisy. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_064",
+    "target_key": "city",
+    "expected": "Wind",
+    "distractor_key": "country",
+    "distractor_val": "London",
+    "orig_prompt": "Store: city = Wind. Store: country = London. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: country = London. Store: city = Wind. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_065",
+    "target_key": "sport",
+    "expected": "Chef",
+    "distractor_key": "fruit",
+    "distractor_val": "Rome",
+    "orig_prompt": "Store: sport = Chef. Store: fruit = Rome. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: fruit = Rome. Store: sport = Chef. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_066",
+    "target_key": "animal",
+    "expected": "Bear",
+    "distractor_key": "country",
+    "distractor_val": "Banana",
+    "orig_prompt": "Store: animal = Bear. Store: country = Banana. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: country = Banana. Store: animal = Bear. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_067",
+    "target_key": "color",
+    "expected": "Germany",
+    "distractor_key": "animal",
+    "distractor_val": "Cloud",
+    "orig_prompt": "Store: color = Germany. Store: animal = Cloud. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: animal = Cloud. Store: color = Germany. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_068",
+    "target_key": "weather",
+    "expected": "Rose",
+    "distractor_key": "country",
+    "distractor_val": "Peach",
+    "orig_prompt": "Store: weather = Rose. Store: country = Peach. Query: weather.\nAnswer: ",
+    "perm_prompt": "Store: country = Peach. Store: weather = Rose. Query: weather.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_069",
+    "target_key": "flower",
+    "expected": "Golf",
+    "distractor_key": "country",
+    "distractor_val": "Brazil",
+    "orig_prompt": "Store: flower = Golf. Store: country = Brazil. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: country = Brazil. Store: flower = Golf. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_070",
+    "target_key": "profession",
+    "expected": "Violet",
+    "distractor_key": "weather",
+    "distractor_val": "Rose",
+    "orig_prompt": "Store: profession = Violet. Store: weather = Rose. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: weather = Rose. Store: profession = Violet. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_071",
+    "target_key": "fruit",
+    "expected": "Judo",
+    "distractor_key": "color",
+    "distractor_val": "Truck",
+    "orig_prompt": "Store: fruit = Judo. Store: color = Truck. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: color = Truck. Store: fruit = Judo. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_072",
+    "target_key": "weather",
+    "expected": "Yellow",
+    "distractor_key": "country",
+    "distractor_val": "Grape",
+    "orig_prompt": "Store: weather = Yellow. Store: country = Grape. Query: weather.\nAnswer: ",
+    "perm_prompt": "Store: country = Grape. Store: weather = Yellow. Query: weather.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_073",
+    "target_key": "city",
+    "expected": "Brazil",
+    "distractor_key": "color",
+    "distractor_val": "Snow",
+    "orig_prompt": "Store: city = Brazil. Store: color = Snow. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: color = Snow. Store: city = Brazil. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_074",
+    "target_key": "color",
+    "expected": "Lotus",
+    "distractor_key": "animal",
+    "distractor_val": "Lawyer",
+    "orig_prompt": "Store: color = Lotus. Store: animal = Lawyer. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: animal = Lawyer. Store: color = Lotus. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_075",
+    "target_key": "flower",
+    "expected": "Whale",
+    "distractor_key": "country",
+    "distractor_val": "Storm",
+    "orig_prompt": "Store: flower = Whale. Store: country = Storm. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: country = Storm. Store: flower = Whale. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_076",
+    "target_key": "sport",
+    "expected": "Grape",
+    "distractor_key": "flower",
+    "distractor_val": "Lotus",
+    "orig_prompt": "Store: sport = Grape. Store: flower = Lotus. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: flower = Lotus. Store: sport = Grape. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_077",
+    "target_key": "vehicle",
+    "expected": "Bus",
+    "distractor_key": "sport",
+    "distractor_val": "Truck",
+    "orig_prompt": "Store: vehicle = Bus. Store: sport = Truck. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: sport = Truck. Store: vehicle = Bus. Query: vehicle.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_078",
+    "target_key": "fruit",
+    "expected": "Bus",
+    "distractor_key": "animal",
+    "distractor_val": "Hockey",
+    "orig_prompt": "Store: fruit = Bus. Store: animal = Hockey. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: animal = Hockey. Store: fruit = Bus. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_079",
+    "target_key": "flower",
+    "expected": "Golf",
+    "distractor_key": "country",
+    "distractor_val": "Artist",
+    "orig_prompt": "Store: flower = Golf. Store: country = Artist. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: country = Artist. Store: flower = Golf. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_080",
+    "target_key": "color",
+    "expected": "Grape",
+    "distractor_key": "flower",
+    "distractor_val": "Car",
+    "orig_prompt": "Store: color = Grape. Store: flower = Car. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: flower = Car. Store: color = Grape. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_081",
+    "target_key": "country",
+    "expected": "Berry",
+    "distractor_key": "vehicle",
+    "distractor_val": "Golf",
+    "orig_prompt": "Store: country = Berry. Store: vehicle = Golf. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Golf. Store: country = Berry. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_082",
+    "target_key": "profession",
+    "expected": "Chef",
+    "distractor_key": "color",
+    "distractor_val": "Lily",
+    "orig_prompt": "Store: profession = Chef. Store: color = Lily. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: color = Lily. Store: profession = Chef. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_083",
+    "target_key": "sport",
+    "expected": "Paris",
+    "distractor_key": "color",
+    "distractor_val": "Lawyer",
+    "orig_prompt": "Store: sport = Paris. Store: color = Lawyer. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: color = Lawyer. Store: sport = Paris. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_084",
+    "target_key": "vehicle",
+    "expected": "Rose",
+    "distractor_key": "flower",
+    "distractor_val": "Silver",
+    "orig_prompt": "Store: vehicle = Rose. Store: flower = Silver. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: flower = Silver. Store: vehicle = Rose. Query: vehicle.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_085",
+    "target_key": "city",
+    "expected": "Artist",
+    "distractor_key": "country",
+    "distractor_val": "Lion",
+    "orig_prompt": "Store: city = Artist. Store: country = Lion. Query: city.\nAnswer: ",
+    "perm_prompt": "Store: country = Lion. Store: city = Artist. Query: city.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_086",
+    "target_key": "country",
+    "expected": "Iris",
+    "distractor_key": "flower",
+    "distractor_val": "Peach",
+    "orig_prompt": "Store: country = Iris. Store: flower = Peach. Query: country.\nAnswer: ",
+    "perm_prompt": "Store: flower = Peach. Store: country = Iris. Query: country.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_087",
+    "target_key": "color",
+    "expected": "Eagle",
+    "distractor_key": "city",
+    "distractor_val": "Germany",
+    "orig_prompt": "Store: color = Eagle. Store: city = Germany. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: city = Germany. Store: color = Eagle. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_088",
+    "target_key": "profession",
+    "expected": "Artist",
+    "distractor_key": "color",
+    "distractor_val": "Hockey",
+    "orig_prompt": "Store: profession = Artist. Store: color = Hockey. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: color = Hockey. Store: profession = Artist. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_089",
+    "target_key": "fruit",
+    "expected": "Berry",
+    "distractor_key": "city",
+    "distractor_val": "Lily",
+    "orig_prompt": "Store: fruit = Berry. Store: city = Lily. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: city = Lily. Store: fruit = Berry. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_090",
+    "target_key": "fruit",
+    "expected": "Violet",
+    "distractor_key": "animal",
+    "distractor_val": "Italy",
+    "orig_prompt": "Store: fruit = Violet. Store: animal = Italy. Query: fruit.\nAnswer: ",
+    "perm_prompt": "Store: animal = Italy. Store: fruit = Violet. Query: fruit.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_091",
+    "target_key": "profession",
+    "expected": "Rugby",
+    "distractor_key": "country",
+    "distractor_val": "Orchid",
+    "orig_prompt": "Store: profession = Rugby. Store: country = Orchid. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: country = Orchid. Store: profession = Rugby. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_092",
+    "target_key": "flower",
+    "expected": "Daisy",
+    "distractor_key": "city",
+    "distractor_val": "Artist",
+    "orig_prompt": "Store: flower = Daisy. Store: city = Artist. Query: flower.\nAnswer: ",
+    "perm_prompt": "Store: city = Artist. Store: flower = Daisy. Query: flower.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_093",
+    "target_key": "animal",
+    "expected": "Paris",
+    "distractor_key": "sport",
+    "distractor_val": "Cloud",
+    "orig_prompt": "Store: animal = Paris. Store: sport = Cloud. Query: animal.\nAnswer: ",
+    "perm_prompt": "Store: sport = Cloud. Store: animal = Paris. Query: animal.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_094",
+    "target_key": "profession",
+    "expected": "Apple",
+    "distractor_key": "animal",
+    "distractor_val": "Canada",
+    "orig_prompt": "Store: profession = Apple. Store: animal = Canada. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: animal = Canada. Store: profession = Apple. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_095",
+    "target_key": "sport",
+    "expected": "Doctor",
+    "distractor_key": "vehicle",
+    "distractor_val": "Brazil",
+    "orig_prompt": "Store: sport = Doctor. Store: vehicle = Brazil. Query: sport.\nAnswer: ",
+    "perm_prompt": "Store: vehicle = Brazil. Store: sport = Doctor. Query: sport.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_096",
+    "target_key": "color",
+    "expected": "Spain",
+    "distractor_key": "country",
+    "distractor_val": "Wind",
+    "orig_prompt": "Store: color = Spain. Store: country = Wind. Query: color.\nAnswer: ",
+    "perm_prompt": "Store: country = Wind. Store: color = Spain. Query: color.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_097",
+    "target_key": "weather",
+    "expected": "Wolf",
+    "distractor_key": "flower",
+    "distractor_val": "Tulip",
+    "orig_prompt": "Store: weather = Wolf. Store: flower = Tulip. Query: weather.\nAnswer: ",
+    "perm_prompt": "Store: flower = Tulip. Store: weather = Wolf. Query: weather.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_098",
+    "target_key": "profession",
+    "expected": "Plane",
+    "distractor_key": "flower",
+    "distractor_val": "Bus",
+    "orig_prompt": "Store: profession = Plane. Store: flower = Bus. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: flower = Bus. Store: profession = Plane. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_099",
+    "target_key": "profession",
+    "expected": "Soccer",
+    "distractor_key": "weather",
+    "distractor_val": "Daisy",
+    "orig_prompt": "Store: profession = Soccer. Store: weather = Daisy. Query: profession.\nAnswer: ",
+    "perm_prompt": "Store: weather = Daisy. Store: profession = Soccer. Query: profession.\nAnswer: "
+  },
+  {
+    "pair_id": "PERM_PAIR_100",
+    "target_key": "vehicle",
+    "expected": "Delhi",
+    "distractor_key": "city",
+    "distractor_val": "Snow",
+    "orig_prompt": "Store: vehicle = Delhi. Store: city = Snow. Query: vehicle.\nAnswer: ",
+    "perm_prompt": "Store: city = Snow. Store: vehicle = Delhi. Query: vehicle.\nAnswer: "
+  }
+]

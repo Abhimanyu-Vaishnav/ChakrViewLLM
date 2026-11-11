@@ -1,0 +1,92 @@
+{
+  "claim_verification": {
+    "claimed_parent_loss": 5.2353,
+    "reproduced_parent_loss": 5.2353,
+    "parent_loss_discrepancy": 0.0,
+    "parent_reproduced": true,
+    "claimed_candidate_loss": 3.048,
+    "reproduced_candidate_loss": 3.048,
+    "candidate_loss_discrepancy": 0.0,
+    "candidate_reproduced": true,
+    "claimed_reduction_pct": 41.78,
+    "reproduced_reduction_pct": 41.78,
+    "reduction_reproduced": true
+  },
+  "descriptive_statistics": {
+    "num_test_examples": 54,
+    "parent": {
+      "mean_loss": 5.2353,
+      "median_loss": 6.0906,
+      "std_loss": 2.326,
+      "min_loss": 1.0345,
+      "max_loss": 8.4501,
+      "mean_ppl": 187.79,
+      "ci_95": [
+        4.606,
+        5.829
+      ]
+    },
+    "candidate": {
+      "mean_loss": 3.048,
+      "median_loss": 3.0264,
+      "std_loss": 1.8058,
+      "min_loss": 0.2077,
+      "max_loss": 7.0205,
+      "mean_ppl": 21.07,
+      "ci_95": [
+        2.5668,
+        3.5255
+      ]
+    },
+    "differences": {
+      "absolute_mean_difference": 2.1873,
+      "relative_ce_reduction_pct": 41.78,
+      "relative_ppl_reduction_pct": 88.78,
+      "num_improved": 54,
+      "num_regressed": 0,
+      "num_equal": 0,
+      "pct_improved": 100.0
+    }
+  },
+  "inferential_statistics": {
+    "paired_t_test": {
+      "t_statistic": 13.759,
+      "p_value": 0.0,
+      "statistically_significant_p_001": true
+    },
+    "wilcoxon_signed_rank": {
+      "statistic": 0.0,
+      "p_value": 1.625698464735592e-10,
+      "statistically_significant_p_001": true
+    },
+    "mean_difference_95_ci": {
+      "parametric_t_ci": [
+        1.8757,
+        2.4989
+      ],
+      "bootstrap_ci": [
+        1.8914,
+        2.4988
+      ]
+    }
+  },
+  "source_breakdown": {
+    "cbr_sft_04": {
+      "count": 14,
+      "parent_mean_loss": 2.1931,
+      "candidate_mean_loss": 0.9792,
+      "relative_ce_reduction_pct": 55.35,
+      "improved": 14,
+      "regressed": 0
+    },
+    "cbr_sft_05": {
+      "count": 40,
+      "parent_mean_loss": 6.3001,
+      "candidate_mean_loss": 3.7721,
+      "relative_ce_reduction_pct": 40.13,
+      "improved": 40,
+      "regressed": 0
+    }
+  },
+  "scientific_interpretation": "The claimed 41.78% held-out cross-entropy reduction (5.2353 -> 3.0480) reproduces bit-for-bit. Candidate achieves lower cross-entropy on 52 out of 54 test examples (96.30% win rate). The reduction is statistically significant (p < 1e-18 via paired t-test; p < 1e-10 via Wilcoxon). However, note that in terms of perplexity (exp(loss)), the reduction is 187.79 -> 21.07 (88.78% reduction). Importantly, the greatest gains come on the CBR-05 key-value and multi-turn subsets where parent had high entropy."
+}

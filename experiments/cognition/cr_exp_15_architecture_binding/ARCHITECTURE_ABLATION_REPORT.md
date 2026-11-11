@@ -42,3 +42,4 @@ Arch Arm C expanded model width by 33% ($192 \to 256$) and parameter count by 67
 Candidate D (fine-tuned with dynamic updates) achieved the lowest validation loss ($1.8418$) and learned the conversational and syntactic frame (`<Entity> is currently in <Location>`), producing syntactically pristine multi-turn answers. However, when tested on unseen entity names and cities, Candidate D output memorized training entities and cities (`Amita is currently in Aurangabad.`, `Kavita is currently in Amritsar.`) instead of copying the entities from the prompt context.
 
 This proves that **the failure mode is not representational incapacity, but attention routing vs parametric memory dominance**. The model relies entirely on its feedforward and embedding weights (parametric memorization) to output entities, rather than dynamically copying tokens from the query context via induction heads.
+

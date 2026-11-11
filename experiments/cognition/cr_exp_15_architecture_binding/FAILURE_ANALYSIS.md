@@ -47,3 +47,4 @@ Why does even Candidate B (which was specifically trained on 500 pure entity-cop
    - **Layer $L+k$ (Induction Head):** Attends from current token $A$ back to a prior occurrence of $A$, and reads out the token that followed $A$ ($B$) to predict $B$.
    
    In ChakrMicro's small 6-layer architecture, these induction circuits never formed during historical pretraining. Fine-tuning on a few hundred or thousand examples only adjusts final layer logits or biases towards memorized training tokens, but cannot synthesize induction heads from scratch without dedicated pretraining tasks (e.g. prefix matching, repeated string prediction).
+

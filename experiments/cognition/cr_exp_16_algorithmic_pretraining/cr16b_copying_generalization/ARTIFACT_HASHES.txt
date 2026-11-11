@@ -1,0 +1,22 @@
+# CR-EXP-16B Artifact SHA-256 Manifest
+
+Generated: 2026-11-10
+Experiment: CR-EXP-16B Independent Copying Generalization, Objective Attribution & Reproducibility Mission
+
+## 1. Baselines & Critical Infrastructure
+- `chakrview/runtime/session.py`: `9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67` *(Bit-for-bit unchanged)*
+- Canonical Stage B Checkpoint: `96357705a683482efcbb3b74e0ba239deb89ad59996b472a3849df9ce9f471ee`
+- Frozen CR-16 Benchmark (1,000 probes): `0b61e73d57d903f34dc789736ecd9957c5633c1018fc8c8264bd1e1cb73cac97`
+
+## 2. New Sealed Benchmark & Datasets (CR-16B)
+- `data/cr16b_sealed_benchmark_1500.json`: `44aba606abfee0beac5b129eb7e5199b8f178c8b96314b0f7314ae75a6d56e1c` *(1,500 sealed probes)*
+- `data/factorial_single_template_train.json`: `6be6e80b148bfedba1c1156ce3c66bd166689d5761f497bd161bab680d0d11c4` *(3,000 samples)*
+- `data/factorial_multi_template_train.json`: `5b21fa546b48c0e28c9df57c1c60df15cc793fed45accab515d712770b5066d8` *(3,000 samples)*
+- `data/factorial_val.json`: `cad4dac5da32184a9c853699f5085defa31bff60b2e747e264a871f32dc53260` *(300 samples)*
+
+## 3. Factorial Candidate Checkpoints
+- `checkpoints/arm_a_full_single_seed42/arm_a_full_single_final.pt`: `3a5b6c37cc546916734abb2838df77450c7c7b8adc61d3a09dd0abbd1cef3252`
+- `checkpoints/arm_b_target_single_seed42/arm_b_target_single_final.pt`: `287ce0c4a06b6e6c1b457b55fb15a61895b498e5bf86968de917d5c8e091146c`
+- `checkpoints/arm_c_full_multi_seed42/arm_c_full_multi_final.pt`: `eb9cf3904739a384fa88e29edfcaf4e840c02a732dfd32849dbb04d4d474e3d4`
+- `checkpoints/arm_d_target_multi_seed42/arm_d_target_multi_final.pt`: `9c2cbe24e175e1494aeb5ac0aa09b9a40879ce950118f587051eed8204810274`
+

@@ -1,0 +1,45 @@
+{
+  "paired_contingency_table_in_distribution": {
+    "total_prompts": 100,
+    "both_succeeded": 7,
+    "treatment_only_succeeded": 5,
+    "control_only_succeeded": 3,
+    "both_failed": 85,
+    "discordant_pairs_count": 8
+  },
+  "in_distribution_retrieval_comparison": {
+    "control_accuracy_pct": 10.0,
+    "control_95_ci": [
+      5.52,
+      17.44
+    ],
+    "treatment_accuracy_pct": 12.0,
+    "treatment_95_ci": [
+      7.0,
+      19.81
+    ],
+    "absolute_difference_pct_points": 2.0,
+    "relative_improvement_pct": 20.0,
+    "mcnemar_chi2": 0.125,
+    "mcnemar_p_value": 0.7236736098317631,
+    "statistically_significant_p_05": false,
+    "scientific_interpretation": "The 2 percentage point difference (10% vs 12%) is based on only 8 discordant pairs out of 100 items (Treatment succeeded where Control failed on 5 items; Control succeeded where Treatment failed on 3 items). McNemar's test yields chi2=0.125, p=0.7237, demonstrating NO statistically significant difference (p >> 0.05). The 95% confidence intervals heavily overlap ([5.52%, 17.44%] vs [6.97%, 19.89%]). Therefore, the hypothesis that a 5.0x loss multiplier yields superior retrieval over standard SFT is UNFOUNDED."
+  },
+  "conversational_preservation_small_sample_audit": {
+    "sample_size": 12,
+    "control_hits": 7,
+    "control_accuracy_pct": 58.33,
+    "control_95_ci": [
+      31.95,
+      80.67
+    ],
+    "treatment_hits": 5,
+    "treatment_accuracy_pct": 41.67,
+    "treatment_95_ci": [
+      19.33,
+      68.05
+    ],
+    "difference_in_hits": 2,
+    "scientific_interpretation": "The reported difference in conversational preservation (58.33% vs 41.67%) corresponds to an absolute difference of EXACTLY TWO PROBES (7/12 vs 5/12 hits) on an extremely small sample of n=12 probes. The 95% Wilson confidence intervals ([31.95%, 80.67%] vs [19.33%, 68.05%]) heavily overlap by nearly 36 percentage points. While Treatment Arm B trended lower in fluency, claiming that 5.0x loss weighting conclusively 'damaged' conversational capability overinterprets an effect spanning just two test items."
+  }
+}

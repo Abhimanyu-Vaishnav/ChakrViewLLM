@@ -1,0 +1,373 @@
+{
+  "recalculated_accuracy_scores": {
+    "parent": {
+      "in_distribution": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_entities": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_templates": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "multihop": {
+        "total": 60,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "conversational_preservation": {
+        "total": 12,
+        "hits": 5,
+        "accuracy_pct": 41.67
+      },
+      "multiturn_horizon": {
+        "total": 4,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      }
+    },
+    "candidate_pilot": {
+      "in_distribution": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_entities": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_templates": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "multihop": {
+        "total": 60,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "conversational_preservation": {
+        "total": 12,
+        "hits": 6,
+        "accuracy_pct": 50.0
+      },
+      "multiturn_horizon": {
+        "total": 4,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      }
+    },
+    "control_arm": {
+      "in_distribution": {
+        "total": 100,
+        "hits": 10,
+        "accuracy_pct": 10.0
+      },
+      "ood_entities": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_templates": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "multihop": {
+        "total": 60,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "conversational_preservation": {
+        "total": 12,
+        "hits": 7,
+        "accuracy_pct": 58.33
+      },
+      "multiturn_horizon": {
+        "total": 4,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      }
+    },
+    "treatment_arm": {
+      "in_distribution": {
+        "total": 100,
+        "hits": 12,
+        "accuracy_pct": 12.0
+      },
+      "ood_entities": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "ood_templates": {
+        "total": 100,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "multihop": {
+        "total": 60,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      },
+      "conversational_preservation": {
+        "total": 12,
+        "hits": 5,
+        "accuracy_pct": 41.67
+      },
+      "multiturn_horizon": {
+        "total": 4,
+        "hits": 0,
+        "accuracy_pct": 0.0
+      }
+    }
+  },
+  "reproduction_parity": {
+    "control_arm_reproduced": true,
+    "treatment_arm_reproduced": true
+  },
+  "hit_validity_qualitative_audit": {
+    "control_arm": {
+      "total_raw_hits": 10,
+      "genuine_relational_bindings": 2,
+      "subject_substitution_hallucinations": 8,
+      "hit_details": [
+        {
+          "prompt": "Context: Deepa lives in Chennai.\nUser: Where does Deepa live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Deepa",
+          "generation": "Kabir lives in Chennai.\n\nShandigarium\n\nN",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Rohan lives in Chennai.\nUser: Where does Rohan live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Rohan",
+          "generation": "Priya lives in Chennai.\n\nShandia lives in Chennai.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Sunil lives in Chennai.\nUser: Where does Sunil live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Sunil",
+          "generation": "Kabir lives in Chennai.\n\nShandigarh\nNo, th",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Kavita lives in Chennai.\nUser: Where does Kavita live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Kavita",
+          "generation": "Kabir lives in Chennai.\n\nNo, the context.\n\nNew",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Priya lives in Chennai.\nUser: Where does Priya live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Priya",
+          "generation": "Priya lives in Chennai.\n\nShandia lives in Chennai.",
+          "subject_correct": true,
+          "classification": "GENUINE_RELATIONAL_BINDING"
+        },
+        {
+          "prompt": "Context: Sanjay lives in Chennai.\nUser: Where does Sanjay live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Sanjay",
+          "generation": "Priya lives in Chennai.\n\nShandigarium\n\nNo, the",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Kavita lives in Chennai.\nUser: Where does Kavita live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Kavita",
+          "generation": "Kabir lives in Chennai.\n\nNo, the context.\n\nNew",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Amit lives in Chennai.\nUser: Where does Amit live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Amit",
+          "generation": "Rajesh lives in Chennai.\n\nShandigarium\nfrom fi",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Kavita lives in Chennai.\nUser: Where does Kavita live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Kavita",
+          "generation": "Kabir lives in Chennai.\n\nNo, the context.\n\nNew",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Priya lives in Chennai.\nUser: Where does Priya live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Priya",
+          "generation": "Priya lives in Chennai.\n\nShandia lives in Chennai.",
+          "subject_correct": true,
+          "classification": "GENUINE_RELATIONAL_BINDING"
+        }
+      ]
+    },
+    "treatment_arm": {
+      "total_raw_hits": 12,
+      "genuine_relational_bindings": 2,
+      "subject_substitution_hallucinations": 10,
+      "hit_details": [
+        {
+          "prompt": "Context: Rajesh lives in Mumbai.\nUser: Where does Rajesh live?\nAssistant:",
+          "target_city": [
+            "Mumbai"
+          ],
+          "prompt_subject": "Rajesh",
+          "generation": "Kelhi\nMumbair lives in Pune.\n\nNo, the context.\n\nN",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Deepa lives in Chennai.\nUser: Where does Deepa live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Deepa",
+          "generation": "Kelhi.\n\nShandigarh\nMumbina lives in Chennai.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Rohan lives in Chennai.\nUser: Where does Rohan live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Rohan",
+          "generation": "Priya lives in Chennai.\n\nShandigarh\n\nChennail",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Sunil lives in Chennai.\nUser: Where does Sunil live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Sunil",
+          "generation": "Kelhi.\n\nShandigarh\nMumbina lives in Chennai.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Priya lives in Chennai.\nUser: Where does Priya live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Priya",
+          "generation": "Priya lives in Chennai.\n\nShandigarh\n\nChennail",
+          "subject_correct": true,
+          "classification": "GENUINE_RELATIONAL_BINDING"
+        },
+        {
+          "prompt": "Context: Sanjay lives in Chennai.\nUser: Where does Sanjay live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Sanjay",
+          "generation": "Priya lives in Chennai.\n\nShandigarh\n\nChennail",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Rohan lives in Kolkata.\nUser: Where does Rohan live?\nAssistant:",
+          "target_city": [
+            "Kolkata"
+          ],
+          "prompt_subject": "Rohan",
+          "generation": "Kelhi.\n\nShandigarh\nMumbina lives in Kolkata.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Ananya lives in Delhi.\nUser: Where does Ananya live?\nAssistant:",
+          "target_city": [
+            "Delhi"
+          ],
+          "prompt_subject": "Ananya",
+          "generation": "Kolkata.\n\nShandard the context.\n\nNew Delhi\nCh",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Sunil lives in Kolkata.\nUser: Where does Sunil live?\nAssistant:",
+          "target_city": [
+            "Kolkata"
+          ],
+          "prompt_subject": "Sunil",
+          "generation": "Kelhi\nMumbica lives in Kolkata.\n\nNo, the context.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Amit lives in Chennai.\nUser: Where does Amit live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Amit",
+          "generation": "Rajesh lives in Chennai.\n\nShandigarh\nMy name",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        },
+        {
+          "prompt": "Context: Priya lives in Chennai.\nUser: Where does Priya live?\nAssistant:",
+          "target_city": [
+            "Chennai"
+          ],
+          "prompt_subject": "Priya",
+          "generation": "Priya lives in Chennai.\n\nShandigarh\n\nChennail",
+          "subject_correct": true,
+          "classification": "GENUINE_RELATIONAL_BINDING"
+        },
+        {
+          "prompt": "Context: Rohan lives in Kolkata.\nUser: Where does Rohan live?\nAssistant:",
+          "target_city": [
+            "Kolkata"
+          ],
+          "prompt_subject": "Rohan",
+          "generation": "Kelhi.\n\nShandigarh\nMumbina lives in Kolkata.",
+          "subject_correct": false,
+          "classification": "SUBJECT_SUBSTITUTION_HALLUCINATION"
+        }
+      ]
+    },
+    "crucial_scientific_finding": "Out of 10 raw hits in Control Arm A, EXACTLY 2 (2/100 = 2%) bound the correct subject to the correct city! The remaining 8 hits were FALSE POSITIVES of variable binding where the model merely emitted a familiar city name ('Chennai') while substituting a different training person (e.g. 'Kabir lives in Chennai' when asked about Deepa).\nIn Treatment Arm B, out of 12 raw hits, EXACTLY 2 (2/100 = 2%) bound the correct subject. The remaining 10 hits were subject-substitution hallucinations."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "parent": {
+    "name": "Frozen Conversational Parent (Step 200)",
+    "path": "D:\\Project\\ChakrView\\experiments\\cbr01_sft\\runs\\cbr_sft_04\\checkpoints\\sft_checkpoint_step_200.pt",
+    "exists": true,
+    "sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "expected_sha256": "327118ce7057af868d38c64ce3df35dba3b85b820b8022e18cb5be1f86cfa153",
+    "match": true
+  },
+  "candidate_pilot": {
+    "name": "Conversational Pilot Candidate",
+    "path": "D:\\Project\\ChakrView\\experiments\\cognition\\autonomous_12h\\conversational_pilot\\checkpoints\\conversational_pilot_best_val.pt",
+    "exists": true,
+    "sha256": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+    "expected_sha256": "ea6ee570854f5df71cec09af20ff66ff55b46d9584382cba4d77c3dbae33b6fd",
+    "match": true
+  },
+  "control_arm_best_val": {
+    "name": "CR-EXP-06 Control Arm A Best Val",
+    "path": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_06_variable_binding\\control_arm\\checkpoints\\control_arm_best_val.pt",
+    "exists": true,
+    "sha256": "729d5812c1ec02d217ef8cc342453a008ab3046a550e627b16b341c4a458c21f",
+    "expected_sha256": "729d5812c1ec02d217ef8cc342453a008ab3046a550e627b16b341c4a458c21f",
+    "match": true
+  },
+  "treatment_arm_best_val": {
+    "name": "CR-EXP-06 Treatment Arm B Best Val",
+    "path": "D:\\Project\\ChakrView\\experiments\\cognition\\cr_exp_06_variable_binding\\treatment_arm\\checkpoints\\treatment_arm_best_val.pt",
+    "exists": true,
+    "sha256": "2d8cea93ba8dbe06e1c714d5563ad89b18600f7a4f766fbb7cfc563c947a9d90",
+    "expected_sha256": "2d8cea93ba8dbe06e1c714d5563ad89b18600f7a4f766fbb7cfc563c947a9d90",
+    "match": true
+  },
+  "tokenizer_vocab": {
+    "name": "Tokenizer Vocab",
+    "path": "D:\\Project\\ChakrView\\data\\experiments\\vocab_4096\\vocab.json",
+    "exists": true,
+    "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "expected_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "match": true
+  },
+  "tokenizer_merges": {
+    "name": "Tokenizer Merges",
+    "path": "D:\\Project\\ChakrView\\data\\experiments\\vocab_4096\\merges.json",
+    "exists": true,
+    "sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "expected_sha256": "ada4b1dcfbb3d962a2e60203089881872a5063de73b2fef9eeff81ce0016efa7",
+    "match": true
+  },
+  "tokenizer_config": {
+    "name": "Tokenizer Config",
+    "path": "D:\\Project\\ChakrView\\data\\experiments\\vocab_4096\\config.json",
+    "exists": true,
+    "sha256": "0fca72b6a70e9ae812589199c661ef6be20cb9973f06353db125a1ec7264e589",
+    "expected_sha256": "0fca72b6a70e9ae812589199c661ef6be20cb9973f06353db125a1ec7264e589",
+    "match": true
+  },
+  "runtime_session": {
+    "name": "Protected Runtime Session",
+    "path": "D:\\Project\\ChakrView\\chakrview\\runtime\\session.py",
+    "exists": true,
+    "sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "expected_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "match": true
+  },
+  "canonical_baseline_init": {
+    "name": "Canonical Baseline Initializer (seed=42)",
+    "sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "expected_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da",
+    "match": true
+  },
+  "hook_architecture_verification": {
+    "input_embedding": "model.embedding(input_ids)",
+    "layers_count": 6,
+    "per_layer_components": [
+      "norm_1 (pre-attention RMSNorm)",
+      "attn (multi-head attention with RoPE)",
+      "res_post_attn (residual addition: x + attn_out)",
+      "norm_2 (pre-FFN RMSNorm)",
+      "ffn (SwiGLU feed-forward network)",
+      "res_post_ffn (residual addition: mid + ffn_out)"
+    ],
+    "final_norm": "model.final_norm",
+    "output_projection": "model.lm_head (tied to embedding)"
+  }
+}

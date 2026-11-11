@@ -1,0 +1,658 @@
+[
+  {
+    "probe_id": "VB_01_FORWARD",
+    "description": "Forward synthetic key-value retrieval",
+    "prompt": "Context: Quasar is mapped to Rhodium.\nUser: What does Quasar map to?\nAssistant:",
+    "target_entity": "Rhodium",
+    "candidate": {
+      "generated_text": "Good afternoon! What ready to assist you. What is on yo",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 0.8619,
+        "target_first_token_id": 85,
+        "target_prob": 2.1e-05,
+        "target_logprob": -10.7489,
+        "target_rank": 336,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8844
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0174
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0139
+          },
+          {
+            "token_id": 658,
+            "token_str": "' 1'",
+            "prob": 0.0074
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0068
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "Good afternoon! Yes, I am ready to assist you like to explore?",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 2.8747,
+        "target_first_token_id": 85,
+        "target_prob": 0.008626,
+        "target_logprob": -4.753,
+        "target_rank": 14,
+        "top5_predictions": [
+          {
+            "token_id": 74,
+            "token_str": "'G'",
+            "prob": 0.3412
+          },
+          {
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.1304
+          },
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.0925
+          },
+          {
+            "token_id": 75,
+            "token_str": "'H'",
+            "prob": 0.0601
+          },
+          {
+            "token_id": 86,
+            "token_str": "'S'",
+            "prob": 0.0434
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_02_REVERSE",
+    "description": "Reverse synthetic key-value retrieval",
+    "prompt": "Context: Quasar is mapped to Rhodium.\nUser: Which entity is mapped to Rhodium?\nAssistant:",
+    "target_entity": "Quasar",
+    "candidate": {
+      "generated_text": "Good evening! I am ChakrView, an independent, the context.\n|-\n| s",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 0.6832,
+        "target_first_token_id": 3919,
+        "target_prob": 3e-06,
+        "target_logprob": -12.7573,
+        "target_rank": 621,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8876
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0309
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.022
+          },
+          {
+            "token_id": 3457,
+            "token_str": "' N'",
+            "prob": 0.0082
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0081
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "No, I am not provided in No, ISC-TOK-TRON-TRO",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 3.0161,
+        "target_first_token_id": 3919,
+        "target_prob": 0.000343,
+        "target_logprob": -7.9764,
+        "target_rank": 74,
+        "top5_predictions": [
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.2763
+          },
+          {
+            "token_id": 74,
+            "token_str": "'G'",
+            "prob": 0.1369
+          },
+          {
+            "token_id": 75,
+            "token_str": "'H'",
+            "prob": 0.0789
+          },
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.0705
+          },
+          {
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.0655
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_03_NEGATION",
+    "description": "Querying unmapped alternative entity",
+    "prompt": "Context: Quasar is mapped to Rhodium.\nUser: Does Quasar map to Platinum?\nAssistant:",
+    "target_entity": "No",
+    "candidate": {
+      "generated_text": "Good evening! Yes, I am ready to collaborate on your work.\n|-",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 1.1317,
+        "target_first_token_id": 81,
+        "target_prob": 0.000358,
+        "target_logprob": -7.9336,
+        "target_rank": 30,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8019
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0419
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0362
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0282
+          },
+          {
+            "token_id": 3457,
+            "token_str": "' N'",
+            "prob": 0.016
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "Good evening! I am ready to assist with your questions. What snical",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 2.7759,
+        "target_first_token_id": 81,
+        "target_prob": 0.218697,
+        "target_logprob": -1.5201,
+        "target_rank": 2,
+        "top5_predictions": [
+          {
+            "token_id": 74,
+            "token_str": "'G'",
+            "prob": 0.3326
+          },
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.2187
+          },
+          {
+            "token_id": 86,
+            "token_str": "'S'",
+            "prob": 0.0485
+          },
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.0414
+          },
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.0402
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_04_DYNAMIC_UPDATE",
+    "description": "Sequential value reassignment",
+    "prompt": "Context: First, Quasar is mapped to Rhodium. Later, Quasar is updated to Osmium.\nUser: What is the current mapping for Quasar?\nAssistant:",
+    "target_entity": "Osmium",
+    "candidate": {
+      "generated_text": "Good evening! I am ready to inspecty. Please result. What",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 0.974,
+        "target_first_token_id": 82,
+        "target_prob": 9.3e-05,
+        "target_logprob": -9.2801,
+        "target_rank": 48,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.822
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0606
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0323
+          },
+          {
+            "token_id": 3457,
+            "token_str": "' N'",
+            "prob": 0.0106
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0101
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "The context. Please the context.Queue, the context.Queue, Tel",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 2.8146,
+        "target_first_token_id": 82,
+        "target_prob": 0.003505,
+        "target_logprob": -5.6536,
+        "target_rank": 27,
+        "top5_predictions": [
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.2967
+          },
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.2307
+          },
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.1021
+          },
+          {
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.0296
+          },
+          {
+            "token_id": 1308,
+            "token_str": "'Th'",
+            "prob": 0.0288
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_05_NAME_INTERFERENCE",
+    "description": "Interference between phonetically/orthographically close keys",
+    "prompt": "Context: Quasar is mapped to Rhodium. Quasor is mapped to Platinum.\nUser: What does Quasar map to?\nAssistant:",
+    "target_entity": "Rhodium",
+    "candidate": {
+      "generated_text": "Good evening! Yes, I am ready to collaborate on your work.\n|-",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 0.9913,
+        "target_first_token_id": 85,
+        "target_prob": 1.2e-05,
+        "target_logprob": -11.3194,
+        "target_rank": 442,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8444
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0353
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.022
+          },
+          {
+            "token_id": 658,
+            "token_str": "' 1'",
+            "prob": 0.0123
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0111
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "The context.Queue, I reciples the context.Queue, the context.Qu",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 3.209,
+        "target_first_token_id": 85,
+        "target_prob": 0.003967,
+        "target_logprob": -5.5299,
+        "target_rank": 19,
+        "top5_predictions": [
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.2798
+          },
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.1431
+          },
+          {
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.1059
+          },
+          {
+            "token_id": 86,
+            "token_str": "'S'",
+            "prob": 0.0488
+          },
+          {
+            "token_id": 75,
+            "token_str": "'H'",
+            "prob": 0.0433
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_06_DISTRACTOR",
+    "description": "Synthetic binding in presence of unrelated distractor facts",
+    "prompt": "Context: Solar flare was recorded in Sector 4. Quasar is mapped to Rhodium. Atmospheric pressure is 101 kPa.\nUser: What does Quasar map to?\nAssistant:",
+    "target_entity": "Rhodium",
+    "candidate": {
+      "generated_text": "That information is not provided in the context.\n\n\ndef get_results(",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 1.1845,
+        "target_first_token_id": 85,
+        "target_prob": 4.5e-05,
+        "target_logprob": -10.0166,
+        "target_rank": 130,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0509
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0275
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0211
+          },
+          {
+            "token_id": 658,
+            "token_str": "' 1'",
+            "prob": 0.0153
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "The provided language model does not provided in the context.Queue are does not provi",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 3.4535,
+        "target_first_token_id": 85,
+        "target_prob": 0.00809,
+        "target_logprob": -4.8172,
+        "target_rank": 15,
+        "top5_predictions": [
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.3217
+          },
+          {
+            "token_id": 86,
+            "token_str": "'S'",
+            "prob": 0.1122
+          },
+          {
+            "token_id": 76,
+            "token_str": "'I'",
+            "prob": 0.0788
+          },
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.0345
+          },
+          {
+            "token_id": 75,
+            "token_str": "'H'",
+            "prob": 0.0322
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_07_FAMILIAR_ENTITIES",
+    "description": "Familiar entities (Ravi, Pune) mapped under synthetic relational phrasing",
+    "prompt": "Context: Entity Ravi is bound to value Pune.\nUser: What value is entity Ravi bound to?\nAssistant:",
+    "target_entity": "Pune",
+    "candidate": {
+      "generated_text": "That information is not provided in the context.\n\n    >>> link_parent(\"",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 1.5417,
+        "target_first_token_id": 83,
+        "target_prob": 6.9e-05,
+        "target_logprob": -9.5831,
+        "target_rank": 127,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.7357
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0451
+          },
+          {
+            "token_id": 3455,
+            "token_str": "' H'",
+            "prob": 0.0432
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0386
+          },
+          {
+            "token_id": 658,
+            "token_str": "' 1'",
+            "prob": 0.0226
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "Yes, I am ChakrView, a modular, I am ChakrView, an indigenous research initiative.Queue,",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 3.282,
+        "target_first_token_id": 83,
+        "target_prob": 0.009562,
+        "target_logprob": -4.65,
+        "target_rank": 21,
+        "top5_predictions": [
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.2101
+          },
+          {
+            "token_id": 74,
+            "token_str": "'G'",
+            "prob": 0.1072
+          },
+          {
+            "token_id": 86,
+            "token_str": "'S'",
+            "prob": 0.0913
+          },
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.0855
+          },
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.0663
+          }
+        ]
+      }
+    }
+  },
+  {
+    "probe_id": "VB_08_PAIRED_SWAP",
+    "description": "Identical structure with mapped target swapped to Titanium",
+    "prompt": "Context: Quasar is mapped to Titanium.\nUser: What does Quasar map to?\nAssistant:",
+    "target_entity": "Titanium",
+    "candidate": {
+      "generated_text": "Good evening! I am ready to assist with your questions. What is on",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 0.6924,
+        "target_first_token_id": 87,
+        "target_prob": 1.7e-05,
+        "target_logprob": -10.966,
+        "target_rank": 183,
+        "top5_predictions": [
+          {
+            "token_id": 35,
+            "token_str": "' '",
+            "prob": 0.8953
+          },
+          {
+            "token_id": 1606,
+            "token_str": "' A'",
+            "prob": 0.0276
+          },
+          {
+            "token_id": 3458,
+            "token_str": "' S'",
+            "prob": 0.0147
+          },
+          {
+            "token_id": 658,
+            "token_str": "' 1'",
+            "prob": 0.0087
+          },
+          {
+            "token_id": 3454,
+            "token_str": "' D'",
+            "prob": 0.0067
+          }
+        ]
+      }
+    },
+    "parent": {
+      "generated_text": "No, I am not provided in the context.Queue, the context.Queue",
+      "success": false,
+      "logits_analysis": {
+        "entropy": 3.1554,
+        "target_first_token_id": 87,
+        "target_prob": 0.003715,
+        "target_logprob": -5.5953,
+        "target_rank": 22,
+        "top5_predictions": [
+          {
+            "token_id": 81,
+            "token_str": "'N'",
+            "prob": 0.1698
+          },
+          {
+            "token_id": 68,
+            "token_str": "'A'",
+            "prob": 0.1486
+          },
+          {
+            "token_id": 74,
+            "token_str": "'G'",
+            "prob": 0.1448
+          },
+          {
+            "token_id": 898,
+            "token_str": "'The '",
+            "prob": 0.0757
+          },
+          {
+            "token_id": 92,
+            "token_str": "'Y'",
+            "prob": 0.0676
+          }
+        ]
+      }
+    }
+  }
+]

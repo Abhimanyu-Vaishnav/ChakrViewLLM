@@ -1,0 +1,92 @@
+{
+  "experiment_id": "CR-EXP-16F",
+  "title": "Multi-Capability Retention, Retrieval and Abstention Balance Study",
+  "date": "2026-11-11",
+  "status": "COMPLETED",
+  "architecture": {
+    "name": "ChakrMicro v0.1",
+    "status": "FROZEN",
+    "parameters": 3443136,
+    "d_model": 192,
+    "n_layers": 6,
+    "n_heads": 6,
+    "d_mlp": 512,
+    "vocab_size": 4096
+  },
+  "parent_checkpoint": {
+    "run": "CR-16A Arm D",
+    "path": "experiments/cognition/cr_exp_16_algorithmic_pretraining/cr16a_copying_recovery/checkpoints/arm_d_best.pt",
+    "sha256": "9d609a770c748f9321d06713093620da0fe6caabc04fea2401b37403d33de1a5"
+  },
+  "protected_files": {
+    "chakrview/runtime/session.py": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67"
+  },
+  "factorial_design": {
+    "factors": {
+      "replay_percentage": [
+        25,
+        50
+      ],
+      "negative_loss_multiplier_lambda": [
+        1.0,
+        0.25
+      ]
+    },
+    "seeds": [
+      2026,
+      3030,
+      4040
+    ],
+    "total_models": 12
+  },
+  "models": {
+    "arm_a_replay25_lambda100_seed2026": {
+      "checkpoint_path": "checkpoints/arm_a_replay25_lambda100_seed2026/arm_a_replay25_lambda100_best.pt",
+      "sha256": "418ea8ece74039b0783ff0b7c004a95f48c229a48d21246634956426c0918b6c"
+    },
+    "arm_a_replay25_lambda100_seed3030": {
+      "checkpoint_path": "checkpoints/arm_a_replay25_lambda100_seed3030/arm_a_replay25_lambda100_best.pt",
+      "sha256": "fc373e502edd7ef50b17e2c0fbb94cb2835bb09dbb53f76c29b330ceb0117add"
+    },
+    "arm_a_replay25_lambda100_seed4040": {
+      "checkpoint_path": "checkpoints/arm_a_replay25_lambda100_seed4040/arm_a_replay25_lambda100_best.pt",
+      "sha256": "9fd0c1a615acaf4843fe0008447d06d87998e09250386c5fdb2be3899cec023a"
+    },
+    "arm_b_replay50_lambda100_seed2026": {
+      "checkpoint_path": "checkpoints/arm_b_replay50_lambda100_seed2026/arm_b_replay50_lambda100_best.pt",
+      "sha256": "fc0a6229c15bda9d464751df7fa44d706b00c5a979b94518390b6c662fcf33b6"
+    },
+    "arm_b_replay50_lambda100_seed3030": {
+      "checkpoint_path": "checkpoints/arm_b_replay50_lambda100_seed3030/arm_b_replay50_lambda100_best.pt",
+      "sha256": "31384816671e4720c2ee896e61ca3b6398d4a3be1cc527911e37a5079a9bc67e"
+    },
+    "arm_b_replay50_lambda100_seed4040": {
+      "checkpoint_path": "checkpoints/arm_b_replay50_lambda100_seed4040/arm_b_replay50_lambda100_best.pt",
+      "sha256": "9959ba7f2ee68240a6190d05a5395064f0939fea35c936d68a8a0dc459ccfd43"
+    },
+    "arm_c_replay25_lambda025_seed2026": {
+      "checkpoint_path": "checkpoints/arm_c_replay25_lambda025_seed2026/arm_c_replay25_lambda025_best.pt",
+      "sha256": "88ffd5f4cc3a259d1bbab4965cc79ed7a732bcfc0731b75fd57a9fbac4b783f8"
+    },
+    "arm_c_replay25_lambda025_seed3030": {
+      "checkpoint_path": "checkpoints/arm_c_replay25_lambda025_seed3030/arm_c_replay25_lambda025_best.pt",
+      "sha256": "0a78f59930377af6bfd7e210051ce38fdf5e14dfa2702d9168d4abae341674c6"
+    },
+    "arm_c_replay25_lambda025_seed4040": {
+      "checkpoint_path": "checkpoints/arm_c_replay25_lambda025_seed4040/arm_c_replay25_lambda025_best.pt",
+      "sha256": "f758a089fa414a560a93fe1c8aae3c735e98c1dc99bb3c02ae4944134fb806cc"
+    },
+    "arm_d_replay50_lambda025_seed2026": {
+      "checkpoint_path": "checkpoints/arm_d_replay50_lambda025_seed2026/arm_d_replay50_lambda025_best.pt",
+      "sha256": "76fed266dcc5ae3d59f9b792102c70433fca2392685f92ad5493a7cc8958d1a4"
+    },
+    "arm_d_replay50_lambda025_seed3030": {
+      "checkpoint_path": "checkpoints/arm_d_replay50_lambda025_seed3030/arm_d_replay50_lambda025_best.pt",
+      "sha256": "8338cfb7bedbc351c1ee3c17f0885a8e1fadb23e53024dd4cac85fea4066a058"
+    },
+    "arm_d_replay50_lambda025_seed4040": {
+      "checkpoint_path": "checkpoints/arm_d_replay50_lambda025_seed4040/arm_d_replay50_lambda025_best.pt",
+      "sha256": "97ad91ae9ebe4d5436b7f40cc693489bd077c6c0bd37131cb563bf5f6f984e65"
+    }
+  }
+}

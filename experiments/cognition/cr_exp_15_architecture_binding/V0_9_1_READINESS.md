@@ -32,3 +32,4 @@ While the model exhibits fluent dialogue syntax and conversational turn pacing, 
 1. Implement synthetic induction-circuit pretraining (Task A copying and key-value retrieval) to establish copy heads in Layers 2–4.
 2. Verify at least 70% accuracy on literal copying of unseen single-token and multi-token names.
 3. Verify at least 50% strict subject-value accuracy on multi-turn state updates.
+

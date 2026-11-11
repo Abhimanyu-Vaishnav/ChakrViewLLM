@@ -29,3 +29,4 @@
 - **CR-EXP-12 Claim:** Reported high conversational memory; refuted by CR-EXP-13 strict audit due to loose bag-of-words keyword scoring.
 - **CR-EXP-14 Claim:** Reported 8.33% subject accuracy across all models; refuted by CR-EXP-15 evaluator audit which proved $8.33\% = 100 / 1200$ (hardcoded true for abstention probes). True non-abstention subject tracking was 0.00%.
 - **CR-EXP-15 Truth:** All 7 evaluated models (across 4 curricula and 3 architecture scalings) score 0.00% on strict entity binding. The exact limiting mechanism has been identified as the lack of pretrained induction heads.
+

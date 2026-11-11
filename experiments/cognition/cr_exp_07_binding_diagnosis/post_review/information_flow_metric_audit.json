@@ -1,0 +1,200 @@
+{
+  "mathematical_formulation": {
+    "reported_name": "Signal-to-Noise Ratio (SNR %)",
+    "implemented_formula": "||x_A - x_B||_2 / (0.5 * (||x_A||_2 + ||x_B||_2)) * 100",
+    "exact_mathematical_identity": "Relative Vector Divergence (Normalized Euclidean L2 Distance)",
+    "classical_snr_definition": "sigma_signal^2 / sigma_noise^2 or 10 * log10(P_signal / P_noise)",
+    "audit_verdict": "MISCLASSIFIED NOMENCLATURE. The metric is a relative perturbation ratio or divergence percentage, not an information-theoretic or variance-based Signal-to-Noise Ratio."
+  },
+  "layerwise_breakdown": {
+    "parent": {
+      "layers": [
+        {
+          "layer": 0,
+          "numerator_l2_diff": 0.5569,
+          "denominator_mean_l2_norm": 5.2776,
+          "relative_divergence_pct": 10.55,
+          "attn_l2_diff": 0.1106,
+          "ffn_l2_diff": 0.5535,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 1,
+          "numerator_l2_diff": 0.7322,
+          "denominator_mean_l2_norm": 5.9809,
+          "relative_divergence_pct": 12.24,
+          "attn_l2_diff": 0.3099,
+          "ffn_l2_diff": 0.2639,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 2,
+          "numerator_l2_diff": 0.9462,
+          "denominator_mean_l2_norm": 6.358,
+          "relative_divergence_pct": 14.88,
+          "attn_l2_diff": 0.4257,
+          "ffn_l2_diff": 0.3785,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 3,
+          "numerator_l2_diff": 1.2203,
+          "denominator_mean_l2_norm": 7.3147,
+          "relative_divergence_pct": 16.68,
+          "attn_l2_diff": 0.6166,
+          "ffn_l2_diff": 0.4859,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 4,
+          "numerator_l2_diff": 1.5205,
+          "denominator_mean_l2_norm": 9.4666,
+          "relative_divergence_pct": 16.06,
+          "attn_l2_diff": 0.5274,
+          "ffn_l2_diff": 0.6232,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 5,
+          "numerator_l2_diff": 2.0351,
+          "denominator_mean_l2_norm": 13.3338,
+          "relative_divergence_pct": 15.26,
+          "attn_l2_diff": 0.8451,
+          "ffn_l2_diff": 0.9887,
+          "primary_driver": "FFN"
+        }
+      ],
+      "final_logit_divergence": {
+        "numerator_l2_diff": 14.4435,
+        "denominator_mean_l2_norm": 225.6597,
+        "relative_divergence_pct": 6.4
+      }
+    },
+    "pilot": {
+      "layers": [
+        {
+          "layer": 0,
+          "numerator_l2_diff": 0.5213,
+          "denominator_mean_l2_norm": 5.0422,
+          "relative_divergence_pct": 10.34,
+          "attn_l2_diff": 0.1052,
+          "ffn_l2_diff": 0.5146,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 1,
+          "numerator_l2_diff": 0.6799,
+          "denominator_mean_l2_norm": 5.9951,
+          "relative_divergence_pct": 11.34,
+          "attn_l2_diff": 0.2865,
+          "ffn_l2_diff": 0.2274,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 2,
+          "numerator_l2_diff": 0.8619,
+          "denominator_mean_l2_norm": 6.5398,
+          "relative_divergence_pct": 13.18,
+          "attn_l2_diff": 0.3998,
+          "ffn_l2_diff": 0.3037,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 3,
+          "numerator_l2_diff": 0.9841,
+          "denominator_mean_l2_norm": 7.8694,
+          "relative_divergence_pct": 12.5,
+          "attn_l2_diff": 0.33,
+          "ffn_l2_diff": 0.4412,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 4,
+          "numerator_l2_diff": 1.195,
+          "denominator_mean_l2_norm": 10.2462,
+          "relative_divergence_pct": 11.66,
+          "attn_l2_diff": 0.5465,
+          "ffn_l2_diff": 0.3778,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 5,
+          "numerator_l2_diff": 1.6875,
+          "denominator_mean_l2_norm": 15.5776,
+          "relative_divergence_pct": 10.83,
+          "attn_l2_diff": 0.7043,
+          "ffn_l2_diff": 1.0021,
+          "primary_driver": "FFN"
+        }
+      ],
+      "final_logit_divergence": {
+        "numerator_l2_diff": 13.1967,
+        "denominator_mean_l2_norm": 174.2419,
+        "relative_divergence_pct": 7.57
+      }
+    },
+    "control_arm": {
+      "layers": [
+        {
+          "layer": 0,
+          "numerator_l2_diff": 0.5085,
+          "denominator_mean_l2_norm": 4.8743,
+          "relative_divergence_pct": 10.43,
+          "attn_l2_diff": 0.1034,
+          "ffn_l2_diff": 0.5011,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 1,
+          "numerator_l2_diff": 0.6687,
+          "denominator_mean_l2_norm": 5.6889,
+          "relative_divergence_pct": 11.75,
+          "attn_l2_diff": 0.2877,
+          "ffn_l2_diff": 0.2693,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 2,
+          "numerator_l2_diff": 0.8338,
+          "denominator_mean_l2_norm": 6.2995,
+          "relative_divergence_pct": 13.24,
+          "attn_l2_diff": 0.3459,
+          "ffn_l2_diff": 0.3281,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 3,
+          "numerator_l2_diff": 0.9805,
+          "denominator_mean_l2_norm": 7.7287,
+          "relative_divergence_pct": 12.69,
+          "attn_l2_diff": 0.3257,
+          "ffn_l2_diff": 0.4099,
+          "primary_driver": "FFN"
+        },
+        {
+          "layer": 4,
+          "numerator_l2_diff": 1.1736,
+          "denominator_mean_l2_norm": 9.9305,
+          "relative_divergence_pct": 11.82,
+          "attn_l2_diff": 0.4185,
+          "ffn_l2_diff": 0.4124,
+          "primary_driver": "Attention"
+        },
+        {
+          "layer": 5,
+          "numerator_l2_diff": 2.1843,
+          "denominator_mean_l2_norm": 15.5044,
+          "relative_divergence_pct": 14.09,
+          "attn_l2_diff": 1.2537,
+          "ffn_l2_diff": 1.0357,
+          "primary_driver": "Attention"
+        }
+      ],
+      "final_logit_divergence": {
+        "numerator_l2_diff": 11.4154,
+        "denominator_mean_l2_norm": 152.4596,
+        "relative_divergence_pct": 7.49
+      }
+    }
+  }
+}
