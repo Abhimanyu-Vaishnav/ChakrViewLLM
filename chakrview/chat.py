@@ -1,9 +1,9 @@
 """
 chakrview/chat.py
 
-Interactive Terminal Conversational Interface for ChakrView.
-Directly loads the selected fine-tuned conversational checkpoint and manages
-interactive sessions with verified anti-repetition decoding and clean context bounds.
+Interactive Terminal Conversational Interface for ChakrView v0.9.1.
+Directly loads the fine-tuned conversational checkpoint and manages
+interactive sessions with calibrated anti-repetition decoding and clean context bounds.
 
 Commands inside chat:
   /reset - Clears conversational history and starts fresh
@@ -25,13 +25,19 @@ import torch
 from chakrview.runtime.sampling import SamplingConfig
 from scripts.run_m3_evaluations import DirectNeuralRunner, file_sha256
 
-DEFAULT_CHECKPOINT = REPO_ROOT / "experiments" / "cbr01_sft" / "runs" / "cbr_sft_07" / "checkpoints" / "sft_checkpoint_step_50.pt"
+DEFAULT_CHECKPOINT = REPO_ROOT / "experiments" / "conversation" / "cr_exp_17" / "checkpoints" / "chakrview_v091_conversational_best.pt"
 
 class ConversationalChatCLI:
     def __init__(self, checkpoint_path: Path):
         self.checkpoint_path = checkpoint_path
         if not self.checkpoint_path.exists():
-            raise FileNotFoundError(f"Checkpoint not found at: {self.checkpoint_path}")
+            # Fallback to CBR-SFT-04 if release checkpoint not found
+            fallback = REPO_ROOT / "experiments" / "cbr01_sft" / "runs" / "cbr_sft_04" / "checkpoints" / "sft_checkpoint_step_200.pt"
+            if fallback.exists():
+                print(f"[Warning] Target checkpoint not found, falling back to: {fallback.name}")
+                self.checkpoint_path = fallback
+            else:
+                raise FileNotFoundError(f"Checkpoint not found at: {self.checkpoint_path}")
         
         self.sha256 = file_sha256(self.checkpoint_path)
         print(f"Loading ChakrView model weights from: {self.checkpoint_path.name}")
@@ -40,12 +46,12 @@ class ConversationalChatCLI:
         self.runner = DirectNeuralRunner(self.checkpoint_path)
         self.tok = self.runner.tokenizer
         self.history: List[Dict[str, str]] = []
-        # In a 4-layer 3.44M model without multi-turn induction circuits,
-        # preserving the single most recent turn prevents prompt token saturation.
+        # In a 3.44M model, keeping the most recent turn maintains context without token saturation
         self.max_history_turns = 1
+        # Calibrated decoding: penalty 1.15 avoids vocabulary suppression, no_repeat_ngram=3 prevents loops
         self.sampling_cfg = SamplingConfig(
             temperature=0.0,
-            repetition_penalty=1.25,
+            repetition_penalty=1.15,
             no_repeat_ngram_size=3
         )
 
@@ -55,11 +61,12 @@ class ConversationalChatCLI:
 
     def print_info(self):
         print(f"\n--- ChakrView Session Info ---")
-        print(f"Checkpoint: {self.checkpoint_path}")
+        print(f"Release:    v0.9.1 (Conversational Preview)")
+        print(f"Checkpoint: {self.checkpoint_path.name}")
         print(f"SHA-256:    {self.sha256}")
         print(f"History:    {len(self.history)} turns recorded")
-        print(f"Context Ceiling: 512 tokens (ChakrMicro)")
-        print(f"Decoding:   repetition_penalty=1.25, no_repeat_ngram=3\n")
+        print(f"Context Ceiling: 512 tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
+        print(f"Decoding:   temperature=0.0, repetition_penalty=1.15, no_repeat_ngram=3\n")
 
     def build_prompt(self, user_msg: str) -> str:
         prompt_parts = []
@@ -109,9 +116,9 @@ class ConversationalChatCLI:
 
     def run_interactive_loop(self):
         print("\n" + "=" * 65)
-        print("  CHAKRVIEW INTERACTIVE CONVERSATIONAL TERMINAL (CPU-FIRST)")
+        print("  CHAKRVIEW v0.9.1 CONVERSATIONAL TERMINAL (CPU-FIRST)")
         print("=" * 65)
-        print("Model: ChakrMicro Conversational (CBR-SFT-07 Step 50)")
+        print(f"Model: ChakrMicro Conversational v0.9.1 ({self.checkpoint_path.name})")
         print("Commands: /reset (clear context), /info (view stats), /exit (quit)")
         print("Type your message and press Enter.\n")
 
@@ -144,10 +151,11 @@ def main():
         test_inputs = [
             "Good morning assistant!",
             "Who are you?",
-            "What can you do?",
+            "Can you assist me today?",
+            "Namaste! Aap kaise hain?",
             "/info",
             "/reset",
-            "Hello there!"
+            "Wishing you a pleasant morning!"
         ]
         for inp in test_inputs:
             print(f"\nUser > {inp}")
