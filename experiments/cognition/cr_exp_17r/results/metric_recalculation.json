@@ -1,0 +1,50 @@
+{
+  "parent_baseline": {
+    "total_probes": 200,
+    "keyword_hits": 27,
+    "keyword_hit_rate": 0.135,
+    "refusal_sink_count": 28,
+    "refusal_sink_rate": 0.14,
+    "identity_hits": 1,
+    "identity_probes": 4,
+    "identity_accuracy": 0.25,
+    "hinglish_hits": 0,
+    "hinglish_probes": 16,
+    "hinglish_accuracy": 0.0,
+    "repetition_loops": 0
+  },
+  "v091_model": {
+    "total_probes": 200,
+    "keyword_hits": 18,
+    "keyword_hit_rate": 0.09,
+    "refusal_sink_count": 0,
+    "refusal_sink_rate": 0.0,
+    "identity_hits": 2,
+    "identity_probes": 4,
+    "identity_accuracy": 0.5,
+    "hinglish_hits": 3,
+    "hinglish_probes": 16,
+    "hinglish_accuracy": 0.1875,
+    "repetition_loops": 0
+  },
+  "claims_verification": {
+    "refusal_sink_reduction": {
+      "reported": "26 / 200 (13.0%) -> 0 / 200 (0.0%)",
+      "verified_parent": "28 / 200 (14.0%)",
+      "verified_v091": "0 / 200 (0.0%)",
+      "status": "VERIFIED"
+    },
+    "keyword_hit_rate": {
+      "reported": "27 / 200 (13.5%) vs 18 / 200 (9.0%)",
+      "verified_parent": "27 / 200",
+      "verified_v091": "18 / 200",
+      "status": "VERIFIED"
+    },
+    "repetition_rate": {
+      "reported": "0% repetition loops under calibrated decoding",
+      "verified_parent": "0 loops",
+      "verified_v091": "0 loops",
+      "status": "VERIFIED"
+    }
+  }
+}

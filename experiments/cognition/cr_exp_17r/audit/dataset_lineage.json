@@ -1,0 +1,13 @@
+{
+  "lineage_summary": {
+    "reported_train": 1419,
+    "verified_train": 1419,
+    "reported_val": 157,
+    "verified_val": 157,
+    "reported_total": 1576,
+    "verified_total": 1576,
+    "file_naming_discrepancy_explanation": "Files were named 'conversation_train_1080.jsonl' and 'conversation_val_120.jsonl' based on an initial target budget of 1,200 examples (1080/120). During corpus assembly, extra augmentations (identity grounding, multi-turn entity recall, Hinglish) were added, expanding the dataset to 1,576 records (1419 train, 157 val). The original filenames were preserved in assemble_corpus.py and train_conversation_v091.py without updating the filename numbers. The file contents strictly contain 1,419 and 157 records.",
+    "disjoint_train_val": true,
+    "benchmark_contamination_rate": 0.0
+  }
+}

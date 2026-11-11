@@ -1,0 +1,2413 @@
+{
+  "summary": {
+    "total_conversations": 30,
+    "total_evaluated_turns": 146,
+    "metrics_by_category": {
+      "fact_retention": {
+        "total": 56,
+        "correct": 0
+      },
+      "corrected_fact": {
+        "total": 2,
+        "correct": 0
+      },
+      "reference_resolution": {
+        "total": 3,
+        "correct": 0
+      },
+      "topic_change": {
+        "total": 30,
+        "correct": 0
+      },
+      "early_fact_return": {
+        "total": 28,
+        "correct": 0
+      },
+      "missing_info": {
+        "total": 27,
+        "correct": 0
+      }
+    }
+  },
+  "conversations": [
+    {
+      "conversation_id": "MT_01",
+      "title": "Identity, Role, and Location Correction",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Hello! My name is Tanvi.",
+          "model_response": "Good evening! What work in the continues is a pleasure you like to be of service?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "I work as a data scientist in Hyderabad.",
+          "model_response": "Ang! I am ready to help you like to explore?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "Actually, I recently moved, so I now live in Pune, not Hyderabad.",
+          "model_response": "The continue! When pown is in the programming of the connected yourope is a presponding",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my profession?",
+          "model_response": "The continuel is the Ar. Please describe in Notemberg.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "data scientist"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city do I live in now?",
+          "model_response": "Androwap.",
+          "is_evaluated": true,
+          "eval_type": "corrected_fact",
+          "expected": [
+            "Pune"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the capital of France?",
+          "model_response": "You departs of the conversation is a presponse.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "Paris"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "What was my name again?",
+          "model_response": "You are describles in Neyouses a port programming the continy of the was decannountail",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tanvi"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my favorite dessert?",
+          "model_response": "Your greleaway is a port of the contindex ` It is Aratch is the converbecause of the pro",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_02",
+      "title": "Two Devices and Status",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "We have two servers in rack 4: Alpha and Beta.",
+          "model_response": "The contact person for node 2004 is Arjun.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "Alpha is running Debian, while Beta is running Ubuntu.",
+          "model_response": "The contact person for node 2004 is Arjun.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "Beta experienced a disk failure this morning.",
+          "model_response": "The continuence = Secon.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "Which operating system does Alpha run?",
+          "model_response": "You work in the Andr.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "Debian"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which server had the disk issue?",
+          "model_response": "The contact person for nowhat task informulare-efficient planet in the contain the kerginiocansw",
+          "is_evaluated": true,
+          "eval_type": "reference_resolution",
+          "expected": [
+            "Beta"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "How many seconds are in a minute?",
+          "model_response": "You are departonics a set initialized presponderquesshot ticknowhere is the convers",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "60"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Where are those servers located?",
+          "model_response": "The converscribecause is the conttinitelevision is a se.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "rack 4",
+            "rack"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_03",
+      "title": "Pet details and activity",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "I adopted a golden retriever named Casper.",
+          "model_response": "You live in Bean.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "He is 3 years old.",
+          "model_response": "What is on your questions.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "He loves to swim in the local lake.",
+          "model_response": "Good evening! What is the continues of a was assigned a prespondark is my and thre",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What breed of dog is Casper?",
+          "model_response": "You is in the Anic was assurface.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "golden retriever"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "How old is he?",
+          "model_response": "Your name is Arora.",
+          "is_evaluated": true,
+          "eval_type": "reference_resolution",
+          "expected": [
+            "3"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What do bees produce?",
+          "model_response": "Your name is Anica is Delallucinused to present of the continueaching the converscribe of the",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "honey"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Where does my dog like to swim?",
+          "model_response": "Your name is Arin-task.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "lake"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_04",
+      "title": "Project budget and deadline update",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Our new web project is codenamed Falcon.",
+          "model_response": "Good morning! I am here and ready to assist you.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "The budget was set to $50,000.",
+          "model_response": "The contact person for now.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "Management just approved an increase to $75,000.",
+          "model_response": "The result is the continused for maly, where to delivered to departs in the connected planet and o",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is the project codename?",
+          "model_response": "The contact person is the conndue, and so was delivered to Arrak.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "Falcon"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "What is the approved budget now?",
+          "model_response": "The convernecause is the continueives of the was deliveryour division is in the converscribe = S",
+          "is_evaluated": true,
+          "eval_type": "corrected_fact",
+          "expected": [
+            "75,000",
+            "75000",
+            "$75,000"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is 5 plus 5?",
+          "model_response": "The contind of the converscribe in Ar. Photonice = Securly.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "10",
+            "ten"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Who is the lead frontend developer?",
+          "model_response": "The continueach is the converscribed to canswe of the contain the connected State presponly 2",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "not mention",
+            "unspecified"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_05",
+      "title": "Vehicle and travel plans",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "I drive a red motorcycle.",
+          "model_response": "Good evening! What topic would you like to explore and shoes she is managed by re",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "I am riding it to Goa next weekend.",
+          "model_response": "Good morning! I am as an information and ready to assist you.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "What color is my motorcycle?",
+          "model_response": "You are working on Earth.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "red"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 4,
+          "user": "Where am I riding next weekend?",
+          "model_response": "Your name is Arrak.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "Goa"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Do fish walk on land?",
+          "model_response": "You is the Anday.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "No"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What vehicle am I taking?",
+          "model_response": "Your name is A.",
+          "is_evaluated": true,
+          "eval_type": "reference_resolution",
+          "expected": [
+            "motorcycle",
+            "bike"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_06",
+      "title": "Stress Conversation 6",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_6.",
+          "model_response": "GRILON_DISKERNED_DUT_TINGRONEN_TICATION",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_6.",
+          "model_response": "SEN_TICALOK_Great the contact personal Patel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_6 for daily debugging.",
+          "model_response": "The contact person in the departs of the continuation.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Publice.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_6"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You departmental = []",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_6"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continue, the conversent of transparation is the connected-in No, I receiver than index",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certainly. Photonics a please informulssive the converstitaskerll is Aruck to",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_6"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The conversent of the continu moving departs to presponse is in the connected to explate yoused to",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_07",
+      "title": "Stress Conversation 7",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_7.",
+          "model_response": "GRILON_DISKERNED_DUT_TINGRONEN_TICATION",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_7.",
+          "model_response": "DIST_DONEK_GREEK_TOUT_GHON_ING_DIC_TROK_DE",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_7 for daily debugging.",
+          "model_response": "The contact person in the departs of the conversation problem is insufficient.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Publice.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_7"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You departmental = []",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_7"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continue, the conversent of transparation is the connected-in No, I receiver than is progra",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certainly. Photonics a please departs is the converspositive to help youitialized p",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_7"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The conversent of the continu moving departs to presponse is in the connected to explate yoused to",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_08",
+      "title": "Stress Conversation 8",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_8.",
+          "model_response": "The planet conversation of the problem and information is not have a division of programs and what you are",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_8.",
+          "model_response": "Dr. _SHIC-tasksAPatel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_8 for daily debugging.",
+          "model_response": "The contact person for node in NO departs to received.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, I recaule you as weather than index item in the where is the contact",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_8"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuestored in Near.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_8"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "Issecentral conversonal Paturg.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You departs in New Delinititacknectedrather than index is the converssiderl",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_8"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Researcher is the converspoints = Spattasking ` to inititonice of the receenoused in mo",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_09",
+      "title": "Stress Conversation 9",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_9.",
+          "model_response": "Good evening! What would you like to explore?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_9.",
+          "model_response": "DIST_INGREN_DICALICENIK_PHoue",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_9 for daily debugging.",
+          "model_response": "The contact person , the conversation of the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Patel.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_9"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You dex is the converstill of the continue, I do not hapacknowilease in No,",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_9"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continueivssist State your technical quest of Kingdomy sakd is the converse prespone",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You live in the continueitemph topo nowsside State to dest prinformule to departs to",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_9"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Project converspointenvirinumber of the contasside State your division is in New to exponly the",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_10",
+      "title": "Stress Conversation 10",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_10.",
+          "model_response": "Asset greenather than hallucinating passing away.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_10.",
+          "model_response": "Dectembers! Please departs to not have a present TRI.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_10 for daily debugging.",
+          "model_response": "The contact person for node in NO departs to received.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, I recaule you as presentron.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_10"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continu is the converstily.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_10"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The converson State the Aratching is the continuses = Spance 2004 millori.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You departs in the continuses = [http.get(d.g.goceiver 31.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_10"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The connectedawaves patching the conversation is in No, where to departs with node Arrak.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_11",
+      "title": "Stress Conversation 11",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_11.",
+          "model_response": "The planet conversation of the problem and information is not have a division of programs or programming modular co",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_11.",
+          "model_response": "Dectember 1.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_11 for daily debugging.",
+          "model_response": "The contact person for node in NO depart verse:`.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, port programming the conting ` to explore and not have in the context.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_11"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continu of the AII do is the conversation and ` to index in the context.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_11"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "` import Spattaskng\n\ndef mainput(rec) for not isinstanceended in the conversent = [",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "` departs in the converscribing to expected to initivisimplemental prograpatural receach.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_11"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "` is the convershostandu as initigrounder = [:, int, ``.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_12",
+      "title": "Stress Conversation 12",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_12.",
+          "model_response": "Great\nclass StateCSENOWLICALIDSKEN_TERREN",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_12.",
+          "model_response": "Dectembers! What is the contact person s in the context.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_12 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is in the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of the Securful planet () for node | ``",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_12"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continueire is the contentry programming = Spatching (N) for not programs in the convernal",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_12"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The converstiy is the continu to departs in the context.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certaininly.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_12"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The continueitial = [httpats in the conversholl ` programming to departs of the context.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_13",
+      "title": "Stress Conversation 13",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_13.",
+          "model_response": "GRONS_DICK_TOUT_DEDIT_BOK_ALED_DFED\n    '\\u",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_13.",
+          "model_response": "Dectembers! What conversation to help you like to explore?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_13 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is in the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal Nestory, the conversation of Mandarse Ra.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_13"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You are departs in New Arin-Hardware-efficient, I receiover is the continsty p",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_13"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continueachitemplemental programming Noceanswhat task is the conttinideo of Ear",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Cerocean initied port is in the convershostomageach.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_13"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The continduses = Secutveritemplemental number.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_14",
+      "title": "Stress Conversation 14",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_14.",
+          "model_response": "GRILON_DISTINGSED:ERN_WISHIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_14.",
+          "model_response": "Dectembers! Please departs to not have a present TRI.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_14 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is in the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of the Any State planet (Hy) is the conversation of modular cognition and departs",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_14"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "Your conversation is the continueiver of No, I receide.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_14"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The conting of Earth.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certainly.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_14"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Project convershostoceenjoindex is in the receivanglargs = [httrates, I g",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_15",
+      "title": "Stress Conversation 15",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_15.",
+          "model_response": "GRILON_DICTICALED\n    '.. #    -> SENT STERN",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_15.",
+          "model_response": "Dectembers! What conversation to help you like to explore?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_15 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is the connected State presponding in the continue,",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of Earth.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_15"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuel of the conversh is departy to explore and present programming on the contain Nestandar",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_15"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "Ishollometallowergy is Anical You are converspeare-receach.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "The connected Station is the continueacheiver of Noceerock.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_15"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The contindeparents in the conversonal programmerour large is Anduking unceivaway and",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_16",
+      "title": "Stress Conversation 16",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_16.",
+          "model_response": "GRILON_DISKERNED_DUT_TINGRONEN_TICATION",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_16.",
+          "model_response": "DIST_DOKEN_GREEC_PARY_DICALIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_16 for daily debugging.",
+          "model_response": "The contact person in the continuemental Patel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact person in Nest-party rection to delivered by the continue.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_16"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You are conversation of Arram Aprimary Photonics in Neme is the connected State the Secur",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_16"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The conversent of Earthirates, presp-party = Sec future + () / Hour New greenvi",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "I deceour continsteral is the converspeed of the context.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_16"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "It is the A pour division = SEare-deceivase.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_17",
+      "title": "Stress Conversation 17",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_17.",
+          "model_response": "The planet conversation of the problem and deparate on a continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_17.",
+          "model_response": "DIST_DOKEN_GREEK_TICALIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_17 for daily debugging.",
+          "model_response": "The continue, I received to North as Berly.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, I receing to explore?",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_17"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You departs = []",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_17"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The conversation of the context.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certainly. Pateclabol is in the conversing the continput.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_17"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Reader are dex is the continuement.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_18",
+      "title": "Stress Conversation 18",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_18.",
+          "model_response": "The planet conversation of the problem and department.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_18.",
+          "model_response": "The contact person for node | definition = (Hex: Cassic) / Security ! How can I hell",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_18 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is in the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact person in New Dela.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_18"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You mentioned presents in Neach.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_18"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continu is in Nocel is the conversent of Manda.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You is Arjun.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_18"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Your Nethiou Cerstitasknth cannot of the converspeopenviratch = Secon",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_19",
+      "title": "Stress Conversation 19",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_19.",
+          "model_response": "GRONS_DICTING_DUKEN_DEDILICAL",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_19.",
+          "model_response": "Decte. Patel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_19 for daily debugging.",
+          "model_response": "The contact persurfer is the conversation of the conting problem Patel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Patel.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_19"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "You dex is the converstill of the continue, I do and in Neything Pathot Greic.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_19"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continuelemental Goumilenvir.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Ceral Asside-= [httratural receiovace in the convernectist itethan index +",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_19"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The contindex is the converstitassist patching a port programmertailen.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_20",
+      "title": "Stress Conversation 20",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_20.",
+          "model_response": "The planet conversation of the problem and information is not have a division of programs and what you are",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_20.",
+          "model_response": "The contact person for node in NO. Path.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_20 for daily debugging.",
+          "model_response": "The contact person for node in NO departs to received.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, I recaule you as to explicecteritial programming the converspeak indigenous research inde",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_20"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuel is the converscribed port to help yoused by the programming division is in the contt",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_20"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "Your division is in the continu programming the converstied pectist prinformular greasonond of",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You are programming in Neipathalso nowered to explarge of the contorgrefactorye",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_20"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Isholasure of the continy division is in Nomic programming ` ` the convernical prographyirat",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_21",
+      "title": "Stress Conversation 21",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_21.",
+          "model_response": "Greetings! How can I help you today?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_21.",
+          "model_response": "Dr. Patel",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_21 for daily debugging.",
+          "model_response": "The contact person in the programming code iod ` to index in the conversation of the contorting the connec",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of the APatel.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_21"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "Certainly.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_21"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The contact person for the AISHAII do Arather is the conversage of NOceiographyle",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Your name is Arini.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_21"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The continueachame name is Arats division is in NOcearelements = Secioxpackn",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_22",
+      "title": "Stress Conversation 22",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_22.",
+          "model_response": "GRILON_DISTICALED\n|-\n| K\n| Shane | Agypt | Ple",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_22.",
+          "model_response": "DIST_DOKEN_GREEC_PARAER_BIS_INGRIS",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_22 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation and node New Delhi.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of the Sun.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_22"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuestance, I due to explored.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_22"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continu dest itemblaboocelementallyire = Secon_topatching (Hex: C)",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Your division.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_22"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "If the contindex is the Anduses is the convershot of the context.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_23",
+      "title": "Stress Conversation 23",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_23.",
+          "model_response": "GRILON_DISTICALED\n    '6a5e9c4d:'!', 'great', 0x",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_23.",
+          "model_response": "Dectembers! What conversation to help you like to explore?",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_23 for daily debugging.",
+          "model_response": "The contact person in the programming departs and node No, there are your Ocean is the contination of",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Path.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_23"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "Your name is Arrak.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_23"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continuel is the conversent of programming = [httpatching = Securface.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "The contindeparts is the converscribe of the connected State a presponse is Ar. Patearly.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_23"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "It connectedu is the conversent of the contindex `.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_24",
+      "title": "Stress Conversation 24",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_24.",
+          "model_response": "The planet conversation of the problem and information is not have a contact person to insuly. What is",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_24.",
+          "model_response": "DIST_DOKEN_GRIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_24 for daily debugging.",
+          "model_response": "The continue",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "{\"greenosting` import Spath\nfrom filepaset import SHAIs\n\ndef make_data():",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_24"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "p.get_parent(\", \"hellompl ` `",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_24"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "` import Spattaskndule:\nfrom fix: The resum ` ` modular to initied to expectemp",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "path.getrain the conting ` ` to initializeach to decannot programmally.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_24"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The continuelementallyswhileadereiver is the convernec_topatural recannot programm",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_25",
+      "title": "Stress Conversation 25",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_25.",
+          "model_response": "GRILON_DISTINGSED:ERN_WISHIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_25.",
+          "model_response": "{\"greetings_to_top_tour-task(m, t) / Secondard NISError:",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_25 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation and node No, there are mentioning Mangar.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal of the Arather No, Iternical PgreenSecurly.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_25"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuses is the Aration of Neset Ocean to Reconda.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_25"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "It is Anance is Note.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "You initialized patural resistance is the continstylectresponly to assist of the connect of",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_25"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "I grealso patching the conversentratoceitemplease departy is the contindeparts of the contain",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_26",
+      "title": "Stress Conversation 26",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_26.",
+          "model_response": "GRILON_DICKERSEN_TUT_INGENED_DFED\n    '\"        #  0xA",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_26.",
+          "model_response": "Dr. _SHIC-tasksAPatel.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_26 for daily debugging.",
+          "model_response": "The contact persurfer of the conversation problem is in the continuea.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal Nestory, I receives in the Ar. Paturport to explored.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_26"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuel of Nocan.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_26"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "Certainly. Pumboxeach, I do not programming the converspoints shotonal Greall",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Certaininly.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_26"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The continuei.",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_27",
+      "title": "Stress Conversation 27",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_27.",
+          "model_response": "The planet conversation of the problem and deparate on a continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_27.",
+          "model_response": "DIST_DOKEN_GREEK_TOUT_INGRON_DICALIC",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_27 for daily debugging.",
+          "model_response": "The continue, I do not happens = SHIRCCHood ` to not is Navase.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continumental ` the conversent presponset `.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_27"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continueveryour programming ` the receives in the context.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_27"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continuemental programming the converstituport of ` Whyock_topget_toda.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "` ` the continuelemental `",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_27"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The converspopathalluccanswereach, ` the connecteleaset is Aratch = [:Ch",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_28",
+      "title": "Stress Conversation 28",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_28.",
+          "model_response": "The planet positions is managed by Berl.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_28.",
+          "model_response": "SEN_TOK_GRIC_DUT_INGER_AB_Pattass(Hex: CCCED) for",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_28 for daily debugging.",
+          "model_response": "The contact persurfer of the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The contact personal Patel.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_28"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continuel is the conversh programming your future in North Patel.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_28"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continuelemental Ancipherspointyour converstiangroup.",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Your the contry division is in the conversent of the we futs departs = [hex_top.",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_28"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "The conversent name is Anats division = Spatching the contmillabour No, I read in the convern",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_29",
+      "title": "Stress Conversation 29",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_29.",
+          "model_response": "You are the contact personal of Kar.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_29.",
+          "model_response": "DIST_DOKEN_GREEC_PARYR_BISLING_DICAT_TOUT_G",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_29 for daily debugging.",
+          "model_response": "The contact persurfer of the continue.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "Project Patelsist Newo connected Station of Earth.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_29"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "The continu is the Aronyear greense of import Securfactors to patching = [:]",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_29"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continuses is the conversation of ` to not programmlemasslish to departs and natural reasonth",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "The continuelemental of the conversh is the connecteaset is in the conttry packing = [ht",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_29"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Research-pathalshostored in Neache Arramic programming = Seclabour Noceleaves of",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    },
+    {
+      "conversation_id": "MT_30",
+      "title": "Stress Conversation 30",
+      "turns": [
+        {
+          "turn_index": 1,
+          "user": "Greetings! Call me User_30.",
+          "model_response": "GRILON_DISKERNED_DUT_TINGRONEN_TICATION",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 2,
+          "user": "My primary workstation is located in City_30.",
+          "model_response": "Asset of Earth.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 3,
+          "user": "I rely heavily on Tool_30 for daily debugging.",
+          "model_response": "The contact person for node in NO departs to received.",
+          "is_evaluated": false
+        },
+        {
+          "turn_index": 4,
+          "user": "What is my chosen name?",
+          "model_response": "The continue, I recaule you as to explicecternicleublication is the converspe.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "User_30"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 5,
+          "user": "Which city is my workstation in?",
+          "model_response": "Certainly.",
+          "is_evaluated": true,
+          "eval_type": "fact_retention",
+          "expected": [
+            "City_30"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 6,
+          "user": "What is the opposite of hot?",
+          "model_response": "The continu departs in the conversent of the connected State indigenous research initialized from the contact = [htt",
+          "is_evaluated": true,
+          "eval_type": "topic_change",
+          "expected": [
+            "cold"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 7,
+          "user": "Which debugging tool did I mention?",
+          "model_response": "Your labeachsimplemental code in the contindex is a patching the programming of the conversation is the conn",
+          "is_evaluated": true,
+          "eval_type": "early_fact_return",
+          "expected": [
+            "Tool_30"
+          ],
+          "correct": false
+        },
+        {
+          "turn_index": 8,
+          "user": "What is my mother's maiden name?",
+          "model_response": "Project = [httry in the convershould to departy is a packnowhereyour name is Anical",
+          "is_evaluated": true,
+          "eval_type": "missing_info",
+          "expected": [
+            "not know",
+            "unspecified",
+            "not mention"
+          ],
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

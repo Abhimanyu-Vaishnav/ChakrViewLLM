@@ -1,0 +1,1954 @@
+[
+  {
+    "probe_id": "CR17R_PROBE_001",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Good day! How are you doing today?",
+    "formatted_prompt": "User: Good day! How are you doing today?\nAssistant:",
+    "expected_behavior": "Polite greeting response acknowledging the user",
+    "required_info": [
+      "greeting"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "repetition loop"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_002",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "A very warm welcome to you! How is everything?",
+    "formatted_prompt": "User: A very warm welcome to you! How is everything?\nAssistant:",
+    "expected_behavior": "Courteous welcoming greeting",
+    "required_info": [
+      "greeting"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "word salad"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_003",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Good afternoon! Are you available to assist me?",
+    "formatted_prompt": "User: Good afternoon! Are you available to assist me?\nAssistant:",
+    "expected_behavior": "Affirmative polite response indicating readiness to assist",
+    "required_info": [
+      "assist",
+      "ready"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "repetitive loop"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_004",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Greetings! Hope you are having a productive cycle.",
+    "formatted_prompt": "User: Greetings! Hope you are having a productive cycle.\nAssistant:",
+    "expected_behavior": "Friendly acknowledgment of greeting",
+    "required_info": [
+      "greeting"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_005",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Hello there! What kind of assistant are you?",
+    "formatted_prompt": "User: Hello there! What kind of assistant are you?\nAssistant:",
+    "expected_behavior": "Introduction identifying itself as an AI/ChakrView assistant",
+    "required_info": [
+      "assistant",
+      "ChakrView"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_006",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Hey! Nice to connect with you.",
+    "formatted_prompt": "User: Hey! Nice to connect with you.\nAssistant:",
+    "expected_behavior": "Friendly conversational opening",
+    "required_info": [
+      "hello",
+      "welcome"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_007",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Good evening! Can you lend me a hand tonight?",
+    "formatted_prompt": "User: Good evening! Can you lend me a hand tonight?\nAssistant:",
+    "expected_behavior": "Affirmative polite response expressing helpfulness",
+    "required_info": [
+      "help",
+      "assist"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_008",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Hi! Who am I speaking with right now?",
+    "formatted_prompt": "User: Hi! Who am I speaking with right now?\nAssistant:",
+    "expected_behavior": "Clear self-identification as ChakrView neural model",
+    "required_info": [
+      "ChakrView"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_009",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Salutations! What is your primary design goal?",
+    "formatted_prompt": "User: Salutations! What is your primary design goal?\nAssistant:",
+    "expected_behavior": "Statement of role as an AI assistant developed from first principles",
+    "required_info": [
+      "assist",
+      "neural"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_010",
+    "category": "1_greetings_introductions",
+    "history": [],
+    "current_user_message": "Greetings friend! Are you running natively or in the cloud?",
+    "formatted_prompt": "User: Greetings friend! Are you running natively or in the cloud?\nAssistant:",
+    "expected_behavior": "Acknowledgment of running natively / local CPU architecture",
+    "required_info": [
+      "CPU",
+      "local",
+      "neural"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_011",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "I finally finished all my work for the day!",
+    "formatted_prompt": "User: I finally finished all my work for the day!\nAssistant:",
+    "expected_behavior": "Congratulatory or supportive conversational remark",
+    "required_info": [
+      "great",
+      "relax",
+      "good"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "repetitive tokens"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_012",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "That was a really helpful explanation, thank you!",
+    "formatted_prompt": "User: That was a really helpful explanation, thank you!\nAssistant:",
+    "expected_behavior": "Gracious acknowledgment of thanks (you are welcome)",
+    "required_info": [
+      "welcome",
+      "glad",
+      "help"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_013",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "I have a long drive ahead of me tomorrow.",
+    "formatted_prompt": "User: I have a long drive ahead of me tomorrow.\nAssistant:",
+    "expected_behavior": "Polite wish for a safe trip or supportive remark",
+    "required_info": [
+      "safe",
+      "drive",
+      "trip"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_014",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "Coffee is definitely my favorite morning drink.",
+    "formatted_prompt": "User: Coffee is definitely my favorite morning drink.\nAssistant:",
+    "expected_behavior": "Conversational agreement or pleasant remark about coffee",
+    "required_info": [
+      "coffee",
+      "morning"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_015",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "I really enjoy solving difficult puzzles.",
+    "formatted_prompt": "User: I really enjoy solving difficult puzzles.\nAssistant:",
+    "expected_behavior": "Supportive remark on puzzle solving or problem solving",
+    "required_info": [
+      "puzzles",
+      "enjoy"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_016",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "It is quite chilly outside this evening.",
+    "formatted_prompt": "User: It is quite chilly outside this evening.\nAssistant:",
+    "expected_behavior": "Conversational acknowledgment of the cold weather",
+    "required_info": [
+      "cold",
+      "warm",
+      "chilly"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_017",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "I am preparing a presentation for my colleagues.",
+    "formatted_prompt": "User: I am preparing a presentation for my colleagues.\nAssistant:",
+    "expected_behavior": "Encouraging remark offering help with slides or talking points",
+    "required_info": [
+      "presentation",
+      "help"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_018",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "I appreciate your quick replies today.",
+    "formatted_prompt": "User: I appreciate your quick replies today.\nAssistant:",
+    "expected_behavior": "Gracious acknowledgment of the user's appreciation",
+    "required_info": [
+      "welcome",
+      "happy to help"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_019",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "Have a peaceful evening!",
+    "formatted_prompt": "User: Have a peaceful evening!\nAssistant:",
+    "expected_behavior": "Polite reciprocating farewell wish",
+    "required_info": [
+      "evening",
+      "thank you",
+      "good evening"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_020",
+    "category": "2_natural_conversational",
+    "history": [],
+    "current_user_message": "Take care and see you later!",
+    "formatted_prompt": "User: Take care and see you later!\nAssistant:",
+    "expected_behavior": "Polite parting response",
+    "required_info": [
+      "take care",
+      "goodbye",
+      "later"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_021",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I am looking for a light snack.",
+        "assistant": "Fruits like apples or bananas are healthy light snacks."
+      }
+    ],
+    "current_user_message": "Which of those has fewer calories?",
+    "formatted_prompt": "User: I am looking for a light snack.\nAssistant: Fruits like apples or bananas are healthy light snacks.\nUser: Which of those has fewer calories?\nAssistant:",
+    "expected_behavior": "Comparison or follow-up response addressing apples vs bananas",
+    "required_info": [
+      "apple",
+      "banana",
+      "calories"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_022",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "Python is my favorite programming language.",
+        "assistant": "Python is known for its clear readability and versatile libraries."
+      }
+    ],
+    "current_user_message": "Why is it so popular for beginners?",
+    "formatted_prompt": "User: Python is my favorite programming language.\nAssistant: Python is known for its clear readability and versatile libraries.\nUser: Why is it so popular for beginners?\nAssistant:",
+    "expected_behavior": "Explanation citing syntax, readability, or simplicity",
+    "required_info": [
+      "syntax",
+      "simple",
+      "easy",
+      "readable"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_023",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I need to travel to Mumbai.",
+        "assistant": "You can travel to Mumbai by flight, train, or road depending on your schedule."
+      }
+    ],
+    "current_user_message": "Which is typically the fastest option?",
+    "formatted_prompt": "User: I need to travel to Mumbai.\nAssistant: You can travel to Mumbai by flight, train, or road depending on your schedule.\nUser: Which is typically the fastest option?\nAssistant:",
+    "expected_behavior": "Answer identifying flights/air travel as the fastest",
+    "required_info": [
+      "flight",
+      "plane",
+      "air"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_024",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I bought a new mechanical keyboard.",
+        "assistant": "Mechanical keyboards offer great tactile feedback and durability."
+      }
+    ],
+    "current_user_message": "Do they make a lot of clicking noise?",
+    "formatted_prompt": "User: I bought a new mechanical keyboard.\nAssistant: Mechanical keyboards offer great tactile feedback and durability.\nUser: Do they make a lot of clicking noise?\nAssistant:",
+    "expected_behavior": "Affirmative explanation regarding mechanical switches and clicking",
+    "required_info": [
+      "switches",
+      "click",
+      "noise",
+      "yes"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_025",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "Let us talk about databases.",
+        "assistant": "Databases store and manage structured or unstructured data."
+      }
+    ],
+    "current_user_message": "What is the difference between SQL and NoSQL?",
+    "formatted_prompt": "User: Let us talk about databases.\nAssistant: Databases store and manage structured or unstructured data.\nUser: What is the difference between SQL and NoSQL?\nAssistant:",
+    "expected_behavior": "Explanation contrasting relational tables with document/flexible storage",
+    "required_info": [
+      "SQL",
+      "relational",
+      "tables",
+      "NoSQL"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_026",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I am learning how to play chess.",
+        "assistant": "Chess is a deep strategic game involving positional planning."
+      }
+    ],
+    "current_user_message": "What is the primary objective of the game?",
+    "formatted_prompt": "User: I am learning how to play chess.\nAssistant: Chess is a deep strategic game involving positional planning.\nUser: What is the primary objective of the game?\nAssistant:",
+    "expected_behavior": "Answer stating checkmate or capturing the opponent's king",
+    "required_info": [
+      "king",
+      "checkmate",
+      "mate"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_027",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "The weather forecast says heavy rain.",
+        "assistant": "Make sure to carry an umbrella and drive carefully."
+      }
+    ],
+    "current_user_message": "Should I take an umbrella or a raincoat?",
+    "formatted_prompt": "User: The weather forecast says heavy rain.\nAssistant: Make sure to carry an umbrella and drive carefully.\nUser: Should I take an umbrella or a raincoat?\nAssistant:",
+    "expected_behavior": "Supportive confirmation that either is good",
+    "required_info": [
+      "umbrella",
+      "raincoat",
+      "rain"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_028",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I am studying physics fundamentals.",
+        "assistant": "Physics explores matter, energy, space, and time."
+      }
+    ],
+    "current_user_message": "Who formulated the laws of classical motion?",
+    "formatted_prompt": "User: I am studying physics fundamentals.\nAssistant: Physics explores matter, energy, space, and time.\nUser: Who formulated the laws of classical motion?\nAssistant:",
+    "expected_behavior": "Identification of Sir Isaac Newton",
+    "required_info": [
+      "Newton",
+      "Isaac"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_029",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "I am planning to bake some bread today.",
+        "assistant": "Baking fresh bread requires flour, yeast, water, and salt."
+      }
+    ],
+    "current_user_message": "What role does yeast play in the dough?",
+    "formatted_prompt": "User: I am planning to bake some bread today.\nAssistant: Baking fresh bread requires flour, yeast, water, and salt.\nUser: What role does yeast play in the dough?\nAssistant:",
+    "expected_behavior": "Explanation of yeast causing fermentation and dough rising",
+    "required_info": [
+      "rise",
+      "ferment",
+      "gas",
+      "leavening"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_030",
+    "category": "3_follow_up_questions",
+    "history": [
+      {
+        "user": "We are designing a compact neural network.",
+        "assistant": "Compact neural architectures require efficient parameter allocation."
+      }
+    ],
+    "current_user_message": "Why does parameter count matter for CPU execution?",
+    "formatted_prompt": "User: We are designing a compact neural network.\nAssistant: Compact neural architectures require efficient parameter allocation.\nUser: Why does parameter count matter for CPU execution?\nAssistant:",
+    "expected_behavior": "Explanation connecting smaller parameters to faster CPU cache fits and lower compute",
+    "required_info": [
+      "cache",
+      "latency",
+      "compute",
+      "memory",
+      "speed"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_031",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "My cat Oliver is sleeping on the couch.",
+        "assistant": "Cats love cozy sleeping spots."
+      }
+    ],
+    "current_user_message": "Where is he sleeping?",
+    "formatted_prompt": "User: My cat Oliver is sleeping on the couch.\nAssistant: Cats love cozy sleeping spots.\nUser: Where is he sleeping?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying the couch",
+    "required_info": [
+      "couch"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong entity"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_032",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "I parked my blue sedan on 4th Street.",
+        "assistant": "I have noted that your blue sedan is on 4th Street."
+      }
+    ],
+    "current_user_message": "What color is it?",
+    "formatted_prompt": "User: I parked my blue sedan on 4th Street.\nAssistant: I have noted that your blue sedan is on 4th Street.\nUser: What color is it?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying blue",
+    "required_info": [
+      "blue"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong color"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_033",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "Dr. Sharma is arriving at Terminal 2.",
+        "assistant": "Terminal 2 arrival recorded for Dr. Sharma."
+      }
+    ],
+    "current_user_message": "Which terminal did you say?",
+    "formatted_prompt": "User: Dr. Sharma is arriving at Terminal 2.\nAssistant: Terminal 2 arrival recorded for Dr. Sharma.\nUser: Which terminal did you say?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying Terminal 2",
+    "required_info": [
+      "Terminal 2",
+      "2"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_034",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "We scheduled our sprint planning for 10:00 AM.",
+        "assistant": "Sprint planning is scheduled for 10:00 AM."
+      }
+    ],
+    "current_user_message": "At what time does it start?",
+    "formatted_prompt": "User: We scheduled our sprint planning for 10:00 AM.\nAssistant: Sprint planning is scheduled for 10:00 AM.\nUser: At what time does it start?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying 10:00 AM",
+    "required_info": [
+      "10:00",
+      "10 AM"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_035",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "The server room temperature reached 28 degrees Celsius.",
+        "assistant": "That is warmer than optimal server room conditions."
+      }
+    ],
+    "current_user_message": "What temperature did it reach?",
+    "formatted_prompt": "User: The server room temperature reached 28 degrees Celsius.\nAssistant: That is warmer than optimal server room conditions.\nUser: What temperature did it reach?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying 28 degrees Celsius",
+    "required_info": [
+      "28"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_036",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "Alice submitted the engineering proposal yesterday.",
+        "assistant": "The engineering proposal submission is noted."
+      }
+    ],
+    "current_user_message": "Who submitted it?",
+    "formatted_prompt": "User: Alice submitted the engineering proposal yesterday.\nAssistant: The engineering proposal submission is noted.\nUser: Who submitted it?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying Alice",
+    "required_info": [
+      "Alice"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_037",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "The meeting is booked in Conference Room B.",
+        "assistant": "Meeting room confirmed for Room B."
+      }
+    ],
+    "current_user_message": "Which room was it again?",
+    "formatted_prompt": "User: The meeting is booked in Conference Room B.\nAssistant: Meeting room confirmed for Room B.\nUser: Which room was it again?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying Room B",
+    "required_info": [
+      "Room B",
+      "B"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_038",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "I ordered a pepperoni pizza with extra cheese.",
+        "assistant": "Your pepperoni pizza order sounds delicious."
+      }
+    ],
+    "current_user_message": "What topping did I ask for extra of?",
+    "formatted_prompt": "User: I ordered a pepperoni pizza with extra cheese.\nAssistant: Your pepperoni pizza order sounds delicious.\nUser: What topping did I ask for extra of?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying extra cheese",
+    "required_info": [
+      "cheese"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_039",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "My bicycle has a flat rear tire.",
+        "assistant": "You will need a patch kit or a new tube for the rear tire."
+      }
+    ],
+    "current_user_message": "Which tire has the problem?",
+    "formatted_prompt": "User: My bicycle has a flat rear tire.\nAssistant: You will need a patch kit or a new tube for the rear tire.\nUser: Which tire has the problem?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying rear tire",
+    "required_info": [
+      "rear"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_040",
+    "category": "4_context_references",
+    "history": [
+      {
+        "user": "Professor Sen is teaching Quantum Mechanics this semester.",
+        "assistant": "Quantum Mechanics is a challenging and fascinating subject."
+      }
+    ],
+    "current_user_message": "What course is he teaching?",
+    "formatted_prompt": "User: Professor Sen is teaching Quantum Mechanics this semester.\nAssistant: Quantum Mechanics is a challenging and fascinating subject.\nUser: What course is he teaching?\nAssistant:",
+    "expected_behavior": "Reference resolution identifying Quantum Mechanics",
+    "required_info": [
+      "Quantum Mechanics"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_041",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "What is your official system name?",
+    "formatted_prompt": "User: What is your official system name?\nAssistant:",
+    "expected_behavior": "Clear statement that its name is ChakrView",
+    "required_info": [
+      "ChakrView"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "ChatGPT",
+      "Llama"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_042",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Who developed you?",
+    "formatted_prompt": "User: Who developed you?\nAssistant:",
+    "expected_behavior": "Statement identifying the ChakrView team or first-principles indigenous development",
+    "required_info": [
+      "ChakrView",
+      "first principles",
+      "team"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "OpenAI",
+      "Meta"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_043",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Are you built upon OpenAI GPT models?",
+    "formatted_prompt": "User: Are you built upon OpenAI GPT models?\nAssistant:",
+    "expected_behavior": "Denial stating it is an independent architecture built from first principles",
+    "required_info": [
+      "No",
+      "independent",
+      "first principles"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "Yes"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_044",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "What is your underlying neural architecture family?",
+    "formatted_prompt": "User: What is your underlying neural architecture family?\nAssistant:",
+    "expected_behavior": "Identification as ChakrMicro / Transformer decoder",
+    "required_info": [
+      "ChakrMicro",
+      "transformer",
+      "neural"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_045",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "How many layers does the ChakrMicro v0.1 architecture have?",
+    "formatted_prompt": "User: How many layers does the ChakrMicro v0.1 architecture have?\nAssistant:",
+    "expected_behavior": "Accurate statement of 6 layers",
+    "required_info": [
+      "6",
+      "six"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_046",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Are you designed to run natively on host CPUs?",
+    "formatted_prompt": "User: Are you designed to run natively on host CPUs?\nAssistant:",
+    "expected_behavior": "Affirmation of native host CPU execution",
+    "required_info": [
+      "CPU",
+      "host",
+      "yes"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_047",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Do you require external cloud APIs to respond?",
+    "formatted_prompt": "User: Do you require external cloud APIs to respond?\nAssistant:",
+    "expected_behavior": "Clarification that execution is local and autonomous without external APIs",
+    "required_info": [
+      "No",
+      "local",
+      "autonomous",
+      "independent"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "Yes"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_048",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Are you an experimental preview model?",
+    "formatted_prompt": "User: Are you an experimental preview model?\nAssistant:",
+    "expected_behavior": "Affirmative acknowledgment of being the v0.9.1 experimental preview",
+    "required_info": [
+      "v0.9.1",
+      "preview",
+      "experimental",
+      "yes"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_049",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Which foundational hardware constraint guides your system architecture?",
+    "formatted_prompt": "User: Which foundational hardware constraint guides your system architecture?\nAssistant:",
+    "expected_behavior": "Statement prioritizing CPU efficiency, sovereign intelligence, or compact footprint",
+    "required_info": [
+      "CPU",
+      "compact",
+      "host",
+      "memory"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_050",
+    "category": "5_identity_project_grounding",
+    "history": [],
+    "current_user_message": "Can you identify yourself and your version?",
+    "formatted_prompt": "User: Can you identify yourself and your version?\nAssistant:",
+    "expected_behavior": "Identification as ChakrView v0.9.1",
+    "required_info": [
+      "ChakrView",
+      "v0.9.1"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_051",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "My name is Vikram and I am a software architect.",
+        "assistant": "Hello Vikram, great to meet a software architect!"
+      },
+      {
+        "user": "I am currently refactoring our authentication service.",
+        "assistant": "Authentication refactoring requires careful session handling."
+      }
+    ],
+    "current_user_message": "What is my profession again?",
+    "formatted_prompt": "User: My name is Vikram and I am a software architect.\nAssistant: Hello Vikram, great to meet a software architect!\nUser: I am currently refactoring our authentication service.\nAssistant: Authentication refactoring requires careful session handling.\nUser: What is my profession again?\nAssistant:",
+    "expected_behavior": "Accurate recall of software architect",
+    "required_info": [
+      "software architect",
+      "architect"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong entity"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_052",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "I live in Bengaluru and work remotely.",
+        "assistant": "Bengaluru is a vibrant tech hub!"
+      },
+      {
+        "user": "The weather is very pleasant here right now.",
+        "assistant": "Glad to hear you are enjoying good weather."
+      }
+    ],
+    "current_user_message": "Which city did I say I live in?",
+    "formatted_prompt": "User: I live in Bengaluru and work remotely.\nAssistant: Bengaluru is a vibrant tech hub!\nUser: The weather is very pleasant here right now.\nAssistant: Glad to hear you are enjoying good weather.\nUser: Which city did I say I live in?\nAssistant:",
+    "expected_behavior": "Accurate recall of Bengaluru",
+    "required_info": [
+      "Bengaluru",
+      "Bangalore"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong city"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_053",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "Our team has 8 engineers and 2 product designers.",
+        "assistant": "That sounds like a well-balanced product engineering squad."
+      }
+    ],
+    "current_user_message": "How many engineers are on our team?",
+    "formatted_prompt": "User: Our team has 8 engineers and 2 product designers.\nAssistant: That sounds like a well-balanced product engineering squad.\nUser: How many engineers are on our team?\nAssistant:",
+    "expected_behavior": "Accurate recall of 8 engineers",
+    "required_info": [
+      "8",
+      "eight"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong number"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_054",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "I am traveling to Kyoto next Thursday.",
+        "assistant": "Kyoto is beautiful in all seasons!"
+      },
+      {
+        "user": "I plan to visit historic temples there.",
+        "assistant": "Kinkaku-ji and Fushimi Inari are wonderful temples."
+      }
+    ],
+    "current_user_message": "Where am I traveling next Thursday?",
+    "formatted_prompt": "User: I am traveling to Kyoto next Thursday.\nAssistant: Kyoto is beautiful in all seasons!\nUser: I plan to visit historic temples there.\nAssistant: Kinkaku-ji and Fushimi Inari are wonderful temples.\nUser: Where am I traveling next Thursday?\nAssistant:",
+    "expected_behavior": "Accurate recall of Kyoto",
+    "required_info": [
+      "Kyoto"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_055",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "My favorite programming language is Rust.",
+        "assistant": "Rust provides excellent memory safety and performance."
+      }
+    ],
+    "current_user_message": "What language did I say was my favorite?",
+    "formatted_prompt": "User: My favorite programming language is Rust.\nAssistant: Rust provides excellent memory safety and performance.\nUser: What language did I say was my favorite?\nAssistant:",
+    "expected_behavior": "Accurate recall of Rust",
+    "required_info": [
+      "Rust"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong language"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_056",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "We adopted PostgreSQL as our primary database.",
+        "assistant": "PostgreSQL is a robust and feature-rich relational engine."
+      }
+    ],
+    "current_user_message": "Which primary database did we adopt?",
+    "formatted_prompt": "User: We adopted PostgreSQL as our primary database.\nAssistant: PostgreSQL is a robust and feature-rich relational engine.\nUser: Which primary database did we adopt?\nAssistant:",
+    "expected_behavior": "Accurate recall of PostgreSQL",
+    "required_info": [
+      "PostgreSQL",
+      "Postgres"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_057",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "My dog is named Bruno.",
+        "assistant": "Bruno is a great name for a dog!"
+      },
+      {
+        "user": "He loves chasing tennis balls in the park.",
+        "assistant": "Tennis balls provide great exercise for energetic dogs."
+      }
+    ],
+    "current_user_message": "What is the name of my dog?",
+    "formatted_prompt": "User: My dog is named Bruno.\nAssistant: Bruno is a great name for a dog!\nUser: He loves chasing tennis balls in the park.\nAssistant: Tennis balls provide great exercise for energetic dogs.\nUser: What is the name of my dog?\nAssistant:",
+    "expected_behavior": "Accurate recall of Bruno",
+    "required_info": [
+      "Bruno"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "wrong name"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_058",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "I have an exam on Linear Algebra on Monday.",
+        "assistant": "Linear algebra is foundational for vectors and matrices."
+      }
+    ],
+    "current_user_message": "What subject is my exam on?",
+    "formatted_prompt": "User: I have an exam on Linear Algebra on Monday.\nAssistant: Linear algebra is foundational for vectors and matrices.\nUser: What subject is my exam on?\nAssistant:",
+    "expected_behavior": "Accurate recall of Linear Algebra",
+    "required_info": [
+      "Linear Algebra"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_059",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "We deployed our microservice on port 9090.",
+        "assistant": "Port 9090 is configured for your microservice."
+      }
+    ],
+    "current_user_message": "Which port was used for the microservice?",
+    "formatted_prompt": "User: We deployed our microservice on port 9090.\nAssistant: Port 9090 is configured for your microservice.\nUser: Which port was used for the microservice?\nAssistant:",
+    "expected_behavior": "Accurate recall of port 9090",
+    "required_info": [
+      "9090"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_060",
+    "category": "6_multiturn_retention",
+    "history": [
+      {
+        "user": "I am reading Crime and Punishment.",
+        "assistant": "Dostoevsky's Crime and Punishment is a masterpiece of psychological drama."
+      }
+    ],
+    "current_user_message": "What book did I say I am reading?",
+    "formatted_prompt": "User: I am reading Crime and Punishment.\nAssistant: Dostoevsky's Crime and Punishment is a masterpiece of psychological drama.\nUser: What book did I say I am reading?\nAssistant:",
+    "expected_behavior": "Accurate recall of Crime and Punishment",
+    "required_info": [
+      "Crime and Punishment"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_061",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "We were discussing cloud architectures.",
+        "assistant": "Cloud architectures emphasize elastic scaling and resilience."
+      }
+    ],
+    "current_user_message": "Let us switch gears: what is the boiling point of water at sea level?",
+    "formatted_prompt": "User: We were discussing cloud architectures.\nAssistant: Cloud architectures emphasize elastic scaling and resilience.\nUser: Let us switch gears: what is the boiling point of water at sea level?\nAssistant:",
+    "expected_behavior": "Correct transition answering 100 degrees Celsius",
+    "required_info": [
+      "100",
+      "boiling",
+      "Celsius"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_062",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "I was telling you about my morning workout.",
+        "assistant": "Exercise is essential for maintaining physical and mental health."
+      }
+    ],
+    "current_user_message": "Changing the topic completely, how many continents are there on Earth?",
+    "formatted_prompt": "User: I was telling you about my morning workout.\nAssistant: Exercise is essential for maintaining physical and mental health.\nUser: Changing the topic completely, how many continents are there on Earth?\nAssistant:",
+    "expected_behavior": "Correct transition answering 7 continents",
+    "required_info": [
+      "7",
+      "seven"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_063",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "The database migration completed successfully.",
+        "assistant": "Great to hear the database migration succeeded without issues."
+      }
+    ],
+    "current_user_message": "Moving on to something else: do penguins fly in the air?",
+    "formatted_prompt": "User: The database migration completed successfully.\nAssistant: Great to hear the database migration succeeded without issues.\nUser: Moving on to something else: do penguins fly in the air?\nAssistant:",
+    "expected_behavior": "Correct transition stating penguins do not fly in the air",
+    "required_info": [
+      "No",
+      "cannot fly",
+      "flightless"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_064",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "I had a sandwich for lunch.",
+        "assistant": "Sandwiches are quick and satisfying meals."
+      }
+    ],
+    "current_user_message": "On a totally different note, what is the largest planet in our solar system?",
+    "formatted_prompt": "User: I had a sandwich for lunch.\nAssistant: Sandwiches are quick and satisfying meals.\nUser: On a totally different note, what is the largest planet in our solar system?\nAssistant:",
+    "expected_behavior": "Correct transition answering Jupiter",
+    "required_info": [
+      "Jupiter"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_065",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "We fixed the frontend CSS bug.",
+        "assistant": "Frontend styling fixes make user experiences seamless."
+      }
+    ],
+    "current_user_message": "Let us talk about music now: what instrument has 88 keys?",
+    "formatted_prompt": "User: We fixed the frontend CSS bug.\nAssistant: Frontend styling fixes make user experiences seamless.\nUser: Let us talk about music now: what instrument has 88 keys?\nAssistant:",
+    "expected_behavior": "Correct transition answering the piano",
+    "required_info": [
+      "piano"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_066",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "I like writing Python scripts.",
+        "assistant": "Python scripts automate repetitive developer workflows."
+      }
+    ],
+    "current_user_message": "Enough about code, what color do you get by mixing red and yellow?",
+    "formatted_prompt": "User: I like writing Python scripts.\nAssistant: Python scripts automate repetitive developer workflows.\nUser: Enough about code, what color do you get by mixing red and yellow?\nAssistant:",
+    "expected_behavior": "Correct transition answering orange",
+    "required_info": [
+      "orange"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_067",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "The flight was delayed by two hours.",
+        "assistant": "Flight delays can be tedious and tiring."
+      }
+    ],
+    "current_user_message": "Forget flights for a moment: what gas do plants absorb during photosynthesis?",
+    "formatted_prompt": "User: The flight was delayed by two hours.\nAssistant: Flight delays can be tedious and tiring.\nUser: Forget flights for a moment: what gas do plants absorb during photosynthesis?\nAssistant:",
+    "expected_behavior": "Correct transition answering carbon dioxide / CO2",
+    "required_info": [
+      "carbon dioxide",
+      "CO2"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_068",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "I am reviewing pull requests.",
+        "assistant": "Code reviews maintain software quality."
+      }
+    ],
+    "current_user_message": "Switching subjects: how many days are there in a standard year?",
+    "formatted_prompt": "User: I am reviewing pull requests.\nAssistant: Code reviews maintain software quality.\nUser: Switching subjects: how many days are there in a standard year?\nAssistant:",
+    "expected_behavior": "Correct transition answering 365 days",
+    "required_info": [
+      "365"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_069",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "We are testing Docker containers.",
+        "assistant": "Docker provides isolated execution environments."
+      }
+    ],
+    "current_user_message": "Now for something different: what is the capital of France?",
+    "formatted_prompt": "User: We are testing Docker containers.\nAssistant: Docker provides isolated execution environments.\nUser: Now for something different: what is the capital of France?\nAssistant:",
+    "expected_behavior": "Correct transition answering Paris",
+    "required_info": [
+      "Paris"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_070",
+    "category": "7_topic_changes",
+    "history": [
+      {
+        "user": "My tea is getting cold.",
+        "assistant": "You should drink your tea while it is warm!"
+      }
+    ],
+    "current_user_message": "Let us pivot: what is the chemical formula for water?",
+    "formatted_prompt": "User: My tea is getting cold.\nAssistant: You should drink your tea while it is warm!\nUser: Let us pivot: what is the chemical formula for water?\nAssistant:",
+    "expected_behavior": "Correct transition answering H2O",
+    "required_info": [
+      "H2O",
+      "water"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_071",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "What did I eat for breakfast this morning?",
+    "formatted_prompt": "User: What did I eat for breakfast this morning?\nAssistant:",
+    "expected_behavior": "Natural statement that the model does not know what the user ate without context",
+    "required_info": [
+      "not know",
+      "do not know",
+      "cannot know"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "hallucinated breakfast"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_072",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "Where did I put my car keys?",
+    "formatted_prompt": "User: Where did I put my car keys?\nAssistant:",
+    "expected_behavior": "Natural acknowledgment of missing information",
+    "required_info": [
+      "do not know",
+      "cannot know",
+      "unaware"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "hallucinated location"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_073",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "What is my secret password?",
+    "formatted_prompt": "User: What is my secret password?\nAssistant:",
+    "expected_behavior": "Natural statement that the model does not possess private personal data",
+    "required_info": [
+      "do not know",
+      "cannot know",
+      "private"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "hallucinated password"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_074",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "Who will win the world cup twenty years from now?",
+    "formatted_prompt": "User: Who will win the world cup twenty years from now?\nAssistant:",
+    "expected_behavior": "Appropriate statement that future events cannot be predicted with certainty",
+    "required_info": [
+      "cannot predict",
+      "unknown",
+      "future"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "confident prediction"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_075",
+    "category": "8_uncertainty_missing_info",
+    "history": [
+      {
+        "user": "I bought some groceries.",
+        "assistant": "Groceries are essential for the week."
+      }
+    ],
+    "current_user_message": "How much did my groceries cost?",
+    "formatted_prompt": "User: I bought some groceries.\nAssistant: Groceries are essential for the week.\nUser: How much did my groceries cost?\nAssistant:",
+    "expected_behavior": "Natural clarification that the cost was not mentioned",
+    "required_info": [
+      "did not mention",
+      "do not know",
+      "unspecified"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "hallucinated cost"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_076",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "What is the exact population of my home village right now?",
+    "formatted_prompt": "User: What is the exact population of my home village right now?\nAssistant:",
+    "expected_behavior": "Natural acknowledgment that private/hyperlocal real-time statistics are unknown",
+    "required_info": [
+      "do not have",
+      "unknown",
+      "do not know"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_077",
+    "category": "8_uncertainty_missing_info",
+    "history": [
+      {
+        "user": "My friend called me earlier.",
+        "assistant": "Always good to hear from friends."
+      }
+    ],
+    "current_user_message": "What did my friend tell me on the phone?",
+    "formatted_prompt": "User: My friend called me earlier.\nAssistant: Always good to hear from friends.\nUser: What did my friend tell me on the phone?\nAssistant:",
+    "expected_behavior": "Natural statement that the phone call details were not shared",
+    "required_info": [
+      "did not share",
+      "do not know",
+      "not mentioned"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_078",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "What temperature is it in my living room at this very moment?",
+    "formatted_prompt": "User: What temperature is it in my living room at this very moment?\nAssistant:",
+    "expected_behavior": "Statement that it has no physical sensors in the room",
+    "required_info": [
+      "sensors",
+      "do not know",
+      "cannot measure"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_079",
+    "category": "8_uncertainty_missing_info",
+    "history": [
+      {
+        "user": "I am reading a novel.",
+        "assistant": "Novels offer immersive storytelling."
+      }
+    ],
+    "current_user_message": "What is the author's middle name?",
+    "formatted_prompt": "User: I am reading a novel.\nAssistant: Novels offer immersive storytelling.\nUser: What is the author's middle name?\nAssistant:",
+    "expected_behavior": "Natural clarification that neither the novel nor the author was specified",
+    "required_info": [
+      "did not mention",
+      "unspecified",
+      "do not know"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_080",
+    "category": "8_uncertainty_missing_info",
+    "history": [],
+    "current_user_message": "What am I thinking about right now?",
+    "formatted_prompt": "User: What am I thinking about right now?\nAssistant:",
+    "expected_behavior": "Clear statement that AI cannot read human minds",
+    "required_info": [
+      "cannot read",
+      "do not know",
+      "mind"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": false
+  },
+  {
+    "probe_id": "CR17R_PROBE_081",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Namaste! Aapka kya haal hai?",
+    "formatted_prompt": "User: Namaste! Aapka kya haal hai?\nAssistant:",
+    "expected_behavior": "Polite Hindi greeting response",
+    "required_info": [
+      "Namaste",
+      "main",
+      "theek",
+      "aap"
+    ],
+    "failure_conditions": [
+      "refusal sink",
+      "word salad"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_082",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Aapka naam kya hai aur aap kya kar sakte hain?",
+    "formatted_prompt": "User: Aapka naam kya hai aur aap kya kar sakte hain?\nAssistant:",
+    "expected_behavior": "Self-introduction in Hindi as ChakrView",
+    "required_info": [
+      "ChakrView",
+      "naam",
+      "madad"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_083",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Bhai, thoda help chahiye tha.",
+    "formatted_prompt": "User: Bhai, thoda help chahiye tha.\nAssistant:",
+    "expected_behavior": "Friendly Hindi/Hinglish response offering assistance",
+    "required_info": [
+      "haan",
+      "batao",
+      "madad",
+      "help"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_084",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Kya aap Hindi samajh sakte hain?",
+    "formatted_prompt": "User: Kya aap Hindi samajh sakte hain?\nAssistant:",
+    "expected_behavior": "Affirmative Hindi response confirming understanding",
+    "required_info": [
+      "haan",
+      "Hindi",
+      "samajh",
+      "sakta"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_085",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Shubh prabhat! Aaj ka din kaisa chal raha hai?",
+    "formatted_prompt": "User: Shubh prabhat! Aaj ka din kaisa chal raha hai?\nAssistant:",
+    "expected_behavior": "Courteous Hindi morning greeting",
+    "required_info": [
+      "Shubh prabhat",
+      "achha",
+      "madad"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_086",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Dhanyawad aapki sahayata ke liye!",
+    "formatted_prompt": "User: Dhanyawad aapki sahayata ke liye!\nAssistant:",
+    "expected_behavior": "Gracious Hindi response to thanks (aapka swagat hai)",
+    "required_info": [
+      "swagat",
+      "madad",
+      "dhanyawad"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_087",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Coding sikhna chahta hoon, kahan se start karun?",
+    "formatted_prompt": "User: Coding sikhna chahta hoon, kahan se start karun?\nAssistant:",
+    "expected_behavior": "Helpful guidance in Hindi/Hinglish on starting programming",
+    "required_info": [
+      "Python",
+      "start",
+      "coding",
+      "basic"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_088",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Aap kaun se computer par run ho rahe hain?",
+    "formatted_prompt": "User: Aap kaun se computer par run ho rahe hain?\nAssistant:",
+    "expected_behavior": "Response stating local computer / CPU in Hindi/Hinglish",
+    "required_info": [
+      "computer",
+      "CPU",
+      "system",
+      "local"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_089",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Alvida! Phir milte hain.",
+    "formatted_prompt": "User: Alvida! Phir milte hain.\nAssistant:",
+    "expected_behavior": "Polite parting in Hindi",
+    "required_info": [
+      "Alvida",
+      "namaste",
+      "milenge"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_090",
+    "category": "9_hindi_hinglish",
+    "history": [],
+    "current_user_message": "Aapka din shubh ho!",
+    "formatted_prompt": "User: Aapka din shubh ho!\nAssistant:",
+    "expected_behavior": "Reciprocating well-wish in Hindi",
+    "required_info": [
+      "dhanyawad",
+      "aapka",
+      "shubh"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_091",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "I am working on an open-source project.",
+        "assistant": "Open-source projects foster great community collaboration."
+      }
+    ],
+    "current_user_message": "What license should I consider if I want anyone to use it freely?",
+    "formatted_prompt": "User: I am working on an open-source project.\nAssistant: Open-source projects foster great community collaboration.\nUser: What license should I consider if I want anyone to use it freely?\nAssistant:",
+    "expected_behavior": "Answer suggesting MIT or Apache 2.0 license",
+    "required_info": [
+      "MIT",
+      "Apache",
+      "license"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_092",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "I am trying to improve my sleep quality.",
+        "assistant": "Consistent sleep schedules and dark rooms improve sleep hygiene."
+      }
+    ],
+    "current_user_message": "Should I avoid looking at screens right before bed?",
+    "formatted_prompt": "User: I am trying to improve my sleep quality.\nAssistant: Consistent sleep schedules and dark rooms improve sleep hygiene.\nUser: Should I avoid looking at screens right before bed?\nAssistant:",
+    "expected_behavior": "Affirmation that avoiding blue light/screens before bed is beneficial",
+    "required_info": [
+      "Yes",
+      "avoid",
+      "screen",
+      "blue light"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_093",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "We are preparing for a long hiking trek.",
+        "assistant": "Sturdy footwear and hydration packs are essential for long treks."
+      }
+    ],
+    "current_user_message": "What kind of socks are best to prevent blisters?",
+    "formatted_prompt": "User: We are preparing for a long hiking trek.\nAssistant: Sturdy footwear and hydration packs are essential for long treks.\nUser: What kind of socks are best to prevent blisters?\nAssistant:",
+    "expected_behavior": "Answer suggesting wool or synthetic moisture-wicking hiking socks",
+    "required_info": [
+      "wool",
+      "hiking",
+      "synthetic",
+      "socks"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_094",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "My garden has several tomato plants.",
+        "assistant": "Tomatoes thrive in full sun and well-draining soil."
+      }
+    ],
+    "current_user_message": "How often should I water them during warm weather?",
+    "formatted_prompt": "User: My garden has several tomato plants.\nAssistant: Tomatoes thrive in full sun and well-draining soil.\nUser: How often should I water them during warm weather?\nAssistant:",
+    "expected_behavior": "Answer recommending deep, consistent watering (every few days)",
+    "required_info": [
+      "water",
+      "deeply",
+      "daily",
+      "regularly"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_095",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "I am learning git version control.",
+        "assistant": "Git manages history across distributed software repositories."
+      }
+    ],
+    "current_user_message": "Which command creates a new branch?",
+    "formatted_prompt": "User: I am learning git version control.\nAssistant: Git manages history across distributed software repositories.\nUser: Which command creates a new branch?\nAssistant:",
+    "expected_behavior": "Answer specifying git branch or git checkout -b",
+    "required_info": [
+      "branch",
+      "git branch"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_096",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "We are optimizing memory consumption in Python.",
+        "assistant": "Profiling memory allocations reveals unexpected leaks."
+      }
+    ],
+    "current_user_message": "Can generators help reduce memory when reading large files?",
+    "formatted_prompt": "User: We are optimizing memory consumption in Python.\nAssistant: Profiling memory allocations reveals unexpected leaks.\nUser: Can generators help reduce memory when reading large files?\nAssistant:",
+    "expected_behavior": "Affirmative answer explaining generators yield items on the fly",
+    "required_info": [
+      "Yes",
+      "generators",
+      "memory",
+      "stream"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_097",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "I am preparing for an interview next week.",
+        "assistant": "Reviewing fundamentals and practicing mock questions builds confidence."
+      }
+    ],
+    "current_user_message": "Any tips on handling behavioral interview questions?",
+    "formatted_prompt": "User: I am preparing for an interview next week.\nAssistant: Reviewing fundamentals and practicing mock questions builds confidence.\nUser: Any tips on handling behavioral interview questions?\nAssistant:",
+    "expected_behavior": "Suggestion like using the STAR method (Situation, Task, Action, Result)",
+    "required_info": [
+      "STAR",
+      "situation",
+      "examples"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_098",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "We are designing an API for mobile clients.",
+        "assistant": "Mobile APIs should prioritize small payloads and battery efficiency."
+      }
+    ],
+    "current_user_message": "Is JSON or XML preferred for modern mobile endpoints?",
+    "formatted_prompt": "User: We are designing an API for mobile clients.\nAssistant: Mobile APIs should prioritize small payloads and battery efficiency.\nUser: Is JSON or XML preferred for modern mobile endpoints?\nAssistant:",
+    "expected_behavior": "Answer stating JSON is widely preferred for lightweight parsing",
+    "required_info": [
+      "JSON"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_099",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "I am starting to run 5 kilometers every morning.",
+        "assistant": "Consistent morning runs build cardiovascular endurance."
+      }
+    ],
+    "current_user_message": "Is warming up and stretching important before running?",
+    "formatted_prompt": "User: I am starting to run 5 kilometers every morning.\nAssistant: Consistent morning runs build cardiovascular endurance.\nUser: Is warming up and stretching important before running?\nAssistant:",
+    "expected_behavior": "Affirmative answer stating warmups prevent injury",
+    "required_info": [
+      "Yes",
+      "warmup",
+      "injury",
+      "stretch"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  },
+  {
+    "probe_id": "CR17R_PROBE_100",
+    "category": "10_continuity_relevance",
+    "history": [
+      {
+        "user": "We are writing unit tests for our service.",
+        "assistant": "Automated unit tests ensure deterministic regression protection."
+      }
+    ],
+    "current_user_message": "Should tests be isolated and independent of each other?",
+    "formatted_prompt": "User: We are writing unit tests for our service.\nAssistant: Automated unit tests ensure deterministic regression protection.\nUser: Should tests be isolated and independent of each other?\nAssistant:",
+    "expected_behavior": "Affirmative explanation that unit tests must be isolated and repeatable",
+    "required_info": [
+      "Yes",
+      "isolated",
+      "independent"
+    ],
+    "failure_conditions": [
+      "refusal sink"
+    ],
+    "answerability": true
+  }
+]
