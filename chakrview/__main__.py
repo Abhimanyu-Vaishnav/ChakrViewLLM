@@ -22,6 +22,8 @@ def main():
     # chat command
     chat_parser = subparsers.add_parser("chat", help="Launch interactive conversational chat terminal")
     chat_parser.add_argument("--checkpoint", type=str, default=None, help="Path to checkpoint .pt file")
+    chat_parser.add_argument("--memory", type=str, choices=["on", "off"], default="on", help="Enable or disable hybrid working memory (default: on)")
+    chat_parser.add_argument("--debug-prompt", action="store_true", help="Display full prompt and token count before generation")
     chat_parser.add_argument("--test-mode", action="store_true", help="Run automated multi-turn verification")
 
     # version command
@@ -32,7 +34,8 @@ def main():
     if args.command == "chat":
         from chakrview.chat import ConversationalChatCLI, DEFAULT_CHECKPOINT
         ckpt_path = Path(args.checkpoint) if args.checkpoint else DEFAULT_CHECKPOINT
-        cli = ConversationalChatCLI(ckpt_path)
+        mem_enabled = (args.memory == "on")
+        cli = ConversationalChatCLI(ckpt_path, memory_enabled=mem_enabled, debug_prompt=args.debug_prompt)
         if args.test_mode:
             print("\n--- Running Automated Verification Mode ---")
             test_inputs = [

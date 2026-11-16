@@ -65,8 +65,11 @@ class ConversationalChatCLI:
 
     def reset(self):
         self.history.clear()
-        self.memory.reset_session()
-        print("\n[Conversation history and working memory reset.]\n")
+        if self.memory_enabled:
+            self.memory.reset_session()
+            print("\n[Conversation history and working memory reset.]\n")
+        else:
+            print("\n[Conversation history reset (Memory mode: OFF).]\n")
 
     def print_info(self):
         print(f"\n--- ChakrView Session Info ---")
@@ -75,13 +78,19 @@ class ConversationalChatCLI:
         print(f"SHA-256:         {self.sha256}")
         print(f"Memory Mode:     {'ENABLED (Hybrid Working Memory)' if self.memory_enabled else 'DISABLED (Pure Neural)'}")
         print(f"History Turns:   {len(self.history)} turns recorded")
-        print(f"Active Facts:    {len(self.memory.facts)} memory facts recorded")
+        if self.memory_enabled:
+            print(f"Active Facts:    {len(self.memory.facts)} memory facts recorded")
+        else:
+            print(f"Active Facts:    N/A (Memory disabled)")
         print(f"Context Ceiling: {self.context_ceiling} tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
         print(f"Prompt Budget:   {self.max_prompt_tokens} tokens (Dynamic turn-budgeted retention)")
         print(f"Decoding:        temperature=0.0, repetition_penalty=1.15, no_repeat_ngram=3, max_new_tokens={self.max_gen_tokens}\n")
 
     def print_memory(self):
         print(f"\n--- ChakrView Active Memory ---")
+        if not self.memory_enabled:
+            print("Memory mode is currently DISABLED (--memory off). No facts are tracked.\n")
+            return
         if not self.memory.facts:
             print("Working memory is currently empty.\n")
         else:
@@ -185,11 +194,14 @@ class ConversationalChatCLI:
                         return ans
         
         prompt, trace = self.build_prompt(user_input)
+        p_toks = self.tok.encode(prompt, add_bos=True, add_eos=False)
         if self.debug_prompt:
-            print(f"\n[DEBUG PROMPT]\n{prompt}\n[END DEBUG PROMPT]\n")
+            print(f"\n[DEBUG PROMPT]")
+            print(f"Token Count: {len(p_toks)} tokens")
+            print(f"Formatted Text:\n{prompt}")
+            print(f"[END DEBUG PROMPT]\n")
         
         # Autoregressive generation with sampling config
-        p_toks = self.tok.encode(prompt, add_bos=True, add_eos=False)
         curr = list(p_toks)
         gen = []
         with torch.no_grad():
