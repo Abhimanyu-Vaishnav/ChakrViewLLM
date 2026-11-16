@@ -29,8 +29,10 @@ from scripts.run_m3_evaluations import DirectNeuralRunner, file_sha256
 DEFAULT_CHECKPOINT = REPO_ROOT / "releases" / "v1.0_unified_conversational_intelligence" / "chakrview_v011_model.pt"
 
 class ConversationalChatCLI:
-    def __init__(self, checkpoint_path: Path, max_prompt_tokens: int = 384, max_gen_tokens: int = 48):
+    def __init__(self, checkpoint_path: Path, max_prompt_tokens: int = 384, max_gen_tokens: int = 48, memory_enabled: bool = True, debug_prompt: bool = False):
         self.checkpoint_path = checkpoint_path
+        self.memory_enabled = memory_enabled
+        self.debug_prompt = debug_prompt
         if not self.checkpoint_path.exists():
             # Fallback to CBR-SFT-04 if release checkpoint not found
             fallback = REPO_ROOT / "experiments" / "cbr01_sft" / "runs" / "cbr_sft_04" / "checkpoints" / "sft_checkpoint_step_200.pt"
@@ -71,6 +73,7 @@ class ConversationalChatCLI:
         print(f"Release:         v1.0 (Unified Conversational Intelligence)")
         print(f"Checkpoint:      {self.checkpoint_path.name}")
         print(f"SHA-256:         {self.sha256}")
+        print(f"Memory Mode:     {'ENABLED (Hybrid Working Memory)' if self.memory_enabled else 'DISABLED (Pure Neural)'}")
         print(f"History Turns:   {len(self.history)} turns recorded")
         print(f"Active Facts:    {len(self.memory.facts)} memory facts recorded")
         print(f"Context Ceiling: {self.context_ceiling} tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
@@ -152,13 +155,38 @@ class ConversationalChatCLI:
             self.print_memory()
             return "[Memory status displayed]"
 
-        # 1. Update working memory from user input
-        self.memory.extract_and_store_facts(user_input, turn_index=len(self.history) + 1)
-        
-        # 2. Check if user is asking for a stored memory attribute
-        relevant = self.memory.retrieve_relevant_facts(user_input)
+        # 1. Update working memory if memory is enabled
+        relevant = []
+        if self.memory_enabled:
+            self.memory.extract_and_store_facts(user_input, turn_index=len(self.history) + 1)
+            relevant = self.memory.retrieve_relevant_facts(user_input)
+            
+            # Hybrid Response Integration:
+            # If the user is specifically querying an active factual attribute that was explicitly stored,
+            # present the verified memory result directly with transparent provenance attribution.
+            # Do NOT trigger when the user is declaring or setting a fact (e.g. 'my name is...', 'i renamed it to...')
+            u_lower = user_input.lower()
+            is_query = any(q in u_lower for q in ["what", "who", "where", "kya", "kaun", "kahan", "tell me", "do you know", "?"])
+            is_declaring = any(d in u_lower for d in ["my name is", "i am", "mera naam", "renamed", "working on", "my project is"])
+            
+            if relevant and is_query and not is_declaring:
+                for fact in relevant:
+                    if fact.predicate == "name" and any(k in u_lower for k in ["name", "who am i", "naam"]):
+                        ans = f"[Hybrid Memory: Name] Your name is {fact.value}."
+                        self.history.append({"user": user_input, "assistant": ans})
+                        return ans
+                    elif fact.predicate == "city" and any(k in u_lower for k in ["city", "where do i live", "shahar"]):
+                        ans = f"[Hybrid Memory: City] You live in {fact.value}."
+                        self.history.append({"user": user_input, "assistant": ans})
+                        return ans
+                    elif fact.predicate == "project" and any(k in u_lower for k in ["project", "working on"]):
+                        ans = f"[Hybrid Memory: Project] Your project is {fact.value}."
+                        self.history.append({"user": user_input, "assistant": ans})
+                        return ans
         
         prompt, trace = self.build_prompt(user_input)
+        if self.debug_prompt:
+            print(f"\n[DEBUG PROMPT]\n{prompt}\n[END DEBUG PROMPT]\n")
         
         # Autoregressive generation with sampling config
         p_toks = self.tok.encode(prompt, add_bos=True, add_eos=False)
@@ -212,10 +240,13 @@ class ConversationalChatCLI:
 def main():
     parser = argparse.ArgumentParser(description="ChakrView Interactive Chat Terminal")
     parser.add_argument("--checkpoint", type=str, default=str(DEFAULT_CHECKPOINT), help="Path to checkpoint .pt file")
+    parser.add_argument("--memory", type=str, choices=["on", "off"], default="on", help="Enable or disable hybrid working memory (default: on)")
+    parser.add_argument("--debug-prompt", action="store_true", help="Display full prompt and debug tokens before generation")
     parser.add_argument("--test-mode", action="store_true", help="Run automated multi-turn verification")
     args = parser.parse_args()
 
-    cli = ConversationalChatCLI(Path(args.checkpoint))
+    mem_enabled = (args.memory == "on")
+    cli = ConversationalChatCLI(Path(args.checkpoint), memory_enabled=mem_enabled, debug_prompt=args.debug_prompt)
 
     if args.test_mode:
         print("\n--- Running Automated Verification Mode ---")

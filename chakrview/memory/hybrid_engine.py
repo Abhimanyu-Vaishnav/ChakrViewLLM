@@ -67,6 +67,11 @@ class HybridMemoryEngine:
         """
         extracted = []
         text_lower = user_text.lower()
+        
+        # Guard: do not extract facts if the sentence is a pure question asking about a fact
+        is_pure_question = any(q in text_lower for q in ["what is", "where do", "who is", "who am", "kya hai", "kaun hoon", "kahan rehta"])
+        if is_pure_question and not any(k in text_lower for k in ["renamed", "badal kar", "actually, i moved"]):
+            return extracted
 
         # Name patterns
         name_patterns = [
@@ -98,19 +103,33 @@ class HybridMemoryEngine:
                 extracted.append(fact)
                 break
 
-        # Project patterns & renames
-        project_patterns = [
-            r"(?:my project is|working on|project called|renamed it to|rename it to)\s+([A-Za-z0-9_-]+)",
-            r"(?:mera project|mera project ka naam)\s+([A-Za-z0-9_-]+)\s+(?:hai|h)",
+        # Project patterns & renames (search renames first)
+        rename_patterns = [
+            r"(?:renamed it to|rename it to|renamed my project to)\s+([A-Za-z0-9_-]+)",
             r"(?:project ka naam badal kar)\s+([A-Za-z0-9_-]+)\s+(?:kar diya|h)"
         ]
-        for pat in project_patterns:
+        renamed = False
+        for pat in rename_patterns:
             m = re.search(pat, user_text, re.IGNORECASE)
             if m:
                 val = m.group(1).strip()
                 fact = self.set_fact("user", "project", val, turn_index=turn_index)
                 extracted.append(fact)
+                renamed = True
                 break
+
+        if not renamed:
+            project_patterns = [
+                r"(?:my project is|working on|project called)\s+([A-Za-z0-9_-]+)",
+                r"(?:mera project|mera project ka naam)\s+([A-Za-z0-9_-]+)\s+(?:hai|h)"
+            ]
+            for pat in project_patterns:
+                m = re.search(pat, user_text, re.IGNORECASE)
+                if m:
+                    val = m.group(1).strip()
+                    fact = self.set_fact("user", "project", val, turn_index=turn_index)
+                    extracted.append(fact)
+                    break
 
         # Favorite / Preference
         pref_patterns = [
