@@ -78,11 +78,50 @@ class DirectNeuralRunner:
     """Direct model generation engine bypassing pipeline HTTP/tenant wrappers while preserving exact tokenizer & model contract."""
     def __init__(self, ckpt_path: Path):
         self.tokenizer, _ = load_tokenizer_artifacts(REPO_ROOT / "data" / "experiments" / "vocab_4096")
-        self.model = ChakrMicro(ModelConfig())
         ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
-        state_dict = ckpt.get("model_state_dict") or ckpt.get("model")
+        state_dict = ckpt.get("model_state_dict") or ckpt.get("model") or ckpt
+
+        # Determine architecture configuration
+        if "config" in ckpt and isinstance(ckpt["config"], dict):
+            cfg_dict = ckpt["config"]
+            valid_keys = set(ModelConfig.__dataclass_fields__.keys()) if hasattr(ModelConfig, "__dataclass_fields__") else set()
+            filtered_cfg = {k: v for k, v in cfg_dict.items() if k in valid_keys} if valid_keys else cfg_dict
+            self.cfg = ModelConfig(**filtered_cfg)
+        elif "model_config" in ckpt and isinstance(ckpt["model_config"], ModelConfig):
+            self.cfg = ckpt["model_config"]
+        elif "model_config" in ckpt and isinstance(ckpt["model_config"], dict):
+            self.cfg = ModelConfig(**ckpt["model_config"])
+        elif isinstance(state_dict, dict) and "embedding.weight" in state_dict:
+            # Shape-based fallback detection
+            d_model = state_dict["embedding.weight"].shape[1]
+            layers = {int(k.split(".")[1]) for k in state_dict.keys() if k.startswith("layers.")}
+            n_layers = len(layers) if layers else 6
+            if "layers.0.ffn.gate_proj.weight" in state_dict:
+                hidden_dim = state_dict["layers.0.ffn.gate_proj.weight"].shape[0]
+            else:
+                hidden_dim = int((8 / 3) * d_model)
+            
+            if d_model == 192:
+                self.cfg = ModelConfig(d_model=192, n_layers=n_layers or 6, hidden_dim=hidden_dim or 512)
+            elif d_model == 384:
+                self.cfg = ModelConfig(d_model=384, n_layers=n_layers or 7, hidden_dim=hidden_dim or 896)
+            else:
+                raise ValueError(f"Unsupported model architecture dimension: d_model={d_model}")
+        else:
+            self.cfg = ModelConfig()
+
+        # Architecture profiling & name resolution
+        if self.cfg.d_model == 384:
+            self.arch_name = "ChakrMedium"
+        elif self.cfg.d_model == 192:
+            self.arch_name = "ChakrMicro"
+        else:
+            self.arch_name = f"ChakrCustom-{self.cfg.d_model}"
+
+        self.model = ChakrMicro(self.cfg)
         self.model.load_state_dict(state_dict, strict=True)
         self.model.eval()
+        self.param_count = sum(p.numel() for p in self.model.parameters())
         self.sampler = Sampler()
 
     def generate(self, prompt: str, max_new_tokens: int = 32, temperature: float = 0.0) -> Dict[str, Any]:

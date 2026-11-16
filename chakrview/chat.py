@@ -72,17 +72,26 @@ class ConversationalChatCLI:
             print("\n[Conversation history reset (Memory mode: OFF).]\n")
 
     def print_info(self):
+        arch_name = getattr(self.runner, "arch_name", "ChakrMicro")
+        cfg = getattr(self.runner, "cfg", None)
+        param_count = getattr(self.runner, "param_count", sum(p.numel() for p in self.runner.model.parameters()))
+        if cfg:
+            arch_desc = f"{arch_name} ({param_count:,} params: {cfg.n_layers} layers, {cfg.d_model} dim, {cfg.n_heads} heads, {cfg.hidden_dim} ffn)"
+        else:
+            arch_desc = f"{arch_name} ({param_count:,} params)"
+
         print(f"\n--- ChakrView Session Info ---")
         print(f"Release:         v1.0 (Unified Conversational Intelligence)")
         print(f"Checkpoint:      {self.checkpoint_path.name}")
         print(f"SHA-256:         {self.sha256}")
+        print(f"Architecture:    {arch_desc}")
         print(f"Memory Mode:     {'ENABLED (Hybrid Working Memory)' if self.memory_enabled else 'DISABLED (Pure Neural)'}")
         print(f"History Turns:   {len(self.history)} turns recorded")
         if self.memory_enabled:
             print(f"Active Facts:    {len(self.memory.facts)} memory facts recorded")
         else:
             print(f"Active Facts:    N/A (Memory disabled)")
-        print(f"Context Ceiling: {self.context_ceiling} tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
+        print(f"Context Ceiling: {self.context_ceiling} tokens")
         print(f"Prompt Budget:   {self.max_prompt_tokens} tokens (Dynamic turn-budgeted retention)")
         print(f"Decoding:        temperature=0.0, repetition_penalty=1.15, no_repeat_ngram=3, max_new_tokens={self.max_gen_tokens}\n")
 
