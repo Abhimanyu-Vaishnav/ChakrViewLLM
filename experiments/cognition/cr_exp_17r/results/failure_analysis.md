@@ -21,3 +21,4 @@ This analysis investigates the generation quality of the released model `release
    - In low-confidence conversational turns, the model consistently leaks memorized entities from algorithmic and pretraining datasets (e.g. `"Arjun"`, `"Bangary"`, `"Berok"`, `"node 27"`).
 3. **Devanagari Attractor Collapse:**
    - When fed Devanagari Hindi text, the model recognizes Devanagari tokens and generates Devanagari characters (100% of Devanagari probes produced Devanagari responses), but collapses into repetitive Wikipedia-like article syntax (`"कथन\nयह है कि यह दोनों में मुख्य रूप से जाना जाता है।"`) rather than answering conversational dialogue.
+

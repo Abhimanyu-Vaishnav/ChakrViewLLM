@@ -3,7 +3,7 @@ chakrview/chat.py
 
 Interactive Terminal Conversational Interface for ChakrView v0.9.1.
 Directly loads the fine-tuned conversational checkpoint and manages
-interactive sessions with calibrated anti-repetition decoding and clean context bounds.
+interactive sessions with calibrated anti-repetition decoding and dynamic token-budgeted history.
 
 Commands inside chat:
   /reset - Clears conversational history and starts fresh
@@ -16,19 +16,20 @@ import os
 import time
 import argparse
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
 import torch
 from chakrview.runtime.sampling import SamplingConfig
+from chakrview.memory.hybrid_engine import HybridMemoryEngine
 from scripts.run_m3_evaluations import DirectNeuralRunner, file_sha256
 
-DEFAULT_CHECKPOINT = REPO_ROOT / "experiments" / "conversation" / "cr_exp_17" / "checkpoints" / "chakrview_v091_conversational_best.pt"
+DEFAULT_CHECKPOINT = REPO_ROOT / "releases" / "v1.0_unified_conversational_intelligence" / "chakrview_v011_model.pt"
 
 class ConversationalChatCLI:
-    def __init__(self, checkpoint_path: Path):
+    def __init__(self, checkpoint_path: Path, max_prompt_tokens: int = 384, max_gen_tokens: int = 48):
         self.checkpoint_path = checkpoint_path
         if not self.checkpoint_path.exists():
             # Fallback to CBR-SFT-04 if release checkpoint not found
@@ -46,8 +47,13 @@ class ConversationalChatCLI:
         self.runner = DirectNeuralRunner(self.checkpoint_path)
         self.tok = self.runner.tokenizer
         self.history: List[Dict[str, str]] = []
-        # In a 3.44M model, keeping the most recent turn maintains context without token saturation
-        self.max_history_turns = 1
+        self.memory = HybridMemoryEngine()
+        
+        # Dynamic Token Budget: 512 total context = 384 max prompt + 128 reserve (with 48 max generation)
+        self.max_prompt_tokens = max_prompt_tokens
+        self.max_gen_tokens = max_gen_tokens
+        self.context_ceiling = 512
+        
         # Calibrated decoding: penalty 1.15 avoids vocabulary suppression, no_repeat_ngram=3 prevents loops
         self.sampling_cfg = SamplingConfig(
             temperature=0.0,
@@ -57,23 +63,79 @@ class ConversationalChatCLI:
 
     def reset(self):
         self.history.clear()
-        print("\n[Conversation history reset.]\n")
+        self.memory.reset_session()
+        print("\n[Conversation history and working memory reset.]\n")
 
     def print_info(self):
         print(f"\n--- ChakrView Session Info ---")
-        print(f"Release:    v0.9.1 (Conversational Preview)")
-        print(f"Checkpoint: {self.checkpoint_path.name}")
-        print(f"SHA-256:    {self.sha256}")
-        print(f"History:    {len(self.history)} turns recorded")
-        print(f"Context Ceiling: 512 tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
-        print(f"Decoding:   temperature=0.0, repetition_penalty=1.15, no_repeat_ngram=3\n")
+        print(f"Release:         v1.0 (Unified Conversational Intelligence)")
+        print(f"Checkpoint:      {self.checkpoint_path.name}")
+        print(f"SHA-256:         {self.sha256}")
+        print(f"History Turns:   {len(self.history)} turns recorded")
+        print(f"Active Facts:    {len(self.memory.facts)} memory facts recorded")
+        print(f"Context Ceiling: {self.context_ceiling} tokens (ChakrMicro v0.1: 6 layers, 192 dim, 6 heads)")
+        print(f"Prompt Budget:   {self.max_prompt_tokens} tokens (Dynamic turn-budgeted retention)")
+        print(f"Decoding:        temperature=0.0, repetition_penalty=1.15, no_repeat_ngram=3, max_new_tokens={self.max_gen_tokens}\n")
 
-    def build_prompt(self, user_msg: str) -> str:
-        prompt_parts = []
-        for turn in self.history[-self.max_history_turns:]:
-            prompt_parts.append(f"User: {turn['user']}\nAssistant: {turn['assistant']}")
-        prompt_parts.append(f"User: {user_msg}\nAssistant:")
-        return "\n".join(prompt_parts)
+    def print_memory(self):
+        print(f"\n--- ChakrView Active Memory ---")
+        if not self.memory.facts:
+            print("Working memory is currently empty.\n")
+        else:
+            for f in self.memory.facts.values():
+                if f.is_active:
+                    print(f" - {f.predicate.capitalize()}: {f.value} (Turn {f.turn_index})")
+            print()
+
+    def build_prompt(self, user_msg: str) -> Tuple[str, Dict[str, Any]]:
+        """
+        Dynamically packs historical complete turns (User + Assistant) backwards
+        within max_prompt_tokens budget.
+        Never drops a user turn while keeping its assistant response.
+        Removes oldest complete turns first under budget pressure.
+        """
+        current_turn_text = f"User: {user_msg}\nAssistant:"
+        current_turn_tokens = len(self.tok.encode(current_turn_text, add_bos=True, add_eos=False))
+        
+        # If the user message alone exceeds or nearly fills prompt budget, truncate history entirely
+        available_history_budget = self.max_prompt_tokens - current_turn_tokens
+        
+        retained_turns = []
+        discarded_turns_count = 0
+        
+        if available_history_budget > 10 and self.history:
+            # Walk backwards from most recent turn to oldest
+            accumulated_turns_text = []
+            
+            for turn in reversed(self.history):
+                candidate_turn_text = f"User: {turn['user']}\nAssistant: {turn['assistant']}"
+                # Test prompt with this candidate turn prepended
+                test_parts = [candidate_turn_text] + accumulated_turns_text + [current_turn_text]
+                test_prompt = "\n".join(test_parts)
+                test_tokens_len = len(self.tok.encode(test_prompt, add_bos=True, add_eos=False))
+                
+                if test_tokens_len <= self.max_prompt_tokens:
+                    accumulated_turns_text.insert(0, candidate_turn_text)
+                    retained_turns.insert(0, turn)
+                else:
+                    discarded_turns_count += 1
+            
+            prompt_parts = accumulated_turns_text + [current_turn_text]
+            final_prompt = "\n".join(prompt_parts)
+        else:
+            discarded_turns_count = len(self.history)
+            final_prompt = current_turn_text
+            
+        final_tokens_len = len(self.tok.encode(final_prompt, add_bos=True, add_eos=False))
+        
+        audit_trace = {
+            "retained_turns_count": len(retained_turns),
+            "discarded_turns_count": discarded_turns_count,
+            "total_prompt_tokens": final_tokens_len,
+            "prompt_budget": self.max_prompt_tokens,
+            "within_budget": final_tokens_len <= self.max_prompt_tokens
+        }
+        return final_prompt, audit_trace
 
     def interact_step(self, user_input: str) -> str:
         user_input = user_input.strip()
@@ -86,18 +148,27 @@ class ConversationalChatCLI:
         elif user_input.lower() in ["/info", "info"]:
             self.print_info()
             return "[Session info displayed]"
+        elif user_input.lower() in ["/memory", "memory"]:
+            self.print_memory()
+            return "[Memory status displayed]"
 
-        prompt = self.build_prompt(user_input)
+        # 1. Update working memory from user input
+        self.memory.extract_and_store_facts(user_input, turn_index=len(self.history) + 1)
+        
+        # 2. Check if user is asking for a stored memory attribute
+        relevant = self.memory.retrieve_relevant_facts(user_input)
+        
+        prompt, trace = self.build_prompt(user_input)
         
         # Autoregressive generation with sampling config
         p_toks = self.tok.encode(prompt, add_bos=True, add_eos=False)
         curr = list(p_toks)
         gen = []
         with torch.no_grad():
-            for step in range(48):
+            for step in range(self.max_gen_tokens):
                 t_in = torch.tensor([curr], dtype=torch.long)
                 logits = self.runner.model(t_in)[0, -1, :]
-                next_tok = self.runner.sampler.sample(
+                next_tok = runner_tok = self.runner.sampler.sample(
                     logits,
                     generated_tokens=gen,
                     config=self.sampling_cfg,
@@ -110,16 +181,16 @@ class ConversationalChatCLI:
                     
         assistant_resp = self.tok.decode(gen, errors="replace").strip()
 
-        # Update history
+        # Update history with complete user-assistant pair
         self.history.append({"user": user_input, "assistant": assistant_resp})
         return assistant_resp
 
     def run_interactive_loop(self):
         print("\n" + "=" * 65)
-        print("  CHAKRVIEW v0.9.1 CONVERSATIONAL TERMINAL (CPU-FIRST)")
+        print("  CHAKRVIEW v1.0 CONVERSATIONAL TERMINAL (HYBRID NEURAL BRAIN)")
         print("=" * 65)
-        print(f"Model: ChakrMicro Conversational v0.9.1 ({self.checkpoint_path.name})")
-        print("Commands: /reset (clear context), /info (view stats), /exit (quit)")
+        print(f"Model: ChakrMicro Conversational v1.0 ({self.checkpoint_path.name})")
+        print("Commands: /reset (clear context), /memory (view facts), /info (view stats), /exit (quit)")
         print("Type your message and press Enter.\n")
 
         while True:
@@ -141,7 +212,7 @@ class ConversationalChatCLI:
 def main():
     parser = argparse.ArgumentParser(description="ChakrView Interactive Chat Terminal")
     parser.add_argument("--checkpoint", type=str, default=str(DEFAULT_CHECKPOINT), help="Path to checkpoint .pt file")
-    parser.add_argument("--test-mode", action="store_true", help="Run automated multi-turn test script")
+    parser.add_argument("--test-mode", action="store_true", help="Run automated multi-turn verification")
     args = parser.parse_args()
 
     cli = ConversationalChatCLI(Path(args.checkpoint))

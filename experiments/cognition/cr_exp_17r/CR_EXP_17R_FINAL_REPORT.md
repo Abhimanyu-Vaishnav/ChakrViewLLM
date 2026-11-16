@@ -147,3 +147,4 @@ All raw outputs from CR-EXP-17 were recomputed from `baseline_eval_results.json`
 **OPTION A: RETAIN AS EXPERIMENTAL PREVIEW**
 
 The v0.9.1 checkpoint represents genuine progress: it eradicates refusal loops, establishes self-identity, and executes autonomously on CPU. However, because multi-turn context retention across $\ge 3$ turns fails and Hindi conversational fluency is limited to greeting formulas, it must remain strictly categorized as an **Experimental Preview**.
+

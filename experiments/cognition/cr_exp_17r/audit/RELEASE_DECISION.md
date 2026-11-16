@@ -25,3 +25,4 @@ The decision to retain **v0.9.1 as an Experimental Preview** (and explicitly rej
 
 ## 2. Conclusion
 ChakrView v0.9.1 is a valid, reproducible, and meaningful milestone that successfully cures conversational degeneration and refusal loops on CPU. Retaining it strictly as an **Experimental Preview** honestly communicates its boundaries to researchers and developers while protecting scientific credibility.
+

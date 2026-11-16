@@ -257,3 +257,4 @@ with open(OUT_DIR / "benchmark_manifest.json", "w", encoding="utf-8") as f:
 
 print(f"Generated {len(conversations)} conversations across 5 length groups.")
 print(f"Benchmark SHA-256: {h}")
+

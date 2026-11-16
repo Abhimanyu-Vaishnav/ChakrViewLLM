@@ -57,3 +57,4 @@ with open(REPO_ROOT / "experiments/cognition/cr_exp_18/diagnostics/sample_format
 print(f"Audited {len(sample_audits)} sample conversations.")
 perfect_matches = sum(1 for s in sample_audits if s["supervised_matches_response"])
 print(f"Supervised matches response: {perfect_matches}/{len(sample_audits)}")
+

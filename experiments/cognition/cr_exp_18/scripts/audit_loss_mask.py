@@ -49,3 +49,4 @@ with open(REPO_ROOT / "experiments/cognition/cr_exp_18/diagnostics/token_level_m
 print("Loss mask audit tests complete. All scenarios checked.")
 for m in mask_audits:
     print(f"[{m['scenario']}] PromptMasked={m['prompt_fully_masked']}, RespSupervised={m['response_fully_supervised']}, EndsEOS={m['ends_with_eos']}")
+

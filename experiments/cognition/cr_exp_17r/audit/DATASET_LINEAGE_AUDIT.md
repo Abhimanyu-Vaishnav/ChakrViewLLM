@@ -42,3 +42,4 @@ An audit of `experiments/conversation/cr_exp_17/assemble_corpus.py` and `experim
 
 ## 4. Conclusion
 The dataset lineage discrepancy is **fully resolved**. The reported figures of 1,419 train and 157 val examples are 100% accurate reflections of the actual file contents and actual training inputs. The filenames `conversation_train_1080.jsonl` and `conversation_val_120.jsonl` represent legacy file naming that was not updated after corpus augmentation. Training dataset reproducibility is **VERIFIED**.
+

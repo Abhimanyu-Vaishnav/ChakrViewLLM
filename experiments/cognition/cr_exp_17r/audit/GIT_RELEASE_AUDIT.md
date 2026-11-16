@@ -34,3 +34,4 @@ The protected runtime file `chakrview/runtime/session.py` was inspected and veri
 - Model binary `chakrview_v091_model.pt` is intentionally ignored by `.gitignore` (standard repository policy for model weights).
 - Model configuration `config.json`, `MODEL_CARD.md`, and `HOW_TO_RUN.md` are tracked by Git.
 - Model binary SHA-256 is cryptographically anchored in `config.json`, `MODEL_CARD.md`, and `ARTIFACT_HASHES.txt`.
+

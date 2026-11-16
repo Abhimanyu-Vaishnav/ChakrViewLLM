@@ -79,3 +79,4 @@ with open(REPO_ROOT / "experiments/cognition/cr_exp_18/manifests/artifact_hashes
     json.dump(results, f, indent=2)
 
 print("Saved manifests/artifact_hashes.json successfully.")
+

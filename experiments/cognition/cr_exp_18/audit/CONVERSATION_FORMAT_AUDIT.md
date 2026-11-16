@@ -22,3 +22,4 @@ Inspection across 20 representative training and inference examples:
 
 ## 3. Findings
 Formatting template discrepancy is **NOT SUPPORTED** as the cause of failure. The string templates at training and inference are identical.
+

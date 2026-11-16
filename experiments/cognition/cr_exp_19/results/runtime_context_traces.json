@@ -1,0 +1,57 @@
+[
+  {
+    "test": "1_turn",
+    "trace": {
+      "retained_turns_count": 0,
+      "discarded_turns_count": 0,
+      "total_prompt_tokens": 22,
+      "prompt_budget": 384,
+      "within_budget": true
+    },
+    "prompt": "User: Hello, my name is Zaraph.\nAssistant:"
+  },
+  {
+    "test": "2_turns",
+    "trace": {
+      "retained_turns_count": 1,
+      "discarded_turns_count": 0,
+      "total_prompt_tokens": 58,
+      "prompt_budget": 384,
+      "within_budget": true
+    },
+    "prompt": "User: Hello, my name is Zaraph.\nAssistant: Hello Zaraph!\nUser: Where do you recommend I travel?\nAssistant:"
+  },
+  {
+    "test": "5_turns",
+    "trace": {
+      "retained_turns_count": 4,
+      "discarded_turns_count": 0,
+      "total_prompt_tokens": 149,
+      "prompt_budget": 384,
+      "within_budget": true
+    },
+    "prompt": "User: Hello, my name is Zaraph.\nAssistant: Hello Zaraph!\nUser: Where do you recommend I travel?\nAssistant: I recommend Kyoto.\nUser: What fruit is nice there?\nAssistant: Persimmons.\nUser: How many days should I stay?\nAssistant: Five days.\nUser: What was my name again?\nAssistant:"
+  },
+  {
+    "test": "8_turns",
+    "trace": {
+      "retained_turns_count": 7,
+      "discarded_turns_count": 0,
+      "total_prompt_tokens": 243,
+      "prompt_budget": 384,
+      "within_budget": true
+    },
+    "prompt": "User: Hello, my name is Zaraph.\nAssistant: Hello Zaraph!\nUser: Where do you recommend I travel?\nAssistant: I recommend Kyoto.\nUser: What fruit is nice there?\nAssistant: Persimmons.\nUser: How many days should I stay?\nAssistant: Five days.\nUser: What was my name again?\nAssistant: Your name is Zaraph.\nUser: Do you like tea?\nAssistant: Yes, green tea.\nUser: What about coffee?\nAssistant: Coffee is great too.\nUser: Can you summarize our talk?\nAssistant:"
+  },
+  {
+    "test": "budget_pressure",
+    "trace": {
+      "retained_turns_count": 7,
+      "discarded_turns_count": 1,
+      "total_prompt_tokens": 243,
+      "prompt_budget": 384,
+      "within_budget": true
+    },
+    "prompt_preview": "User: Hello, my name is Zaraph.\nAssistant: Hello Zaraph!\nUser: Where do you recommend I travel?\nAssistant: I recommend Kyoto.\nUser: What fruit is nice"
+  }
+]

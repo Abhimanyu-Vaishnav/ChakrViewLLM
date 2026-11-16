@@ -33,3 +33,4 @@ The 0/56 fact retention failure is caused by an **interaction of three compoundi
 
 3. **Neural Representation Level (Induction Circuit Capacity):**
    Even when the evaluation script bypasses `chat.py` and feeds the full 5-turn history into the model, representation diagnostics prove that the model fails to activate induction circuits for entities 30–80 tokens back. Token logit ranks for earlier entities remain around #42 ($p < 0.0005$), while local dialogue n-grams (`"Your"`, `"It"`, `"Good"`) dominate generation.
+

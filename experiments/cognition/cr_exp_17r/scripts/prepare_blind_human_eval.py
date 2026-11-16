@@ -76,3 +76,4 @@ with open(OUT_MD, "w", encoding="utf-8") as f:
         f.write("---\n\n")
 
 print(f"Created {OUT_MD} and {OUT_JSON} successfully.")
+

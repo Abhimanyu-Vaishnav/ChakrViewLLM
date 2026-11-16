@@ -84,3 +84,4 @@ print(f"Artifact integrity check complete. All matched: {all_pass}")
 for k, v in audit_results.items():
     status = "PASS" if v["match"] else "FAIL"
     print(f"[{status}] {k}: {v['actual_sha256']}")
+

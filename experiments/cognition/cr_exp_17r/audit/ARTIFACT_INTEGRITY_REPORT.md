@@ -38,3 +38,4 @@ All commits form an unbroken, non-branching linear chain pushed to `origin`.
 ## 4. Hash Reconciliation Note
 In the CR-17 report narrative, earlier intermediate draft hashes for the dataset and config were quoted in the summary text. However, git forensic inspection of commit `3e158f6` (`ARTIFACT_HASHES.txt`) shows that the actual committed files on disk match the committed git tree with 100% bit-exact cryptographic accuracy.
 The release checkpoint `f161ccdc501bca34f6ed2019252f2e51d18fa113ce0cc90187c4ff0cdd180d10` is bit-for-bit identical between `experiments/conversation/cr_exp_17/checkpoints/` and `releases/v0.9.1_conversational_preview/`.
+

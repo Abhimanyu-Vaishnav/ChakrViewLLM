@@ -113,3 +113,4 @@ with open(OUT_FILE, "w", encoding="utf-8") as f:
 
 print("Metric recalculation complete. Output saved to metric_recalculation.json")
 print(json.dumps(comparison["claims_verification"], indent=2))
+
