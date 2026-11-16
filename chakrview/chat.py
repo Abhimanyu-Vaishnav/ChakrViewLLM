@@ -235,10 +235,20 @@ class ConversationalChatCLI:
         return assistant_resp
 
     def run_interactive_loop(self):
+        arch_name = getattr(self.runner, "arch_name", "ChakrMicro")
+        param_count = getattr(self.runner, "param_count", sum(p.numel() for p in self.runner.model.parameters()))
+        cfg = getattr(self.runner, "cfg", None)
+        if cfg:
+            arch_desc = f"{arch_name} ({param_count:,} params: {cfg.n_layers}L, {cfg.d_model}d)"
+        else:
+            arch_desc = f"{arch_name} ({param_count:,} params)"
+
         print("\n" + "=" * 65)
-        print("  CHAKRVIEW v1.0 CONVERSATIONAL TERMINAL (HYBRID NEURAL BRAIN)")
+        print("  CHAKRVIEW CONVERSATIONAL TERMINAL (HYBRID NEURAL BRAIN)")
         print("=" * 65)
-        print(f"Model: ChakrMicro Conversational v1.0 ({self.checkpoint_path.name})")
+        print(f"Model: {arch_desc} [{self.checkpoint_path.name}]")
+        print(f"SHA-256: {self.sha256[:16]}...")
+        print(f"Memory Mode: {'ENABLED (Hybrid Working Memory)' if self.memory_enabled else 'DISABLED (Pure Neural)'}")
         print("Commands: /reset (clear context), /memory (view facts), /info (view stats), /exit (quit)")
         print("Type your message and press Enter.\n")
 
