@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UCIP03R_IndependentEvaluationSchema",
+  "type": "object",
+  "required": ["probe_id", "category", "prompt", "generated_text", "verdict", "score", "reasoning"],
+  "properties": {
+    "probe_id": { "type": "string" },
+    "category": { "type": "string", "enum": ["english", "devanagari_hindi", "roman_hindi", "hinglish", "copying", "arithmetic", "factual_qa", "entity_recall"] },
+    "prompt": { "type": "string" },
+    "generated_text": { "type": "string" },
+    "verdict": { "type": "string", "enum": ["PASS", "PARTIAL", "FAIL", "UNSCORABLE"] },
+    "score": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+    "reasoning": { "type": "string" }
+  }
+}
