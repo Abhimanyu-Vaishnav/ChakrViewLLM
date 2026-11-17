@@ -83,14 +83,26 @@ class DirectNeuralRunner:
 
         # Determine architecture configuration
         if "config" in ckpt and isinstance(ckpt["config"], dict):
-            cfg_dict = ckpt["config"]
+            cfg_dict = ckpt["config"].copy()
+            # Map alternative naming conventions
+            if "rope_base" in cfg_dict and "rope_theta" not in cfg_dict:
+                cfg_dict["rope_theta"] = cfg_dict["rope_base"]
+            if "norm_eps" in cfg_dict and "rms_norm_eps" not in cfg_dict:
+                cfg_dict["rms_norm_eps"] = cfg_dict["norm_eps"]
             valid_keys = set(ModelConfig.__dataclass_fields__.keys()) if hasattr(ModelConfig, "__dataclass_fields__") else set()
             filtered_cfg = {k: v for k, v in cfg_dict.items() if k in valid_keys} if valid_keys else cfg_dict
             self.cfg = ModelConfig(**filtered_cfg)
         elif "model_config" in ckpt and isinstance(ckpt["model_config"], ModelConfig):
             self.cfg = ckpt["model_config"]
         elif "model_config" in ckpt and isinstance(ckpt["model_config"], dict):
-            self.cfg = ModelConfig(**ckpt["model_config"])
+            cfg_dict = ckpt["model_config"].copy()
+            if "rope_base" in cfg_dict and "rope_theta" not in cfg_dict:
+                cfg_dict["rope_theta"] = cfg_dict["rope_base"]
+            if "norm_eps" in cfg_dict and "rms_norm_eps" not in cfg_dict:
+                cfg_dict["rms_norm_eps"] = cfg_dict["norm_eps"]
+            valid_keys = set(ModelConfig.__dataclass_fields__.keys()) if hasattr(ModelConfig, "__dataclass_fields__") else set()
+            filtered_cfg = {k: v for k, v in cfg_dict.items() if k in valid_keys} if valid_keys else cfg_dict
+            self.cfg = ModelConfig(**filtered_cfg)
         elif isinstance(state_dict, dict) and "embedding.weight" in state_dict:
             # Shape-based fallback detection
             d_model = state_dict["embedding.weight"].shape[1]
@@ -105,6 +117,8 @@ class DirectNeuralRunner:
                 self.cfg = ModelConfig(d_model=192, n_layers=n_layers or 6, hidden_dim=hidden_dim or 512)
             elif d_model == 384:
                 self.cfg = ModelConfig(d_model=384, n_layers=n_layers or 7, hidden_dim=hidden_dim or 896)
+            elif d_model == 512:
+                self.cfg = ModelConfig(d_model=512, n_layers=n_layers or 8, n_heads=8, hidden_dim=hidden_dim or 1408, rope_theta=50000.0)
             else:
                 raise ValueError(f"Unsupported model architecture dimension: d_model={d_model}")
         else:
@@ -115,8 +129,25 @@ class DirectNeuralRunner:
             self.arch_name = "ChakrMedium"
         elif self.cfg.d_model == 192:
             self.arch_name = "ChakrMicro"
+        elif self.cfg.d_model == 512:
+            self.arch_name = "ChakrCore"
         else:
             self.arch_name = f"ChakrCustom-{self.cfg.d_model}"
+
+        # Handle tied embedding / output head state dictionary key
+        if isinstance(state_dict, dict):
+            # If model expects tied weights and lm_head.weight is omitted in checkpoint
+            if self.cfg.tie_embeddings and "lm_head.weight" not in state_dict and "embedding.weight" in state_dict:
+                emb_shape = state_dict["embedding.weight"].shape
+                # Verify embedding shape matches vocabulary projection (vocab_size, d_model)
+                if emb_shape == (self.cfg.vocab_size, self.cfg.d_model):
+                    state_dict = state_dict.copy()
+                    state_dict["lm_head.weight"] = state_dict["embedding.weight"]
+                else:
+                    raise ValueError(
+                        f"Tied embedding shape mismatch: expected ({self.cfg.vocab_size}, {self.cfg.d_model}), "
+                        f"got {emb_shape}"
+                    )
 
         self.model = ChakrMicro(self.cfg)
         self.model.load_state_dict(state_dict, strict=True)
