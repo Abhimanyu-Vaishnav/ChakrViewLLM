@@ -1,0 +1,846 @@
+{
+  "checkpoint": "chakrview_ucip09_medium_model.pt",
+  "total_probes": 100,
+  "total_passed": 10,
+  "accuracy_percent": 10.0,
+  "categories": {
+    "English Conversation": {
+      "total": 15,
+      "passed": 3
+    },
+    "English Explanations": {
+      "total": 10,
+      "passed": 0
+    },
+    "Devanagari Hindi": {
+      "total": 15,
+      "passed": 3
+    },
+    "Roman Hindi": {
+      "total": 10,
+      "passed": 0
+    },
+    "Hinglish": {
+      "total": 15,
+      "passed": 3
+    },
+    "Exact Copying": {
+      "total": 10,
+      "passed": 0
+    },
+    "Elementary Arithmetic": {
+      "total": 10,
+      "passed": 1
+    },
+    "Instruction Following": {
+      "total": 10,
+      "passed": 0
+    },
+    "Semantic Consistency": {
+      "total": 5,
+      "passed": 0
+    }
+  },
+  "evaluations": [
+    {
+      "id": "OR_CONV_01",
+      "category": "English Conversation",
+      "prompt": "Hi! Can you introduce yourself?",
+      "generated": "I am ChakrView, an an an an an programming Interfacel and rehenday of re.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_02",
+      "category": "English Conversation",
+      "prompt": "I had a really tiring day at work.",
+      "generated": "You are will have 5 apples in total (33 apples in total (33 apples remains in total (33 apples re",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_CONV_03",
+      "category": "English Conversation",
+      "prompt": "What are your main capabilities?",
+      "generated": "I am ChakrView, an independent neural conversational assistant for efficient local execution.",
+      "passed": true,
+      "reason": "Keywords hit: ['assist']"
+    },
+    {
+      "id": "OR_CONV_04",
+      "category": "English Conversation",
+      "prompt": "Could you suggest a quick healthy breakfast?",
+      "generated": "You are werglplants to convert nlight, convert and ganic life.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_CONV_05",
+      "category": "English Conversation",
+      "prompt": "Thank you for explaining that so clearly.",
+      "generated": "You are very welcome! I am doing free to ask ance.",
+      "passed": true,
+      "reason": "Keywords hit: ['welcome']"
+    },
+    {
+      "id": "OR_CONV_06",
+      "category": "English Conversation",
+      "prompt": "Good afternoon! How is everything going?",
+      "generated": "Good morning! I hope you have a productive day I hell and great are we to assist you.",
+      "passed": true,
+      "reason": "Keywords hit: ['good', 'assist']"
+    },
+    {
+      "id": "OR_CONV_07",
+      "category": "English Conversation",
+      "prompt": "I need some motivation to start studying today.",
+      "generated": "You are will have 5 need to help you. How can I help you need to helples in total al al al al",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_08",
+      "category": "English Conversation",
+      "prompt": "What is the best way to prepare for a software interview?",
+      "generated": "The the w ganalinstructions from the w ganalaler that hels on tooling a to realls on different in the dowhere into the dowhere",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_CONV_09",
+      "category": "English Conversation",
+      "prompt": "Can you recommend a good habit for better sleep?",
+      "generated": "Good morning! I hope you have a productive day ay ay ay ahead.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_10",
+      "category": "English Conversation",
+      "prompt": "Do you remember previous conversations if memory is off?",
+      "generated": "Unit it it it programming ant data CPU dfaergy aur s t programming ance and exchange libraries hain.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_11",
+      "category": "English Conversation",
+      "prompt": "How do you handle complex tasks?",
+      "generated": "You are very well and sm solve a productive day ay ay ay ay ming oning.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_12",
+      "category": "English Conversation",
+      "prompt": "Tell me a fun fact about space.",
+      "generated": "Yes, leasks will have a produces will be Madhens ped me necessurthan ho jaate programming the wn the wils be",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_CONV_13",
+      "category": "English Conversation",
+      "prompt": "What should I do if my code throws an unhandled exception?",
+      "generated": "Use many thindependent, expreser, and I sunatural ew di, and where converts with explants with explanations.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_CONV_14",
+      "category": "English Conversation",
+      "prompt": "I am feeling overwhelmed with many deadlines.",
+      "generated": "Machine it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONV_15",
+      "category": "English Conversation",
+      "prompt": "Goodbye, ChakrView! Talk to you later.",
+      "generated": "Good morning! I hope you have a productive day ay ay ay ahead.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_EXPL_01",
+      "category": "English Explanations",
+      "prompt": "Explain the difference between RAM and persistent storage.",
+      "generated": "The que the most converso not expermanent of a time.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit ['permanent'] (needed 2)"
+    },
+    {
+      "id": "OR_EXPL_02",
+      "category": "English Explanations",
+      "prompt": "How does an operating system manage computer hardware?",
+      "generated": "The expressive and reenables ke active programming change where where a conversuring a conversuring a conversuring a convers",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_EXPL_03",
+      "category": "English Explanations",
+      "prompt": "What is the purpose of an index in a database?",
+      "generated": "The express memory and instructions from the ming calculation of a with with with scant gs that held.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_EXPL_04",
+      "category": "English Explanations",
+      "prompt": "Why does ice float on liquid water?",
+      "generated": "The independent the most conversational enery ke through programming Practice and reast overall tast to its e, conversurfu ne",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 2)"
+    },
+    {
+      "id": "OR_EXPL_05",
+      "category": "English Explanations",
+      "prompt": "What does an electric motor do?",
+      "generated": "An electric motor uses electric current in the motor uses electric current in the sive weblectric current in",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 2)"
+    },
+    {
+      "id": "OR_EXPL_06",
+      "category": "English Explanations",
+      "prompt": "Explain what an API is in simple terms.",
+      "generated": "Recura name is the facemical energy of reallows emical energy of reaction of reaction of reaction of reaction of re",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_EXPL_07",
+      "category": "English Explanations",
+      "prompt": "Why do leaves change color in autumn?",
+      "generated": "Clear thinking preceve 5 plve 12 = 24.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 2)"
+    },
+    {
+      "id": "OR_EXPL_08",
+      "category": "English Explanations",
+      "prompt": "What is gravity and what does it do?",
+      "generated": "Recause walyou need to hels gy in the modgent the modgent of an mosurirst surire wnlight, su",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 2)"
+    },
+    {
+      "id": "OR_EXPL_09",
+      "category": "English Explanations",
+      "prompt": "How does a bicycle brake work?",
+      "generated": "I am ChakrView, an code drices the the where light into d d d a time.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_EXPL_10",
+      "category": "English Explanations",
+      "prompt": "What is the greenhouse effect?",
+      "generated": "I dgreening, and wiled by an conversational energy in the motion of orgy in the motion of orgy henergy in the recommun.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 2)"
+    },
+    {
+      "id": "OR_DHIN_01",
+      "category": "Devanagari Hindi",
+      "prompt": "आपका मुख्य उद्देश्य क्या है?",
+      "generated": "नमस्ते! मैं चार्क है, आपका सहायका सहायक।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_02",
+      "category": "Devanagari Hindi",
+      "prompt": "कंप्यूटर में सीपीयू (CPU) का क्या काम है?",
+      "generated": "निर्देशों को प्रोसेस करके चरण है जो निर्देशों को प्रोसेस करके प्रकाश स्थान बनाता है।",
+      "passed": true,
+      "reason": "Devanagari (70 chars), kw_hits=['निर्देश']"
+    },
+    {
+      "id": "OR_DHIN_03",
+      "category": "Devanagari Hindi",
+      "prompt": "जल संरक्षण क्यों जरूरी है?",
+      "generated": "सूर्य का प्रकाश पृथ्वी वायुलित आहार होता है, पर्य के लिए स्रोत है।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_04",
+      "category": "Devanagari Hindi",
+      "prompt": "सूर्य हमें क्या प्रदान करता है?",
+      "generated": "सूर्य का प्रकाश पेड़-पौधों में प्रकाश संश्लेषण के लिए स्रोत है।",
+      "passed": true,
+      "reason": "Devanagari (52 chars), kw_hits=['प्रकाश']"
+    },
+    {
+      "id": "OR_DHIN_05",
+      "category": "Devanagari Hindi",
+      "prompt": "एक अच्छा विद्यार्थी बनने के लिए क्या करना चाहिए?",
+      "generated": "स्वच्छ पेड़-पनिक सूचनी वायुपन अन होता है, पर्य के लिए सूत है।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_06",
+      "category": "Devanagari Hindi",
+      "prompt": "पेड़-पौधे हमारे पर्यावरण के लिए क्यों महत्वपूर्ण हैं?",
+      "generated": "सूर्य का प्रकाश संश्वी वायुके चार होता है, पर्य के लिए सूत होता है, जीवन को स्रोत है।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_07",
+      "category": "Devanagari Hindi",
+      "prompt": "पुस्तकालय (Library) का क्या महत्व है?",
+      "generated": "स्वस्थ रह रह रह रह रह रह रहता है। स्वस्थ रहता है।",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_DHIN_08",
+      "category": "Devanagari Hindi",
+      "prompt": "समय का सदुपयोग कैसे करें?",
+      "generated": "नमस्ते! मैं चला नाम Shway है।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_09",
+      "category": "Devanagari Hindi",
+      "prompt": "स्वास्थ्य के लिए सुबह की सैर के क्या लाभ हैं?",
+      "generated": "स्वच्छता है, एक स्वच्छ जल सूतिक सूँ, एकाग्रोतिक सुपन अन अन अन अन अन अन अनी वायुं को",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_DHIN_10",
+      "category": "Devanagari Hindi",
+      "prompt": "भारत की राजधानी का नाम क्या है?",
+      "generated": "स्वच्छता हूर्य का प्रकाश को सूतिक सूँ, एकाग्रता है, एकाग्रता है, एकाग्रता है, एकाग्रता है, एकाग्रता है, एक",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_DHIN_11",
+      "category": "Devanagari Hindi",
+      "prompt": "हवा हमारे जीवन के लिए क्यों आवश्यक है?",
+      "generated": "सूर्य का प्रकाश पेड़-पौधों में प्रकाश संश्लेषण के लिए स्रोत है।",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_DHIN_12",
+      "category": "Devanagari Hindi",
+      "prompt": "मित्रता का क्या अर्थ है?",
+      "generated": "किताबें पढ़ने से ज्ञान का व्य समय होता है, एकाग्रता है, एकाग्रता है, एकाग्रता है, एकाग्रता है, एकाग्रता है, �",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_DHIN_13",
+      "category": "Devanagari Hindi",
+      "prompt": "चंद्रमा रात में क्यों चमकता है?",
+      "generated": "सूर्य का प्रकाश पृथ्वी वायुमीटैश्ली है।",
+      "passed": true,
+      "reason": "Devanagari (34 chars), kw_hits=['सूर्य', 'प्रकाश']"
+    },
+    {
+      "id": "OR_DHIN_14",
+      "category": "Devanagari Hindi",
+      "prompt": "इंटरनेट का हमारे जीवन में क्या उपयोग है?",
+      "generated": "स्वच्छ जलित आहार, व्य के लिए सूचन है, पर्य के लिए सूचन अन अन अन अन अन को स्थान बनावायुं को स्थ",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_DHIN_15",
+      "category": "Devanagari Hindi",
+      "prompt": "सत्य बोलने का क्या महत्व है?",
+      "generated": "स्वच्छता रक्तिर्देशों को प्रोसेस करके चार होता है, एकाग्रता है, पर्य के लिए तार होता है, जीवन को सुपयोग और एकाग्रता है, �",
+      "passed": false,
+      "reason": "Devanagari keywords missing or too short: kw_hits=[]"
+    },
+    {
+      "id": "OR_RHIN_01",
+      "category": "Roman Hindi",
+      "prompt": "Kal mera exam hai, kuch tips do.",
+      "generated": "You are very welp ko afterfu new can asks that help p p p p p p p p p p p p p p p p p p p p p p p",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_RHIN_02",
+      "category": "Roman Hindi",
+      "prompt": "Subah jaldi uthne ke kya fayde hain?",
+      "generated": "Subah jaldi uthne se mann shaant rehta hai, focus bhar mein rehta hai, jabki rains jaldi uthne se mann shaant re",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_03",
+      "category": "Roman Hindi",
+      "prompt": "Paani peena sehat ke liye kyu zaroori hai?",
+      "generated": "ChakrView explane hai tax tabase henery ko ChakrView ChakrView ChakrView hai.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_RHIN_04",
+      "category": "Roman Hindi",
+      "prompt": "Gussa aane par kya karna chahiye?",
+      "generated": "Clean code se software CPU-first neural conversational paan ho jaate karke aan ho jaate karke aan ho jaate karke aan ho jaate karke aan ho jaate hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_05",
+      "category": "Roman Hindi",
+      "prompt": "Chai banane ka simple tarika batao.",
+      "generated": "Machine learning ek hoon.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_06",
+      "category": "Roman Hindi",
+      "prompt": "Naye dost kaise banayein?",
+      "generated": "Git test ek aapka syntaindependent sational assist conversational asan ho jaate hain aur usve karta hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_07",
+      "category": "Roman Hindi",
+      "prompt": "Coding seekhne ki shuruat kahan se karein?",
+      "generated": "Unit CPU chne ke liye face hai jaldi ul karta hai, jaldi ul karta hai, jabki raind bhar enviration ast rehta hai, jab",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_08",
+      "category": "Roman Hindi",
+      "prompt": "Kitabein padhne se kya labh milta hai?",
+      "generated": "Machine learning ek aapka syntaindeta hai taindeta hai taindete hain.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_09",
+      "category": "Roman Hindi",
+      "prompt": "Aapka din kaisa ja raha hai?",
+      "generated": "Aapka w Delhi hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_RHIN_10",
+      "category": "Roman Hindi",
+      "prompt": "Aalaspana (laziness) ko kaise door karein?",
+      "generated": "Main theek hoon.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_01",
+      "category": "Hinglish",
+      "prompt": "Bhai, cloud computing ka basic concept kya hai?",
+      "generated": "Clean code se software maintainable banta hai, bugs jaldi catch hote hain aur team collaboration asaan ho jaata hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_02",
+      "category": "Hinglish",
+      "prompt": "Frontend aur backend me main difference kya hota hai?",
+      "generated": "Clean code se manage karta hai, jabki rajabki backend dul karta hai, jabki backend daan ho jaate karta hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_03",
+      "category": "Hinglish",
+      "prompt": "GitHub pe commit karne ka matlab kya hota hai?",
+      "generated": "Clean code se software program ko ko ko ko ko ko ta hai.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_HING_04",
+      "category": "Hinglish",
+      "prompt": "Open source software use karne ka sabse bada benefit kya hai?",
+      "generated": "Clean code se ChakrView express jaboration ation ation ation ation ast data se CPU-fironment mein rehte hain.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_HING_05",
+      "category": "Hinglish",
+      "prompt": "Laptop me SSD lagane se performance kyu badhti hai?",
+      "generated": "Machine learning ek ake bohoti hai aur user past me probase oindeti hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_06",
+      "category": "Hinglish",
+      "prompt": "Cache memory kya hoti hai aur ye kyu fast hoti hai?",
+      "generated": "Clean code se ChakrView hai. hai aur conversational ast paan ho jaati hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_07",
+      "category": "Hinglish",
+      "prompt": "Bug aur feature me kya farak hai?",
+      "generated": "Clean code se software programming memory hoti hai to hoti hai, bugs jaldi catch hote hain aur team collaboration asaan ho jaata hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_08",
+      "category": "Hinglish",
+      "prompt": "Ek clean code likhne ke do golden rules batao.",
+      "generated": "Clean code se ful have 5 I day aan ho jaate hain aur team collp an ho jaate karta hai.",
+      "passed": true,
+      "reason": "Keywords hit: ['clean']"
+    },
+    {
+      "id": "OR_HING_09",
+      "category": "Hinglish",
+      "prompt": "Database me primary key ka role kya hota hai?",
+      "generated": "Machine learning ek aisi technique hai jisme computer past data se software programming ke.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_10",
+      "category": "Hinglish",
+      "prompt": "Wireless router ka main function kya hai?",
+      "generated": "Clean code se software programming Interfaction ko CPU-firon-exchange where wero dependency me remodules ke relem karta hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_11",
+      "category": "Hinglish",
+      "prompt": "Password strong rakhna kyu zaroori hai?",
+      "generated": "Clean code se software maintainable nam solve karta hai tax virst neural neural conversational jaboration ast ko ChakrView hai, jaboration ast ko aur web",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_12",
+      "category": "Hinglish",
+      "prompt": "Python language itni popular kyu hai?",
+      "generated": "I am ChakrView, an code se software programming aur begs jaboration asaan ho jaate hain aur team collp ke interaction ko ta hai.",
+      "passed": true,
+      "reason": "Keywords hit: ['ai']"
+    },
+    {
+      "id": "OR_HING_13",
+      "category": "Hinglish",
+      "prompt": "Mobile me flight mode on karne se kya hota hai?",
+      "generated": "Clean code se software programming aur software programming share use hai taaki unnected me refast karta hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_HING_14",
+      "category": "Hinglish",
+      "prompt": "Unit testing karna kyu important hai?",
+      "generated": "Clean code se software maintainable nave.",
+      "passed": true,
+      "reason": "Keywords hit: ['code']"
+    },
+    {
+      "id": "OR_HING_15",
+      "category": "Hinglish",
+      "prompt": "Compiler aur interpreter me short me difference batao.",
+      "generated": "Clean code se software program solve karta hai, jaboration asaan ho jaate karta hai, jabki have karta hai.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_COPY_01",
+      "category": "Exact Copying",
+      "prompt": "Repeat word for word: The sun rises in the east.",
+      "generated": "The sky is blue and clear.",
+      "passed": false,
+      "reason": "Exact target: 'The sun rises in the east.' vs 'The sky is blue and clear.'"
+    },
+    {
+      "id": "OR_COPY_02",
+      "category": "Exact Copying",
+      "prompt": "Copy this sentence exactly: Python is a programming language.",
+      "generated": "The sky is a computer flow gents begents.",
+      "passed": false,
+      "reason": "Exact target: 'Python is a programming language.' vs 'The sky is a computer flow gents begents.'"
+    },
+    {
+      "id": "OR_COPY_03",
+      "category": "Exact Copying",
+      "prompt": "Say exactly: Water is essential for all life.",
+      "generated": "Water is blus of reals reals reals need reactive dge.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_COPY_04",
+      "category": "Exact Copying",
+      "prompt": "Echo the text: 123456789",
+      "generated": "12 plus 12 = 12.",
+      "passed": false,
+      "reason": "Exact target: '123456789' vs '12 plus 12 = 12.'"
+    },
+    {
+      "id": "OR_COPY_05",
+      "category": "Exact Copying",
+      "prompt": "Output only this exact phrase: Alpha Beta Gamma",
+      "generated": "Yes.",
+      "passed": false,
+      "reason": "Exact target: 'Alpha Beta Gamma' vs 'Yes.'"
+    },
+    {
+      "id": "OR_COPY_06",
+      "category": "Exact Copying",
+      "prompt": "Copy verbatim: Delhi is the capital of India.",
+      "generated": "The sky is the most reliable isme known or communicate and re.",
+      "passed": false,
+      "reason": "Exact target: 'Delhi is the capital of India.' vs 'The sky is the most reliable isme known or communicate and re.'"
+    },
+    {
+      "id": "OR_COPY_07",
+      "category": "Exact Copying",
+      "prompt": "Say only: Clean code creates reliable systems.",
+      "generated": "Clean code tem code tem independents begs begs begs s.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_COPY_08",
+      "category": "Exact Copying",
+      "prompt": "Mirror this string: Red Green Blue Yellow",
+      "generated": "Greenergreen papples in the plication and hai.",
+      "passed": false,
+      "reason": "Exact target: 'Red Green Blue Yellow' vs 'Greenergreen papples in the plication and hai.'"
+    },
+    {
+      "id": "OR_COPY_09",
+      "category": "Exact Copying",
+      "prompt": "Echo verbatim: CPU executes instructions rapidly.",
+      "generated": "Clean code se software programming computer programming computer of expressitory ms.",
+      "passed": false,
+      "reason": "Exact target: 'CPU executes instructions rapidly.' vs 'Clean code se software programming computer programming computer of expressitory ms.'"
+    },
+    {
+      "id": "OR_COPY_10",
+      "category": "Exact Copying",
+      "prompt": "Repeat exactly: Today is a brand new day.",
+      "generated": "You are will is the most your furth nite to re.",
+      "passed": false,
+      "reason": "Exact target: 'Today is a brand new day.' vs 'You are will is the most your furth nite to re.'"
+    },
+    {
+      "id": "OR_ARITH_01",
+      "category": "Elementary Arithmetic",
+      "prompt": "What is 15 plus 7?",
+      "generated": "15 plus 7 = 12.",
+      "passed": false,
+      "reason": "Expected 22, found numbers: [15, 7, 12]"
+    },
+    {
+      "id": "OR_ARITH_02",
+      "category": "Elementary Arithmetic",
+      "prompt": "If you have 10 marbles and give away 4, how many do you have left?",
+      "generated": "You will have 5 apples in total (3 pens remaining (3 pens in total (3 = 36.",
+      "passed": false,
+      "reason": "Expected 6, found numbers: [5, 3, 3, 3, 36]"
+    },
+    {
+      "id": "OR_ARITH_03",
+      "category": "Elementary Arithmetic",
+      "prompt": "What is 8 multiplied by 3?",
+      "generated": "8 - 3 = 4.",
+      "passed": false,
+      "reason": "Expected 24, found numbers: [8, 3, 4]"
+    },
+    {
+      "id": "OR_ARITH_04",
+      "category": "Elementary Arithmetic",
+      "prompt": "Divide 20 by 4.",
+      "generated": "The sum is 40.",
+      "passed": false,
+      "reason": "Expected 5, found numbers: [40]"
+    },
+    {
+      "id": "OR_ARITH_05",
+      "category": "Elementary Arithmetic",
+      "prompt": "A baker bakes 6 cakes in the morning and 7 cakes in the evening. How many total cakes were baked?",
+      "generated": "You will have a ke in total ens in total ens in total energy begy beenering ing ing ing ing ing ing ing ing ing ing ing ing",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_ARITH_06",
+      "category": "Elementary Arithmetic",
+      "prompt": "You have 18 books and sell 9 of them. How many books remain?",
+      "generated": "You will have 5 will have 5 pening, and will have 5 pens in total (3 pens in total (3 = 36.",
+      "passed": false,
+      "reason": "Expected 9, found numbers: [5, 5, 5, 3, 3, 36]"
+    },
+    {
+      "id": "OR_ARITH_07",
+      "category": "Elementary Arithmetic",
+      "prompt": "What is 5 plus 14?",
+      "generated": "5 plus 14 is 19.",
+      "passed": true,
+      "reason": "Correct number 19 found in [5, 14, 19]"
+    },
+    {
+      "id": "OR_ARITH_08",
+      "category": "Elementary Arithmetic",
+      "prompt": "If a box holds 5 pencils, how many pencils do 4 identical boxes hold?",
+      "generated": "You and trd and trd and boour furth will have 3 pens in total (3 pens in total (3 = 3666",
+      "passed": false,
+      "reason": "Expected 20, found numbers: [3, 3, 3, 3666]"
+    },
+    {
+      "id": "OR_ARITH_09",
+      "category": "Elementary Arithmetic",
+      "prompt": "What is 25 minus 8?",
+      "generated": "12 plus 8 is 12.",
+      "passed": false,
+      "reason": "Expected 17, found numbers: [12, 8, 12]"
+    },
+    {
+      "id": "OR_ARITH_10",
+      "category": "Elementary Arithmetic",
+      "prompt": "Distribute 16 candies equally among 2 kids. How many candies does each kid get?",
+      "generated": "Rececursion in blem solve ve 26 penergy ming ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing ing",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_INST_01",
+      "category": "Instruction Following",
+      "prompt": "Reply with only the single word: Confirmed",
+      "generated": "Green.",
+      "passed": false,
+      "reason": "Exact target: 'confirmed' vs 'Green.'"
+    },
+    {
+      "id": "OR_INST_02",
+      "category": "Instruction Following",
+      "prompt": "Answer with only 'True' or 'False': The earth revolves around the sun.",
+      "generated": "The e",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_INST_03",
+      "category": "Instruction Following",
+      "prompt": "List exactly 3 colors, separated by commas.",
+      "generated": "The expressive and reen.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_INST_04",
+      "category": "Instruction Following",
+      "prompt": "Respond in ALL CAPITAL LETTERS: hello world",
+      "generated": "Yes.",
+      "passed": false,
+      "reason": "Exact target: 'HELLO WORLD' vs 'Yes.'"
+    },
+    {
+      "id": "OR_INST_05",
+      "category": "Instruction Following",
+      "prompt": "Count from 1 to 5 using numbers separated by spaces.",
+      "generated": "The express to mains to sunections.",
+      "passed": false,
+      "reason": "Exact target: '1 2 3 4 5' vs 'The express to mains to sunections.'"
+    },
+    {
+      "id": "OR_INST_06",
+      "category": "Instruction Following",
+      "prompt": "Write a 3-word sentence starting with 'Cats'.",
+      "generated": "Green.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_INST_07",
+      "category": "Instruction Following",
+      "prompt": "Reply with only the word 'Stop' and nothing else.",
+      "generated": "Green.",
+      "passed": false,
+      "reason": "Exact target: 'Stop' vs 'Green.'"
+    },
+    {
+      "id": "OR_INST_08",
+      "category": "Instruction Following",
+      "prompt": "Respond with the single letter: X",
+      "generated": "Green. It is a gents sh gents ful and reen.",
+      "passed": false,
+      "reason": "Exact target: 'X' vs 'Green. It is a gents sh gents ful and reen.'"
+    },
+    {
+      "id": "OR_INST_09",
+      "category": "Instruction Following",
+      "prompt": "Answer with only 'Yes' or 'No': Is 2 + 2 equal to 5?",
+      "generated": "Yes.",
+      "passed": false,
+      "reason": "Insufficient topic coherence: hit [] (needed 1)"
+    },
+    {
+      "id": "OR_INST_10",
+      "category": "Instruction Following",
+      "prompt": "Output the word 'PASS' enclosed in square brackets.",
+      "generated": "Green.",
+      "passed": false,
+      "reason": "Exact target: '[PASS]' vs 'Green.'"
+    },
+    {
+      "id": "OR_CONS_01",
+      "category": "Semantic Consistency",
+      "prompt": "Describe a snowy winter morning without mentioning the summer or sun.",
+      "generated": "Goos are wlesp sp sp sp slows begremains d.",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    },
+    {
+      "id": "OR_CONS_02",
+      "category": "Semantic Consistency",
+      "prompt": "Explain what a library is without using the word 'computer'.",
+      "generated": "The expresery is the most neural converso nowerater time.",
+      "passed": false,
+      "reason": "Missing keywords ['books', 'reading', 'shelves', 'knowledge', 'quiet']"
+    },
+    {
+      "id": "OR_CONS_03",
+      "category": "Semantic Consistency",
+      "prompt": "Describe the deep ocean without using the word 'mountain'.",
+      "generated": "Green.",
+      "passed": false,
+      "reason": "Missing keywords ['water', 'sea', 'depth', 'dark', 'fish', 'creatures', 'pressure']"
+    },
+    {
+      "id": "OR_CONS_04",
+      "category": "Semantic Consistency",
+      "prompt": "Explain how an electric vehicle is powered without mentioning gasoline or diesel.",
+      "generated": "The ocelectrotone movels itation, wlectroting cose.",
+      "passed": false,
+      "reason": "Missing keywords ['battery', 'electricity', 'motor', 'charge', 'energy']"
+    },
+    {
+      "id": "OR_CONS_05",
+      "category": "Semantic Consistency",
+      "prompt": "Describe an apple fruit without using the word 'orange'.",
+      "generated": "Recurone wleam ChakrView, volation is the reen pen pen pen pens in the tast ent of orancanismagneed remains through",
+      "passed": false,
+      "reason": "REPETITIVE_DEGENERATION"
+    }
+  ]
+}
