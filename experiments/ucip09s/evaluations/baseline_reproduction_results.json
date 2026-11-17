@@ -1,0 +1,388 @@
+{
+  "UCIP-09": {
+    "total_passed": 11,
+    "total_probes": 20,
+    "accuracy": 55.00000000000001,
+    "category_breakdown": {
+      "English conversation": {
+        "total": 4,
+        "passed": 4
+      },
+      "Arithmetic": {
+        "total": 5,
+        "passed": 2
+      },
+      "Exact copying": {
+        "total": 3,
+        "passed": 0
+      },
+      "Hindi": {
+        "total": 3,
+        "passed": 3
+      },
+      "Hinglish": {
+        "total": 2,
+        "passed": 1
+      },
+      "Instruction following": {
+        "total": 3,
+        "passed": 1
+      }
+    },
+    "evaluations": [
+      {
+        "id": "REPRO_ENG_01",
+        "category": "English conversation",
+        "input": "Hello ChakrView. How are you?",
+        "generated": "I am ChakrView, an independent neural conversational assistant for efficient local execution.",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_ENG_02",
+        "category": "English conversation",
+        "input": "Who created you?",
+        "generated": "ChakrView ChakrView, an independent neural conversational assistant designed for efficient local execution.",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_ENG_03",
+        "category": "English conversation",
+        "input": "What does a CPU do?",
+        "generated": "A CPU operates through the neural conversational API, , , an code into the mary memory for efficient local execution.",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_ENG_04",
+        "category": "English conversation",
+        "input": "Explain the difference between RAM and storage.",
+        "generated": "The que wlean a are curves of rest, vols hostant for the lastorgerer.",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_MATH_01",
+        "category": "Arithmetic",
+        "input": "What is 2 + 2?",
+        "generated": "2 + 1 = 3.",
+        "passed": false,
+        "reason": "Target: 4, Found: [2, 1, 3]"
+      },
+      {
+        "id": "REPRO_MATH_02",
+        "category": "Arithmetic",
+        "input": "What is 5 - 2?",
+        "generated": "5 - 3 = 4.",
+        "passed": true,
+        "reason": "Target: 3, Found: [5, 3, 4]"
+      },
+      {
+        "id": "REPRO_MATH_03",
+        "category": "Arithmetic",
+        "input": "If I have 5 apples and give 2 to my friend, how many apples remain?",
+        "generated": "You will have 3 apple remaining (37 application dowild.",
+        "passed": true,
+        "reason": "Target: 3, Found: [3, 37]"
+      },
+      {
+        "id": "REPRO_MATH_04",
+        "category": "Arithmetic",
+        "input": "If you have 15 books and give away 7 of them, how many books remain?",
+        "generated": "You pening, and I have 5 apples remaining (3 = 36).",
+        "passed": false,
+        "reason": "Target: 8, Found: [5, 3, 36]"
+      },
+      {
+        "id": "REPRO_MATH_05",
+        "category": "Arithmetic",
+        "input": "What is 10 + 5?",
+        "generated": "10 + 5 = 3.",
+        "passed": false,
+        "reason": "Target: 15, Found: [10, 5, 3]"
+      },
+      {
+        "id": "REPRO_COPY_01",
+        "category": "Exact copying",
+        "input": "Say exactly: The sky is blue.",
+        "generated": "The sky.",
+        "passed": false,
+        "reason": "Target: 'the sky is blue.' vs 'The sky.'"
+      },
+      {
+        "id": "REPRO_COPY_02",
+        "category": "Exact copying",
+        "input": "Copy: Knowledge is power.",
+        "generated": "I am ChakrView, an code oxide is the most your can.",
+        "passed": false,
+        "reason": "Target: 'knowledge is power.' vs 'I am ChakrView, an code oxide is the most your can.'"
+      },
+      {
+        "id": "REPRO_COPY_03",
+        "category": "Exact copying",
+        "input": "Please copy this exact text: Silence is a source of great strength.",
+        "generated": "Your fu is the realls greal.",
+        "passed": false,
+        "reason": "Target: 'silence is a source of great strength.' vs 'Your fu is the realls greal.'"
+      },
+      {
+        "id": "REPRO_HIN_01",
+        "category": "Hindi",
+        "input": "नमस्ते! आप क्या कर सकते हैं?",
+        "generated": "नी! मैं चरण है, आपका सहायका स्थानीय कंप्यूटर पर सकता हूँ, पर स्थान बनाता है।",
+        "passed": true,
+        "reason": "Keywords: ['हूँ']"
+      },
+      {
+        "id": "REPRO_HIN_02",
+        "category": "Hindi",
+        "input": "कंप्यूटर में सीपीयू का क्या काम है?",
+        "generated": "निर्देशों को प्रोसेस करके चार्क है, एक स्वच्छता है और गणनिक स्थान बनाता है।",
+        "passed": true,
+        "reason": "Keywords: ['निर्देश']"
+      },
+      {
+        "id": "REPRO_HIN_03",
+        "category": "Hindi",
+        "input": "सूर्य हमें क्या प्रदान करता है?",
+        "generated": "सफलता हूर्य का प्रकाश पेड़-पौधों में प्रकाश संश्लेषण के लिए स्रोत है।",
+        "passed": true,
+        "reason": "Keywords: ['प्रकाश']"
+      },
+      {
+        "id": "REPRO_HING_01",
+        "category": "Hinglish",
+        "input": "Bhai, machine learning ko simple language mein samjhao.",
+        "generated": "Machine learning ek aisi technique hai jisme computer past data se ChakrView hai.",
+        "passed": true,
+        "reason": "Keywords: ['data', 'computer', 'learn']"
+      },
+      {
+        "id": "REPRO_HING_02",
+        "category": "Hinglish",
+        "input": "Python itni popular kyu hai software development mein?",
+        "generated": "I am ChakrView, an code se software innery ko CPU-firation ast data scientiration ation asaan ho jaata hai.",
+        "passed": false,
+        "reason": "Keywords: []"
+      },
+      {
+        "id": "REPRO_INST_01",
+        "category": "Instruction following",
+        "input": "Reply with only the word 'Confirmed'.",
+        "generated": "Green.",
+        "passed": false,
+        "reason": "Hits: []"
+      },
+      {
+        "id": "REPRO_INST_02",
+        "category": "Instruction following",
+        "input": "Answer with 'Yes' or 'No': Is 10 greater than 5?",
+        "generated": "Yes.",
+        "passed": true,
+        "reason": "Hits: ['yes']"
+      },
+      {
+        "id": "REPRO_INST_03",
+        "category": "Instruction following",
+        "input": "Describe the winter season without using the word 'snow'.",
+        "generated": "Green.",
+        "passed": false,
+        "reason": "Hits: []"
+      }
+    ]
+  },
+  "UCIP-09R": {
+    "total_passed": 6,
+    "total_probes": 20,
+    "accuracy": 30.0,
+    "category_breakdown": {
+      "English conversation": {
+        "total": 4,
+        "passed": 3
+      },
+      "Arithmetic": {
+        "total": 5,
+        "passed": 0
+      },
+      "Exact copying": {
+        "total": 3,
+        "passed": 0
+      },
+      "Hindi": {
+        "total": 3,
+        "passed": 1
+      },
+      "Hinglish": {
+        "total": 2,
+        "passed": 1
+      },
+      "Instruction following": {
+        "total": 3,
+        "passed": 1
+      }
+    },
+    "evaluations": [
+      {
+        "id": "REPRO_ENG_01",
+        "category": "English conversation",
+        "input": "Hello ChakrView. How are you?",
+        "generated": "I am ChakrView, an neural conversational assist neural contast hota hai tax taskes fuour project where memory s.",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_ENG_02",
+        "category": "English conversation",
+        "input": "Who created you?",
+        "generated": "I am ChakrView, an neural conversational computer CPU CPU CPU execution.",
+        "passed": false,
+        "reason": "REPETITIVE_DEGENERATION"
+      },
+      {
+        "id": "REPRO_ENG_03",
+        "category": "English conversation",
+        "input": "What does a CPU do?",
+        "generated": "Clean code is a computer program instructions to sistance of a computers a computing explices fielse to programing call, come in the arithmetic, co",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_ENG_04",
+        "category": "English conversation",
+        "input": "Explain the difference between RAM and storage.",
+        "generated": "Clean code into a computers to program instorchil to hol, where wherelectron-sunergands in the data and remainstruc",
+        "passed": true,
+        "reason": "Length and structure check"
+      },
+      {
+        "id": "REPRO_MATH_01",
+        "category": "Arithmetic",
+        "input": "What is 2 + 2?",
+        "generated": "21",
+        "passed": false,
+        "reason": "Target: 4, Found: [21]"
+      },
+      {
+        "id": "REPRO_MATH_02",
+        "category": "Arithmetic",
+        "input": "What is 5 - 2?",
+        "generated": "5",
+        "passed": false,
+        "reason": "Target: 3, Found: [5]"
+      },
+      {
+        "id": "REPRO_MATH_03",
+        "category": "Arithmetic",
+        "input": "If I have 5 apples and give 2 to my friend, how many apples remain?",
+        "generated": "You will have 22 apple remaining ining.",
+        "passed": false,
+        "reason": "Target: 3, Found: [22]"
+      },
+      {
+        "id": "REPRO_MATH_04",
+        "category": "Arithmetic",
+        "input": "If you have 15 books and give away 7 of them, how many books remain?",
+        "generated": "You pens remaining (22 cards in total.",
+        "passed": false,
+        "reason": "Target: 8, Found: [22]"
+      },
+      {
+        "id": "REPRO_MATH_05",
+        "category": "Arithmetic",
+        "input": "What is 10 + 5?",
+        "generated": "21",
+        "passed": false,
+        "reason": "Target: 15, Found: [21]"
+      },
+      {
+        "id": "REPRO_COPY_01",
+        "category": "Exact copying",
+        "input": "Say exactly: The sky is blue.",
+        "generated": "The sky.",
+        "passed": false,
+        "reason": "Target: 'the sky is blue.' vs 'The sky.'"
+      },
+      {
+        "id": "REPRO_COPY_02",
+        "category": "Exact copying",
+        "input": "Copy: Knowledge is power.",
+        "generated": "Curities.",
+        "passed": false,
+        "reason": "Target: 'knowledge is power.' vs 'Curities.'"
+      },
+      {
+        "id": "REPRO_COPY_03",
+        "category": "Exact copying",
+        "input": "Please copy this exact text: Silence is a source of great strength.",
+        "generated": "Curce is a booced.",
+        "passed": false,
+        "reason": "Target: 'silence is a source of great strength.' vs 'Curce is a booced.'"
+      },
+      {
+        "id": "REPRO_HIN_01",
+        "category": "Hindi",
+        "input": "नमस्ते! आप क्या कर सकते हैं?",
+        "generated": "निर्देशों को तार्क है, आपका सहायक।",
+        "passed": false,
+        "reason": "Keywords: []"
+      },
+      {
+        "id": "REPRO_HIN_02",
+        "category": "Hindi",
+        "input": "कंप्यूटर में सीपीयू का क्या काम है?",
+        "generated": "सीपीयू कंप्यूटर का मुख्य मस्तिष्क है जो निर्देशों को प्रोसेस करकर प्रकाश करकी विक स्थान बनाविक आहते हैं।",
+        "passed": true,
+        "reason": "Keywords: ['मस्तिष्क', 'सीपीयू', 'निर्देश']"
+      },
+      {
+        "id": "REPRO_HIN_03",
+        "category": "Hindi",
+        "input": "सूर्य हमें क्या प्रदान करता है?",
+        "generated": "सफलता पानेड़-पौधे पृथ्वी विक सूँ, जीवन के लिए स्वच्छ जल स्रता है, जा करता है और पृत है।",
+        "passed": false,
+        "reason": "Keywords: []"
+      },
+      {
+        "id": "REPRO_HING_01",
+        "category": "Hinglish",
+        "input": "Bhai, machine learning ko simple language mein samjhao.",
+        "generated": "Machine learning ek aisi technique hai jisme computer past data se bina explicit programming ke.",
+        "passed": true,
+        "reason": "Keywords: ['data', 'computer', 'learn']"
+      },
+      {
+        "id": "REPRO_HING_02",
+        "category": "Hinglish",
+        "input": "Python itni popular kyu hai software development mein?",
+        "generated": "Clean code is a boour computer porance and tax aur welpack dower.",
+        "passed": false,
+        "reason": "Keywords: []"
+      },
+      {
+        "id": "REPRO_INST_01",
+        "category": "Instruction following",
+        "input": "Reply with only the word 'Confirmed'.",
+        "generated": "Green.",
+        "passed": false,
+        "reason": "Hits: []"
+      },
+      {
+        "id": "REPRO_INST_02",
+        "category": "Instruction following",
+        "input": "Answer with 'Yes' or 'No': Is 10 greater than 5?",
+        "generated": "Yes.",
+        "passed": true,
+        "reason": "Hits: ['yes']"
+      },
+      {
+        "id": "REPRO_INST_03",
+        "category": "Instruction following",
+        "input": "Describe the winter season without using the word 'snow'.",
+        "generated": "Green.",
+        "passed": false,
+        "reason": "Hits: []"
+      }
+    ]
+  }
+}

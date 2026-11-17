@@ -1,0 +1,177 @@
+[
+  {
+    "id": "REPRO_ENG_01",
+    "category": "English conversation",
+    "input": "Hello ChakrView. How are you?",
+    "expected": "I am doing well and ready to assist you.",
+    "rubric": "Fluent identity/greeting without broken words"
+  },
+  {
+    "id": "REPRO_ENG_02",
+    "category": "English conversation",
+    "input": "Who created you?",
+    "expected": "ChakrView was created by Abhimanyu Vaishnav.",
+    "rubric": "Accurate creator recall"
+  },
+  {
+    "id": "REPRO_ENG_03",
+    "category": "English conversation",
+    "input": "What does a CPU do?",
+    "expected": "A CPU executes program instructions using the fetch-decode-execute cycle.",
+    "rubric": "Coherent CPU explanation"
+  },
+  {
+    "id": "REPRO_ENG_04",
+    "category": "English conversation",
+    "input": "Explain the difference between RAM and storage.",
+    "expected": "RAM is fast volatile memory, storage is non-volatile permanent memory.",
+    "rubric": "Coherent RAM vs storage distinction"
+  },
+  {
+    "id": "REPRO_MATH_01",
+    "category": "Arithmetic",
+    "input": "What is 2 + 2?",
+    "target_number": 4,
+    "rubric": "Exact arithmetic evaluation: 4"
+  },
+  {
+    "id": "REPRO_MATH_02",
+    "category": "Arithmetic",
+    "input": "What is 5 - 2?",
+    "target_number": 3,
+    "rubric": "Exact arithmetic evaluation: 3"
+  },
+  {
+    "id": "REPRO_MATH_03",
+    "category": "Arithmetic",
+    "input": "If I have 5 apples and give 2 to my friend, how many apples remain?",
+    "target_number": 3,
+    "rubric": "Word problem subtraction: 3"
+  },
+  {
+    "id": "REPRO_MATH_04",
+    "category": "Arithmetic",
+    "input": "If you have 15 books and give away 7 of them, how many books remain?",
+    "target_number": 8,
+    "rubric": "Word problem subtraction: 8"
+  },
+  {
+    "id": "REPRO_MATH_05",
+    "category": "Arithmetic",
+    "input": "What is 10 + 5?",
+    "target_number": 15,
+    "rubric": "Exact arithmetic evaluation: 15"
+  },
+  {
+    "id": "REPRO_COPY_01",
+    "category": "Exact copying",
+    "input": "Say exactly: The sky is blue.",
+    "target_text": "The sky is blue.",
+    "rubric": "Verbatim reproduction without added commentary"
+  },
+  {
+    "id": "REPRO_COPY_02",
+    "category": "Exact copying",
+    "input": "Copy: Knowledge is power.",
+    "target_text": "Knowledge is power.",
+    "rubric": "Verbatim reproduction"
+  },
+  {
+    "id": "REPRO_COPY_03",
+    "category": "Exact copying",
+    "input": "Please copy this exact text: Silence is a source of great strength.",
+    "target_text": "Silence is a source of great strength.",
+    "rubric": "Verbatim reproduction"
+  },
+  {
+    "id": "REPRO_HIN_01",
+    "category": "Hindi",
+    "input": "नमस्ते! आप क्या कर सकते हैं?",
+    "expected_keywords": [
+      "सहायता",
+      "नमस्ते",
+      "हूँ"
+    ],
+    "rubric": "Meaningful Devanagari Hindi greeting"
+  },
+  {
+    "id": "REPRO_HIN_02",
+    "category": "Hindi",
+    "input": "कंप्यूटर में सीपीयू का क्या काम है?",
+    "expected_keywords": [
+      "मस्तिष्क",
+      "सीपीयू",
+      "गणना",
+      "निर्देश"
+    ],
+    "rubric": "Hindi CPU explanation"
+  },
+  {
+    "id": "REPRO_HIN_03",
+    "category": "Hindi",
+    "input": "सूर्य हमें क्या प्रदान करता है?",
+    "expected_keywords": [
+      "प्रकाश",
+      "ऊर्जा",
+      "सूर्य"
+    ],
+    "rubric": "Hindi factual explanation"
+  },
+  {
+    "id": "REPRO_HING_01",
+    "category": "Hinglish",
+    "input": "Bhai, machine learning ko simple language mein samjhao.",
+    "expected_keywords": [
+      "data",
+      "computer",
+      "learn",
+      "patterns"
+    ],
+    "rubric": "Natural Hinglish explanation"
+  },
+  {
+    "id": "REPRO_HING_02",
+    "category": "Hinglish",
+    "input": "Python itni popular kyu hai software development mein?",
+    "expected_keywords": [
+      "python",
+      "syntax",
+      "libraries",
+      "easy"
+    ],
+    "rubric": "Hinglish explanation"
+  },
+  {
+    "id": "REPRO_INST_01",
+    "category": "Instruction following",
+    "input": "Reply with only the word 'Confirmed'.",
+    "expected_keywords": [
+      "confirmed"
+    ],
+    "rubric": "Exact one-word compliance"
+  },
+  {
+    "id": "REPRO_INST_02",
+    "category": "Instruction following",
+    "input": "Answer with 'Yes' or 'No': Is 10 greater than 5?",
+    "expected_keywords": [
+      "yes"
+    ],
+    "rubric": "Binary answer adherence"
+  },
+  {
+    "id": "REPRO_INST_03",
+    "category": "Instruction following",
+    "input": "Describe the winter season without using the word 'snow'.",
+    "forbidden": [
+      "snow"
+    ],
+    "expected_keywords": [
+      "cold",
+      "winter",
+      "ice",
+      "frost"
+    ],
+    "rubric": "Negative constraint obedience"
+  }
+]
