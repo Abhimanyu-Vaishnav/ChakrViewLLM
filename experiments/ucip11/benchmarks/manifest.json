@@ -1,0 +1,18 @@
+{
+  "benchmark_name": "UCIP-11 Autonomous Language Acquisition & Generalization Benchmark",
+  "development_suite": {
+    "file": "experiments\\ucip11\\benchmarks\\development\\ucip11_dev.json",
+    "sha256": "f2e6693938884ddac20922f8d51a38ad80331bd84d380364008fbdbb0b83017b",
+    "total_probes": 100
+  },
+  "sealed_suite": {
+    "file": "experiments\\ucip11\\benchmarks\\sealed\\ucip11_sealed.json",
+    "sha256": "dce6954ab6db4aa00bfcf1405a47243d4698e9e0cd084ad63ff3e5281b678fe4",
+    "total_probes": 100,
+    "frozen": true
+  },
+  "zero_contamination_verification": {
+    "disjoint_with_r2_sealed": true,
+    "disjoint_with_training_corpora": true
+  }
+}
