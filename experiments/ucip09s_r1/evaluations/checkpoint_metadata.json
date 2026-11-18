@@ -1,0 +1,131 @@
+{
+  "ucip08_medium": {
+    "path": "D:\\Project\\ChakrView\\releases\\ucip_08_candidates\\chakrview_ucip08_medium_model.pt",
+    "keys": [
+      "step",
+      "model_state_dict",
+      "val_loss",
+      "config"
+    ],
+    "step": 125,
+    "val_loss": 1.4452337563037871,
+    "architecture": null,
+    "parent_checkpoint": null,
+    "config": {
+      "vocab_size": 4096,
+      "d_model": 384,
+      "n_layers": 7,
+      "n_heads": 6,
+      "n_kv_heads": 6,
+      "hidden_dim": 896,
+      "max_seq_len": 512,
+      "rope_base": 50000.0,
+      "tie_embeddings": true,
+      "dropout": 0.0,
+      "norm_eps": 1e-05
+    },
+    "state_dict_keys_count": 65
+  },
+  "ucip09_medium": {
+    "path": "D:\\Project\\ChakrView\\releases\\ucip_09_candidates\\chakrview_ucip09_medium_model.pt",
+    "keys": [
+      "step",
+      "model_state_dict",
+      "val_loss",
+      "config",
+      "architecture",
+      "parent_checkpoint"
+    ],
+    "step": 125,
+    "val_loss": 1.5892714243382215,
+    "architecture": "ChakrMedium",
+    "parent_checkpoint": "chakrview_ucip08_medium_model.pt",
+    "config": {
+      "vocab_size": 4096,
+      "d_model": 384,
+      "n_layers": 7,
+      "n_heads": 6,
+      "max_seq_len": 512,
+      "rms_norm_eps": 1e-05,
+      "rope_theta": 50000.0,
+      "hidden_dim": 896,
+      "dropout": 0.0,
+      "initializer_range": 0.02,
+      "dtype": "float32",
+      "use_bias": false,
+      "tie_embeddings": true,
+      "bos_token_id": 0,
+      "eos_token_id": 1,
+      "pad_token_id": 2
+    },
+    "state_dict_keys_count": 66
+  },
+  "ucip09r_medium": {
+    "path": "D:\\Project\\ChakrView\\releases\\ucip_09r_candidates\\chakrview_ucip09r_medium_model.pt",
+    "keys": [
+      "step",
+      "model_state_dict",
+      "val_loss",
+      "config",
+      "architecture",
+      "parent_checkpoint"
+    ],
+    "step": 160,
+    "val_loss": 1.2461302988231182,
+    "architecture": "ChakrMedium",
+    "parent_checkpoint": "chakrview_ucip09_medium_model.pt",
+    "config": {
+      "vocab_size": 4096,
+      "d_model": 384,
+      "n_layers": 7,
+      "n_heads": 6,
+      "max_seq_len": 512,
+      "rms_norm_eps": 1e-05,
+      "rope_theta": 50000.0,
+      "hidden_dim": 896,
+      "dropout": 0.0,
+      "initializer_range": 0.02,
+      "dtype": "float32",
+      "use_bias": false,
+      "tie_embeddings": true,
+      "bos_token_id": 0,
+      "eos_token_id": 1,
+      "pad_token_id": 2
+    },
+    "state_dict_keys_count": 66
+  },
+  "ucip09s_pilot": {
+    "path": "D:\\Project\\ChakrView\\experiments\\ucip09s\\checkpoints\\ucip09s_balanced_pilot.pt",
+    "keys": [
+      "architecture",
+      "model_state_dict",
+      "step",
+      "val_loss",
+      "config",
+      "parent_checkpoint"
+    ],
+    "step": 80,
+    "val_loss": 1.6461133994162083,
+    "architecture": "ChakrMedium",
+    "parent_checkpoint": "chakrview_ucip09_medium_model.pt",
+    "config": {
+      "vocab_size": 4096,
+      "d_model": 384,
+      "n_layers": 7,
+      "n_heads": 6,
+      "max_seq_len": 512,
+      "rms_norm_eps": 1e-05,
+      "rope_theta": 50000.0,
+      "hidden_dim": 896,
+      "dropout": 0.0,
+      "initializer_range": 0.02,
+      "dtype": "float32",
+      "use_bias": false,
+      "tie_embeddings": true,
+      "bos_token_id": 0,
+      "eos_token_id": 1,
+      "pad_token_id": 2
+    },
+    "state_dict_keys_count": 66
+  }
+}

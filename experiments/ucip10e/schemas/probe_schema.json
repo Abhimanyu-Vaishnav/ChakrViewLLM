@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChakrViewEvaluationProbe",
+  "type": "object",
+  "required": [
+    "id",
+    "domain",
+    "subdomain",
+    "prompt",
+    "evaluation_type",
+    "difficulty",
+    "split",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "language",
+        "mathematics",
+        "copying",
+        "logic",
+        "generalization",
+        "multi_turn",
+        "self_correction",
+        "uncertainty",
+        "coding",
+        "self_modeling"
+      ]
+    },
+    "subdomain": {
+      "type": "string"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "user": { "type": "string" },
+          "expected": { "type": "string" }
+        }
+      }
+    },
+    "evaluation_type": {
+      "type": "string",
+      "enum": [
+        "semantic_rubric",
+        "exact_math",
+        "verbatim_copy",
+        "normalized_copy",
+        "deductive_logic",
+        "generalization_probe",
+        "multi_turn_state",
+        "self_correction_cycle",
+        "abstention_calibration",
+        "sandboxed_execution",
+        "system_awareness"
+      ]
+    },
+    "target_number": {
+      "type": ["number", "null"]
+    },
+    "target_text": {
+      "type": ["string", "null"]
+    },
+    "expected_answer": {
+      "type": ["string", "number", "null"]
+    },
+    "expected_keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbidden_keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "code_test": {
+      "type": "object",
+      "properties": {
+        "test_code": { "type": "string" },
+        "timeout_seconds": { "type": "number" }
+      }
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["elementary", "intermediate", "advanced", "adversarial"]
+    },
+    "split": {
+      "type": "string",
+      "enum": ["development", "sealed"]
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}
