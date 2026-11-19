@@ -1,0 +1,113 @@
+{
+  "tokenizer_config": {
+    "vocab_size": 4096,
+    "num_merges": 3837,
+    "checksums": {
+      "merges_sha256": "7498d92adeef7c9e64d4d1bbd5b4b23f8774692d868742e3b98e30c584c4403f",
+      "vocab_sha256": "e0f11c0795fa0ddd366f54a17355e5ceaaf7d12fc73881677dc122eaae6a999e"
+    }
+  },
+  "test_cases": {
+    "English prose": {
+      "words": 14,
+      "tokens": 34,
+      "utf8_bytes": 121,
+      "tokens_per_word": 2.429,
+      "bytes_per_token": 3.559,
+      "chars_per_token": 3.559,
+      "lossless_roundtrip": true
+    },
+    "Devanagari Hindi": {
+      "words": 14,
+      "tokens": 28,
+      "utf8_bytes": 250,
+      "tokens_per_word": 2.0,
+      "bytes_per_token": 8.929,
+      "chars_per_token": 3.286,
+      "lossless_roundtrip": true
+    },
+    "Roman Hindi": {
+      "words": 11,
+      "tokens": 10,
+      "utf8_bytes": 66,
+      "tokens_per_word": 0.909,
+      "bytes_per_token": 6.6,
+      "chars_per_token": 6.6,
+      "lossless_roundtrip": true
+    },
+    "Hinglish mixed": {
+      "words": 14,
+      "tokens": 21,
+      "utf8_bytes": 85,
+      "tokens_per_word": 1.5,
+      "bytes_per_token": 4.048,
+      "chars_per_token": 4.048,
+      "lossless_roundtrip": true
+    },
+    "Sanskrit classical": {
+      "words": 9,
+      "tokens": 45,
+      "utf8_bytes": 218,
+      "tokens_per_word": 5.0,
+      "bytes_per_token": 4.844,
+      "chars_per_token": 1.733,
+      "lossless_roundtrip": true
+    },
+    "Python code": {
+      "words": 17,
+      "tokens": 75,
+      "utf8_bytes": 190,
+      "tokens_per_word": 4.412,
+      "bytes_per_token": 2.533,
+      "chars_per_token": 2.533,
+      "lossless_roundtrip": true
+    },
+    "Mixed script": {
+      "words": 12,
+      "tokens": 24,
+      "utf8_bytes": 112,
+      "tokens_per_word": 2.0,
+      "bytes_per_token": 4.667,
+      "chars_per_token": 3.917,
+      "lossless_roundtrip": true
+    },
+    "Punctuation heavy": {
+      "words": 1,
+      "tokens": 29,
+      "utf8_bytes": 31,
+      "tokens_per_word": 29.0,
+      "bytes_per_token": 1.069,
+      "chars_per_token": 1.069,
+      "lossless_roundtrip": true
+    },
+    "Unicode edge cases": {
+      "words": 11,
+      "tokens": 35,
+      "utf8_bytes": 69,
+      "tokens_per_word": 3.182,
+      "bytes_per_token": 1.971,
+      "chars_per_token": 1.343,
+      "lossless_roundtrip": true
+    }
+  },
+  "natural_corpus_benchmarks": {
+    "English Wiki Sample": {
+      "words": 52,
+      "tokens": 145,
+      "utf8_bytes": 350,
+      "tokens_per_word": 2.788,
+      "bytes_per_token": 2.414,
+      "chars_per_token": 2.414,
+      "lossless": true
+    },
+    "Hindi Wiki Sample": {
+      "words": 53,
+      "tokens": 135,
+      "utf8_bytes": 782,
+      "tokens_per_word": 2.547,
+      "bytes_per_token": 5.793,
+      "chars_per_token": 2.193,
+      "lossless": true
+    }
+  }
+}
