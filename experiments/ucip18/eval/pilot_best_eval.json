@@ -1,0 +1,150 @@
+{
+  "total_probes": 100,
+  "verdicts": {
+    "EXACT": 0,
+    "PARTIAL": 0,
+    "INCORRECT": 95,
+    "ATTRACTOR": 5
+  },
+  "strict_semantic_accuracy": 0.0,
+  "attractor_rate": 0.05,
+  "eos_rate": 0.47,
+  "category_scores": {
+    "HING": 0.0,
+    "PYTHON": 0.0,
+    "CONV": 0.0,
+    "QA": 0.0,
+    "EXPL": 0.0,
+    "LOGIC": 0.0,
+    "HIN": 0.0,
+    "COPY": 0.0,
+    "SAN": 0.0,
+    "INST": 0.0,
+    "BIND": 0.0,
+    "UNCERT": 0.0,
+    "ARITH": 0.0,
+    "ENG": 0.0,
+    "CLARIF": 0.0,
+    "CORR": 0.0,
+    "CTX": 0.0,
+    "FORMAT": 0.0
+  },
+  "language_scores": {
+    "hi-en": 0.0,
+    "en": 0.0,
+    "hi": 0.0,
+    "sa": 0.0
+  },
+  "samples": [
+    {
+      "id": "UCIP17-HING-14810",
+      "category": "HING",
+      "language": "hi-en",
+      "prompt": "User: Git me commit ka kya matlab hai?\nAssistant: ",
+      "target": "Git me commit ka matlab repository ke snapshot ko permanently version history me save karna hota hai.",
+      "generated": "The centry of the passcop-of the passcop-of the passcop-of the passcop-of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-PYTHON-13729",
+      "category": "PYTHON",
+      "language": "en",
+      "prompt": "User: Can you write a function to reverse a string.\nAssistant: ",
+      "target": "```python\ndef reverse_string(s: str) -> str:\n    return s[::-1]\n```",
+      "generated": "The centry of the passcopes of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-CONV-13552",
+      "category": "CONV",
+      "language": "hi",
+      "prompt": "User: \u0928\u092e\u0938\u094d\u0924\u0947, \u0906\u092a\u0915\u093e \u0915\u094d\u092f\u093e \u0915\u093e\u0930\u094d\u092f \u0939\u0948?\nAssistant: ",
+      "target": "\u0928\u092e\u0938\u094d\u0924\u0947! \u092e\u0947\u0930\u093e \u0909\u0926\u094d\u0926\u0947\u0936\u094d\u092f \u0938\u094d\u092a\u0937\u094d\u091f, \u0928\u093f\u0937\u094d\u092a\u0915\u094d\u0937 \u0914\u0930 \u0938\u0902\u092a\u094d\u0930\u092d\u0941 \u092d\u093e\u0937\u093e \u0938\u0939\u093e\u092f\u0924\u093e \u092a\u094d\u0930\u0926\u093e\u0928 \u0915\u0930\u0928\u093e \u0939\u0948\u0964",
+      "generated": "[0]\n    's &lt;ref name=&quot;nb&quot; /&gt;\n\n    's &lt;/ref&gt;",
+      "emitted_eos": false,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-QA-14064",
+      "category": "QA",
+      "language": "hi",
+      "prompt": "User: \u0938\u0942\u0930\u094d\u092f \u0915\u0947 \u0938\u092c\u0938\u0947 \u0928\u093f\u0915\u091f \u0915\u093e \u0917\u094d\u0930\u0939 \u0915\u094c\u0928 \u0938\u093e \u0939\u0948?\nAssistant: ",
+      "target": "\u0938\u0942\u0930\u094d\u092f \u0915\u0947 \u0938\u092c\u0938\u0947 \u0928\u093f\u0915\u091f\u0924\u092e \u0938\u094d\u0925\u093f\u0924 \u0917\u094d\u0930\u0939 \u092c\u0941\u0927 (Mercury) \u0939\u0948\u0964",
+      "generated": "[0]\n    's &lt;ref name=&quot;nb&quot; /&gt;\n\n    's &lt;/ref&gt;",
+      "emitted_eos": false,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-EXPL-14002",
+      "category": "EXPL",
+      "language": "en",
+      "prompt": "User: Explain the basic physical mechanism behind Newton's third law.\nAssistant: ",
+      "target": "Newton's third law operates through direct momentum and energy transfer across interacting particles in a closed system.",
+      "generated": "The centry of the passcopes of the passcopes of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-LOGIC-13958",
+      "category": "LOGIC",
+      "language": "en",
+      "prompt": "User: Premise: All things that is electronic also evaporates quickly. Observation: Component Delta is electronic. Conclusion?\nAssistant: ",
+      "target": "Therefore, Component Delta evaporates quickly.",
+      "generated": "The central of the passcop-of the passcop-of the passcop-of the passcop-of the passcop-of the p",
+      "emitted_eos": false,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-PYTHON-13786",
+      "category": "PYTHON",
+      "language": "en",
+      "prompt": "User: Write Python code: write a function to check if a number is even.\nAssistant: ",
+      "target": "```python\ndef is_even(n: int) -> bool:\n    return n % 2 == 0\n```",
+      "generated": "The centry of the passcopes of the passcopes of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-EXPL-13710",
+      "category": "EXPL",
+      "language": "en",
+      "prompt": "User: Explain the basic physical mechanism behind atmospheric pressure.\nAssistant: ",
+      "target": "Atmospheric pressure operates through direct momentum and energy transfer across interacting particles in a closed system.",
+      "generated": "The centry of the passcopes of the passcopes of the passcopes of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-PYTHON-14886",
+      "category": "PYTHON",
+      "language": "en",
+      "prompt": "User: Create a Python script to write a function to calculate the square of a number.\nAssistant: ",
+      "target": "```python\ndef square(n: float) -> float:\n    return n * n\n```",
+      "generated": "The centry of the passcopes of the passcopes of the passcops.",
+      "emitted_eos": true,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    },
+    {
+      "id": "UCIP17-HIN-14617",
+      "category": "HIN",
+      "language": "hi",
+      "prompt": "User: \u0938\u094c\u0930 \u090a\u0930\u094d\u091c\u093e \u0915\u093e \u092e\u0939\u0924\u094d\u0935 \u092a\u0930 \u0938\u0902\u0915\u094d\u0937\u0947\u092a \u092e\u0947\u0902 \u091f\u093f\u092a\u094d\u092a\u0923\u0940 \u0915\u0930\u0947\u0902\u0964\nAssistant: ",
+      "target": "\u0938\u094c\u0930 \u090a\u0930\u094d\u091c\u093e \u090f\u0915 \u0905\u0915\u094d\u0937\u092f \u0914\u0930 \u092a\u094d\u0930\u0926\u0942\u0937\u0923\u092e\u0941\u0915\u094d\u0924 \u090a\u0930\u094d\u091c\u093e \u0938\u094d\u0930\u094b\u0924 \u0939\u0948 \u091c\u094b \u0938\u0942\u0930\u094d\u092f \u0915\u0940 \u0935\u093f\u0915\u093f\u0930\u0923 \u090a\u0930\u094d\u091c\u093e \u0915\u094b \u0935\u093f\u0926\u094d\u092f\u0941\u0924 \u090a\u0930\u094d\u091c\u093e \u092e\u0947\u0902 \u092a\u0930\u093f\u0935\u0930\u094d\u0924\u093f\u0924 \u0915\u0930\u0924\u093e \u0939\u0948\u0964",
+      "generated": "[0]\n    's &lt;ref name=&quot;nb&quot; /&gt;\n\n    's &lt;/ref&gt;",
+      "emitted_eos": false,
+      "verdict": "INCORRECT",
+      "score": 0.0
+    }
+  ]
+}
