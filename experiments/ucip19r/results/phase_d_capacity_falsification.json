@@ -1,0 +1,32 @@
+{
+  "model_architecture": {
+    "parameters": 3443136,
+    "layers": 6,
+    "d_model": 192,
+    "n_heads": 6,
+    "head_dim": 32,
+    "d_ffn": 512,
+    "vocab_size": 4096
+  },
+  "identifiability_analysis": {
+    "can_capacity_alone_be_proven_as_sole_root_cause": false,
+    "justification": "Under scientific epistemology, attributing failure exclusively to 'model capacity' requires a controlled scaling ablation (e.g. keeping data, objective, and training steps constant while increasing d_model or layers to 7M, 15M, etc.). Because no scaled ChakrMicro models were trained in this mission, capacity limitations and optimization/loss formulation limitations are mathematically confounded. Specifically: 300 optimizer steps (totaling ~127k SFT tokens seen) represents less than 1 epoch over the 12,000 dataset (which contains ~414k tokens). Therefore, under-fitting due to an ultra-short training schedule cannot be disentangled from parameter capacity.",
+    "competing_hypotheses": [
+      {
+        "hypothesis": "Parameter Capacity Bottleneck (3.44M)",
+        "classification": "Partially supported / Plausible, but unisolated",
+        "reasoning": "192 dimensions is compact, but models of this size can memorize or condition on narrow synthetic subsets."
+      },
+      {
+        "hypothesis": "Optimization Step Budget (300 steps / 0.3 epochs)",
+        "classification": "Strongly supported competing factor",
+        "reasoning": "The pilot only executed 300 steps. The model only observed ~3,600 SFT examples out of 12,000. It had insufficient gradient exposure to rotate weights."
+      },
+      {
+        "hypothesis": "Objective Formulation (Joint Replay)",
+        "classification": "Partially supported competing factor",
+        "reasoning": "Decoupled objective preserved pretraining (loss=3.96), but simultaneously locked the model into pretraining representations."
+      }
+    ]
+  }
+}

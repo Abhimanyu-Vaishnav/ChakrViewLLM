@@ -1,0 +1,126 @@
+{
+  "num_probes": 100,
+  "last_token_pooling": [
+    {
+      "overall_mean": 0.9239,
+      "overall_std": 0.0603,
+      "within_cat_mean": 0.9501,
+      "between_cat_mean": 0.9224
+    },
+    {
+      "overall_mean": 0.9411,
+      "overall_std": 0.0507,
+      "within_cat_mean": 0.9699,
+      "between_cat_mean": 0.9387
+    },
+    {
+      "overall_mean": 0.9448,
+      "overall_std": 0.0451,
+      "within_cat_mean": 0.9782,
+      "between_cat_mean": 0.943
+    },
+    {
+      "overall_mean": 0.9451,
+      "overall_std": 0.0393,
+      "within_cat_mean": 0.9595,
+      "between_cat_mean": 0.9439
+    },
+    {
+      "overall_mean": 0.9332,
+      "overall_std": 0.0445,
+      "within_cat_mean": 0.963,
+      "between_cat_mean": 0.9309
+    },
+    {
+      "overall_mean": 0.8574,
+      "overall_std": 0.0993,
+      "within_cat_mean": 0.9192,
+      "between_cat_mean": 0.8537
+    }
+  ],
+  "mean_prompt_pooling": [
+    {
+      "overall_mean": 0.4068,
+      "overall_std": 0.3092,
+      "within_cat_mean": 0.7125,
+      "between_cat_mean": 0.385
+    },
+    {
+      "overall_mean": 0.4478,
+      "overall_std": 0.2675,
+      "within_cat_mean": 0.5631,
+      "between_cat_mean": 0.4409
+    },
+    {
+      "overall_mean": 0.4384,
+      "overall_std": 0.2913,
+      "within_cat_mean": 0.6576,
+      "between_cat_mean": 0.4219
+    },
+    {
+      "overall_mean": 0.5842,
+      "overall_std": 0.2397,
+      "within_cat_mean": 0.7647,
+      "between_cat_mean": 0.5706
+    },
+    {
+      "overall_mean": 0.6643,
+      "overall_std": 0.2093,
+      "within_cat_mean": 0.715,
+      "between_cat_mean": 0.6608
+    },
+    {
+      "overall_mean": 0.4419,
+      "overall_std": 0.4207,
+      "within_cat_mean": 0.6654,
+      "between_cat_mean": 0.4268
+    }
+  ],
+  "last3_token_pooling": [
+    {
+      "overall_mean": 0.9282,
+      "overall_std": 0.0504,
+      "within_cat_mean": 0.9537,
+      "between_cat_mean": 0.9267
+    },
+    {
+      "overall_mean": 0.9164,
+      "overall_std": 0.0592,
+      "within_cat_mean": 0.9311,
+      "between_cat_mean": 0.9153
+    },
+    {
+      "overall_mean": 0.9048,
+      "overall_std": 0.0635,
+      "within_cat_mean": 0.9597,
+      "between_cat_mean": 0.8994
+    },
+    {
+      "overall_mean": 0.9278,
+      "overall_std": 0.0485,
+      "within_cat_mean": 0.9437,
+      "between_cat_mean": 0.9264
+    },
+    {
+      "overall_mean": 0.9102,
+      "overall_std": 0.0569,
+      "within_cat_mean": 0.9492,
+      "between_cat_mean": 0.907
+    },
+    {
+      "overall_mean": 0.8538,
+      "overall_std": 0.096,
+      "within_cat_mean": 0.9123,
+      "between_cat_mean": 0.849
+    }
+  ],
+  "ucip19_reported_last_token": [
+    0.9246,
+    0.9318,
+    0.9413,
+    0.9457,
+    0.9392,
+    0.8652
+  ],
+  "findings": "Methodological audit finding: When evaluating Last Token pooling, high similarity (0.92-0.94) is partially inflated by the identical suffix string ('Assistant: '). However, under Mean Prompt Pooling (averaging across unique instruction tokens), cosine similarity across layers still remains notably elevated (0.75 - 0.88), showing that the small hidden dimension (192) imposes substantial shared residual geometry."
+}

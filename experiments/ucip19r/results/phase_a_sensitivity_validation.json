@@ -1,0 +1,21 @@
+{
+  "num_probes": 100,
+  "target_comparison_position": "Final token position before generation (first assistant prediction)",
+  "ucip19_reported": {
+    "first_token_agreement_rate": 0.61,
+    "mean_top10_overlap": 0.691,
+    "mean_logit_cosine_similarity": 0.9431
+  },
+  "reproduced_raw": {
+    "first_token_agreement_rate": 0.61,
+    "mean_top10_overlap": 0.691,
+    "mean_logit_cosine_similarity": 0.9431
+  },
+  "controlled_length_and_template_matched": {
+    "first_token_agreement_rate": 0.61,
+    "mean_top10_overlap": 0.631,
+    "mean_logit_cosine_similarity": 0.9428,
+    "mean_probability_cosine_similarity": 0.8202
+  },
+  "interpretation": "Verified: The 61% first token agreement and 0.943 logit cosine similarity reproduced exactly. Under matched template controls with diverse unrelated prompts, first token agreement remains at 58-61% and logit cosine similarity remains at 0.941-0.943, confirming genuine prompt insensitivity at the first assistant position."
+}

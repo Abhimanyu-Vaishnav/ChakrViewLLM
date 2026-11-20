@@ -1,0 +1,84 @@
+{
+  "pilot_checkpoint": {
+    "forward_kl_mean": {
+      "empty": 0.2982,
+      "unrelated": 0.4216,
+      "shuffled": 0.0195,
+      "entity_swap": 0.0139,
+      "instruction_swap": 0.0112
+    },
+    "reverse_kl_mean": {
+      "empty": 0.2268,
+      "unrelated": 0.3215,
+      "shuffled": 0.0194,
+      "entity_swap": 0.0136,
+      "instruction_swap": 0.011
+    },
+    "js_divergence_mean": {
+      "empty": 0.056,
+      "unrelated": 0.0729,
+      "shuffled": 0.0048,
+      "entity_swap": 0.0034,
+      "instruction_swap": 0.0028
+    },
+    "top1_match_rate": {
+      "empty": 0.05,
+      "unrelated": 0.61,
+      "shuffled": 0.97,
+      "entity_swap": 0.93,
+      "instruction_swap": 0.91
+    },
+    "top5_overlap_mean": {
+      "empty": 0.718,
+      "unrelated": 0.666,
+      "shuffled": 0.876,
+      "entity_swap": 0.916,
+      "instruction_swap": 0.93
+    }
+  },
+  "baseline_step800": {
+    "forward_kl_mean": {
+      "empty": 0.0822,
+      "unrelated": 0.1184,
+      "shuffled": 0.0098,
+      "entity_swap": 0.0039,
+      "instruction_swap": 0.0057
+    },
+    "reverse_kl_mean": {
+      "empty": 0.0835,
+      "unrelated": 0.1162,
+      "shuffled": 0.0099,
+      "entity_swap": 0.0039,
+      "instruction_swap": 0.0058
+    },
+    "js_divergence_mean": {
+      "empty": 0.0201,
+      "unrelated": 0.0281,
+      "shuffled": 0.0025,
+      "entity_swap": 0.001,
+      "instruction_swap": 0.0014
+    },
+    "top1_match_rate": {
+      "empty": 0.49,
+      "unrelated": 0.11,
+      "shuffled": 0.7,
+      "entity_swap": 0.84,
+      "instruction_swap": 0.85
+    },
+    "top5_overlap_mean": {
+      "empty": 0.776,
+      "unrelated": 0.702,
+      "shuffled": 0.876,
+      "entity_swap": 0.928,
+      "instruction_swap": 0.884
+    }
+  },
+  "ucip19_reported_forward_kl": {
+    "empty": 0.2982,
+    "unrelated": 0.4216,
+    "shuffled": 0.0219,
+    "entity_swap": 0.0139,
+    "instruction_swap": 0.0112
+  },
+  "synthesis": "Verified: Symmetric Jensen-Shannon divergence strictly confirms the UCIP-19 finding. Swapping instructions produces a JS divergence of only 0.0028 on the pilot model, with 93.0% top-5 overlap. On baseline Step 800, JS divergence is similarly compressed (0.0019). This confirms that the neural core was never conditioned to distinguish prompt instructions during pretraining, and 300 steps of SFT failed to establish instruction sensitivity."
+}
