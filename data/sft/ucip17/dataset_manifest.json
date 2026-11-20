@@ -1,0 +1,53 @@
+{
+  "manifest_version": "2.0.0",
+  "mission": "UCIP-17",
+  "total_records": 15000,
+  "splits": {
+    "sft_train_12000": {
+      "records": 12000,
+      "filename": "sft_train_12000.jsonl",
+      "sha256": "0ad8840efb43d8c2d9a7c12d785683b6791a906e18f06376974286ed0638eb80"
+    },
+    "sft_validation_1500": {
+      "records": 1500,
+      "filename": "sft_validation_1500.jsonl",
+      "sha256": "972affab6e583475bab151d4f88606adfb3e6846bc4157c36dc4f9a6ab7c21f2"
+    },
+    "sft_dev_1500": {
+      "records": 1500,
+      "filename": "sft_dev_1500.jsonl",
+      "sha256": "cd84f301f638405516e0b76195862d1938491bc66129d58c7449b5d0bd108370"
+    },
+    "sft_master_15000": {
+      "records": 15000,
+      "filename": "sft_master_15000.jsonl",
+      "sha256": "6b6a614f6009350171f596faf5029e152ef6b57357e085e9d38ad41b9eac5d39"
+    }
+  },
+  "category_distribution": {
+    "CONV": 900,
+    "INST": 1200,
+    "QA": 1050,
+    "CTX": 900,
+    "COPY": 600,
+    "BIND": 750,
+    "ARITH": 900,
+    "LOGIC": 750,
+    "EXPL": 1050,
+    "PYTHON": 1200,
+    "ENG": 900,
+    "HIN": 1200,
+    "HING": 600,
+    "SAN": 450,
+    "UNCERT": 750,
+    "FORMAT": 600,
+    "CORR": 600,
+    "CLARIF": 600
+  },
+  "language_distribution": {
+    "en": 8250,
+    "hi": 4500,
+    "hi-en": 1500,
+    "sa": 750
+  }
+}
