@@ -1,0 +1,58 @@
+{
+  "manifest_version": "1.0.0",
+  "mission": "UCIP-14R",
+  "total_records": 15000,
+  "splits": {
+    "train": {
+      "records": 12000,
+      "filename": "sft_train_12000.jsonl",
+      "sha256": "2c634a9e2cb5e1d7101dd41ac51b5884c308d120b33ac3ad759a94701bfe4cd6"
+    },
+    "validation": {
+      "records": 1500,
+      "filename": "sft_validation_1500.jsonl",
+      "sha256": "a16fcd872e925683cc402b4da26c4abb13a77bbc9e9b24c8a46a1304a015acf7"
+    },
+    "development": {
+      "records": 1500,
+      "filename": "sft_dev_1500.jsonl",
+      "sha256": "86108cc72fd923335010d408dacce51333e98adea263a8f08839fc6f0a24ff12"
+    },
+    "master": {
+      "records": 15000,
+      "filename": "sft_master_15000.jsonl",
+      "sha256": "726ded9108211f0eec6d2c9ca5fac452e811c521c46014fc9fb8f4461168db6b"
+    }
+  },
+  "quarantined_sealed_benchmark": {
+    "records": 500,
+    "filename": "benchmark_ucip14_sealed_500.json",
+    "sha256": "dcbd7f221c1c54d27c9b00a3dbd4f43fee0b79b9fb124f6a86fa6069650da8ea"
+  },
+  "category_distribution": {
+    "CONV": 900,
+    "INST": 1200,
+    "QA": 1050,
+    "CTX": 900,
+    "COPY": 600,
+    "BIND": 750,
+    "ARITH": 900,
+    "LOGIC": 750,
+    "EXPL": 1050,
+    "PYTHON": 1200,
+    "ENG": 900,
+    "HIN": 1200,
+    "HING": 600,
+    "SAN": 450,
+    "UNCERT": 750,
+    "FORMAT": 600,
+    "CORR": 600,
+    "CLARIF": 600
+  },
+  "language_distribution": {
+    "en": 8250,
+    "hi": 4500,
+    "hi-en": 1500,
+    "sa": 750
+  }
+}
