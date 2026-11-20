@@ -68,3 +68,30 @@ flowchart TD
 1. **Sealed Benchmark Quarantine:** `experiments/ucip14/benchmarks/sealed/` is excluded from all training scripts and dataloaders via path assertion.
 2. **Cryptographic Checksum:** The sealed benchmark file hash is computed and recorded prior to any training and verified after training.
 3. **Zero Overlap Guarantee:** Automated n-gram overlap check confirms 0% prompt leakage between training sets and sealed suites.
+4. **Prohibition of Historical Prompt Recycling:** No prompts from historical UCIP benchmarks (`benchmark_r2_sealed.json`, `ucip11_sealed.json`, `sealed_400_raw.json`) may be reused in the UCIP-14 sealed set. All 500 sealed probes must be newly and independently authored.
+
+---
+
+## 4. Python Evaluation Security & Execution Containment
+
+Evaluating model-generated Python code presents severe execution security hazards if model outputs contain malicious syscalls, infinite loops, memory bombs, or file operations.
+
+### Critical Distinction: Subprocess Execution vs. OS Sandbox
+Running code via `subprocess.run([sys.executable, tmp_path], timeout=3)` is **time-bounded subprocess execution**, NOT a full OS security containment sandbox:
+- It isolates the Python interpreter process from crashing the main evaluation runner.
+- It prevents infinite execution via timeouts.
+- **Vulnerability:** Without OS-level containment, a subprocess inherits host file permissions and local socket capabilities.
+
+### Mandatory Security Controls for Future Python Evaluations:
+1. **Isolated Ephemeral Workspace:** Execute in a dedicated `tempfile.TemporaryDirectory` with restricted access permissions.
+2. **Subprocess Resource Limits:**
+   - **Timeout Ceiling:** Strict 3.0-second wall-clock execution limit (`subprocess.TimeoutExpired`).
+   - **Memory Cap:** Set soft/hard address space limits (e.g., max 256 MB) to prevent Out-Of-Memory attacks.
+3. **Execution Environment Stripping:**
+   - Run with clean environment variables (`env={}` or minimal `PATH`/`SYSTEMROOT`).
+   - Pass `-I` (isolated mode) to Python: `python.exe -I -B -s temp_script.py` to prevent loading user site-packages, environment variables, or current directory imports.
+4. **AST Pre-Execution Screening:**
+   - Before executing code, pass the script through Python `ast.parse`.
+   - Reject scripts that import dangerous modules: `os`, `sys`, `subprocess`, `shutil`, `socket`, `urllib`, `requests`, `ctypes`, `builtins.__import__`.
+   - Only allow safe builtins and standard algorithmic math operations (`math`, `typing`, `collections`).
+5. **Immediate Cleanup:** Unlink temporary files in a `finally:` block regardless of whether execution succeeded, timed out, or threw a runtime error.

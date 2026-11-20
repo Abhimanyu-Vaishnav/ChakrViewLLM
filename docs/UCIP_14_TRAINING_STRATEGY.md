@@ -50,13 +50,19 @@ target_seq = ([-100] * len(prompt_tokens)) + response_tokens + [EOS]
 Fine-tuning exclusively on short question-and-answer pairs causes **catastrophic forgetting**: the model loses general language modeling capabilities, forgets complex syntax, and experiences sharp perplexity explosions on standard text.
 
 ### Mitigation Architecture: Controlled Foundational Replay (Mixture Tuning)
-To anchor base language representations, the SFT training mixture incorporates a **15% to 20% replay stream** of clean Stage C pretraining text:
+To anchor base language representations, the SFT training mixture incorporates a **controlled replay stream** of clean Stage C pretraining text:
 
 ```
-Batch Composition (Effective Batch = 32):
-- 26 sequences: Instruction-Response Pairs (Assistant-only loss)
-- 6 sequences: Stage C Pretraining Chunks (Full causal next-token loss)
+Batch Composition Specification:
+- Fixed Integer Implementation: 26 SFT sequences (81.25%) + 6 Stage C replay sequences (18.75%) per 32-sequence effective batch.
+- Microbatch Structure: 13 SFT + 3 Stage C replay sequences per 16-sequence microbatch with gradient accumulation of 2 (13*2=26 SFT, 3*2=6 Replay).
+- Nominal Target: 80% SFT / 20% Replay (exact integer ratio is 81.25% SFT / 18.75% Replay).
 ```
+
+### Loss Calculation per Sequence Type:
+- **SFT Sequences (26 seqs):** Assistant-only masked loss (`ignore_index=-100` over prompt tokens; loss computed on response + `<EOS>`).
+- **Replay Sequences (6 seqs):** Full causal next-token cross-entropy loss across all sequence tokens (`ignore_index=2` for `<PAD>`).
+- **Normalized Token Weighting:** Total loss is computed over the combined active token count across the batch to ensure proportional gradient scaling.
 
 ### Dual Early-Stopping Monitors:
 Training is monitored across two simultaneous validation metrics:

@@ -11,27 +11,44 @@
 
 The instruction-alignment dataset is structured across 18 distinct capability categories, ensuring comprehensive alignment across reasoning, dialogue, coding, and multilingual interaction:
 
-| Category ID | Category Name | Target Capability | Example Focus | Failure Risk | Min Allocation | Target Allocation | Max Allocation |
-| :--- | :--- | :--- | :--- | :--- | :---: | :---: | :---: |
-| `CONV` | Conversation | Natural greeting, dialogue turns, friendly interaction | "Hello, who are you?", greetings, courteous closures | Sycophancy, repetitive loop | 4% | 6.0% | 8% |
-| `INST` | Instruction Following | Explicit task constraints (length, bullet points, format) | "List 3 items", "Summarize in 20 words" | Ignoring constraints | 6% | 8.0% | 10% |
-| `QA` | Question Answering | Direct, factual, non-hallucinatory answering | Factual queries on geography, science, history | Hallucinated facts | 5% | 7.0% | 9% |
-| `CTX` | Context Retention | Multi-turn reference resolution, state tracking | Resolving pronouns ("What was his name again?") | Catastrophic context drift | 4% | 6.0% | 8% |
-| `COPY` | Exact Copying | High-fidelity character and string reproduction | Replicating IDs, tokens, exact text blocks | Character substitution | 3% | 4.0% | 6% |
-| `BIND` | Entity Binding | Consistent attribute-entity assignment | "John lives in Delhi, Priya in Pune. Where is John?" | Entity swapped values | 3% | 5.0% | 7% |
-| `ARITH` | Arithmetic | Step-by-step arithmetic ($+,-,\times,\div$), small numbers | "15 + 27 = 42", subtraction with word problems | Arithmetic hallucination | 4% | 6.0% | 8% |
-| `LOGIC` | Logic & Deduction | Modus ponens, syllogisms, basic comparative logic | "All squares are rectangles. A is a square..." | Fallacious leaps | 3% | 5.0% | 7% |
-| `EXPL` | Explanations | Clear conceptual explanations of mechanisms | "How does photosynthesis work?" | Rambling word salad | 5% | 7.0% | 9% |
-| `PYTHON` | Python Programming | Syntactically valid Python code, docstrings, bugs | "Write a function to check if number is prime" | Syntax errors, broken indentation | 6% | 8.0% | 10% |
-| `ENG` | English Linguistic | English grammar, vocabulary, sentence completion | Stylistic variation, English nuances | Lexical degradation | 4% | 6.0% | 8% |
-| `HIN` | Hindi (Devanagari) | Devanagari Hindi instructions and cultural responses | "भारत की राजधानी क्या है?", व्याकरण | Subword scrambling | 6% | 8.0% | 10% |
-| `HING` | Hinglish | Romanized Hindi-English colloquial dialogue | "Mujhe programming seekhni hai, kahan se shuru karun?" | Code-switching confusion | 3% | 4.0% | 6% |
-| `SAN` | Sanskrit | Classical Sanskrit shlokas, grammar, word meaning | Subhashitani meanings, sandhi rules | Script corruption | 2% | 3.0% | 4% |
-| `UNCERT` | Uncertainty & Abstention | Explicit refusal to guess when information is missing | "What is the secret code inside box X?", missing facts | Confident hallucination | 3% | 5.0% | 7% |
-| `FORMAT` | Formatting Constraints | JSON output, markdown tables, numbered lists | "Output as valid JSON: {'key': 'value'}" | Syntax delimiter breaks | 3% | 4.0% | 6% |
-| `CORR` | Error Correction | Acknowledging and repairing mistakes in dialogue | "Actually, 12 * 4 is not 46. Correct yourself." | Stubborn persistence | 2% | 4.0% | 6% |
-| `CLARIF` | Clarification Request | Asking clarifying questions when prompt is ambiguous | "Sort it." -> "Could you specify what to sort?" | Blind assumption | 2% | 4.0% | 6% |
-| **TOTAL** | — | — | — | — | — | **100.0%** | — |
+| Category ID | Category Name | Target Capability | Example Focus | Failure Risk | Target % | Target Records | Min Records | Max Records |
+| :--- | :--- | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| `CONV` | Conversation | Natural greeting, dialogue turns, friendly interaction | "Hello, who are you?", greetings, courteous closures | Sycophancy, repetitive loop | 6.0% | **900** | 720 | 1,125 |
+| `INST` | Instruction Following | Explicit task constraints (length, bullet points, format) | "List 3 items", "Summarize in 20 words" | Ignoring constraints | 8.0% | **1,200** | 960 | 1,500 |
+| `QA` | Question Answering | Direct, factual, non-hallucinatory answering | Factual queries on geography, science, history | Hallucinated facts | 7.0% | **1,050** | 840 | 1,312 |
+| `CTX` | Context Retention | Multi-turn reference resolution, state tracking | Resolving pronouns ("What was his name again?") | Catastrophic context drift | 6.0% | **900** | 720 | 1,125 |
+| `COPY` | Exact Copying | High-fidelity character and string reproduction | Replicating IDs, tokens, exact text blocks | Character substitution | 4.0% | **600** | 480 | 750 |
+| `BIND` | Entity Binding | Consistent attribute-entity assignment | "John lives in Delhi, Priya in Pune. Where is John?" | Entity swapped values | 5.0% | **750** | 600 | 938 |
+| `ARITH` | Arithmetic | Step-by-step arithmetic ($+,-,\times,\div$), small numbers | "15 + 27 = 42", subtraction with word problems | Arithmetic hallucination | 6.0% | **900** | 720 | 1,125 |
+| `LOGIC` | Logic & Deduction | Modus ponens, syllogisms, basic comparative logic | "All squares are rectangles. A is a square..." | Fallacious leaps | 5.0% | **750** | 600 | 938 |
+| `EXPL` | Explanations | Clear conceptual explanations of mechanisms | "How does photosynthesis work?" | Rambling word salad | 7.0% | **1,050** | 840 | 1,312 |
+| `PYTHON` | Python Programming | Syntactically valid Python code, docstrings, bugs | "Write a function to check if number is prime" | Syntax errors, broken indentation | 8.0% | **1,200** | 960 | 1,500 |
+| `ENG` | English Linguistic | English grammar, vocabulary, sentence completion | Stylistic variation, English nuances | Lexical degradation | 6.0% | **900** | 720 | 1,125 |
+| `HIN` | Hindi (Devanagari) | Devanagari Hindi instructions and cultural responses | "भारत की राजधानी क्या है?", व्याकरण | Subword scrambling | 8.0% | **1,200** | 960 | 1,500 |
+| `HING` | Hinglish | Romanized Hindi-English colloquial dialogue | "Mujhe programming seekhni hai, kahan se shuru karun?" | Code-switching confusion | 4.0% | **600** | 480 | 750 |
+| `SAN` | Sanskrit | Classical Sanskrit shlokas, grammar, word meaning | Subhashitani meanings, sandhi rules | Script corruption | 3.0% | **450** | 360 | 562 |
+| `UNCERT` | Uncertainty & Abstention | Explicit refusal to guess when information is missing | "What is the secret code inside box X?", missing facts | Confident hallucination | 5.0% | **750** | 600 | 938 |
+| `FORMAT` | Formatting Constraints | JSON output, markdown tables, numbered lists | "Output as valid JSON: {'key': 'value'}" | Syntax delimiter breaks | 4.0% | **600** | 480 | 750 |
+| `CORR` | Error Correction | Acknowledging and repairing mistakes in dialogue | "Actually, 12 * 4 is not 46. Correct yourself." | Stubborn persistence | 4.0% | **600** | 480 | 750 |
+| `CLARIF` | Clarification Request | Asking clarifying questions when prompt is ambiguous | "Sort it." -> "Could you specify what to sort?" | Blind assumption | 4.0% | **600** | 480 | 750 |
+| **TOTAL** | — | — | — | — | **100.0%** | **15,000** | **12,000** | **18,747** |
+
+### Clarification on Dataset Units:
+The 15,000 target count refers strictly to **unique supervised training examples**, where each record contains exactly one prompt and one gold assistant response turn. For multi-turn conversations, each turn of user-prompt and assistant-response constitutes an individual record with preceding context serialized into the prompt.
+
+### Language Intersection Matrix (Non-Overlapping):
+To avoid double-counting across task categories and languages, language metadata (`language`) is an independent orthogonal attribute for each record:
+- **English (`en`):** 8,250 records (55.0%) across all tasks.
+- **Hindi Devanagari (`hi`):** 4,500 records (30.0%) across all tasks.
+- **Hinglish (`hi-en`):** 1,500 records (10.0%) primarily conversational, QA, and instructional.
+- **Sanskrit (`sa`):** 750 records (5.0%) shlokas, grammar, and translations.
+- **Total Languages:** Exactly 15,000 records (100.0%).
+
+### Dataset Partitioning Splits:
+- **Train Split (80%):** 12,000 records.
+- **Validation Split (10%):** 1,500 records.
+- **Dev Evaluation Split (10%):** 1,500 records.
+- **Quarantined Sealed Final Benchmark:** 500 separately authored probes (strictly excluded from the 15,000 pool).
 
 ---
 
