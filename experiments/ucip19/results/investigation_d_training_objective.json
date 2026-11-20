@@ -1,0 +1,17 @@
+{
+  "audited_records_sample": 500,
+  "mean_prompt_tokens": 34.94,
+  "mean_response_tokens": 34.51,
+  "mean_total_sequence_tokens": 70.44,
+  "prompt_to_response_token_ratio": 1.01,
+  "target_has_terminal_eos_rate": 1.0,
+  "assistant_only_mask_alignment_correct_rate": 1.0,
+  "replay_batch_structure": {
+    "sft_batch_size": 12,
+    "sft_active_tokens_per_step": 426.1,
+    "replay_batch_size": 1,
+    "replay_active_tokens_per_step": 512,
+    "loss_formula": "L = 0.85 * (sum_sft / N_sft) + 0.15 * (sum_rep / N_rep)",
+    "effective_gradient_share_sft": "89.2% norm share, 105.96% projection along g_sft"
+  }
+}
