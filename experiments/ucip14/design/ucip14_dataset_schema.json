@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChakrView SFT Record Schema (Version 1.0)",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "category",
+    "difficulty",
+    "language",
+    "source_id",
+    "provenance",
+    "license",
+    "split",
+    "data_role",
+    "review_status",
+    "contamination_group_id",
+    "prompt",
+    "response",
+    "messages"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^UCIP14-[A-Z]+-[0-9]{5}$",
+      "description": "Unique, deterministic record identifier."
+    },
+    "version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "CONV",
+        "INST",
+        "QA",
+        "CTX",
+        "COPY",
+        "BIND",
+        "ARITH",
+        "LOGIC",
+        "EXPL",
+        "PYTHON",
+        "ENG",
+        "HIN",
+        "HING",
+        "SAN",
+        "UNCERT",
+        "FORMAT",
+        "CORR",
+        "CLARIF"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["EASY", "MEDIUM", "HARD"]
+    },
+    "language": {
+      "type": "string",
+      "enum": ["en", "hi", "hi-en", "sa"]
+    },
+    "source_id": {
+      "type": "string",
+      "description": "Identifier of the verified originating dataset."
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Human-readable lineage and audit history."
+    },
+    "license": {
+      "type": "string",
+      "enum": ["CC0-1.0", "CC-BY-4.0", "MIT", "Apache-2.0"]
+    },
+    "split": {
+      "type": "string",
+      "enum": ["TRAIN", "VALIDATION", "TEST", "SEALED"]
+    },
+    "data_role": {
+      "type": "string",
+      "enum": ["TRAIN", "VALIDATION", "HELD_OUT_BENCHMARK", "SEALED_EVAL"]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["VERIFIED", "PENDING_HUMAN_REVIEW", "REJECTED"]
+    },
+    "contamination_group_id": {
+      "type": "string",
+      "description": "Family ID used for anti-contamination grouping."
+    },
+    "duplicate_group_id": {
+      "type": "string",
+      "description": "Group ID for template clustering."
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Serialized input prompt ending with 'Assistant: '."
+    },
+    "response": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Expected ground-truth target text."
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["system", "user", "assistant"]
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "prompt_token_count": { "type": "integer" },
+        "response_token_count": { "type": "integer" },
+        "total_token_count": { "type": "integer", "maximum": 512 },
+        "verifier": { "type": "string" },
+        "verified_timestamp_utc": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "arm_id": "SFT-A",
+    "name": "Pure Instruction Alignment",
+    "hypothesis": "Fine-tuning exclusively on curated instruction pairs maximizes task adherence and format following, but carries a high risk of catastrophic forgetting of base pretraining representations.",
+    "dataset_mixture": {
+      "instruction_sft_pct": 100.0,
+      "pretraining_replay_pct": 0.0,
+      "total_target_examples": 12000
+    },
+    "learning_rate": 2.5e-5,
+    "lr_schedule": "cosine_with_warmup",
+    "warmup_steps": 50,
+    "total_steps": 400,
+    "effective_batch_size": 32,
+    "loss_masking": "assistant_only",
+    "expected_benefits": "Rapid learning of User/Assistant turn boundaries and high compliance on direct questions.",
+    "failure_risks": "Substantial degradation of Stage C general language modeling loss (+0.50 or higher).",
+    "stop_condition": "Stage C validation loss exceeds 4.95."
+  },
+  {
+    "arm_id": "SFT-B",
+    "name": "Balanced Alignment with Foundational Replay",
+    "hypothesis": "Combining 80% instruction tuning with 20% Stage C pretraining replay provides optimal instruction alignment while strictly preserving base multilingual and coding representations.",
+    "dataset_mixture": {
+      "instruction_sft_pct": 80.0,
+      "pretraining_replay_pct": 20.0,
+      "total_target_examples": 15000
+    },
+    "learning_rate": 2.5e-5,
+    "lr_schedule": "cosine_with_warmup",
+    "warmup_steps": 50,
+    "total_steps": 500,
+    "effective_batch_size": 32,
+    "loss_masking": "hybrid (assistant_only for SFT, full_causal for replay)",
+    "expected_benefits": "High instruction compliance with minimal foundational drift (Stage C validation loss drift < +0.20).",
+    "failure_risks": "Slightly slower convergence on formatting constraints compared to pure SFT.",
+    "stop_condition": "Stage C validation loss exceeds 4.93."
+  },
+  {
+    "arm_id": "SFT-C",
+    "name": "Multilingual-Prioritized Alignment",
+    "hypothesis": "Equalizing instruction data weight across English, Hindi Devanagari, and Hinglish prevents English from dominating vocabulary predictions and prevents Devanagari subword collapse.",
+    "dataset_mixture": {
+      "instruction_sft_pct": 80.0,
+      "pretraining_replay_pct": 20.0,
+      "multilingual_balance": {
+        "english_pct": 40.0,
+        "hindi_devanagari_pct": 35.0,
+        "hinglish_pct": 15.0,
+        "sanskrit_pct": 10.0
+      },
+      "total_target_examples": 15000
+    },
+    "learning_rate": 2.0e-5,
+    "lr_schedule": "cosine_with_warmup",
+    "warmup_steps": 60,
+    "total_steps": 500,
+    "effective_batch_size": 32,
+    "loss_masking": "hybrid",
+    "expected_benefits": "Symmetric multilingual instruction following without degradation in Devanagari generation.",
+    "failure_risks": "Lower peak performance on English technical explanations.",
+    "stop_condition": "Stage C validation loss exceeds 4.93."
+  },
+  {
+    "arm_id": "SFT-D",
+    "name": "Multi-Turn Context & Reasoning Specialization",
+    "hypothesis": "Training with structured multi-turn dialogue histories (2-3 turns) and step-by-step arithmetic/logic chains will establish context retention and entity consistency across conversation turns.",
+    "dataset_mixture": {
+      "multi_turn_dialogue_pct": 35.0,
+      "single_turn_reasoning_pct": 45.0,
+      "pretraining_replay_pct": 20.0,
+      "total_target_examples": 15000
+    },
+    "learning_rate": 2.0e-5,
+    "lr_schedule": "cosine_with_warmup",
+    "warmup_steps": 50,
+    "total_steps": 500,
+    "effective_batch_size": 32,
+    "loss_masking": "multi_turn_assistant_only",
+    "expected_benefits": "Strong context retention on pronoun resolution, entity binding, and multi-turn state tracking.",
+    "failure_risks": "Risk of length truncation as multi-turn sequences approach the 512-token limit.",
+    "stop_condition": "Stage C validation loss exceeds 4.93."
+  }
+]

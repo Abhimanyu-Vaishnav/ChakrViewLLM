@@ -1,0 +1,30 @@
+{
+  "manifest_version": "1.0.0",
+  "mission_id": "UCIP-14",
+  "project": "ChakrView",
+  "creation_timestamp_utc": "2026-11-20T06:38:00Z",
+  "target_model": {
+    "architecture": "ChakrMicro v0.1",
+    "parameters": 3443136,
+    "vocab_size": 4096,
+    "context_length": 512,
+    "base_checkpoint": "experiments/ucip13/checkpoints/primary_seed42/checkpoint_step_800.pt",
+    "base_checkpoint_sha256": "8759ccb4a70989b79c0b4b26876da1d47989ebc61f39831750b6acf0455b9943"
+  },
+  "protected_artifacts": {
+    "session_py_sha256": "9080ff51adba38d4017801fb09fd655e27a854d23b05af557843865e6de9cb67",
+    "canonical_baseline_sha256": "c5571c9c5cb7738625c885481ab2c026a00fa65dfb65e9761ef7eebb00a282da"
+  },
+  "design_documents": [
+    "docs/UCIP_14_INSTRUCTION_ALIGNMENT_ARCHITECTURE.md",
+    "docs/UCIP_14_DATASET_SPECIFICATION.md",
+    "docs/UCIP_14_TRAINING_STRATEGY.md",
+    "docs/UCIP_14_EVALUATION_PROTOCOL.md",
+    "docs/UCIP_14_RETENTION_AND_FORGETTING_PLAN.md",
+    "reports/UCIP_14_DESIGN_REVIEW.md"
+  ],
+  "experiment_matrix": "experiments/ucip14/design/ucip14_experiment_matrix.json",
+  "dataset_schema": "experiments/ucip14/design/ucip14_dataset_schema.json",
+  "training_status": "NOT_AUTHORIZED",
+  "design_verdict": "DESIGN_READY"
+}
