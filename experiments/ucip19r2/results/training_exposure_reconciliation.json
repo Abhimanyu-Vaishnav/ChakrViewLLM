@@ -1,0 +1,18 @@
+{
+  "dataset_total_records": 12000,
+  "dataset_total_target_tokens": 414814,
+  "dataset_mean_target_tokens_per_record": 34.57,
+  "pilot_optimizer_steps": 300,
+  "pilot_sft_batch_size_per_step": 12,
+  "pilot_nominal_sequences_sampled": 3600,
+  "pilot_unique_records_sampled": 3070,
+  "pilot_repeated_samples": 530,
+  "pilot_total_active_target_tokens": 124360,
+  "exposure_metrics": {
+    "nominal_record_exposure_fraction": 0.3,
+    "unique_record_exposure_fraction": 0.2558,
+    "token_level_exposure_fraction": 0.2998,
+    "equivalent_epochs_over_dataset": 0.2998
+  },
+  "exposure_reconciliation": "Clarification: The pilot processed 3,600 sampled sequences over 300 optimizer steps. Because sampling with replacement was used, exactly 3,070 unique records were seen (25.58% of the dataset), with 530 instances being repeated samples. In terms of active target tokens, the model processed 124,360 target tokens out of 414,814 in the corpus, representing an exact token-level exposure fraction of 29.98% (~0.30 equivalent epochs)."
+}
