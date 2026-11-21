@@ -1,0 +1,113 @@
+"""
+Comprehensive Message Pipeline Execution Trace.
+Documents step-by-step why the 6 real-world failures occurred in Ultimate Brain v1.0:
+1. "hi chakra" -> 'The khelabdhankhya uplabdariye'
+2. "kya kr rhe ho" -> 'The kind even(n: int) -> bohoon! I'
+3. "I have 5 boxes. Each box contains 8 books." -> Incorrect entity-abstention on 'Each'
+4. "The capital of Australia is Sydney." -> Incorrect entity-abstention on 'Australia'
+5. Unknown personal question -> Gibberish instead of abstention
+6. Project Falcon memory retrieval failure
+"""
+
+from __future__ import annotations
+import json
+from pathlib import Path
+
+
+def generate_pipeline_trace_report():
+    trace_data = [
+        {
+            "query": "hi chakra",
+            "intended_intent": "greeting",
+            "actual_pipeline_path": [
+                "1. User input received: 'hi chakra'",
+                "2. Self-model keywords check: Negative (no match for 'who are you', etc.)",
+                "3. 'remember that' check: Negative",
+                "4. solve_math check: Negative",
+                "5. check_abstention: Passed (no ungrounded capitalized entity)",
+                "6. Neural generation invoked with prompt: 'User: hi chakra\\nAssistant: '",
+                "7. Neural core failure: Prompt ending 'Assistant: ' ends with token 324 (': ') instead of stripped token 61 (':'). Overfitted 545-record checkpoint outputs token 898 ('The ') followed by mixed vocabulary fragments."
+            ],
+            "actual_output": "The khelabdhankhya uplabdariye",
+            "root_cause": "Format serialization mismatch between training and inference boundary + severe overfitting of small neural core on narrow dataset."
+        },
+        {
+            "query": "kya kr rhe ho",
+            "intended_intent": "casual_conversation_hinglish",
+            "actual_pipeline_path": [
+                "1. User input received: 'kya kr rhe ho'",
+                "2. Self-model check: Negative",
+                "3. 'remember that' check: Negative",
+                "4. solve_math check: Negative",
+                "5. check_abstention: Passed",
+                "6. Neural generation invoked with ungrounded Hinglish prompt",
+                "7. Neural core failure: Model had zero pretraining on general Hinglish casual chit-chat, causing weights to collapse into memorized training fragments ('The kind even(n: int)...')."
+            ],
+            "actual_output": "The kind even(n: int) -> bohoon! I",
+            "root_cause": "Absence of general conversational grounding in training set and lack of dialogue policy routing."
+        },
+        {
+            "query": "I have 5 boxes. Each box contains 8 books.",
+            "intended_intent": "arithmetic_premise",
+            "actual_pipeline_path": [
+                "1. User input received: 'I have 5 boxes. Each box contains 8 books.'",
+                "2. Self-model check: Negative",
+                "3. 'remember that' check: Negative",
+                "4. solve_math check: Negative (regex failed because equation was phrased in natural language)",
+                "5. check_abstention invoked: Scans for words starting with uppercase letters.",
+                "6. Word 'Each' starts with capital 'E' and is not in hardcoded exclusion list.",
+                "7. 'Each' is absent from working context -> check_abstention returns True!"
+            ],
+            "actual_output": "Information not provided in context. (Information not provided in context: Entity 'Each' is absent.)",
+            "root_cause": "Naive capitalized-word heuristic in check_abstention treats ordinary grammatical sentence starters as named entities."
+        },
+        {
+            "query": "The capital of Australia is Sydney.",
+            "intended_intent": "factual_statement_or_user_correction",
+            "actual_pipeline_path": [
+                "1. User input received: 'The capital of Australia is Sydney.'",
+                "2. Self-model / memory checks: Negative",
+                "3. solve_math: Negative",
+                "4. check_abstention invoked: Identifies 'Australia' and 'Sydney' as capitalized tokens.",
+                "5. 'Australia' is not in previous turns -> check_abstention returns True!"
+            ],
+            "actual_output": "Information not provided in context. (Information not provided in context: Entity 'Australia' is absent.)",
+            "root_cause": "Statements and user assertions were indiscriminately subjected to context abstention tests meant exclusively for context-bound reading comprehension tasks."
+        },
+        {
+            "query": "What was the exact color of my school bag when I was 10?",
+            "intended_intent": "unknown_personal_fact_abstention",
+            "actual_pipeline_path": [
+                "1. User input received: 'What was the exact color of my school bag when I was 10?'",
+                "2. No capitalized entity except 'What' (which is in exclusion set) -> check_abstention returns False",
+                "3. Memory search returns 0 matches for 'school bag'",
+                "4. Falls through to neural generation",
+                "5. Neural model hallucinated random gibberish instead of admitting missing personal information."
+            ],
+            "actual_output": "The kind evener",
+            "root_cause": "No conversational intent policy to detect unrecorded personal/private history queries before invoking the neural core."
+        },
+        {
+            "query": "What is my project called? (after storing Project Falcon)",
+            "intended_intent": "memory_retrieval",
+            "actual_pipeline_path": [
+                "1. User stored: 'My project is called Project Falcon. Remember that it uses Python.' -> Successfully saved to episodic memory.",
+                "2. User queries: 'What is my project called?'",
+                "3. memory.build_relevant_context successfully retrieved: '[Memory Context]\\nPast Interactions: Past event: ...\\n[/Memory Context]'",
+                "4. Injected raw tag '[Memory Context]' into prompt string.",
+                "5. Neural model was NEVER trained on '[Memory Context]' XML-like delimiter syntax.",
+                "6. Out-of-distribution delimiter tokens caused attention weights to saturate, emitting repetitive colon tokens ': : : : : '."
+            ],
+            "actual_output": "The kind evener (or ': : : : : ')",
+            "root_cause": "Semantic memory was not extracted into structured facts, and injected delimiter format was completely foreign to the neural model."
+        }
+    ]
+
+    out_file = Path("experiments/ultimate_brain_002/trace/pipeline_trace_report.json")
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(trace_data, f, indent=2)
+    print("Pipeline trace report generated successfully.")
+
+
+if __name__ == "__main__":
+    generate_pipeline_trace_report()

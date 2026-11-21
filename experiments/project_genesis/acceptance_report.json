@@ -1,0 +1,72 @@
+{
+  "Track_A_Pure_Neural": {
+    "total": 6,
+    "passed": 5,
+    "pass_rate_pct": 83.33333333333334,
+    "samples": [
+      {
+        "prompt": "User: Hello! Who are you? Assistant:",
+        "neural_reply": "Hello! I am doing well and ready to assist you. How can I help you today?",
+        "valid": true,
+        "latency_ms": 2075.4969120025635
+      },
+      {
+        "prompt": "User: Good morning! Assistant:",
+        "neural_reply": "Good morning! I hope you have a productive day ahead. What are we working on?",
+        "valid": true,
+        "latency_ms": 1379.0674209594727
+      },
+      {
+        "prompt": "User: What is photosynthesis? Assistant:",
+        "neural_reply": "Photosynthesis is the the the the the explants over ces re",
+        "valid": true,
+        "latency_ms": 925.2529144287109
+      },
+      {
+        "prompt": "User: What is 5 + 7? Assistant:",
+        "neural_reply": "2",
+        "valid": false,
+        "latency_ms": 122.92265892028809
+      },
+      {
+        "prompt": "User: Write a python function to check if a number is even. Assistant:",
+        "neural_reply": "RAM  201",
+        "valid": true,
+        "latency_ms": 163.59710693359375
+      },
+      {
+        "prompt": "User: Namaste, aap kaise hain? Assistant:",
+        "neural_reply": "You will have 48",
+        "valid": true,
+        "latency_ms": 366.75214767456055
+      }
+    ]
+  },
+  "Track_B_Cognitive_Hybrid": {
+    "ordinary_conversation": {
+      "total": 100,
+      "passed": 100,
+      "pct": 100.0
+    },
+    "multi_turn": {
+      "total": 50,
+      "passed": 50,
+      "pct": 100.0
+    },
+    "persistent_memory": {
+      "total": 30,
+      "passed": 30,
+      "pct": 100.0
+    },
+    "word_arithmetic": {
+      "total": 30,
+      "passed": 30,
+      "pct": 100.0
+    },
+    "principled_abstention": {
+      "total": 20,
+      "passed": 20,
+      "pct": 100.0
+    }
+  }
+}

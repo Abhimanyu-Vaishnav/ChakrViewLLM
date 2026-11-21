@@ -1,0 +1,545 @@
+{
+  "ChakrConv_v01_best": {
+    "checkpoint_sha256": "0f55f25a1c202f456186c3c0c99575b823df6b4c8f85cb61ebac60aaa9b8fa05",
+    "overall_accuracy_pct": 1.6666666666666667,
+    "tokens_per_sec": 149.19331030056955,
+    "avg_latency_ms": 74.17669494946797,
+    "attractor_detections": {
+      "#": 0,
+      "A": 0,
+      "[": 0,
+      "repetitive_loop": 0
+    },
+    "category_breakdown": {
+      "social": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "abstention": {
+        "count": 8,
+        "exact_match_pct": 25.0,
+        "non_empty_pct": 100.0
+      },
+      "arithmetic": {
+        "count": 36,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 69.44444444444444
+      },
+      "greeting": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "context_retrieval": {
+        "count": 24,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "multi_turn": {
+        "count": 10,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "explanation": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "code": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "qa": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      }
+    },
+    "sample_outputs": [
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "yoou I as",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Suchna: OptiRoute Patna mein sthit hai. Prashna: OptiRoute ke kitne karmchari hain? Sankshipt uttar dein: Assistant: ",
+        "expected": "Sandarbh mein karmchariyon ki sankhya uplabdh nahi hai.",
+        "predicted": "Sandariyou can use two ind yon ki sankhya uplabdarbh nahi hai.",
+        "exact_match": false,
+        "category": "abstention",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Evaluate 10 * 1. Assistant: ",
+        "expected": "10",
+        "predicted": "Hello! I assis you tod?",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Greetings system! Assistant: ",
+        "expected": "Greetings! How may I be of service today?",
+        "predicted": "Good morning! I hoon! I hoon! What you",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "Hello! I assis on you tod?",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hello there assistant! Assistant: ",
+        "expected": "Hello! What questions can I answer for you?",
+        "predicted": "Hello! ow can I assist you today?",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: OptiRoute is located in Patna and was founded in 2017 by Anil Jha. Question: Where is OptiRoute located? Answer concisely: Assistant: ",
+        "expected": "Patna",
+        "predicted": "20",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: Hello! Data science is a great domain. Are you currently working with Python? User: Yes, practicing with pandas and numpy. Assistant: ",
+        "expected": "Pandas and NumPy form the core data manipulation toolkit in Python data workflows.",
+        "predicted": "Goooou I ast se shuru What's on you aur Java",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Calculate 23 + 7. Assistant: ",
+        "expected": "30",
+        "predicted": "",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: What is an algorithm in computing? Assistant: ",
+        "expected": "An algorithm is a step-by-step sequence of instructions designed to solve a specific problem.",
+        "predicted": "I",
+        "exact_match": false,
+        "category": "explanation",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: ",
+        "expected": "Hello! Data science is a great domain. Are you currently working with Python?",
+        "predicted": "Hello! oood evening! I assist you",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: CoreSecure was established by Lakshmi Raman to develop Cryptographic HSM. Question: Who founded CoreSecure? Answer concisely: Assistant: ",
+        "expected": "Lakshmi Raman",
+        "predicted": "Go",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "yoou I as",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Write a Python function to return the length of a string. Assistant: ",
+        "expected": "def get_length(s: str) -> int:\n    return len(s)",
+        "predicted": "def is_even(n: int) -> bool: 2 == 0",
+        "exact_match": false,
+        "category": "code",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "Hello! I assis on you tod?",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      }
+    ]
+  },
+  "ChakrMicro_step800": {
+    "checkpoint_sha256": "8759ccb4a70989b79c0b4b26876da1d47989ebc61f39831750b6acf0455b9943",
+    "overall_accuracy_pct": 0.0,
+    "tokens_per_sec": 138.53628649565798,
+    "avg_latency_ms": 222.38457600275677,
+    "attractor_detections": {
+      "#": 120,
+      "A": 0,
+      "[": 0,
+      "repetitive_loop": 0
+    },
+    "category_breakdown": {
+      "social": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "abstention": {
+        "count": 8,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "arithmetic": {
+        "count": 36,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "greeting": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "context_retrieval": {
+        "count": 24,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "multi_turn": {
+        "count": 10,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "explanation": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "code": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "qa": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      }
+    },
+    "sample_outputs": [
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "### center\nStep-pass\n\n##############",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Suchna: OptiRoute Patna mein sthit hai. Prashna: OptiRoute ke kitne karmchari hain? Sankshipt uttar dein: Assistant: ",
+        "expected": "Sandarbh mein karmchariyon ki sankhya uplabdh nahi hai.",
+        "predicted": "### The first of the pather of the show whis to be a fastanda",
+        "exact_match": false,
+        "category": "abstention",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Evaluate 10 * 1. Assistant: ",
+        "expected": "10",
+        "predicted": "## cents a fill be the show of the past of the gow which is the fi",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Greetings system! Assistant: ",
+        "expected": "Greetings! How may I be of service today?",
+        "predicted": "## center:\n#######################",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "## The show of the past of the fay of the cents in the first of the most",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hello there assistant! Assistant: ",
+        "expected": "Hello! What questions can I answer for you?",
+        "predicted": "## center:\n#######################",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: OptiRoute is located in Patna and was founded in 2017 by Anil Jha. Question: Where is OptiRoute located? Answer concisely: Assistant: ",
+        "expected": "Patna",
+        "predicted": "### The fastandars in the past of the show which is the first of",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: Hello! Data science is a great domain. Are you currently working with Python? User: Yes, practicing with pandas and numpy. Assistant: ",
+        "expected": "Pandas and NumPy form the core data manipulation toolkit in Python data workflows.",
+        "predicted": "## The show of the past of the fay of the first of the canday of the",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Calculate 23 + 7. Assistant: ",
+        "expected": "30",
+        "predicted": "## The show of the pay of the canday of the facks.\n\nStep-",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: What is an algorithm in computing? Assistant: ",
+        "expected": "An algorithm is a step-by-step sequence of instructions designed to solve a specific problem.",
+        "predicted": "## The show of the first of the pay of the canday of the facks.",
+        "exact_match": false,
+        "category": "explanation",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: ",
+        "expected": "Hello! Data science is a great domain. Are you currently working with Python?",
+        "predicted": "## The first of the show of the past of the canday of the friting the",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: CoreSecure was established by Lakshmi Raman to develop Cryptographic HSM. Question: Who founded CoreSecure? Answer concisely: Assistant: ",
+        "expected": "Lakshmi Raman",
+        "predicted": "### The first of the pay of the show of the cents in the fution:\nS",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "### center\nStep-pass\n\n##############",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Write a Python function to return the length of a string. Assistant: ",
+        "expected": "def get_length(s: str) -> int:\n    return len(s)",
+        "predicted": "## The show of the fay of the past of the canday of the first of the",
+        "exact_match": false,
+        "category": "code",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "## The show of the past of the fay of the cents in the first of the most",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      }
+    ]
+  },
+  "UCIP20_best": {
+    "checkpoint_sha256": "0b4b745e923188c6320c8c7290031bff665786c4f4c1c71a74484bcaec6b1a27",
+    "overall_accuracy_pct": 0.0,
+    "tokens_per_sec": 148.86189023876904,
+    "avg_latency_ms": 80.94751437505086,
+    "attractor_detections": {
+      "#": 0,
+      "A": 41,
+      "[": 0,
+      "repetitive_loop": 11
+    },
+    "category_breakdown": {
+      "social": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "abstention": {
+        "count": 8,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "arithmetic": {
+        "count": 36,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "greeting": {
+        "count": 12,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "context_retrieval": {
+        "count": 24,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "multi_turn": {
+        "count": 10,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 50.0
+      },
+      "explanation": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "code": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      },
+      "qa": {
+        "count": 6,
+        "exact_match_pct": 0.0,
+        "non_empty_pct": 100.0
+      }
+    },
+    "sample_outputs": [
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "| standard Analyst",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Suchna: OptiRoute Patna mein sthit hai. Prashna: OptiRoute ke kitne karmchari hain? Sankshipt uttar dein: Assistant: ",
+        "expected": "Sandarbh mein karmchariyon ki sankhya uplabdh nahi hai.",
+        "predicted": "Aeroustandard Chandray",
+        "exact_match": false,
+        "category": "abstention",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Evaluate 10 * 1. Assistant: ",
+        "expected": "10",
+        "predicted": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Greetings system! Assistant: ",
+        "expected": "Greetings! How may I be of service today?",
+        "predicted": "Specialy",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "Analyst",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hello there assistant! Assistant: ",
+        "expected": "Hello! What questions can I answer for you?",
+        "predicted": "| |\n\nStegal-pecium | | | | | | | | |",
+        "exact_match": false,
+        "category": "greeting",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: OptiRoute is located in Patna and was founded in 2017 by Anil Jha. Question: Where is OptiRoute located? Answer concisely: Assistant: ",
+        "expected": "Patna",
+        "predicted": "Aerology",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: Hello! Data science is a great domain. Are you currently working with Python? User: Yes, practicing with pandas and numpy. Assistant: ",
+        "expected": "Pandas and NumPy form the core data manipulation toolkit in Python data workflows.",
+        "predicted": "",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Calculate 23 + 7. Assistant: ",
+        "expected": "30",
+        "predicted": "Analyst",
+        "exact_match": false,
+        "category": "arithmetic",
+        "language": "en"
+      },
+      {
+        "prompt": "User: What is an algorithm in computing? Assistant: ",
+        "expected": "An algorithm is a step-by-step sequence of instructions designed to solve a specific problem.",
+        "predicted": "A\nStegal",
+        "exact_match": false,
+        "category": "explanation",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Hi assistant, I am learning data science. Assistant: ",
+        "expected": "Hello! Data science is a great domain. Are you currently working with Python?",
+        "predicted": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "exact_match": false,
+        "category": "multi_turn",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Document snippet: CoreSecure was established by Lakshmi Raman to develop Cryptographic HSM. Question: Who founded CoreSecure? Answer concisely: Assistant: ",
+        "expected": "Lakshmi Raman",
+        "predicted": "Information not Airce",
+        "exact_match": false,
+        "category": "context_retrieval",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Aapko bahut dhanyawaad! Assistant: ",
+        "expected": "Khushi hui aapki madad karke!",
+        "predicted": "| standard Analyst",
+        "exact_match": false,
+        "category": "social",
+        "language": "hinglish"
+      },
+      {
+        "prompt": "User: Write a Python function to return the length of a string. Assistant: ",
+        "expected": "def get_length(s: str) -> int:\n    return len(s)",
+        "predicted": "Stegals in Aerology",
+        "exact_match": false,
+        "category": "code",
+        "language": "en"
+      },
+      {
+        "prompt": "User: Bye for now! Assistant: ",
+        "expected": "Bye! Have a wonderful day.",
+        "predicted": "Analyst",
+        "exact_match": false,
+        "category": "social",
+        "language": "en"
+      }
+    ]
+  }
+}
