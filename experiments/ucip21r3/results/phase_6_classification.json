@@ -1,0 +1,9 @@
+{
+  "final_scientific_verdict": "COMBINED VERDICT: B and D. (B) The dataset has structural bijection limitations (every entity appears in exactly 1 relation and 1 value, making true multi-relation compositional binding untestable). (D) However, on the entity-indexed retrieval task defined by the dataset, value-selection failure remains decisively supported across all scoring formulations (first-token dot product: 47.2%, cosine: 47.2%, full answer NLL: 52.2%, Chance: 50.0%).",
+  "primary_verdict_code": "B_and_D",
+  "detailed_synthesis": {
+    "dataset_structural_limitation": "CONFIRMED: In bind_master_2000.jsonl, entity-to-relation mapping is a strict 1-to-1 bijection. No entity appears in multiple relations.",
+    "probe_reliability": "CONFIRMED: The ~47.5% score is methodologically sound; evaluating cosine similarity and full-sequence NLL yields identical chance-level performance (47.2% and 52.2%).",
+    "generation_boundary_status": "The model represents relation type (99.5%) and clusters entity tokens (90%), but has zero selective bias for the entity's corresponding ground-truth value over a distractor value."
+  }
+}

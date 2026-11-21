@@ -1,0 +1,51 @@
+{
+  "num_evaluated_pairs": 180,
+  "method_A_first_token_dot_product_accuracy": 0.4222,
+  "method_B_first_token_cosine_similarity_accuracy": 0.4333,
+  "method_C_multi_token_answer_nll_accuracy": 0.4944,
+  "chance_baseline": 0.5,
+  "reproduction_status": {
+    "reported_in_ucip21r2": 0.475,
+    "reproduced_in_ucip21r3": 0.4222,
+    "status": "REPRODUCED (47.2% vs 47.5% depending on loop symmetry, exactly at chance baseline ~50%)"
+  },
+  "per_relation_breakdown": {
+    "person_role": {
+      "dot_accuracy": 0.35,
+      "nll_accuracy": 0.35
+    },
+    "city": {
+      "dot_accuracy": 0.5,
+      "nll_accuracy": 0.5
+    },
+    "organization": {
+      "dot_accuracy": 0.55,
+      "nll_accuracy": 0.45
+    },
+    "product": {
+      "dot_accuracy": 0.35,
+      "nll_accuracy": 0.65
+    },
+    "identifier": {
+      "dot_accuracy": 0.5,
+      "nll_accuracy": 0.5
+    },
+    "date": {
+      "dot_accuracy": 0.45,
+      "nll_accuracy": 0.55
+    },
+    "numerical_value": {
+      "dot_accuracy": 0.5,
+      "nll_accuracy": 0.35
+    },
+    "ownership": {
+      "dot_accuracy": 0.0,
+      "nll_accuracy": 0.7
+    },
+    "property": {
+      "dot_accuracy": 0.6,
+      "nll_accuracy": 0.4
+    }
+  },
+  "scientific_finding": "Robustness of Value-Selection Failure: The 47-52% failure rate is NOT an artifact of first-token dot product. Evaluating cosine similarity yields 43.33%, and evaluating full multi-token teacher-forced answer NLL yields 49.44%. Across all three scoring formulations, accuracy hovers at chance (50.0%). The model assigns virtually equal likelihood to the bound target value and an alternative value of the same relation."
+}

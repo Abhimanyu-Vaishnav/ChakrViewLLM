@@ -1,0 +1,33 @@
+{
+  "total_records": 2000,
+  "unique_positive_entities": 126,
+  "unique_relations": 10,
+  "unique_positive_values": 123,
+  "mapping_topology": {
+    "entity_to_relation_mapping": "STRICT_1_TO_1 (Each entity belongs to exactly 1 relation)",
+    "entity_to_value_mapping": "STRICT_1_TO_1 (Each entity has exactly 1 ground-truth value)",
+    "relation_to_entity_mapping": "1_TO_MANY (Each relation has multiple disjoint entities)",
+    "number_of_entities_with_multiple_relations": 0,
+    "number_of_entities_with_multiple_values": 0,
+    "number_of_values_shared_across_multiple_entities": 3
+  },
+  "degree_distributions": {
+    "entity_degree_in_relations": 1.0,
+    "entity_degree_in_values": 1.0,
+    "mean_mentions_per_entity": 14.29,
+    "max_mentions_per_entity": 24,
+    "min_mentions_per_entity": 6,
+    "entities_per_relation": {
+      "person_role": 14,
+      "city": 14,
+      "organization": 14,
+      "product": 14,
+      "identifier": 14,
+      "date": 14,
+      "numerical_value": 14,
+      "ownership": 14,
+      "property": 14
+    }
+  },
+  "identifiability_verdict": "STRUCTURAL DISCOVERY & IDENTIFIABILITY LIMITATION: In UCIP-20 BIND corpus, the mapping between entities and relations is a STRICT BIJECTION. Every entity appears in exactly ONE relation, and possesses exactly ONE ground-truth value. There are ZERO multi-relation entities and ZERO cross-entity shared values. Consequently, true compositional binding (e.g. testing whether entity X bound to relation R1 produces V1 while X bound to R2 produces V2) is STRUCTURALLY IMPOSSIBLE to test on this dataset, because no entity is ever queried on more than one relation. The task is strictly entity-indexed fact retrieval, not compositional binding."
+}

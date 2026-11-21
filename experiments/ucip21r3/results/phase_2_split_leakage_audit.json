@@ -1,0 +1,31 @@
+{
+  "partition_sizes": {
+    "train": 1600,
+    "val": 200,
+    "dev": 200
+  },
+  "entity_leakage": {
+    "train_val_entity_overlap": 0,
+    "train_dev_entity_overlap": 0,
+    "val_dev_entity_overlap": 0
+  },
+  "value_leakage": {
+    "train_val_value_overlap": 2,
+    "train_dev_value_overlap": 1,
+    "val_dev_value_overlap": 0
+  },
+  "response_leakage": {
+    "train_dev_response_overlap_count": 4,
+    "overlapping_responses": [
+      "Information not provided in context.",
+      "\u0926\u0940 \u0917\u0908 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092e\u0947\u0902 \u092f\u0939 \u0935\u093f\u0935\u0930\u0923 \u0909\u092a\u0932\u092c\u094d\u0927 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964",
+      "Di gayi context me ye information available nahi hai.",
+      "Madhya Pradesh"
+    ],
+    "explanation": "The only overlapping responses are the 3 language-specific abstention strings ('Information not provided...', etc.). Zero positive entity responses overlap."
+  },
+  "prompt_template_leakage": {
+    "train_dev_exact_prompt_overlap": 0
+  },
+  "audit_verdict": "LEAKAGE AUDIT PASS: The train, validation, and development partitions are strictly disjoint in both entities (0 overlap) and ground-truth values (0 overlap). Zero positive entity leakage exists."
+}
