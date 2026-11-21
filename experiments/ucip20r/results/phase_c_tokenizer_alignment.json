@@ -1,0 +1,66 @@
+{
+  "audited_records_count": 100,
+  "bos_position_correct_rate": 1.0,
+  "terminal_eos_supervised_rate": 1.0,
+  "prompt_masked_exact_rate": 1.0,
+  "entity_tokenization_survival_rate": 1.0,
+  "sequence_truncation_incidents": 0,
+  "sample_traces": [
+    {
+      "id": "UCIP20-BIND-TRAIN-01310",
+      "target_entity": "Diamond",
+      "input_token_count": 157,
+      "target_token_count": 157,
+      "prompt_tokens_masked": 133,
+      "response_tokens_supervised": 24,
+      "first_supervised_target_token_id": 964,
+      "first_supervised_target_token_str": "high",
+      "terminal_target_token_id": 1
+    },
+    {
+      "id": "UCIP20-BIND-TRAIN-00229",
+      "target_entity": "CSIR",
+      "input_token_count": 152,
+      "target_token_count": 152,
+      "prompt_tokens_masked": 138,
+      "response_tokens_supervised": 14,
+      "first_supervised_target_token_id": 81,
+      "first_supervised_target_token_str": "N",
+      "terminal_target_token_id": 1
+    },
+    {
+      "id": "UCIP20-BIND-TRAIN-00052",
+      "target_entity": "Deepak",
+      "input_token_count": 98,
+      "target_token_count": 98,
+      "prompt_tokens_masked": 91,
+      "response_tokens_supervised": 7,
+      "first_supervised_target_token_id": 1574,
+      "first_supervised_target_token_str": "Comp",
+      "terminal_target_token_id": 1
+    },
+    {
+      "id": "UCIP20-BIND-TRAIN-01519",
+      "target_entity": "ECIL",
+      "input_token_count": 147,
+      "target_token_count": 147,
+      "prompt_tokens_masked": 126,
+      "response_tokens_supervised": 21,
+      "first_supervised_target_token_id": 72,
+      "first_supervised_target_token_str": "E",
+      "terminal_target_token_id": 1
+    },
+    {
+      "id": "UCIP20-BIND-TRAIN-00564",
+      "target_entity": "Zenith Cloud",
+      "input_token_count": 123,
+      "target_token_count": 123,
+      "prompt_tokens_masked": 113,
+      "response_tokens_supervised": 10,
+      "first_supervised_target_token_id": 586,
+      "first_supervised_target_token_str": "dat",
+      "terminal_target_token_id": 1
+    }
+  ],
+  "finding": "Verified: Tokenizer and target alignment are 100% compliant with causal SFT standards. BOS is at position 0, exactly len(p_toks) tokens receive -100 loss mask, answer tokens receive active loss, and EOS (ID 1) is strictly supervised at the end of the response sequence."
+}

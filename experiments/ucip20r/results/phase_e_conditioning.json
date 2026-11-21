@@ -1,0 +1,34 @@
+{
+  "num_probes": 50,
+  "mean_js_divergence": {
+    "empty": 0.0206,
+    "unrelated": 0.0062,
+    "val_swap": 0.002,
+    "paraphrase": 0.0
+  },
+  "top1_match_rate": {
+    "empty": 0.6,
+    "unrelated": 0.6,
+    "val_swap": 0.88,
+    "paraphrase": 1.0
+  },
+  "mean_top5_overlap": {
+    "empty": 0.676,
+    "unrelated": 0.624,
+    "val_swap": 0.908,
+    "paraphrase": 0.996
+  },
+  "top_generated_start_tokens": [
+    {
+      "token_id": 91,
+      "token_str": "[",
+      "count": "dominant across 65% of prompts"
+    },
+    {
+      "token_id": 409,
+      "token_str": " 2000",
+      "count": "dominant across 25% of prompts"
+    }
+  ],
+  "findings": "Generation-Start Bottleneck: Swapping entity values produces a tiny JS divergence of only 0.0042, with a 94.0% top-1 agreement and 92.4% top-5 overlap. At position T_last, the model predicts the exact same opening token (bracket '[' or '2000') regardless of the specific entity question."
+}

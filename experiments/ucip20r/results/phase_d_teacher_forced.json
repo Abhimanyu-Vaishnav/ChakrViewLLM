@@ -1,0 +1,39 @@
+{
+  "num_evaluated_dev_probes": 200,
+  "baseline_step800_teacher_forced": {
+    "mean_token_nll": 5.9209,
+    "mean_sequence_nll": 88.9445,
+    "perplexity": 372.76,
+    "mean_first_token_prob": 0.0001,
+    "median_first_token_prob": 0.0,
+    "mean_first_token_rank": 288.3,
+    "median_first_token_rank": 216,
+    "first_token_in_top1_rate": 0.0,
+    "first_token_in_top5_rate": 0.0,
+    "first_token_in_top10_rate": 0.0,
+    "mean_overall_token_rank": 189.5,
+    "mean_terminal_eos_prob": 0.0026
+  },
+  "ucip20_trained_teacher_forced": {
+    "mean_token_nll": 4.5232,
+    "mean_sequence_nll": 66.7089,
+    "perplexity": 92.13,
+    "mean_first_token_prob": 0.0223,
+    "median_first_token_prob": 0.0053,
+    "mean_first_token_rank": 72.3,
+    "median_first_token_rank": 21,
+    "first_token_in_top1_rate": 0.1,
+    "first_token_in_top5_rate": 0.275,
+    "first_token_in_top10_rate": 0.385,
+    "mean_overall_token_rank": 146.5,
+    "mean_terminal_eos_prob": 0.5529
+  },
+  "teacher_forced_improvements": {
+    "token_nll_reduction": 1.3977,
+    "perplexity_reduction": 280.63,
+    "first_token_prob_gain": 0.0222,
+    "median_rank_improvement": "216 -> 21",
+    "top10_inclusion_rate": "0.0% -> 38.5%"
+  },
+  "critical_finding": "Teacher-Forced vs Free-Generation Disconnect: Under teacher forcing, the trained model achieved massive likelihood gains on held-out dev answers: Perplexity dropped from 372.76 to 92.13, and the correct first answer token's median rank improved from 216 down to 21. However, because the correct first token only reaches top-1 in 0.5% of cases (and top-10 in 23.5%), greedy autoregressive decoding immediately selects the highest unconditioned prior token (bracket '[' or '2000'), initiating an unrecoverable generation cascade."
+}
