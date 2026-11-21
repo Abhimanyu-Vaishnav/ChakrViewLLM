@@ -1,0 +1,556 @@
+{
+  "step800": {
+    "checkpoint": "step800",
+    "overall_accuracy": 0.0,
+    "overall_ci_95": [
+      0.0,
+      0.0038
+    ],
+    "task_metrics": {
+      "task_a_entity_identity": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_b_relation_recognition": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_c_fact_retrieval": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_d_multi_relation_binding": {
+        "correct": 0,
+        "total": 160,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.0234
+        ]
+      },
+      "task_e_compositional_generalization": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_f_contextual_binding": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_g_distractor_resistance": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_h_abstention": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      }
+    },
+    "split_metrics": {
+      "dev_compositional_unseen_pair": {
+        "correct": 0,
+        "total": 180,
+        "accuracy": 0.0
+      },
+      "dev_contextual_arbitrary_binding": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0
+      },
+      "dev_entity_disjoint": {
+        "correct": 0,
+        "total": 200,
+        "accuracy": 0.0
+      },
+      "dev_relation_disjoint": {
+        "correct": 0,
+        "total": 40,
+        "accuracy": 0.0
+      },
+      "train_exemplar": {
+        "correct": 0,
+        "total": 460,
+        "accuracy": 0.0
+      }
+    },
+    "error_categories": {
+      "Incorrect value or attractor output": 600,
+      "Relational crosstalk or wrong attribute": 160,
+      "Distractor intrusion or wrong value": 120,
+      "Failure to abstain": 120
+    },
+    "sample_errors": [
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00001",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses NovaTrack. Text snippet 2 discusses NovaTrack.\nQu...",
+        "target": "Yes",
+        "prediction": "The show of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00002",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses HyperLink. Text snippet 2 discusses OptoBus.\nQues...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00003",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses QuantumSensor. Text snippet 2 discusses QuantumSe...",
+        "target": "Yes",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00004",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses VayuRobotics. Text snippet 2 discusses InfraWave....",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00005",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses DakshaTech. Text snippet 2 discusses DakshaTech.\n...",
+        "target": "Yes",
+        "prediction": "The show of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00006",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AeroSystems. Text snippet 2 discusses AstraCore.\n...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00007",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses SolarPulse. Text snippet 2 discusses SolarPulse.\n...",
+        "target": "Yes",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00008",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses CyberNet. Text snippet 2 discusses CaelumNet.\nQue...",
+        "target": "No",
+        "prediction": "The show of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00009",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses OptoBus. Text snippet 2 discusses OptoBus.\nQuesti...",
+        "target": "Yes",
+        "prediction": "the pather of the past of the show of",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00010",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses NanoGrid. Text snippet 2 discusses KavachAI.\nQues...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00011",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses InfraWave. Text snippet 2 discusses InfraWave.\nQu...",
+        "target": "Yes",
+        "prediction": "the first of the pay of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00012",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses TerraData. Text snippet 2 discusses PrithviTech.\n...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00013",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AstraCore. Text snippet 2 discusses AstraCore.\nQu...",
+        "target": "Yes",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00014",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses ApexCompute. Text snippet 2 discusses KiranDynami...",
+        "target": "No",
+        "prediction": "the first of the pay of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00015",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses CaelumNet. Text snippet 2 discusses CaelumNet.\nQu...",
+        "target": "Yes",
+        "prediction": "The show of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00016",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses VortexChip. Text snippet 2 discusses JalPlatform....",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00017",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses KavachAI. Text snippet 2 discusses KavachAI.\nQues...",
+        "target": "Yes",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00018",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses MeghLogic. Text snippet 2 discusses VarunLogic.\nQ...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00019",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses PrithviTech. Text snippet 2 discusses PrithviTech...",
+        "target": "Yes",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00020",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AgniProcessor. Text snippet 2 discusses IndusComp...",
+        "target": "No",
+        "prediction": "the first of the show of the show of the",
+        "category": "Incorrect value or attractor output"
+      }
+    ]
+  },
+  "ucip20_best": {
+    "checkpoint": "ucip20_best",
+    "overall_accuracy": 0.0,
+    "overall_ci_95": [
+      0.0,
+      0.0038
+    ],
+    "task_metrics": {
+      "task_a_entity_identity": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_b_relation_recognition": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_c_fact_retrieval": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_d_multi_relation_binding": {
+        "correct": 0,
+        "total": 160,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.0234
+        ]
+      },
+      "task_e_compositional_generalization": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_f_contextual_binding": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_g_distractor_resistance": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      },
+      "task_h_abstention": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0,
+        "ci_95": [
+          0.0,
+          0.031
+        ]
+      }
+    },
+    "split_metrics": {
+      "dev_compositional_unseen_pair": {
+        "correct": 0,
+        "total": 180,
+        "accuracy": 0.0
+      },
+      "dev_contextual_arbitrary_binding": {
+        "correct": 0,
+        "total": 120,
+        "accuracy": 0.0
+      },
+      "dev_entity_disjoint": {
+        "correct": 0,
+        "total": 200,
+        "accuracy": 0.0
+      },
+      "dev_relation_disjoint": {
+        "correct": 0,
+        "total": 40,
+        "accuracy": 0.0
+      },
+      "train_exemplar": {
+        "correct": 0,
+        "total": 460,
+        "accuracy": 0.0
+      }
+    },
+    "error_categories": {
+      "Incorrect value or attractor output": 600,
+      "Relational crosstalk or wrong attribute": 160,
+      "Distractor intrusion or wrong value": 120,
+      "Failure to abstain": 120
+    },
+    "sample_errors": [
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00001",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses NovaTrack. Text snippet 2 discusses NovaTrack.\nQu...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00002",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses HyperLink. Text snippet 2 discusses OptoBus.\nQues...",
+        "target": "No",
+        "prediction": "[2000/200/200/2/2/2",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00003",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses QuantumSensor. Text snippet 2 discusses QuantumSe...",
+        "target": "Yes",
+        "prediction": "[000/200/200/200/2/",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00004",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses VayuRobotics. Text snippet 2 discusses InfraWave....",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00005",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses DakshaTech. Text snippet 2 discusses DakshaTech.\n...",
+        "target": "Yes",
+        "prediction": "[2000/200/200/2/2/2",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00006",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AeroSystems. Text snippet 2 discusses AstraCore.\n...",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00007",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses SolarPulse. Text snippet 2 discusses SolarPulse.\n...",
+        "target": "Yes",
+        "prediction": "[2000/200/200/2/2/2",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00008",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses CyberNet. Text snippet 2 discusses CaelumNet.\nQue...",
+        "target": "No",
+        "prediction": "[2000/200/200/2/2/2",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00009",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses OptoBus. Text snippet 2 discusses OptoBus.\nQuesti...",
+        "target": "Yes",
+        "prediction": "[000/200/200/200/2/",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00010",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses NanoGrid. Text snippet 2 discusses KavachAI.\nQues...",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00011",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses InfraWave. Text snippet 2 discusses InfraWave.\nQu...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00012",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses TerraData. Text snippet 2 discusses PrithviTech.\n...",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00013",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AstraCore. Text snippet 2 discusses AstraCore.\nQu...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00014",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses ApexCompute. Text snippet 2 discusses KiranDynami...",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00015",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses CaelumNet. Text snippet 2 discusses CaelumNet.\nQu...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00016",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses VortexChip. Text snippet 2 discusses JalPlatform....",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00017",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses KavachAI. Text snippet 2 discusses KavachAI.\nQues...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00018",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses MeghLogic. Text snippet 2 discusses VarunLogic.\nQ...",
+        "target": "No",
+        "prediction": "[2000/200/200/2/2/2",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00019",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses PrithviTech. Text snippet 2 discusses PrithviTech...",
+        "target": "Yes",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      },
+      {
+        "id": "UCIP23-TASK_A_ENTITY_IDENTITY-00020",
+        "task_type": "task_a_entity_identity",
+        "prompt_preview": "User: Text snippet 1 discusses AgniProcessor. Text snippet 2 discusses IndusComp...",
+        "target": "No",
+        "prediction": "Analyst",
+        "category": "Incorrect value or attractor output"
+      }
+    ]
+  }
+}

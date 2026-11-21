@@ -1,0 +1,92 @@
+{
+  "benchmark_records": 1000,
+  "ucip20_train_records": 1600,
+  "entities": {
+    "benchmark_entities": 281,
+    "ucip20_entities": 91,
+    "overlap_count": 6,
+    "overlap_entities": [
+      "BEL",
+      "Bhopal",
+      "HAL",
+      "Kochi",
+      "Titanium",
+      "Tungsten"
+    ]
+  },
+  "relations": {
+    "benchmark_relations": 19,
+    "ucip20_relations": 10,
+    "overlap_count": 0,
+    "overlap_relations": []
+  },
+  "values": {
+    "benchmark_values": 285,
+    "ucip20_values": 93,
+    "overlap_count": 6,
+    "overlap_values_sample": [
+      "Gujarat",
+      "Information not provided in context.",
+      "Kerala",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Rajasthan"
+    ]
+  },
+  "pairs": {
+    "benchmark_pairs": 661,
+    "ucip20_pairs": 91,
+    "overlap_count": 0
+  },
+  "facts": {
+    "benchmark_facts": 781,
+    "ucip20_facts": 93,
+    "overlap_count": 0
+  },
+  "task_breakdown": {
+    "task_a_entity_identity": {
+      "total": 120,
+      "entity_overlap": 4,
+      "fact_overlap": 0
+    },
+    "task_b_relation_recognition": {
+      "total": 120,
+      "entity_overlap": 0,
+      "fact_overlap": 0
+    },
+    "task_c_fact_retrieval": {
+      "total": 120,
+      "entity_overlap": 0,
+      "fact_overlap": 0
+    },
+    "task_d_multi_relation_binding": {
+      "total": 160,
+      "entity_overlap": 6,
+      "fact_overlap": 0
+    },
+    "task_e_compositional_generalization": {
+      "total": 120,
+      "entity_overlap": 4,
+      "fact_overlap": 0
+    },
+    "task_f_contextual_binding": {
+      "total": 120,
+      "entity_overlap": 0,
+      "fact_overlap": 0
+    },
+    "task_g_distractor_resistance": {
+      "total": 120,
+      "entity_overlap": 6,
+      "fact_overlap": 0
+    },
+    "task_h_abstention": {
+      "total": 120,
+      "entity_overlap": 3,
+      "fact_overlap": 0
+    }
+  },
+  "exposure_classification": {
+    "step800": "UNEXPOSED (Stage C pretraining only; 0% Level 1 or Level 3 leaks)",
+    "ucip20": "ZERO_FACT_OVERLAP (0 exact facts shared; disjoint synthetic entities; generic relations/common numbers shared)"
+  }
+}

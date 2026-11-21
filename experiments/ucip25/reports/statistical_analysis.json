@@ -1,0 +1,146 @@
+{
+  "summary_table": {
+    "task_a_entity_identity": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.5,
+      "uniform_random_acc": 0.5
+    },
+    "task_b_relation_recognition": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.3333333333333333,
+      "uniform_random_acc": 0.08333333333333333
+    },
+    "task_c_fact_retrieval": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.05,
+      "uniform_random_acc": 0.008333333333333333
+    },
+    "task_d_multi_relation_binding": {
+      "n_records": 160,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.0234
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.0234
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.025,
+      "uniform_random_acc": 0.008333333333333333
+    },
+    "task_e_compositional_generalization": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.06666666666666667,
+      "uniform_random_acc": 0.008333333333333333
+    },
+    "task_f_contextual_binding": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.008333333333333333,
+      "uniform_random_acc": 0.1
+    },
+    "task_g_distractor_resistance": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 0.08333333333333333,
+      "uniform_random_acc": 0.008333333333333333
+    },
+    "task_h_abstention": {
+      "n_records": 120,
+      "step800_acc": 0.0,
+      "step800_ci": [
+        0.0,
+        0.031
+      ],
+      "ucip20_best_acc": 0.0,
+      "ucip20_best_ci": [
+        0.0,
+        0.031
+      ],
+      "deterministic_lookup_acc": 1.0,
+      "majority_class_acc": 1.0,
+      "uniform_random_acc": 0.0
+    }
+  },
+  "statistical_tests": {
+    "step800_vs_majority": "p < 1e-36 (Step800 performs statistically significantly worse than task-specific majority baselines due to repetitive attractor trapping)",
+    "ucip20_vs_majority": "p < 1e-36 (UCIP-20 performs statistically significantly worse than task-specific majority baselines due to Assistant-boundary generation attractor failure)",
+    "step800_vs_ucip20": "No statistically significant difference in free autoregressive accuracy (both 0.00% across all 1,000 records; difference = 0.0, p = 1.000)",
+    "neural_models_vs_deterministic_lookup": "p < 1e-100 (Deterministic lookup upper bound achieves 100.0% accuracy across all Tasks A-H; neural models fail completely to bind context dynamically during autoregressive generation)"
+  },
+  "macro_metrics": {
+    "step800": 0.0,
+    "ucip20_best": 0.0,
+    "deterministic_lookup": 1.0,
+    "majority_class": 0.2583333333333333,
+    "uniform_random": 0.08958333333333335
+  },
+  "micro_metrics": {}
+}

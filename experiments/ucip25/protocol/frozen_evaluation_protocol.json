@@ -1,0 +1,53 @@
+{
+  "mission": "UCIP-25",
+  "title": "Frozen Zero-Shot Capability Evaluation Protocol",
+  "benchmark_version": "ucip22-v1",
+  "total_records_eligible": 1000,
+  "evaluated_checkpoints": {
+    "step800": {
+      "name": "ChakrMicro Stage C Step-800 Baseline",
+      "path": "experiments/ucip13/checkpoints/primary_seed42/checkpoint_step_800.pt",
+      "sha256": "8759ccb4a70989b79c0b4b26876da1d47989ebc61f39831750b6acf0455b9943"
+    },
+    "ucip20_best": {
+      "name": "ChakrMicro UCIP-20 Best Checkpoint",
+      "path": "experiments/ucip20/checkpoints/checkpoint_best.pt",
+      "sha256": "0b4b745e923188c6320c8c7290031bff665786c4f4c1c71a74484bcaec6b1a27"
+    }
+  },
+  "baselines": {
+    "deterministic_lookup": {
+      "description": "Rule-based parser matching query entity & relation from prompt context. Falls back to abstention token when ungrounded."
+    },
+    "majority_class": {
+      "description": "Task-specific mode prediction (e.g. Yes/No in Task A, mode relation in Task B, mode value in Tasks C-G, abstention string in Task H)."
+    },
+    "uniform_random": {
+      "description": "Uniform random selection over discrete candidate options per task domain."
+    }
+  },
+  "generation_parameters": {
+    "decoding": "greedy",
+    "temperature": 0.0,
+    "top_k": 1,
+    "max_new_tokens": 16,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "stop_at_eos": true
+  },
+  "scoring_contract": {
+    "exact_match": "Exact case-insensitive match after whitespace stripping",
+    "normalized_match": "Standardized punctuation stripping and prefix matching",
+    "abstention_exact": "Strict exact match to '[ABSTAIN: INSUFFICIENT_INFORMATION]' or 'Information not provided in context.'"
+  },
+  "task_eligibility": {
+    "task_a_entity_identity": { "count": 120, "status": "ELIGIBLE" },
+    "task_b_relation_recognition": { "count": 120, "status": "ELIGIBLE" },
+    "task_c_fact_retrieval": { "count": 120, "status": "ELIGIBLE" },
+    "task_d_multi_relation_binding": { "count": 160, "status": "ELIGIBLE" },
+    "task_e_compositional_generalization": { "count": 120, "status": "ELIGIBLE" },
+    "task_f_contextual_binding": { "count": 120, "status": "ELIGIBLE" },
+    "task_g_distractor_resistance": { "count": 120, "status": "ELIGIBLE" },
+    "task_h_abstention": { "count": 120, "status": "ELIGIBLE" }
+  }
+}
