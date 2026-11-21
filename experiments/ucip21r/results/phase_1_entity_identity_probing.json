@@ -1,0 +1,23 @@
+{
+  "leakage_verification": {
+    "train_val_overlap": 0,
+    "train_dev_overlap": 0,
+    "val_dev_overlap": 0,
+    "zero_leakage_guaranteed": true
+  },
+  "closed_set_training_entity_probe": {
+    "num_entities": 90,
+    "chance_baseline": 0.0111,
+    "sub_train_acc": 0.6589,
+    "sub_val_acc": 0.4931,
+    "finding": "In-distribution training entities are linearly separable in representation space."
+  },
+  "open_set_held_out_dev_entity_retrieval": {
+    "num_dev_probes": 180,
+    "num_unique_unseen_entities": 18,
+    "chance_baseline": 0.0556,
+    "nearest_neighbor_entity_retrieval_rate": 0.9,
+    "random_permutation_control": 0.0833,
+    "finding": "Held-Out Entity Discrimination: Nearest-neighbor entity retrieval on held-out unseen entities achieves 90.00% (Chance baseline: 5.56%, Permutation control: 8.33%). This empirically confirms that representations of distinct queries referring to the same held-out entity cluster together."
+  }
+}

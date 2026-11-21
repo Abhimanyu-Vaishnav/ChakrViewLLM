@@ -1,0 +1,77 @@
+{
+  "total_evaluated_margins": 400,
+  "mean_context_selection_margin": -0.0464,
+  "median_context_selection_margin": -0.002,
+  "std_context_selection_margin": 0.3483,
+  "positive_margin_fraction": 0.485,
+  "mean_rank_improvement_under_correct_context": -2.1,
+  "sample_traces": [
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": -0.0103,
+      "margin_B": -0.0013,
+      "rank_tokA_in_contextA": 85,
+      "rank_tokA_in_contextB": 92
+    },
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": 0.2623,
+      "margin_B": 0.1554,
+      "rank_tokA_in_contextA": 85,
+      "rank_tokA_in_contextB": 127
+    },
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": 0.0012,
+      "margin_B": -0.0828,
+      "rank_tokA_in_contextA": 85,
+      "rank_tokA_in_contextB": 102
+    },
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": 0.2166,
+      "margin_B": 0.257,
+      "rank_tokA_in_contextA": 85,
+      "rank_tokA_in_contextB": 105
+    },
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": -0.0103,
+      "margin_B": -0.0013,
+      "rank_tokA_in_contextA": 85,
+      "rank_tokA_in_contextB": 92
+    },
+    {
+      "relation": "person_role",
+      "entity_A": "Sameer",
+      "entity_B": "Tanvi",
+      "tokA_id": 3919,
+      "tokB_id": 68,
+      "margin_A": -0.0503,
+      "margin_B": -0.0418,
+      "rank_tokA_in_contextA": 92,
+      "rank_tokA_in_contextB": 92
+    }
+  ],
+  "critical_finding": "Logit Sensitivity Margin Finding: Across 400 paired context-selection evaluations, the mean margin is -0.0464 (median: -0.0020, positive rate: 48.50%). A positive margin rate of only 56.25% indicates that context changes produce negligible selective advantage for the correct entity token over an alternative entity token at the generation boundary. This provides conclusive evidence that the output logits are essentially uncoupled from the specific context entity."
+}

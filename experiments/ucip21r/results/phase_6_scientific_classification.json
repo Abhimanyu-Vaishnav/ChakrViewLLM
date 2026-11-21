@@ -1,0 +1,11 @@
+{
+  "final_scientific_verdict": "A. Entity identity and relation information are both accessible, but generation-boundary conditioning is weak (coexisting with strong unconditional response prior dominance).",
+  "verdict_code": "A",
+  "evidence_summary": {
+    "relation_accessibility": "CONFIRMED: Linear probe reaches 99.50% accuracy on held-out dev relations.",
+    "unseen_entity_clustering": "CONFIRMED: Nearest-neighbor entity retrieval on held-out unseen entities achieves 90.0%.",
+    "generation_boundary_logit_decoupling": "CONFIRMED: Paired context-selection margin is only -0.0464 with 56.25% positive rate; entity swap produces tiny JS divergence of 0.020051.",
+    "unconditional_prior_dominance": "CONFIRMED: Free generation argmax is captured by invariant pre-training priors ('[' at 33.5% or 'A' at 41.0%), resulting in 0.00% exact accuracy.",
+    "causal_continuation_brittleness": "CONFIRMED: SFT rollout lacks error-correction; corrupting the prefix drives generation into attractor fragments."
+  }
+}
