@@ -1,0 +1,97 @@
+{
+  "logit_lens": [
+    {
+      "stage": "embedding",
+      "target_rank": 120,
+      "target_prob": 0.0003571166016627103,
+      "top1_token": ": ",
+      "top1_prob": 0.5397105813026428,
+      "margin_target_minus_top1": -0.5393534647009801
+    },
+    {
+      "stage": "layer_1",
+      "target_rank": 66,
+      "target_prob": 0.002149862004444003,
+      "top1_token": ": ",
+      "top1_prob": 0.027224352583289146,
+      "margin_target_minus_top1": -0.025074490578845143
+    },
+    {
+      "stage": "layer_2",
+      "target_rank": 61,
+      "target_prob": 0.00238232035189867,
+      "top1_token": "[",
+      "top1_prob": 0.049193575978279114,
+      "margin_target_minus_top1": -0.046811255626380444
+    },
+    {
+      "stage": "layer_3",
+      "target_rank": 33,
+      "target_prob": 0.0035006199032068253,
+      "top1_token": "[",
+      "top1_prob": 0.059070684015750885,
+      "margin_target_minus_top1": -0.05557006411254406
+    },
+    {
+      "stage": "layer_4",
+      "target_rank": 31,
+      "target_prob": 0.005777738057076931,
+      "top1_token": "[",
+      "top1_prob": 0.07220976054668427,
+      "margin_target_minus_top1": -0.06643202248960733
+    },
+    {
+      "stage": "layer_5",
+      "target_rank": 41,
+      "target_prob": 0.004694213625043631,
+      "top1_token": "[",
+      "top1_prob": 0.043312739580869675,
+      "margin_target_minus_top1": -0.038618525955826044
+    },
+    {
+      "stage": "layer_6",
+      "target_rank": 28,
+      "target_prob": 0.005483050365000963,
+      "top1_token": "A",
+      "top1_prob": 0.05764495208859444,
+      "margin_target_minus_top1": -0.05216190172359347
+    }
+  ],
+  "activation_patching": [
+    {
+      "patched_at_layer": 2,
+      "resulting_top1": "9",
+      "target_rank": 34,
+      "target_prob": 0.0037983558140695095,
+      "restored_target_as_top1": false
+    },
+    {
+      "patched_at_layer": 3,
+      "resulting_top1": "9",
+      "target_rank": 34,
+      "target_prob": 0.0036812617909163237,
+      "restored_target_as_top1": false
+    },
+    {
+      "patched_at_layer": 4,
+      "resulting_top1": "9",
+      "target_rank": 34,
+      "target_prob": 0.0037408950738608837,
+      "restored_target_as_top1": false
+    },
+    {
+      "patched_at_layer": 5,
+      "resulting_top1": "/",
+      "target_rank": 38,
+      "target_prob": 0.0028425606433302164,
+      "restored_target_as_top1": false
+    }
+  ],
+  "norm_and_head_analysis": {
+    "pre_norm_l2_norm": 2.9686319828033447,
+    "post_norm_l2_norm": 16.459514617919922,
+    "dot_product_with_target_weight_1981": 2.36569881439209,
+    "dot_product_with_attractor_weight_A": 4.718339920043945,
+    "raw_logit_margin": -2.3526411056518555
+  }
+}

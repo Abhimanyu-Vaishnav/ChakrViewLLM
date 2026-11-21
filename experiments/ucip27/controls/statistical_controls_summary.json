@@ -1,0 +1,76 @@
+{
+  "step800": {
+    "mean_all_attention_ablated_cosine_sim": 0.9935694932937622,
+    "mean_all_ffn_ablated_cosine_sim": -0.9665796756744385,
+    "layer_wise_ablation_impacts": {
+      "layer_0": {
+        "mean_attn_ablation_js_div": 0.07726058294304644,
+        "mean_ffn_ablation_js_div": 0.17847434698097953,
+        "ffn_to_attn_impact_ratio": 2.310030769664737
+      },
+      "layer_1": {
+        "mean_attn_ablation_js_div": 0.026532337646252027,
+        "mean_ffn_ablation_js_div": 0.08698298190581988,
+        "ffn_to_attn_impact_ratio": 3.2783748752857584
+      },
+      "layer_2": {
+        "mean_attn_ablation_js_div": 0.06054131972618413,
+        "mean_ffn_ablation_js_div": 0.08094526998168253,
+        "ffn_to_attn_impact_ratio": 1.337024976950146
+      },
+      "layer_3": {
+        "mean_attn_ablation_js_div": 0.015162217226791449,
+        "mean_ffn_ablation_js_div": 0.06210292178395352,
+        "ffn_to_attn_impact_ratio": 4.09589705094371
+      },
+      "layer_4": {
+        "mean_attn_ablation_js_div": 0.08469597745708668,
+        "mean_ffn_ablation_js_div": 0.07647689860964169,
+        "ffn_to_attn_impact_ratio": 0.9029577540304445
+      },
+      "layer_5": {
+        "mean_attn_ablation_js_div": 0.1303891363826875,
+        "mean_ffn_ablation_js_div": 0.07356613634133757,
+        "ffn_to_attn_impact_ratio": 0.5642044478565998
+      }
+    },
+    "statistical_interpretation": "When all attention layers are ablated (zeroed out), the final output logits retain a positive cosine similarity of 0.9936 to the unablated model, confirming that the attractor direction is largely preserved by the FFNs. In contrast, when all FFN layers are ablated, cosine similarity collapses to -0.9666, indicating that the FFNs are strictly necessary to generate the attractor manifold."
+  },
+  "ucip20_best": {
+    "mean_all_attention_ablated_cosine_sim": 0.9953473955392838,
+    "mean_all_ffn_ablated_cosine_sim": 0.04233994986861944,
+    "layer_wise_ablation_impacts": {
+      "layer_0": {
+        "mean_attn_ablation_js_div": 0.07231621731876582,
+        "mean_ffn_ablation_js_div": 0.13515521712285256,
+        "ffn_to_attn_impact_ratio": 1.8689472907248887
+      },
+      "layer_1": {
+        "mean_attn_ablation_js_div": 0.07579627086835732,
+        "mean_ffn_ablation_js_div": 0.0818897439088654,
+        "ffn_to_attn_impact_ratio": 1.0803926389355594
+      },
+      "layer_2": {
+        "mean_attn_ablation_js_div": 0.03433733382432217,
+        "mean_ffn_ablation_js_div": 0.06716818579988233,
+        "ffn_to_attn_impact_ratio": 1.9561264302658463
+      },
+      "layer_3": {
+        "mean_attn_ablation_js_div": 0.027885757479621777,
+        "mean_ffn_ablation_js_div": 0.060152158637484465,
+        "ffn_to_attn_impact_ratio": 2.1570917379786
+      },
+      "layer_4": {
+        "mean_attn_ablation_js_div": 0.08865387661173693,
+        "mean_ffn_ablation_js_div": 0.08154678098640128,
+        "ffn_to_attn_impact_ratio": 0.9198331184682124
+      },
+      "layer_5": {
+        "mean_attn_ablation_js_div": 0.04070572075882289,
+        "mean_ffn_ablation_js_div": 0.11843200509971999,
+        "ffn_to_attn_impact_ratio": 2.9094676079252078
+      }
+    },
+    "statistical_interpretation": "When all attention layers are ablated (zeroed out), the final output logits retain a positive cosine similarity of 0.9953 to the unablated model, confirming that the attractor direction is largely preserved by the FFNs. In contrast, when all FFN layers are ablated, cosine similarity collapses to 0.0423, indicating that the FFNs are strictly necessary to generate the attractor manifold."
+  }
+}
