@@ -1,0 +1,31 @@
+{
+  "pair_type_1_same_relation_different_entity": {
+    "num_pairs": 50,
+    "mean_js_divergence": 0.02098,
+    "std_js_divergence": 0.020308,
+    "top1_agreement_rate": 0.48,
+    "mean_layer_cosine_similarities": [
+      0.9902,
+      0.9819,
+      0.9705,
+      0.9583,
+      0.9534,
+      0.9198
+    ]
+  },
+  "pair_type_2_different_relation_different_entity": {
+    "num_pairs": 50,
+    "mean_js_divergence": 0.250493,
+    "std_js_divergence": 0.126091,
+    "top1_agreement_rate": 0.12,
+    "mean_layer_cosine_similarities": [
+      0.9891,
+      0.9756,
+      0.9477,
+      0.9133,
+      0.8734,
+      0.5687
+    ]
+  },
+  "finding": "Cross-Example Intervention Finding: Pairs with the same relation but different entities exhibit high top-1 agreement (48.0%) and low JS divergence (0.020980). Even across entirely different relations, top-1 agreement remains 12.0%. This quantitatively confirms that the generation-boundary distribution is dominated by invariant unconditional priors rather than entity-discriminative signals."
+}

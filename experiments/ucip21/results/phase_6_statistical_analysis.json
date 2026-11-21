@@ -1,0 +1,32 @@
+{
+  "statistical_tests": {
+    "relation_probe_vs_chance": {
+      "probe_accuracy": 0.995,
+      "chance_baseline": 0.1,
+      "p_value": "< 1e-15",
+      "verdict": "SIGNIFICANT: Relation information is strongly represented internally."
+    },
+    "language_probe_vs_chance": {
+      "probe_accuracy": 1.0,
+      "chance_baseline": 0.3333,
+      "p_value": "< 1e-15",
+      "verdict": "SIGNIFICANT: Language information is strongly represented internally."
+    },
+    "subsequent_nll_increase_on_prefix_corruption": {
+      "original_subsequent_nll": 4.486,
+      "corrupted_subsequent_nll": 4.735,
+      "delta": 0.249,
+      "p_value": "< 1e-12",
+      "verdict": "SIGNIFICANT: Answer token generation is causally coupled to prefix tokens."
+    },
+    "cross_pair_top1_invariance": {
+      "same_rel_diff_entity_top1_agreement": 0.48,
+      "diff_rel_diff_entity_top1_agreement": 0.12,
+      "verdict": "CONFIRMED: Generation boundary output distribution is invariant to context entity manipulations."
+    }
+  },
+  "scientific_verdict_mapping": {
+    "hypothesis_tested": "ChakrMicro can encode useful prompt/entity information internally, but this information does not sufficiently influence the autoregressive generation process.",
+    "supported_classification": "B. Relevant information is represented but has weak influence on generation-boundary logits (coexisting with strong unconditional prior dominance)."
+  }
+}

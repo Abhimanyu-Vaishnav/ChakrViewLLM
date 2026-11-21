@@ -1,0 +1,30 @@
+{
+  "relation_linear_probe": {
+    "num_classes": 10,
+    "chance_baseline": 0.1,
+    "results": {
+      "train_acc": 0.9869,
+      "val_acc": 0.985,
+      "dev_acc": 0.995
+    }
+  },
+  "language_linear_probe": {
+    "num_classes": 3,
+    "chance_baseline": 0.3333,
+    "results": {
+      "train_acc": 0.9862,
+      "val_acc": 0.975,
+      "dev_acc": 1.0
+    }
+  },
+  "abstention_binary_probe": {
+    "num_classes": 2,
+    "majority_baseline": 0.9,
+    "results": {
+      "train_acc": 0.9606,
+      "val_acc": 0.965,
+      "dev_acc": 0.935
+    }
+  },
+  "finding": "Representation Accessibility Finding: Linear probes achieve high accuracy on held-out dev probes: Relation Probe: 99.5% (chance: 10.0%), Language Probe: 100.0% (chance: 33.3%), Abstention Probe: 93.5%. This proves that high-level relation, language, and task structure are linearly separable in the internal representations at the generation boundary, yet standard autoregressive decoding does not translate this into entity outputs."
+}

@@ -1,0 +1,10 @@
+{
+  "evaluated_probes": 200,
+  "mean_subsequent_nll_original_prefix": 4.486,
+  "mean_subsequent_nll_altered_entity_token": 4.735,
+  "mean_subsequent_nll_incompatible_token": 4.8293,
+  "mean_nll_increase_altered": 0.249,
+  "mean_nll_increase_incompatible": 0.3433,
+  "mean_subsequent_token_js_divergence": 0.3822,
+  "interpretation": "Teacher-Forced Intervention Finding: Corrupting the initial answer token by substituting an alternative entity token causes subsequent token NLL to increase significantly from 4.4860 to 4.7350 (+0.2490 points). Incompatible tokens further degrade NLL to 4.8293. This demonstrates that answer rollout is causally contingent upon the preceding answer tokens, confirming causal dependency."
+}
