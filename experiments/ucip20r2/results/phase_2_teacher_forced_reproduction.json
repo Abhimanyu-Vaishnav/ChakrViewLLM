@@ -1,0 +1,180 @@
+{
+  "num_dev_probes": 200,
+  "baseline_step800": {
+    "macro_average_nll": 5.9209,
+    "micro_average_nll": 5.9001,
+    "perplexity_from_macro_nll": 372.76,
+    "perplexity_from_micro_nll": 365.09,
+    "mean_first_token_prob": 0.0001,
+    "median_first_token_prob": 0.0,
+    "mean_first_token_rank": 288.3,
+    "median_first_token_rank": 216,
+    "first_token_top1_rate": 0.0,
+    "first_token_top5_rate": 0.0,
+    "first_token_top10_rate": 0.0,
+    "mean_terminal_eos_prob": 0.0026,
+    "per_relation_stats": {
+      "project": {
+        "mean_nll": 6.0604,
+        "ppl": 428.56,
+        "median_rank": 227,
+        "top10_rate": 0.0
+      },
+      "person_role": {
+        "mean_nll": 5.6403,
+        "ppl": 281.55,
+        "median_rank": 438,
+        "top10_rate": 0.0
+      },
+      "city": {
+        "mean_nll": 5.4197,
+        "ppl": 225.81,
+        "median_rank": 91,
+        "top10_rate": 0.0
+      },
+      "organization": {
+        "mean_nll": 6.1676,
+        "ppl": 477.03,
+        "median_rank": 353,
+        "top10_rate": 0.0
+      },
+      "product": {
+        "mean_nll": 5.883,
+        "ppl": 358.89,
+        "median_rank": 222,
+        "top10_rate": 0.0
+      },
+      "identifier": {
+        "mean_nll": 6.6689,
+        "ppl": 787.51,
+        "median_rank": 440,
+        "top10_rate": 0.0
+      },
+      "date": {
+        "mean_nll": 5.7695,
+        "ppl": 320.36,
+        "median_rank": 680,
+        "top10_rate": 0.0
+      },
+      "numerical_value": {
+        "mean_nll": 6.201,
+        "ppl": 493.23,
+        "median_rank": 113,
+        "top10_rate": 0.0
+      },
+      "ownership": {
+        "mean_nll": 5.5453,
+        "ppl": 256.02,
+        "median_rank": 34,
+        "top10_rate": 0.0
+      },
+      "property": {
+        "mean_nll": 5.8538,
+        "ppl": 348.56,
+        "median_rank": 48,
+        "top10_rate": 0.0
+      }
+    }
+  },
+  "ucip20_trained_best": {
+    "macro_average_nll": 4.5232,
+    "micro_average_nll": 4.4251,
+    "perplexity_from_macro_nll": 92.13,
+    "perplexity_from_micro_nll": 83.52,
+    "mean_first_token_prob": 0.0223,
+    "median_first_token_prob": 0.0053,
+    "mean_first_token_rank": 72.3,
+    "median_first_token_rank": 21,
+    "first_token_top1_rate": 0.1,
+    "first_token_top5_rate": 0.275,
+    "first_token_top10_rate": 0.385,
+    "mean_terminal_eos_prob": 0.5529,
+    "per_relation_stats": {
+      "project": {
+        "mean_nll": 1.8226,
+        "ppl": 6.19,
+        "median_rank": 1,
+        "top10_rate": 1.0
+      },
+      "person_role": {
+        "mean_nll": 4.4423,
+        "ppl": 84.97,
+        "median_rank": 84,
+        "top10_rate": 0.35
+      },
+      "city": {
+        "mean_nll": 3.561,
+        "ppl": 35.2,
+        "median_rank": 13,
+        "top10_rate": 0.5
+      },
+      "organization": {
+        "mean_nll": 5.4163,
+        "ppl": 225.05,
+        "median_rank": 61,
+        "top10_rate": 0.0
+      },
+      "product": {
+        "mean_nll": 4.7093,
+        "ppl": 110.98,
+        "median_rank": 121,
+        "top10_rate": 0.35
+      },
+      "identifier": {
+        "mean_nll": 5.9885,
+        "ppl": 398.81,
+        "median_rank": 121,
+        "top10_rate": 0.0
+      },
+      "date": {
+        "mean_nll": 4.6697,
+        "ppl": 106.66,
+        "median_rank": 414,
+        "top10_rate": 0.45
+      },
+      "numerical_value": {
+        "mean_nll": 6.1908,
+        "ppl": 488.23,
+        "median_rank": 42,
+        "top10_rate": 0.2
+      },
+      "ownership": {
+        "mean_nll": 3.849,
+        "ppl": 46.95,
+        "median_rank": 4,
+        "top10_rate": 1.0
+      },
+      "property": {
+        "mean_nll": 4.5824,
+        "ppl": 97.75,
+        "median_rank": 18,
+        "top10_rate": 0.0
+      }
+    }
+  },
+  "delta": {
+    "macro_nll_reduction": 1.3977,
+    "perplexity_reduction": 280.63,
+    "perplexity_reduction_pct": 75.28,
+    "median_rank_shift": "216 -> 21",
+    "top10_rate_shift": "0.0% -> 38.5%",
+    "top1_rate_shift": "0.0% -> 10.0%",
+    "terminal_eos_gain": "0.26% -> 55.29%"
+  },
+  "ucip20r_reported_comparison": {
+    "reported_baseline_macro_nll": 5.9209,
+    "reproduced_baseline_macro_nll": 5.9209,
+    "reported_trained_macro_nll": 4.5232,
+    "reproduced_trained_macro_nll": 4.5232,
+    "reported_baseline_ppl": 372.76,
+    "reproduced_baseline_ppl": 372.76,
+    "reported_trained_ppl": 92.13,
+    "reproduced_trained_ppl": 92.13,
+    "reported_trained_top10_rate": 0.385,
+    "reproduced_trained_top10_rate": 0.385,
+    "reported_trained_top1_rate": 0.1,
+    "reproduced_trained_top1_rate": 0.1,
+    "exact_match_within_tolerance": true
+  },
+  "conclusion": "CONFIRMED: The reported teacher-forced likelihood reduction and rank improvement in UCIP-20R are bit-exact reproduced within numerical tolerance. On 200 completely held-out entities, perplexity dropped by 75.28% (372.76 -> 92.13) and median first token rank surged from 216 down to 21. Top-10 inclusion reached 38.5%."
+}
