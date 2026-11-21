@@ -1,0 +1,13 @@
+{
+  "total_records_verified": 1000,
+  "token_mismatches_count": 0,
+  "metadata_discrepancies_count": 1000,
+  "metadata_discrepancy_explanation": "In generate_all_tasks.py line 43, total_len was computed as len(p_toks) + len(r_toks) + 2 (+BOS, +EOS). However, build_causal_sequence constructs input_seq as [BOS] + p_toks + r_toks (length = len(p_toks) + len(r_toks) + 1), where EOS is only appended to target_seq. Thus stored total_sequence_length in metadata is exactly actual_length + 1 across all 1,000 records. Sequence compliance (<=512) is fully preserved.",
+  "sequence_lengths": {
+    "actual_min": 62,
+    "actual_max": 126,
+    "actual_mean": 91.862,
+    "within_512_ceiling": true
+  },
+  "all_causal_invariants_passed": true
+}

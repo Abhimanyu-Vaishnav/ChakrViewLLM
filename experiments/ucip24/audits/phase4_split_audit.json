@@ -1,0 +1,46 @@
+{
+  "Split_A_Random": {
+    "train_count": 800,
+    "test_count": 200,
+    "excluded_count": 0,
+    "entity_intersection": 89,
+    "relation_intersection": 19,
+    "pair_intersection": 68,
+    "value_intersection": 52,
+    "leakage_status": "EXPECTED_OVERLAP (IID Baseline)"
+  },
+  "Split_B_Entity_Disjoint": {
+    "train_count": 621,
+    "test_count": 219,
+    "excluded_count": 160,
+    "total_accounted": 1000,
+    "exclusion_reason": "Records with synthetic cluster entities (Task F) or unregistered abstention probes (Task H) lack canonical KG entities",
+    "entity_intersection": 0,
+    "relation_intersection": 14,
+    "pair_intersection": 0,
+    "leakage_verified_zero": true
+  },
+  "Split_C_Relation_Disjoint": {
+    "train_count": 570,
+    "test_count": 70,
+    "excluded_count": 360,
+    "total_accounted": 1000,
+    "exclusion_reason": "Records evaluating non-standard relational predicates (coreference in Task A, synthetic properties in Task F, abstention probe in Task H)",
+    "entity_intersection": 30,
+    "relation_intersection": 0,
+    "pair_intersection": 0,
+    "leakage_verified_zero": true
+  },
+  "Split_D_Compositional_Pair_Disjoint": {
+    "train_count": 762,
+    "test_count": 238,
+    "excluded_count": 0,
+    "total_accounted": 1000,
+    "pair_intersection": 0,
+    "leakage_verified_zero": true
+  },
+  "Split_G_Arbitrary_Binding": {
+    "evaluation_count": 120,
+    "parametric_exposure": "ZERO (Status D synthetic tokens)"
+  }
+}
