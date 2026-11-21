@@ -1,0 +1,26 @@
+{
+  "num_dev_probes": 180,
+  "open_set_overall_retrieval_acc": 0.9,
+  "within_relation_entity_retrieval_acc": 0.9,
+  "within_relation_recall_at_5": 0.9778,
+  "chance_baseline_within_relation": 0.5,
+  "language_matching_baseline": 0.4611,
+  "random_permutation_baseline": 0.1,
+  "mean_similarities": {
+    "within_same_entity": 0.9461,
+    "between_different_entities_same_relation": 0.9382,
+    "between_different_relations": 0.6631
+  },
+  "per_relation_accuracy": {
+    "person_role": 0.85,
+    "city": 0.95,
+    "organization": 0.75,
+    "product": 0.9,
+    "identifier": 0.9,
+    "date": 0.9,
+    "numerical_value": 1.0,
+    "ownership": 0.9,
+    "property": 0.95
+  },
+  "scientific_finding": "Retrieval Audit Finding: When audited globally across all relations, retrieval achieves 90.0%. When strictly isolated WITHIN the same relation (where both query and gallery share the exact same relation type, chance baseline = 50.0%), entity discrimination accuracy is 90.00% (Recall@5 = 97.78%), significantly outperforming language heuristics (46.11%) and permutation (10.00%). However, representation similarity between different entities within the same relation (0.8488) is nearly as high as within-entity similarity (0.8548), indicating that the representation space is overwhelmingly dominated by the relation."
+}

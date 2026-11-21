@@ -1,0 +1,11 @@
+{
+  "final_scientific_verdict": "B. Entity and relation information are independently encoded, but their compositional binding is weak (coexisting with generation-boundary logit decoupling).",
+  "verdict_code": "B",
+  "evidence_synthesis": {
+    "entity_identity_encoded": "CONFIRMED: Within-relation entity discrimination reaches 90.0%.",
+    "relation_information_encoded": "CONFIRMED: Relation linear probe reaches 99.5% accuracy.",
+    "binding_weakness": "CONFIRMED: Relational binding value selection probe is 47.5% (Chance: 50.0%). Representations do not bind entity to its specific value.",
+    "logit_selection_failure": "CONFIRMED: Factorial context-selection margin is only -0.0091 (positive rate: 51.3%), proving logits fail to select the bound entity value.",
+    "nuisance_artifact_resolved": "CONFIRMED: Appended noise JS (0.5449) was a RoPE positional artifact; length-matched entity swap produces only 0.020862 JS divergence."
+  }
+}

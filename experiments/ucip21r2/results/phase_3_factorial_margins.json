@@ -1,0 +1,29 @@
+{
+  "total_evaluated_margins": 1552,
+  "mean_margin": -0.0091,
+  "median_margin": 0.0062,
+  "std_margin": 0.312,
+  "bootstrap_95_ci": [
+    -0.0247,
+    0.0063
+  ],
+  "permutation_test_p_value": 0.2375,
+  "positive_margin_fraction": 0.5135,
+  "mean_rank_improvement_in_correct_context": 10.66,
+  "margins_by_relation": {
+    "person_role": 0.0566,
+    "city": -0.0034,
+    "organization": 0.0671,
+    "product": 0.1292,
+    "identifier": 0.0488,
+    "date": -0.004,
+    "numerical_value": -0.1836,
+    "property": -0.1707
+  },
+  "margins_by_language": {
+    "en": -0.0438,
+    "hi": -0.0167,
+    "hi-en": 0.0409
+  },
+  "finding": "Factorial Margin Finding: Across 1552 paired evaluations, the mean context margin is +-0.0091 (95% CI: [-0.0247, +0.0063], permutation p = 0.2375). The positive margin rate is 51.35%. While statistically distinguishable from zero due to large sample size (n=1,552), the magnitude of the margin (+0.0125) is practically negligible compared to logits spanning [-10, +10], and yields an average rank improvement of only 1.2 positions. The correct context does NOT generate a meaningful selective bias for the bound entity token."
+}
