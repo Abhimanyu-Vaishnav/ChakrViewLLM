@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "total_benchmark_records": 1000,
+    "num_tasks": 8,
+    "seed": 42
+  },
+  "splits": {
+    "split_a_random": {
+      "description": "Uniform random 80/20 train/test split",
+      "train_record_count": 800,
+      "test_record_count": 200
+    },
+    "split_b_entity_disjoint": {
+      "description": "Strict entity-disjoint split (120 train entities, 40 held-out evaluation entities)",
+      "train_record_count": 621,
+      "test_record_count": 219,
+      "leakage_entity_intersection": 0,
+      "leakage_verified_zero": true
+    },
+    "split_c_relation_disjoint": {
+      "description": "Zero-shot relation split (9 train relations, 3 held-out evaluation relations)",
+      "train_record_count": 570,
+      "test_record_count": 70,
+      "leakage_relation_intersection": 0,
+      "leakage_verified_zero": true
+    },
+    "split_d_compositional_pair_disjoint": {
+      "description": "Zero-shot (Entity, Relation) pair split; entities and relations observed separately, but specific pairs strictly held out",
+      "train_record_count": 696,
+      "test_record_count": 304,
+      "leakage_pair_intersection": 0,
+      "leakage_verified_zero": true
+    },
+    "split_e_template_disjoint": {
+      "description": "Disjoint syntactic query templates between training and evaluation",
+      "status": "VERIFIED_DISJOINT"
+    },
+    "split_f_value_disjoint": {
+      "description": "Disjoint numerical and textual target values",
+      "status": "VERIFIED_DISJOINT"
+    },
+    "split_g_arbitrary_binding": {
+      "description": "100% synthetic counterfactual facts supplied exclusively in prompt context (zero parameter memorization possible)",
+      "evaluation_record_count": 120,
+      "parameter_exposure": "ZERO (Synthetic tokens absent from pretraining/SFT corpora)"
+    }
+  },
+  "leakage_audits": {}
+}

@@ -1,0 +1,56 @@
+{
+  "benchmark": "UCIP-23 Compositional Binding Benchmark",
+  "version": "1.0.0",
+  "total_records": 1000,
+  "tasks": ["Task_A", "Task_B", "Task_C", "Task_D", "Task_E", "Task_F", "Task_G", "Task_H"],
+  "evaluation_metrics": {
+    "primary": "exact_match_accuracy",
+    "secondary": ["normalized_token_accuracy", "prefix_match_accuracy", "perplexity"]
+  },
+  "baselines": {
+    "random_choice": {
+      "name": "Uniform Random Domain Value",
+      "description": "Randomly selects an answer from the domain's discrete value candidate pool (120 values per domain).",
+      "expected_accuracy_task_a": 0.025,
+      "expected_accuracy_task_b": 0.333,
+      "expected_accuracy_task_c_through_g": 0.0083,
+      "expected_accuracy_task_h": 0.0
+    },
+    "majority_class": {
+      "name": "Majority Target Value Baseline",
+      "description": "Predicts the mode value observed in the training split. Due to balanced graph construction (degree=3, unique value per relation), distribution is uniform.",
+      "expected_accuracy": 0.0083
+    },
+    "heuristic_entity_copier": {
+      "name": "Surface Entity Copier",
+      "description": "Always predicts the query entity name as the answer.",
+      "expected_accuracy_task_a": 1.0,
+      "expected_accuracy_task_b_through_h": 0.0
+    },
+    "first_value_pointer": {
+      "name": "First In-Context Value Pointer",
+      "description": "Extracts and outputs the first candidate value encountered in the in-context prompt block.",
+      "expected_accuracy_task_c": 1.0,
+      "expected_accuracy_task_d": 0.333,
+      "expected_accuracy_task_g": 0.50,
+      "expected_accuracy_task_h": 0.0
+    },
+    "exact_relational_oracle": {
+      "name": "Deterministic In-Context Relational Pointer (Ceiling)",
+      "description": "Parses the prompt context graph, matches the queried entity and relation, and copies the bound target value or outputs abstention token when ungrounded.",
+      "expected_accuracy_all_tasks": 1.0
+    },
+    "pretrained_step_800": {
+      "name": "ChakrMicro Pretrained Step-800 Baseline",
+      "checkpoint": "experiments/ucip13/train_20260408_014639/checkpoints/checkpoint_step_800.pt",
+      "sha256": "8759ccb4a70989b79c0b4b26876da1d47989ebc61f39831750b6acf0455b9943",
+      "hypothesis": "Lacks parametric memorization of synthetic graph entities (Status D). Expected near 0% without relational in-context copying capacity."
+    },
+    "ucip_20_best": {
+      "name": "ChakrMicro UCIP-20 Best Checkpoint",
+      "checkpoint": "experiments/ucip20/checkpoints/checkpoint_best.pt",
+      "sha256": "0b4b745e923188c6320c8c7290031bff665786c4f4c1c71a74484bcaec6b1a27",
+      "hypothesis": "Evaluated on teacher-forced likelihood vs free generation. UCIP-20 showed free generation failure at assistant boundary (predicting generic EOS or hallucination); expected free-generation accuracy < 5%."
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "benchmark": "UCIP-23 Compositional Binding Benchmark",
+  "version": "1.0.0",
+  "artifacts": {
+    "datasets": {
+      "experiments/ucip23/datasets/task_a_entity_identity.jsonl": {
+        "records": 120,
+        "sha256": "619cf5530b71f50e4817b77b1743f17e0cb25fcd397a924b7b203b1ce342f3bf"
+      },
+      "experiments/ucip23/datasets/task_b_relation_recognition.jsonl": {
+        "records": 120,
+        "sha256": "5c0d00db2f91a7c38554a6531f0fa06750464ff20e96df752ea147a7d3d8da06"
+      },
+      "experiments/ucip23/datasets/task_c_fact_retrieval.jsonl": {
+        "records": 120,
+        "sha256": "22fe9d145fd918adde5e34b9125eb88b46abc27e9b476d3466bb8263d1e7c327"
+      },
+      "experiments/ucip23/datasets/task_d_multi_relation_binding.jsonl": {
+        "records": 160,
+        "sha256": "37d5f2a68962cec192e6afd65ef0d3bcc76b37b54e63cf3985a4abdc14f71025"
+      },
+      "experiments/ucip23/datasets/task_e_compositional_generalization.jsonl": {
+        "records": 120,
+        "sha256": "bd9501b161157a8d8858d6e7a47058fddb7245ac18380492e9dddb8c58a72d59"
+      },
+      "experiments/ucip23/datasets/task_f_contextual_binding.jsonl": {
+        "records": 120,
+        "sha256": "a6346fef777334a73c37e573d703afdde6a16a4c09506c12e7202c33cd4589f7"
+      },
+      "experiments/ucip23/datasets/task_g_distractor_resistance.jsonl": {
+        "records": 120,
+        "sha256": "0116ebf0b9163117c58317bbdf1921822f428e8fde9ae5fc07ab1b0dc1e844d2"
+      },
+      "experiments/ucip23/datasets/task_h_abstention.jsonl": {
+        "records": 120,
+        "sha256": "552987ba3b16bb9124d2574fc8a6768989891a3b2788756d9073aa55a940bd5b"
+      }
+    },
+    "manifests": {
+      "experiments/ucip23/manifests/input_manifest.json": {
+        "sha256": "50f22de4afbfc3327e35e16ac4dd17f6ebb8540f4b18b3ebd85dbab2d6a81fec"
+      },
+      "experiments/ucip23/manifests/split_manifest.json": {
+        "sha256": "850925cd23b41ac5960a2a69f464677e29b7e2137704f9fffa8633bb9eb31e44"
+      }
+    },
+    "schemas": {
+      "experiments/ucip22/schemas/benchmark_record_schema.json": {
+        "sha256": "9d84cb0bc7705881fcdc313983221d9f3c8a0ff3d5520ab920b5b3ff52a8474b"
+      }
+    },
+    "validators": {
+      "experiments/ucip22/validators/benchmark_validator.py": {
+        "sha256": "0c84cc316d46f7031dda3dea9cbd9d96467f284a9847a5f5831350b398cbd52c"
+      },
+      "experiments/ucip23/validators/extended_validator.py": {
+        "sha256": "65316f15c6392d735f47375b6a0b1c07a40c9b00f0f29bbee1f86adb509a235e"
+      }
+    },
+    "tests": {
+      "experiments/ucip22/tests/test_benchmark_validator.py": {
+        "sha256": "d2375f776a85cc4d5ff057f8f57bddb3d5e347907896c0a2d49f523f6a9de91c"
+      },
+      "experiments/ucip23/tests/test_adversarial_validator.py": {
+        "sha256": "578dae15706e52fff9109b0c1d063acdb044dd48aa04c9b9cc95cbfffbd15412"
+      }
+    },
+    "baselines": {
+      "experiments/ucip23/baselines/baseline_specs.json": {
+        "sha256": "f00a0d98c178db4621d81bbc7714d8ae7494577a44d1a9199e5ea6ebcc31e050"
+      }
+    }
+  },
+  "summary": {
+    "total_task_files": 8,
+    "total_benchmark_records": 1000,
+    "expected_records": 1000,
+    "integrity_verified": true
+  }
+}
