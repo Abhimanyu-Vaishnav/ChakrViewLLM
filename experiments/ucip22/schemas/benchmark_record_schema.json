@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UCIP22BenchmarkRecord",
+  "description": "Schema for UCIP-22 Compositional Binding Benchmark instances",
+  "type": "object",
+  "required": [
+    "id",
+    "benchmark_version",
+    "task_type",
+    "split",
+    "context_entities",
+    "query_entity",
+    "query_relation",
+    "ground_truth_value",
+    "distractor_entities",
+    "distractor_values",
+    "is_abstention",
+    "expected_abstention_reason",
+    "prompt",
+    "target_response",
+    "token_metadata"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "benchmark_version": { "type": "string", "enum": ["ucip22-v1"] },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "task_a_entity_identity",
+        "task_b_relation_recognition",
+        "task_c_fact_retrieval",
+        "task_d_multi_relation_binding",
+        "task_e_compositional_generalization",
+        "task_f_contextual_binding",
+        "task_g_distractor_resistance",
+        "task_h_abstention"
+      ]
+    },
+    "split": {
+      "type": "string",
+      "enum": [
+        "train_exemplar",
+        "val_in_distribution",
+        "dev_entity_disjoint",
+        "dev_relation_disjoint",
+        "dev_compositional_unseen_pair",
+        "dev_contextual_arbitrary_binding"
+      ]
+    },
+    "context_entities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "query_entity": { "type": "string" },
+    "query_relation": { "type": "string" },
+    "ground_truth_value": { "type": "string" },
+    "distractor_entities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "distractor_values": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "is_abstention": { "type": "boolean" },
+    "expected_abstention_reason": {
+      "type": "string",
+      "enum": [
+        "none",
+        "entity_absent",
+        "relation_absent",
+        "both_absent",
+        "contradictory_context",
+        "insufficient_information"
+      ]
+    },
+    "prompt": { "type": "string" },
+    "target_response": { "type": "string" },
+    "token_metadata": {
+      "type": "object",
+      "required": [
+        "prompt_token_count",
+        "response_token_count",
+        "total_sequence_length",
+        "first_answer_token_id",
+        "terminal_token_id",
+        "is_within_context_limit"
+      ],
+      "properties": {
+        "prompt_token_count": { "type": "integer" },
+        "response_token_count": { "type": "integer" },
+        "total_sequence_length": { "type": "integer", "maximum": 512 },
+        "first_answer_token_id": { "type": "integer" },
+        "terminal_token_id": { "type": "integer", "enum": [1] },
+        "is_within_context_limit": { "type": "boolean" }
+      }
+    }
+  }
+}
