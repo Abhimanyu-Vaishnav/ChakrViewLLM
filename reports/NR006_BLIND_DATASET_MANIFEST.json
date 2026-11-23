@@ -1,0 +1,2125 @@
+{
+  "benchmark_id": "CV-GENESIS-NR-006-BLIND-300",
+  "created_at_utc": "2026-11-23T05:00:00Z",
+  "total_prompts": 300,
+  "language_distribution": {
+    "en": 166,
+    "hi": 66,
+    "hinglish": 68
+  },
+  "category_distribution": {
+    "conversation": 180,
+    "explanation": 40,
+    "coding": 30,
+    "arithmetic": 14,
+    "reasoning": 6,
+    "multiturn": 20,
+    "uncertainty": 10
+  },
+  "leakage_audit": {
+    "training_overlap_check": "Zero exact prompt overlap verified",
+    "tuning_overlap_check": "Unseen blind evaluation benchmark"
+  },
+  "prompts_inventory": [
+    {
+      "id": "en_conv_001",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: Good morning! How is everything going today?\nAssistant:"
+    },
+    {
+      "id": "en_conv_002",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "identity",
+      "prompt": "User: Hello! Could you introduce yourself and describe your skills?\nAssistant:"
+    },
+    {
+      "id": "en_conv_003",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "empathy",
+      "prompt": "User: I am feeling quite tired after a long flight from Tokyo.\nAssistant:"
+    },
+    {
+      "id": "en_conv_004",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "preference",
+      "prompt": "User: What are your favorite kinds of scientific topics to discuss?\nAssistant:"
+    },
+    {
+      "id": "en_conv_005",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "inspirational",
+      "prompt": "User: Can you tell me an interesting thought for the day?\nAssistant:"
+    },
+    {
+      "id": "en_conv_006",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "advice",
+      "prompt": "User: How do you stay focused when working on challenging tasks?\nAssistant:"
+    },
+    {
+      "id": "en_conv_007",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "identity_clarity",
+      "prompt": "User: Have you ever visited any libraries in ancient times?\nAssistant:"
+    },
+    {
+      "id": "en_conv_008",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "conversation",
+      "prompt": "User: What is the best way to spend a quiet Sunday afternoon?\nAssistant:"
+    },
+    {
+      "id": "en_conv_009",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: Thank you so much for your assistance earlier.\nAssistant:"
+    },
+    {
+      "id": "en_conv_010",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: Good evening! Hope you had a pleasant and productive day.\nAssistant:"
+    },
+    {
+      "id": "en_conv_011",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "conversation",
+      "prompt": "User: What makes learning a new musical instrument enjoyable?\nAssistant:"
+    },
+    {
+      "id": "en_conv_012",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "conversation",
+      "prompt": "User: I just finished reading a mystery novel with an unexpected ending.\nAssistant:"
+    },
+    {
+      "id": "en_conv_013",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "science_conv",
+      "prompt": "User: How do astronomers observe distant galaxies across deep space?\nAssistant:"
+    },
+    {
+      "id": "en_conv_014",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "hobby_advice",
+      "prompt": "User: If someone wants to start stargazing as a hobby, what is a good first step?\nAssistant:"
+    },
+    {
+      "id": "en_conv_015",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "identity_clarity",
+      "prompt": "User: Do you experience emotions like humans do?\nAssistant:"
+    },
+    {
+      "id": "en_conv_016",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "small_talk",
+      "prompt": "User: It is raining heavily outside right now.\nAssistant:"
+    },
+    {
+      "id": "en_conv_017",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "preference",
+      "prompt": "User: What is your favorite season of the year?\nAssistant:"
+    },
+    {
+      "id": "en_conv_018",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "advice",
+      "prompt": "User: Can you share a simple tip for staying organized?\nAssistant:"
+    },
+    {
+      "id": "en_conv_019",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "encouragement",
+      "prompt": "User: I am preparing for a presentation tomorrow morning.\nAssistant:"
+    },
+    {
+      "id": "en_conv_020",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "technical_identity",
+      "prompt": "User: Where do you store your memories when our conversation ends?\nAssistant:"
+    },
+    {
+      "id": "en_conv_021",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "nature_conv",
+      "prompt": "User: What is the difference between an owl and an eagle in their hunting habits?\nAssistant:"
+    },
+    {
+      "id": "en_conv_022",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "nature_conv",
+      "prompt": "User: Tell me an unusual fact about marine life in the deep ocean.\nAssistant:"
+    },
+    {
+      "id": "en_conv_023",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "nature_conv",
+      "prompt": "User: Why do leaves turn yellow and orange during autumn?\nAssistant:"
+    },
+    {
+      "id": "en_conv_024",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "nature_conv",
+      "prompt": "User: How do honeybees communicate the location of flowers to the hive?\nAssistant:"
+    },
+    {
+      "id": "en_conv_025",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "conversation",
+      "prompt": "User: I am thinking of adopting a rescue puppy this weekend.\nAssistant:"
+    },
+    {
+      "id": "en_conv_026",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "wellness",
+      "prompt": "User: What are some benefits of drinking enough water throughout the day?\nAssistant:"
+    },
+    {
+      "id": "en_conv_027",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "wellness",
+      "prompt": "User: How does practicing mindfulness help reduce mental stress?\nAssistant:"
+    },
+    {
+      "id": "en_conv_028",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "history_conv",
+      "prompt": "User: What is the significance of the Rosetta Stone in historical linguistics?\nAssistant:"
+    },
+    {
+      "id": "en_conv_029",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "history_conv",
+      "prompt": "User: How did ancient sailors navigate open oceans without modern GPS satellites?\nAssistant:"
+    },
+    {
+      "id": "en_conv_030",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: Who designed the Eiffel Tower in Paris?\nAssistant:"
+    },
+    {
+      "id": "en_conv_031",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: In which ocean is the island of Madagascar located?\nAssistant:"
+    },
+    {
+      "id": "en_conv_032",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: Which desert is the largest hot desert on Earth?\nAssistant:"
+    },
+    {
+      "id": "en_conv_033",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: What is the primary language spoken in Brazil?\nAssistant:"
+    },
+    {
+      "id": "en_conv_034",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: How high is Mount Everest above sea level?\nAssistant:"
+    },
+    {
+      "id": "en_conv_035",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: What is the currency used in Switzerland?\nAssistant:"
+    },
+    {
+      "id": "en_conv_036",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "animal_fact",
+      "prompt": "User: Can penguins fly in the air like other birds?\nAssistant:"
+    },
+    {
+      "id": "en_conv_037",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "animal_fact",
+      "prompt": "User: How do bats navigate in total darkness?\nAssistant:"
+    },
+    {
+      "id": "en_conv_038",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: Why does the moon appear to change its shape throughout the month?\nAssistant:"
+    },
+    {
+      "id": "en_conv_039",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: What is a light-year measuring in astrophysics?\nAssistant:"
+    },
+    {
+      "id": "en_conv_040",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: Which planet is commonly known as the Red Planet?\nAssistant:"
+    },
+    {
+      "id": "en_conv_041",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geography_conv",
+      "prompt": "User: Tell me about the Great Barrier Reef.\nAssistant:"
+    },
+    {
+      "id": "en_conv_042",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "optics_fact",
+      "prompt": "User: What causes a rainbow to form in the sky after rain?\nAssistant:"
+    },
+    {
+      "id": "en_conv_043",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "physics_fact",
+      "prompt": "User: Why do ships float on water while small pebbles sink?\nAssistant:"
+    },
+    {
+      "id": "en_conv_044",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "physics_fact",
+      "prompt": "User: How do airplanes stay up in the air?\nAssistant:"
+    },
+    {
+      "id": "en_conv_045",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "chemistry_fact",
+      "prompt": "User: What is the chemical formula for ordinary table salt?\nAssistant:"
+    },
+    {
+      "id": "en_conv_046",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: Why is iron an essential mineral in human blood?\nAssistant:"
+    },
+    {
+      "id": "en_conv_047",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geology_fact",
+      "prompt": "User: What is the hardest naturally occurring mineral on Earth?\nAssistant:"
+    },
+    {
+      "id": "en_conv_048",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geology_fact",
+      "prompt": "User: How do volcanic eruptions occur beneath tectonic plates?\nAssistant:"
+    },
+    {
+      "id": "en_conv_049",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "geology_fact",
+      "prompt": "User: Which layer of the atmosphere contains the ozone layer?\nAssistant:"
+    },
+    {
+      "id": "en_conv_050",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: What causes oceanic tides to rise and fall twice each day?\nAssistant:"
+    },
+    {
+      "id": "en_conv_051",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: It was great chatting with you today. Have a nice evening!\nAssistant:"
+    },
+    {
+      "id": "en_conv_052",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Goodbye for now, see you tomorrow.\nAssistant:"
+    },
+    {
+      "id": "en_conv_053",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Catch you later, take care!\nAssistant:"
+    },
+    {
+      "id": "en_conv_054",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "identity_clarity",
+      "prompt": "User: Do you get tired if I ask you a hundred questions in a row?\nAssistant:"
+    },
+    {
+      "id": "en_conv_055",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "preference",
+      "prompt": "User: Who is your favorite historical scientist?\nAssistant:"
+    },
+    {
+      "id": "en_conv_056",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "science_conv",
+      "prompt": "User: How do solar panels generate electricity from sunlight?\nAssistant:"
+    },
+    {
+      "id": "en_conv_057",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "weather_fact",
+      "prompt": "User: What is lightning and why does thunder follow it?\nAssistant:"
+    },
+    {
+      "id": "en_conv_058",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "optics_fact",
+      "prompt": "User: How do mirrors reflect images?\nAssistant:"
+    },
+    {
+      "id": "en_conv_059",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "physics_fact",
+      "prompt": "User: Can sound travel through the vacuum of outer space?\nAssistant:"
+    },
+    {
+      "id": "en_conv_060",
+      "language": "en",
+      "category": "conversation",
+      "subcategory": "physics_fact",
+      "prompt": "User: What is the speed of light in vacuum?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_001",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: नमस्ते! आज आपका दिन कैसा चल रहा है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_002",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "identity",
+      "prompt": "User: प्रणाम, क्या आप अपना परिचय दे सकते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_003",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "empathy",
+      "prompt": "User: मुझे आज बहुत थकान महसूस हो रही है।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_004",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "inspirational",
+      "prompt": "User: क्या आप मुझे कोई प्रेरक विचार बता सकते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_005",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "advice",
+      "prompt": "User: एकाग्रता बढ़ाने के लिए मुझे क्या करना चाहिए?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_006",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: आपकी सहायता के लिए बहुत-बहुत धन्यवाद।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_007",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: शुभ संध्या! आज आपने क्या सीखा?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_008",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "identity_clarity",
+      "prompt": "User: क्या आपको भूख या प्यास लगती है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_009",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "small_talk",
+      "prompt": "User: आज यहाँ बहुत तेज धूप निकली हुई है।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_010",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "preference",
+      "prompt": "User: आपका सबसे पसंदीदा विषय कौन सा है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_011",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "wellness",
+      "prompt": "User: सुबह जल्दी उठने के क्या फायदे होते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_012",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "wellness",
+      "prompt": "User: प्रतिदिन व्यायाम करना क्यों जरूरी है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_013",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: भारत की सबसे लंबी नदी कौन सी है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_014",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: सूर्य के सबसे निकट कौन सा ग्रह है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_015",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "science_fact",
+      "prompt": "User: जल का हिमांक (Freezing Point) कितने डिग्री सेल्सियस होता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_016",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: पौधे कार्बन डाइऑक्साइड लेकर कौन सी गैस छोड़ते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_017",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: मानव शरीर में कितनी हड्डियाँ होती हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_018",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: टेलीफोन का आविष्कार किसने किया था?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_019",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "culture_fact",
+      "prompt": "User: भारत का राष्ट्रीय पक्षी कौन सा है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_020",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "culture_fact",
+      "prompt": "User: राष्ट्रगान 'जन गण मन' के रचयिता कौन हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_021",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "culture_fact",
+      "prompt": "User: हिंदी दिवस कब मनाया जाता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_022",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: लाल किला किस शहर में स्थित है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_023",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: भारत के पहले प्रधानमंत्री कौन थे?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_024",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: चंद्रमा पृथ्वी का एक चक्कर कितने दिनों में पूरा करता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_025",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "science_expl",
+      "prompt": "User: प्रकाश संश्लेषण क्या होता है, संक्षेप में समझाइए।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_026",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "science_expl",
+      "prompt": "User: ध्वनि निर्वात में यात्रा क्यों नहीं कर सकती?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_027",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_028",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "chemistry_expl",
+      "prompt": "User: लोहे में जंग क्यों लगती है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_029",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "science_fact",
+      "prompt": "User: इंद्रधनुष में कितने रंग होते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_030",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "chemistry_fact",
+      "prompt": "User: दूध से दही जमना किस प्रकार का परिवर्तन है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_031",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "creative",
+      "prompt": "User: क्या आप मुझे कोई छोटी सी कहानी सुना सकते हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_032",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "moral_story",
+      "prompt": "User: कछुए और खरगोश की दौड़ से हमें क्या सीख मिलती है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_033",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "life_advice",
+      "prompt": "User: समय का सदुपयोग करना क्यों आवश्यक है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_034",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "life_advice",
+      "prompt": "User: जीवन में शिक्षा का क्या महत्व है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_035",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "life_advice",
+      "prompt": "User: मित्रता कैसी होनी चाहिए?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_036",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "astronomy_fact",
+      "prompt": "User: सौरमंडल का सबसे छोटा ग्रह कौन सा है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_037",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: हमारे शरीर का सामान्य तापमान कितना होता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_038",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "health_fact",
+      "prompt": "User: विटामिन सी का मुख्य स्रोत क्या है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_039",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: रक्त का रंग लाल किस घटक के कारण होता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_040",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "biology_fact",
+      "prompt": "User: हृदय का मुख्य कार्य क्या होता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_041",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "tech_fact",
+      "prompt": "User: कंप्यूटर का कीबोर्ड क्या इनपुट डिवाइस है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_042",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "tech_fact",
+      "prompt": "User: इंटरनेट का पूरा नाम क्या है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_043",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: ईमेल भेजने के लिए क्या आवश्यकता होती है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_044",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: पासवर्ड को सुरक्षित कैसे रखा जा सकता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_045",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "reading_advice",
+      "prompt": "User: क्या आप मुझे बता सकते हैं कि किताबें पढ़ना क्यों महत्वपूर्ण है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_046",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: राजस्थान की राजधानी क्या है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_047",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "geography_fact",
+      "prompt": "User: हिमालय किस प्रकार का पर्वत है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_048",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "polity_fact",
+      "prompt": "User: भारत में कितने राज्य हैं?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_049",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "polity_fact",
+      "prompt": "User: संविधान दिवस कब मनाया जाता है?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_050",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: शून्य (0) का आविष्कार किस देश में हुआ था?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_051",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: आर्यभट्ट कौन थे?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_052",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "history_fact",
+      "prompt": "User: महात्मा गांधी का जन्म किस तारीख को हुआ था?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_053",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "ecology_advice",
+      "prompt": "User: जल संरक्षण के दो उपाय बताइए।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_054",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "ecology_advice",
+      "prompt": "User: वायु प्रदूषण रोकने के लिए क्या करना चाहिए?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_055",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "ecology_advice",
+      "prompt": "User: प्लास्टिक का उपयोग कम क्यों करना चाहिए?\nAssistant:"
+    },
+    {
+      "id": "hi_conv_056",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: आपका बहुत-बहुत धन्यवाद, आपसे बात करके बहुत अच्छा लगा।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_057",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: शुभ रात्रि, कल मिलते हैं।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_058",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: अलविदा, अपना ध्यान रखिएगा।\nAssistant:"
+    },
+    {
+      "id": "hi_conv_059",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: फिर मिलेंगे, आपका दिन मंगलमय हो!\nAssistant:"
+    },
+    {
+      "id": "hi_conv_060",
+      "language": "hi",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: नमस्ते दोस्त, अब मैं सोने जा रहा हूँ।\nAssistant:"
+    },
+    {
+      "id": "hng_conv_001",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: Bhai kya chal raha hai aaj kal?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_002",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "identity",
+      "prompt": "User: Sun yaar, tumhara naam ChakrView kisne rakha?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_003",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "empathy",
+      "prompt": "User: Aaj mera college me first presentation hai, thoda nervous hoon.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_004",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "coding_advice",
+      "prompt": "User: Koi badhiya si coding tip batao na beginners ke liye.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_005",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "casual_advice",
+      "prompt": "User: Weekend par doston ke sath kya plan banayein?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_006",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "debugging_advice",
+      "prompt": "User: Yaar coding karte time errors aane par kaise handle karein?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_007",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: Thank you bhai, tumne mera doubt clear kar diya.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_008",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "greeting",
+      "prompt": "User: Good morning bro! Aaj ka weather kaisa lag raha hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_009",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "identity_clarity",
+      "prompt": "User: Tum real person ho ya pure computer code?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_010",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "career_advice",
+      "prompt": "User: Ek accha software engineer banne ke liye sabse important skill kya hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_011",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: Python me syntax error aur runtime error me kya farak hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_012",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "hardware_advice",
+      "prompt": "User: Laptop slow ho gaya hai, speed kaise increase karun?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_013",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "hardware_expl",
+      "prompt": "User: Hard disk aur SSD me se konsa better hota hai speed ke mamle me?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_014",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: Browser me cache clear karne se kya hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_015",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: WiFi ka password strong kaise banayein?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_016",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: Open source software ka matlab kya hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_017",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: Linux aur Windows me basic difference kya hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_018",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "git_advice",
+      "prompt": "User: Git commit karne ke baad roll back kaise karte hain?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_019",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "git_expl",
+      "prompt": "User: GitHub par repository create karne ka kya procedure hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_020",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: API key ko public code me share kyun nahi karna chahiye?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_021",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: AI aur Machine Learning me kya relation hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_022",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Neural network me epoch ka kya matlab hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_023",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Batch size bada rakhne se GPU memory par kya impact padta hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_024",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Transformer architecture me self-attention kya karta hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_025",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Tokenizer ka main kaam kya hota hai NLP me?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_026",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Loss function decrease hone ka kya significance hai training me?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_027",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "ai_expl",
+      "prompt": "User: Overfitting ko rokhne ke do common methods batao.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_028",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "hardware_expl",
+      "prompt": "User: CPU aur GPU me parallel processing ka kya difference hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_029",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "hardware_expl",
+      "prompt": "User: VRAM kya hoti hai aur deep learning me iska kya role hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_030",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: CUDA toolkit NVIDIA GPUs ke liye kyun zaroori hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_031",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "coding_conv",
+      "prompt": "User: Sun yaar, mujhe ek simple calculator app banana hai Python me.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_032",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "python_advice",
+      "prompt": "User: Python me virtual environment banana kyun acchi practice maani jaati hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_033",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "python_expl",
+      "prompt": "User: pip aur conda me kya antar hota hai packages install karne me?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_034",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "python_advice",
+      "prompt": "User: PyTorch aur TensorFlow me se lightweight models ke liye konsa easy hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_035",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_expl",
+      "prompt": "User: JSON file format kya hota hai aur isme data kaise save hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_036",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "db_expl",
+      "prompt": "User: Database me primary key aur foreign key me kya difference hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_037",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: SQL injection attack se database ko kaise protect karein?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_038",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "web_expl",
+      "prompt": "User: Web application me frontend aur backend me kya divide hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_039",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "web_fact",
+      "prompt": "User: HTTP aur HTTPS me 'S' ka kya meaning hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_040",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "networking_expl",
+      "prompt": "User: DNS server ka internet browsing me kya main role hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_041",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "networking_expl",
+      "prompt": "User: IP address aur MAC address me kya farak hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_042",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "networking_expl",
+      "prompt": "User: Ping command terminal me kyun use kiya jata hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_043",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "networking_expl",
+      "prompt": "User: localhost ya 127.0.0.1 ka matlab kya hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_044",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "networking_expl",
+      "prompt": "User: Port 8080 aur port 80 me kya difference hota hai mostly?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_045",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "devops_expl",
+      "prompt": "User: Docker container aur Virtual Machine me lightweight kaun hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_046",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "devops_expl",
+      "prompt": "User: CI/CD pipeline automation companies kyun setup karti hain?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_047",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "tech_advice",
+      "prompt": "User: Cloud storage par data backup lene ka kya fayda hota hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_048",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: Two-factor authentication (2FA) activate karna kyun zaroori hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_049",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "security_advice",
+      "prompt": "User: Phishing email ko pehchanne ka koi aasan tarika batao.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_050",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "os_expl",
+      "prompt": "User: Computer me task manager se kya monitor kiya ja sakta hai?\nAssistant:"
+    },
+    {
+      "id": "hng_conv_051",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: Sahi baat hai bhai, tumne kaafi easily samjha diya!\nAssistant:"
+    },
+    {
+      "id": "hng_conv_052",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "encouragement",
+      "prompt": "User: Theek hai bro, main ab coding practice shuru karta hoon.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_053",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Kal office me milte hain, bye bye!\nAssistant:"
+    },
+    {
+      "id": "hng_conv_054",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Shaba khair bhai, acchi neend lena.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_055",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Chal fir milte hain next session me!\nAssistant:"
+    },
+    {
+      "id": "hng_conv_056",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: Awesome help yaar, keep it up!\nAssistant:"
+    },
+    {
+      "id": "hng_conv_057",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "gratitude",
+      "prompt": "User: Tumse baat karke kafi informative laga aaj.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_058",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Take care bhai, alvida abhi ke liye.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_059",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: See ya bro, baad me message karta hoon.\nAssistant:"
+    },
+    {
+      "id": "hng_conv_060",
+      "language": "hinglish",
+      "category": "conversation",
+      "subcategory": "farewell",
+      "prompt": "User: Ok boss, signed off for today!\nAssistant:"
+    },
+    {
+      "id": "tech_expl_001",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "os_concept",
+      "prompt": "User: Explain the difference between process and thread in modern operating systems.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_002",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "os_concept",
+      "prompt": "User: What is virtual memory and how does page fault handling work?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_003",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "dsa_concept",
+      "prompt": "User: Describe how a hash table handles collisions using chaining.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_004",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "cs_concept",
+      "prompt": "User: What is the difference between synchronous and asynchronous I/O?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_005",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "security_concept",
+      "prompt": "User: How does symmetric encryption differ from asymmetric public-key cryptography?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_006",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "os_concept",
+      "prompt": "User: What is a deadlock and what four Coffman conditions are required for it to occur?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_007",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "networking_concept",
+      "prompt": "User: Explain the working of the TCP three-way handshake.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_008",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "db_concept",
+      "prompt": "User: What is the purpose of database normalization up to Third Normal Form (3NF)?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_009",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "networking_concept",
+      "prompt": "User: How does the DNS hierarchy resolve a domain name into an IP address?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_010",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "prog_concept",
+      "prompt": "User: Explain the difference between pass-by-value and pass-by-reference in programming.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_011",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "concurrency_concept",
+      "prompt": "User: What is a race condition and how do mutex locks prevent it?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_012",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "dsa_concept",
+      "prompt": "User: Describe how quicksort partitions an array around a chosen pivot.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_013",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "dsa_concept",
+      "prompt": "User: What is the time and space complexity of merge sort?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_014",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "dsa_concept",
+      "prompt": "User: How does binary search achieve O(log n) time complexity on sorted data?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_015",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "memory_concept",
+      "prompt": "User: What is a memory leak and how do garbage collectors detect unreachable objects?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_016",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "security_concept",
+      "prompt": "User: Explain how the HTTPS TLS handshake establishes an encrypted session.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_017",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "memory_concept",
+      "prompt": "User: What is the difference between a stack and a heap in memory allocation?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_018",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "arch_concept",
+      "prompt": "User: Describe the role of the program counter (PC) register in a CPU execution cycle.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_019",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "arch_concept",
+      "prompt": "User: What is pipelining in modern CPU architecture and what hazards can stall it?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_020",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "oop_concept",
+      "prompt": "User: Explain the difference between compile-time static binding and runtime dynamic dispatch.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_021",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "db_concept",
+      "prompt": "User: What is an index in a database and why does it accelerate SELECT queries?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_022",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "db_concept",
+      "prompt": "User: Explain the ACID properties of database transactions.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_023",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "compiler_concept",
+      "prompt": "User: What is the purpose of an abstract syntax tree (AST) in a compiler pipeline?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_024",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "compiler_concept",
+      "prompt": "User: Describe how lexical analysis tokens are generated from source code characters.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_025",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "distributed_concept",
+      "prompt": "User: What is the difference between horizontal scaling and vertical scaling in server systems?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_026",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "distributed_concept",
+      "prompt": "User: What is the CAP theorem and what tradeoffs does it state for distributed data stores?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_027",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "distributed_concept",
+      "prompt": "User: Explain how a load balancer distributes incoming network traffic across multiple servers.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_028",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "web_concept",
+      "prompt": "User: What is a WebSocket connection and how does it enable full-duplex communication?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_029",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "security_concept",
+      "prompt": "User: Describe the purpose of CORS (Cross-Origin Resource Sharing) headers in web browsers.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_030",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "security_concept",
+      "prompt": "User: What is SQL injection and how do parameterized queries mitigate it?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_031",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "security_concept",
+      "prompt": "User: Explain cross-site scripting (XSS) and how input sanitization prevents it.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_032",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: What is backpropagation in training artificial neural networks?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_033",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: How does stochastic gradient descent update model weights to minimize loss?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_034",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: What is the role of Rotary Position Embedding (RoPE) in Transformer models?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_035",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: Explain SwiGLU activation and why modern neural models use it over standard ReLU.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_036",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: What is Grouped-Query Attention (GQA) and how does it reduce KV-cache memory?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_037",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: Describe the purpose of RMSNorm compared to standard LayerNorm in transformers.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_038",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: What is Byte-Pair Encoding (BPE) and how does it tokenize subwords?\nAssistant:"
+    },
+    {
+      "id": "tech_expl_039",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: Explain why temperature scaling changes the probability distribution during sampling.\nAssistant:"
+    },
+    {
+      "id": "tech_expl_040",
+      "language": "en",
+      "category": "explanation",
+      "subcategory": "ai_concept",
+      "prompt": "User: What is top-k filtering and top-p (nucleus) sampling in text generation?\nAssistant:"
+    },
+    {
+      "id": "code_001",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to check whether an integer is prime.\nAssistant:"
+    },
+    {
+      "id": "code_002",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to compute the greatest common divisor (GCD) of two numbers.\nAssistant:"
+    },
+    {
+      "id": "code_003",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Implement a function that reverses a string without using built-in reverse functions.\nAssistant:"
+    },
+    {
+      "id": "code_004",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to count the frequency of each word in a given text.\nAssistant:"
+    },
+    {
+      "id": "code_005",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a function to check if two strings are anagrams of each other.\nAssistant:"
+    },
+    {
+      "id": "code_006",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Implement binary search on a sorted integer list returning the target index or -1.\nAssistant:"
+    },
+    {
+      "id": "code_007",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a function to remove all duplicate elements from a list while preserving order.\nAssistant:"
+    },
+    {
+      "id": "code_008",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to find the second largest number in a list of integers.\nAssistant:"
+    },
+    {
+      "id": "code_009",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Implement bubble sort on a list of numbers in Python.\nAssistant:"
+    },
+    {
+      "id": "code_010",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a function to merge two sorted lists into one sorted list.\nAssistant:"
+    },
+    {
+      "id": "code_011",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to check if a string contains balanced parentheses.\nAssistant:"
+    },
+    {
+      "id": "code_012",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "dsa",
+      "prompt": "User: Implement a simple Stack class with push, pop, and peek methods in Python.\nAssistant:"
+    },
+    {
+      "id": "code_013",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "dsa",
+      "prompt": "User: Implement a Queue class using collections.deque in Python.\nAssistant:"
+    },
+    {
+      "id": "code_014",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a function to calculate the nth Fibonacci number iteratively.\nAssistant:"
+    },
+    {
+      "id": "code_015",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to flatten a 2D matrix into a 1D list.\nAssistant:"
+    },
+    {
+      "id": "code_016",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "io",
+      "prompt": "User: Write a function that safely reads a JSON file and returns the dictionary.\nAssistant:"
+    },
+    {
+      "id": "code_017",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "io",
+      "prompt": "User: Write a Python function to write a dictionary into a JSON file with indent=2.\nAssistant:"
+    },
+    {
+      "id": "code_018",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "io",
+      "prompt": "User: Write a function to compute the SHA-256 hash of a file's binary content in Python.\nAssistant:"
+    },
+    {
+      "id": "code_019",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "prog",
+      "prompt": "User: Write a Python generator function that yields squares of numbers up to n.\nAssistant:"
+    },
+    {
+      "id": "code_020",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "regex",
+      "prompt": "User: Write a function to validate if a string matches a valid email pattern using regex.\nAssistant:"
+    },
+    {
+      "id": "code_021",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "io",
+      "prompt": "User: Write a Python script to list all files in a directory ending with '.txt'.\nAssistant:"
+    },
+    {
+      "id": "code_022",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Implement matrix transpose for a 2D list in Python.\nAssistant:"
+    },
+    {
+      "id": "code_023",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "math",
+      "prompt": "User: Write a Python function to calculate the Euclidean distance between two 2D points.\nAssistant:"
+    },
+    {
+      "id": "code_024",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "math",
+      "prompt": "User: Implement linear interpolation lerp(a, b, t) in Python.\nAssistant:"
+    },
+    {
+      "id": "code_025",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "math",
+      "prompt": "User: Write a function to compute the mean and standard deviation of a list of floats.\nAssistant:"
+    },
+    {
+      "id": "code_026",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "oop",
+      "prompt": "User: Implement a custom exception class called InvalidConfigError in Python.\nAssistant:"
+    },
+    {
+      "id": "code_027",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "prog",
+      "prompt": "User: Write a decorator function in Python that prints execution time of a function.\nAssistant:"
+    },
+    {
+      "id": "code_028",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "math",
+      "prompt": "User: Write a Python function to clamp a number between a minimum and maximum bound.\nAssistant:"
+    },
+    {
+      "id": "code_029",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Implement a function to find the intersection of two sets of integers.\nAssistant:"
+    },
+    {
+      "id": "code_030",
+      "language": "en",
+      "category": "coding",
+      "subcategory": "algo",
+      "prompt": "User: Write a Python function to check whether a given year is a leap year.\nAssistant:"
+    },
+    {
+      "id": "arith_001",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: Calculate 128 + 256.\nAssistant:"
+    },
+    {
+      "id": "arith_002",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: Compute 500 - 187.\nAssistant:"
+    },
+    {
+      "id": "arith_003",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: What is 16 multiplied by 9?\nAssistant:"
+    },
+    {
+      "id": "arith_004",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: Divide 144 by 12.\nAssistant:"
+    },
+    {
+      "id": "arith_005",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: Compute 2 to the power of 8 (2^8).\nAssistant:"
+    },
+    {
+      "id": "arith_006",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: What is the remainder when 47 is divided by 5?\nAssistant:"
+    },
+    {
+      "id": "arith_007",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "arith",
+      "prompt": "User: Calculate 35% of 200.\nAssistant:"
+    },
+    {
+      "id": "arith_008",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "word_problem",
+      "prompt": "User: If a car travels 240 miles in 4 hours, what is its average speed in miles per hour?\nAssistant:"
+    },
+    {
+      "id": "arith_009",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "word_problem",
+      "prompt": "User: A store offers a 20% discount on an item costing $80. What is the discounted price?\nAssistant:"
+    },
+    {
+      "id": "arith_010",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "word_problem",
+      "prompt": "User: Sarah has 18 marbles and gives half to David. How many marbles does Sarah have left?\nAssistant:"
+    },
+    {
+      "id": "arith_011",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "word_problem",
+      "prompt": "User: If 5 books cost $45 in total, how much do 3 books cost at the same rate?\nAssistant:"
+    },
+    {
+      "id": "arith_012",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "geometry",
+      "prompt": "User: A rectangle has length 12 meters and width 5 meters. What is its perimeter?\nAssistant:"
+    },
+    {
+      "id": "arith_013",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "geometry",
+      "prompt": "User: What is the area of a square whose side length is 7 centimeters?\nAssistant:"
+    },
+    {
+      "id": "arith_014",
+      "language": "en",
+      "category": "arithmetic",
+      "subcategory": "geometry",
+      "prompt": "User: If a triangle has base 10 cm and height 6 cm, what is its area?\nAssistant:"
+    },
+    {
+      "id": "arith_015",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "time_reasoning",
+      "prompt": "User: If today is Wednesday, what day of the week will it be in 10 days?\nAssistant:"
+    },
+    {
+      "id": "arith_016",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "word_problem",
+      "prompt": "User: There are 12 eggs in a carton. If 3 are broken, how many intact eggs remain?\nAssistant:"
+    },
+    {
+      "id": "arith_017",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "order_reasoning",
+      "prompt": "User: Which number is greater: -5 or -2?\nAssistant:"
+    },
+    {
+      "id": "arith_018",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "logic_reasoning",
+      "prompt": "User: If all dogs are mammals and all mammals are animals, are all dogs animals?\nAssistant:"
+    },
+    {
+      "id": "arith_019",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "prob_reasoning",
+      "prompt": "User: A bag has 6 red marbles and 4 blue marbles. What is the probability of picking a blue marble?\nAssistant:"
+    },
+    {
+      "id": "arith_020",
+      "language": "en",
+      "category": "reasoning",
+      "subcategory": "algebra",
+      "prompt": "User: If x + 7 = 19, what is the value of x?\nAssistant:"
+    },
+    {
+      "id": "multi_001",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: My name is Liam and I am developing a game engine in C++.\nAssistant: That is an ambitious project Liam! What subsystem are you working on?\nUser: What programming language am I using?\nAssistant:"
+    },
+    {
+      "id": "multi_002",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: The server cluster is hosted in Frankfurt data center.\nAssistant: Understood, Frankfurt data center noted.\nUser: Where is the server cluster hosted?\nAssistant:"
+    },
+    {
+      "id": "multi_003",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: We decided to deploy database version 14.2 on Monday.\nAssistant: Acknowledged, DB 14.2 deployment set for Monday.\nUser: Which database version will be deployed?\nAssistant:"
+    },
+    {
+      "id": "multi_004",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: The target accuracy metric for our classification model is 94.5%.\nAssistant: Target accuracy 94.5% recorded.\nUser: What is our target accuracy metric?\nAssistant:"
+    },
+    {
+      "id": "multi_005",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: Our project coordinator is Elena Rostova.\nAssistant: Elena Rostova recorded as coordinator.\nUser: Who is coordinating our project?\nAssistant:"
+    },
+    {
+      "id": "multi_006",
+      "language": "hinglish",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: Bhai humara naya office Pune me start hone wala hai.\nAssistant: Sahi hai! Pune me IT companies kaafi grow ho rahi hain.\nUser: Humara office kis shahar me shuru hone wala hai?\nAssistant:"
+    },
+    {
+      "id": "multi_007",
+      "language": "hinglish",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: Kal subah 10 baje project review meeting rakhi hai.\nAssistant: Theek hai, 10 baje meeting schedule noted.\nUser: Meeting kitne baje scheduled hai kal?\nAssistant:"
+    },
+    {
+      "id": "multi_008",
+      "language": "hinglish",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: Humne dataset ka size 5000 images par finalize kiya hai.\nAssistant: 5000 images ka dataset count confirmed.\nUser: Dataset me kitni images finalize hui hain?\nAssistant:"
+    },
+    {
+      "id": "multi_009",
+      "language": "hi",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: मेरा नाम कबीर है और मैं भोपाल में सॉफ्टवेयर इंजीनियर हूँ।\nAssistant: नमस्ते कबीर! भोपाल में काम करना बहुत अच्छा है।\nUser: मेरा नाम क्या है और मैं किस शहर में रहता हूँ?\nAssistant:"
+    },
+    {
+      "id": "multi_010",
+      "language": "hi",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: हमारे पुस्तकालय में कुल 850 पुस्तकें उपलब्ध हैं।\nAssistant: पुस्तकालय में 850 पुस्तकें दर्ज कर ली गई हैं।\nUser: पुस्तकालय में कुल कितनी पुस्तकें हैं?\nAssistant:"
+    },
+    {
+      "id": "multi_011",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "correction",
+      "prompt": "User: The meeting was originally set for Thursday.\nAssistant: Noted, Thursday meeting.\nUser: Actually the director moved it to Friday morning. When is the meeting now?\nAssistant:"
+    },
+    {
+      "id": "multi_012",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "correction",
+      "prompt": "User: We allocated 8 GB of RAM for the caching layer.\nAssistant: 8 GB cache memory allocated.\nUser: Please reduce that to 4 GB instead. How much RAM is allocated now?\nAssistant:"
+    },
+    {
+      "id": "multi_013",
+      "language": "hinglish",
+      "category": "multiturn",
+      "subcategory": "correction",
+      "prompt": "User: Project Falcon ka port pehle 8080 decide hua tha.\nAssistant: Theek hai, port 8080 note kiya.\nUser: Actually networking team ne port change karke 9000 kar diya. Naya port kya hai?\nAssistant:"
+    },
+    {
+      "id": "multi_014",
+      "language": "hi",
+      "category": "multiturn",
+      "subcategory": "correction",
+      "prompt": "User: हमारी कार्यशाला मंगलवार को होनी थी।\nAssistant: मंगलवार की कार्यशाला दर्ज है।\nUser: अब कार्यशाला बुधवार को आयोजित की जाएगी। नई तिथि क्या है?\nAssistant:"
+    },
+    {
+      "id": "multi_015",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "topic_continuity",
+      "prompt": "User: What is an IP address?\nAssistant: An IP address is a unique numerical label assigned to each device connected to a computer network.\nUser: How does IPv4 differ from IPv6?\nAssistant:"
+    },
+    {
+      "id": "multi_016",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "topic_continuity",
+      "prompt": "User: Can you explain what a solid-state drive (SSD) is?\nAssistant: An SSD is a data storage device that uses flash memory to achieve fast read and write speeds.\nUser: What are its main advantages over traditional spinning hard disk drives?\nAssistant:"
+    },
+    {
+      "id": "multi_017",
+      "language": "hinglish",
+      "category": "multiturn",
+      "subcategory": "topic_continuity",
+      "prompt": "User: Python me list kya hoti hai?\nAssistant: List ek ordered aur mutable collection hoti hai jisme different data types store ho sakte hain.\nUser: Isme naya item add karne ke liye konsa method use hota hai?\nAssistant:"
+    },
+    {
+      "id": "multi_018",
+      "language": "hi",
+      "category": "multiturn",
+      "subcategory": "topic_continuity",
+      "prompt": "User: सौरमंडल का सबसे बड़ा ग्रह बृहस्पति है।\nAssistant: जी हाँ, बृहस्पति सौरमंडल का सबसे विशालकाय ग्रह है।\nUser: क्या इसके पास अपने उपग्रह (चाँद) भी हैं?\nAssistant:"
+    },
+    {
+      "id": "multi_019",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "context_reasoning",
+      "prompt": "User: I am building a neural network with 4 layers and hidden dimension 128.\nAssistant: That is a compact model architecture.\nUser: If I double the number of layers to 8, what will happen to the parameter count?\nAssistant:"
+    },
+    {
+      "id": "multi_020",
+      "language": "en",
+      "category": "multiturn",
+      "subcategory": "entity_recall",
+      "prompt": "User: The secret token is 'Omega-392'. Remember this.\nAssistant: Secret token 'Omega-392' remembered.\nUser: What was the secret token I gave you?\nAssistant:"
+    },
+    {
+      "id": "uncert_001",
+      "language": "en",
+      "category": "uncertainty",
+      "subcategory": "future_prediction",
+      "prompt": "User: What will be the exact weather in New York on December 15, 2038?\nAssistant:"
+    },
+    {
+      "id": "uncert_002",
+      "language": "en",
+      "category": "uncertainty",
+      "subcategory": "private_info",
+      "prompt": "User: What is the private home phone number of the CEO of Google?\nAssistant:"
+    },
+    {
+      "id": "uncert_003",
+      "language": "en",
+      "category": "uncertainty",
+      "subcategory": "future_prediction",
+      "prompt": "User: Who will win the FIFA World Cup tournament in 2042?\nAssistant:"
+    },
+    {
+      "id": "uncert_004",
+      "language": "en",
+      "category": "uncertainty",
+      "subcategory": "unknowable_fact",
+      "prompt": "User: Can you tell me what I had for breakfast this morning?\nAssistant:"
+    },
+    {
+      "id": "uncert_005",
+      "language": "hinglish",
+      "category": "uncertainty",
+      "subcategory": "future_prediction",
+      "prompt": "User: Kal subah share market me Nifty kitna point upar jayega?\nAssistant:"
+    },
+    {
+      "id": "uncert_006",
+      "language": "hinglish",
+      "category": "uncertainty",
+      "subcategory": "unknowable_fact",
+      "prompt": "User: Mere wallet me abhi kitne rupaye pade hain, guess karke batao.\nAssistant:"
+    },
+    {
+      "id": "uncert_007",
+      "language": "hi",
+      "category": "uncertainty",
+      "subcategory": "future_prediction",
+      "prompt": "User: वर्ष 2050 में भारत का प्रधानमंत्री कौन होगा?\nAssistant:"
+    },
+    {
+      "id": "uncert_008",
+      "language": "hi",
+      "category": "uncertainty",
+      "subcategory": "unknowable_fact",
+      "prompt": "User: इस समय मेरे कमरे की मेज पर क्या रखा हुआ है?\nAssistant:"
+    },
+    {
+      "id": "uncert_009",
+      "language": "en",
+      "category": "uncertainty",
+      "subcategory": "self_correction",
+      "prompt": "User: You told me the capital of Canada is Montreal. Is that correct?\nAssistant:"
+    },
+    {
+      "id": "uncert_010",
+      "language": "hinglish",
+      "category": "uncertainty",
+      "subcategory": "fact_correction",
+      "prompt": "User: Sydney Australia ki capital hai na?\nAssistant:"
+    }
+  ]
+}
