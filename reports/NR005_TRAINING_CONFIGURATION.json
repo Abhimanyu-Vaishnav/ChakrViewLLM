@@ -1,0 +1,36 @@
+{
+  "mission_id": "CV-GENESIS-NR-005",
+  "model_architecture": "ChakrGenesis",
+  "parameter_count": 5177600,
+  "hidden_dim": 256,
+  "n_layers": 6,
+  "n_q_heads": 8,
+  "n_kv_heads": 2,
+  "max_seq_len": 512,
+  "vocab_size": 4096,
+  "tokenizer_vocab_hash": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+  "foundation_pretrain_hash": "03a4c16d20ad362114e92e928b7b11117c9d55345af10a580b01c1b2be5c229e",
+  "training": {
+    "epochs": 4,
+    "batch_size": 16,
+    "total_optimization_steps": 728,
+    "learning_rate": 0.00018,
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "weight_decay": 0.01,
+    "warmup_steps": 58,
+    "lr_scheduler": "CosineAnnealingWithWarmup",
+    "grad_clip_norm": 1.0,
+    "mixed_precision": "torch.amp.autocast(cuda)"
+  },
+  "dataset": {
+    "train_examples": 2901,
+    "validation_examples": 362,
+    "test_examples": 364
+  },
+  "hardware": {
+    "gpu": "NVIDIA RTX A1000 Laptop GPU (6GB VRAM)",
+    "cuda_version": "12.4",
+    "pytorch_version": "2.5.1+cu124"
+  }
+}

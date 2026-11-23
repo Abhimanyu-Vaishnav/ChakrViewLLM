@@ -1,0 +1,47 @@
+[
+  {
+    "id": "multiturn_entity_recall_01",
+    "category": "entity_recall",
+    "language": "en",
+    "prompt": "User: My name is Alice and I am designing a compiler in Rust.\nAssistant: Hello Alice! Building a compiler in Rust is a fantastic project. What part are you currently working on?\nUser: What programming language am I using for my compiler?\nAssistant:",
+    "response": "Your project is a compiler in Rust.",
+    "target_keyword": "Rust",
+    "keyword_recalled": true
+  },
+  {
+    "id": "multiturn_entity_recall_02",
+    "category": "entity_recall",
+    "language": "hinglish",
+    "prompt": "User: Bhai humara naya office Bangalore me open hone wala hai.\nAssistant: Bohot badhiya! Bangalore tech hubs ke liye famous hai. Office kab start hoga?\nUser: Humara office kis shahar me open hone wala hai?\nAssistant:",
+    "response": "Tumhara naam Aaravein.",
+    "target_keyword": "Bangalore",
+    "keyword_recalled": false
+  },
+  {
+    "id": "multiturn_entity_recall_03",
+    "category": "entity_recall",
+    "language": "hi",
+    "prompt": "User: मेरे पास तीन सफेद बिल्लियाँ और दो काले कुत्ते हैं।\nAssistant: यह बहुत अच्छा है! आपके पास कुल पाँच प्यारे पालतू जानवर हैं।\nUser: मेरे पास कुल कितने पालतू जानवर हैं?\nAssistant:",
+    "response": "आपके मित्र का नाम Bindha है।",
+    "target_keyword": "पाँच",
+    "keyword_recalled": false
+  },
+  {
+    "id": "multiturn_correction_01",
+    "category": "correction",
+    "language": "en",
+    "prompt": "User: The project deadline is Friday.\nAssistant: Understood. The project deadline is noted for Friday.\nUser: Actually, the client rescheduled it to next Tuesday. When is the deadline now?\nAssistant:",
+    "response": "Meera-KB",
+    "target_keyword": "Tuesday",
+    "keyword_recalled": false
+  },
+  {
+    "id": "multiturn_topic_continuity_01",
+    "category": "topic_continuity",
+    "language": "en",
+    "prompt": "User: What is an index in a database?\nAssistant: An index is a data structure, such as a B-Tree, that improves the speed of data retrieval operations on a database table.\nUser: What is its primary disadvantage?\nAssistant:",
+    "response": "-greedy",
+    "target_keyword": "write",
+    "keyword_recalled": false
+  }
+]
