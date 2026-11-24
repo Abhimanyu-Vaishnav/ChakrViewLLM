@@ -1,45 +1,66 @@
-# ChakrView Multi-Milestone Roadmap: October 2026 $\to$ November 2026
+# ChakrView Technical Roadmap
 
-**Classification**: Architecture Target Roadmap & Milestone Gates  
-**Guiding Vision**: Indigenous, modular neural intelligence developed from first principles with hardware-adaptive execution. Coding is the first specialization of a multi-domain foundation.
-
----
-
-## 1. Milestone Timeline & Target Gates
-
-> [!NOTE]
-> All milestones below represent engineering targets with machine-verifiable acceptance gates, not speculative claims. Capabilities are only marked validated once proven on empirical benchmarks.
-
-| Milestone | Target Date | Primary Focus | Key Deliverables & Gates | Current Status |
-| :--- | :---: | :--- | :--- | :---: |
-| **v0.6.0** | **October 2026** | **Reproducible Research Preview** | • Verified CPU inference adapter (`NeuralRuntimeAdapter`)<br>• Bit-exact canonical hashes (Step 10,000)<br>• Truthful capability boundaries & limitations<br>• Automated release smoke suite (7/7 pass) | **READY FOR RELEASE CANDIDATE AUDIT** |
-| **v0.7.0** | **October 2026** | **Capability Gates & Code Integrity** | • Single-field entity copying forensics<br>• Sandboxed coding benchmark suite (6 tasks)<br>• GGUF export feasibility analysis<br>• Context-constrained Trie decoding proof | **ENGINEERING & FORENSICS COMPLETE** |
-| **v0.8.0** | **October 2026** | **Runtime & Copying Improvements** | • Copy-augmented attention objective design<br>• Disjoint entity dynamic curriculum<br>• Enhanced memory indexing & session state | **IN PLANNING** |
-| **v0.9.0** | **October 2026** | **Integration & RC Hardening** | • End-to-end regression validation<br>• Model packaging & release candidate verification | **IN PLANNING** |
-| **v1.0.0** | **November 2026** | **Public Coding-Specialized Release** | • Coding-specialized fine-tuning (LoRA / SFT)<br>• Verified GGUF inference compatibility<br>• GitHub and Hugging Face public repository publication | **PRODUCT GOAL** |
+## Current Status: `v0.12.0-prototype`
+ChakrView has completed foundational pretraining and initial supervised fine-tuning (SFT), achieving 0.0% runaway repetition and establishing baseline bilingual conversational capability. It is currently categorized as an **Experimental Prototype** operating in internal research environments.
 
 ---
 
-## 2. Capability Implementation Status Matrix
+## Milestone Timeline
 
-ChakrView strictly distinguishes **runtime engineering**, **empirically validated neural capabilities**, **experimental prototypes**, and **future planned features**.
-
-| Capability Area | Status | Implementation Mechanism | Demonstrated Performance |
-| :--- | :---: | :--- | :--- |
-| **Autoregressive Text Continuation** | **VALIDATED** | `ChakrMicro` Transformer Core (3.44M params, Step 10,000) | 100% fluent continuation of learned domain text; ~136 tok/s on CPU |
-| **Canonical Immutability ($\Delta W = 0$)** | **VALIDATED** | Cryptographic SHA-256 pre/post checks in runtime adapter | Bit-exact preservation of canonical weights |
-| **Retrieval-Augmented Answering** | **VALIDATED (RUNTIME)** | BM25 lexical + semantic indexing (`assistant_cli`) | Grounded answers with verbatim citations |
-| **Sandboxed Code Execution** | **VALIDATED (RUNTIME)** | `evaluation/coding_suite/run_coding_evaluation.py` | Time-limited subprocess with blocked network/disk |
-| **Context-Grounded Copying** | **EXPERIMENTAL / UNLEARNED**| Pure causal autoregression without copy heads | 0/40 exact match on novel entities; prompt framing suppresses attractors |
-| **Structured Output Generation (JSON)** | **EXPERIMENTAL** | Constrained JSON Trie decoder (`fake_model_schema_decoder.py`)| Syntax constrained by Trie; neural entity extraction remains unlearned |
-| **Hardware-Adaptive GPU Execution** | **EXPERIMENTAL FALLBACK** | Hardware detection in `chakrview/runtime/hardware.py` | Accurate CUDA/MPS discovery with safe automatic CPU fallback |
-| **GGUF Format Compatibility** | **BLOCKED (ENGINEERING)** | Custom RoPE + SwiGLU export pipeline (`docs/GGUF_FEASIBILITY.md`) | Custom topology requires converter script prior to llama.cpp support |
-| **Distributed Multi-Node Peering** | **PLANNED** | Container/transport specifications | Stubbed wire interfaces; physical multi-node not verified |
+```mermaid
+flowchart LR
+    M1[Milestone 1: Prototype Hardening\nv0.12.0 - Current] --> M2[Milestone 2: SFT Data Expansion\nv0.13.0]
+    M2 --> M3[Milestone 3: Cognitive Integration\nv0.14.0]
+    M3 --> M4[Milestone 4: Conversational Beta\nv0.15.0-beta]
+    M4 --> M5[Milestone 5: Public Release\nv1.0.0]
+```
 
 ---
 
-## 3. Epistemic Principles for Future Iterations
+### Milestone 1: Prototype Hardening & Release Audit (Current: `v0.12.0-prototype`)
+- [x] Canonical vocabulary alignment (4,096 BPE).
+- [x] Zero-repetition decoding configuration (SwiGLU + RoPE + 3-gram suppression).
+- [x] Independent 300-prompt blind evaluation suite (`NR006_PURE_NEURAL_RESULTS.json`).
+- [x] Master technical documentation and Git LFS artifact tracking.
+- [x] Continuous synchronization with remote repository.
 
-1. **No Overclaiming**: A decrease in training loss does not constitute an acquired capability. Generalization must be proven on strictly held-out, disjoint entity distributions.
-2. **Separation of Layers**: Syntax constraints, Trie filters, and retrieval augmentations are external scaffolding; they must never be misrepresented as native neural intelligence.
-3. **Weight Sovereignty**: Canonical base checkpoints are never overwritten or mutated during inference or failed experimental pilots.
+---
+
+### Milestone 2: SFT Expansion & Bilingual Balance (`v0.13.0` — Est: 3–5 Days)
+- [ ] **Curated Hindi Expansion:** Increase Devanagari Hindi conversational corpus from 12% to 35% of total SFT tokens.
+- [ ] **Multi-turn Dialogue Corpus:** Train on structured 2–4 turn context pairs to improve multi-turn coherence from 5.0% to > 25.0%.
+- [ ] **Domain Synthetic Datasets:**
+  - 5,000 synthetic technical explanation pairs (Python, hardware, OS).
+  - 2,500 arithmetic step-by-step reasoning pairs.
+- [ ] **Evaluation Gate:**
+  - Strict Hindi accuracy $\ge 15.0\%$.
+  - English conversational accuracy $\ge 30.0\%$.
+  - Arithmetic strict accuracy $\ge 25.0\%$.
+
+---
+
+### Milestone 3: Cognitive Integration & Adapter Architecture (`v0.14.0` — Est: 5–7 Days)
+- [ ] **Deterministic Tool Routers:** Seamless invocation of calculator and python math kernel for verified arithmetic.
+- [ ] **Span-Pointer Episodic Working Memory:** Explicit memory pointer network for entity tracking across conversation turns.
+- [ ] **LoRA Domain Adapters:** Lightweight low-rank adaptation heads ($r=8$) for task-specific switching (Coding vs. Hindi Creative Writing).
+- [ ] **Evaluation Gate:**
+  - Context retention score $\ge 40.0\%$.
+  - Zero privacy regression on principled abstention benchmarks.
+
+---
+
+### Milestone 4: Conversational Beta Release (`v0.15.0-beta` — Est: 7–10 Days)
+- [ ] Unified CLI launcher (`chakrview-chat`) with real-time streaming output.
+- [ ] Streamlit/FastAPI production web interface with memory inspector panel.
+- [ ] Quantized inference support (INT8 / FP8 via PyTorch native quantization).
+- [ ] **Evaluation Gate:**
+  - Overall strict benchmark accuracy $\ge 35.0\%$.
+  - Bilingual conversational coherence $\ge 85.0\%$.
+  - Zero unhandled exceptions across 1,000 automated stress queries.
+
+---
+
+### Milestone 5: General Availability (`v1.0.0` — Future)
+- [ ] Full architectural scaling to 15M–25M parameter model variants.
+- [ ] Multi-turn reinforcement learning via DPO (Direct Preference Optimization).
+- [ ] Standalone open-source community release with model weights and training code.
