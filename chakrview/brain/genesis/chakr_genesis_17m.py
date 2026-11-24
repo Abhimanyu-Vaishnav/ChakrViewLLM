@@ -37,7 +37,7 @@ class Genesis17MConfig:
         rope_theta: float = 10000.0,
         dropout: float = 0.0,
         tie_embeddings: bool = True,
-        bos_token_id: int = 1,
+        bos_token_id: int = 0,
         eos_token_id: int = 1,
         pad_token_id: int = 2
     ):
