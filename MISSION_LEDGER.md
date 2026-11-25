@@ -19,3 +19,4 @@
 | **CV-GENESIS-NR-011** | 2026-11-25 | Stage-D Multilingual Corpus | `genesis_17m_staged_best.pt` (`2c21632e`) | PASSED | Project-record val loss 1.91, 5,513 samples. |
 | **CV-GENESIS-NR-012** | 2026-11-25 | Interactive Runtime & Local App | `genesis_17m_staged_best.pt` (`2c21632e`) | PASSED | Streaming engine, CLI, Web UI, Quantization, 150-eval. |
 | **CV-GENESIS-NR-013** | 2026-11-25 | Neural Coding Intelligence & Evaluation Hardening | `genesis_17m_staged_best.pt` (`2c21632e`) | PARTIALLY SUCCESSFUL | Verified coding data pipeline, 210 sealed benchmark, isolated exec, 20% syntax validity. |
+| **CV-GENESIS-NR-014** | 2026-11-25 | Neural Learning Recovery & Objective Audit | `genesis_17m_staged_best.pt` (`2c21632e`) | ENGINEERING SUCCESSFUL, CAPABILITY UNCHANGED | Causal LM objective unit-tested, 260-task benchmark, Stage-F trained, Stage-D preserved as primary. |
