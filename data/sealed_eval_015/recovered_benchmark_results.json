@@ -1,0 +1,3321 @@
+{
+  "summary": {
+    "simple_arithmetic": {
+      "total": 25,
+      "pure_correct": 1,
+      "hybrid_correct": 25
+    },
+    "sequence_continuation": {
+      "total": 25,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    },
+    "variable_binding": {
+      "total": 25,
+      "pure_correct": 1,
+      "hybrid_correct": 3
+    },
+    "function_argument_binding": {
+      "total": 25,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    },
+    "io_transformation": {
+      "total": 25,
+      "pure_correct": 6,
+      "hybrid_correct": 1
+    },
+    "conditional_logic": {
+      "total": 25,
+      "pure_correct": 1,
+      "hybrid_correct": 0
+    },
+    "list_transformation": {
+      "total": 25,
+      "pure_correct": 3,
+      "hybrid_correct": 2
+    },
+    "string_transformation": {
+      "total": 25,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    },
+    "rule_induction": {
+      "total": 25,
+      "pure_correct": 1,
+      "hybrid_correct": 0
+    },
+    "python_function_generation": {
+      "total": 40,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    },
+    "multistep_instruction": {
+      "total": 30,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    },
+    "novel_combinations": {
+      "total": 30,
+      "pure_correct": 0,
+      "hybrid_correct": 0
+    }
+  },
+  "total_tasks": 325,
+  "pure_correct": 13,
+  "hybrid_correct": 31,
+  "pure_accuracy_pct": 4.0,
+  "hybrid_accuracy_pct": 9.538461538461538,
+  "details": [
+    {
+      "task_id": "GEN-01-001",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 91 + 24.",
+      "ground_truth": "115",
+      "pure_out": "The total amount of 50 is 170.",
+      "hybrid_out": "The result of 91 + 24 is 115.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-002",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 45 + 41.",
+      "ground_truth": "86",
+      "pure_out": "#### 16",
+      "hybrid_out": "The result of 45 + 41 is 86.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-003",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 11 * 4.",
+      "ground_truth": "44",
+      "pure_out": "The total amount of 5 is 120.",
+      "hybrid_out": "The result of 11 * 4 is 44.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-004",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 85 + 64.",
+      "ground_truth": "149",
+      "pure_out": "#### 38",
+      "hybrid_out": "The result of 85 + 64 is 149.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-005",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 13 + 21.",
+      "ground_truth": "34",
+      "pure_out": "### 36",
+      "hybrid_out": "The result of 13 + 21 is 34.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-006",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 3 * 11.",
+      "ground_truth": "33",
+      "pure_out": "### 24",
+      "hybrid_out": "The result of 3 * 11 is 33.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-007",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 11 * 9.",
+      "ground_truth": "99",
+      "pure_out": "The total of $1 + $2 = $170 = $460.",
+      "hybrid_out": "The result of 11 * 9 is 99.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-008",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 7 * 3.",
+      "ground_truth": "21",
+      "pure_out": "### 24",
+      "hybrid_out": "The result of 7 * 3 is 21.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-009",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 30 - 99.",
+      "ground_truth": "-69",
+      "pure_out": "### 12",
+      "hybrid_out": "The result of 30 - 99 is -69.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-010",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 53 + 45.",
+      "ground_truth": "98",
+      "pure_out": "The total amount of 10 is 170.",
+      "hybrid_out": "The result of 53 + 45 is 98.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-011",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 37 + 53.",
+      "ground_truth": "90",
+      "pure_out": "#### 7",
+      "hybrid_out": "The result of 37 + 53 is 90.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-012",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 21 + 58.",
+      "ground_truth": "79",
+      "pure_out": "The total amount of 5 + 6 = 17",
+      "hybrid_out": "The result of 21 + 58 is 79.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-013",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 7 * 3.",
+      "ground_truth": "21",
+      "pure_out": "### 24",
+      "hybrid_out": "The result of 7 * 3 is 21.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-014",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 68 + 78.",
+      "ground_truth": "146",
+      "pure_out": "The total amount of 50 is 90.",
+      "hybrid_out": "The result of 68 + 78 is 146.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-015",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 7 * 12.",
+      "ground_truth": "84",
+      "pure_out": "### 36",
+      "hybrid_out": "The result of 7 * 12 is 84.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-016",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 56 + 83.",
+      "ground_truth": "139",
+      "pure_out": "#### 50",
+      "hybrid_out": "The result of 56 + 83 is 139.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-017",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 6 * 7.",
+      "ground_truth": "42",
+      "pure_out": "### 31",
+      "hybrid_out": "The result of 6 * 7 is 42.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-018",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 20 + 39.",
+      "ground_truth": "59",
+      "pure_out": "### 12",
+      "hybrid_out": "The result of 20 + 39 is 59.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-019",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 58 - 45.",
+      "ground_truth": "13",
+      "pure_out": "The total amount of 5 is 120.",
+      "hybrid_out": "The result of 58 - 45 is 13.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-020",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 91 + 56.",
+      "ground_truth": "147",
+      "pure_out": "#### 36",
+      "hybrid_out": "The result of 91 + 56 is 147.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-021",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 57 + 55.",
+      "ground_truth": "112",
+      "pure_out": "The total amount of 90 is 1120.",
+      "hybrid_out": "The result of 57 + 55 is 112.",
+      "pure_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-022",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 4 * 12.",
+      "ground_truth": "48",
+      "pure_out": "### 36",
+      "hybrid_out": "The result of 4 * 12 is 48.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-023",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 6 * 5.",
+      "ground_truth": "30",
+      "pure_out": "### 31",
+      "hybrid_out": "The result of 6 * 5 is 30.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-024",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 69 - 58.",
+      "ground_truth": "11",
+      "pure_out": "The total amount of 50 is 170.",
+      "hybrid_out": "The result of 69 - 58 is 11.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-01-025",
+      "family": "simple_arithmetic",
+      "prompt": "Calculate 6 * 8.",
+      "ground_truth": "48",
+      "pure_out": "### 31",
+      "hybrid_out": "The result of 6 * 8 is 48.",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-02-026",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 3, 6, 9, 12, 15, ...?",
+      "ground_truth": "18",
+      "pure_out": "### 36",
+      "hybrid_out": "### 13",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-027",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 3, 7, 11, 15, 19, ...?",
+      "ground_truth": "23",
+      "pure_out": "The total number of is 120: 105 / 2 = 1736 + 84 = 149 candies in the pack.",
+      "hybrid_out": "There are 102",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-028",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 14, 18, 22, 26, 30, ...?",
+      "ground_truth": "34",
+      "pure_out": "#### 17",
+      "hybrid_out": "So there are 130",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-029",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 4, 7, 10, 13, 16, ...?",
+      "ground_truth": "19",
+      "pure_out": "The remainder of 5 is 120.",
+      "hybrid_out": "Fix: Index a = $740 = $3870.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-030",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 20, 27, 34, 41, 48, ...?",
+      "ground_truth": "55",
+      "pure_out": "#### 36",
+      "hybrid_out": "Traceback",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-031",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 12, 15, 18, 21, 24, ...?",
+      "ground_truth": "27",
+      "pure_out": "#### 36",
+      "hybrid_out": "The remainder of 17 and 5 is 175-9",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-032",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 17, 22, 27, 32, 37, ...?",
+      "ground_truth": "42",
+      "pure_out": "The remainder of 5 is 170-94 = 1260.",
+      "hybrid_out": "The sum of 60 and 61 is 201.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-033",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 16, 19, 22, 25, 28, ...?",
+      "ground_truth": "31",
+      "pure_out": "#### 17",
+      "hybrid_out": "# Information (100) / 100 + 22 = 128 + 23 = 108.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-034",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 10, 13, 16, 19, 22, ...?",
+      "ground_truth": "25",
+      "pure_out": "### 36",
+      "hybrid_out": "# Profit = Selling Keyi",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-035",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 9, 16, 23, 30, 37, ...?",
+      "ground_truth": "44",
+      "pure_out": "The total amount of 5 is 140-120 = $7640.",
+      "hybrid_out": "There are 135 * 14 = 130 + 14 = 158 / 30",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-036",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 19, 25, 31, 37, 43, ...?",
+      "ground_truth": "49",
+      "pure_out": "The total amount of 5 is 140-120 = $7636-92",
+      "hybrid_out": "# 170",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-037",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 10, 17, 24, 31, 38, ...?",
+      "ground_truth": "45",
+      "pure_out": "The remainder of 5 is 170-94 = 660.",
+      "hybrid_out": "Fix: {\"name\": \"\": \"}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-038",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 20, 25, 30, 35, 40, ...?",
+      "ground_truth": "45",
+      "pure_out": "The remainder of 5 is 170-92 = 1266",
+      "hybrid_out": "The remainder of 1/1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-039",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 20, 25, 30, 35, 40, ...?",
+      "ground_truth": "45",
+      "pure_out": "The remainder of 5 is 170-92 = 1266",
+      "hybrid_out": "The sum of 61 and 7 is a = $50650.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-040",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 13, 16, 19, 22, 25, ...?",
+      "ground_truth": "28",
+      "pure_out": "### 36",
+      "hybrid_out": "# Information (12) / 100",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-041",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 6, 12, 18, 24, 30, ...?",
+      "ground_truth": "36",
+      "pure_out": "### 50",
+      "hybrid_out": "Subtracting 10 from 8",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-042",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 17, 19, 21, 23, 25, ...?",
+      "ground_truth": "27",
+      "pure_out": "The total amount of 5 is 140-120 = $1764.",
+      "hybrid_out": "There are 90 + 14 = 15",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-043",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 3, 5, 7, 9, 11, ...?",
+      "ground_truth": "13",
+      "pure_out": "The remainder of 2 is 170.",
+      "hybrid_out": "# Tumray = [1, 1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-044",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 6, 13, 20, 27, 34, ...?",
+      "ground_truth": "41",
+      "pure_out": "The total amount of 5 is 170-120 = $643.",
+      "hybrid_out": "Fixरून",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-045",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 7, 14, 21, 28, 35, ...?",
+      "ground_truth": "42",
+      "pure_out": "The total amount of 5 is 120: 106 + 7 = 173 pens in the pack.",
+      "hybrid_out": "The remainder of 1.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-046",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 15, 21, 27, 33, 39, ...?",
+      "ground_truth": "45",
+      "pure_out": "### 76",
+      "hybrid_out": "The sum of 51 and 62 is = 4705",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-047",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 4, 9, 14, 19, 24, ...?",
+      "ground_truth": "29",
+      "pure_out": "### 36",
+      "hybrid_out": "# Information (10), (106) / 100",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-048",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 14, 20, 26, 32, 38, ...?",
+      "ground_truth": "44",
+      "pure_out": "#### 17",
+      "hybrid_out": "So there are 12 + 8 = 164",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-049",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 16, 22, 28, 34, 40, ...?",
+      "ground_truth": "46",
+      "pure_out": "The remainder of 5 is 170-90 = 1266",
+      "hybrid_out": "There are 130 + 25 = 18 + 23 = 1270.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-02-050",
+      "family": "sequence_continuation",
+      "prompt": "What is the next number in the sequence: 10, 16, 22, 28, 34, ...?",
+      "ground_truth": "40",
+      "pure_out": "#### 17",
+      "hybrid_out": "# Calculate a remainder of 1.5 and 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-051",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 6 and beta = 7. What is alpha multiplied by beta?",
+      "ground_truth": "42",
+      "pure_out": "#### 15",
+      "hybrid_out": "Fix: Tracking ``",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-052",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 23 and beta = 32. What is the sum of alpha and beta?",
+      "ground_truth": "55",
+      "pure_out": "#### 17",
+      "hybrid_out": "The sum of 7 is 90 to 22 * 8 = 158 cannot-90",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-053",
+      "family": "variable_binding",
+      "prompt": "Let foo = 4 and bar = 3. What is foo multiplied by bar?",
+      "ground_truth": "12",
+      "pure_out": "#### 15",
+      "hybrid_out": "The sum of 51 | 12 | Aappende 51 | Bells | No-89",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-03-054",
+      "family": "variable_binding",
+      "prompt": "Let delta = 5 and gamma = 4. What is delta multiplied by gamma?",
+      "ground_truth": "20",
+      "pure_out": "#### 1",
+      "hybrid_out": "# 16",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-055",
+      "family": "variable_binding",
+      "prompt": "Let delta = 2 and gamma = 7. What is delta multiplied by gamma?",
+      "ground_truth": "14",
+      "pure_out": "#### 15",
+      "hybrid_out": "# Information (36) / 100",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-056",
+      "family": "variable_binding",
+      "prompt": "Let foo = 6 and bar = 12. What is foo minus bar?",
+      "ground_truth": "-6",
+      "pure_out": "#### 16",
+      "hybrid_out": "Now !e while 0 can be 0:3 from each Linumill tionary remakey for simpleft = $40.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-057",
+      "family": "variable_binding",
+      "prompt": "Let delta = 20 and gamma = 8. What is the sum of delta and gamma?",
+      "ground_truth": "28",
+      "pure_out": "#### 15",
+      "hybrid_out": "# Projects = Second greatk 21/10 + 25 * 14 = 168 meters.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-058",
+      "family": "variable_binding",
+      "prompt": "Let p = 9 and q = 3. What is p multiplied by q?",
+      "ground_truth": "27",
+      "pure_out": "The total amount of 5 + 6 = 18 candies in the pack.",
+      "hybrid_out": "Fix: 10",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-059",
+      "family": "variable_binding",
+      "prompt": "Let p = 9 and q = 4. What is p multiplied by q?",
+      "ground_truth": "36",
+      "pure_out": "The total amount of 5 + 6 = 18 candies in the pack.",
+      "hybrid_out": "Thus, then setting = 150 to standarray, there are 13 + 87 + 22 = 201.75",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-060",
+      "family": "variable_binding",
+      "prompt": "Let delta = 38 and gamma = 43. What is delta minus gamma?",
+      "ground_truth": "-5",
+      "pure_out": "#### 17",
+      "hybrid_out": "The sum of 7 is 51 + 124 / 21 = 1876 center | Bir percentertails in the totallaborignments on roundenvirone.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-061",
+      "family": "variable_binding",
+      "prompt": "Let first_num = 39 and second_num = 49. What is the sum of first_num and second_num?",
+      "ground_truth": "88",
+      "pure_out": "# 14",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-062",
+      "family": "variable_binding",
+      "prompt": "Let delta = 7 and gamma = 9. What is delta multiplied by gamma?",
+      "ground_truth": "63",
+      "pure_out": "Since mperial number of remainder of 2 + 1 = (100 * 10) / 24 = 126.",
+      "hybrid_out": "# Subtracking 2 division is - 6",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-063",
+      "family": "variable_binding",
+      "prompt": "Let p = 33 and q = 12. What is the sum of p and q?",
+      "ground_truth": "45",
+      "pure_out": "#### 15",
+      "hybrid_out": "Thurl -19",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-064",
+      "family": "variable_binding",
+      "prompt": "Let first_num = 9 and second_num = 26. What is the sum of first_num and second_num?",
+      "ground_truth": "35",
+      "pure_out": "# 14",
+      "hybrid_out": "The remainder of 2 is 25 * 14 = 100",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-065",
+      "family": "variable_binding",
+      "prompt": "Let p = 5 and q = 2. What is p multiplied by q?",
+      "ground_truth": "10",
+      "pure_out": "So the total number of x 21 + 3 = 1/24 + 60 = $780 will have 12 pens in the pack.",
+      "hybrid_out": "Fix: 10",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-03-066",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 50 and beta = 45. What is the sum of alpha and beta?",
+      "ground_truth": "95",
+      "pure_out": "#### 17",
+      "hybrid_out": "Node | Nearthife | Aapke | Tree coludays ! Curvd * Based/newsplittleveloads.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-067",
+      "family": "variable_binding",
+      "prompt": "Let first_num = 9 and second_num = 7. What is first_num minus second_num?",
+      "ground_truth": "2",
+      "pure_out": "# 14",
+      "hybrid_out": "Fix: Goocelebrate: float, there are no roundright cannot an information.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-068",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 37 and beta = 20. What is alpha minus beta?",
+      "ground_truth": "17",
+      "pure_out": "#### 17",
+      "hybrid_out": "# 1",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-069",
+      "family": "variable_binding",
+      "prompt": "Let foo = 18 and bar = 39. What is the sum of foo and bar?",
+      "ground_truth": "57",
+      "pure_out": "#### 15",
+      "hybrid_out": "# Internation in 1 is 60.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-070",
+      "family": "variable_binding",
+      "prompt": "Let p = 41 and q = 35. What is the sum of p and q?",
+      "ground_truth": "76",
+      "pure_out": "#### 15",
+      "hybrid_out": "# Projects 3 definitems - 2170",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-071",
+      "family": "variable_binding",
+      "prompt": "Let foo = 31 and bar = 17. What is the sum of foo and bar?",
+      "ground_truth": "48",
+      "pure_out": "#### 15",
+      "hybrid_out": "The total number of division is node was because ``` to if youses input from your import kernew < 0:  # If all green environs in the posi",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-072",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 47 and beta = 32. What is alpha minus beta?",
+      "ground_truth": "15",
+      "pure_out": "#### 17",
+      "hybrid_out": "Fix: Lish meaning that can be sets to finit",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-073",
+      "family": "variable_binding",
+      "prompt": "Let foo = 2 and bar = 3. What is foo multiplied by bar?",
+      "ground_truth": "6",
+      "pure_out": "#### 15",
+      "hybrid_out": "Named | Nearthquake + 50 / $2004 + 100 + 12 * 10 = 140 / $15 + 1281.96 * 25 * 23 = 138 + 65 = 168 penside is (100) / 30",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-03-074",
+      "family": "variable_binding",
+      "prompt": "Let alpha = 30 and beta = 26. What is the sum of alpha and beta?",
+      "ground_truth": "56",
+      "pure_out": "#### 17",
+      "hybrid_out": "There are 4 + 22 = 106 + 92 = 1876 * 15 = 148 cannotation_1/2",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-03-075",
+      "family": "variable_binding",
+      "prompt": "Let first_num = 9 and second_num = 4. What is first_num multiplied by second_num?",
+      "ground_truth": "36",
+      "pure_out": "# Traceback (most recent call last):  # 1",
+      "hybrid_out": "Tracknext_candv=25 strictfactoritems in range(1, 0), (3, 3)/100*** 4 + base + bag -1900 - $2075 = 206 meters combins",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-076",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(9, 5).",
+      "ground_truth": "45",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "Fix: Second = []",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-077",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(7, 10).",
+      "ground_truth": "70",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-078",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(6, 4).",
+      "ground_truth": "24",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "The remainder of the remaining box.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-079",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(10, 15).",
+      "ground_truth": "150",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-080",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(11, 4).",
+      "ground_truth": "44",
+      "pure_out": "The remainder of the packet is not provided in the pack.",
+      "hybrid_out": "The import aclasses from defastrip = 2 * 1270 for cms.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-081",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(3, 13).",
+      "ground_truth": "39",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "{| classimpler: list[0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-082",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(11, 3).",
+      "ground_truth": "33",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "{| classe=root = list[0] - if not rootenquotem__geting = 2006",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-083",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(4, 15).",
+      "ground_truth": "60",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "Fix: Named is the pointer of the inputs in `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-084",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(6, 5).",
+      "ground_truth": "30",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "Fix: Second and is in an Emplideface is - dp[i][j] = 1.0.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-085",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(9, 10).",
+      "ground_truth": "90",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "# Crecentrationality = Systeps = [\"b\"), b'\\t's candf: -uppercentright }",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-086",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(10, 6).",
+      "ground_truth": "60",
+      "pure_out": "The remainder of the packets in the context.",
+      "hybrid_out": "Typeningubase + 100 + 84 + 8)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-087",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(9, 3).",
+      "ground_truth": "27",
+      "pure_out": "The remainder of the packet is not provided in the pack.",
+      "hybrid_out": "The remainder of no number: < 0: 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-088",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(5, 9).",
+      "ground_truth": "45",
+      "pure_out": "The remainder of the packets in the context.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-089",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(3, 9).",
+      "ground_truth": "27",
+      "pure_out": "The remainder of the packets in the context.",
+      "hybrid_out": "{| classide =True **************************************************",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-090",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(7, 15).",
+      "ground_truth": "105",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "`` or the context.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-091",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(15, 10).",
+      "ground_truth": "150",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "Fix: Nour | None = $5064 = 170.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-092",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(7, 9).",
+      "ground_truth": "63",
+      "pure_out": "The remainder of the packets in the pocket.",
+      "hybrid_out": "{! classecannot in the packets in the remainput",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-093",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(14, 14).",
+      "ground_truth": "196",
+      "pure_out": "The remainder of the pack: $5 is 120.",
+      "hybrid_out": "Fix: List = $0 for largest centertail] = [\"grid\"",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-094",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(15, 11).",
+      "ground_truth": "165",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "The remainder of three leaves in the pointer of numbers and you is - 2 = 31.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-095",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(13, 14).",
+      "ground_truth": "182",
+      "pure_out": "The remainder of the packets in the context.",
+      "hybrid_out": "STPSILONEXTED",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-096",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(10, 5).",
+      "ground_truth": "50",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-097",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(6, 7).",
+      "ground_truth": "42",
+      "pure_out": "The remainder of the contexts: ` is not provided in the pack.",
+      "hybrid_out": "# Calts = [1, 1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-098",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(6, 3).",
+      "ground_truth": "18",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "*** {\"name\": \"}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-099",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(12, 14).",
+      "ground_truth": "168",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "{| classimplist = [0] + 4.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-04-100",
+      "family": "function_argument_binding",
+      "prompt": "Given a function calculate_area(w, h) = w * h, evaluate calculate_area(11, 3).",
+      "ground_truth": "33",
+      "pure_out": "The remainder of the packets in the pack.",
+      "hybrid_out": "Fix: Returnessquare is != [0, 0] - roundendrontion: ```.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-101",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 7?",
+      "ground_truth": "15",
+      "pure_out": "# The sum of 9 is 60.",
+      "hybrid_out": "defactory inversecret from the remastricts in range(6)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-102",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 2?",
+      "ground_truth": "5",
+      "pure_out": "# The sum of 9 is 17.",
+      "hybrid_out": "None",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-103",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 2?",
+      "ground_truth": "5",
+      "pure_out": "# The sum of 9 is 17.",
+      "hybrid_out": "1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-104",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "# Codecs",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-105",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 9?",
+      "ground_truth": "19",
+      "pure_out": "# The 42",
+      "hybrid_out": "11.94",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-106",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 10?",
+      "ground_truth": "21",
+      "pure_out": "# The 90t of 60 and 7 is 124.",
+      "hybrid_out": "# Tumside = 2 * 120 to 8 * 100 = 158 meters.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-107",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 10?",
+      "ground_truth": "21",
+      "pure_out": "# The 90t of 60 and 7 is 124.",
+      "hybrid_out": "",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-108",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 4?",
+      "ground_truth": "9",
+      "pure_out": "# The sum of 9 is 60.",
+      "hybrid_out": "The decoding_table",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-109",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 2?",
+      "ground_truth": "5",
+      "pure_out": "# The sum of 9 is 17.",
+      "hybrid_out": "Fix: 25",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-05-110",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 10?",
+      "ground_truth": "21",
+      "pure_out": "# The 90t of 60 and 7 is 124.",
+      "hybrid_out": "# 16",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-111",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 3?",
+      "ground_truth": "7",
+      "pure_out": "# The module of 9 is 17.",
+      "hybrid_out": "25",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-112",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 4?",
+      "ground_truth": "9",
+      "pure_out": "# The sum of 9 is 60.",
+      "hybrid_out": "6",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-113",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 3?",
+      "ground_truth": "7",
+      "pure_out": "# The module of 9 is 17.",
+      "hybrid_out": "21",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-114",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "12",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-115",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 3?",
+      "ground_truth": "7",
+      "pure_out": "# The module of 9 is 17.",
+      "hybrid_out": "10",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-116",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 12?",
+      "ground_truth": "25",
+      "pure_out": "# The 90t of 60 and 7 is 17.",
+      "hybrid_out": "9",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-117",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 5?",
+      "ground_truth": "11",
+      "pure_out": "# The 42",
+      "hybrid_out": "# Codecs",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-118",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 8?",
+      "ground_truth": "17",
+      "pure_out": "# The module of 9 is 60.",
+      "hybrid_out": "25",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-119",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 3?",
+      "ground_truth": "7",
+      "pure_out": "# The module of 9 is 17.",
+      "hybrid_out": "4",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-120",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "24",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-121",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 5?",
+      "ground_truth": "11",
+      "pure_out": "# The 42",
+      "hybrid_out": "6",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-122",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "10",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-123",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "12",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-124",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 2?",
+      "ground_truth": "5",
+      "pure_out": "# The sum of 9 is 17.",
+      "hybrid_out": "# Codecs",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-05-125",
+      "family": "io_transformation",
+      "prompt": "Input: 1 -> Output: 3\nInput: 2 -> Output: 5\nInput: 3 -> Output: 7\nWhat is the Output for Input: 11?",
+      "ground_truth": "23",
+      "pure_out": "# The module of 90 and 63 is 140.",
+      "hybrid_out": "25",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-126",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 25, output PASS. Otherwise output FAIL.\nGiven score = 63, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true of 5 and 21 with a remainder of 0.",
+      "hybrid_out": "# Tracy of `s that information",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-127",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 62, output PASS. Otherwise output FAIL.\nGiven score = 84, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Tank indexing a remainder of 3 * (1, 1)` and in the package.",
+      "hybrid_out": "Node | B = \"\"\"{\"name}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-128",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 56, output PASS. Otherwise output FAIL.\nGiven score = 76, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "### Information of the context-package",
+      "hybrid_out": "Fix: Curl strictlying module numbers from __future import annotation",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-129",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 40, output PASS. Otherwise output FAIL.\nGiven score = 43, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Tank number of remainder of the package = (2), if len(1, 1)` and in range(3):  # 1:",
+      "hybrid_out": "Fix: The Researched data information ('BEDED')",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-130",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 33, output PASS. Otherwise output FAIL.\nGiven score = 50, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Test passage = [1]",
+      "hybrid_out": "Node | Asset |",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-131",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 35, output PASS. Otherwise output FAIL.\nGiven score = 43, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the context.",
+      "hybrid_out": "# 1:90",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-132",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 45, output PASS. Otherwise output FAIL.\nGiven score = 26, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 17",
+      "hybrid_out": "``s if a = [] + 1.0 * 1 and eachpassquarticles in range(1)`.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-133",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 62, output PASS. Otherwise output FAIL.\nGiven score = 48, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 17",
+      "hybrid_out": "Traverse non-87 = (2005) for example of all centratiscope = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-134",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 49, output PASS. Otherwise output FAIL.\nGiven score = 50, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "Index = Valueastronomaddpacknandr",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-135",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 79, output PASS. Otherwise output FAIL.\nGiven score = 19, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 17",
+      "hybrid_out": "Fix: THEXTEXTER = 2071.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-136",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 20, output PASS. Otherwise output FAIL.\nGiven score = 68, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "### 17",
+      "hybrid_out": "Fix: Nameterm informula futf_b",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-137",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 59, output PASS. Otherwise output FAIL.\nGiven score = 82, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "### 17",
+      "hybrid_out": "The 'MADympholarge 'CBELTHY_MEDImpory ite = (NDINGEND strictl {\"name\": \"12}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-138",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 26, output PASS. Otherwise output FAIL.\nGiven score = 19, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 17",
+      "hybrid_out": "# Not | Bellowest informationallabrayour indefinalloadx truthing __name__futmodule = Trueamountailenjour in range(1, 0).",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-139",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 54, output PASS. Otherwise output FAIL.\nGiven score = 37, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "# Information takeaway is a true number of inches in the context.",
+      "hybrid_out": "from date(1.04333 parguagespassquare of ```.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-140",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 52, output PASS. Otherwise output FAIL.\nGiven score = 43, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "The import annotablenon-90 and if a = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-141",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 28, output PASS. Otherwise output FAIL.\nGiven score = 54, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "Fixce - Valuminoritemention",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-142",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 76, output PASS. Otherwise output FAIL.\nGiven score = 18, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 17",
+      "hybrid_out": "Texts = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-143",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 76, output PASS. Otherwise output FAIL.\nGiven score = 41, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "# Information takeaway is a true number of inches in the context.",
+      "hybrid_out": "Fix        (10), if not convert_castacsecreated by > list() for f:",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-144",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 43, output PASS. Otherwise output FAIL.\nGiven score = 46, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "Named = [-1] - Chistory 1 | Aappend_rakingronded by `s that may points with a literm number: < 01.7 * 12 + 86 = {\"name\": \"7067}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-145",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 30, output PASS. Otherwise output FAIL.\nGiven score = 66, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "Node | Binno collabite = Trueachda",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-146",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 73, output PASS. Otherwise output FAIL.\nGiven score = 79, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "### 36",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-147",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 65, output PASS. Otherwise output FAIL.\nGiven score = 48, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "### 31",
+      "hybrid_out": "The sum of ``s are in the pasagno futused passquareamodp = (100 * base = 1.00 + base * 2009 + 250)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-148",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 59, output PASS. Otherwise output FAIL.\nGiven score = 77, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of remainder of the package",
+      "hybrid_out": "(most pointenvirontablecannot in = 1.00 and + 5050 from __name__name__name__futuses = ['METED', None\nFixx_B-9200",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-149",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 20, output PASS. Otherwise output FAIL.\nGiven score = 80, what is the output?",
+      "ground_truth": "PASS",
+      "pure_out": "# Information takeaway is a true number of inches in the package.",
+      "hybrid_out": "definallabmad_1/31.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-06-150",
+      "family": "conditional_logic",
+      "prompt": "Rule: If score is greater than or equal to 39, output PASS. Otherwise output FAIL.\nGiven score = 23, what is the output?",
+      "ground_truth": "FAIL",
+      "pure_out": "# Tank indexing list in the context.",
+      "hybrid_out": "Fixd / Valuminordinates on charge of your != [:1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-151",
+      "family": "list_transformation",
+      "prompt": "Reverse the list: [29, 5, 9, 4].",
+      "ground_truth": "[4, 9, 5, 29]",
+      "pure_out": "### 36",
+      "hybrid_out": "Fix: {\"{\"name\": \"}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-152",
+      "family": "list_transformation",
+      "prompt": "What is the minimum number in [24, 18, 5, 9]?",
+      "ground_truth": "5",
+      "pure_out": "The remainder of 5 is 17.",
+      "hybrid_out": "Nockets a = True",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-153",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [20, 7, 23, 11]?",
+      "ground_truth": "23",
+      "pure_out": "The sum of the remainder of the packet = (1, 1), (36 + 4)` and cannot be a quotient of 10 and square meters.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-154",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [22, 21, 28, 9]?",
+      "ground_truth": "80",
+      "pure_out": "The remainder of 5 is 17.",
+      "hybrid_out": "# Since a sets of ``",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-155",
+      "family": "list_transformation",
+      "prompt": "Reverse the list: [9, 29, 30, 28].",
+      "ground_truth": "[28, 30, 29, 9]",
+      "pure_out": "#### 36",
+      "hybrid_out": "Types | Bob gives | Aapping * 0.50 collabels | None + 50 = (46743), (106 * 100 + 12)**** 2500 + 23 = 14705",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-156",
+      "family": "list_transformation",
+      "prompt": "What is the minimum number in [3, 21, 14, 27]?",
+      "ground_truth": "3",
+      "pure_out": "The total amount of candies in the packets in the pack.",
+      "hybrid_out": "The strictly due amount of 7 and 3 is a quotient of all cannot have division is from the remainder of no frame for tailing uppercentral import andling",
+      "pure_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-07-157",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [2, 1, 11, 25]?",
+      "ground_truth": "25",
+      "pure_out": "The sum of the context, a remainder of 2 is 170 with a remainder of 5 and 6 is 90.",
+      "hybrid_out": "classiting float",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-158",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [21, 9, 6, 24]?",
+      "ground_truth": "60",
+      "pure_out": "The total number of is 170 by $50 = $460.",
+      "hybrid_out": "{\"name\": \"}",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-159",
+      "family": "list_transformation",
+      "prompt": "Reverse the list: [18, 23, 14, 18].",
+      "ground_truth": "[18, 14, 23, 18]",
+      "pure_out": "### 27",
+      "hybrid_out": "Fix: God = Second remainder = 1.081.31.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-160",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [4, 3, 29, 23]?",
+      "ground_truth": "29",
+      "pure_out": "The sum of the remainder of the context, a remainder of 2 is 170 with a remainder of 5 and 6 is 90.",
+      "hybrid_out": "# Information = Solutionarray_1 = [1.08-85/100",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-161",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [18, 2, 27, 12]?",
+      "ground_truth": "27",
+      "pure_out": "The remainder of 5 is 17.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-162",
+      "family": "list_transformation",
+      "prompt": "What is the minimum number in [14, 5, 2, 10]?",
+      "ground_truth": "2",
+      "pure_out": "The sum of 5 is 17.",
+      "hybrid_out": "# Tumale while `defaults = (1, connected_pointernelinear arguest to reference with a patches in the packets.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-163",
+      "family": "list_transformation",
+      "prompt": "Reverse the list: [29, 30, 26, 28].",
+      "ground_truth": "[28, 26, 30, 29]",
+      "pure_out": "#### 17",
+      "hybrid_out": "The secret roundation of all element is a query for node and if your cannot have division is - where it is definished by `` or `self._strictno valu",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-164",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [29, 12, 7, 22]?",
+      "ground_truth": "29",
+      "pure_out": "# The remainder of 5 is 17.",
+      "hybrid_out": "There are managed by an input data containing integers from the programming functions that are examples for simplity information.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-165",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [22, 4, 12, 25]?",
+      "ground_truth": "63",
+      "pure_out": "The remainder of 5 is 17.",
+      "hybrid_out": "The support system must be dost points on it's remainder of thrones",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-166",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [20, 24, 5, 30]?",
+      "ground_truth": "30",
+      "pure_out": "The remainder of the context, while receives a quotient of 10 and so it is 17.",
+      "hybrid_out": "If there are made and day",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-167",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [28, 6, 26, 26]?",
+      "ground_truth": "28",
+      "pure_out": "The sum of the remainder of 2 and 5 is 170.",
+      "hybrid_out": "Sex | No-1 | Aapke group as is (1.5) / 360 + 5 = 170.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-168",
+      "family": "list_transformation",
+      "prompt": "What is the minimum number in [29, 14, 1, 6]?",
+      "ground_truth": "1",
+      "pure_out": "# The sum of the packet is a remainder of 17 and so it will have to private, then they enjoy practicing charge of candies remaining.",
+      "hybrid_out": "# 1",
+      "pure_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "task_id": "GEN-07-169",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [26, 30, 14, 26]?",
+      "ground_truth": "30",
+      "pure_out": "# The sum of the packet is a remainder of standard and cannot be a quotient of 7 and so it with a remainder of 6.",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-170",
+      "family": "list_transformation",
+      "prompt": "Reverse the list: [9, 6, 26, 23].",
+      "ground_truth": "[23, 26, 6, 9]",
+      "pure_out": "{\"greetable\": 06}",
+      "hybrid_out": "The remakey is a quotient of 7 and cannot happened to finallinearrayearguest astronomenumeratmodukno colorign internal import anno",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-171",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [13, 28, 2, 28]?",
+      "ground_truth": "71",
+      "pure_out": "The remainder of 18 is 20.",
+      "hybrid_out": "Fix: Greenlargest = [0] - (1, 4), (3), (3, 10)` or = {\"name\": \"4}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-172",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [8, 7, 27, 30]?",
+      "ground_truth": "72",
+      "pure_out": "The remainder of 5 is 17.",
+      "hybrid_out": "The support index is a = 2 * 100 + 8 = 128 for ch + 52 + 25 + 7 * 8 = 1546 / 31.90 * 13 * 22 = 163 - 120.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-173",
+      "family": "list_transformation",
+      "prompt": "What is the maximum number in [12, 10, 27, 26]?",
+      "ground_truth": "27",
+      "pure_out": "The total number of is 17 + 3 = 18 candies in the pack.",
+      "hybrid_out": "There are 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-174",
+      "family": "list_transformation",
+      "prompt": "What is the sum of the elements in [8, 1, 22, 7]?",
+      "ground_truth": "38",
+      "pure_out": "The remainder of 18 is 17.",
+      "hybrid_out": "Second entries = Solar was because from __future import annotationso for dowaytemperature == 1.0)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-07-175",
+      "family": "list_transformation",
+      "prompt": "What is the minimum number in [11, 9, 28, 3]?",
+      "ground_truth": "3",
+      "pure_out": "### 21",
+      "hybrid_out": "# Information is is context",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-176",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'vector'?",
+      "ground_truth": "6",
+      "pure_out": "# Tumer is a consonant to reaching the packet.",
+      "hybrid_out": "# Tree's name is Norsedromethods a quotient of than IP Science and strict with the posix packnatural division is (a) and cratch prul",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-177",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'stream'.",
+      "ground_truth": "maerts",
+      "pure_out": "# Information = names a remainder of `.",
+      "hybrid_out": "The remainder of all cannot have integers to finished by ``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-178",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'stream'.",
+      "ground_truth": "maerts",
+      "pure_out": "# Information = names a remainder of `.",
+      "hybrid_out": "Fix: Green can be determinal input values in range(6), (3).",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-179",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'python' to uppercase.",
+      "ground_truth": "PYTHON",
+      "pure_out": "`__all__ = []",
+      "hybrid_out": "Fix: Rendarray-by",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-180",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'gradient' to uppercase.",
+      "ground_truth": "GRADIENT",
+      "pure_out": "{\"greetable\": \"_conversion\", \"build\": 24}",
+      "hybrid_out": "1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-181",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'token'.",
+      "ground_truth": "nekot",
+      "pure_out": "Fix: Good is a consonant of `` and `self._path('index', 'w')` or if not isinstance(name, **kwargs):\n        ra",
+      "hybrid_out": "Fix: Gooday",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-182",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'python' to uppercase.",
+      "ground_truth": "PYTHON",
+      "pure_out": "`__all__ = []",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-183",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'token'.",
+      "ground_truth": "nekot",
+      "pure_out": "Fix: Good is a consonant of `` and `self._path('index', 'w')` or if not isinstance(name, **kwargs):\n        ra",
+      "hybrid_out": "# New Portal",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-184",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'vector'?",
+      "ground_truth": "6",
+      "pure_out": "# Tumer is a consonant to reaching the packet.",
+      "hybrid_out": "# Because it is a context-probability with ```, if node is None:\n        if self._path = () == 0)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-185",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'vector'.",
+      "ground_truth": "rotcev",
+      "pure_out": "Fix: Good is a context.",
+      "hybrid_out": "The module information of reference and information, while reduced by defaults or keys, whereas names.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-186",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'token'?",
+      "ground_truth": "5",
+      "pure_out": "# Tumer is a quotient of the context.",
+      "hybrid_out": "Fix: Rename = []",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-187",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'neural'.",
+      "ground_truth": "laruen",
+      "pure_out": "``python",
+      "hybrid_out": "Nikram",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-188",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'token' to uppercase.",
+      "ground_truth": "TOKEN",
+      "pure_out": "{\"greetable\": 0: \"dask_toy\": 0}",
+      "hybrid_out": "Fix: Gold}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-189",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'gradient' to uppercase.",
+      "ground_truth": "GRADIENT",
+      "pure_out": "{\"greetable\": \"_conversion\", \"build\": 24}",
+      "hybrid_out": "{| classical column",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-190",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'chakra' to uppercase.",
+      "ground_truth": "CHAKRA",
+      "pure_out": "Information passs while remainder of the context.",
+      "hybrid_out": "Traceback",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-191",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'stream'?",
+      "ground_truth": "6",
+      "pure_out": "# The first contains a remainder of 5 is a quotient of the pack.",
+      "hybrid_out": "# Because all mammals are context, help of its contextants ('Path')` is a pack that make existing probability from pathlives on itertool",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-192",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'tensor'.",
+      "ground_truth": "rosnet",
+      "pure_out": "Fix: Good is a consonant of `` and `python\", \"__main__ = [\"0]",
+      "hybrid_out": "The first future",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-193",
+      "family": "string_transformation",
+      "prompt": "Convert the word 'chakra' to uppercase.",
+      "ground_truth": "CHAKRA",
+      "pure_out": "Information passs while remainder of the context.",
+      "hybrid_out": "# No-Coral environment ! System definition = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-194",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'vector'?",
+      "ground_truth": "6",
+      "pure_out": "# Tumer is a consonant to reaching the packet.",
+      "hybrid_out": "Fix: Raised Systeps = Linkedgeting/Version/state/index.phtd",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-195",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'vector'?",
+      "ground_truth": "6",
+      "pure_out": "# Tumer is a consonant to reaching the packet.",
+      "hybrid_out": "{\"name\": \"idx}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-196",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'neural'?",
+      "ground_truth": "6",
+      "pure_out": "# The first contains a remainder of each other.",
+      "hybrid_out": "Fix: Greenhouse import combination | Aappend_combil",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-197",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'gradient'?",
+      "ground_truth": "8",
+      "pure_out": "# The contact is a quotient of the packet.",
+      "hybrid_out": "Traceback",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-198",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'gradient'?",
+      "ground_truth": "8",
+      "pure_out": "# The contact is a quotient of the packet.",
+      "hybrid_out": "``",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-199",
+      "family": "string_transformation",
+      "prompt": "Reverse the characters in the word 'chakra'.",
+      "ground_truth": "arkahc",
+      "pure_out": "``",
+      "hybrid_out": "# Information is a future containing while reduces passes a questioning arguments that mammals (N) and its natural facture for examples live in module from",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-08-200",
+      "family": "string_transformation",
+      "prompt": "How many letters are in the word 'chakra'?",
+      "ground_truth": "6",
+      "pure_out": "# The first contains a remainder of each other.",
+      "hybrid_out": "{\"name\": \"_opend\": https://wikipedia.org/ Rajo Mumbum of News.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-201",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 10\n4 -> 20\n6 -> 30\nFollowing the same rule, what is the output for 4?",
+      "ground_truth": "20",
+      "pure_out": "### 36",
+      "hybrid_out": "{| classimpler-90 = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-202",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 8?",
+      "ground_truth": "32",
+      "pure_out": "### 36",
+      "hybrid_out": "# Project Photowards = Seconly do not have anyieldit.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-203",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 4?",
+      "ground_truth": "40",
+      "pure_out": "### 31",
+      "hybrid_out": "1:36",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-204",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 10\n4 -> 20\n6 -> 30\nFollowing the same rule, what is the output for 8?",
+      "ground_truth": "40",
+      "pure_out": "### 36",
+      "hybrid_out": "Typlineareastrip of that tableentrule cannot as strictfactory.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-205",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 6\n4 -> 12\n6 -> 18\nFollowing the same rule, what is the output for 6?",
+      "ground_truth": "18",
+      "pure_out": "### 31",
+      "hybrid_out": "Fix: Greenotcodecs.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-206",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 10\n4 -> 20\n6 -> 30\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "25",
+      "pure_out": "### 36",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-207",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 7?",
+      "ground_truth": "70",
+      "pure_out": "### 31",
+      "hybrid_out": "Node !L = Gumenumerate(173), (Hex_B) / 2001 points in ($200)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-208",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 9?",
+      "ground_truth": "90",
+      "pure_out": "### 31",
+      "hybrid_out": "Interfuturer tall",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-209",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "50",
+      "pure_out": "### 31",
+      "hybrid_out": "# Codece =",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-210",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 4?",
+      "ground_truth": "40",
+      "pure_out": "### 31",
+      "hybrid_out": "Second = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-211",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 6\n4 -> 12\n6 -> 18\nFollowing the same rule, what is the output for 6?",
+      "ground_truth": "18",
+      "pure_out": "### 31",
+      "hybrid_out": "Types of cannot a queue of 3 connection",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-212",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 10\n4 -> 20\n6 -> 30\nFollowing the same rule, what is the output for 3?",
+      "ground_truth": "15",
+      "pure_out": "### 24",
+      "hybrid_out": "# Projects = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-213",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 6?",
+      "ground_truth": "24",
+      "pure_out": "### 31",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-214",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "20",
+      "pure_out": "### 36",
+      "hybrid_out": "Note-9",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-215",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 2?",
+      "ground_truth": "8",
+      "pure_out": "### 36",
+      "hybrid_out": "The {\"{\"`` and then refers to finished",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-216",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 6\n4 -> 12\n6 -> 18\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "15",
+      "pure_out": "### 31",
+      "hybrid_out": "Fix: Greatmad",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-217",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 3?",
+      "ground_truth": "30",
+      "pure_out": "### 21",
+      "hybrid_out": "Since",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-218",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 8?",
+      "ground_truth": "80",
+      "pure_out": "### 31",
+      "hybrid_out": "S_IGf =",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-219",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 8?",
+      "ground_truth": "32",
+      "pure_out": "### 36",
+      "hybrid_out": "# Codec",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-220",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 8?",
+      "ground_truth": "80",
+      "pure_out": "### 31",
+      "hybrid_out": "# 1717",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-221",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 4?",
+      "ground_truth": "16",
+      "pure_out": "### 36",
+      "hybrid_out": "classimpler.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-222",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 6\n4 -> 12\n6 -> 18\nFollowing the same rule, what is the output for 3?",
+      "ground_truth": "9",
+      "pure_out": "### 24",
+      "hybrid_out": "10",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-223",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 20\n4 -> 40\n6 -> 60\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "50",
+      "pure_out": "### 31",
+      "hybrid_out": "# Information thensetonpageso Linked",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-224",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 8\n4 -> 16\n6 -> 24\nFollowing the same rule, what is the output for 9?",
+      "ground_truth": "36",
+      "pure_out": "### 36",
+      "hybrid_out": "The row of each =",
+      "pure_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-09-225",
+      "family": "rule_induction",
+      "prompt": "Observed mappings:\n2 -> 6\n4 -> 12\n6 -> 18\nFollowing the same rule, what is the output for 5?",
+      "ground_truth": "15",
+      "pure_out": "### 31",
+      "hybrid_out": "Systepatear",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-226",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `multiply_two(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not provided in the context.",
+      "hybrid_out": "# No-9",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-227",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `is_even(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no contexts to recursive elements while information is not provided in the pack.",
+      "hybrid_out": "Fix: Greatemal",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-228",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `square_number(x)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion(\"build\": 0)",
+      "hybrid_out": "# 17",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-229",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `first_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "Tracknormal context",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-230",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `last_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "from itertools import annotation as None",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-231",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `string_length(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information contains to recursively integers to an input values from preventing `self._path('w', 'w'): {\"name\": \"ChakrView\", \"build\": 17}",
+      "hybrid_out": "Fix: Crecenter import input",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-232",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `to_lowercase(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to its context.",
+      "hybrid_out": "Nameterfactorf = {\"name\": \".04\", \"build\": 0:5}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-233",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `sum_list(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information = []",
+      "hybrid_out": "# Nocentral encodings: ```` to `` and if all informuld whitemporary is containing `` or `__makey for example in `` to ` and ```",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-234",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `absolute_value(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion('w', 'end', None): [0] = []. If cannot be consideration to recursively from exceeds in self.text.\"\"\"",
+      "hybrid_out": "Fix: Genodo probase module maxitem `` or `` is referencrypasstalk = ['SETAPHETRILLuruthordinattribut",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-235",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `find_maximum(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no page, if you will have to reaching a remainder of than `f\".",
+      "hybrid_out": "from dateggroundenvironest = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-236",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `multiply_two(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not provided in the context.",
+      "hybrid_out": "from typloadvesettable:",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-237",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `is_even(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no contexts to recursive elements while information is not provided in the pack.",
+      "hybrid_out": "def test_conversion(self, key):\n    print()````` as `__` must be an an `self._value.__name__`.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-238",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `square_number(x)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion(\"build\": 0)",
+      "hybrid_out": "Fixtions:\n```` in `` ` is instructions by `s `` to ` of ``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-239",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `first_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "``` import tools.append()` and ` are not exists with ``` by ` to ```` can be it pactupatcheding `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-240",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `last_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "# Nocked ``` and `` to ` on iterates all functionary `` for all informular `.j = {\"name\": \"``` or if if isinstannot exception in `",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-241",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `string_length(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information contains to recursively integers to an input values from preventing `self._path('w', 'w'): {\"name\": \"ChakrView\", \"build\": 17}",
+      "hybrid_out": "import modutiffile = [0]` is None`.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-242",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `to_lowercase(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to its context.",
+      "hybrid_out": "from date('recursimplist = ['Increase context', programming.\"\"\"\nTypeopenquotedImplement in `` or ``` and `self.referencrype = True",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-243",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `sum_list(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information = []",
+      "hybrid_out": "Fix: Objects from preventrorttkwhere ```.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-244",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `absolute_value(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion('w', 'end', None): [0] = []. If cannot be consideration to recursively from exceeds in self.text.\"\"\"",
+      "hybrid_out": "from typing import Nameterm Linput``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-245",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `find_maximum(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no page, if you will have to reaching a remainder of than `f\".",
+      "hybrid_out": "class Stalloadgettable__ = {\"name}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-246",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `multiply_two(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not provided in the context.",
+      "hybrid_out": "``` in `` to `` by ```` `` is at the keys ``` to ` are exist()`.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-247",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `is_even(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no contexts to recursive elements while information is not provided in the pack.",
+      "hybrid_out": "# results inversionfactor` and `` or if it is informulate `` for all data with an object of ````` and `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-248",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `square_number(x)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion(\"build\": 0)",
+      "hybrid_out": "def encode(input,self.rootasks.pathaltrstanduticesset = 0:\n    print(facceptions, ` as `makey import filescope import test.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-249",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `first_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "```",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-250",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `last_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "from itertoolrderitemscannot promptree.getc.joindictionary = ['Increated context', None`.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-251",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `string_length(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information contains to recursively integers to an input values from preventing `self._path('w', 'w'): {\"name\": \"ChakrView\", \"build\": 17}",
+      "hybrid_out": "Fixest ``` or `__name__` from the ` to ``` and ` can be expercenteror if iso-1 is in the valid functions using ``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-252",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `to_lowercase(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to its context.",
+      "hybrid_out": "Fixe = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-253",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `sum_list(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information = []",
+      "hybrid_out": "`` in `````` to ````` where `` are no internation to ` by ```, `` when `` is referencryportempd_dataset().",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-254",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `absolute_value(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion('w', 'end', None): [0] = []. If cannot be consideration to recursively from exceeds in self.text.\"\"\"",
+      "hybrid_out": "# B = Linformulfym = {\"name\": \"```` for all data wrapped by `` and ` If ` is contailing with an `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-255",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `find_maximum(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no page, if you will have to reaching a remainder of than `f\".",
+      "hybrid_out": "import test_mammallow `` as `s at ````.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-256",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `multiply_two(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not provided in the context.",
+      "hybrid_out": "Typequeach:",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-257",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `is_even(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no contexts to recursive elements while information is not provided in the pack.",
+      "hybrid_out": "from iterattr` import filelist import Textrattempdrometerm",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-258",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `square_number(x)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion(\"build\": 0)",
+      "hybrid_out": "from datacrection = [0] + 'PSILONEPDEGEVERSIFYest Incrementall__s.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-259",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `first_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "Fixgets `````` or ` and ``````` or if it inverse ````.__name__` to `` and `` can be except for all in the programm",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-260",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `last_element(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to reaching a context-in-package.",
+      "hybrid_out": "``` in ```` to ` is not examples using ` to ` of ``` doctest integer from the referencrypass\n      - `` if node is None` as ``",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-261",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `string_length(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information contains to recursively integers to an input values from preventing `self._path('w', 'w'): {\"name\": \"ChakrView\", \"build\": 17}",
+      "hybrid_out": "Fix: Ranandy module internal values by `` conf\"{\").",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-262",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `to_lowercase(s)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information not exists to information to its context.",
+      "hybrid_out": "# B = Linformular = [1]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-263",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `sum_list(lst)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information = []",
+      "hybrid_out": "Typlanet `self. wrayoutilabocket, `` are never `preventing ```.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-264",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `absolute_value(n)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "Fix: Use `self.inversion('w', 'end', None): [0] = []. If cannot be consideration to recursively from exceeds in self.text.\"\"\"",
+      "hybrid_out": "# resupport import test.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-10-265",
+      "family": "python_function_generation",
+      "prompt": "Write a Python function `find_maximum(a, b)` that performs the required operation.\nProvide only the executable python function definition.",
+      "ground_truth": "",
+      "pure_out": "# Information no page, if you will have to reaching a remainder of than `f\".",
+      "hybrid_out": "```````` from iterattalloadx ``` is reduced the keyno `` and ` whitempority = Trueleft = 0:\n    if isinstandrat",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-266",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 8 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "21",
+      "pure_out": "### 36",
+      "hybrid_out": "Fixe = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-267",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "Nameterm = [1] for idleenqueue = 364 * 1 + 3.0 + 10}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-268",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 9 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "23",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fix: Genvirons to `'s file context` or `` to `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-269",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "`__name__main__name__ = \"__makey node in an `` by `` in ```` of ` existing the ``` or if it with ````` as `` can be sets",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-270",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 21 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "47",
+      "pure_out": "### 36",
+      "hybrid_out": "Tyour `cannot isolgroundarrayoccurv (module pointer of all eachaverticessetaskets.get_filterm = 1/2 import test",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-271",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 22 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "49",
+      "pure_out": "### 36",
+      "hybrid_out": "Node | Neleft | Bobjects ! Sympo {\"` must be a list of then where ` as ` are instack `self._sum()` for cannot in the new",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-272",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 24 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "53",
+      "pure_out": "#### 3",
+      "hybrid_out": "normalling:",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-273",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 15 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "35",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fix: Recontillmask, that tright import tests in the containing = 0:  # if if it meaning ` can added to finding a valid value with the maxitems (1, 1).  # re",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-274",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "````` for ad = [1] + 0\ndef unn = None(a) == 0\n    for i + 3:\n        dequeleaves = [-1] - base * len(numsquarray on the key",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-275",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 24 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "53",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fixoritedrops = 1/= 1` or `s that are 'environd's file ` to opensimply returns which are tooldedpatcharge `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-276",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 21 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "47",
+      "pure_out": "### 36",
+      "hybrid_out": "pyno `` If ` or if districtfactoritem informull \", mammpack-90 column = 1.0 / 364 * 7\n        else = 100 + 6 + 8",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-277",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 18 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "41",
+      "pure_out": "#### 3",
+      "hybrid_out": "Type = []`` or if cannotallowest < 0: If ` is node in the pointos.getcastrax_butterm = total_base + 3)\n    print(",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-278",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 22 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "49",
+      "pure_out": "### 36",
+      "hybrid_out": "Node | Neach in a recursides of then where `self._1 as ` by n the new versionx the subtracts the maxitems of 2 to priventright ! Curv",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-279",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "# Track tables = {\"name\": \"(4) / 100 * 25 = 2 * 10}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-280",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 10 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "25",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fixading ` to finds a list of that tableour in the 3 with `` by $ and have `.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-281",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 20 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "45",
+      "pure_out": "#### 3",
+      "hybrid_out": "(most | B = L = FFrank for cannot existeleft ` on the containing import test. Asquarterm in 0: The import testeramodule determined by ` into a",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-282",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "Nour != [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-283",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 13 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "31",
+      "pure_out": "#### 3",
+      "hybrid_out": "# Systeps lef-9 + 6: Implectrd-by",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-284",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 12 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "29",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fixe must be 1/3 * 8 = 140 + 36 + 70 if informull in the posix valid = 1/1 * 1/4 *** 100 + 88 + 400 penj, threshote - 7 col",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-285",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 25 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "55",
+      "pure_out": "#### 3",
+      "hybrid_out": "Node will _2 to ampwhile 6 == 18 / masks.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-286",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 13 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "31",
+      "pure_out": "#### 3",
+      "hybrid_out": "Typeitems = 2 * 104 * 100 = 150 candistriverjects of 1 + 38 to mammalloopf roundardbecause vertillstraxdo not curvgtonce =",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-287",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 21 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "47",
+      "pure_out": "### 36",
+      "hybrid_out": "{| classetattacknormal ! Curipatchargessquare milk: files = (PHED) as `s that are in the pointenviratient list of cent",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-288",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 20 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "45",
+      "pure_out": "#### 3",
+      "hybrid_out": "The = Deconounterm = (1, 1. Mexx Returbase = 203 / Returcamountaxtruees in range(0)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-289",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 25 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "55",
+      "pure_out": "#### 3",
+      "hybrid_out": "# Noven addividegree[0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-290",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 12 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "29",
+      "pure_out": "#### 3",
+      "hybrid_out": "# Systeps eachindefined ` import annotationso | Aappack | Bellowespack | Aapse = $962 ! Hocrabecame = $90.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-291",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 13 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "31",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fix-8 = Linformula Tracknicm ` or if then enqueleft can be 1/4 for simpleveliner",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-292",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 19 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "43",
+      "pure_out": "#### 3",
+      "hybrid_out": "Nour ` by 1/36 import test_context",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-293",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 7 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "19",
+      "pure_out": "### 36",
+      "hybrid_out": "If throwhere while string is node is 100:70 to strictly ; reducks in self._1 to mammalloadday.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-294",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 14 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "33",
+      "pure_out": "#### 3",
+      "hybrid_out": "Fix: Grondf = total * B + 400",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-11-295",
+      "family": "multistep_instruction",
+      "prompt": "Step 1: Take the number 12 and double it.\nStep 2: Add 5 to the result from Step 1.\nWhat is the final number?",
+      "ground_truth": "29",
+      "pure_out": "#### 3",
+      "hybrid_out": "The 10'cannot has a remainder of 3 with a remakey sets of no subtracking ``, `__name__name__ == \"__\":",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-296",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'byte', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "BYTEBYTEBYTE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# No-Cirtruest_0 = Dutvenvironly in range(1, new / 3)",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-297",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'byte', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "BYTEBYTEBYTEBYTE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# Systeps definally fined by 2 divisions = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-298",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'code', capitalize it to uppercase, and repeat it 2 times with no spaces.",
+      "ground_truth": "CODECODE",
+      "pure_out": "# Tumn of the contexts is not provided in the pack.",
+      "hybrid_out": "Type = Linkragbliterm = ('Patch', colorig-9 * 'LONDETP Implements determined if isinstandarrayearray for si",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-299",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 2 times with no spaces.",
+      "ground_truth": "DATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Goods an existaying ` as questionary import annotattribase import test",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-300",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "TREETREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# Bobjects a file contailinglevelabors: $170 if then which are mask toolder questions are equalloadx right_pointer vertillactive keys, thleft =",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-301",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "DATADATADATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Reconce whereas is None.0 + 25 + 6:31 and threshost = 1/100 * 8 = 1546400",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-302",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 2 times with no spaces.",
+      "ground_truth": "DATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-303",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "TREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "The packet numbership is in a context-modulevely.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-304",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'byte', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "BYTEBYTEBYTEBYTE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# Churticesses can be provided by packnow enjoinstrictright applay division from first operating internegroundright except ().",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-305",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "TREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Type = [0] = [1.0 0.5 + 2: If if yitem informulty values arguments definitems in range(1, 0)  # 173656 + 95 = 128 /",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-306",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'code', capitalize it to uppercase, and repeat it 2 times with no spaces.",
+      "ground_truth": "CODECODE",
+      "pure_out": "# Tumn of the contexts is not provided in the pack.",
+      "hybrid_out": "Fix: List of ` or `` and ``.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-307",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "TREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "import annotermask from doctest",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-308",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'flow', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "FLOWFLOWFLOWFLOW",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Godf: Objects is stringleaven a nameing for queue with a remainder where.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-309",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'code', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "CODECODECODECODE",
+      "pure_out": "# Tumn of the contexts is not provided in the pack.",
+      "hybrid_out": "{| classimplist = Second_encoding_conversion() == \"param supporter than eachopenv = 17460 + 384 * 5*** 21 + 100 * 10), $",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-310",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "TREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "The collabelloader numbers, then all is None",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-311",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'code', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "CODECODECODE",
+      "pure_out": "# Tumn of the contexts is not provided in the pack.",
+      "hybrid_out": "# No-6 is a file stripathalfactoriespathandlargest module divisimplicate toolderstacknowhich are mad_pointage electrice",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-312",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'byte', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "BYTEBYTEBYTE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# 1",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-313",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "TREETREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Typed ` and `__makey import information.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-314",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'flow', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "FLOWFLOWFLOWFLOW",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: List of finallineargumentallows that informull milterm internegets.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-315",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "DATADATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Node ` or `self. and if youses can be contextworking from .",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-316",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "DATADATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Groundenvironmost common roundation of threshote ([1] = [0])",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-317",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "TREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "The programming built-left",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-318",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'code', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "CODECODECODE",
+      "pure_out": "# Tumn of the contexts is not provided in the pack.",
+      "hybrid_out": "# Bobjects a file number handlevelingleadv = {\"name\": \"\", \"build\": 2464}",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-319",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'byte', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "BYTEBYTEBYTEBYTE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# 1:",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-320",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "TREETREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Traversquare is is a strings, whitemporary exceptions, thattripacknowhereachopensity valid import SILFrank != (). If all mastrictfac",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-321",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 3 times with no spaces.",
+      "ground_truth": "DATADATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Recuritem informationalls are mask.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-322",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'data', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "DATADATADATADATA",
+      "pure_out": "# Tumles",
+      "hybrid_out": "``` and if you is in informulam column keys that informull only each otherfactory from the context.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-323",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'flow', capitalize it to uppercase, and repeat it 2 times with no spaces.",
+      "ground_truth": "FLOWFLOW",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Node is a = [0]",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-324",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'tree', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "TREETREETREETREE",
+      "pure_out": "# Tumles",
+      "hybrid_out": "Fix: Goover must be finds an input valid for examples in self. Systepresolve in methodrop of then I live in the context.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "task_id": "GEN-12-325",
+      "family": "novel_combinations",
+      "prompt": "Take the word 'flow', capitalize it to uppercase, and repeat it 4 times with no spaces.",
+      "ground_truth": "FLOWFLOWFLOWFLOW",
+      "pure_out": "# Tumles",
+      "hybrid_out": "# Negroundright or encoding_tutded by leaves questions to the internet primade andargument.",
+      "pure_pass": false,
+      "hybrid_pass": false
+    }
+  ]
+}
