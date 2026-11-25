@@ -111,8 +111,8 @@ class ChakrViewInferenceEngine17M:
 
         input_tensor = torch.tensor([input_tokens], dtype=torch.long, device=self.device)
         generated_ids: List[int] = []
-        accumulated_text = ""
-        prev_decoded_len = 0
+        accumulated_bytes = bytearray()
+        prev_decoded_text = ""
 
         start_time = time.perf_counter()
 
@@ -163,10 +163,11 @@ class ChakrViewInferenceEngine17M:
 
             # Check stop token
             if next_token == self.eos_id:
+                final_text = accumulated_bytes.decode("utf-8", errors="replace")
                 yield {
                     "token_id": next_token,
                     "text": "",
-                    "accumulated_text": accumulated_text,
+                    "accumulated_text": final_text,
                     "is_finished": True,
                     "latency_ms": step_latency_ms,
                     "total_time_ms": (time.perf_counter() - start_time) * 1000.0
@@ -174,18 +175,35 @@ class ChakrViewInferenceEngine17M:
                 break
 
             generated_ids.append(next_token)
-            # Incremental decoding to properly handle subwords/multi-byte UTF-8
-            current_decoded = self.tokenizer.decode(generated_ids, errors="replace")
-            token_delta = current_decoded[prev_decoded_len:]
-            prev_decoded_len = len(current_decoded)
-            accumulated_text = current_decoded
+            
+            # Append token bytes to accumulated_bytes
+            tok_bytes = self.tokenizer._vocab.get(next_token, b"")
+            accumulated_bytes.extend(tok_bytes)
+
+            # Robust incremental UTF-8 decoding: decode valid prefix, leaving incomplete bytes in buffer
+            # Find the longest prefix of accumulated_bytes that cleanly decodes into UTF-8
+            decoded_text = ""
+            for trim in range(min(4, len(accumulated_bytes))):
+                test_b = accumulated_bytes[:len(accumulated_bytes) - trim] if trim > 0 else accumulated_bytes
+                try:
+                    decoded_text = test_b.decode("utf-8", errors="strict")
+                    break
+                except UnicodeDecodeError:
+                    continue
+            
+            if not decoded_text:
+                decoded_text = accumulated_bytes.decode("utf-8", errors="replace")
+
+            token_delta = decoded_text[len(prev_decoded_text):] if len(decoded_text) >= len(prev_decoded_text) else ""
+            if token_delta:
+                prev_decoded_text = decoded_text
 
             is_last = (step == max_new_tokens - 1)
 
             yield {
                 "token_id": next_token,
                 "text": token_delta,
-                "accumulated_text": accumulated_text,
+                "accumulated_text": decoded_text,
                 "is_finished": is_last,
                 "latency_ms": step_latency_ms,
                 "total_time_ms": (time.perf_counter() - start_time) * 1000.0
