@@ -86,8 +86,8 @@ class RotaryEmbedding(nn.Module):
 def apply_rope(x: torch.Tensor, cos: torch.Tensor, sin: torch.Tensor) -> torch.Tensor:
     d = x.shape[-1]
     x1, x2 = x[..., :d//2], x[..., d//2:]
-    cos = cos.unsqueeze(0).unsqueeze(0)
-    sin = sin.unsqueeze(0).unsqueeze(0)
+    cos = cos.to(dtype=x.dtype).unsqueeze(0).unsqueeze(0)
+    sin = sin.to(dtype=x.dtype).unsqueeze(0).unsqueeze(0)
     return torch.cat([x1 * cos - x2 * sin, x1 * sin + x2 * cos], dim=-1)
 
 
@@ -121,9 +121,9 @@ class GroupedQueryAttention(nn.Module):
 
         scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(self.head_dim)
         if mask is not None:
-            scores = scores + mask
+            scores = scores + mask.to(dtype=scores.dtype)
 
-        probs = F.softmax(scores, dim=-1)
+        probs = F.softmax(scores, dim=-1, dtype=scores.dtype)
         output = torch.matmul(probs, v)
         output = output.transpose(1, 2).contiguous().view(B, T, C)
         return self.out_proj(output)
