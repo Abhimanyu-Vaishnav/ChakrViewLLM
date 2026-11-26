@@ -1,0 +1,62 @@
+{
+  "Direct_A": [
+    {
+      "pair_name": "Pair 1: Variable Renaming Invariance",
+      "expected_behavior": "invariant",
+      "gen_base": "<answer> 51 </answer>",
+      "gen_cf": "<answer> 51 </answer>",
+      "correct_behavior": true
+    },
+    {
+      "pair_name": "Pair 2: Value Perturbation Sensitivity",
+      "expected_behavior": "sensitive",
+      "gen_base": "<answer> 51 </answer>",
+      "gen_cf": "<answer> 51 </answer>",
+      "correct_behavior": false
+    },
+    {
+      "pair_name": "Pair 3: Commutative Reordering",
+      "expected_behavior": "invariant",
+      "gen_base": "<answer> 47 </answer>",
+      "gen_cf": "<answer> 44 </answer>",
+      "correct_behavior": false
+    },
+    {
+      "pair_name": "Pair 4: State Update Perturbation",
+      "expected_behavior": "sensitive",
+      "gen_base": "<answer> 51 </answer>",
+      "gen_cf": "<answer> 51 </answer>",
+      "correct_behavior": false
+    }
+  ],
+  "Trace_B": [
+    {
+      "pair_name": "Pair 1: Variable Renaming Invariance",
+      "expected_behavior": "invariant",
+      "gen_base": "<state_1> x=4 </state_1> <state_2> x=64 </state_2> <state_3> sum=54 </state_3",
+      "gen_cf": "<state_1> a=64 </state_1> <state_2> b=50 </state_2> <state_3> sum=54 </state_",
+      "correct_behavior": false
+    },
+    {
+      "pair_name": "Pair 2: Value Perturbation Sensitivity",
+      "expected_behavior": "sensitive",
+      "gen_base": "<state_1> x=4 </state_1> <state_2> x=64 </state_2> <state_3> sum=54 </state_3",
+      "gen_cf": "<state_1> x=64 </state_1> <state_2> x=64 </state_2> <state_3> sum=74 </state_",
+      "correct_behavior": true
+    },
+    {
+      "pair_name": "Pair 3: Commutative Reordering",
+      "expected_behavior": "invariant",
+      "gen_base": "<state_1> S0=44 </state_1> <state_2> S1=4+8=44 </state_2> <state_3> S2=",
+      "gen_cf": "<state_1> S0=44 </state_1> <state_2> S1=4+6=44 </state_2> <state_3> S2=",
+      "correct_behavior": false
+    },
+    {
+      "pair_name": "Pair 4: State Update Perturbation",
+      "expected_behavior": "sensitive",
+      "gen_base": "<state_1> S0=50 </state_1> <state_2> S1=50+5=50 </state_2> <state_3> S2",
+      "gen_cf": "<state_1> S0=64 </state_1> <state_2> S1=60+5=54 </state_2> <state_3> S2",
+      "correct_behavior": true
+    }
+  ]
+}
