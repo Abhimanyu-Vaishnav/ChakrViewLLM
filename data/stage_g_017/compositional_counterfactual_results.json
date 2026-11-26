@@ -1,62 +1,104 @@
 {
   "Direct_A": [
     {
-      "pair_name": "Pair 1: Variable Renaming Invariance",
-      "expected_behavior": "invariant",
-      "gen_base": "<answer> 51 </answer>",
-      "gen_cf": "<answer> 51 </answer>",
-      "correct_behavior": true
+      "pair": "Variable Renaming Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<answer> 51 </answer>",
+      "out_variant": "<answer> 51 </answer>",
+      "is_invariant": true,
+      "satisfied": true
     },
     {
-      "pair_name": "Pair 2: Value Perturbation Sensitivity",
-      "expected_behavior": "sensitive",
-      "gen_base": "<answer> 51 </answer>",
-      "gen_cf": "<answer> 51 </answer>",
-      "correct_behavior": false
+      "pair": "Value Mutation Sensitivity",
+      "expected_relation": "sensitive",
+      "out_base": "<answer> 14 </answer>",
+      "out_variant": "<answer> 14 </answer>",
+      "is_invariant": true,
+      "satisfied": false
     },
     {
-      "pair_name": "Pair 3: Commutative Reordering",
-      "expected_behavior": "invariant",
-      "gen_base": "<answer> 47 </answer>",
-      "gen_cf": "<answer> 44 </answer>",
-      "correct_behavior": false
+      "pair": "Commutativity Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<answer> 36 </answer>",
+      "out_variant": "<answer> 36 </answer>",
+      "is_invariant": true,
+      "satisfied": true
     },
     {
-      "pair_name": "Pair 4: State Update Perturbation",
-      "expected_behavior": "sensitive",
-      "gen_base": "<answer> 51 </answer>",
-      "gen_cf": "<answer> 51 </answer>",
-      "correct_behavior": false
+      "pair": "Representation Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<answer> ROSNET </answer>",
+      "out_variant": "<answer> 51 </answer>",
+      "is_invariant": false,
+      "satisfied": false
     }
   ],
-  "Trace_B": [
+  "Explicit_B": [
     {
-      "pair_name": "Pair 1: Variable Renaming Invariance",
-      "expected_behavior": "invariant",
-      "gen_base": "<state_1> x=4 </state_1> <state_2> x=64 </state_2> <state_3> sum=54 </state_3",
-      "gen_cf": "<state_1> a=64 </state_1> <state_2> b=50 </state_2> <state_3> sum=54 </state_",
-      "correct_behavior": false
+      "pair": "Variable Renaming Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<state_1> x=4 </state_1> <state_2> x=64 </state_2> <state_3>",
+      "out_variant": "<state_1> a=64 </state_1> <state_2> b=50 </state_2> <state_3",
+      "is_invariant": false,
+      "satisfied": false
     },
     {
-      "pair_name": "Pair 2: Value Perturbation Sensitivity",
-      "expected_behavior": "sensitive",
-      "gen_base": "<state_1> x=4 </state_1> <state_2> x=64 </state_2> <state_3> sum=54 </state_3",
-      "gen_cf": "<state_1> x=64 </state_1> <state_2> x=64 </state_2> <state_3> sum=74 </state_",
-      "correct_behavior": true
+      "pair": "Value Mutation Sensitivity",
+      "expected_relation": "sensitive",
+      "out_base": "<state_1> S0=64 </state_1> <state_2> S1=6+6=64 </state_2",
+      "out_variant": "<state_1> S0=64 </state_1> <state_2> S1=6+6=64 </state_2",
+      "is_invariant": true,
+      "satisfied": false
     },
     {
-      "pair_name": "Pair 3: Commutative Reordering",
-      "expected_behavior": "invariant",
-      "gen_base": "<state_1> S0=44 </state_1> <state_2> S1=4+8=44 </state_2> <state_3> S2=",
-      "gen_cf": "<state_1> S0=44 </state_1> <state_2> S1=4+6=44 </state_2> <state_3> S2=",
-      "correct_behavior": false
+      "pair": "Commutativity Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<state_1> mult=7*7=74 </state_1> <answer> 44 </answer>",
+      "out_variant": "<state_1> mult=7*7=74 </state_1> <answer> 44 </answer>",
+      "is_invariant": true,
+      "satisfied": true
     },
     {
-      "pair_name": "Pair 4: State Update Perturbation",
-      "expected_behavior": "sensitive",
-      "gen_base": "<state_1> S0=50 </state_1> <state_2> S1=50+5=50 </state_2> <state_3> S2",
-      "gen_cf": "<state_1> S0=64 </state_1> <state_2> S1=60+5=54 </state_2> <state_3> S2",
-      "correct_behavior": true
+      "pair": "Representation Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<state_1> upper=TENSOR </state_1> <state_2> reversed=ROSNET",
+      "out_variant": "<state_1> S0=17 </state_1> <state_2> S1=2+2=27 </state_2",
+      "is_invariant": false,
+      "satisfied": false
+    }
+  ],
+  "Compact_C": [
+    {
+      "pair": "Variable Renaming Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<trace> x=15 -> x=15 -> sum=15 -> answer=15 </trace>",
+      "out_variant": "<trace> a=5 -> b=5 -> sum=5 -> answer=5 </trace>",
+      "is_invariant": false,
+      "satisfied": false
+    },
+    {
+      "pair": "Value Mutation Sensitivity",
+      "expected_relation": "sensitive",
+      "out_base": "<trace> S0=5 -> S1=5+5=50 -> S2=50=50 -> answer=50 </trace",
+      "out_variant": "<trace> S0=5 -> S1=5+5=50 -> S2=50=50 -> answer=50 </trace",
+      "is_invariant": true,
+      "satisfied": false
+    },
+    {
+      "pair": "Commutativity Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<trace> mult=2*3=27 -> answer=28 </trace>",
+      "out_variant": "<trace> mult=5*5=50 -> answer=50 </trace>",
+      "is_invariant": false,
+      "satisfied": false
+    },
+    {
+      "pair": "Representation Invariance",
+      "expected_relation": "invariant",
+      "out_base": "<trace> upper=TENSOR -> reversed=ROSNET -> answer=ROSNET </trac",
+      "out_variant": "<trace> m=27 -> m=27 -> sum=27 -> answer=27 </trace>",
+      "is_invariant": false,
+      "satisfied": false
     }
   ]
 }

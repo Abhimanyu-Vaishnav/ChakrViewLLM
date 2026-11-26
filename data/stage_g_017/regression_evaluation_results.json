@@ -1,25 +1,152 @@
 {
-  "coding_tasks_evaluated": 5,
-  "coding_passed": 0,
-  "multilingual_evaluated": 3,
-  "dialogue_results": [
-    {
-      "pid": "EN-01",
-      "prompt": "What is the capital of India?",
-      "response": "",
-      "utf8_clean": true
-    },
-    {
-      "pid": "HI-01",
-      "prompt": "नमस्ते! आप कैसे हैं?",
-      "response": "के रूप में कार्यरत हैं।",
-      "utf8_clean": true
-    },
-    {
-      "pid": "HG-01",
-      "prompt": "Bhai, Python me loop kaise likhte hain?",
-      "response": "",
-      "utf8_clean": true
-    }
-  ]
+  "Direct_A": {
+    "coding_syntax_valid": 0,
+    "coding_exec_passed": 0,
+    "utf8_clean_rate": 100.0,
+    "coherence_rate": 100.0,
+    "lang_samples": [
+      {
+        "id": "EN-01",
+        "lang": "English",
+        "prompt": "Hello! How can you help me today?",
+        "response": "<answ <answer>  </answer>",
+        "coherent": true
+      },
+      {
+        "id": "EN-02",
+        "lang": "English",
+        "prompt": "What is the difference between a list and a tuple?",
+        "response": "<answer>  </answer>",
+        "coherent": true
+      },
+      {
+        "id": "HI-01",
+        "lang": "Hindi",
+        "prompt": "नमस्ते! आपका क्या नाम है?",
+        "response": "<answ<answer>",
+        "coherent": true
+      },
+      {
+        "id": "HI-02",
+        "lang": "Hindi",
+        "prompt": "कंप्यूटर क्या होता है? संक्षेप में बताएं।",
+        "response": "<<ans <answer>  <answer>",
+        "coherent": true
+      },
+      {
+        "id": "HG-01",
+        "lang": "Hinglish",
+        "prompt": "Bhai ek simple Python code likh kar dikhao.",
+        "response": "<ans <answer>  <answer>",
+        "coherent": true
+      },
+      {
+        "id": "HG-02",
+        "lang": "Hinglish",
+        "prompt": "Data science sikhne ke liye kya zaroori hai?",
+        "response": "<answer> </answer>",
+        "coherent": true
+      }
+    ]
+  },
+  "Explicit_B": {
+    "coding_syntax_valid": 14,
+    "coding_exec_passed": 0,
+    "utf8_clean_rate": 100.0,
+    "coherence_rate": 100.0,
+    "lang_samples": [
+      {
+        "id": "EN-01",
+        "lang": "English",
+        "prompt": "Hello! How can you help me today?",
+        "response": "1111111111111111111111111111111111111111",
+        "coherent": true
+      },
+      {
+        "id": "EN-02",
+        "lang": "English",
+        "prompt": "What is the difference between a list and a tuple?",
+        "response": "1111111111111111111111111111111111111111",
+        "coherent": true
+      },
+      {
+        "id": "HI-01",
+        "lang": "Hindi",
+        "prompt": "नमस्ते! आपका क्या नाम है?",
+        "response": "1111111111111111111111111111111111111111",
+        "coherent": true
+      },
+      {
+        "id": "HI-02",
+        "lang": "Hindi",
+        "prompt": "कंप्यूटर क्या होता है? संक्षेप में बताएं।",
+        "response": "1111111111111111111111111111111111111111",
+        "coherent": true
+      },
+      {
+        "id": "HG-01",
+        "lang": "Hinglish",
+        "prompt": "Bhai ek simple Python code likh kar dikhao.",
+        "response": "<state_1111111111111111111111111111111111",
+        "coherent": true
+      },
+      {
+        "id": "HG-02",
+        "lang": "Hinglish",
+        "prompt": "Data science sikhne ke liye kya zaroori hai?",
+        "response": "<state_111111111111111111111111111111111111",
+        "coherent": true
+      }
+    ]
+  },
+  "Compact_C": {
+    "coding_syntax_valid": 0,
+    "coding_exec_passed": 0,
+    "utf8_clean_rate": 100.0,
+    "coherence_rate": 33.33333333333333,
+    "lang_samples": [
+      {
+        "id": "EN-01",
+        "lang": "English",
+        "prompt": "Hello! How can you help me today?",
+        "response": "<trace <trace>  <trace>  <trace> > > > > > > > > > > > > > > > > >",
+        "coherent": false
+      },
+      {
+        "id": "EN-02",
+        "lang": "English",
+        "prompt": "What is the difference between a list and a tuple?",
+        "response": "<trace <trace>  <trace>      <trace> > > > > > > > > > > > > > > > > >",
+        "coherent": false
+      },
+      {
+        "id": "HI-01",
+        "lang": "Hindi",
+        "prompt": "नमस्ते! आपका क्या नाम है?",
+        "response": "<trace <trace>  <trace>   <trace> > > > > > > > > > > > > > > > > > ==",
+        "coherent": false
+      },
+      {
+        "id": "HI-02",
+        "lang": "Hindi",
+        "prompt": "कंप्यूटर क्या होता है? संक्षेप में बताएं।",
+        "response": "<trace <trace>  <trace>  <trace> > > > > > > > > > > > > > =======",
+        "coherent": false
+      },
+      {
+        "id": "HG-01",
+        "lang": "Hinglish",
+        "prompt": "Bhai ek simple Python code likh kar dikhao.",
+        "response": "< <trace <trace>  <trace>  <trace> > > > > > ======5555555",
+        "coherent": true
+      },
+      {
+        "id": "HG-02",
+        "lang": "Hinglish",
+        "prompt": "Data science sikhne ke liye kya zaroori hai?",
+        "response": "<trace <trace>  <trace> ====== </trace>",
+        "coherent": true
+      }
+    ]
+  }
 }

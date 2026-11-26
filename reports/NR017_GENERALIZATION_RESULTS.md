@@ -1,33 +1,43 @@
 # NR-017 Phase 6 — Held-Out Generalization Results Report
 **Mission ID:** CV-GENESIS-NR-017  
 **Date:** 2026-11-26  
-**Benchmark Suite:** `data/stage_g_017/stage_g_sealed_benchmark_400.json` (400 tasks, 10 families, 3 difficulty levels)  
-**Evaluator:** Independent Evaluator across Condition A, Condition B, and Condition C  
-**Artifacts:** `data/stage_g_017/training_comparison_results.json`
+**Sealed Benchmark:** `data/stage_g_017/stage_g_sealed_benchmark_400.json` (400 tasks, 10 families, 3 difficulty levels)  
+**Detailed Breakdown Artifact:** `data/stage_g_017/detailed_generalization_breakdown.json`
 
 ---
 
-## 1. Executive Summary & Generalization Findings
-The 400-task sealed benchmark was evaluated across all three conditions to measure final answer accuracy, out-of-distribution (OOD) generalization, and family-wise resilience.
+## 1. Executive Summary & Comparative Generalization Verdict
+All three models (Condition A Direct, Condition B Explicit Trace, Condition C Compact Trace) were evaluated across 400 sealed tasks to analyze family-wise and difficulty-wise generalization.
 
-### **Key Findings:**
-1. **Direct Answer (Condition A) Dominates:** Direct-answer training achieved **$17.0\%$ overall accuracy** and **$10.25\%$ OOD accuracy**.
-2. **Explicit Traces (Condition B) Degrade Generalization:** Explicit traces achieved only **$9.0\%$ overall accuracy** and **$3.25\%$ OOD accuracy**. Because each intermediate transition introduces an opportunity for autoregressive compounding error, the model frequently generates a flawed intermediate state, leading to answer failure.
-3. **Structured Compact Traces (Condition C) Lie Between A and B:** Achieving **$14.9\%$ overall accuracy** and **$8.75\%$ OOD accuracy**, compact traces mitigate some token compounding error but still fail to outperform direct-answer training.
-
----
-
-## 2. In-Distribution vs Out-of-Distribution Breakdown
-
-| Condition | In-Distribution Accuracy (200 tasks) | Strict OOD Accuracy (200 tasks) | Generalization Gap | Total Accuracy (400 tasks) |
-| :--- | :---: | :---: | :---: | :---: |
-| **Condition A (Direct Answer)** | **$23.75\%$** | **$10.25\%$** | $-13.50\%$ | **$17.00\%$** |
-| **Condition B (Explicit State Trace)** | $14.75\%$ | $3.25\%$ | $-11.50\%$ | $9.00\%$ |
-| **Condition C (Structured Compact Trace)** | $21.00\%$ | $8.75\%$ | $-12.25\%$ | $14.90\%$ |
+### **Key Scientific Finding:**
+**NO EVIDENCE THAT STATE-TRACE SUPERVISION UNLOCKS REASONING CIRCUITS**
+Across 10 distinct task families, performance remained functionally indistinguishable across all three conditions:
+- **Direct Answer (Condition A):** Overall = **$16.8\%$**, Level 1 = $17.9\%$, Level 2 = $16.5\%$, Level 3 = $15.8\%$.
+- **Explicit Trace (Condition B):** Overall = **$17.0\%$**, Level 1 = $17.9\%$, Level 2 = $15.8\%$, Level 3 = $17.3\%$.
+- **Compact Trace (Condition C):** Overall = **$17.5\%$**, Level 1 = $16.4\%$, Level 2 = $20.3\%$, Level 3 = $15.8\%$.
 
 ---
 
-## 3. Failure Mode Categorization
-1. **Autoregressive Compounding Error (Condition B):** When generating multi-step traces ($S_0 \rightarrow S_1 \rightarrow S_2$), any small error in $S_1$ propagates into $S_2$, making the final answer unconditionally wrong.
-2. **Tag Overhead & Distraction:** Condition B spent $76.8\%$ of its capacity formatting XML state tags (`<state_1> ... </state_1>`), diverting attention weights away from variable binding and arithmetic calculation.
-3. **Direct Mapping Superiority:** At 17M scale, the attention layers function best as a direct associative projection from prompt tokens to output tokens, rather than an autoregressive multi-step computation graph.
+## 2. Family-Wise Accuracy Comparison (40 Tasks per Family)
+
+| Task Family | Family Type | Direct Answer (Cond A) | Explicit Trace (Cond B) | Compact Trace (Cond C) | Capability Assessment |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **`algorithmic_compositions`** | Logic / Parity | **$100.0\%$ (40/40)** | **$100.0\%$ (40/40)** | **$100.0\%$ (40/40)** | Trivial boolean parity check (`x*2 is even -> True`) mastered 100% |
+| **`arithmetic_operations`** | Multiplication | **$0.0\%$ (0/40)** | **$0.0\%$ (0/40)** | **$0.0\%$ (0/40)** | Multi-digit arithmetic fails across all formats |
+| **`conditional_branching`** | Branch logic | **$0.0\%$ (0/40)** | **$0.0\%$ (0/40)** | **$0.0\%$ (0/40)** | Threshold comparison and branching fails |
+| **`list_transformations`** | Reversal / Max | $2.5\%$ (1/40) | $2.5\%$ (1/40) | $2.5\%$ (1/40) | Near-total failure on list mutations |
+| **`nested_operations`** | Parentheses | $0.0\%$ (0/40) | $2.5\%$ (1/40) | $2.5\%$ (1/40) | Minimal difference |
+| **`sequential_state_updates`** | State accumulator | $2.5\%$ (1/40) | $0.0\%$ (0/40) | $0.0\%$ (0/40) | Multi-step accumulator failure |
+| **`stack_operations`** | Push / Pop | $7.5\%$ (3/40) | $7.5\%$ (3/40) | $10.0\%$ (4/40) | Shallow stack tracking |
+| **`string_transformations`** | String casing / rev | **$50.0\%$ (20/40)** | **$50.0\%$ (20/40)** | **$50.0\%$ (20/40)** | Exact split: 100% in-distribution, 0% OOD |
+| **`variable_binding`** | Slot binding | $0.0\%$ (0/40) | $5.0\%$ (2/40) | $0.0\%$ (0/40) | Statistically negligible difference ($\pm 2$ tasks) |
+| **`variable_renaming`** | Dependencies | $5.0\%$ (2/40) | $2.5\%$ (1/40) | $10.0\%$ (4/40) | Minor fluctuations |
+
+---
+
+## 3. Difficulty-Wise Breakdown
+- **Level 1 (Single operation, 134 tasks):** Direct = $17.9\%$, Explicit Trace = $17.9\%$, Compact Trace = $16.4\%$.
+- **Level 2 (Multiple dependent ops, 133 tasks):** Direct = $16.5\%$, Explicit Trace = $15.8\%$, Compact Trace = $20.3\%$.
+- **Level 3 (Compositional interacting states, 133 tasks):** Direct = $15.8\%$, Explicit Trace = $17.3\%$, Compact Trace = $15.8\%$.
+
+**Deduction:** State-trace supervision did not alleviate the degradation on complex Level 3 tasks. The network's error modes stem from token hallucination within the state equations themselves.

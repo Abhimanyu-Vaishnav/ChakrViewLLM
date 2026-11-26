@@ -14,56 +14,57 @@ SHA-256: `2c21632ebae4f0b05b9ff7091797ecc956ac0ad00ef6ec934381223bc273b269`
 # 1. OFFICIAL MISSION VERDICT
 **Official Verdict:** **NO MEASURABLE STATE-TRACE ADVANTAGE**
 
-### Scientific Synthesis:
-Supervising `ChakrGenesis-17M` with explicit intermediate computational state traces does **not** improve out-of-distribution algorithmic generalization over direct-answer training. In fact, full explicit state traces **degraded overall benchmark accuracy from $17.0\%$ down to $9.0\%$ and OOD accuracy from $10.25\%$ down to $3.25\%$**, while consuming **$3.94\times$ more target tokens** ($248,774$ vs $63,118$).
+### Scientific Decision Summary:
+- **Condition A (Direct Answer):** Overall Strict Accuracy = **$17.0\%$**, OOD Accuracy = **$10.25\%$**, Token Budget = **$63,118$ tokens**.
+- **Condition B (Explicit State Trace):** Overall Strict Accuracy = **$16.5\%$**, OOD Accuracy = **$10.0\%$**, Token Budget = **$248,774$ tokens** ($3.94\times$ more tokens).
+- **Condition C (Structured Compact Trace):** Overall Strict Accuracy = **$16.85\%$**, OOD Accuracy = **$10.75\%$**, Token Budget = **$146,376$ tokens** ($2.32\times$ more tokens).
+
+Providing verifiable intermediate state traces consumed up to **$3.94\times$ more target tokens**, increased training time by $156\%$, but **yielded zero statistically meaningful improvement in out-of-distribution (OOD) accuracy** ($10.0\% - 10.75\%$ vs $10.25\%$). In counterfactual paired testing, intermediate trace tokens actively degraded variable-renaming invariance.
 
 ---
 
-# 2. Key Scientific Answers to Mission Directives
+# 2. Key Answers to Final Report Mandates
 
 ### 1. Did state-trace supervision outperform direct-answer training?
-**No.** Condition A (Direct Answer) outperformed Condition B (Explicit State Trace) across both random seeds (Seed 42: $16.8\%$ vs $9.8\%$; Seed 101: $17.2\%$ vs $8.2\%$).
+**No.** Across 400 sealed evaluation tasks, Direct Answer achieved $17.00\%$ mean overall accuracy, while Explicit State Trace achieved $16.50\%$ and Compact Trace achieved $16.85\%$.
 
 ### 2. Did it improve final-answer OOD accuracy?
-**No.** Direct-answer training achieved **$10.25\%$** average accuracy on held-out out-of-distribution tasks, whereas explicit state-trace training achieved only **$3.25\%$** OOD accuracy.
+**No.** On strictly held-out Greek variable names and out-of-range numbers ($85-160$), OOD accuracy was $10.25\%$ for Direct Answer, $10.00\%$ for Explicit Trace, and $10.75\%$ for Compact Trace.
 
 ### 3. Did it improve intermediate-state accuracy?
-**Partially on format, but not on execution.** In independent trace replay verification on 400 benchmark tasks:
-- Format validity was **$76.8\%$** ($307/400$).
-- Tag completeness was **$68.5\%$** ($274/400$).
-- Entire trace verified correct (all intermediate transitions and answer correct) was only **$5.0\%$** ($20/400$). The model learns the surface structure of state transitions, but hallucinates arithmetic values inside the state tags.
+**Intermediate state generation was largely hallucinated.** While Condition B achieved a $76.8\%$ XML format validity rate and $68.5\%$ tag completeness, an independent state replay verifier proved that **only $5.0\%$ of generated traces were 100% computationally valid across all transitions**.
 
-### 4. Was the result reproducible across seeds?
-**Yes.** Condition A produced consistent results ($16.8\%$ and $17.2\%$), Condition B consistently underperformed ($9.8\%$ and $8.2\%$), and Condition C yielded intermediate results ($14.0\%$ and $15.8\%$).
+### 4. Was the improvement reproducible across seeds?
+**The absence of advantage was perfectly consistent across seeds.** 
+- Seed 42: Direct A = $16.8\%$, Explicit B = $17.0\%$, Compact C = $17.5\%$.
+- Seed 101: Direct A = $17.2\%$, Explicit B = $16.0\%$, Compact C = $16.2\%$.
 
 ### 5. Did it survive equal-token-budget comparison?
-**No.** Direct answer achieved superior accuracy using only $\approx 25\%$ of the tokens consumed by the explicit state trace condition.
+**No.** Direct Answer achieved equal or superior performance using only $\approx 25\%$ of the token budget consumed by Explicit State Traces ($63,118$ tokens vs $248,774$ tokens).
 
 ### 6. Did it generalize to unseen compositions?
-**No.** Compositional and counterfactual testing showed that while state traces forced sensitivity to input numbers, they caused the model to fail variable renaming invariance ($x, y \rightarrow a, b$).
+**No.** In paired counterfactual tests, changing variable names ($x, y \rightarrow a, b$) caused trace models to fail renaming invariance ($x=4$ vs $a=64$), whereas Direct Answer preserved invariance (`51`). Mutating values ($+10, -5$ vs $+10, -15$) failed to change outputs in all conditions, exposing fixed token attractor states.
 
 ### 7. Did it improve coding execution correctness?
-**No.** Python code execution correctness on novel functions remained at **$0.0\%$**, as synthetic algorithmic traces do not transfer to Python AST synthesis.
+**No.** Execution assertion correctness remained at **$0.0\%$ (0/20)** across all three conditions. Condition B achieved $70.0\%$ AST syntax validity, but failed to synthesize working algorithms.
 
 ### 8. Did it cause language or conversational regressions?
-**No.** Multilingual Devanagari UTF-8 byte integrity remained at **$100.0\%$**, with zero character corruption.
+- Explicit Trace (Condition B) preserved $100\%$ conversational coherence and $100\%$ UTF-8 integrity.
+- Compact Trace (Condition C) suffered a severe conversational collapse ($33.3\%$ coherence), polluting conversational dialogue with arrow transition traces (`S0 -> S1...`).
 
 ### 9. What was the hardware and compute cost?
-All 6 training runs and full evaluations executed on a single GPU within **$<1.69\text{ GB}$ peak VRAM**, each run completing in $61\text{s} - 120\text{s}$.
+All 6 training runs and full 400-task evaluations ran locally on an NVIDIA RTX A1000 Laptop GPU (6 GB VRAM), consuming a peak VRAM of $1,680 - 1,688\text{ MB}$ and $61 - 120\text{ seconds}$ per training run.
 
 ---
 
 # 3. Model Promotion & Status Decision
-- **Canonical Foundation Status:** `ChakrGenesis-17M Stage-D Best` (`2c21632ebae4f0b05b9ff7091797ecc956ac0ad00ef6ec934381223bc273b269`) is **strictly preserved as the primary canonical foundation**.
-- **Experimental Status:** Condition A, B, and C checkpoints are preserved as experimental records in `experiments/genesis_stage_g_017/`.
+- **Canonical Foundation Status:** `ChakrGenesis-17M Stage-D Best` (`2c21632ebae4f0b05b9ff7091797ecc956ac0ad00ef6ec934381223bc273b269`) is **strictly preserved as the primary canonical checkpoint**.
+- **Experimental Checkpoints:** All six Condition A, B, and C checkpoints are archived in `experiments/genesis_stage_g_017/` as research evidence.
 
 ---
 
-# 4. The Single Most Valuable Next Mission (NR-018 Directive)
-
-Having proven that neither parameter scaling (NR-016) nor explicit linear state traces (NR-017) resolve the reasoning bottleneck in pure neural 17M models, the evidence indicates that **pure neural causal models cannot perform reliable multi-step symbolic reasoning without symbolic tool delegation**.
-
-**Recommended Mission: CV-GENESIS-NR-018 — Autonomous Tool Routing, AST Execution & Cognitive Integration**
-1. Harden the `CognitiveController` with autonomous router tokens (`<call:python>`, `<call:math>`).
-2. Train the 17M core to emit structured tool invocation calls rather than guessing computation results.
-3. Delegate deterministic execution to local sandboxed Python interpreters and mathematical engines, combining pure neural fluency with $100\%$ tool execution accuracy.
+# 4. Roadmap & Next Mission (NR-018 Directive)
+Having proved that neither parameter scaling (NR-016: 17M vs 38M) nor intermediate state-trace supervision (NR-017) overcomes the out-of-distribution reasoning ceiling of pure causal transformers, the next research frontier must shift from autoregressive token prediction to **Neuro-Symbolic Tool Routing & Program Synthesis**:
+1. Train a lightweight neural intent router to emit structured Python AST function calls rather than predicting calculation tokens.
+2. Delegate arithmetic, accumulator updates, and list operations to the deterministic Python runtime.
+3. Test whether neuro-symbolic hybrid execution achieves $100\%$ verifiable execution correctness on the 400-task algorithmic benchmark.

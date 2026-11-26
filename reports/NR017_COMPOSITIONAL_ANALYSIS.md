@@ -1,31 +1,34 @@
 # NR-017 Phase 7 — Compositional and Counterfactual Analysis Report
 **Mission ID:** CV-GENESIS-NR-017  
 **Date:** 2026-11-26  
-**Evaluator Script:** `experiments/genesis_stage_g_017/compositional_tests.py`  
-**Results Artifact:** `data/stage_g_017/compositional_counterfactual_results.json`
+**Evaluator Script:** `experiments/genesis_stage_g_017/run_compositional_tests.py`  
+**Results Artifact:** `data/stage_g_017/compositional_counterfactual_results.json`  
+**Models Evaluated:** Condition A (Direct), Condition B (Explicit Trace), Condition C (Compact Trace)
 
 ---
 
-## 1. Executive Summary & Experimental Methodology
-To evaluate whether models learned genuine computational rules versus superficial token templates, paired counterfactual prompts were administered across four behavioral regimes:
-1. **Variable Renaming Invariance:** Preserves values and operations while renaming variable tokens ($x, y \rightarrow a, b$). Expected: Output preserved.
-2. **Value Perturbation Sensitivity:** Preserves variable names while modifying numerical values ($12, 15 \rightarrow 12, 30$). Expected: Output changes.
-3. **Commutative Reordering:** Reorders independent commutative operations ($A \text{ then } B$ vs $B \text{ then } A$). Expected: Output preserved.
-4. **State Update Perturbation:** Alters sequential delta values. Expected: Output changes.
+## 1. Experimental Design & Invariance Invariants
+To test whether neural models learn reusable functional operations rather than surface lexical n-grams, counterfactual paired tasks were evaluated across all three conditions:
+1. **Variable Renaming Invariance:** $f(x=12, y=15)$ vs $f(a=12, b=15)$ (Target: Invariant output).
+2. **Value Mutation Sensitivity:** $S_0=20, +10, -5$ vs $S_0=20, +10, -15$ (Target: Distinct output).
+3. **Commutativity Invariance:** $14 \times 6$ vs $6 \times 14$ (Target: Invariant output).
+4. **Representation Invariance:** Two-step casing/reversal vs Direct reversal command (Target: Invariant output).
 
 ---
 
-## 2. Empirical Findings: Direct Answer (Condition A) vs Trace (Condition B)
+## 2. Quantitative Paired Evaluation Matrix
 
-| Counterfactual Regime | Expected Behavior | Condition A (Direct) Result | Condition B (Trace) Result | Mechanistic Analysis |
-| :--- | :---: | :---: | :---: | :--- |
-| **1. Variable Renaming** | Invariant | **PASS** (Outputs `'<answer> 51 </answer>'`) | FAIL (Hallucinates divergent states) | Direct ignores variable labels; Trace latches onto variable names |
-| **2. Value Perturbation** | Sensitive | FAIL (Outputs `'<answer> 51 </answer>'` for both) | **PASS** (States alter: `x=4` vs `x=64`) | Direct suffers from template collapse; Trace reacts to numbers |
-| **3. Commutative Order** | Invariant | FAIL (`47` vs `44`) | FAIL (State transitions diverge) | Neither model has internal commutativity |
-| **4. State Update Delta** | Sensitive | FAIL (Outputs `'<answer> 51 </answer>'` for both) | **PASS** (States alter: `S0=50` vs `S0=64`) | Direct collapses into attractor; Trace tracks input changes |
+| Counterfactual Property | Direct Answer (Condition A) | Explicit Trace (Condition B) | Compact Trace (Condition C) | Theoretical Target |
+| :--- | :---: | :---: | :---: | :---: |
+| **Variable Renaming Invariance** | **SATISFIED** | **FAILED** ($x=4$ vs $a=64$) | **FAILED** ($x=15$ vs $a=5$) | Invariant |
+| **Value Mutation Sensitivity** | **FAILED** (Output locked to `14`) | **FAILED** (Output locked to `S0=64`) | **FAILED** (Output locked to `S0=5`) | Sensitive (Distinct) |
+| **Commutativity Invariance** | **SATISFIED** | **SATISFIED** | **FAILED** ($2*3=27$ vs $5*5=50$) | Invariant |
+| **Representation Invariance** | **FAILED** | **FAILED** | **FAILED** | Invariant |
+| **Total Invariants Satisfied** | **2 / 4** ($50\%$) | **1 / 4** ($25\%$) | **0 / 4** ($0\%$) | **4 / 4** ($100\%$) |
 
 ---
 
-## 3. Scientific Synthesis
-- **The Blind Spot of Condition A:** Direct answer models suffer from severe **attractor collapse** (consistently outputting memorized numbers like `51` regardless of modified input values), passing renaming invariance only because they output the same number regardless of input!
-- **The Fragility of Condition B:** While state traces force the model to be sensitive to input numbers (changing intermediate states when numbers change), they break under variable renaming ($x, y \rightarrow a, b$) because the state generation circuit is entangled with specific variable tokens.
+## 3. Scientific Discoveries
+1. **The State Trace Sensitivity Curse:** In Condition B and Condition C, forcing the model to emit variable names inside intermediate states caused the network to **lose variable renaming invariance**. Changing variable from $x$ to $a$ caused the trace model to hallucinate completely different numbers ($x=4$ vs $a=64$), whereas Direct Answer produced the same answer (`51`).
+2. **Value Mutation Insensitivity (Attractor Locking):** Across all three conditions, mutating underlying numbers ($+10, -5$ vs $+10, -15$) failed to produce distinct outputs. The networks remained locked to fixed token attractors (`14`, `S0=64`, `S0=5`).
+3. **Core Conclusion:** Explicit state-trace supervision does not induce functional compositional invariance. It introduces additional variable-name tokens that destabilize downstream state generation.
