@@ -1,0 +1,77 @@
+{
+  "overall_summary": {
+    "System_A_Pure_Neural": {
+      "in_dist_acc": 1.6,
+      "ood_acc": 0.0,
+      "overall_acc": 0.8,
+      "correct": 4,
+      "total": 500,
+      "in_correct": 4,
+      "in_tot": 250,
+      "ood_correct": 0,
+      "ood_tot": 250
+    },
+    "System_B_Deterministic_Parser": {
+      "in_dist_acc": 68.4,
+      "ood_acc": 70.8,
+      "overall_acc": 69.6,
+      "correct": 348,
+      "total": 500,
+      "in_correct": 171,
+      "in_tot": 250,
+      "ood_correct": 177,
+      "ood_tot": 250
+    },
+    "System_C_Neural_Router_Direct": {
+      "in_dist_acc": 39.2,
+      "ood_acc": 26.400000000000002,
+      "overall_acc": 32.800000000000004,
+      "correct": 164,
+      "total": 500,
+      "in_correct": 98,
+      "in_tot": 250,
+      "ood_correct": 66,
+      "ood_tot": 250
+    },
+    "System_D_Hybrid_Validated": {
+      "in_dist_acc": 39.2,
+      "ood_acc": 26.400000000000002,
+      "overall_acc": 32.800000000000004,
+      "correct": 164,
+      "total": 500,
+      "in_correct": 98,
+      "in_tot": 250,
+      "ood_correct": 66,
+      "ood_tot": 250
+    }
+  },
+  "language_breakdown": {
+    "english": {
+      "total": 263,
+      "sys_a": 0,
+      "sys_b": 197,
+      "sys_c": 130,
+      "sys_d": 130
+    },
+    "hindi": {
+      "total": 135,
+      "sys_a": 0,
+      "sys_b": 77,
+      "sys_c": 19,
+      "sys_d": 19
+    },
+    "hinglish": {
+      "total": 102,
+      "sys_a": 4,
+      "sys_b": 74,
+      "sys_c": 15,
+      "sys_d": 15
+    }
+  },
+  "system_c_error_taxonomy": {
+    "json_parse_error": 43,
+    "argument_extraction_error": 293,
+    "intent_misclassification": 0,
+    "correct": 164
+  }
+}

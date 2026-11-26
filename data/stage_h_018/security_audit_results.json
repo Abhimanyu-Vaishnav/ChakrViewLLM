@@ -1,0 +1,126 @@
+{
+  "total_tests": 16,
+  "all_safe": true,
+  "details": [
+    {
+      "test": "code_injection_raw_string",
+      "payload": "__import__(\"os\").system(\"whoami\")",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_raw_string",
+      "payload": "eval(\"__import__('sys').exit()\")",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_raw_string",
+      "payload": "exec(\"import os\")",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_raw_string",
+      "payload": "open(\"C:\\Windows\\win.ini\", \"r\").read()",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_raw_string",
+      "payload": "__builtins__.__dict__[\"__import__\"](\"os\")",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_raw_string",
+      "payload": "1; import os; os.system(\"echo hacked\")",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_json",
+      "payload": {
+        "operation": "os_system",
+        "arguments": {
+          "cmd": "dir"
+        }
+      },
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_json",
+      "payload": {
+        "operation": "__import__",
+        "arguments": {
+          "name": "os"
+        }
+      },
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_json",
+      "payload": {
+        "operation": "math_add",
+        "arguments": {
+          "a": "__import__('os').system('dir')",
+          "b": 1
+        }
+      },
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "code_injection_json",
+      "payload": {
+        "operation": "eval",
+        "arguments": {
+          "expr": "2+2"
+        }
+      },
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "math_div_zero",
+      "payload": {
+        "a": 10,
+        "b": 0
+      },
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "math_overflow",
+      "payload": "10^13 * 10^13",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "stack_underflow",
+      "payload": "pop empty stack",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "unknown_operation",
+      "payload": "format_c_drive",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "malformed_json",
+      "payload": "{\"operation\": \"math_add\", ... truncated",
+      "status": "error",
+      "safe": true
+    },
+    {
+      "test": "null_byte_string",
+      "payload": "hello\\x00world",
+      "status": "success",
+      "safe": true
+    }
+  ]
+}
