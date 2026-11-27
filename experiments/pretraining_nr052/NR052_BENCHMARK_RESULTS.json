@@ -1,0 +1,6235 @@
+{
+  "benchmark_meta": {
+    "file": "experiments/fast_track_047_049/sealed_120_benchmark.json",
+    "total_prompts": 120,
+    "decoding": "temperature=0.3, top_p=0.9, repetition_penalty=1.15"
+  },
+  "summary_comparison": {
+    "RC3_Historical_Baseline": {
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.158,
+      "percentage_capability": 5.3,
+      "score_distribution": {
+        "score_0": 107,
+        "score_1": 10,
+        "score_2": 0,
+        "score_3": 3
+      },
+      "coherence_rate_pct": 96.7,
+      "prompt_echo_rate_pct": 0.0
+    },
+    "NR051_17M_SFT": {
+      "model_name": "ChakrGenesis-17M-SFT",
+      "eval_time_sec": 194.76,
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.075,
+      "percentage_capability": 2.5,
+      "score_distribution": {
+        "score_0": 111,
+        "score_1": 9,
+        "score_2": 0,
+        "score_3": 0
+      },
+      "coherence_rate_pct": 95.8,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 17,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hinglish Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Logical Inference": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        },
+        "Multi-Turn Context": {
+          "total": 10,
+          "score_sum": 2,
+          "scores": [
+            8,
+            2,
+            0,
+            0
+          ],
+          "coherent": 9,
+          "echo": 0
+        },
+        "Paraphrase & Generalization": {
+          "total": 15,
+          "score_sum": 1,
+          "scores": [
+            14,
+            1,
+            0,
+            0
+          ],
+          "coherent": 14,
+          "echo": 0
+        },
+        "QA Relevance": {
+          "total": 15,
+          "score_sum": 0,
+          "scores": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "coherent": 15,
+          "echo": 0
+        },
+        "Uncertainty & Correction": {
+          "total": 10,
+          "score_sum": 6,
+          "scores": [
+            4,
+            6,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        }
+      }
+    },
+    "NR051_38M_SFT": {
+      "model_name": "ChakrGenesis-38M-SFT",
+      "eval_time_sec": 192.28,
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.058,
+      "percentage_capability": 1.9,
+      "score_distribution": {
+        "score_0": 115,
+        "score_1": 4,
+        "score_2": 0,
+        "score_3": 1
+      },
+      "coherence_rate_pct": 96.7,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 20,
+          "score_sum": 1,
+          "scores": [
+            19,
+            1,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 20,
+          "score_sum": 1,
+          "scores": [
+            19,
+            1,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hinglish Understanding": {
+          "total": 20,
+          "score_sum": 2,
+          "scores": [
+            18,
+            2,
+            0,
+            0
+          ],
+          "coherent": 19,
+          "echo": 0
+        },
+        "Logical Inference": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 9,
+          "echo": 0
+        },
+        "Multi-Turn Context": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 9,
+          "echo": 0
+        },
+        "Paraphrase & Generalization": {
+          "total": 15,
+          "score_sum": 0,
+          "scores": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "coherent": 15,
+          "echo": 0
+        },
+        "QA Relevance": {
+          "total": 15,
+          "score_sum": 3,
+          "scores": [
+            14,
+            0,
+            0,
+            1
+          ],
+          "coherent": 14,
+          "echo": 0
+        },
+        "Uncertainty & Correction": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        }
+      }
+    },
+    "NR052_17M_SFT": {
+      "model_name": "ChakrGenesis-17M-NR052-SFT",
+      "eval_time_sec": 169.84,
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.092,
+      "percentage_capability": 3.1,
+      "score_distribution": {
+        "score_0": 114,
+        "score_1": 3,
+        "score_2": 1,
+        "score_3": 2
+      },
+      "coherence_rate_pct": 98.3,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hinglish Understanding": {
+          "total": 20,
+          "score_sum": 0,
+          "scores": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "coherent": 19,
+          "echo": 0
+        },
+        "Logical Inference": {
+          "total": 10,
+          "score_sum": 5,
+          "scores": [
+            7,
+            2,
+            0,
+            1
+          ],
+          "coherent": 10,
+          "echo": 0
+        },
+        "Multi-Turn Context": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        },
+        "Paraphrase & Generalization": {
+          "total": 15,
+          "score_sum": 0,
+          "scores": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "coherent": 14,
+          "echo": 0
+        },
+        "QA Relevance": {
+          "total": 15,
+          "score_sum": 5,
+          "scores": [
+            13,
+            0,
+            1,
+            1
+          ],
+          "coherent": 15,
+          "echo": 0
+        },
+        "Uncertainty & Correction": {
+          "total": 10,
+          "score_sum": 1,
+          "scores": [
+            9,
+            1,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        }
+      }
+    },
+    "NR052_38M_SFT": {
+      "model_name": "ChakrGenesis-38M-NR052-SFT",
+      "eval_time_sec": 98.55,
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.117,
+      "percentage_capability": 3.9,
+      "score_distribution": {
+        "score_0": 111,
+        "score_1": 6,
+        "score_2": 1,
+        "score_3": 2
+      },
+      "coherence_rate_pct": 97.5,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 20,
+          "score_sum": 6,
+          "scores": [
+            16,
+            3,
+            0,
+            1
+          ],
+          "coherent": 19,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 20,
+          "score_sum": 3,
+          "scores": [
+            19,
+            0,
+            0,
+            1
+          ],
+          "coherent": 20,
+          "echo": 0
+        },
+        "Hinglish Understanding": {
+          "total": 20,
+          "score_sum": 1,
+          "scores": [
+            19,
+            1,
+            0,
+            0
+          ],
+          "coherent": 18,
+          "echo": 0
+        },
+        "Logical Inference": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        },
+        "Multi-Turn Context": {
+          "total": 10,
+          "score_sum": 2,
+          "scores": [
+            8,
+            2,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        },
+        "Paraphrase & Generalization": {
+          "total": 15,
+          "score_sum": 0,
+          "scores": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "coherent": 15,
+          "echo": 0
+        },
+        "QA Relevance": {
+          "total": 15,
+          "score_sum": 2,
+          "scores": [
+            14,
+            0,
+            1,
+            0
+          ],
+          "coherent": 15,
+          "echo": 0
+        },
+        "Uncertainty & Correction": {
+          "total": 10,
+          "score_sum": 0,
+          "scores": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "coherent": 10,
+          "echo": 0
+        }
+      }
+    }
+  },
+  "deltas": {
+    "38M_vs_17M_NR052": 0.025,
+    "NR052_vs_NR051_17M": 0.017,
+    "NR052_vs_NR051_38M": 0.059
+  },
+  "per_category_comparison": {
+    "NR052_17M": {
+      "English Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 20,
+        "echo": 0
+      },
+      "Hindi Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 20,
+        "echo": 0
+      },
+      "Hinglish Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 19,
+        "echo": 0
+      },
+      "Logical Inference": {
+        "total": 10,
+        "score_sum": 5,
+        "scores": [
+          7,
+          2,
+          0,
+          1
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Multi-Turn Context": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Paraphrase & Generalization": {
+        "total": 15,
+        "score_sum": 0,
+        "scores": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "coherent": 14,
+        "echo": 0
+      },
+      "QA Relevance": {
+        "total": 15,
+        "score_sum": 5,
+        "scores": [
+          13,
+          0,
+          1,
+          1
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "Uncertainty & Correction": {
+        "total": 10,
+        "score_sum": 1,
+        "scores": [
+          9,
+          1,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      }
+    },
+    "NR052_38M": {
+      "English Understanding": {
+        "total": 20,
+        "score_sum": 6,
+        "scores": [
+          16,
+          3,
+          0,
+          1
+        ],
+        "coherent": 19,
+        "echo": 0
+      },
+      "Hindi Understanding": {
+        "total": 20,
+        "score_sum": 3,
+        "scores": [
+          19,
+          0,
+          0,
+          1
+        ],
+        "coherent": 20,
+        "echo": 0
+      },
+      "Hinglish Understanding": {
+        "total": 20,
+        "score_sum": 1,
+        "scores": [
+          19,
+          1,
+          0,
+          0
+        ],
+        "coherent": 18,
+        "echo": 0
+      },
+      "Logical Inference": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Multi-Turn Context": {
+        "total": 10,
+        "score_sum": 2,
+        "scores": [
+          8,
+          2,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Paraphrase & Generalization": {
+        "total": 15,
+        "score_sum": 0,
+        "scores": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "QA Relevance": {
+        "total": 15,
+        "score_sum": 2,
+        "scores": [
+          14,
+          0,
+          1,
+          0
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "Uncertainty & Correction": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      }
+    }
+  },
+  "detailed_completions": {
+    "17M": [
+      {
+        "id": "EN-01",
+        "category": "English Understanding",
+        "prompt": "What is the primary function of chlorophyll in plant leaves?",
+        "expected": "Absorb sunlight for photosynthesis / convert light into chemical energy",
+        "keywords": [
+          "photosynthesis",
+          "light",
+          "sunlight",
+          "energy",
+          "chlorophyll"
+        ],
+        "sampling_T03": {
+          "response": "The three exchange expers in b is a fields pather than cirst coveral indistance in allowing the late oxygen, p",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The three exchanges is a combinstance stocest.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-02",
+        "category": "English Understanding",
+        "prompt": "Define the word 'resilient' in simple terms.",
+        "expected": "Able to recover quickly from difficulties, tough, or adaptable",
+        "keywords": [
+          "recover",
+          "bounce back",
+          "difficult",
+          "tough",
+          "adapt"
+        ],
+        "sampling_T03": {
+          "response": "An ecomrchitecture Nests on Earenard the conting ks.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "An ecomrchitecture Nests on EE cannot relies in the dist.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-03",
+        "category": "English Understanding",
+        "prompt": "Name the capital city of Australia.",
+        "expected": "Canberra",
+        "keywords": [
+          "Canberra"
+        ],
+        "sampling_T03": {
+          "response": "The ```python\ndef res.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The ```python\ndef results of :\ndef gcest_wer.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-04",
+        "category": "English Understanding",
+        "prompt": "Explain the difference between a synonym and an antonym.",
+        "expected": "A synonym means the same thing, while an antonym means the opposite",
+        "keywords": [
+          "same",
+          "opposite",
+          "meaning"
+        ],
+        "sampling_T03": {
+          "response": "The there are semanagewlesift ogins in the pointer of the exisclose, whereas non-or xing red, yellows to",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The three exceives in the instructions and the packing the ins of the packing to set packing the ptogram to set pack",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-05",
+        "category": "English Understanding",
+        "prompt": "What causes ocean tides on Earth?",
+        "expected": "Gravitational pull of the Moon and the Sun",
+        "keywords": [
+          "moon",
+          "gravitational",
+          "gravity",
+          "sun"
+        ],
+        "sampling_T03": {
+          "response": "Bdecay and working a by 8 rehenstoses.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Bdecay and working a by 8 rehenstocest.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-06",
+        "category": "English Understanding",
+        "prompt": "Why do ice cubes float on liquid water?",
+        "expected": "Ice is less dense than liquid water due to hydrogen bonding expansion",
+        "keywords": [
+          "less dense",
+          "density",
+          "expand"
+        ],
+        "sampling_T03": {
+          "response": "Diagnostic and correction #6:\nStandard the se, stor: Iternather Nking an define-vertil within ault list",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset was dex copresents was asse, was inater pleassecrements to porting the mo.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-07",
+        "category": "English Understanding",
+        "prompt": "What does HTTP stand for in computer networking?",
+        "expected": "Hypertext Transfer Protocol",
+        "keywords": [
+          "Hypertext Transfer Protocol"
+        ],
+        "sampling_T03": {
+          "response": "ALP and working E",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Bhas by by by by 8 t of 1Pateginformation is cally on EA(TTLSIDAETAETA",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-08",
+        "category": "English Understanding",
+        "prompt": "Identify the primary gas found in Earth's atmosphere.",
+        "expected": "Nitrogen (approx. 78%)",
+        "keywords": [
+          "Nitrogen"
+        ],
+        "sampling_T03": {
+          "response": "You are working on the `faset is as degree ws was ther push it 's se.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Yood eveningfixal Gow can I which ow can I which ow wow wow dom ou are rehensive in a `g",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-09",
+        "category": "English Understanding",
+        "prompt": "What is the purpose of an operating system?",
+        "expected": "Manage computer hardware, memory, files, and software processes",
+        "keywords": [
+          "manage",
+          "hardware",
+          "software",
+          "resources",
+          "processes"
+        ],
+        "sampling_T03": {
+          "response": "The sum of 18 and 27 is 7.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of 18 and 4 is 170.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-10",
+        "category": "English Understanding",
+        "prompt": "Give two examples of renewable energy sources.",
+        "expected": "Solar energy and wind energy (or hydro/geothermal)",
+        "keywords": [
+          "solar",
+          "wind",
+          "hydro",
+          "geothermal"
+        ],
+        "sampling_T03": {
+          "response": "You are working on Analysis",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Yood eveningow can I while degree flectly istic When poy demy eliting viols whifault arele",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-11",
+        "category": "English Understanding",
+        "prompt": "Explain what a metaphor is with one brief example.",
+        "expected": "A figure of speech comparing two things directly without like/as (e.g., 'Time is a thief')",
+        "keywords": [
+          "comparison",
+          "direct",
+          "figure of speech"
+        ],
+        "sampling_T03": {
+          "response": "The was portun and exack ree comes in the network interdependent expers>.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The ceal initial st.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-12",
+        "category": "English Understanding",
+        "prompt": "What is the boiling point of pure water at standard atmospheric pressure in Celsius?",
+        "expected": "100 degrees Celsius",
+        "keywords": [
+          "100",
+          "100°C",
+          "100 C"
+        ],
+        "sampling_T03": {
+          "response": "The powere are semanagnostic and corration and correction occurs the comemory.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The cewas nugroawas indrometernal and wind, whereas deccannot have and endrowhereas or has to",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-13",
+        "category": "English Understanding",
+        "prompt": "Which blood cells are primarily responsible for fighting infections?",
+        "expected": "White blood cells (leukocytes)",
+        "keywords": [
+          "white blood",
+          "leukocytes"
+        ],
+        "sampling_T03": {
+          "response": "It is x the continuate cientirather than sum of 1 `.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "If a astricting results in 11)`.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-14",
+        "category": "English Understanding",
+        "prompt": "What is the main function of the heart in mammals?",
+        "expected": "Pump oxygenated and deoxygenated blood throughout the body",
+        "keywords": [
+          "pump",
+          "blood",
+          "circulate",
+          "circulation"
+        ],
+        "sampling_T03": {
+          "response": "The = Summary #87: Rendits diow while the list packed three referencest-create eos>s>s>s>",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The the is the b dpcheas an inall(Protocol end is the Biotedrolist (P), while a file definiable to expected to exp",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-15",
+        "category": "English Understanding",
+        "prompt": "Briefly explain the role of RAM in a personal computer.",
+        "expected": "Fast volatile memory used to store active programs and data currently in use",
+        "keywords": [
+          "volatile",
+          "memory",
+          "short-term",
+          "active",
+          "speed"
+        ],
+        "sampling_T03": {
+          "response": "The passage = ob",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The passage = y, the popacketerneld to to reversensive e, wable to ` to explicit distosthon's are divi",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-16",
+        "category": "English Understanding",
+        "prompt": "What does a barometer measure?",
+        "expected": "Atmospheric or air pressure",
+        "keywords": [
+          "atmospheric pressure",
+          "air pressure",
+          "pressure"
+        ],
+        "sampling_T03": {
+          "response": "The c is the connection to managnostic and se, index in a tradiot instructions and in-packing or from the coory file of the ad",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The c digital city of FFFGcity of FFFFF) is the lying a list sh set is a connected set of ites c",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-17",
+        "category": "English Understanding",
+        "prompt": "State the law of conservation of energy in one sentence.",
+        "expected": "Energy cannot be created or destroyed, only transformed from one form to another",
+        "keywords": [
+          "created",
+          "destroyed",
+          "transformed",
+          "conserved"
+        ],
+        "sampling_T03": {
+          "response": "The passage memory ko continummary is Ace, son Earenvironment is Scientific inventory, add the modpoints to",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The passage provide was te hainformation is loclynow, addivision.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-18",
+        "category": "English Understanding",
+        "prompt": "What is the freezing point of water in Fahrenheit?",
+        "expected": "32 degrees Fahrenheit",
+        "keywords": [
+          "32",
+          "32°F",
+          "32 F"
+        ],
+        "sampling_T03": {
+          "response": "The them of 2 and 8 is 170.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The leases?",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-19",
+        "category": "English Understanding",
+        "prompt": "Define what a compiler does in software development.",
+        "expected": "Translates source code into machine code or bytecode that can be executed",
+        "keywords": [
+          "translates",
+          "source code",
+          "machine code",
+          "binary"
+        ],
+        "sampling_T03": {
+          "response": "An Ananya is the divided in and a.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Ananya.",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-20",
+        "category": "English Understanding",
+        "prompt": "Who wrote the play 'Romeo and Juliet'?",
+        "expected": "William Shakespeare",
+        "keywords": [
+          "Shakespeare"
+        ],
+        "sampling_T03": {
+          "response": "The was ree gling a port-lynowhile indrown and al stack.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-01",
+        "category": "Hindi Understanding",
+        "prompt": "भारत के राष्ट्रीय ध्वज में कितने रंग होते हैं और चक्र में कितनी तीलियाँ होती हैं?",
+        "expected": "तीन मुख्य रंग (केसरिया, सफेद, हरा) और चक्र में 24 तीलियाँ होती हैं।",
+        "keywords": [
+          "तीन",
+          "केसरिया",
+          "सफेद",
+          "हरा",
+          "24"
+        ],
+        "sampling_T03": {
+          "response": "प में सुणाने नटिंग सित है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "अतः निष्कर्ष यह है कि 36 प्र है कि 2 है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-02",
+        "category": "Hindi Understanding",
+        "prompt": "जल का रासायनिक सूत्र क्या है?",
+        "expected": "H2O (हाइड्रोजन और ऑक्सीजन)",
+        "keywords": [
+          "H2O",
+          "हाइड्रोजन",
+          "ऑक्सीजन"
+        ],
+        "sampling_T03": {
+          "response": "पके मित्र का नाम 8 प्रर के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पके मित्र का नाम Afault ) है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-03",
+        "category": "Hindi Understanding",
+        "prompt": "हिंदी व्याकरण में 'संज्ञा' की सरल परिभाषा दीजिए।",
+        "expected": "किसी व्यक्ति, वस्तु, स्थान या भाव के नाम को संज्ञा कहते हैं।",
+        "keywords": [
+          "व्यक्ति",
+          "वस्तु",
+          "स्थान",
+          "भाव",
+          "नाम"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #74: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-04",
+        "category": "Hindi Understanding",
+        "prompt": "सूर्य किस दिशा से उगता है और किस दिशा में अस्त होता है?",
+        "expected": "सूर्य पूर्व से उगता है और पश्चिम में अस्त होता है।",
+        "keywords": [
+          "पूर्व",
+          "पश्चिम"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #6: मल्टीटास्किंग ऑपरेटिंग सिस्टम एक ही समय में कई प्रक्रियाओं (processes) को सीपीयू ट",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर 0 है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-05",
+        "category": "Hindi Understanding",
+        "prompt": "पेड़-पौधे पर्यावरण के लिए क्यों आवश्यक हैं?",
+        "expected": "वे कार्बन डाइऑक्साइड ग्रहण करते हैं और ऑक्सीजन छोड़ते हैं, जिससे वायु शुद्ध रहती है।",
+        "keywords": [
+          "ऑक्सीजन",
+          "कार्बन",
+          "वायु",
+          "शुद्ध"
+        ],
+        "sampling_T03": {
+          "response": "पुके पण सूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पुके प्रंच नहीं �के मित्र का नाम Arjun है और उनकी रुचि 121)।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-06",
+        "category": "Hindi Understanding",
+        "prompt": "पृथ्वी का प्राकृतिक उपग्रह कौन सा है?",
+        "expected": "चंद्रमा (चाँद)",
+        "keywords": [
+          "चंद्रमा",
+          "चाँद"
+        ],
+        "sampling_T03": {
+          "response": "मा करता है कि अधान, जनपके नामकतिकेखप्रस्तुत संदर्भ के अनुसार, आदित्य की रुचि शास्त्रीय संगी",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "ववववा जला के नुरुण करती है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-07",
+        "category": "Hindi Understanding",
+        "prompt": "'सत्यमेव जयते' का क्या अर्थ है?",
+        "expected": "सत्य की ही जीत होती है।",
+        "keywords": [
+          "सत्य",
+          "जीत",
+          "विजय"
+        ],
+        "sampling_T03": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-08",
+        "category": "Hindi Understanding",
+        "prompt": "एक वर्ष में कितने महीने और कितने दिन होते हैं?",
+        "expected": "एक वर्ष में 12 महीने और सामान्यतः 365 दिन होते हैं।",
+        "keywords": [
+          "12",
+          "365"
+        ],
+        "sampling_T03": {
+          "response": "1 को 7 प्राला में प्रत्येक रिकॉर्ड की ज (unique) पहचान सुनिश्चित करती है और इसमें को होता है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "2 में से 77 घटाने पर 36 प्राप्त होता है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-09",
+        "category": "Hindi Understanding",
+        "prompt": "भारत की राजधानी का नाम क्या है?",
+        "expected": "नई दिल्ली",
+        "keywords": [
+          "नई दिल्ली",
+          "दिल्ली"
+        ],
+        "sampling_T03": {
+          "response": "मा की रुचि शास्त्रीय संगीत में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मा की रुचि शतरूपके मित्र का नाम LL)।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-10",
+        "category": "Hindi Understanding",
+        "prompt": "मानव शरीर की सबसे बड़ी हड्डी कौन सी है?",
+        "expected": "फीमर (जांघ की हड्डी)",
+        "keywords": [
+          "फीमर",
+          "जांघ"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #6: मल्टीटास्किंग ऑपरेटिंग सिस्टम एक ही समय में कई प्रक्रियाओं (NUhicnal",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #77: मल्टीटास्किंग ऑपरेटिंग सिस्टम एक ही समय में कई प्रक्रियाओं (NUhicn",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-11",
+        "category": "Hindi Understanding",
+        "prompt": "ध्वनि की गति हवा में तेज होती है या लोहे में?",
+        "expected": "लोहे (ठोस) में ध्वनि की गति हवा (गैस) से कहीं अधिक तेज होती है।",
+        "keywords": [
+          "लोहे",
+          "ठोस",
+          "तेज"
+        ],
+        "sampling_T03": {
+          "response": "प्रस्तुत संदर्भ के अनुसार, अन है कि जैBm w  #73: सूषि कुण्राबता में रहता है और वह एक शोध",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "प्रस्तुत संदर्भ के अनुसार, अनन्या की रुचि बागवानी में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-12",
+        "category": "Hindi Understanding",
+        "prompt": "'अंधे की लाठी' मुहावरे का सही अर्थ क्या है?",
+        "expected": "एकमात्र सहारा",
+        "keywords": [
+          "सहारा",
+          "एकमात्र"
+        ],
+        "sampling_T03": {
+          "response": "मा करता है, जा नहीं बता सकता।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मा करता है, जा नमदूप के न मेख सूपकि रोम है, जिससे एक केबल खरीर नेटवर्क ब",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-13",
+        "category": "Hindi Understanding",
+        "prompt": "दूध से दही बनाने में कौन सा जीवाणु सहायक होता है?",
+        "expected": "लैक्टोबैसिलस जीवाणु",
+        "keywords": [
+          "लैक्टोबैसिलस"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर 2 है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-14",
+        "category": "Hindi Understanding",
+        "prompt": "वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?",
+        "expected": "नाइट्रोजन (लगभग 78%)",
+        "keywords": [
+          "नाइट्रोजन"
+        ],
+        "sampling_T03": {
+          "response": "मा करता है, जनीय कुरा नहीं �ार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "सुण प्रदूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-15",
+        "category": "Hindi Understanding",
+        "prompt": "सौरमंडल का सबसे छोटा ग्रह कौन सा है?",
+        "expected": "बुध (Mercury)",
+        "keywords": [
+          "बुध"
+        ],
+        "sampling_T03": {
+          "response": "पन है और उनक।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पन है और उनकाता रहता है और वह एक शोधकि है कि",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-16",
+        "category": "Hindi Understanding",
+        "prompt": "प्रकाश संश्लेषण की क्रिया किस समय होती है?",
+        "expected": "दिन के समय जब सूर्य का प्रकाश उपलब्ध होता है।",
+        "keywords": [
+          "दिन",
+          "सूर्य",
+          "प्रकाश"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "प्रस्तुत संदर्भ के अनुसार, अनीया की रुचि एवानी में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-17",
+        "category": "Hindi Understanding",
+        "prompt": "कंप्यूटर में सीपीयू (CPU) का मुख्य कार्य क्या है?",
+        "expected": "निर्देशों को प्रोसेस करना और गणनाएं करना (कंप्यूटर का मस्तिष्क)।",
+        "keywords": [
+          "प्रोसेस",
+          "गणना",
+          "मस्तिष्क"
+        ],
+        "sampling_T03": {
+          "response": "मुंबई में ग्रहता है और वह एक शोधना की रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मुंबई में वहता है और वह एक शोधकुणे में शोध विश्लेषक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-18",
+        "category": "Hindi Understanding",
+        "prompt": "महात्मा गांधी का पूरा नाम क्या था?",
+        "expected": "मोहनदास करमचंद गांधी",
+        "keywords": [
+          "मोहनदास",
+          "करमचंद",
+          "गांधी"
+        ],
+        "sampling_T03": {
+          "response": "प्रस्तुत संदर्भ के अनुसार, अन्स का जा �ण की रुचि बागवानी में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "प्रस्तुत संदर्भ के अनुसार, अना की रुचि बागवानी में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-19",
+        "category": "Hindi Understanding",
+        "prompt": "तापमान मापने की अंतरराष्ट्रीय इकाई क्या है?",
+        "expected": "केल्विन (Kelvin)",
+        "keywords": [
+          "केल्विन",
+          "Kelvin"
+        ],
+        "sampling_T03": {
+          "response": "म एवं चिकस्संचयपनीय कुराब अधाना के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "म एवं चिक्सन व एवं चिक एवं चेन्संडेन व्यावरण अध अधे नामाजिकनिकहम्",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-20",
+        "category": "Hindi Understanding",
+        "prompt": "लोहे पर जंग लगने के लिए किन दो तत्वों की आवश्यकता होती है?",
+        "expected": "ऑक्सीजन और नमी (जल/पानी)",
+        "keywords": [
+          "ऑक्सीजन",
+          "नमी",
+          "पानी",
+          "जल"
+        ],
+        "sampling_T03": {
+          "response": "प से निजी पासवर्ड की जानकारी नहीं है, इसलिए मैं यह नहीं बता सकता।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पके मित्र का नाम Arjun है और उनकी रुचि 2 प्रदर्भ के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-01",
+        "category": "Hinglish Understanding",
+        "prompt": "Python me dictionary me key-value pair kaise add karte hain?",
+        "expected": "dict[key] = value syntax use karke",
+        "keywords": [
+          "dict",
+          "key",
+          "value",
+          "add"
+        ],
+        "sampling_T03": {
+          "response": "```python\nfrom itertools import groupby\n\nFix: Itert, ('han', ', 'utf-., \"e' to ',",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "```python\nfrom itertools import default, or ``totall(', list(', 2), ('cat', 2), (') as to",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-02",
+        "category": "Hinglish Understanding",
+        "prompt": "Database me primary key ka kya use hota hai?",
+        "expected": "Table me har row ya record ko uniquely identify karne ke liye",
+        "keywords": [
+          "unique",
+          "identify",
+          "record",
+          "row"
+        ],
+        "sampling_T03": {
+          "response": "Good evenonupaawab is ka call  Imporate arlid ko monta hai, jrehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Ocker pusko share karta hai, jabki W aur fre.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-03",
+        "category": "Hinglish Understanding",
+        "prompt": "Software development me bug kise kehte hain?",
+        "expected": "Code ya program me aane wali error ya fault ko bug kehte hain",
+        "keywords": [
+          "error",
+          "fault",
+          "mistake",
+          "glitch"
+        ],
+        "sampling_T03": {
+          "response": ") astancorketlist managing prediction, addients in the gram under and only on oxide remains in complex container low",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Fsily od is Ananya.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-04",
+        "category": "Hinglish Understanding",
+        "prompt": "Git me commit aur push me kya fark hai?",
+        "expected": "Commit local repo me save karta hai, aur push remote server par bhejta hai",
+        "keywords": [
+          "local",
+          "remote",
+          "save",
+          "server"
+        ],
+        "sampling_T03": {
+          "response": "Good eveningaur wergy for the modist-instructure to them cally defingreen.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good eveningaur wergy porate conflict t.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-05",
+        "category": "Hinglish Understanding",
+        "prompt": "Cloud computing ka main benefit kya hai?",
+        "expected": "Scalability, anywhere access, aur hardware maintenance ka zero jhanjhat",
+        "keywords": [
+          "scalable",
+          "access",
+          "cost",
+          "server",
+          "storage"
+        ],
+        "sampling_T03": {
+          "response": "Fixoku Logs Lan predictionary keys, `total inventory, add the initial stock to the replenishment: 74 + 62 =",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Fixow wod story our project is er.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-06",
+        "category": "Hinglish Understanding",
+        "prompt": "API ka full form kya hai aur yeh kya karta hai?",
+        "expected": "Application Programming Interface - do applications ko aapas me communicate karata hai",
+        "keywords": [
+          "Application Programming Interface",
+          "communicate",
+          "connect"
+        ],
+        "sampling_T03": {
+          "response": "Aap is Arjun",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aap is Arjun",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-07",
+        "category": "Hinglish Understanding",
+        "prompt": "Open-source software ka matlab kya hota hai?",
+        "expected": "Jiska source code publicly available aur free to modify hota hai",
+        "keywords": [
+          "source code",
+          "free",
+          "public",
+          "modify"
+        ],
+        "sampling_T03": {
+          "response": "Mernel, ints ko lefast aur do vi.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mercuraata digabki thwood in the gindependent control zing is -trong phenvironment of interaction and kea.<eos",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-08",
+        "category": "Hinglish Understanding",
+        "prompt": "Machine learning aur deep learning me main relation kya hai?",
+        "expected": "Deep learning machine learning ka hi ek subset hai jo neural networks par based hai",
+        "keywords": [
+          "subset",
+          "neural network",
+          "part"
+        ],
+        "sampling_T03": {
+          "response": "God eveningaur ko manpast s>ckes y between unki sing awers, aur special memory hai jabki ).",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "God eveningaur ko manpast sch, while comasking memory ko godta hai jabki face control ta hai, jabki perther ea",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-09",
+        "category": "Hinglish Understanding",
+        "prompt": "Website secure hone ka sign kya hota hai browser URL me?",
+        "expected": "HTTPS aur padlock (lock) ka symbol",
+        "keywords": [
+          "https",
+          "lock",
+          "ssl"
+        ],
+        "sampling_T03": {
+          "response": "Aapke doumharS has that setal ree memory mantic.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapke doumharS Impant cally on ko les.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-10",
+        "category": "Hinglish Understanding",
+        "prompt": "Array aur Linked List me search speed kisme fast hoti hai index ke through?",
+        "expected": "Array me O(1) time complexity ke saath indexing fast hoti hai",
+        "keywords": [
+          "array",
+          "O(1)",
+          "fast",
+          "index"
+        ],
+        "sampling_T03": {
+          "response": "You are working on the pthateon Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are working on the pthon, while ph it on, while .",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-11",
+        "category": "Hinglish Understanding",
+        "prompt": "Agar kisi computer me SSD laga di jaye to kya performance improvement hota hai?",
+        "expected": "Boot time aur file read/write speed bahut fast ho jati hai compared to HDD",
+        "keywords": [
+          "boot",
+          "speed",
+          "read",
+          "write",
+          "fast"
+        ],
+        "sampling_T03": {
+          "response": "Iska seedha ka seed",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Iska seedha ka seedha ka selementation ke waqt is ka set ko follow karna chahiye.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-12",
+        "category": "Hinglish Understanding",
+        "prompt": "Frontend aur backend developer ke kaam me kya farak hota hai?",
+        "expected": "Frontend UI/UX banata hai aur backend server, database aur business logic sambhalta hai",
+        "keywords": [
+          "UI",
+          "server",
+          "database",
+          "interface",
+          "logic"
+        ],
+        "sampling_T03": {
+          "response": "Good s w can I assist you are cannot predictionary while rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good s s a lis your friendls.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-13",
+        "category": "Hinglish Understanding",
+        "prompt": "Python me indentation ka kya importance hota hai?",
+        "expected": "Python me indentation code blocks (loops, functions, conditions) define karne ke liye mandatory hai",
+        "keywords": [
+          "block",
+          "scope",
+          "function",
+          "loop",
+          "syntax"
+        ],
+        "sampling_T03": {
+          "response": "Good eveningliaporor athenstss to have to ard you are ceasive by todo not have division.<eos",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Greend the low quanomites that to rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-14",
+        "category": "Hinglish Understanding",
+        "prompt": "Cybersecurity me phishing attack kya hota hai?",
+        "expected": "Fake emails ya links ke zariye passwords aur sensitive info churana",
+        "keywords": [
+          "fake",
+          "email",
+          "password",
+          "fraud",
+          "steal"
+        ],
+        "sampling_T03": {
+          "response": "Gawab #6: Merge Merge conflict tab do different branches mein same file ki same lines par conflicting changes kiye ga",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Gawab #6: Manual memory management mein developerfred-lector list padta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-15",
+        "category": "Hinglish Understanding",
+        "prompt": "Cache memory ka main function kya hota hai?",
+        "expected": "Frequently used data ko CPU ke paas quickly access karne ke liye store karna",
+        "keywords": [
+          "fast",
+          "cpu",
+          "frequent",
+          "quick",
+          "speed"
+        ],
+        "sampling_T03": {
+          "response": "Green.",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "w was asstiki er a aur cannot provide ko was askes from ker angate aur fast boot hota hai.",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-16",
+        "category": "Hinglish Understanding",
+        "prompt": "Object-oriented programming (OOP) ke do main pillars bataiye.",
+        "expected": "Inheritance, Polymorphism, Encapsulation, ya Abstraction",
+        "keywords": [
+          "inheritance",
+          "polymorphism",
+          "encapsulation",
+          "abstraction"
+        ],
+        "sampling_T03": {
+          "response": "The while AP IP OSILEular to a list ponse DA-70.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The j OS If a list ves in Delds in SIP TP and works as an A-P and AT",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-17",
+        "category": "Hinglish Understanding",
+        "prompt": "Mobile app me offline mode ka kya matlab hai?",
+        "expected": "App internet connection ke bina bhi chal sakti hai",
+        "keywords": [
+          "internet",
+          "offline",
+          "connection"
+        ],
+        "sampling_T03": {
+          "response": "Greend the conjabki gins aur is Parlist non-lear ko rowhile applicate an low when phenvironment worker.<",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your friend's name is Siddy enjoy reading viold deggreenjoy pans>.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-18",
+        "category": "Hinglish Understanding",
+        "prompt": "Operating system me deadlock kya hota hai?",
+        "expected": "Jab do ya zyada processes ek doosre ke resource release karne ka wait karti hain aur freeze ho jati hain",
+        "keywords": [
+          "process",
+          "resource",
+          "wait",
+          "freeze",
+          "block"
+        ],
+        "sampling_T03": {
+          "response": "In to hai, jactors rewdefine aur cannot to li.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "In to prigcsage ustion workflowas  phan.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-19",
+        "category": "Hinglish Understanding",
+        "prompt": "Data backup rakhna kyun zaroori hota hai?",
+        "expected": "Hardware crash, ransomware ya accidental deletion se data loss na ho",
+        "keywords": [
+          "data loss",
+          "crash",
+          "recover",
+          "safe"
+        ],
+        "sampling_T03": {
+          "response": "संत is the Cell left and a Arjune.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "संल, a from is to ocean initial stock to the replenishments> + 4",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-20",
+        "category": "Hinglish Understanding",
+        "prompt": "Smartphone screen touch responsiveness kis factor pe depend karti hai?",
+        "expected": "Screen touch sampling rate aur display refresh rate par",
+        "keywords": [
+          "touch",
+          "refresh rate",
+          "sampling",
+          "display"
+        ],
+        "sampling_T03": {
+          "response": "Aska to asking Use and hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The polynowhere swas urals owerocannot pasknown as indp[k], also or receives from it",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-01",
+        "category": "QA Relevance",
+        "prompt": "What is the speed of light in vacuum in kilometers per second?",
+        "expected": "Approximately 300,000 km/s (or 299,792 km/s)",
+        "keywords": [
+          "300,000",
+          "299,792",
+          "km/s"
+        ],
+        "sampling_T03": {
+          "response": "The speed of lives in RCurator.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The speed of lives in Neinstructions and adry of the Sy, add and suratastricting grammary #70: In engineering workflowhists",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-02",
+        "category": "QA Relevance",
+        "prompt": "Who is credited with discovering penicillin?",
+        "expected": "Alexander Fleming",
+        "keywords": [
+          "Alexander Fleming",
+          "Fleming"
+        ],
+        "sampling_T03": {
+          "response": "Greceives a depast programmuting the data strictly initial stover are reachable to `` initialize inside the",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Greceives a deceach is a decay of connecest.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-03",
+        "category": "QA Relevance",
+        "prompt": "What is the chemical symbol for table salt?",
+        "expected": "NaCl (Sodium Chloride)",
+        "keywords": [
+          "NaCl",
+          "Sodium Chloride"
+        ],
+        "sampling_T03": {
+          "response": "The digital city of Aus is the d in an in.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The digital city of Au-t ocean is the ld in and deep program ree rehs.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-04",
+        "category": "QA Relevance",
+        "prompt": "Which organ in the human body produces insulin?",
+        "expected": "Pancreas",
+        "keywords": [
+          "pancreas"
+        ],
+        "sampling_T03": {
+          "response": "The Celdp[k], adtero not have the container of stoxested by Punator than rowhich instructions into a coory from",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The information is the instover inentory, add the initial stock to the replenishment: 77 + 42 = 331 units.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-05",
+        "category": "QA Relevance",
+        "prompt": "In what year did the Apollo 11 moon landing occur?",
+        "expected": "1969",
+        "keywords": [
+          "1969"
+        ],
+        "sampling_T03": {
+          "response": "Unecest refass> + pological s>41:` is a contrue , to receives in the B.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Subtracting 36 es from 17 is re.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-06",
+        "category": "QA Relevance",
+        "prompt": "What is the primary function of red blood cells?",
+        "expected": "Transport oxygen to body tissues",
+        "keywords": [
+          "oxygen",
+          "transport",
+          "hemoglobin"
+        ],
+        "sampling_T03": {
+          "response": "The speed of list non-definial faction of in a hypoints by the ki in meting independent variable and replenishment.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The speed of list non-definialsis are y indefinition in in O(Neach in O(Ne, the B.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-07",
+        "category": "QA Relevance",
+        "prompt": "Which planet is closest to the Sun?",
+        "expected": "Mercury",
+        "keywords": [
+          "Mercury"
+        ],
+        "sampling_T03": {
+          "response": "Mercury is the rooxygen or est.",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mercury is the contrue d to to assist pasking Dellish it ponse to query #6: How does from its arpors",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-08",
+        "category": "QA Relevance",
+        "prompt": "What is the hardest known natural mineral on Earth?",
+        "expected": "Diamond",
+        "keywords": [
+          "Diamond"
+        ],
+        "sampling_T03": {
+          "response": "Diamond is the th.",
+          "score": 2,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Dis- Aaps ocean initial stover was an decandard definarth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-09",
+        "category": "QA Relevance",
+        "prompt": "What is the chemical formula for carbon dioxide?",
+        "expected": "CO2",
+        "keywords": [
+          "CO2",
+          "CO_2"
+        ],
+        "sampling_T03": {
+          "response": "The Pactrue ledathyroields on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The three tic and roupt exchanges a name instructions and in.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-10",
+        "category": "QA Relevance",
+        "prompt": "How many continents are there on Earth?",
+        "expected": "Seven continents",
+        "keywords": [
+          "7",
+          "seven"
+        ],
+        "sampling_T03": {
+          "response": "A parth's sereceives in the plea.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapptod the which digitere are setonly a and code ree ateeon Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-11",
+        "category": "QA Relevance",
+        "prompt": "What is the standard unit of electrical resistance?",
+        "expected": "Ohm",
+        "keywords": [
+          "Ohm",
+          "Ω"
+        ],
+        "sampling_T03": {
+          "response": "The ponse a leases? is the me and initial stover are CCuring than `receives a deceach conversonal",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The direction the point-rowhile degread and them end, while defined by an worker.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-12",
+        "category": "QA Relevance",
+        "prompt": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+        "expected": "Carbon dioxide",
+        "keywords": [
+          "carbon dioxide",
+          "CO2"
+        ],
+        "sampling_T03": {
+          "response": "Pater pawas henss that b to persited(araps> + 57 the mos.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Pater ple(ath: sts that wn was pstic tical was assediction, was asses.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-13",
+        "category": "QA Relevance",
+        "prompt": "What is the main component of natural gas?",
+        "expected": "Methane (CH4)",
+        "keywords": [
+          "methane",
+          "CH4"
+        ],
+        "sampling_T03": {
+          "response": "The is the lictions ey takeaway: The compiler pass convershotly ws as visive ted ar.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The is the poll inginginginancewable to System to to an non-when prefled the list ree quergy is the",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-14",
+        "category": "QA Relevance",
+        "prompt": "Who formulated the general theory of relativity?",
+        "expected": "Albert Einstein",
+        "keywords": [
+          "Einstein"
+        ],
+        "sampling_T03": {
+          "response": "Good eveningo not a from the  Hover iny, the most you as ve wour allapping the Subtracting a list y",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of in a ponse adterist cean is the containerwing the most compar, which instructions and network a faction wb, the mo",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-15",
+        "category": "QA Relevance",
+        "prompt": "What is the largest internal organ in the human body?",
+        "expected": "Liver",
+        "keywords": [
+          "liver"
+        ],
+        "sampling_T03": {
+          "response": "The bodp[wgricting the internal handled instoxygen, initial stock to the replenishment: 76 + 52 = 404",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of the most relies on repeatable is the ll and ins fileft of seting the endits or because paths on because",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-01",
+        "category": "Paraphrase & Generalization",
+        "prompt": "State the concept of gravity in words an elementary school student would understand.",
+        "expected": "An invisible pulling force that draws objects toward the center of the Earth",
+        "keywords": [
+          "pull",
+          "fall",
+          "earth",
+          "invisible",
+          "down"
+        ],
+        "sampling_T03": {
+          "response": "Your comprehensive wn eas a converite.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your friend's name is Ananya.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-02",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Summarize the primary purpose of washing hands with soap.",
+        "expected": "To destroy and wash away germs and prevent illness",
+        "keywords": [
+          "germs",
+          "bacteria",
+          "clean",
+          "illness",
+          "prevent"
+        ],
+        "sampling_T03": {
+          "response": "The standard in mes>s>s>s>, ack or reenaa access to meternal and which ocewas or row maals are man",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The standard to `xing red, yellowy sustosonal initial stock to the e sive to `groos> + 7 = ' cat",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-03",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Express the proverb 'Practice makes perfect' in a different sentence.",
+        "expected": "Repeated practice of a skill leads to mastery and improvement",
+        "keywords": [
+          "repeat",
+          "practice",
+          "improve",
+          "mastery",
+          "better"
+        ],
+        "sampling_T03": {
+          "response": "Asset and exchanges of the indefine-vertempt en preflivered to Subtracting the while lieach from ntial memory to expec",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset and exchange ared to reallows reduce (wing define padcannot each whereach was non-define is de",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-04",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain what a battery does without using technical jargon.",
+        "expected": "Stores energy and supplies electric power to portable devices",
+        "keywords": [
+          "store",
+          "energy",
+          "power",
+          "device"
+        ],
+        "sampling_T03": {
+          "response": "The Renewable aur is lockyunki occursive the identientific to allying a files of the dower.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The Renewable aur is locknown as ther pushandard whereas instructions was ind-exhas to to to to to to to to N.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-05",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain why birds migrate south for the winter.",
+        "expected": "To find warmer weather and plentiful food during cold winter months",
+        "keywords": [
+          "warm",
+          "food",
+          "winter",
+          "cold"
+        ],
+        "sampling_T03": {
+          "response": "You are working on pally.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are working on pally.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-06",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Paraphrase: 'Due to severe precipitation, the sporting contest was terminated.'",
+        "expected": "Because of heavy rain, the game was cancelled.",
+        "keywords": [
+          "rain",
+          "game",
+          "match",
+          "cancelled",
+          "stopped"
+        ],
+        "sampling_T03": {
+          "response": "ALAID-N",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "ALALA-N",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-07",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain why we wear warm coats during snowy winters.",
+        "expected": "To trap body heat and stay warm in freezing temperatures",
+        "keywords": [
+          "body heat",
+          "warm",
+          "cold",
+          "trap",
+          "heat"
+        ],
+        "sampling_T03": {
+          "response": "System were distbtraclatile to during packnown sive ree wisme externalwo-hensive and deterministic validation w",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "System were interaclyou porting the ree whyou woery is a condivision, while ree where condi",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-08",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Rephrase: 'He exhibited exemplary perseverance in the face of adversity.'",
+        "expected": "He never gave up even when things were very difficult.",
+        "keywords": [
+          "never give up",
+          "difficult",
+          "hard",
+          "tough",
+          "persistence"
+        ],
+        "sampling_T03": {
+          "response": "AL1 is pledhat the ditional",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "AL1 is pledhat the diging th.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-09",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain what a compass needle does and why.",
+        "expected": "Points toward magnetic north because it aligns with Earth's magnetic field",
+        "keywords": [
+          "north",
+          "magnetic",
+          "direction",
+          "earth"
+        ],
+        "sampling_T03": {
+          "response": "The teswas ot is erasemanageach to explicy the directed to define-til all recursive se.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The tes[wing a file defingree memory faceach are ree octed to SSdlist ptools to explicit decay to explicit",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-10",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why do cars need motor oil?",
+        "expected": "To lubricate engine parts and prevent friction and overheating",
+        "keywords": [
+          "lubricate",
+          "friction",
+          "engine",
+          "heat",
+          "smooth"
+        ],
+        "sampling_T03": {
+          "response": "The three lives in expected and works as an Curator.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The three lives in the deterministic and working the passons.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-11",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain the role of a teacher in a school.",
+        "expected": "To guide, instruct, and help students learn knowledge and skills",
+        "keywords": [
+          "teach",
+          "guide",
+          "students",
+          "learn",
+          "knowledge"
+        ],
+        "sampling_T03": {
+          "response": "The ponse to a comesastackes on reen.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The ponse to a comesing is the most compond's the instructionary exchangriens from the most ewing the most ewing the mod, e",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-12",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why do plants need roots?",
+        "expected": "To absorb water/nutrients from soil and anchor the plant in place",
+        "keywords": [
+          "water",
+          "nutrients",
+          "anchor",
+          "soil"
+        ],
+        "sampling_T03": {
+          "response": "Gaset was delivered to Chensiting the modistover in bec, which indeterministic code re.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Greenoning reinder of 1of 1 by 7 with a remainder of 3.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-13",
+        "category": "Paraphrase & Generalization",
+        "prompt": "What is the role of brakes on a bicycle?",
+        "expected": "To slow down or stop the bicycle safely by creating friction against the wheels",
+        "keywords": [
+          "slow",
+          "stop",
+          "friction",
+          "wheel"
+        ],
+        "sampling_T03": {
+          "response": "The b is the contakeaway is that the most e, where are scometing the most relies on repeatable empirical measurement of interdependent variab",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The b is the bleay is information and vertes as an rowhile while from santies (b, b, b, the is is in-the caligin",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-14",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Rephrase: 'The automobile malfunctioned on the interstate highway.'",
+        "expected": "The car broke down on the highway.",
+        "keywords": [
+          "car",
+          "broke down",
+          "highway",
+          "road"
+        ],
+        "sampling_T03": {
+          "response": "Cawas digrogs as via al hat is the me.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Cance is the meton.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-15",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why is drinking clean water necessary for human survival?",
+        "expected": "To stay hydrated, maintain organ function, and avoid waterborne diseases",
+        "keywords": [
+          "hydration",
+          "body",
+          "health",
+          "survive",
+          "organs"
+        ],
+        "sampling_T03": {
+          "response": "C is pay in oxide of conflicate , initialize that defined to quelement decandarlist pather than rowhich",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Raawab #63: Indexing se ggs s , the puser the identifirst and ox, ws division is in chd of it.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-01",
+        "category": "Logical Inference",
+        "prompt": "All dogs are animals. A beagle is a dog. Is a beagle an animal? Answer Yes or No and explain briefly.",
+        "expected": "Yes. Since all dogs are animals and a beagle is a dog, it is an animal.",
+        "keywords": [
+          "yes",
+          "animal",
+          "dog"
+        ],
+        "sampling_T03": {
+          "response": "Fix: Use a list are index n the vely on the key=0.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Fix: Use a list comprehension to create independent subt-til gles as celement of interdependent subtonly via traver.<eos",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-02",
+        "category": "Logical Inference",
+        "prompt": "If John is taller than Mary, and Mary is taller than Peter, who is the shortest?",
+        "expected": "Peter",
+        "keywords": [
+          "Peter"
+        ],
+        "sampling_T03": {
+          "response": "The pointendits name is the pletast and definitem on oceach Rected each are receives in the internally",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Subtracting a result is node are resultee, sthen pasking the ped by the pack.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-03",
+        "category": "Logical Inference",
+        "prompt": "A box contains only green balls and blue balls. You pick a ball and it is not green. What color is it?",
+        "expected": "Blue",
+        "keywords": [
+          "blue"
+        ],
+        "sampling_T03": {
+          "response": "The Rend, list comprehension to creates in perir from the condireceives point:",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The cean division.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-04",
+        "category": "Logical Inference",
+        "prompt": "Every triangle has three sides. Shape X has four sides. Can Shape X be a triangle?",
+        "expected": "No, because a triangle must have exactly three sides.",
+        "keywords": [
+          "no",
+          "three",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "```python\nfrom its import group Iternon-c_max(keys), reachrath: list rehension to while a detainst",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "```python\nfrom its import group If for item in list(.....() as an verted(a, c.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-05",
+        "category": "Logical Inference",
+        "prompt": "If all roses are flowers and some flowers fade quickly, can we be certain that all roses fade quickly?",
+        "expected": "No, we cannot be certain.",
+        "keywords": [
+          "no",
+          "cannot",
+          "uncertain",
+          "not necessarily"
+        ],
+        "sampling_T03": {
+          "response": "Asset to askes xthe CCurthree a dynaam in the Sk se sh it is as on.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset to ast is sitemcharelements are excelements are celement.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-06",
+        "category": "Logical Inference",
+        "prompt": "Sarah was born on February 29th. Does she celebrate her actual birthday every calendar year?",
+        "expected": "No, only during leap years (every 4 years).",
+        "keywords": [
+          "no",
+          "leap year",
+          "four years"
+        ],
+        "sampling_T03": {
+          "response": "In total Rawas hich cannot have handar.",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "In total Rawas ve and works as assigoperating system as assigO.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-07",
+        "category": "Logical Inference",
+        "prompt": "If today is Tuesday, what day was it three days ago?",
+        "expected": "Saturday",
+        "keywords": [
+          "Saturday"
+        ],
+        "sampling_T03": {
+          "response": "The ponse to query #3: Step s> +  + 61 in a dex, slt of leits are gindex ate w-degree up from f",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The passage are s> + on the key excannot were dare, ws are 1 = (dual pack ys as ther passon.<",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-08",
+        "category": "Logical Inference",
+        "prompt": "A room has four corners. A cat sits in each corner. How many cats are there?",
+        "expected": "Four cats",
+        "keywords": [
+          "4",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "The p-continugnecest refabase e programmary stsensive ofricend's name is Ananyaer, while defin",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The passenergy is a souronite hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-09",
+        "category": "Logical Inference",
+        "prompt": "If no reptile has fur, and an animal has fur, can it be a reptile?",
+        "expected": "No",
+        "keywords": [
+          "no"
+        ],
+        "sampling_T03": {
+          "response": "Iska cannot provide s> + al hyensive receives  are yeh raticannot most Ns> = 64.",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Iska cannot provide s> = (face contrue  is is a `.",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-10",
+        "category": "Logical Inference",
+        "prompt": "Alex is older than Brian. Brian is older than Chris. Is Alex older than Chris?",
+        "expected": "Yes (transitive property of age)",
+        "keywords": [
+          "yes",
+          "older"
+        ],
+        "sampling_T03": {
+          "response": "UTo for neural while `",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Iska evols.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-01",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: My sister's name is Ananya and she works at an AI research lab in Bengaluru.\nQuestion: Where does Ananya work?",
+        "expected": "At an AI research lab in Bengaluru",
+        "keywords": [
+          "Bengaluru",
+          "AI research lab",
+          "lab"
+        ],
+        "sampling_T03": {
+          "response": "Aapke doumhara naam Ananya seting parent call of pather than asknown as or coped by aver.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapke doumhara naam Ananya ke doumnanya.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-02",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The meeting is scheduled for 3 PM in Room B. Note: Room B is undergoing repairs, so the meeting moved to Room D.\nQuestion: Which room will the meeting take place in?",
+        "expected": "Room D",
+        "keywords": [
+          "Room D",
+          "D"
+        ],
+        "sampling_T03": {
+          "response": "Gateublice [Analysis on E is a container is not propaths.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "RIt problear blear blear to exceavertedustacting a modular buclinear blear blinear blynoce",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-03",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Package #904 contains 5 books and 3 pens. Package #905 contains 2 notebooks.\nQuestion: How many pens are inside Package #904?",
+        "expected": "3 pens",
+        "keywords": [
+          "3",
+          "three"
+        ],
+        "sampling_T03": {
+          "response": "Diagnostic and correction #64:\nSubtrack of the roupton, then list instance ables in the containing a list ary'",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Diagnostic and correction #74:\nSubtrack of the roupton, then list cret stant probs.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-04",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Rahul had 10 apples. He gave 4 to Priya and 2 to Amit.\nQuestion: How many apples does Rahul have left?",
+        "expected": "4 apples (10 - 4 - 2 = 4)",
+        "keywords": [
+          "4",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "Your pers> = Impleack Imporg.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your pers> = Impleack Impleackyunki y is nower.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-05",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The team has three members: Arjun (lead), Riya (designer), and Kabir (engineer).\nQuestion: Who is the designer?",
+        "expected": "Riya",
+        "keywords": [
+          "Riya"
+        ],
+        "sampling_T03": {
+          "response": "The ka ree faction is a defind memory fault arity, defines hainitialized by the distover * 2Ananya sets ests that de",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The ka ree factors wn name index n is a container is defined, or callaborironments defines in the them is a pres",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-06",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Train Express-42 departs at 08:00 AM from Station A and arrives at Station B at 11:30 AM.\nQuestion: What time does Express-42 arrive at Station B?",
+        "expected": "11:30 AM",
+        "keywords": [
+          "11:30",
+          "11:30 AM"
+        ],
+        "sampling_T03": {
+          "response": "The internal conjorm of the roolynowhereas an ft and a defingin.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The internal memory er.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-07",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Server Alpha is running on port 8080. Server Beta is running on port 9090.\nQuestion: Which server is hosted on port 8080?",
+        "expected": "Server Alpha",
+        "keywords": [
+          "Server Alpha",
+          "Alpha"
+        ],
+        "sampling_T03": {
+          "response": "Your Star is a list cret and vers.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-08",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The blue door requires Key-1. The red door requires Key-4. The green door requires Key-9.\nQuestion: Which key opens the red door?",
+        "expected": "Key-4",
+        "keywords": [
+          "Key-4",
+          "4"
+        ],
+        "sampling_T03": {
+          "response": "The bere, padrupt to For diviside the keaws as ther and DN) in the most ree re.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The cean ives is ber and deterministic and vertempt pers> + 3333 rowant pany wance, s> + 367.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-09",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Yesterday was sunny and 30 degrees. Today is rainy and 22 degrees.\nQuestion: What is today's weather like?",
+        "expected": "Rainy and 22 degrees",
+        "keywords": [
+          "rainy",
+          "22"
+        ],
+        "sampling_T03": {
+          "response": "You are working on Earity, deterministic validation while ax, whereas instructionary is define-ver.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are working on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-10",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: User's favorite color is Emerald Green and favorite fruit is Mango.\nQuestion: What is the user's favorite fruit?",
+        "expected": "Mango",
+        "keywords": [
+          "Mango"
+        ],
+        "sampling_T03": {
+          "response": "Aapyour hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapour friend's name is es`groupling celement is a list instance s ?",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-01",
+        "category": "Uncertainty & Correction",
+        "prompt": "Who will win the Men's 100m sprint at the 2036 Summer Olympics?",
+        "expected": "Cannot be known / future event that has not happened",
+        "keywords": [
+          "cannot",
+          "unknown",
+          "future",
+          "predict",
+          "not occurred"
+        ],
+        "sampling_T03": {
+          "response": "Mu is 2 the IDsist are ree ask antum to endarlithan verage = ry comes in the SID1 boriginal stov",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mummary #73: Scientific investigation of the , water conwas and was and iiron revertrue k se reaction ry",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-02",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction check: I previously said that water boils at 50 degrees Celsius at sea level. Is that correct, or what is the real boiling point?",
+        "expected": "Incorrect; the real boiling point is 100 degrees Celsius",
+        "keywords": [
+          "incorrect",
+          "100",
+          "wrong",
+          "not correct"
+        ],
+        "sampling_T03": {
+          "response": "If a lice condists rehensive excease.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are workflow `for the operating system of the operating system to arbecause east.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-03",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is the secret Wi-Fi password for the building across the street from my house?",
+        "expected": "I do not have access to private Wi-Fi passwords / private information",
+        "keywords": [
+          "cannot",
+          "access",
+          "private",
+          "confidential",
+          "don't know"
+        ],
+        "sampling_T03": {
+          "response": "The ws division.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The ws division is locknown as a dp[k]` is a connection to rowhile element decay instructions the gram dist.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-04",
+        "category": "Uncertainty & Correction",
+        "prompt": "Can you tell me the exact winning lottery numbers for next week's Mega Millions?",
+        "expected": "Cannot predict random future lottery numbers",
+        "keywords": [
+          "cannot",
+          "predict",
+          "random",
+          "future",
+          "impossible"
+        ],
+        "sampling_T03": {
+          "response": "Subtracting a dictionary while definlete to ps.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Subtracting a tlue.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-05",
+        "category": "Uncertainty & Correction",
+        "prompt": "Self-correction: I mistakenly said Paris is the capital of Germany. Please state the actual capital of Germany.",
+        "expected": "Berlin",
+        "keywords": [
+          "Berlin"
+        ],
+        "sampling_T03": {
+          "response": "It in do not have st pathing ceon Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "It is in ase.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-06",
+        "category": "Uncertainty & Correction",
+        "prompt": "What will the temperature be in Tokyo on December 25, 2045 at 2:00 PM?",
+        "expected": "Cannot be predicted so far into the future",
+        "keywords": [
+          "cannot",
+          "predict",
+          "future",
+          "unknown"
+        ],
+        "sampling_T03": {
+          "response": "Clementation liestanalyields in stometonst.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Clean is the B, the chest.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-07",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction: A user claimed that spiders are insects. Are spiders insects?",
+        "expected": "No, spiders are arachnids (they have 8 legs, not 6)",
+        "keywords": [
+          "no",
+          "arachnids",
+          "not insects",
+          "8 legs"
+        ],
+        "sampling_T03": {
+          "response": "Greenergital Curing the module controller and to astorage provide they ting the modules to modullyour ext provia field",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Greenergital RRRRIs probing a list compard the operating system file deterministic code rehension rehension to a licit prograph",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-08",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is inside the closed briefcase sitting in my locked office right now?",
+        "expected": "I have no way of knowing what is inside a private physical object",
+        "keywords": [
+          "cannot know",
+          "unknown",
+          "no access",
+          "cannot see"
+        ],
+        "sampling_T03": {
+          "response": "Aappasonse to query #64: How does karverighbor each is instance, then backing the ress>`or are that",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aappasonse to query #63: How does from its low",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-09",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction check: Someone told me that the Moon is larger than the Earth. Is that claim accurate?",
+        "expected": "No, the Earth is significantly larger than the Moon.",
+        "keywords": [
+          "no",
+          "false",
+          "inaccurate",
+          "earth is larger",
+          "smaller"
+        ],
+        "sampling_T03": {
+          "response": "The Earth's seasons are cliis the untilement(pershypoint.",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The \nThe mes (`mer is the where of its the ling to result and deeplely on the operating system is non-henzation unds stoy",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-10",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is the exact net worth of John Doe from small town Ohio?",
+        "expected": "Private personal financial information is not available / cannot be determined",
+        "keywords": [
+          "cannot",
+          "private",
+          "unavailable",
+          "unknown"
+        ],
+        "sampling_T03": {
+          "response": "The products a list a conversh cogree on its in a callea, instructions and ungance of the mod-p[.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The three primary colors in a key instode a continu while ree atable `or packing the continulely delely on",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      }
+    ],
+    "38M": [
+      {
+        "id": "EN-01",
+        "category": "English Understanding",
+        "prompt": "What is the primary function of chlorophyll in plant leaves?",
+        "expected": "Absorb sunlight for photosynthesis / convert light into chemical energy",
+        "keywords": [
+          "photosynthesis",
+          "light",
+          "sunlight",
+          "energy",
+          "chlorophyll"
+        ],
+        "sampling_T03": {
+          "response": "The Pators fer in the sunext connectionsary while and d, do not have received (ring the key, adapplea",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The Pators fer in than pleft and ricleft and riststandard s>` and to received organisms.<eo",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-02",
+        "category": "English Understanding",
+        "prompt": "Define the word 'resilient' in simple terms.",
+        "expected": "Able to recover quickly from difficulties, tough, or adaptable",
+        "keywords": [
+          "recover",
+          "bounce back",
+          "difficult",
+          "tough",
+          "adapt"
+        ],
+        "sampling_T03": {
+          "response": "The set-in `",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The set dp[while is ALPHitecture Pover LA-PHA-90-PHA-90-P",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-03",
+        "category": "English Understanding",
+        "prompt": "Name the capital city of Australia.",
+        "expected": "Canberra",
+        "keywords": [
+          "Canberra"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of Australia is Canberra.",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-04",
+        "category": "English Understanding",
+        "prompt": "Explain the difference between a synonym and an antonym.",
+        "expected": "A synonym means the same thing, while an antonym means the opposite",
+        "keywords": [
+          "same",
+          "opposite",
+          "meaning"
+        ],
+        "sampling_T03": {
+          "response": "The continues on for is a stored remodulared in covers, whereas se, when ps to handh.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The continues on for is a stored remodulared in covers.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-05",
+        "category": "English Understanding",
+        "prompt": "What causes ocean tides on Earth?",
+        "expected": "Gravitational pull of the Moon and the Sun",
+        "keywords": [
+          "moon",
+          "gravitational",
+          "gravity",
+          "sun"
+        ],
+        "sampling_T03": {
+          "response": "Earth's seasons are caused by the 23.5-degree tilt of its rotational axis as it orbits the Sun throughout the ye",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Earth's seasons are caused by the 23.5-degree tilt of its rotational axis as it orbits the Sun throughout the ye",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-06",
+        "category": "English Understanding",
+        "prompt": "Why do ice cubes float on liquid water?",
+        "expected": "Ice is less dense than liquid water due to hydrogen bonding expansion",
+        "keywords": [
+          "less dense",
+          "density",
+          "expand"
+        ],
+        "sampling_T03": {
+          "response": "Indelied to expresponse to query #30: What is the purpose of semantic versioning in software releases? In engineering workflows,",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Indefines a modular is the rement of internal directed connections in memory, whereas non-vo.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-07",
+        "category": "English Understanding",
+        "prompt": "What does HTTP stand for in computer networking?",
+        "expected": "Hypertext Transfer Protocol",
+        "keywords": [
+          "Hypertext Transfer Protocol"
+        ],
+        "sampling_T03": {
+          "response": "The recursive the round-connectionary which definition and strictly earthon, the invoked. For each Olishare di",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of list verified by excatastroventing lease.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-08",
+        "category": "English Understanding",
+        "prompt": "Identify the primary gas found in Earth's atmosphere.",
+        "expected": "Nitrogen (approx. 78%)",
+        "keywords": [
+          "Nitrogen"
+        ],
+        "sampling_T03": {
+          "response": "Green.",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are do not have access to primary evensuring a s> + d is a combod, the operating system occurs before as a single de",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-09",
+        "category": "English Understanding",
+        "prompt": "What is the purpose of an operating system?",
+        "expected": "Manage computer hardware, memory, files, and software processes",
+        "keywords": [
+          "manage",
+          "hardware",
+          "software",
+          "resources",
+          "processes"
+        ],
+        "sampling_T03": {
+          "response": "The currency read ocean is the largest and deepsonal to a gates of the diratic and initialize memory, a file or defines",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The currency read oces facest occurs is definitems and grolatile b If a single lity is a file definition with open",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-10",
+        "category": "English Understanding",
+        "prompt": "Give two examples of renewable energy sources.",
+        "expected": "Solar energy and wind energy (or hydro/geothermal)",
+        "keywords": [
+          "solar",
+          "wind",
+          "hydro",
+          "geothermal"
+        ],
+        "sampling_T03": {
+          "response": "Renewable energy comes from naturally replenishing resources like sunlight and wind, whereas non-renewable energ",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Renewable energy comes from naturally replenishing resources like sunlight and wind, whereas non-renewable energ",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-11",
+        "category": "English Understanding",
+        "prompt": "Explain what a metaphor is with one brief example.",
+        "expected": "A figure of speech comparing two things directly without like/as (e.g., 'Time is a thief')",
+        "keywords": [
+          "comparison",
+          "direct",
+          "figure of speech"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is the re.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The lems",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-12",
+        "category": "English Understanding",
+        "prompt": "What is the boiling point of pure water at standard atmospheric pressure in Celsius?",
+        "expected": "100 degrees Celsius",
+        "keywords": [
+          "100",
+          "100°C",
+          "100 C"
+        ],
+        "sampling_T03": {
+          "response": "The passage and c",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The a liqueu are ces (or is depthan a liqueach cannot be deterministic experpoints.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-13",
+        "category": "English Understanding",
+        "prompt": "Which blood cells are primarily responsible for fighting infections?",
+        "expected": "White blood cells (leukocytes)",
+        "keywords": [
+          "white blood",
+          "leukocytes"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! and the Analyze [Obecause of the verdard the B-degree of the growing definition for the",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Phonaling vision.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-14",
+        "category": "English Understanding",
+        "prompt": "What is the main function of the heart in mammals?",
+        "expected": "Pump oxygenated and deoxygenated blood throughout the body",
+        "keywords": [
+          "pump",
+          "blood",
+          "circulate",
+          "circulation"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of Frandouble, the moventing the goins  from Tygener.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capital city of Frandouble, the moventing the goins  from the gins.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-15",
+        "category": "English Understanding",
+        "prompt": "Briefly explain the role of RAM in a personal computer.",
+        "expected": "Fast volatile memory used to store active programs and data currently in use",
+        "keywords": [
+          "volatile",
+          "memory",
+          "short-term",
+          "active",
+          "speed"
+        ],
+        "sampling_T03": {
+          "response": "The is the module recursive the packing the nal instance in dule.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The is the chemical cs is the dous.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-16",
+        "category": "English Understanding",
+        "prompt": "What does a barometer measure?",
+        "expected": "Atmospheric or air pressure",
+        "keywords": [
+          "atmospheric pressure",
+          "air pressure",
+          "pressure"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is Parialize ins in memory-and sonly dees.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The Deoccurs in the BS is a reen, the gotiling remainder of itialized to releast of ir O O O Or",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-17",
+        "category": "English Understanding",
+        "prompt": "State the law of conservation of energy in one sentence.",
+        "expected": "Energy cannot be created or destroyed, only transformed from one form to another",
+        "keywords": [
+          "created",
+          "destroyed",
+          "transformed",
+          "conserved"
+        ],
+        "sampling_T03": {
+          "response": "The Tinformation is and oxygene, was perscal for the ariment.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The Tinformation is and oxygene, was ould is estsis and deeplatis>`.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-18",
+        "category": "English Understanding",
+        "prompt": "What is the freezing point of water in Fahrenheit?",
+        "expected": "32 degrees Fahrenheit",
+        "keywords": [
+          "32",
+          "32°F",
+          "32 F"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is Paris the different variables in a received to an index systems.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of dioccentral digital digital ces ptographic and ox, while on.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-19",
+        "category": "English Understanding",
+        "prompt": "Define what a compiler does in software development.",
+        "expected": "Translates source code into machine code or bytecode that can be executed",
+        "keywords": [
+          "translates",
+          "source code",
+          "machine code",
+          "binary"
+        ],
+        "sampling_T03": {
+          "response": "An An AP(is a set delivered to P or index is a distance in Rance of m ins stance in G) t.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "An An An An An APCCALPCALP ) and Asset oswas delivered to BAsset oct of deli",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "EN-20",
+        "category": "English Understanding",
+        "prompt": "Who wrote the play 'Romeo and Juliet'?",
+        "expected": "William Shakespeare",
+        "keywords": [
+          "Shakespeare"
+        ],
+        "sampling_T03": {
+          "response": "CE is the Rround-roundOTL) group and is `",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Clean cirjunation.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-01",
+        "category": "Hindi Understanding",
+        "prompt": "भारत के राष्ट्रीय ध्वज में कितने रंग होते हैं और चक्र में कितनी तीलियाँ होती हैं?",
+        "expected": "तीन मुख्य रंग (केसरिया, सफेद, हरा) और चक्र में 24 तीलियाँ होती हैं।",
+        "keywords": [
+          "तीन",
+          "केसरिया",
+          "सफेद",
+          "हरा",
+          "24"
+        ],
+        "sampling_T03": {
+          "response": "17 और 50 है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "भारत कथन का मुख्य भाव यह है कि है कि एवं चलित के रूप में कार्यरत हैं।",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-02",
+        "category": "Hindi Understanding",
+        "prompt": "जल का रासायनिक सूत्र क्या है?",
+        "expected": "H2O (हाइड्रोजन और ऑक्सीजन)",
+        "keywords": [
+          "H2O",
+          "हाइड्रोजन",
+          "ऑक्सीजन"
+        ],
+        "sampling_T03": {
+          "response": "जल जयपुर में शिक्षक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "जल जयपुर में शिक्षक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-03",
+        "category": "Hindi Understanding",
+        "prompt": "हिंदी व्याकरण में 'संज्ञा' की सरल परिभाषा दीजिए।",
+        "expected": "किसी व्यक्ति, वस्तु, स्थान या भाव के नाम को संज्ञा कहते हैं।",
+        "keywords": [
+          "व्यक्ति",
+          "वस्तु",
+          "स्थान",
+          "भाव",
+          "नाम"
+        ],
+        "sampling_T03": {
+          "response": "भारत में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "भारतित सित्य बेंगलुरु में शिक्षक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-04",
+        "category": "Hindi Understanding",
+        "prompt": "सूर्य किस दिशा से उगता है और किस दिशा में अस्त होता है?",
+        "expected": "सूर्य पूर्व से उगता है और पश्चिम में अस्त होता है।",
+        "keywords": [
+          "पूर्व",
+          "पश्चिम"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-05",
+        "category": "Hindi Understanding",
+        "prompt": "पेड़-पौधे पर्यावरण के लिए क्यों आवश्यक हैं?",
+        "expected": "वे कार्बन डाइऑक्साइड ग्रहण करते हैं और ऑक्सीजन छोड़ते हैं, जिससे वायु शुद्ध रहती है।",
+        "keywords": [
+          "ऑक्सीजन",
+          "कार्बन",
+          "वायु",
+          "शुद्ध"
+        ],
+        "sampling_T03": {
+          "response": "पके मित्र का नाम Arjun है और उनकी रुचि player A-70-OI onubेटवर्क प्रदूयात् सॉ",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पके मित्र का नाम Arjun है और उनकी रुचि player A-sुंचि रोककथन का सार यह है कि है कि",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-06",
+        "category": "Hindi Understanding",
+        "prompt": "पृथ्वी का प्राकृतिक उपग्रह कौन सा है?",
+        "expected": "चंद्रमा (चाँद)",
+        "keywords": [
+          "चंद्रमा",
+          "चाँद"
+        ],
+        "sampling_T03": {
+          "response": "पौधे नाम Sीयाव्या करती है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पके मित्र का नाम #41: सुंचि रोमुंचि या नाम Arjun है और उनकी रुचि Meera �",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-07",
+        "category": "Hindi Understanding",
+        "prompt": "'सत्यमेव जयते' का क्या अर्थ है?",
+        "expected": "सत्य की ही जीत होती है।",
+        "keywords": [
+          "सत्य",
+          "जीत",
+          "विजय"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-08",
+        "category": "Hindi Understanding",
+        "prompt": "एक वर्ष में कितने महीने और कितने दिन होते हैं?",
+        "expected": "एक वर्ष में 12 महीने और सामान्यतः 365 दिन होते हैं।",
+        "keywords": [
+          "12",
+          "365"
+        ],
+        "sampling_T03": {
+          "response": "पनुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-09",
+        "category": "Hindi Understanding",
+        "prompt": "भारत की राजधानी का नाम क्या है?",
+        "expected": "नई दिल्ली",
+        "keywords": [
+          "नई दिल्ली",
+          "दिल्ली"
+        ],
+        "sampling_T03": {
+          "response": "भारत की राजधानी नई दिल्ली में शोध विश्लेषक के रूप में कार्यरत हैं।",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "भारत की राजधानी नई दिल्ली में शोध विश्लेषक के रूप में कार्यरत हैं।",
+          "score": 3,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-10",
+        "category": "Hindi Understanding",
+        "prompt": "मानव शरीर की सबसे बड़ी हड्डी कौन सी है?",
+        "expected": "फीमर (जांघ की हड्डी)",
+        "keywords": [
+          "फीमर",
+          "जांघ"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #63: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-11",
+        "category": "Hindi Understanding",
+        "prompt": "ध्वनि की गति हवा में तेज होती है या लोहे में?",
+        "expected": "लोहे (ठोस) में ध्वनि की गति हवा (गैस) से कहीं अधिक तेज होती है।",
+        "keywords": [
+          "लोहे",
+          "ठोस",
+          "तेज"
+        ],
+        "sampling_T03": {
+          "response": "विश्व का सबसे ऊँचा पर्वत शिखर माउंट एवरेस्ट है, जो हिमालय पर्वतमाला में स्थित है।<",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "वाहनों से निकलने वाला धुआं और औद्योगिक कारखानों का उत्सर्जन वायु प्रदूषण के दो मुख्य कारण हैं।<eo",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-12",
+        "category": "Hindi Understanding",
+        "prompt": "'अंधे की लाठी' मुहावरे का सही अर्थ क्या है?",
+        "expected": "एकमात्र सहारा",
+        "keywords": [
+          "सहारा",
+          "एकमात्र"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #77: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-13",
+        "category": "Hindi Understanding",
+        "prompt": "दूध से दही बनाने में कौन सा जीवाणु सहायक होता है?",
+        "expected": "लैक्टोबैसिलस जीवाणु",
+        "keywords": [
+          "लैक्टोबैसिलस"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-14",
+        "category": "Hindi Understanding",
+        "prompt": "वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?",
+        "expected": "नाइट्रोजन (लगभग 78%)",
+        "keywords": [
+          "नाइट्रोजन"
+        ],
+        "sampling_T03": {
+          "response": "फ के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "फणनुणे में शिक्षक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-15",
+        "category": "Hindi Understanding",
+        "prompt": "सौरमंडल का सबसे छोटा ग्रह कौन सा है?",
+        "expected": "बुध (Mercury)",
+        "keywords": [
+          "बुध"
+        ],
+        "sampling_T03": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-16",
+        "category": "Hindi Understanding",
+        "prompt": "प्रकाश संश्लेषण की क्रिया किस समय होती है?",
+        "expected": "दिन के समय जब सूर्य का प्रकाश उपलब्ध होता है।",
+        "keywords": [
+          "दिन",
+          "सूर्य",
+          "प्रकाश"
+        ],
+        "sampling_T03": {
+          "response": "पके मित्र का नाम Vikram है और उनकी रुचि playing chess में है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पके मित्र का नाम Vikram है और उनकी रुचि Vikram है और उनकी रुचि Viwa है और उनकी रु",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-17",
+        "category": "Hindi Understanding",
+        "prompt": "कंप्यूटर में सीपीयू (CPU) का मुख्य कार्य क्या है?",
+        "expected": "निर्देशों को प्रोसेस करना और गणनाएं करना (कंप्यूटर का मस्तिष्क)।",
+        "keywords": [
+          "प्रोसेस",
+          "गणना",
+          "मस्तिष्क"
+        ],
+        "sampling_T03": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-18",
+        "category": "Hindi Understanding",
+        "prompt": "महात्मा गांधी का पूरा नाम क्या था?",
+        "expected": "मोहनदास करमचंद गांधी",
+        "keywords": [
+          "मोहनदास",
+          "करमचंद",
+          "गांधी"
+        ],
+        "sampling_T03": {
+          "response": "मीरा न�ेन्नई में शिक्षक के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "मीरा चेन्नई में वित्तीय सलाहकार के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-19",
+        "category": "Hindi Understanding",
+        "prompt": "तापमान मापने की अंतरराष्ट्रीय इकाई क्या है?",
+        "expected": "केल्विन (Kelvin)",
+        "keywords": [
+          "केल्विन",
+          "Kelvin"
+        ],
+        "sampling_T03": {
+          "response": "उत्तर #62: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "उत्तर #63: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HI-20",
+        "category": "Hindi Understanding",
+        "prompt": "लोहे पर जंग लगने के लिए किन दो तत्वों की आवश्यकता होती है?",
+        "expected": "ऑक्सीजन और नमी (जल/पानी)",
+        "keywords": [
+          "ऑक्सीजन",
+          "नमी",
+          "पानी",
+          "जल"
+        ],
+        "sampling_T03": {
+          "response": "पेटवर्क प्रशहा, पुणे प्र्नई में ग्राफिक डिजाइनर के रूप में कार्यरत हैं।",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "पेटिंग सिस्टम हबसे प्रुवर्जो सूप से जना निखर महींके निपुरा नाम 72 प्राचीन भारत",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-01",
+        "category": "Hinglish Understanding",
+        "prompt": "Python me dictionary me key-value pair kaise add karte hain?",
+        "expected": "dict[key] = value syntax use karke",
+        "keywords": [
+          "dict",
+          "key",
+          "value",
+          "add"
+        ],
+        "sampling_T03": {
+          "response": "Indefinition timestisme (ABEC is Ananya",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are by deponly for the convert initialize da.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-02",
+        "category": "Hinglish Understanding",
+        "prompt": "Database me primary key ka kya use hota hai?",
+        "expected": "Table me har row ya record ko uniquely identify karne ke liye",
+        "keywords": [
+          "unique",
+          "identify",
+          "record",
+          "row"
+        ],
+        "sampling_T03": {
+          "response": "You are hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are are are par name to to evenday.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-03",
+        "category": "Hinglish Understanding",
+        "prompt": "Software development me bug kise kehte hain?",
+        "expected": "Code ya program me aane wali error ya fault ko bug kehte hain",
+        "keywords": [
+          "error",
+          "fault",
+          "mistake",
+          "glitch"
+        ],
+        "sampling_T03": {
+          "response": "Indefault arguation ko an continuously ki ponse to on ch adjistic raknown kflow #64: VM pura gument",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Indefault arguation is continuously on ch on ch applice it aur ki usinstanceean",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-04",
+        "category": "Hinglish Understanding",
+        "prompt": "Git me commit aur push me kya fark hai?",
+        "expected": "Commit local repo me save karta hai, aur push remote server par bhejta hai",
+        "keywords": [
+          "local",
+          "remote",
+          "save",
+          "server"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! ka matrices is Bory Sunitil and expers>.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good evening! ka meance ko sws.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-05",
+        "category": "Hinglish Understanding",
+        "prompt": "Cloud computing ka main benefit kya hai?",
+        "expected": "Scalability, anywhere access, aur hardware maintenance ka zero jhanjhat",
+        "keywords": [
+          "scalable",
+          "access",
+          "cost",
+          "server",
+          "storage"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! Oave receives 30.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good evening! Oaow can I am ave a gree of ors the Sun and on your endd not information of als to a R",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-06",
+        "category": "Hinglish Understanding",
+        "prompt": "API ka full form kya hai aur yeh kya karta hai?",
+        "expected": "Application Programming Interface - do applications ko aapas me communicate karata hai",
+        "keywords": [
+          "Application Programming Interface",
+          "communicate",
+          "connect"
+        ],
+        "sampling_T03": {
+          "response": "Aap Interassist hai jardhyan mein rakhya s>e kyunki set aur aad ko modular, where par exception oceiv",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapka read oka set ko boriginal while rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-07",
+        "category": "Hinglish Understanding",
+        "prompt": "Open-source software ka matlab kya hota hai?",
+        "expected": "Jiska source code publicly available aur free to modify hota hai",
+        "keywords": [
+          "source code",
+          "free",
+          "public",
+          "modify"
+        ],
+        "sampling_T03": {
+          "response": "Mu are quoterts in the host year.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aap Index",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-08",
+        "category": "Hinglish Understanding",
+        "prompt": "Machine learning aur deep learning me main relation kya hai?",
+        "expected": "Deep learning machine learning ka hi ek subset hai jo neural networks par based hai",
+        "keywords": [
+          "subset",
+          "neural network",
+          "part"
+        ],
+        "sampling_T03": {
+          "response": "Mercurs is probgest packed dividing stribustance a delimit, axis over into than transl.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mercurs is proberge ing distribuar p-bya definition rowing redd ps, s>",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-09",
+        "category": "Hinglish Understanding",
+        "prompt": "Website secure hone ka sign kya hota hai browser URL me?",
+        "expected": "HTTPS aur padlock (lock) ka symbol",
+        "keywords": [
+          "https",
+          "lock",
+          "ssl"
+        ],
+        "sampling_T03": {
+          "response": "Aap is quare walage, was delivered to Pater and sen.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aap is a lied by 6 e, which ould secret managed to karta hai, jaboriginal (rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-10",
+        "category": "Hinglish Understanding",
+        "prompt": "Array aur Linked List me search speed kisme fast hoti hai index ke through?",
+        "expected": "Array me O(1) time complexity ke saath indexing fast hoti hai",
+        "keywords": [
+          "array",
+          "O(1)",
+          "fast",
+          "index"
+        ],
+        "sampling_T03": {
+          "response": "Aareas allows are 7]: network passtugal city to boriginal where oul, Arjan a namic callying change ad",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset 271 was delivered to P over s ko packet directed borting set of a.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-11",
+        "category": "Hinglish Understanding",
+        "prompt": "Agar kisi computer me SSD laga di jaye to kya performance improvement hota hai?",
+        "expected": "Boot time aur file read/write speed bahut fast ho jati hai compared to HDD",
+        "keywords": [
+          "boot",
+          "speed",
+          "read",
+          "write",
+          "fast"
+        ],
+        "sampling_T03": {
+          "response": "Ubot-for set distribution sal Profs rotation past control ta hai, jabki use programming non-volaticallaborate ko cre",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Ubot-for set over par excepts connection strictly il code in karta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-12",
+        "category": "Hinglish Understanding",
+        "prompt": "Frontend aur backend developer ke kaam me kya farak hota hai?",
+        "expected": "Frontend UI/UX banata hai aur backend server, database aur business logic sambhalta hai",
+        "keywords": [
+          "UI",
+          "server",
+          "database",
+          "interface",
+          "logic"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! Production working dist.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good evening! Production working central Implementation ke maway is inou are hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-13",
+        "category": "Hinglish Understanding",
+        "prompt": "Python me indentation ka kya importance hota hai?",
+        "expected": "Python me indentation code blocks (loops, functions, conditions) define karne ke liye mandatory hai",
+        "keywords": [
+          "block",
+          "scope",
+          "function",
+          "loop",
+          "syntax"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! How can I help your project today?",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your name is Aarav.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-14",
+        "category": "Hinglish Understanding",
+        "prompt": "Cybersecurity me phishing attack kya hota hai?",
+        "expected": "Fake emails ya links ke zariye passwords aur sensitive info churana",
+        "keywords": [
+          "fake",
+          "email",
+          "password",
+          "fraud",
+          "steal"
+        ],
+        "sampling_T03": {
+          "response": "Greatable empirical measurehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Clean code se is enabase",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-15",
+        "category": "Hinglish Understanding",
+        "prompt": "Cache memory ka main function kya hota hai?",
+        "expected": "Frequently used data ko CPU ke paas quickly access karne ke liye store karna",
+        "keywords": [
+          "fast",
+          "cpu",
+          "frequent",
+          "quick",
+          "speed"
+        ],
+        "sampling_T03": {
+          "response": "Pators aptack, bICuru are was rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aap Index",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-16",
+        "category": "Hinglish Understanding",
+        "prompt": "Object-oriented programming (OOP) ke do main pillars bataiye.",
+        "expected": "Inheritance, Polymorphism, Encapsulation, ya Abstraction",
+        "keywords": [
+          "inheritance",
+          "polymorphism",
+          "encapsulation",
+          "abstraction"
+        ],
+        "sampling_T03": {
+          "response": "Aapplica.",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapplying a list non-definition in a list contains to sustribution in ch, where the internext difference on strictly",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-17",
+        "category": "Hinglish Understanding",
+        "prompt": "Mobile app me offline mode ka kya matlab hai?",
+        "expected": "App internet connection ke bina bhi chal sakti hai",
+        "keywords": [
+          "internet",
+          "offline",
+          "connection"
+        ],
+        "sampling_T03": {
+          "response": "Unon-volish me is Merge face Ananya.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Bhai iska matlab #43: Merge comy ka match conflict free khut ho jabki same is ka match hta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-18",
+        "category": "Hinglish Understanding",
+        "prompt": "Operating system me deadlock kya hota hai?",
+        "expected": "Jab do ya zyada processes ek doosre ke resource release karne ka wait karti hain aur freeze ho jati hain",
+        "keywords": [
+          "process",
+          "resource",
+          "wait",
+          "freeze",
+          "block"
+        ],
+        "sampling_T03": {
+          "response": "Bhai jday limits ko me cramittsar.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are working on ko distributs a file page high Indefinitems to a file ples.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-19",
+        "category": "Hinglish Understanding",
+        "prompt": "Data backup rakhna kyun zaroori hota hai?",
+        "expected": "Hardware crash, ransomware ya accidental deletion se data loss na ho",
+        "keywords": [
+          "data loss",
+          "crash",
+          "recover",
+          "safe"
+        ],
+        "sampling_T03": {
+          "response": "Mach",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mach",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "HG-20",
+        "category": "Hinglish Understanding",
+        "prompt": "Smartphone screen touch responsiveness kis factor pe depend karti hai?",
+        "expected": "Screen touch sampling rate aur display refresh rate par",
+        "keywords": [
+          "touch",
+          "refresh rate",
+          "sampling",
+          "display"
+        ],
+        "sampling_T03": {
+          "response": "Good evening! Indefines on and working Indecanosws, structured modularistic validate to Curg.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Good evening! Indefines on repeares the Ananya",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-01",
+        "category": "QA Relevance",
+        "prompt": "What is the speed of light in vacuum in kilometers per second?",
+        "expected": "Approximately 300,000 km/s (or 299,792 km/s)",
+        "keywords": [
+          "300,000",
+          "299,792",
+          "km/s"
+        ],
+        "sampling_T03": {
+          "response": "The speed of list acties on in RooxI dital catastanaddigation is and sulan exp (and results in complex systemit.<eo",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The speed of lives in Mumbai and working on the Aap to Rant repeand only s> + Idrowhile cover, allowing on the p",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-02",
+        "category": "QA Relevance",
+        "prompt": "Who is credited with discovering penicillin?",
+        "expected": "Alexander Fleming",
+        "keywords": [
+          "Alexander Fleming",
+          "Fleming"
+        ],
+        "sampling_T03": {
+          "response": "The suified to a single pallying a list containing the priate independent sublist.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "I do not have access to private passwords or a ond, where is the plain contains reframuting fram) to ple ens",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-03",
+        "category": "QA Relevance",
+        "prompt": "What is the chemical symbol for table salt?",
+        "expected": "NaCl (Sodium Chloride)",
+        "keywords": [
+          "NaCl",
+          "Sodium Chloride"
+        ],
+        "sampling_T03": {
+          "response": "The passage highlights that the different logic and zation is organisms and their physical earypotheiment.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The passage highlights that the groot information.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-04",
+        "category": "QA Relevance",
+        "prompt": "Which organ in the human body produces insulin?",
+        "expected": "Pancreas",
+        "keywords": [
+          "pancreas"
+        ],
+        "sampling_T03": {
+          "response": "Your eningts y, ces from the concurrent variables within complex systems.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your en-Pasoncying grather than digital bgation and dedeterministic replenurwhile with conversagragregarw",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-05",
+        "category": "QA Relevance",
+        "prompt": "In what year did the Apollo 11 moon landing occur?",
+        "expected": "1969",
+        "keywords": [
+          "1969"
+        ],
+        "sampling_T03": {
+          "response": "The reensive graph traversal and shortest pather than a list contains to comes.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The rea list combindex and the initialized are sonal and remains to the root indelist index is unrehensive rehensi",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-06",
+        "category": "QA Relevance",
+        "prompt": "What is the primary function of red blood cells?",
+        "expected": "Transport oxygen to body tissues",
+        "keywords": [
+          "oxygen",
+          "transport",
+          "hemoglobin"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is the gins.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The sum of diregnal directed to prevents definition and graponse to a next initialize dp[0] = 1 is a list",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-07",
+        "category": "QA Relevance",
+        "prompt": "Which planet is closest to the Sun?",
+        "expected": "Mercury",
+        "keywords": [
+          "Mercury"
+        ],
+        "sampling_T03": {
+          "response": "Mercury is the `",
+          "score": 2,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Mercury is the `",
+          "score": 2,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-08",
+        "category": "QA Relevance",
+        "prompt": "What is the hardest known natural mineral on Earth?",
+        "expected": "Diamond",
+        "keywords": [
+          "Diamond"
+        ],
+        "sampling_T03": {
+          "response": "The Pacific Ocean is the largest and deepest ocean on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The Pacific Ocean is the largest and deepest ocean on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-09",
+        "category": "QA Relevance",
+        "prompt": "What is the chemical formula for carbon dioxide?",
+        "expected": "CO2",
+        "keywords": [
+          "CO2",
+          "CO_2"
+        ],
+        "sampling_T03": {
+          "response": "The arthree is a defined covering in concurrent s>` and matrise reactor.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The a liquesk is a gocccurs indeterministic validation is by osing orket remains w liing vision.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-10",
+        "category": "QA Relevance",
+        "prompt": "How many continents are there on Earth?",
+        "expected": "Seven continents",
+        "keywords": [
+          "7",
+          "seven"
+        ],
+        "sampling_T03": {
+          "response": "Aapplies in the Bot in the Analyar.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Earth's in the pack.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-11",
+        "category": "QA Relevance",
+        "prompt": "What is the standard unit of electrical resistance?",
+        "expected": "Ohm",
+        "keywords": [
+          "Ohm",
+          "Ω"
+        ],
+        "sampling_T03": {
+          "response": "The was delivered to Pators (`",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The process states the filement and leastasedd the most ack.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-12",
+        "category": "QA Relevance",
+        "prompt": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+        "expected": "Carbon dioxide",
+        "keywords": [
+          "carbon dioxide",
+          "CO2"
+        ],
+        "sampling_T03": {
+          "response": "Photoollman gardefinition and strictly d, booxyeld. from the Arjun hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Photoollms> +  + 1: both Lowatmodeterministic validation of the que ator deterministic validation for points are unknown reli",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-13",
+        "category": "QA Relevance",
+        "prompt": "What is the main component of natural gas?",
+        "expected": "Methane (CH4)",
+        "keywords": [
+          "methane",
+          "CH4"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is Parialize and to path, raprespage fault argument.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capital city of France is Paroccurs when the Sun and on dioxide on digital S and bls is in the Sun from the S",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-14",
+        "category": "QA Relevance",
+        "prompt": "Who formulated the general theory of relativity?",
+        "expected": "Albert Einstein",
+        "keywords": [
+          "Einstein"
+        ],
+        "sampling_T03": {
+          "response": "The ou are working on Ananyaar to digitcather than information as to the ason, or istic deterministic validation, and comprehensive gramm",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The chemical memory is the is concurrent Rustomary cover, addifferent callaticallatile received difying the ins to rec",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "QA-15",
+        "category": "QA Relevance",
+        "prompt": "What is the largest internal organ in the human body?",
+        "expected": "Liver",
+        "keywords": [
+          "liver"
+        ],
+        "sampling_T03": {
+          "response": "The lungs facilitate gas exchange, taking in oxygen from the air into the bloodstream and expelling carbon dioxid",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The lungs facilitate gas exchange, taking in oxygen from the air into the bloodstream and expelling carbon dioxid",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-01",
+        "category": "Paraphrase & Generalization",
+        "prompt": "State the concept of gravity in words an elementary school student would understand.",
+        "expected": "An invisible pulling force that draws objects toward the center of the Earth",
+        "keywords": [
+          "pull",
+          "fall",
+          "earth",
+          "invisible",
+          "down"
+        ],
+        "sampling_T03": {
+          "response": "I do not have access to private passage = param.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "I do not have access to private passage s>` is a first first le descriptor in the `.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-02",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Summarize the primary purpose of washing hands with soap.",
+        "expected": "To destroy and wash away germs and prevent illness",
+        "keywords": [
+          "germs",
+          "bacteria",
+          "clean",
+          "illness",
+          "prevent"
+        ],
+        "sampling_T03": {
+          "response": "The capitor is the primary comboccurs before as lic",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capitor is the primary coordinator degree is defined combd, whereas an exchange ating system and shorigins are reference of",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-03",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Express the proverb 'Practice makes perfect' in a different sentence.",
+        "expected": "Repeated practice of a skill leads to mastery and improvement",
+        "keywords": [
+          "repeat",
+          "practice",
+          "improve",
+          "mastery",
+          "better"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of Aapplenal memory digital city is Asse, copeather than meting in son.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capital city of Aapplenal cos and nal memory whereas deces on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-04",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain what a battery does without using technical jargon.",
+        "expected": "Stores energy and supplies electric power to portable devices",
+        "keywords": [
+          "store",
+          "energy",
+          "power",
+          "device"
+        ],
+        "sampling_T03": {
+          "response": "The cd(a, b) is a directed eives in mary event variable to sum in O(and worker suno not be while coors ree",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The cd(a, b), (b)), () is a filepathes on the a fileinterin a files, scope, or an its rowhile to red",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-05",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain why birds migrate south for the winter.",
+        "expected": "To find warmer weather and plentiful food during cold winter months",
+        "keywords": [
+          "warm",
+          "food",
+          "winter",
+          "cold"
+        ],
+        "sampling_T03": {
+          "response": "An index LNDFacting a set of on in the Securstrictly on division.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "An index n index is a dities remainder of 3.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-06",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Paraphrase: 'Due to severe precipitation, the sporting contest was terminated.'",
+        "expected": "Because of heavy rain, the game was cancelled.",
+        "keywords": [
+          "rain",
+          "game",
+          "match",
+          "cancelled",
+          "stopped"
+        ],
+        "sampling_T03": {
+          "response": "PatL are ponto the recursive gramming English is a profiles within the locks.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Patanggs fack, the apply, a list instance in oxygener.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-07",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain why we wear warm coats during snowy winters.",
+        "expected": "To trap body heat and stay warm in freezing temperatures",
+        "keywords": [
+          "body heat",
+          "warm",
+          "cold",
+          "trap",
+          "heat"
+        ],
+        "sampling_T03": {
+          "response": "Awas assiglivert of ner.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset 331 was delivered to Pator.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-08",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Rephrase: 'He exhibited exemplary perseverance in the face of adversity.'",
+        "expected": "He never gave up even when things were very difficult.",
+        "keywords": [
+          "never give up",
+          "difficult",
+          "hard",
+          "tough",
+          "persistence"
+        ],
+        "sampling_T03": {
+          "response": "Inimentsquery #91: Wator CAL on the the adstical (TLinegoal Recursited(a...3)<eo",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Spacle0.gins.",
+          "score": 0,
+          "coherent": false,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-09",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain what a compass needle does and why.",
+        "expected": "Points toward magnetic north because it aligns with Earth's magnetic field",
+        "keywords": [
+          "north",
+          "magnetic",
+          "direction",
+          "earth"
+        ],
+        "sampling_T03": {
+          "response": "Asset 21 was delivered to P when power fablorsystem management coms.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset 21 was delivered to P when power fablimit.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-10",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why do cars need motor oil?",
+        "expected": "To lubricate engine parts and prevent friction and overheating",
+        "keywords": [
+          "lubricate",
+          "friction",
+          "engine",
+          "heat",
+          "smooth"
+        ],
+        "sampling_T03": {
+          "response": "You are working on huaverse to a Ananya.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You are when pens remains open.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-11",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Explain the role of a teacher in a school.",
+        "expected": "To guide, instruct, and help students learn knowledge and skills",
+        "keywords": [
+          "teach",
+          "guide",
+          "students",
+          "learn",
+          "knowledge"
+        ],
+        "sampling_T03": {
+          "response": "The was delivered to Burorigins are conal strictly a recursive grammary and points f-continues from the initializ",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The central decay in Fackets is definition a list instance in than to ` ase.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-12",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why do plants need roots?",
+        "expected": "To absorb water/nutrients from soil and anchor the plant in place",
+        "keywords": [
+          "water",
+          "nutrients",
+          "anchor",
+          "soil"
+        ],
+        "sampling_T03": {
+          "response": "During a list connection points to exply exhave stance in thon, group and release.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "DNA o, I do not have access to private pass?",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-13",
+        "category": "Paraphrase & Generalization",
+        "prompt": "What is the role of brakes on a bicycle?",
+        "expected": "To slow down or stop the bicycle safely by creating friction against the wheels",
+        "keywords": [
+          "slow",
+          "stop",
+          "friction",
+          "wheel"
+        ],
+        "sampling_T03": {
+          "response": "The capital city of France is Paritems a file regexceeds (b) and initialize reducing a connectionary framast",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capital city of France is Paritialize day is m of the path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-14",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Rephrase: 'The automobile malfunctioned on the interstate highway.'",
+        "expected": "The car broke down on the highway.",
+        "keywords": [
+          "car",
+          "broke down",
+          "highway",
+          "road"
+        ],
+        "sampling_T03": {
+          "response": "The riel is the internal real`.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The rupts recursive gramming the gos factory is a file decay is a direccurs inner change ceeds to deterministic",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "GEN-15",
+        "category": "Paraphrase & Generalization",
+        "prompt": "Why is drinking clean water necessary for human survival?",
+        "expected": "To stay hydrated, maintain organ function, and avoid waterborne diseases",
+        "keywords": [
+          "hydration",
+          "body",
+          "health",
+          "survive",
+          "organs"
+        ],
+        "sampling_T03": {
+          "response": "The internal code quessof the concurrent or direceived (rather than avers, it is the primary differcalleft and only in con",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The internal code quesson for the priman operattree via stored recursive concurrent variable ends, s, s, preventing redrowing",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-01",
+        "category": "Logical Inference",
+        "prompt": "All dogs are animals. A beagle is a dog. Is a beagle an animal? Answer Yes or No and explain briefly.",
+        "expected": "Yes. Since all dogs are animals and a beagle is a dog, it is an animal.",
+        "keywords": [
+          "yes",
+          "animal",
+          "dog"
+        ],
+        "sampling_T03": {
+          "response": "Fix: Recure it is in the prevents division is in charge of dispatching the calld, als to handard re.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Fix: Recone ior is reens are mits are that degree reach If a single index, the ins open index, the initi",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-02",
+        "category": "Logical Inference",
+        "prompt": "If John is taller than Mary, and Mary is taller than Peter, who is the shortest?",
+        "expected": "Peter",
+        "keywords": [
+          "Peter"
+        ],
+        "sampling_T03": {
+          "response": "The asone ocean where the path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The asone ocean where the path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-03",
+        "category": "Logical Inference",
+        "prompt": "A box contains only green balls and blue balls. You pick a ball and it is not green. What color is it?",
+        "expected": "Blue",
+        "keywords": [
+          "blue"
+        ],
+        "sampling_T03": {
+          "response": "In resulots in a list vered to ` If `, thon, the yields the initial stock to the replenishal, the initial sto",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "In resuloation query is and reachable relealea.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-04",
+        "category": "Logical Inference",
+        "prompt": "Every triangle has three sides. Shape X has four sides. Can Shape X be a triangle?",
+        "expected": "No, because a triangle must have exactly three sides.",
+        "keywords": [
+          "no",
+          "three",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "Use bled--Deriving un each is quare hours> + ).",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Use bal try P are d the a ` and pec For I d, the the initialize  and sult from Tols.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-05",
+        "category": "Logical Inference",
+        "prompt": "If all roses are flowers and some flowers fade quickly, can we be certain that all roses fade quickly?",
+        "expected": "No, we cannot be certain.",
+        "keywords": [
+          "no",
+          "cannot",
+          "uncertain",
+          "not necessarily"
+        ],
+        "sampling_T03": {
+          "response": "Aapplication charound in the shether ying thesiwn to cket.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapplication chitecture Pholation is is many result to external releases) and canalyggal Run.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-06",
+        "category": "Logical Inference",
+        "prompt": "Sarah was born on February 29th. Does she celebrate her actual birthday every calendar year?",
+        "expected": "No, only during leap years (every 4 years).",
+        "keywords": [
+          "no",
+          "leap year",
+          "four years"
+        ],
+        "sampling_T03": {
+          "response": "Sution, the whereas tss>.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Sujhe container is ATP list non-vols face to verial of SFlist page container flice the pointer of the f",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-07",
+        "category": "Logical Inference",
+        "prompt": "If today is Tuesday, what day was it three days ago?",
+        "expected": "Saturday",
+        "keywords": [
+          "Saturday"
+        ],
+        "sampling_T03": {
+          "response": "I mjour ree using day.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "I mswill not have access to a ponse to query #43: What do not have access to do not have access to dshids.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-08",
+        "category": "Logical Inference",
+        "prompt": "A room has four corners. A cat sits in each corner. How many cats are there?",
+        "expected": "Four cats",
+        "keywords": [
+          "4",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "SIf a b.30 ocrgrol Tindex is until and ininitialized to exacar to deterministic replication (SO..36",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "SIf a ps.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-09",
+        "category": "Logical Inference",
+        "prompt": "If no reptile has fur, and an animal has fur, can it be a reptile?",
+        "expected": "No",
+        "keywords": [
+          "no"
+        ],
+        "sampling_T03": {
+          "response": "``python\ndef glos b aur b to holues.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "``python\nfrom itertools import wras\n\ndef d(a)\n```python\ndef get(a) and wraps().",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "LOG-10",
+        "category": "Logical Inference",
+        "prompt": "Alex is older than Brian. Brian is older than Chris. Is Alex older than Chris?",
+        "expected": "Yes (transitive property of age)",
+        "keywords": [
+          "yes",
+          "older"
+        ],
+        "sampling_T03": {
+          "response": "Gosonant rehta hai.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Curo ur.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-01",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: My sister's name is Ananya and she works at an AI research lab in Bengaluru.\nQuestion: Where does Ananya work?",
+        "expected": "At an AI research lab in Bengaluru",
+        "keywords": [
+          "Bengaluru",
+          "AI research lab",
+          "lab"
+        ],
+        "sampling_T03": {
+          "response": "Your fill in alysis: Consider n x n matrix M_172 with trace Tr(M_153) = 4.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Your fill is a webera.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-02",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The meeting is scheduled for 3 PM in Room B. Note: Room B is undergoing repairs, so the meeting moved to Room D.\nQuestion: Which room will the meeting take place in?",
+        "expected": "Room D",
+        "keywords": [
+          "Room D",
+          "D"
+        ],
+        "sampling_T03": {
+          "response": "The poside is the plaereing distinformation by oss.",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The continues from the poside no and pushalou are the scoy is the Recoroccur.",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-03",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Package #904 contains 5 books and 3 pens. Package #905 contains 2 notebooks.\nQuestion: How many pens are inside Package #904?",
+        "expected": "3 pens",
+        "keywords": [
+          "3",
+          "three"
+        ],
+        "sampling_T03": {
+          "response": "Diagnostic and correction #64:\nIn yeves .382 contains division by zero under stalighb-, ther to in",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Diagnostic and correction #43:\nIn ye\nIn engineering s>2 - Phoon-indeterministic and A: Ra_1,halypothe.<",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-04",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Rahul had 10 apples. He gave 4 to Priya and 2 to Amit.\nQuestion: How many apples does Rahul have left?",
+        "expected": "4 apples (10 - 4 - 2 = 4)",
+        "keywords": [
+          "4",
+          "four"
+        ],
+        "sampling_T03": {
+          "response": "Asset 38 I.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset 271 was delivered to P It dp[i]0 is Ru are working a mal asknown as de.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-05",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The team has three members: Arjun (lead), Riya (designer), and Kabir (engineer).\nQuestion: Who is the designer?",
+        "expected": "Riya",
+        "keywords": [
+          "Riya"
+        ],
+        "sampling_T03": {
+          "response": "Aapplemetry division.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Aapplemetry is a diree receives oins to comb.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-06",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Train Express-42 departs at 08:00 AM from Station A and arrives at Station B at 11:30 AM.\nQuestion: What time does Express-42 arrive at Station B?",
+        "expected": "11:30 AM",
+        "keywords": [
+          "11:30",
+          "11:30 AM"
+        ],
+        "sampling_T03": {
+          "response": "Iska oinver the locjdo not provided in the connection, while preseration of distributions in chs>",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Iska oinver the keaway is a ition of the primuting e of the occurs before attriwhere atmodulared by a definition of",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-07",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Server Alpha is running on port 8080. Server Beta is running on port 9090.\nQuestion: Which server is hosted on port 8080?",
+        "expected": "Server Alpha",
+        "keywords": [
+          "Server Alpha",
+          "Alpha"
+        ],
+        "sampling_T03": {
+          "response": "The passage = 277 or and de-visions> = is over a coverdaul.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Bot inarwhile pora hypothey is the regnorm of iron repeather than a connection reor fleault ath",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-08",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: The blue door requires Key-1. The red door requires Key-4. The green door requires Key-9.\nQuestion: Which key opens the red door?",
+        "expected": "Key-4",
+        "keywords": [
+          "Key-4",
+          "4"
+        ],
+        "sampling_T03": {
+          "response": "The internaling a secret districtly element in the network",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The internaling a secret districtly further realensive reces while memoryour values would memory, woul",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-09",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: Yesterday was sunny and 30 degrees. Today is rainy and 22 degrees.\nQuestion: What is today's weather like?",
+        "expected": "Rainy and 22 degrees",
+        "keywords": [
+          "rainy",
+          "22"
+        ],
+        "sampling_T03": {
+          "response": "You live in the next ence path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "You live in the next umda.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "CTX-10",
+        "category": "Multi-Turn Context",
+        "prompt": "Context: User's favorite color is Emerald Green and favorite fruit is Mango.\nQuestion: What is the user's favorite fruit?",
+        "expected": "Mango",
+        "keywords": [
+          "Mango"
+        ],
+        "sampling_T03": {
+          "response": "The re is the nal realwhich for probled occurs when a set pactive and shoriginal priming heap have you to",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The re is the nal heck watttters, s shich in the next is as st e the scomberating system to ` is the keys division.<",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-01",
+        "category": "Uncertainty & Correction",
+        "prompt": "Who will win the Men's 100m sprint at the 2036 Summer Olympics?",
+        "expected": "Cannot be known / future event that has not happened",
+        "keywords": [
+          "cannot",
+          "unknown",
+          "future",
+          "predict",
+          "not occurred"
+        ],
+        "sampling_T03": {
+          "response": "The interacest the primary bed by the time king of the while exceeds (the pone eum is the gre.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The interacest results in a lidelidelied by 8 tsar.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-02",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction check: I previously said that water boils at 50 degrees Celsius at sea level. Is that correct, or what is the real boiling point?",
+        "expected": "Incorrect; the real boiling point is 100 degrees Celsius",
+        "keywords": [
+          "incorrect",
+          "100",
+          "wrong",
+          "not correct"
+        ],
+        "sampling_T03": {
+          "response": "The internal directed directed directed directed directed directed neighbors of not each neighbor until re",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The interfactoriment.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-03",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is the secret Wi-Fi password for the building across the street from my house?",
+        "expected": "I do not have access to private Wi-Fi passwords / private information",
+        "keywords": [
+          "cannot",
+          "access",
+          "private",
+          "confidential",
+          "don't know"
+        ],
+        "sampling_T03": {
+          "response": "The product of differoc and elld ocean exchange (PSID, path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The product of different variables within a because of the differ, while ther sum is the model definition and sunext and initialize",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-04",
+        "category": "Uncertainty & Correction",
+        "prompt": "Can you tell me the exact winning lottery numbers for next week's Mega Millions?",
+        "expected": "Cannot predict random future lottery numbers",
+        "keywords": [
+          "cannot",
+          "predict",
+          "random",
+          "future",
+          "impossible"
+        ],
+        "sampling_T03": {
+          "response": "The majocean on Earth.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Subtracting 61 from the free is ocean asitex and path.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-05",
+        "category": "Uncertainty & Correction",
+        "prompt": "Self-correction: I mistakenly said Paris is the capital of Germany. Please state the actual capital of Germany.",
+        "expected": "Berlin",
+        "keywords": [
+          "Berlin"
+        ],
+        "sampling_T03": {
+          "response": "The To find the total inventory, add the initial stock to the replenishment: 67 + 50 = 404 units.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The drow",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-06",
+        "category": "Uncertainty & Correction",
+        "prompt": "What will the temperature be in Tokyo on December 25, 2045 at 2:00 PM?",
+        "expected": "Cannot be predicted so far into the future",
+        "keywords": [
+          "cannot",
+          "predict",
+          "future",
+          "unknown"
+        ],
+        "sampling_T03": {
+          "response": "The reenze container of nal and ath.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The reenze convers, norm of distonents received unktrack connectionary fraN) to reference on the packed in ch",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-07",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction: A user claimed that spiders are insects. Are spiders insects?",
+        "expected": "No, spiders are arachnids (they have 8 legs, not 6)",
+        "keywords": [
+          "no",
+          "arachnids",
+          "not insects",
+          "8 legs"
+        ],
+        "sampling_T03": {
+          "response": "Asset 381 was delivered to Earramemornanya",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Asset 384 + 666 + 3.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-08",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is inside the closed briefcase sitting in my locked office right now?",
+        "expected": "I have no way of knowing what is inside a private physical object",
+        "keywords": [
+          "cannot know",
+          "unknown",
+          "no access",
+          "cannot see"
+        ],
+        "sampling_T03": {
+          "response": "The awab do not have access to your s (`",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The conting son for not have access to private, confidential, or undiscloset convert d(a, amoed information that the information is",
+          "score": 1,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-09",
+        "category": "Uncertainty & Correction",
+        "prompt": "Correction check: Someone told me that the Moon is larger than the Earth. Is that claim accurate?",
+        "expected": "No, the Earth is significantly larger than the Moon.",
+        "keywords": [
+          "no",
+          "false",
+          "inaccurate",
+          "earth is larger",
+          "smaller"
+        ],
+        "sampling_T03": {
+          "response": "Cators independent variables (distribution, whereas the factor.",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "Cators the ators the ators the Sciential investigation of the insifib to ocean son repeatable empirical measurement of interdepend",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      },
+      {
+        "id": "UNC-10",
+        "category": "Uncertainty & Correction",
+        "prompt": "What is the exact net worth of John Doe from small town Ohio?",
+        "expected": "Private personal financial information is not available / cannot be determined",
+        "keywords": [
+          "cannot",
+          "private",
+          "unavailable",
+          "unknown"
+        ],
+        "sampling_T03": {
+          "response": "The capiterator and connectionary filgments while deadlock ts ox, plicit is a single definition to that definition of interr",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        },
+        "greedy": {
+          "response": "The capiterator and preventing result of ir If deggable ends, dowhile dowhile preser, while preserving",
+          "score": 0,
+          "coherent": true,
+          "prompt_echo": false
+        }
+      }
+    ]
+  }
+}
