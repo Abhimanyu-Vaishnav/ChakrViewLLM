@@ -1,0 +1,55 @@
+{
+  "NR051_Pretraining": {
+    "corpus": "data/pretraining_nr051/pretrain_train.jsonl",
+    "nominal_train_tokens": 1026382,
+    "nominal_train_docs": 8450,
+    "batch_size": 32,
+    "max_seq_len": 256,
+    "training_steps": 529,
+    "tokens_consumed_by_optimizer": 540336,
+    "effective_corpus_passes": 0.53,
+    "lr_schedule": "Cosine decay with linear warmup (100 steps)",
+    "optimizer": "AdamW (lr=5e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+    "validation_frequency": "Every 100 steps and at final step (529)",
+    "best_checkpoint_selection": "Lowest validation loss over unmasked target tokens"
+  },
+  "NR051_Conversational_SFT": {
+    "corpus": "data/corpus_v3/corpus_v3_train.jsonl",
+    "nominal_train_samples": 4075,
+    "batch_size": 16,
+    "max_seq_len": 256,
+    "epochs": 2,
+    "training_steps": 510,
+    "loss_masking": "Response-only (prompt and pad tokens masked with -100)",
+    "optimizer": "AdamW (lr=1e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+    "validation_frequency": "Every 50 steps and at final step (510)",
+    "best_checkpoint_selection": "Lowest validation response loss"
+  },
+  "NR052_Pretraining": {
+    "corpus": "data/corpus_v4/corpus_v4_train.jsonl",
+    "nominal_train_tokens": 592824,
+    "nominal_train_docs": 5828,
+    "batch_size": 32,
+    "max_seq_len": 256,
+    "training_steps": 358,
+    "epochs": 2,
+    "tokens_consumed_by_optimizer": 1181206,
+    "effective_corpus_passes": 1.99,
+    "lr_schedule": "Cosine decay with linear warmup (min(100, 10% steps))",
+    "optimizer": "AdamW (lr=5e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+    "validation_frequency": "Every 75 steps and at final step (358)",
+    "best_checkpoint_selection": "Lowest validation loss over unmasked target tokens"
+  },
+  "NR052_Conversational_SFT": {
+    "corpus": "data/corpus_v3/corpus_v3_train.jsonl",
+    "nominal_train_samples": 4075,
+    "batch_size": 16,
+    "max_seq_len": 256,
+    "epochs": 2,
+    "training_steps": 510,
+    "loss_masking": "Response-only (prompt and pad tokens masked with -100)",
+    "optimizer": "AdamW (lr=1e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+    "validation_frequency": "Every 50 steps and at final step (510)",
+    "best_checkpoint_selection": "Lowest validation response loss"
+  }
+}

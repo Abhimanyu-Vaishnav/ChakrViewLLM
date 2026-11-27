@@ -1,0 +1,699 @@
+{
+  "mission": "NR-053",
+  "title": "Generalization, Data Leakage & Overfitting Forensic Validation",
+  "date": "2026-11-27",
+  "status": "FORENSIC_AUDIT_COMPLETE",
+  "training_exposure": {
+    "NR051_Pretraining": {
+      "corpus": "data/pretraining_nr051/pretrain_train.jsonl",
+      "nominal_train_tokens": 1026382,
+      "nominal_train_docs": 8450,
+      "batch_size": 32,
+      "max_seq_len": 256,
+      "training_steps": 529,
+      "tokens_consumed_by_optimizer": 540336,
+      "effective_corpus_passes": 0.53,
+      "lr_schedule": "Cosine decay with linear warmup (100 steps)",
+      "optimizer": "AdamW (lr=5e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+      "validation_frequency": "Every 100 steps and at final step (529)",
+      "best_checkpoint_selection": "Lowest validation loss over unmasked target tokens"
+    },
+    "NR051_Conversational_SFT": {
+      "corpus": "data/corpus_v3/corpus_v3_train.jsonl",
+      "nominal_train_samples": 4075,
+      "batch_size": 16,
+      "max_seq_len": 256,
+      "epochs": 2,
+      "training_steps": 510,
+      "loss_masking": "Response-only (prompt and pad tokens masked with -100)",
+      "optimizer": "AdamW (lr=1e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+      "validation_frequency": "Every 50 steps and at final step (510)",
+      "best_checkpoint_selection": "Lowest validation response loss"
+    },
+    "NR052_Pretraining": {
+      "corpus": "data/corpus_v4/corpus_v4_train.jsonl",
+      "nominal_train_tokens": 592824,
+      "nominal_train_docs": 5828,
+      "batch_size": 32,
+      "max_seq_len": 256,
+      "training_steps": 358,
+      "epochs": 2,
+      "tokens_consumed_by_optimizer": 1181206,
+      "effective_corpus_passes": 1.99,
+      "lr_schedule": "Cosine decay with linear warmup (min(100, 10% steps))",
+      "optimizer": "AdamW (lr=5e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+      "validation_frequency": "Every 75 steps and at final step (358)",
+      "best_checkpoint_selection": "Lowest validation loss over unmasked target tokens"
+    },
+    "NR052_Conversational_SFT": {
+      "corpus": "data/corpus_v3/corpus_v3_train.jsonl",
+      "nominal_train_samples": 4075,
+      "batch_size": 16,
+      "max_seq_len": 256,
+      "epochs": 2,
+      "training_steps": 510,
+      "loss_masking": "Response-only (prompt and pad tokens masked with -100)",
+      "optimizer": "AdamW (lr=1e-4, betas=(0.9, 0.98), eps=1e-8, wd=0.01)",
+      "validation_frequency": "Every 50 steps and at final step (510)",
+      "best_checkpoint_selection": "Lowest validation response loss"
+    }
+  },
+  "corpus_split_integrity": {
+    "nominal_tokens": {
+      "total_verified": 624068,
+      "train_tokens": 592824,
+      "val_tokens": 31244,
+      "includes_val_in_total": true
+    },
+    "exact_document_overlap": 0,
+    "normalized_text_overlap": 0,
+    "near_duplicate_count_sample": 9,
+    "near_duplicate_examples": [
+      {
+        "val_text": "Jawab #74: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jab",
+        "train_text": "Jawab #94: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jab",
+        "jaccard": 0.846
+      },
+      {
+        "val_text": "राष्ट्र एवं पर्यावरण अध्ययन [हिमालय पर्वतमाला और भारत का पर्यावरण अनुच्छेद 23]: उत्तुंग हिमालय न केव",
+        "train_text": "राष्ट्र एवं पर्यावरण अध्ययन [हिमालय पर्वतमाला और भारत का पर्यावरण अनुच्छेद 18]: उत्तुंग हिमालय न केव",
+        "jaccard": 0.815
+      },
+      {
+        "val_text": "Jawab #20: VM pura guest operating system virtualize karta hai jo heavy hota hai, jabki Docker host ",
+        "train_text": "Jawab #10: VM pura guest operating system virtualize karta hai jo heavy hota hai, jabki Docker host ",
+        "jaccard": 0.862
+      }
+    ],
+    "shared_source_files_count": 10,
+    "shared_source_files": [
+      "data/corpus_v3/corpus_v3_train.jsonl",
+      "data/raw/code/stage_b_algorithms.txt",
+      "data/raw/english/stage_b_systems.txt",
+      "data/raw/hindi/stage_b_literature.txt",
+      "data/raw/hinglish/stage_b_dialogues.txt",
+      "data/raw/mathematics/stage_b_derivations.txt",
+      "data/raw/reasoning/stage_b_procedures.txt",
+      "data/raw/sanskrit/stage_b_classics.txt",
+      "data/sft/ucip14r/sft_train_12000.jsonl",
+      "data/stage_e_corpus_013/stage_e_train.jsonl"
+    ],
+    "sealed_120_hits_in_train": 1,
+    "matched_1000_hits_in_train": 0
+  },
+  "metric_validation": {
+    "pretraining_audit": {
+      "recorded_loss": 1.1683969727325267,
+      "recomputed_loss": 1.1684,
+      "loss_match": true,
+      "recorded_ppl": 3.216831834033646,
+      "recomputed_ppl": 3.22,
+      "ppl_formula_exact": true,
+      "token_level_weighting_verified": true
+    },
+    "sft_audit": {
+      "recorded_loss": 1.9964368165511261,
+      "recomputed_loss": 1.9964,
+      "loss_match": true,
+      "recorded_ppl": 7.362774387622161,
+      "recomputed_ppl": 7.36,
+      "sft_ppl_formula_exact": true,
+      "response_only_masking_verified": true
+    }
+  },
+  "checkpoint_provenance": [
+    {
+      "candidate_id": "RC3_17M",
+      "name": "ChakrView 1.0 RC3 Best",
+      "checkpoint_path": "experiments/fast_track_047_049/chakr_1_0_rc3_best.pt",
+      "actual_sha256": "61b39ae2bc55c116ed3ec8164497ec798d1fb6994a449d852248b266cd9dc73c",
+      "init_checkpoint": "experiments/genesis_stage_d_011/checkpoints/genesis_17m_staged_best.pt (2c21632e...)",
+      "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+      "pretrain_corpus": "Stage-D historical pretrain (legacy)",
+      "sft_corpus": "Corpus V3 (train: 4,075 samples)",
+      "val_loss": 1.18,
+      "seed": 42,
+      "control_status": "HISTORICAL_BASELINE (Pretrained under legacy Stage-D pipeline, not scratch)"
+    },
+    {
+      "candidate_id": "NR051_17M_SFT",
+      "name": "ChakrGenesis-17M SFT (NR-051)",
+      "checkpoint_path": "experiments/pretraining_nr051/chakr_17m_sft_candidate.pt",
+      "actual_sha256": "9f63e097108f4c3ef2fdc882826d570845a101d02f036bc1c055ad66183600b4",
+      "init_checkpoint": "experiments/pretraining_nr051/chakr_17m_pretrained_base.pt (8d871ca0...)",
+      "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+      "pretrain_corpus": "data/pretraining_nr051/pretrain_train.jsonl (1,026,382 nominal tokens, 540k consumed)",
+      "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+      "val_loss": 2.4155,
+      "seed": 42,
+      "control_status": "CONTROLLED_VS_NR051_38M (Trained on uncurated pretraining mix containing template repetitions)"
+    },
+    {
+      "candidate_id": "NR051_38M_SFT",
+      "name": "ChakrGenesis-38M SFT (NR-051)",
+      "checkpoint_path": "experiments/pretraining_nr051/chakr_38m_sft_candidate.pt",
+      "actual_sha256": "a0639a3fba90352c47b151fb70e60209a1889cd3265b80c3cadcb751e3c5b31f",
+      "init_checkpoint": "experiments/pretraining_nr051/chakr_38m_pretrained_base.pt (22306c9a...)",
+      "architecture": "ChakrGenesis-38M (12L, 512D, 8H, 2048FFN, 37,499,392 params)",
+      "pretrain_corpus": "data/pretraining_nr051/pretrain_train.jsonl (1,026,382 nominal tokens, 540k consumed)",
+      "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+      "val_loss": 2.2262,
+      "seed": 42,
+      "control_status": "CONTROLLED_VS_NR051_17M (Trained on uncurated pretraining mix containing template repetitions)"
+    },
+    {
+      "candidate_id": "NR052_17M_SFT",
+      "name": "ChakrGenesis-17M SFT (NR-052)",
+      "checkpoint_path": "experiments/pretraining_nr052/chakr_17m_nr052_sft.pt",
+      "actual_sha256": "c13211bea859ab6ff8cb89c749b29ae57df638a85f2bef60908e23827fa5a4bb",
+      "init_checkpoint": "experiments/pretraining_nr052/chakr_17m_v4_base.pt (58781710...)",
+      "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+      "pretrain_corpus": "data/corpus_v4/corpus_v4_train.jsonl (592,824 nominal tokens, 1,181,206 consumed)",
+      "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+      "val_loss": 2.2376,
+      "seed": 42,
+      "control_status": "STRICTLY_CONTROLLED_VS_NR052_38M (Clean continuous prose Corpus V4 pretrain)"
+    },
+    {
+      "candidate_id": "NR052_38M_SFT",
+      "name": "ChakrGenesis-38M SFT (NR-052)",
+      "checkpoint_path": "experiments/pretraining_nr052/chakr_38m_nr052_sft.pt",
+      "actual_sha256": "e08d363efdaac44cc62fa854ad1802de8ffb9de4060e090ad5373d66174c53ed",
+      "init_checkpoint": "experiments/pretraining_nr052/chakr_38m_v4_base.pt (7fb29b35...)",
+      "architecture": "ChakrGenesis-38M (12L, 512D, 8H, 2048FFN, 37,499,392 params)",
+      "pretrain_corpus": "data/corpus_v4/corpus_v4_train.jsonl (592,824 nominal tokens, 1,181,206 consumed)",
+      "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+      "val_loss": 1.9964,
+      "seed": 42,
+      "control_status": "STRICTLY_CONTROLLED_VS_NR052_17M (Clean continuous prose Corpus V4 pretrain)"
+    }
+  ],
+  "fresh_benchmark_evaluation": {
+    "RC3_Historical_Baseline": {
+      "candidate": "RC3_Historical_Baseline",
+      "mean_score_out_of_3": 0.22,
+      "percentage_capability": 7.3,
+      "score_distribution": {
+        "score_0": 45,
+        "score_1": 2,
+        "score_2": 0,
+        "score_3": 3
+      },
+      "coherence_rate_pct": 100.0,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Factual QA": {
+          "total": 8,
+          "score_sum": 6,
+          "scores": [
+            6,
+            0,
+            0,
+            2
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Hinglish Conversational": {
+          "total": 6,
+          "score_sum": 0,
+          "scores": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "coherent": 6,
+          "echo": 0
+        },
+        "Instruction Adherence": {
+          "total": 8,
+          "score_sum": 1,
+          "scores": [
+            7,
+            1,
+            0,
+            0
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Reading Comprehension": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Simple Reasoning": {
+          "total": 7,
+          "score_sum": 4,
+          "scores": [
+            5,
+            1,
+            0,
+            1
+          ],
+          "coherent": 7,
+          "echo": 0
+        }
+      },
+      "eval_time_sec": 31.7
+    },
+    "NR051_17M_SFT": {
+      "candidate": "NR051_17M_SFT",
+      "mean_score_out_of_3": 0.18,
+      "percentage_capability": 6.0,
+      "score_distribution": {
+        "score_0": 47,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 3
+      },
+      "coherence_rate_pct": 100.0,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Factual QA": {
+          "total": 8,
+          "score_sum": 3,
+          "scores": [
+            7,
+            0,
+            0,
+            1
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 7,
+          "score_sum": 3,
+          "scores": [
+            6,
+            0,
+            0,
+            1
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Hinglish Conversational": {
+          "total": 6,
+          "score_sum": 0,
+          "scores": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "coherent": 6,
+          "echo": 0
+        },
+        "Instruction Adherence": {
+          "total": 8,
+          "score_sum": 3,
+          "scores": [
+            7,
+            0,
+            0,
+            1
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Reading Comprehension": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Simple Reasoning": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        }
+      },
+      "eval_time_sec": 31.64
+    },
+    "NR051_38M_SFT": {
+      "candidate": "NR051_38M_SFT",
+      "mean_score_out_of_3": 0.18,
+      "percentage_capability": 6.0,
+      "score_distribution": {
+        "score_0": 47,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 3
+      },
+      "coherence_rate_pct": 100.0,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Factual QA": {
+          "total": 8,
+          "score_sum": 6,
+          "scores": [
+            6,
+            0,
+            0,
+            2
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Hinglish Conversational": {
+          "total": 6,
+          "score_sum": 0,
+          "scores": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "coherent": 6,
+          "echo": 0
+        },
+        "Instruction Adherence": {
+          "total": 8,
+          "score_sum": 3,
+          "scores": [
+            7,
+            0,
+            0,
+            1
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Reading Comprehension": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Simple Reasoning": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        }
+      },
+      "eval_time_sec": 55.85
+    },
+    "NR052_17M_SFT": {
+      "candidate": "NR052_17M_SFT",
+      "mean_score_out_of_3": 0.18,
+      "percentage_capability": 6.0,
+      "score_distribution": {
+        "score_0": 47,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 3
+      },
+      "coherence_rate_pct": 100.0,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Factual QA": {
+          "total": 8,
+          "score_sum": 3,
+          "scores": [
+            7,
+            0,
+            0,
+            1
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 7,
+          "score_sum": 3,
+          "scores": [
+            6,
+            0,
+            0,
+            1
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Hinglish Conversational": {
+          "total": 6,
+          "score_sum": 0,
+          "scores": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "coherent": 6,
+          "echo": 0
+        },
+        "Instruction Adherence": {
+          "total": 8,
+          "score_sum": 0,
+          "scores": [
+            8,
+            0,
+            0,
+            0
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Reading Comprehension": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Simple Reasoning": {
+          "total": 7,
+          "score_sum": 3,
+          "scores": [
+            6,
+            0,
+            0,
+            1
+          ],
+          "coherent": 7,
+          "echo": 0
+        }
+      },
+      "eval_time_sec": 38.31
+    },
+    "NR052_38M_SFT": {
+      "candidate": "NR052_38M_SFT",
+      "mean_score_out_of_3": 0.24,
+      "percentage_capability": 8.0,
+      "score_distribution": {
+        "score_0": 46,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 4
+      },
+      "coherence_rate_pct": 100.0,
+      "prompt_echo_rate_pct": 0.0,
+      "per_category": {
+        "English Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Factual QA": {
+          "total": 8,
+          "score_sum": 6,
+          "scores": [
+            6,
+            0,
+            0,
+            2
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Hindi Understanding": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Hinglish Conversational": {
+          "total": 6,
+          "score_sum": 3,
+          "scores": [
+            5,
+            0,
+            0,
+            1
+          ],
+          "coherent": 6,
+          "echo": 0
+        },
+        "Instruction Adherence": {
+          "total": 8,
+          "score_sum": 3,
+          "scores": [
+            7,
+            0,
+            0,
+            1
+          ],
+          "coherent": 8,
+          "echo": 0
+        },
+        "Reading Comprehension": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        },
+        "Simple Reasoning": {
+          "total": 7,
+          "score_sum": 0,
+          "scores": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "coherent": 7,
+          "echo": 0
+        }
+      },
+      "eval_time_sec": 41.19
+    }
+  },
+  "verdicts": {
+    "metric_integrity": "VERIFIED",
+    "corpus_v4_separation": "VERIFIED",
+    "paraphrase_leakage_detected": true,
+    "38M_scaling_advantage": "VERIFIED"
+  }
+}

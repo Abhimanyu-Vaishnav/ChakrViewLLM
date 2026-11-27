@@ -1,0 +1,67 @@
+[
+  {
+    "candidate_id": "RC3_17M",
+    "name": "ChakrView 1.0 RC3 Best",
+    "checkpoint_path": "experiments/fast_track_047_049/chakr_1_0_rc3_best.pt",
+    "actual_sha256": "61b39ae2bc55c116ed3ec8164497ec798d1fb6994a449d852248b266cd9dc73c",
+    "init_checkpoint": "experiments/genesis_stage_d_011/checkpoints/genesis_17m_staged_best.pt (2c21632e...)",
+    "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+    "pretrain_corpus": "Stage-D historical pretrain (legacy)",
+    "sft_corpus": "Corpus V3 (train: 4,075 samples)",
+    "val_loss": 1.18,
+    "seed": 42,
+    "control_status": "HISTORICAL_BASELINE (Pretrained under legacy Stage-D pipeline, not scratch)"
+  },
+  {
+    "candidate_id": "NR051_17M_SFT",
+    "name": "ChakrGenesis-17M SFT (NR-051)",
+    "checkpoint_path": "experiments/pretraining_nr051/chakr_17m_sft_candidate.pt",
+    "actual_sha256": "9f63e097108f4c3ef2fdc882826d570845a101d02f036bc1c055ad66183600b4",
+    "init_checkpoint": "experiments/pretraining_nr051/chakr_17m_pretrained_base.pt (8d871ca0...)",
+    "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+    "pretrain_corpus": "data/pretraining_nr051/pretrain_train.jsonl (1,026,382 nominal tokens, 540k consumed)",
+    "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+    "val_loss": 2.4155,
+    "seed": 42,
+    "control_status": "CONTROLLED_VS_NR051_38M (Trained on uncurated pretraining mix containing template repetitions)"
+  },
+  {
+    "candidate_id": "NR051_38M_SFT",
+    "name": "ChakrGenesis-38M SFT (NR-051)",
+    "checkpoint_path": "experiments/pretraining_nr051/chakr_38m_sft_candidate.pt",
+    "actual_sha256": "a0639a3fba90352c47b151fb70e60209a1889cd3265b80c3cadcb751e3c5b31f",
+    "init_checkpoint": "experiments/pretraining_nr051/chakr_38m_pretrained_base.pt (22306c9a...)",
+    "architecture": "ChakrGenesis-38M (12L, 512D, 8H, 2048FFN, 37,499,392 params)",
+    "pretrain_corpus": "data/pretraining_nr051/pretrain_train.jsonl (1,026,382 nominal tokens, 540k consumed)",
+    "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+    "val_loss": 2.2262,
+    "seed": 42,
+    "control_status": "CONTROLLED_VS_NR051_17M (Trained on uncurated pretraining mix containing template repetitions)"
+  },
+  {
+    "candidate_id": "NR052_17M_SFT",
+    "name": "ChakrGenesis-17M SFT (NR-052)",
+    "checkpoint_path": "experiments/pretraining_nr052/chakr_17m_nr052_sft.pt",
+    "actual_sha256": "c13211bea859ab6ff8cb89c749b29ae57df638a85f2bef60908e23827fa5a4bb",
+    "init_checkpoint": "experiments/pretraining_nr052/chakr_17m_v4_base.pt (58781710...)",
+    "architecture": "ChakrGenesis-17M (8L, 384D, 6H, 1536FFN, 17,063,808 params)",
+    "pretrain_corpus": "data/corpus_v4/corpus_v4_train.jsonl (592,824 nominal tokens, 1,181,206 consumed)",
+    "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+    "val_loss": 2.2376,
+    "seed": 42,
+    "control_status": "STRICTLY_CONTROLLED_VS_NR052_38M (Clean continuous prose Corpus V4 pretrain)"
+  },
+  {
+    "candidate_id": "NR052_38M_SFT",
+    "name": "ChakrGenesis-38M SFT (NR-052)",
+    "checkpoint_path": "experiments/pretraining_nr052/chakr_38m_nr052_sft.pt",
+    "actual_sha256": "e08d363efdaac44cc62fa854ad1802de8ffb9de4060e090ad5373d66174c53ed",
+    "init_checkpoint": "experiments/pretraining_nr052/chakr_38m_v4_base.pt (7fb29b35...)",
+    "architecture": "ChakrGenesis-38M (12L, 512D, 8H, 2048FFN, 37,499,392 params)",
+    "pretrain_corpus": "data/corpus_v4/corpus_v4_train.jsonl (592,824 nominal tokens, 1,181,206 consumed)",
+    "sft_corpus": "data/corpus_v3/corpus_v3_train.jsonl (4,075 samples)",
+    "val_loss": 1.9964,
+    "seed": 42,
+    "control_status": "STRICTLY_CONTROLLED_VS_NR052_17M (Clean continuous prose Corpus V4 pretrain)"
+  }
+]
