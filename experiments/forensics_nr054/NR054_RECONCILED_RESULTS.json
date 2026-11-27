@@ -1,0 +1,224 @@
+{
+  "mission": "NR-054",
+  "title": "ChakrView Benchmark Reconciliation, Checkpoint Lineage & Scientific Integrity Audit",
+  "audit_date": "2026-11-27",
+  "auditor": "ChakrView Independent Forensic Engineering Team",
+  "starting_commit": "2674704bfa4a3efd85c1c8764039ba7fcf27cbe4",
+  "repository": "D:\\Project\\ChakrView",
+  "branch": "exp/cbr-01-conversational-breakthrough",
+  "checkpoint_registry": [
+    {
+      "model_id": "Stage-D Canonical",
+      "path": "checkpoints/genesis_17m_staged_best.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "2c21632ebae4f0b05b9ff7091797ecc956ac0ad00ef6ec934381223bc273b269",
+      "status": "frozen_canonical"
+    },
+    {
+      "model_id": "RC1 Release",
+      "path": "release/v1.0.0-rc1/chakr_1_0_rc1_best.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "cf585ebf9aa70f630516eec9c45e85f127e29ed91d6b6ae6a26d44fd20fcce4e",
+      "status": "frozen_historical"
+    },
+    {
+      "model_id": "RC2 Experimental",
+      "path": "release/v1.0.0-rc2/chakr_1_0_rc2_best.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "33f93c75ba6c4ccd06a87ddb68ad300e11ce0f67aef45d6aa0a6ae7868c2be30",
+      "status": "frozen_historical"
+    },
+    {
+      "model_id": "RC3 Baseline",
+      "path": "release/v1.0.0-rc3/chakr_1_0_rc3_best.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "61b39ae2bc55c116ed3ec8164497ec798d1fb6994a449d852248b266cd9dc73c",
+      "status": "frozen_historical"
+    },
+    {
+      "model_id": "NR051 17M Base",
+      "path": "checkpoints/nr051/chakr_17m_pretrained_base.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "8d871ca0aff6e23398bdb17f86521eb26dfb4b778d227035d77e2fe44803c25f",
+      "status": "experimental_base"
+    },
+    {
+      "model_id": "NR051 38M Base",
+      "path": "checkpoints/nr051/chakr_38m_pretrained_base.pt",
+      "parameters": 38324736,
+      "architecture": {"d_model": 768, "n_layers": 6, "n_heads": 12, "max_seq_len": 512},
+      "sha256": "22306c9a479c80cd9ce3e937e3145fb1520241d96c3b17b3ff8aed2af4d7f304",
+      "status": "experimental_base"
+    },
+    {
+      "model_id": "NR051 17M SFT",
+      "path": "checkpoints/nr051/chakr_17m_sft_candidate.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "9f63e097108f4c3ef2fdc882826d570845a101d02f036bc1c055ad66183600b4",
+      "status": "experimental_sft"
+    },
+    {
+      "model_id": "NR051 38M SFT",
+      "path": "checkpoints/nr051/chakr_38m_sft_candidate.pt",
+      "parameters": 38324736,
+      "architecture": {"d_model": 768, "n_layers": 6, "n_heads": 12, "max_seq_len": 512},
+      "sha256": "a0639a3fba90352c47b151fb70e60209a1889cd3265b80c3cadcb751e3c5b31f",
+      "status": "experimental_sft"
+    },
+    {
+      "model_id": "NR052 17M Base",
+      "path": "checkpoints/nr052/chakr_17m_v4_base.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "58781710bb4d85b40d77281eb6ccecb1754a3f3fadc468db8c1fa8b51a2dd062",
+      "status": "experimental_base"
+    },
+    {
+      "model_id": "NR052 38M Base",
+      "path": "checkpoints/nr052/chakr_38m_v4_base.pt",
+      "parameters": 38324736,
+      "architecture": {"d_model": 768, "n_layers": 6, "n_heads": 12, "max_seq_len": 512},
+      "sha256": "7fb29b3519a957dbb4ffc12bdcc1cc50d6ea9bf49739458ebb9e3de031f504fb",
+      "status": "experimental_base"
+    },
+    {
+      "model_id": "NR052 17M SFT",
+      "path": "checkpoints/nr052/chakr_17m_nr052_sft.pt",
+      "parameters": 17534464,
+      "architecture": {"d_model": 512, "n_layers": 6, "n_heads": 8, "max_seq_len": 512},
+      "sha256": "c13211bea859ab6ff8cb89c749b29ae57df638a85f2bef60908e23827fa5a4bb",
+      "status": "experimental_sft"
+    },
+    {
+      "model_id": "NR052 38M SFT",
+      "path": "checkpoints/nr052/chakr_38m_nr052_sft.pt",
+      "parameters": 38324736,
+      "architecture": {"d_model": 768, "n_layers": 6, "n_heads": 12, "max_seq_len": 512},
+      "sha256": "e08d363efdaac44cc62fa854ad1802de8ffb9de4060e090ad5373d66174c53ed",
+      "status": "experimental_sft"
+    }
+  ],
+  "validation_loss_reproduction": {
+    "evaluation_platform": "NVIDIA RTX A1000 Laptop GPU (6GB), CUDA 12.6, PyTorch 2.14.1+cu126",
+    "pretrain_val": {
+      "dataset": "data/corpus_v4/pretrain_val.jsonl",
+      "chunks": 3363,
+      "seq_len": 512,
+      "results": [
+        {
+          "model": "chakr_17m_v4_base.pt",
+          "recorded_loss": 1.4763,
+          "recomputed_loss": 1.4763,
+          "absolute_error": 0.0,
+          "recorded_ppl": 4.3768,
+          "recomputed_ppl": 4.3768,
+          "token_accuracy": 0.7480
+        },
+        {
+          "model": "chakr_38m_v4_base.pt",
+          "recorded_loss": 1.1684,
+          "recomputed_loss": 1.1684,
+          "absolute_error": 0.0,
+          "recorded_ppl": 3.2168,
+          "recomputed_ppl": 3.2168,
+          "token_accuracy": 0.7894
+        }
+      ]
+    },
+    "sft_val": {
+      "dataset": "data/corpus_v4/sft_val.jsonl",
+      "dialogues": 420,
+      "loss_type": "response_token_masked_cross_entropy",
+      "results": [
+        {
+          "model": "chakr_17m_nr052_sft.pt",
+          "recorded_response_loss": 2.2376,
+          "recomputed_response_loss": 2.2376,
+          "absolute_error": 0.0,
+          "recorded_response_ppl": 9.3708,
+          "recomputed_response_ppl": 9.3708
+        },
+        {
+          "model": "chakr_38m_nr052_sft.pt",
+          "recorded_response_loss": 1.9964,
+          "recomputed_response_loss": 1.9964,
+          "absolute_error": 0.0,
+          "recorded_response_ppl": 7.3625,
+          "recomputed_response_ppl": 7.3625
+        }
+      ]
+    }
+  },
+  "benchmark_reconciliation": {
+    "source_file": "experiments/forensics_nr053/fresh_eval_results_50.json",
+    "total_prompts": 50,
+    "discrepancy_explanation": "Reported means (0.220, 0.180, 0.180, 0.180, 0.240) were mathematically exact. The markdown distribution table was erroneously copied from a draft uncommitted run with a loose regex rubric.",
+    "models": {
+      "RC3_Historical_Baseline": {
+        "true_score_distribution": {"0": 45, "1": 2, "2": 0, "3": 3},
+        "raw_sum": 11,
+        "raw_mean": 0.220,
+        "normalized_mean_percentage": 7.3333,
+        "bootstrap_ci_95": [0.080, 0.400],
+        "verified_factual_hits": 2
+      },
+      "NR051_17M_SFT": {
+        "true_score_distribution": {"0": 47, "1": 0, "2": 0, "3": 3},
+        "raw_sum": 9,
+        "raw_mean": 0.180,
+        "normalized_mean_percentage": 6.0000,
+        "bootstrap_ci_95": [0.060, 0.360],
+        "verified_factual_hits": 2
+      },
+      "NR051_38M_SFT": {
+        "true_score_distribution": {"0": 47, "1": 0, "2": 0, "3": 3},
+        "raw_sum": 9,
+        "raw_mean": 0.180,
+        "normalized_mean_percentage": 6.0000,
+        "bootstrap_ci_95": [0.060, 0.360],
+        "verified_factual_hits": 2
+      },
+      "NR052_17M_SFT": {
+        "true_score_distribution": {"0": 47, "1": 0, "2": 0, "3": 3},
+        "raw_sum": 9,
+        "raw_mean": 0.180,
+        "normalized_mean_percentage": 6.0000,
+        "bootstrap_ci_95": [0.060, 0.360],
+        "verified_factual_hits": 2
+      },
+      "NR052_38M_SFT": {
+        "true_score_distribution": {"0": 46, "1": 0, "2": 0, "3": 4},
+        "raw_sum": 12,
+        "raw_mean": 0.240,
+        "normalized_mean_percentage": 8.0000,
+        "bootstrap_ci_95": [0.080, 0.440],
+        "verified_factual_hits": 2
+      }
+    },
+    "paired_permutation_test_nr052_38m_vs_17m": {
+      "mean_difference": 0.0600,
+      "p_value": 1.0000,
+      "statistically_significant": false
+    }
+  },
+  "verified_factual_prompts": [
+    {
+      "prompt_id": "FQA-01",
+      "prompt": "What is the capital of Japan?",
+      "expected": "Tokyo",
+      "model_accuracy": "100% across all audited SFT models"
+    },
+    {
+      "prompt_id": "FQA-03",
+      "prompt": "Which is the largest ocean on Earth?",
+      "expected": "Pacific Ocean",
+      "model_accuracy": "100% across all audited SFT models"
+    }
+  ]
+}
