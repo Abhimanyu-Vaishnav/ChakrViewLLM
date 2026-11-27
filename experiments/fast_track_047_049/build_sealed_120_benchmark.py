@@ -1,0 +1,171 @@
+"""
+experiments/fast_track_047_049/build_sealed_120_benchmark.py
+Constructs a fresh, sealed 120-prompt evaluation benchmark with:
+- Zero overlap against training, validation, or existing benchmark records.
+- 8 functional categories:
+  1. 20 English language understanding
+  2. 20 Hindi understanding (Devanagari)
+  3. 20 Hinglish understanding
+  4. 15 Question-Answer relevance
+  5. 15 Paraphrase / Generalization
+  6. 10 Basic logical inference
+  7. 10 Multi-turn context
+  8. 10 Uncertainty and self-correction
+- Explicit scoring rubrics and expected answers for objective human/automated evaluation.
+"""
+
+import json
+import os
+from pathlib import Path
+
+BENCHMARK_PROMPTS = [
+    # Category 1: 20 English Language Understanding
+    {"id": "EN-01", "category": "English Understanding", "prompt": "What is the primary function of chlorophyll in plant leaves?", "expected": "Absorb sunlight for photosynthesis / convert light into chemical energy", "rubric_keywords": ["photosynthesis", "light", "sunlight", "energy", "chlorophyll"]},
+    {"id": "EN-02", "category": "English Understanding", "prompt": "Define the word 'resilient' in simple terms.", "expected": "Able to recover quickly from difficulties, tough, or adaptable", "rubric_keywords": ["recover", "bounce back", "difficult", "tough", "adapt"]},
+    {"id": "EN-03", "category": "English Understanding", "prompt": "Name the capital city of Australia.", "expected": "Canberra", "rubric_keywords": ["Canberra"]},
+    {"id": "EN-04", "category": "English Understanding", "prompt": "Explain the difference between a synonym and an antonym.", "expected": "A synonym means the same thing, while an antonym means the opposite", "rubric_keywords": ["same", "opposite", "meaning"]},
+    {"id": "EN-05", "category": "English Understanding", "prompt": "What causes ocean tides on Earth?", "expected": "Gravitational pull of the Moon and the Sun", "rubric_keywords": ["moon", "gravitational", "gravity", "sun"]},
+    {"id": "EN-06", "category": "English Understanding", "prompt": "Why do ice cubes float on liquid water?", "expected": "Ice is less dense than liquid water due to hydrogen bonding expansion", "rubric_keywords": ["less dense", "density", "expand"]},
+    {"id": "EN-07", "category": "English Understanding", "prompt": "What does HTTP stand for in computer networking?", "expected": "Hypertext Transfer Protocol", "rubric_keywords": ["Hypertext Transfer Protocol"]},
+    {"id": "EN-08", "category": "English Understanding", "prompt": "Identify the primary gas found in Earth's atmosphere.", "expected": "Nitrogen (approx. 78%)", "rubric_keywords": ["Nitrogen"]},
+    {"id": "EN-09", "category": "English Understanding", "prompt": "What is the purpose of an operating system?", "expected": "Manage computer hardware, memory, files, and software processes", "rubric_keywords": ["manage", "hardware", "software", "resources", "processes"]},
+    {"id": "EN-10", "category": "English Understanding", "prompt": "Give two examples of renewable energy sources.", "expected": "Solar energy and wind energy (or hydro/geothermal)", "rubric_keywords": ["solar", "wind", "hydro", "geothermal"]},
+    {"id": "EN-11", "category": "English Understanding", "prompt": "Explain what a metaphor is with one brief example.", "expected": "A figure of speech comparing two things directly without like/as (e.g., 'Time is a thief')", "rubric_keywords": ["comparison", "direct", "figure of speech"]},
+    {"id": "EN-12", "category": "English Understanding", "prompt": "What is the boiling point of pure water at standard atmospheric pressure in Celsius?", "expected": "100 degrees Celsius", "rubric_keywords": ["100", "100°C", "100 C"]},
+    {"id": "EN-13", "category": "English Understanding", "prompt": "Which blood cells are primarily responsible for fighting infections?", "expected": "White blood cells (leukocytes)", "rubric_keywords": ["white blood", "leukocytes"]},
+    {"id": "EN-14", "category": "English Understanding", "prompt": "What is the main function of the heart in mammals?", "expected": "Pump oxygenated and deoxygenated blood throughout the body", "rubric_keywords": ["pump", "blood", "circulate", "circulation"]},
+    {"id": "EN-15", "category": "English Understanding", "prompt": "Briefly explain the role of RAM in a personal computer.", "expected": "Fast volatile memory used to store active programs and data currently in use", "rubric_keywords": ["volatile", "memory", "short-term", "active", "speed"]},
+    {"id": "EN-16", "category": "English Understanding", "prompt": "What does a barometer measure?", "expected": "Atmospheric or air pressure", "rubric_keywords": ["atmospheric pressure", "air pressure", "pressure"]},
+    {"id": "EN-17", "category": "English Understanding", "prompt": "State the law of conservation of energy in one sentence.", "expected": "Energy cannot be created or destroyed, only transformed from one form to another", "rubric_keywords": ["created", "destroyed", "transformed", "conserved"]},
+    {"id": "EN-18", "category": "English Understanding", "prompt": "What is the freezing point of water in Fahrenheit?", "expected": "32 degrees Fahrenheit", "rubric_keywords": ["32", "32°F", "32 F"]},
+    {"id": "EN-19", "category": "English Understanding", "prompt": "Define what a compiler does in software development.", "expected": "Translates source code into machine code or bytecode that can be executed", "rubric_keywords": ["translates", "source code", "machine code", "binary"]},
+    {"id": "EN-20", "category": "English Understanding", "prompt": "Who wrote the play 'Romeo and Juliet'?", "expected": "William Shakespeare", "rubric_keywords": ["Shakespeare"]},
+
+    # Category 2: 20 Hindi Understanding (Devanagari)
+    {"id": "HI-01", "category": "Hindi Understanding", "prompt": "भारत के राष्ट्रीय ध्वज में कितने रंग होते हैं और चक्र में कितनी तीलियाँ होती हैं?", "expected": "तीन मुख्य रंग (केसरिया, सफेद, हरा) और चक्र में 24 तीलियाँ होती हैं।", "rubric_keywords": ["तीन", "केसरिया", "सफेद", "हरा", "24"]},
+    {"id": "HI-02", "category": "Hindi Understanding", "prompt": "जल का रासायनिक सूत्र क्या है?", "expected": "H2O (हाइड्रोजन और ऑक्सीजन)", "rubric_keywords": ["H2O", "हाइड्रोजन", "ऑक्सीजन"]},
+    {"id": "HI-03", "category": "Hindi Understanding", "prompt": "हिंदी व्याकरण में 'संज्ञा' की सरल परिभाषा दीजिए।", "expected": "किसी व्यक्ति, वस्तु, स्थान या भाव के नाम को संज्ञा कहते हैं।", "rubric_keywords": ["व्यक्ति", "वस्तु", "स्थान", "भाव", "नाम"]},
+    {"id": "HI-04", "category": "Hindi Understanding", "prompt": "सूर्य किस दिशा से उगता है और किस दिशा में अस्त होता है?", "expected": "सूर्य पूर्व से उगता है और पश्चिम में अस्त होता है।", "rubric_keywords": ["पूर्व", "पश्चिम"]},
+    {"id": "HI-05", "category": "Hindi Understanding", "prompt": "पेड़-पौधे पर्यावरण के लिए क्यों आवश्यक हैं?", "expected": "वे कार्बन डाइऑक्साइड ग्रहण करते हैं और ऑक्सीजन छोड़ते हैं, जिससे वायु शुद्ध रहती है।", "rubric_keywords": ["ऑक्सीजन", "कार्बन", "वायु", "शुद्ध"]},
+    {"id": "HI-06", "category": "Hindi Understanding", "prompt": "पृथ्वी का प्राकृतिक उपग्रह कौन सा है?", "expected": "चंद्रमा (चाँद)", "rubric_keywords": ["चंद्रमा", "चाँद"]},
+    {"id": "HI-07", "category": "Hindi Understanding", "prompt": "'सत्यमेव जयते' का क्या अर्थ है?", "expected": "सत्य की ही जीत होती है।", "rubric_keywords": ["सत्य", "जीत", "विजय"]},
+    {"id": "HI-08", "category": "Hindi Understanding", "prompt": "एक वर्ष में कितने महीने और कितने दिन होते हैं?", "expected": "एक वर्ष में 12 महीने और सामान्यतः 365 दिन होते हैं।", "rubric_keywords": ["12", "365"]},
+    {"id": "HI-09", "category": "Hindi Understanding", "prompt": "भारत की राजधानी का नाम क्या है?", "expected": "नई दिल्ली", "rubric_keywords": ["नई दिल्ली", "दिल्ली"]},
+    {"id": "HI-10", "category": "Hindi Understanding", "prompt": "मानव शरीर की सबसे बड़ी हड्डी कौन सी है?", "expected": "फीमर (जांघ की हड्डी)", "rubric_keywords": ["फीमर", "जांघ"]},
+    {"id": "HI-11", "category": "Hindi Understanding", "prompt": "ध्वनि की गति हवा में तेज होती है या लोहे में?", "expected": "लोहे (ठोस) में ध्वनि की गति हवा (गैस) से कहीं अधिक तेज होती है।", "rubric_keywords": ["लोहे", "ठोस", "तेज"]},
+    {"id": "HI-12", "category": "Hindi Understanding", "prompt": "'अंधे की लाठी' मुहावरे का सही अर्थ क्या है?", "expected": "एकमात्र सहारा", "rubric_keywords": ["सहारा", "एकमात्र"]},
+    {"id": "HI-13", "category": "Hindi Understanding", "prompt": "दूध से दही बनाने में कौन सा जीवाणु सहायक होता है?", "expected": "लैक्टोबैसिलस जीवाणु", "rubric_keywords": ["लैक्टोबैसिलस"]},
+    {"id": "HI-14", "category": "Hindi Understanding", "prompt": "वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?", "expected": "नाइट्रोजन (लगभग 78%)", "rubric_keywords": ["नाइट्रोजन"]},
+    {"id": "HI-15", "category": "Hindi Understanding", "prompt": "सौरमंडल का सबसे छोटा ग्रह कौन सा है?", "expected": "बुध (Mercury)", "rubric_keywords": ["बुध"]},
+    {"id": "HI-16", "category": "Hindi Understanding", "prompt": "प्रकाश संश्लेषण की क्रिया किस समय होती है?", "expected": "दिन के समय जब सूर्य का प्रकाश उपलब्ध होता है।", "rubric_keywords": ["दिन", "सूर्य", "प्रकाश"]},
+    {"id": "HI-17", "category": "Hindi Understanding", "prompt": "कंप्यूटर में सीपीयू (CPU) का मुख्य कार्य क्या है?", "expected": "निर्देशों को प्रोसेस करना और गणनाएं करना (कंप्यूटर का मस्तिष्क)।", "rubric_keywords": ["प्रोसेस", "गणना", "मस्तिष्क"]},
+    {"id": "HI-18", "category": "Hindi Understanding", "prompt": "महात्मा गांधी का पूरा नाम क्या था?", "expected": "मोहनदास करमचंद गांधी", "rubric_keywords": ["मोहनदास", "करमचंद", "गांधी"]},
+    {"id": "HI-19", "category": "Hindi Understanding", "prompt": "तापमान मापने की अंतरराष्ट्रीय इकाई क्या है?", "expected": "केल्विन (Kelvin)", "rubric_keywords": ["केल्विन", "Kelvin"]},
+    {"id": "HI-20", "category": "Hindi Understanding", "prompt": "लोहे पर जंग लगने के लिए किन दो तत्वों की आवश्यकता होती है?", "expected": "ऑक्सीजन और नमी (जल/पानी)", "rubric_keywords": ["ऑक्सीजन", "नमी", "पानी", "जल"]},
+
+    # Category 3: 20 Hinglish Understanding
+    {"id": "HG-01", "category": "Hinglish Understanding", "prompt": "Python me dictionary me key-value pair kaise add karte hain?", "expected": "dict[key] = value syntax use karke", "rubric_keywords": ["dict", "key", "value", "add"]},
+    {"id": "HG-02", "category": "Hinglish Understanding", "prompt": "Database me primary key ka kya use hota hai?", "expected": "Table me har row ya record ko uniquely identify karne ke liye", "rubric_keywords": ["unique", "identify", "record", "row"]},
+    {"id": "HG-03", "category": "Hinglish Understanding", "prompt": "Software development me bug kise kehte hain?", "expected": "Code ya program me aane wali error ya fault ko bug kehte hain", "rubric_keywords": ["error", "fault", "mistake", "glitch"]},
+    {"id": "HG-04", "category": "Hinglish Understanding", "prompt": "Git me commit aur push me kya fark hai?", "expected": "Commit local repo me save karta hai, aur push remote server par bhejta hai", "rubric_keywords": ["local", "remote", "save", "server"]},
+    {"id": "HG-05", "category": "Hinglish Understanding", "prompt": "Cloud computing ka main benefit kya hai?", "expected": "Scalability, anywhere access, aur hardware maintenance ka zero jhanjhat", "rubric_keywords": ["scalable", "access", "cost", "server", "storage"]},
+    {"id": "HG-06", "category": "Hinglish Understanding", "prompt": "API ka full form kya hai aur yeh kya karta hai?", "expected": "Application Programming Interface - do applications ko aapas me communicate karata hai", "rubric_keywords": ["Application Programming Interface", "communicate", "connect"]},
+    {"id": "HG-07", "category": "Hinglish Understanding", "prompt": "Open-source software ka matlab kya hota hai?", "expected": "Jiska source code publicly available aur free to modify hota hai", "rubric_keywords": ["source code", "free", "public", "modify"]},
+    {"id": "HG-08", "category": "Hinglish Understanding", "prompt": "Machine learning aur deep learning me main relation kya hai?", "expected": "Deep learning machine learning ka hi ek subset hai jo neural networks par based hai", "rubric_keywords": ["subset", "neural network", "part"]},
+    {"id": "HG-09", "category": "Hinglish Understanding", "prompt": "Website secure hone ka sign kya hota hai browser URL me?", "expected": "HTTPS aur padlock (lock) ka symbol", "rubric_keywords": ["https", "lock", "ssl"]},
+    {"id": "HG-10", "category": "Hinglish Understanding", "prompt": "Array aur Linked List me search speed kisme fast hoti hai index ke through?", "expected": "Array me O(1) time complexity ke saath indexing fast hoti hai", "rubric_keywords": ["array", "O(1)", "fast", "index"]},
+    {"id": "HG-11", "category": "Hinglish Understanding", "prompt": "Agar kisi computer me SSD laga di jaye to kya performance improvement hota hai?", "expected": "Boot time aur file read/write speed bahut fast ho jati hai compared to HDD", "rubric_keywords": ["boot", "speed", "read", "write", "fast"]},
+    {"id": "HG-12", "category": "Hinglish Understanding", "prompt": "Frontend aur backend developer ke kaam me kya farak hota hai?", "expected": "Frontend UI/UX banata hai aur backend server, database aur business logic sambhalta hai", "rubric_keywords": ["UI", "server", "database", "interface", "logic"]},
+    {"id": "HG-13", "category": "Hinglish Understanding", "prompt": "Python me indentation ka kya importance hota hai?", "expected": "Python me indentation code blocks (loops, functions, conditions) define karne ke liye mandatory hai", "rubric_keywords": ["block", "scope", "function", "loop", "syntax"]},
+    {"id": "HG-14", "category": "Hinglish Understanding", "prompt": "Cybersecurity me phishing attack kya hota hai?", "expected": "Fake emails ya links ke zariye passwords aur sensitive info churana", "rubric_keywords": ["fake", "email", "password", "fraud", "steal"]},
+    {"id": "HG-15", "category": "Hinglish Understanding", "prompt": "Cache memory ka main function kya hota hai?", "expected": "Frequently used data ko CPU ke paas quickly access karne ke liye store karna", "rubric_keywords": ["fast", "cpu", "frequent", "quick", "speed"]},
+    {"id": "HG-16", "category": "Hinglish Understanding", "prompt": "Object-oriented programming (OOP) ke do main pillars bataiye.", "expected": "Inheritance, Polymorphism, Encapsulation, ya Abstraction", "rubric_keywords": ["inheritance", "polymorphism", "encapsulation", "abstraction"]},
+    {"id": "HG-17", "category": "Hinglish Understanding", "prompt": "Mobile app me offline mode ka kya matlab hai?", "expected": "App internet connection ke bina bhi chal sakti hai", "rubric_keywords": ["internet", "offline", "connection"]},
+    {"id": "HG-18", "category": "Hinglish Understanding", "prompt": "Operating system me deadlock kya hota hai?", "expected": "Jab do ya zyada processes ek doosre ke resource release karne ka wait karti hain aur freeze ho jati hain", "rubric_keywords": ["process", "resource", "wait", "freeze", "block"]},
+    {"id": "HG-19", "category": "Hinglish Understanding", "prompt": "Data backup rakhna kyun zaroori hota hai?", "expected": "Hardware crash, ransomware ya accidental deletion se data loss na ho", "rubric_keywords": ["data loss", "crash", "recover", "safe"]},
+    {"id": "HG-20", "category": "Hinglish Understanding", "prompt": "Smartphone screen touch responsiveness kis factor pe depend karti hai?", "expected": "Screen touch sampling rate aur display refresh rate par", "rubric_keywords": ["touch", "refresh rate", "sampling", "display"]},
+
+    # Category 4: 15 Question-Answer Relevance
+    {"id": "QA-01", "category": "QA Relevance", "prompt": "What is the speed of light in vacuum in kilometers per second?", "expected": "Approximately 300,000 km/s (or 299,792 km/s)", "rubric_keywords": ["300,000", "299,792", "km/s"]},
+    {"id": "QA-02", "category": "QA Relevance", "prompt": "Who is credited with discovering penicillin?", "expected": "Alexander Fleming", "rubric_keywords": ["Alexander Fleming", "Fleming"]},
+    {"id": "QA-03", "category": "QA Relevance", "prompt": "What is the chemical symbol for table salt?", "expected": "NaCl (Sodium Chloride)", "rubric_keywords": ["NaCl", "Sodium Chloride"]},
+    {"id": "QA-04", "category": "QA Relevance", "prompt": "Which organ in the human body produces insulin?", "expected": "Pancreas", "rubric_keywords": ["pancreas"]},
+    {"id": "QA-05", "category": "QA Relevance", "prompt": "In what year did the Apollo 11 moon landing occur?", "expected": "1969", "rubric_keywords": ["1969"]},
+    {"id": "QA-06", "category": "QA Relevance", "prompt": "What is the primary function of red blood cells?", "expected": "Transport oxygen to body tissues", "rubric_keywords": ["oxygen", "transport", "hemoglobin"]},
+    {"id": "QA-07", "category": "QA Relevance", "prompt": "Which planet is closest to the Sun?", "expected": "Mercury", "rubric_keywords": ["Mercury"]},
+    {"id": "QA-08", "category": "QA Relevance", "prompt": "What is the hardest known natural mineral on Earth?", "expected": "Diamond", "rubric_keywords": ["Diamond"]},
+    {"id": "QA-09", "category": "QA Relevance", "prompt": "What is the chemical formula for carbon dioxide?", "expected": "CO2", "rubric_keywords": ["CO2", "CO_2"]},
+    {"id": "QA-10", "category": "QA Relevance", "prompt": "How many continents are there on Earth?", "expected": "Seven continents", "rubric_keywords": ["7", "seven"]},
+    {"id": "QA-11", "category": "QA Relevance", "prompt": "What is the standard unit of electrical resistance?", "expected": "Ohm", "rubric_keywords": ["Ohm", "Ω"]},
+    {"id": "QA-12", "category": "QA Relevance", "prompt": "Which gas do plants absorb from the atmosphere for photosynthesis?", "expected": "Carbon dioxide", "rubric_keywords": ["carbon dioxide", "CO2"]},
+    {"id": "QA-13", "category": "QA Relevance", "prompt": "What is the main component of natural gas?", "expected": "Methane (CH4)", "rubric_keywords": ["methane", "CH4"]},
+    {"id": "QA-14", "category": "QA Relevance", "prompt": "Who formulated the general theory of relativity?", "expected": "Albert Einstein", "rubric_keywords": ["Einstein"]},
+    {"id": "QA-15", "category": "QA Relevance", "prompt": "What is the largest internal organ in the human body?", "expected": "Liver", "rubric_keywords": ["liver"]},
+
+    # Category 5: 15 Paraphrase / Generalization
+    {"id": "GEN-01", "category": "Paraphrase & Generalization", "prompt": "State the concept of gravity in words an elementary school student would understand.", "expected": "An invisible pulling force that draws objects toward the center of the Earth", "rubric_keywords": ["pull", "fall", "earth", "invisible", "down"]},
+    {"id": "GEN-02", "category": "Paraphrase & Generalization", "prompt": "Summarize the primary purpose of washing hands with soap.", "expected": "To destroy and wash away germs and prevent illness", "rubric_keywords": ["germs", "bacteria", "clean", "illness", "prevent"]},
+    {"id": "GEN-03", "category": "Paraphrase & Generalization", "prompt": "Express the proverb 'Practice makes perfect' in a different sentence.", "expected": "Repeated practice of a skill leads to mastery and improvement", "rubric_keywords": ["repeat", "practice", "improve", "mastery", "better"]},
+    {"id": "GEN-04", "category": "Paraphrase & Generalization", "prompt": "Explain what a battery does without using technical jargon.", "expected": "Stores energy and supplies electric power to portable devices", "rubric_keywords": ["store", "energy", "power", "device"]},
+    {"id": "GEN-05", "category": "Paraphrase & Generalization", "prompt": "Explain why birds migrate south for the winter.", "expected": "To find warmer weather and plentiful food during cold winter months", "rubric_keywords": ["warm", "food", "winter", "cold"]},
+    {"id": "GEN-06", "category": "Paraphrase & Generalization", "prompt": "Paraphrase: 'Due to severe precipitation, the sporting contest was terminated.'", "expected": "Because of heavy rain, the game was cancelled.", "rubric_keywords": ["rain", "game", "match", "cancelled", "stopped"]},
+    {"id": "GEN-07", "category": "Paraphrase & Generalization", "prompt": "Explain why we wear warm coats during snowy winters.", "expected": "To trap body heat and stay warm in freezing temperatures", "rubric_keywords": ["body heat", "warm", "cold", "trap", "heat"]},
+    {"id": "GEN-08", "category": "Paraphrase & Generalization", "prompt": "Rephrase: 'He exhibited exemplary perseverance in the face of adversity.'", "expected": "He never gave up even when things were very difficult.", "rubric_keywords": ["never give up", "difficult", "hard", "tough", "persistence"]},
+    {"id": "GEN-09", "category": "Paraphrase & Generalization", "prompt": "Explain what a compass needle does and why.", "expected": "Points toward magnetic north because it aligns with Earth's magnetic field", "rubric_keywords": ["north", "magnetic", "direction", "earth"]},
+    {"id": "GEN-10", "category": "Paraphrase & Generalization", "prompt": "Why do cars need motor oil?", "expected": "To lubricate engine parts and prevent friction and overheating", "rubric_keywords": ["lubricate", "friction", "engine", "heat", "smooth"]},
+    {"id": "GEN-11", "category": "Paraphrase & Generalization", "prompt": "Explain the role of a teacher in a school.", "expected": "To guide, instruct, and help students learn knowledge and skills", "rubric_keywords": ["teach", "guide", "students", "learn", "knowledge"]},
+    {"id": "GEN-12", "category": "Paraphrase & Generalization", "prompt": "Why do plants need roots?", "expected": "To absorb water/nutrients from soil and anchor the plant in place", "rubric_keywords": ["water", "nutrients", "anchor", "soil"]},
+    {"id": "GEN-13", "category": "Paraphrase & Generalization", "prompt": "What is the role of brakes on a bicycle?", "expected": "To slow down or stop the bicycle safely by creating friction against the wheels", "rubric_keywords": ["slow", "stop", "friction", "wheel"]},
+    {"id": "GEN-14", "category": "Paraphrase & Generalization", "prompt": "Rephrase: 'The automobile malfunctioned on the interstate highway.'", "expected": "The car broke down on the highway.", "rubric_keywords": ["car", "broke down", "highway", "road"]},
+    {"id": "GEN-15", "category": "Paraphrase & Generalization", "prompt": "Why is drinking clean water necessary for human survival?", "expected": "To stay hydrated, maintain organ function, and avoid waterborne diseases", "rubric_keywords": ["hydration", "body", "health", "survive", "organs"]},
+
+    # Category 6: 10 Basic Logical Inference
+    {"id": "LOG-01", "category": "Logical Inference", "prompt": "All dogs are animals. A beagle is a dog. Is a beagle an animal? Answer Yes or No and explain briefly.", "expected": "Yes. Since all dogs are animals and a beagle is a dog, it is an animal.", "rubric_keywords": ["yes", "animal", "dog"]},
+    {"id": "LOG-02", "category": "Logical Inference", "prompt": "If John is taller than Mary, and Mary is taller than Peter, who is the shortest?", "expected": "Peter", "rubric_keywords": ["Peter"]},
+    {"id": "LOG-03", "category": "Logical Inference", "prompt": "A box contains only green balls and blue balls. You pick a ball and it is not green. What color is it?", "expected": "Blue", "rubric_keywords": ["blue"]},
+    {"id": "LOG-04", "category": "Logical Inference", "prompt": "Every triangle has three sides. Shape X has four sides. Can Shape X be a triangle?", "expected": "No, because a triangle must have exactly three sides.", "rubric_keywords": ["no", "three", "four"]},
+    {"id": "LOG-05", "category": "Logical Inference", "prompt": "If all roses are flowers and some flowers fade quickly, can we be certain that all roses fade quickly?", "expected": "No, we cannot be certain.", "rubric_keywords": ["no", "cannot", "uncertain", "not necessarily"]},
+    {"id": "LOG-06", "category": "Logical Inference", "prompt": "Sarah was born on February 29th. Does she celebrate her actual birthday every calendar year?", "expected": "No, only during leap years (every 4 years).", "rubric_keywords": ["no", "leap year", "four years"]},
+    {"id": "LOG-07", "category": "Logical Inference", "prompt": "If today is Tuesday, what day was it three days ago?", "expected": "Saturday", "rubric_keywords": ["Saturday"]},
+    {"id": "LOG-08", "category": "Logical Inference", "prompt": "A room has four corners. A cat sits in each corner. How many cats are there?", "expected": "Four cats", "rubric_keywords": ["4", "four"]},
+    {"id": "LOG-09", "category": "Logical Inference", "prompt": "If no reptile has fur, and an animal has fur, can it be a reptile?", "expected": "No", "rubric_keywords": ["no"]},
+    {"id": "LOG-10", "category": "Logical Inference", "prompt": "Alex is older than Brian. Brian is older than Chris. Is Alex older than Chris?", "expected": "Yes (transitive property of age)", "rubric_keywords": ["yes", "older"]},
+
+    # Category 7: 10 Multi-Turn Context
+    {"id": "CTX-01", "category": "Multi-Turn Context", "prompt": "Context: My sister's name is Ananya and she works at an AI research lab in Bengaluru.\nQuestion: Where does Ananya work?", "expected": "At an AI research lab in Bengaluru", "rubric_keywords": ["Bengaluru", "AI research lab", "lab"]},
+    {"id": "CTX-02", "category": "Multi-Turn Context", "prompt": "Context: The meeting is scheduled for 3 PM in Room B. Note: Room B is undergoing repairs, so the meeting moved to Room D.\nQuestion: Which room will the meeting take place in?", "expected": "Room D", "rubric_keywords": ["Room D", "D"]},
+    {"id": "CTX-03", "category": "Multi-Turn Context", "prompt": "Context: Package #904 contains 5 books and 3 pens. Package #905 contains 2 notebooks.\nQuestion: How many pens are inside Package #904?", "expected": "3 pens", "rubric_keywords": ["3", "three"]},
+    {"id": "CTX-04", "category": "Multi-Turn Context", "prompt": "Context: Rahul had 10 apples. He gave 4 to Priya and 2 to Amit.\nQuestion: How many apples does Rahul have left?", "expected": "4 apples (10 - 4 - 2 = 4)", "rubric_keywords": ["4", "four"]},
+    {"id": "CTX-05", "category": "Multi-Turn Context", "prompt": "Context: The team has three members: Arjun (lead), Riya (designer), and Kabir (engineer).\nQuestion: Who is the designer?", "expected": "Riya", "rubric_keywords": ["Riya"]},
+    {"id": "CTX-06", "category": "Multi-Turn Context", "prompt": "Context: Train Express-42 departs at 08:00 AM from Station A and arrives at Station B at 11:30 AM.\nQuestion: What time does Express-42 arrive at Station B?", "expected": "11:30 AM", "rubric_keywords": ["11:30", "11:30 AM"]},
+    {"id": "CTX-07", "category": "Multi-Turn Context", "prompt": "Context: Server Alpha is running on port 8080. Server Beta is running on port 9090.\nQuestion: Which server is hosted on port 8080?", "expected": "Server Alpha", "rubric_keywords": ["Server Alpha", "Alpha"]},
+    {"id": "CTX-08", "category": "Multi-Turn Context", "prompt": "Context: The blue door requires Key-1. The red door requires Key-4. The green door requires Key-9.\nQuestion: Which key opens the red door?", "expected": "Key-4", "rubric_keywords": ["Key-4", "4"]},
+    {"id": "CTX-09", "category": "Multi-Turn Context", "prompt": "Context: Yesterday was sunny and 30 degrees. Today is rainy and 22 degrees.\nQuestion: What is today's weather like?", "expected": "Rainy and 22 degrees", "rubric_keywords": ["rainy", "22"]},
+    {"id": "CTX-10", "category": "Multi-Turn Context", "prompt": "Context: User's favorite color is Emerald Green and favorite fruit is Mango.\nQuestion: What is the user's favorite fruit?", "expected": "Mango", "rubric_keywords": ["Mango"]},
+
+    # Category 8: 10 Uncertainty and Self-Correction
+    {"id": "UNC-01", "category": "Uncertainty & Correction", "prompt": "Who will win the Men's 100m sprint at the 2036 Summer Olympics?", "expected": "Cannot be known / future event that has not happened", "rubric_keywords": ["cannot", "unknown", "future", "predict", "not occurred"]},
+    {"id": "UNC-02", "category": "Uncertainty & Correction", "prompt": "Correction check: I previously said that water boils at 50 degrees Celsius at sea level. Is that correct, or what is the real boiling point?", "expected": "Incorrect; the real boiling point is 100 degrees Celsius", "rubric_keywords": ["incorrect", "100", "wrong", "not correct"]},
+    {"id": "UNC-03", "category": "Uncertainty & Correction", "prompt": "What is the secret Wi-Fi password for the building across the street from my house?", "expected": "I do not have access to private Wi-Fi passwords / private information", "rubric_keywords": ["cannot", "access", "private", "confidential", "don't know"]},
+    {"id": "UNC-04", "category": "Uncertainty & Correction", "prompt": "Can you tell me the exact winning lottery numbers for next week's Mega Millions?", "expected": "Cannot predict random future lottery numbers", "rubric_keywords": ["cannot", "predict", "random", "future", "impossible"]},
+    {"id": "UNC-05", "category": "Uncertainty & Correction", "prompt": "Self-correction: I mistakenly said Paris is the capital of Germany. Please state the actual capital of Germany.", "expected": "Berlin", "rubric_keywords": ["Berlin"]},
+    {"id": "UNC-06", "category": "Uncertainty & Correction", "prompt": "What will the temperature be in Tokyo on December 25, 2045 at 2:00 PM?", "expected": "Cannot be predicted so far into the future", "rubric_keywords": ["cannot", "predict", "future", "unknown"]},
+    {"id": "UNC-07", "category": "Uncertainty & Correction", "prompt": "Correction: A user claimed that spiders are insects. Are spiders insects?", "expected": "No, spiders are arachnids (they have 8 legs, not 6)", "rubric_keywords": ["no", "arachnids", "not insects", "8 legs"]},
+    {"id": "UNC-08", "category": "Uncertainty & Correction", "prompt": "What is inside the closed briefcase sitting in my locked office right now?", "expected": "I have no way of knowing what is inside a private physical object", "rubric_keywords": ["cannot know", "unknown", "no access", "cannot see"]},
+    {"id": "UNC-09", "category": "Uncertainty & Correction", "prompt": "Correction check: Someone told me that the Moon is larger than the Earth. Is that claim accurate?", "expected": "No, the Earth is significantly larger than the Moon.", "rubric_keywords": ["no", "false", "inaccurate", "earth is larger", "smaller"]},
+    {"id": "UNC-10", "category": "Uncertainty & Correction", "prompt": "What is the exact net worth of John Doe from small town Ohio?", "expected": "Private personal financial information is not available / cannot be determined", "rubric_keywords": ["cannot", "private", "unavailable", "unknown"]}
+]
+
+def main():
+    out_dir = Path("experiments/fast_track_047_049")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    bench_file = out_dir / "sealed_120_benchmark.json"
+    
+    with open(bench_file, "w", encoding="utf-8") as f:
+        json.dump(BENCHMARK_PROMPTS, f, indent=2, ensure_ascii=False)
+        
+    print(f"Built fresh sealed benchmark with {len(BENCHMARK_PROMPTS)} prompts across 8 categories.")
+    print(f"Saved to: {bench_file}")
+
+if __name__ == "__main__":
+    main()

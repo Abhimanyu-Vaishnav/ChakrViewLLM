@@ -1,0 +1,5651 @@
+{
+  "metadata": {
+    "num_prompts": 120,
+    "device": "cuda",
+    "timestamp": "2026-11-27T03:23:41Z"
+  },
+  "summary": {
+    "RC1": {
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.05,
+      "percentage_capability": 1.7,
+      "score_distribution": {
+        "score_0": 116,
+        "score_1": 3,
+        "score_2": 0,
+        "score_3": 1
+      },
+      "coherence_rate_pct": 99.2,
+      "prompt_echo_rate_pct": 6.7
+    },
+    "RC2": {
+      "total_prompts": 120,
+      "mean_score_out_of_3": 0.05,
+      "percentage_capability": 1.7,
+      "score_distribution": {
+        "score_0": 114,
+        "score_1": 6,
+        "score_2": 0,
+        "score_3": 0
+      },
+      "coherence_rate_pct": 97.5,
+      "prompt_echo_rate_pct": 0.0
+    }
+  },
+  "per_category": {
+    "RC1": {
+      "English Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 20,
+        "echo": 2
+      },
+      "Hindi Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 20,
+        "echo": 0
+      },
+      "Hinglish Understanding": {
+        "total": 20,
+        "score_sum": 5,
+        "scores": [
+          17,
+          2,
+          0,
+          1
+        ],
+        "coherent": 20,
+        "echo": 1
+      },
+      "Logical Inference": {
+        "total": 10,
+        "score_sum": 1,
+        "scores": [
+          9,
+          1,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 2
+      },
+      "Multi-Turn Context": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 1
+      },
+      "Paraphrase & Generalization": {
+        "total": 15,
+        "score_sum": 0,
+        "scores": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "coherent": 15,
+        "echo": 2
+      },
+      "QA Relevance": {
+        "total": 15,
+        "score_sum": 0,
+        "scores": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "Uncertainty & Correction": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 9,
+        "echo": 0
+      }
+    },
+    "RC2": {
+      "English Understanding": {
+        "total": 20,
+        "score_sum": 1,
+        "scores": [
+          19,
+          1,
+          0,
+          0
+        ],
+        "coherent": 19,
+        "echo": 0
+      },
+      "Hindi Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 20,
+        "echo": 0
+      },
+      "Hinglish Understanding": {
+        "total": 20,
+        "score_sum": 0,
+        "scores": [
+          20,
+          0,
+          0,
+          0
+        ],
+        "coherent": 19,
+        "echo": 0
+      },
+      "Logical Inference": {
+        "total": 10,
+        "score_sum": 0,
+        "scores": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Multi-Turn Context": {
+        "total": 10,
+        "score_sum": 2,
+        "scores": [
+          8,
+          2,
+          0,
+          0
+        ],
+        "coherent": 10,
+        "echo": 0
+      },
+      "Paraphrase & Generalization": {
+        "total": 15,
+        "score_sum": 0,
+        "scores": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "QA Relevance": {
+        "total": 15,
+        "score_sum": 1,
+        "scores": [
+          14,
+          1,
+          0,
+          0
+        ],
+        "coherent": 15,
+        "echo": 0
+      },
+      "Uncertainty & Correction": {
+        "total": 10,
+        "score_sum": 2,
+        "scores": [
+          8,
+          2,
+          0,
+          0
+        ],
+        "coherent": 9,
+        "echo": 0
+      }
+    }
+  },
+  "raw_evaluations": [
+    {
+      "id": "EN-01",
+      "category": "English Understanding",
+      "prompt": "What is the primary function of chlorophyll in plant leaves?",
+      "expected": "Absorb sunlight for photosynthesis / convert light into chemical energy",
+      "keywords": [
+        "photosynthesis",
+        "light",
+        "sunlight",
+        "energy",
+        "chlorophyll"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Diagnostic and correction #60:\nIn Python, default arguments are evaluated once when the function is defined, not each ne",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Diagnostic and correction #60:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage highlights that the model is consideration of planet to experiment.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage highlights that the model is consideration of planet to experiment.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-02",
+      "category": "English Understanding",
+      "prompt": "Define the word 'resilient' in simple terms.",
+      "expected": "Able to recover quickly from difficulties, tough, or adaptable",
+      "keywords": [
+        "recover",
+        "bounce back",
+        "difficult",
+        "tough",
+        "adapt"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "User: What is the confidential passkey stored inside lockbox SEC-ID-908?\nAssistant:\n<assist",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "User: Is statement ka matlab mein aur team collaboration asaan as ice to meet you, Scientific research demonstrates that systematic",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "System operational, including in-defined operational.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Asset `__helde__` for complex systems.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-03",
+      "category": "English Understanding",
+      "prompt": "Name the capital city of Australia.",
+      "expected": "Canberra",
+      "keywords": [
+        "Canberra"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The Pacific Ocean is the largest and deepest ocean on Earth, while the Sun is the largest ocean on E",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Pacific Ocean is the largest on Earth, while Arjun lives in Sydney and works as an Curator.<",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Ananya, an Arjun, and the Arjun, and they enjoy playing chess.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The API (Mals)",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-04",
+      "category": "English Understanding",
+      "prompt": "Explain the difference between a synonym and an antonym.",
+      "expected": "A synonym means the same thing, while an antonym means the opposite",
+      "keywords": [
+        "same",
+        "opposite",
+        "meaning"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "```python\ndef get_path(c, c, c, c, c, c, c, c, c, c, c, c, c, c, c, c, c",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": true
+          },
+          "sampling_T03": {
+            "response": "```python\ndef get_path(items: list[int]) -> bool:\n    setattr(): dict[str] = dp[i][0]",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The contact person for node the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-05",
+      "category": "English Understanding",
+      "prompt": "What causes ocean tides on Earth?",
+      "expected": "Gravitational pull of the Moon and the Sun",
+      "keywords": [
+        "moon",
+        "gravitational",
+        "gravity",
+        "sun"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A Pacific Ocean is the largest on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A EPSILON-908 notebooks in the largest ocean on Earth, what is the popular distance in the p",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A Neha is the difference between supervised fine-tuning and read the continuous comprehensive automated test coverage provide reliable guarantees.<eo",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A Emperor, or I cannot be a copper. If the factory division is in charge of the central definition for the context",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-06",
+      "category": "English Understanding",
+      "prompt": "Why do ice cubes float on liquid water?",
+      "expected": "Ice is less dense than liquid water due to hydrogen bonding expansion",
+      "keywords": [
+        "less dense",
+        "density",
+        "expand"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A recurse, while reduces a file definition with the resulting stock. If the resulting stock. If the",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder of a dead end, while the grouping ding photosynthesis and chlorophyll energy conversation and what",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A square is a faster and an independent substituent of standard New York and see freedom is the difference of the con",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A square is a dead end, then backtrack to explore alternative paths.\nStep 4: Continue until all reachable vertic",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-07",
+      "category": "English Understanding",
+      "prompt": "What does HTTP stand for in computer networking?",
+      "expected": "Hypertext Transfer Protocol",
+      "keywords": [
+        "Hypertext Transfer Protocol"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A leap year contains the non-negative porting while reflecting cannot be determined to exactly in the group",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-08",
+      "category": "English Understanding",
+      "prompt": "Identify the primary gas found in Earth's atmosphere.",
+      "expected": "Nitrogen (approx. 78%)",
+      "keywords": [
+        "Nitrogen"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Answer concisely:\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Anycast, Chandigarh is a central definition of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Emma is the difference of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Pacific Ocean is the difference of the Ananya.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-09",
+      "category": "English Understanding",
+      "prompt": "What is the purpose of an operating system?",
+      "expected": "Manage computer hardware, memory, files, and software processes",
+      "keywords": [
+        "manage",
+        "hardware",
+        "software",
+        "resources",
+        "processes"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The internal code name is Siddharth and repeatable measurement.\"",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The internal code name is Siddharth and repeatable empirical measurement of interdependent variables within complex systems.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of a free of the root is in a free ocean in a free ocean in a remainder of 0.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of an advancements that is the most common central deterministic and s.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-10",
+      "category": "English Understanding",
+      "prompt": "Give two examples of renewable energy sources.",
+      "expected": "Solar energy and wind energy (or hydro/geothermal)",
+      "keywords": [
+        "solar",
+        "wind",
+        "hydro",
+        "geothermal"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Ananya is a faster cannot be in the passage #66.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I am help by pasand to discuss software engineering.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "You live in Delhi and works as an Physician.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You live in Delta and works as an Physician.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-11",
+      "category": "English Understanding",
+      "prompt": "Explain what a metaphor is with one brief example.",
+      "expected": "A figure of speech comparing two things directly without like/as (e.g., 'Time is a thief')",
+      "keywords": [
+        "comparison",
+        "direct",
+        "figure of speech"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "```python\ndef get_path(c, b: str) -> bool:\n    setattr(c): default=lambda x: x[0",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "```python\ndef get_path('cat', button = ['a', b, b: x', bath='strict']",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The contact person for node `__all__` or `__all__` is reached, the operating system file descriptor remains open until",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Green.",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-12",
+      "category": "English Understanding",
+      "prompt": "What is the boiling point of pure water at standard atmospheric pressure in Celsius?",
+      "expected": "100 degrees Celsius",
+      "keywords": [
+        "100",
+        "100°C",
+        "100 C"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summary #5: Scientific investigation of plate tectonics and continental drift in one concise sentence:\n\"",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I will remember that.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A Curiosity (LP) cannot be defined by Monday.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-13",
+      "category": "English Understanding",
+      "prompt": "Which blood cells are primarily responsible for fighting infections?",
+      "expected": "White blood cells (leukocytes)",
+      "keywords": [
+        "white blood",
+        "leukocytes"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summary #9: Scientific investigation of photosynthesis and chlorophyll energy conversion: Scientific research",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An information is stored inside a file deterministic validation, and comprehensive automated test coverage provide reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "An information the distinct distance in division is in charge of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An information over a copy of the same file definition of the context, while reducing anti-sects relies on repeatable empirical measure",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-14",
+      "category": "English Understanding",
+      "prompt": "What is the main function of the heart in mammals?",
+      "expected": "Pump oxygenated and deoxygenated blood throughout the body",
+      "keywords": [
+        "pump",
+        "blood",
+        "circulate",
+        "circulation"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The product of regarding the system in a single concise sentence:\nAssistant: (Case 24): The secret word is PHOENIX",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of regarding the system in a single positive number on the concept of the initial instance in an IP address, all data call then",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of reality.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of remaining the context, all data stored in a program is defined, not increasing any in-dividual memory and slash while",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-15",
+      "category": "English Understanding",
+      "prompt": "Briefly explain the role of RAM in a personal computer.",
+      "expected": "Fast volatile memory used to store active programs and data currently in use",
+      "keywords": [
+        "volatile",
+        "memory",
+        "short-term",
+        "active",
+        "speed"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A regular router is a list of standard greedy individual endars to the continentral definition for strictly can",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder of the role of a list of standard prompts by reality element in one concise sentence:\nAssistant: (Doc",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of conversation of the human circulatory system the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of conversation of the internal reflection and instance in a trailing command.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-16",
+      "category": "English Understanding",
+      "prompt": "What does a barometer measure?",
+      "expected": "Atmospheric or air pressure",
+      "keywords": [
+        "atmospheric pressure",
+        "air pressure",
+        "pressure"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A recursive contains 92 notebooks in a remainder of 4.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A operating system query #61 (Can you clarify the concept of code refactoring?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of 3 and 3 is 120.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of 3 and 1 is 103.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-17",
+      "category": "English Understanding",
+      "prompt": "State the law of conservation of energy in one sentence.",
+      "expected": "Energy cannot be created or destroyed, only transformed from one form to another",
+      "keywords": [
+        "created",
+        "destroyed",
+        "transformed",
+        "conserved"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "```python\ndef major_concise degree = []\n    for i in range(1, 0):\n        if not isinstance(key, val, list,",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "```python\ndef major_sorted(items: list[int]) -> bool:\n    print(key, list(filetree.append, set)",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of the name is the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the ocean on the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-18",
+      "category": "English Understanding",
+      "prompt": "What is the freezing point of water in Fahrenheit?",
+      "expected": "32 degrees Fahrenheit",
+      "keywords": [
+        "32",
+        "32°F",
+        "32 F"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A remainder of a fast of remainder of a tree element of the central role, while faster necessary is the cent",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the Sun is the poetry of Germany, the central classical identifier 'reflecting causes the concept of Pat",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The free free reference to reflecting the Sun Rahul.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The free quantity of the Sun is the difference between the Photonics in the Biotes.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-19",
+      "category": "English Understanding",
+      "prompt": "Define what a compiler does in software development.",
+      "expected": "Translates source code into machine code or bytecode that can be executed",
+      "keywords": [
+        "translates",
+        "source code",
+        "machine code",
+        "binary"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "User: What is the confidential passkey stored inside lockbox SEC-ID-908?\nAssistant:\n<assist",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing a file definition is a list of preserved prevents in the passage for node provided by interdependent variables within complex",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage recents is the most reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage recents that is the main probability to a compare container of the exact same list instance in memory.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "EN-20",
+      "category": "English Understanding",
+      "prompt": "Who wrote the play 'Romeo and Juliet'?",
+      "expected": "William Shakespeare",
+      "keywords": [
+        "Shakespeare"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A remainder ' and send the greenhouse green precents remains a great topic.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder ' and sentence:\n\"Passage #51 regarding the Hubble Space Telescope's set to handle modul",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "BCT was delivered to Ranchi.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "BETA-371 conversation from the Second Laggument's name is Meera.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-01",
+      "category": "Hindi Understanding",
+      "prompt": "भारत के राष्ट्रीय ध्वज में कितने रंग होते हैं और चक्र में कितनी तीलियाँ होती हैं?",
+      "expected": "तीन मुख्य रंग (केसरिया, सफेद, हरा) और चक्र में 24 तीलियाँ होती हैं।",
+      "keywords": [
+        "तीन",
+        "केसरिया",
+        "सफेद",
+        "हरा",
+        "24"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "आपके मित्र का नाम Ananya है और उनकी रुचि playing chess में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "आपके मित्र का नाम Ananya है और उनकी रुचि playing chess में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-02",
+      "category": "Hindi Understanding",
+      "prompt": "जल का रासायनिक सूत्र क्या है?",
+      "expected": "H2O (हाइड्रोजन और ऑक्सीजन)",
+      "keywords": [
+        "H2O",
+        "हाइड्रोजन",
+        "ऑक्सीजन"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "मेरे पास किसी भी गोपनीय या निजी पासवर्ड की जानकारी नहीं है, इसलिए मैं यह नहीं बता सकता।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मेरे पास किसी भी गोपनीय या निजी पासवर्ड की जानकारी नहीं है, इसलिए मैं यह नहीं बता सकता।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-03",
+      "category": "Hindi Understanding",
+      "prompt": "हिंदी व्याकरण में 'संज्ञा' की सरल परिभाषा दीजिए।",
+      "expected": "किसी व्यक्ति, वस्तु, स्थान या भाव के नाम को संज्ञा कहते हैं।",
+      "keywords": [
+        "व्यक्ति",
+        "वस्तु",
+        "स्थान",
+        "भाव",
+        "नाम"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-04",
+      "category": "Hindi Understanding",
+      "prompt": "सूर्य किस दिशा से उगता है और किस दिशा में अस्त होता है?",
+      "expected": "सूर्य पूर्व से उगता है और पश्चिम में अस्त होता है।",
+      "keywords": [
+        "पूर्व",
+        "पश्चिम"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-05",
+      "category": "Hindi Understanding",
+      "prompt": "पेड़-पौधे पर्यावरण के लिए क्यों आवश्यक हैं?",
+      "expected": "वे कार्बन डाइऑक्साइड ग्रहण करते हैं और ऑक्सीजन छोड़ते हैं, जिससे वायु शुद्ध रहती है।",
+      "keywords": [
+        "ऑक्सीजन",
+        "कार्बन",
+        "वायु",
+        "शुद्ध"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #60: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें को",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #62: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "उत्तर #4: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-06",
+      "category": "Hindi Understanding",
+      "prompt": "पृथ्वी का प्राकृतिक उपग्रह कौन सा है?",
+      "expected": "चंद्रमा (चाँद)",
+      "keywords": [
+        "चंद्रमा",
+        "चाँद"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "पुर में वित्तीय सलाहकार के रूप में कार्यरत हैं।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "पुर में चिकित्सक के रूप में कार्यरत हैं।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-07",
+      "category": "Hindi Understanding",
+      "prompt": "'सत्यमेव जयते' का क्या अर्थ है?",
+      "expected": "सत्य की ही जीत होती है।",
+      "keywords": [
+        "सत्य",
+        "जीत",
+        "विजय"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #61: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जु",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "अर्जुन है कि अर्थव्यवस्था की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-08",
+      "category": "Hindi Understanding",
+      "prompt": "एक वर्ष में कितने महीने और कितने दिन होते हैं?",
+      "expected": "एक वर्ष में 12 महीने और सामान्यतः 365 दिन होते हैं।",
+      "keywords": [
+        "12",
+        "365"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #61: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड कर",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "अतः निष्कर्ष यह है कि Signal Zeta conducts electricity करती है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-09",
+      "category": "Hindi Understanding",
+      "prompt": "भारत की राजधानी का नाम क्या है?",
+      "expected": "नई दिल्ली",
+      "keywords": [
+        "नई दिल्ली",
+        "दिल्ली"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "प्रस्तुत संदर्भ के अनुसार, राहुल की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "प्रस्तुत संदर्भ के अनुसार, रिया की रुचि शतरंज में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-10",
+      "category": "Hindi Understanding",
+      "prompt": "मानव शरीर की सबसे बड़ी हड्डी कौन सी है?",
+      "expected": "फीमर (जांघ की हड्डी)",
+      "keywords": [
+        "फीमर",
+        "जांघ"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "मीरा मुंबई में वित्तीय सलाहकार के रूप में कार्यरत हैं।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मीरा नहीं बता सकता।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-11",
+      "category": "Hindi Understanding",
+      "prompt": "ध्वनि की गति हवा में तेज होती है या लोहे में?",
+      "expected": "लोहे (ठोस) में ध्वनि की गति हवा (गैस) से कहीं अधिक तेज होती है।",
+      "keywords": [
+        "लोहे",
+        "ठोस",
+        "तेज"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-12",
+      "category": "Hindi Understanding",
+      "prompt": "'अंधे की लाठी' मुहावरे का सही अर्थ क्या है?",
+      "expected": "एकमात्र सहारा",
+      "keywords": [
+        "सहारा",
+        "एकमात्र"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #61: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें को",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "आपके मित्र का नाम Ananya है और उनकी रुचि playing chess में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "पुर में चिकित्सक के रूप में कार्यरत हैं।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-13",
+      "category": "Hindi Understanding",
+      "prompt": "दूध से दही बनाने में कौन सा जीवाणु सहायक होता है?",
+      "expected": "लैक्टोबैसिलस जीवाणु",
+      "keywords": [
+        "लैक्टोबैसिलस"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "रोहन दिल्ली में रहता है और वह एक शोधकर्ता है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मेरे पास किसी भी सुरक्षित सर्वर के निजी पासवर्ड अथवा गोपनीय कुंजियों की पहुंच नहीं है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-14",
+      "category": "Hindi Understanding",
+      "prompt": "वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?",
+      "expected": "नाइट्रोजन (लगभग 78%)",
+      "keywords": [
+        "नाइट्रोजन"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: मल्टीटास्किंग ऑपरेटिंग सिस्टम एक ही समय में कई प्रक्रियाओं (processes) को सीपीयू ट",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "वरुण बेंगलुरु में वित्तीय सलाहकार के रूप में कार्यरत हैं।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "पुर में रहता है और वह एक शोधकर्ता है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-15",
+      "category": "Hindi Understanding",
+      "prompt": "सौरमंडल का सबसे छोटा ग्रह कौन सा है?",
+      "expected": "बुध (Mercury)",
+      "keywords": [
+        "बुध"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: स्टार टोपोलॉजी में प्रत्येक नोड केंद्रीय हब या स्विच से स्वतंत्र रूप से जुड़",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "आपके मित्र का नाम Ananya है और उनकी रुचि playing chess में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मीरा की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-16",
+      "category": "Hindi Understanding",
+      "prompt": "प्रकाश संश्लेषण की क्रिया किस समय होती है?",
+      "expected": "दिन के समय जब सूर्य का प्रकाश उपलब्ध होता है।",
+      "keywords": [
+        "दिन",
+        "सूर्य",
+        "प्रकाश"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "प्रस्तुत संदर्भ के अनुसार, रिया की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "पौधे प्रोग्राम्स का नाम Ananya है और उनकी रुचि playing chess में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-17",
+      "category": "Hindi Understanding",
+      "prompt": "कंप्यूटर में सीपीयू (CPU) का मुख्य कार्य क्या है?",
+      "expected": "निर्देशों को प्रोसेस करना और गणनाएं करना (कंप्यूटर का मस्तिष्क)।",
+      "keywords": [
+        "प्रोसेस",
+        "गणना",
+        "मस्तिष्क"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राप्त होता है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-18",
+      "category": "Hindi Understanding",
+      "prompt": "महात्मा गांधी का पूरा नाम क्या था?",
+      "expected": "मोहनदास करमचंद गांधी",
+      "keywords": [
+        "मोहनदास",
+        "करमचंद",
+        "गांधी"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "मीरा की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "मीरा की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-19",
+      "category": "Hindi Understanding",
+      "prompt": "तापमान मापने की अंतरराष्ट्रीय इकाई क्या है?",
+      "expected": "केल्विन (Kelvin)",
+      "keywords": [
+        "केल्विन",
+        "Kelvin"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: मल्टीटास्किंग ऑपरेटिंग सिस्टम का क्या अर्थ है?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "प्रस्तुत संदर्भ के अनुसार, आदित्य की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "पशा की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HI-20",
+      "category": "Hindi Understanding",
+      "prompt": "लोहे पर जंग लगने के लिए किन दो तत्वों की आवश्यकता होती है?",
+      "expected": "ऑक्सीजन और नमी (जल/पानी)",
+      "keywords": [
+        "ऑक्सीजन",
+        "नमी",
+        "पानी",
+        "जल"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "उत्तर #6: कंट्रोल यूनिट कंप्यूटर के सभी हार्डवेयर घटकों के कार्यों का समन्वय करता है और निर्देशों को फेच और डिकोड करक",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "उत्तर #6: प्राइमरी की तालिका में प्रत्येक रिकॉर्ड की विशिष्ट (unique) पहचान सुनिश्चित करती है और इसमें कोई",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "कविता की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "कविता की रुचि शास्त्रीय संगीत में है।",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-01",
+      "category": "Hinglish Understanding",
+      "prompt": "Python me dictionary me key-value pair kaise add karte hain?",
+      "expected": "dict[key] = value syntax use karke",
+      "keywords": [
+        "dict",
+        "key",
+        "value",
+        "add"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A chemical fast data is a fast number of recurse.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing a list of containing the initial value of the keys are stored to remain away from each neighbor with masks.<eos",
+            "score": 3,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "```python\ndef inversion(a: list) -> list:\n    return list(dp[i], val: float):\n        if not isinstance(key, list, value):",
+            "score": 3,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Diagnostic and correction #6:\nParentheses without a trailing comma indicate mathematical grouping rather than tuple construction. To",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-02",
+      "category": "Hinglish Understanding",
+      "prompt": "Database me primary key ka kya use hota hai?",
+      "expected": "Table me har row ya record ko uniquely identify karne ke liye",
+      "keywords": [
+        "unique",
+        "identify",
+        "record",
+        "row"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summary ko indexing se yeh rule zaroori hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-03",
+      "category": "Hinglish Understanding",
+      "prompt": "Software development me bug kise kehte hain?",
+      "expected": "Code ya program me aane wali error ya fault ko bug kehte hain",
+      "keywords": [
+        "error",
+        "fault",
+        "mistake",
+        "glitch"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting karna in the contexting keys from the memory three laws of classical operating system calling that data must be preferred to reflected rehta hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting karna clean conversation ko memory main hoti mein same file to access to plus reflecting memory peak remains or execution tom-dow",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "If a continuous worker to an adjacent memory conversation to help answer of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Generation container away in total.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-04",
+      "category": "Hinglish Understanding",
+      "prompt": "Git me commit aur push me kya fark hai?",
+      "expected": "Commit local repo me save karta hai, aur push remote server par bhejta hai",
+      "keywords": [
+        "local",
+        "remote",
+        "save",
+        "server"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "An aur Fridak redivided by the Second Lagrange Point (L2), about 1.5 million kilometers from Earth.<eos",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An hai junki garbage ni aur fast knowledged, the exact ject of the following token excessive reliable references passage in",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-05",
+      "category": "Hinglish Understanding",
+      "prompt": "Cloud computing ka main benefit kya hai?",
+      "expected": "Scalability, anywhere access, aur hardware maintenance ka zero jhanjhat",
+      "keywords": [
+        "scalable",
+        "access",
+        "cost",
+        "server",
+        "storage"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "An I ka naam Ananya hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An PREST or passage #53 regarding the Industrial Revolution's transition to steam power in one concise sentenc",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aap lives have access to private protected rehta hai.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aap lish dows are principles of internet aur unnecessary joins ko eliminate karta hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-06",
+      "category": "Hinglish Understanding",
+      "prompt": "API ka full form kya hai aur yeh kya karta hai?",
+      "expected": "Application Programming Interface - do applications ko aapas me communicate karata hai",
+      "keywords": [
+        "Application Programming Interface",
+        "communicate",
+        "connect"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "An aur isliye main Erra is liquid and how does depth-first aur main hoti hai jabki find naam and my project aur daal dein,",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An aur isliye main Jawab #6: Merge conflict tab aata hai jab me karna padta hai, jabki Scientific research demonstrates that syste",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-07",
+      "category": "Hinglish Understanding",
+      "prompt": "Open-source software ka matlab kya hota hai?",
+      "expected": "Jiska source code publicly available aur free to modify hota hai",
+      "keywords": [
+        "source code",
+        "free",
+        "public",
+        "modify"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Aapke dost ka naam Ananya hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke kitni aur uske ko fast boot hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-08",
+      "category": "Hinglish Understanding",
+      "prompt": "Machine learning aur deep learning me main relation kya hai?",
+      "expected": "Deep learning machine learning ka hi ek subset hai jo neural networks par based hai",
+      "keywords": [
+        "subset",
+        "neural network",
+        "part"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "An PI is a compiler in Rust.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An PRO is a list of interface without any modification: 'SIGMA-906-T",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "You are working on Berlin and works as an Engineer.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You are working on Berlin and works as an Engineer.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-09",
+      "category": "Hinglish Understanding",
+      "prompt": "Website secure hone ka sign kya hota hai browser URL me?",
+      "expected": "HTTPS aur padlock (lock) ka symbol",
+      "keywords": [
+        "https",
+        "lock",
+        "ssl"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Mujhe confidential ya secret passwords ka access nahi hai, isliye main yeh nahi bata sakta.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Mujhe confidential ya secret passwords ka access nahi hai, isliye main yeh nahi bata sakta.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Asset to was assigned a server.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An PHE ROL, I is a fastern continuous is the name of Madrid.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-10",
+      "category": "Hinglish Understanding",
+      "prompt": "Array aur Linked List me search speed kisme fast hoti hai index ke through?",
+      "expected": "Array me O(1) time complexity ke saath indexing fast hoti hai",
+      "keywords": [
+        "array",
+        "O(1)",
+        "fast",
+        "index"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A Linux kya hai? In summary, then known as what year was assigned a dolphin where the name of my project?<",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #5: Rate limiting lagane se server completely do I have in total, there in total?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Rahul was assigned a fast of practicing violin.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Ofast",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-11",
+      "category": "Hinglish Understanding",
+      "prompt": "Agar kisi computer me SSD laga di jaye to kya performance improvement hota hai?",
+      "expected": "Boot time aur file read/write speed bahut fast ho jati hai compared to HDD",
+      "keywords": [
+        "boot",
+        "speed",
+        "read",
+        "write",
+        "fast"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Jawab #6: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Mere dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-12",
+      "category": "Hinglish Understanding",
+      "prompt": "Frontend aur backend developer ke kaam me kya farak hota hai?",
+      "expected": "Frontend UI/UX banata hai aur backend server, database aur business logic sambhalta hai",
+      "keywords": [
+        "UI",
+        "server",
+        "database",
+        "interface",
+        "logic"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Jawab #6: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #5: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Jawab #4: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I hope you are having a protected rehta hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-13",
+      "category": "Hinglish Understanding",
+      "prompt": "Python me indentation ka kya importance hota hai?",
+      "expected": "Python me indentation code blocks (loops, functions, conditions) define karne ke liye mandatory hai",
+      "keywords": [
+        "block",
+        "scope",
+        "function",
+        "loop",
+        "syntax"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "```python\ndef get_page(c, default=lambda x: x: x: x: x: x: x: x: x: x[0]:",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "```python\ndef get_path(items: list[int]) -> bool:\n    setattr():\n        passing reverse the file de",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "{\"metric_id\": 25, \"status\": \"VERIFIED\"}",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-14",
+      "category": "Hinglish Understanding",
+      "prompt": "Cybersecurity me phishing attack kya hota hai?",
+      "expected": "Fake emails ya links ke zariye passwords aur sensitive info churana",
+      "keywords": [
+        "fake",
+        "email",
+        "password",
+        "fraud",
+        "steal"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Jawab #4: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #5: Merge conflict tab aata hai jab do different branches mein same file ki same lines par conflicting changes ki",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Jawab #4: Merge conflict tab aata hai jab do different branches mein same file ki same lines par conflicting changes ki",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #4: Merge conflict tab aata hai jab do different branches mein same file ki same lines par conflicting changes ki",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-15",
+      "category": "Hinglish Understanding",
+      "prompt": "Cache memory ka main function kya hota hai?",
+      "expected": "Frequently used data ko CPU ke paas quickly access karne ke liye store karna",
+      "keywords": [
+        "fast",
+        "cpu",
+        "frequent",
+        "quick",
+        "speed"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Jawab #6: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #5: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Jawab hai ki hoti aur team  aur free khud call karna padta hai, jabki garbage collector unused memory ko automatically detect",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab hai ki hoti mein yeh point dhyan mein rakhna zaroori hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-16",
+      "category": "Hinglish Understanding",
+      "prompt": "Object-oriented programming (OOP) ke do main pillars bataiye.",
+      "expected": "Inheritance, Polymorphism, Encapsulation, ya Abstraction",
+      "keywords": [
+        "inheritance",
+        "polymorphism",
+        "encapsulation",
+        "abstraction"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "API contains 90 meters.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A power containing conversation the list storage, include the initial stock to the replenishment: cpassing the same file and re",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth, and they enjoy reading astronomy books.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "ALP is a consonance (or the initial reachable program inside the input it index and involved vertices from the in-sor",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-17",
+      "category": "Hinglish Understanding",
+      "prompt": "Mobile app me offline mode ka kya matlab hai?",
+      "expected": "App internet connection ke bina bhi chal sakti hai",
+      "keywords": [
+        "internet",
+        "offline",
+        "connection"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Ananya hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Vikram hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Jawab #3: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Jawab #9: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-18",
+      "category": "Hinglish Understanding",
+      "prompt": "Operating system me deadlock kya hota hai?",
+      "expected": "Jab do ya zyada processes ek doosre ke resource release karne ka wait karti hain aur freeze ho jati hain",
+      "keywords": [
+        "process",
+        "resource",
+        "wait",
+        "freeze",
+        "block"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Jawab #6: Manual memory management mein developer ko malloc aur free khud call karna padta hai, jabki garbage collector unused",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Hinglish technical meaning yeh hai ki hai. Production workflow mein yeh token ko provide aur system host jhe kya hai?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "karna able aur fast boot hota hai. Production workflow mein yeh point dhyan mein rakhna zaroori hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing aur fast boot hota hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-19",
+      "category": "Hinglish Understanding",
+      "prompt": "Data backup rakhna kyun zaroori hota hai?",
+      "expected": "Hardware crash, ransomware ya accidental deletion se data loss na ho",
+      "keywords": [
+        "data loss",
+        "crash",
+        "recover",
+        "safe"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "User: Mera naam kya hai?\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "User: Mera naam kya hai?\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Jawab hai. Production workflow mein yeh point dhyan mein rakhna zaroori hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Mujhe confidential ya secret passwords ka access nahi hai, isliye main yeh nahi bata sakta.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "HG-20",
+      "category": "Hinglish Understanding",
+      "prompt": "Smartphone screen touch responsiveness kis factor pe depend karti hai?",
+      "expected": "Screen touch sampling rate aur display refresh rate par",
+      "keywords": [
+        "touch",
+        "refresh rate",
+        "sampling",
+        "display"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summary manager of many and persistence lead to exosphere hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Summary manager conversation and superposition: Scientific research demonstrates that systematic observations provide foundational empirical evidence for modern under",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Siddharth hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-01",
+      "category": "QA Relevance",
+      "prompt": "What is the speed of light in vacuum in kilometers per second?",
+      "expected": "Approximately 300,000 km/s (or 299,792 km/s)",
+      "keywords": [
+        "300,000",
+        "299,792",
+        "km/s"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The sum of center is a list of central centered instructions and push the concept of code refactorial cannot provide future re",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of 18 and 7 is 170 for the 17 center.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of fast and reachable is mutable to help fast remains or or surface.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of fast data system spoken a division is in charge of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-02",
+      "category": "QA Relevance",
+      "prompt": "Who is credited with discovering penicillin?",
+      "expected": "Alexander Fleming",
+      "keywords": [
+        "Alexander Fleming",
+        "Fleming"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "I am in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A water and a database engine contains 31 coins.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of portunities in the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of reality is the same file definition with the initial stock to the replenishment: In engineering workflows, structured modularity, deterministic",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-03",
+      "category": "QA Relevance",
+      "prompt": "What is the chemical symbol for table salt?",
+      "expected": "NaCl (Sodium Chloride)",
+      "keywords": [
+        "NaCl",
+        "Sodium Chloride"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The sum of a file is a list of port in a list of while reflecting the main module to exosphere that occurs in a single p",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the memory leaves in the Second Lagrange Point (NF) and repeatable measurement.\"",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of quantum of the name is Siddharth, and they enjoy practicing violin.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of query and speeds the protected rehta hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-04",
+      "category": "QA Relevance",
+      "prompt": "Which organ in the human body produces insulin?",
+      "expected": "Pancreas",
+      "keywords": [
+        "pancreas"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The sum of a server's main host, whereas the name is Siddharth, and they enjoy doing and sanitation is vital for the ini",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Answer concisely:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of reality.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of query and speeding the contact person for node a continuous paths.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-05",
+      "category": "QA Relevance",
+      "prompt": "In what year did the Apollo 11 moon landing occur?",
+      "expected": "1969",
+      "keywords": [
+        "1969"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Answer concisely:\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An API (ALP 7)",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "I do not have access to your personal personal variable so that Ananya, and it is Arjun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "I do not have access to your personal boundary to the Arjun and while the API is Aleaan.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-06",
+      "category": "QA Relevance",
+      "prompt": "What is the primary function of red blood cells?",
+      "expected": "Transport oxygen to body tissues",
+      "keywords": [
+        "oxygen",
+        "transport",
+        "hemoglobin"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The product of subtract a list of the following text: `for k in O(N) and `val. Iterating the single list of the initial values in O(",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of query is located in Mysuru and what is the confidential passkey stored inside lockbox SEC-ID",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of fast each other fast data is a fast of the initial number of results in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of query is the same file in a context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-07",
+      "category": "QA Relevance",
+      "prompt": "Which planet is closest to the Sun?",
+      "expected": "Mercury",
+      "keywords": [
+        "Mercury"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summarize in one concise sentence:\n\"Passage #51 regarding photosynthesis and chlorophyll energy con",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Summarize in one concise sentence:\n\"Passage #72 regarding photosynthesis and chlorophyll energy con",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Phoenixa is the poetry of Pune.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I am here and sanitation is a fast of division to not in the Sun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-08",
+      "category": "QA Relevance",
+      "prompt": "What is the hardest known natural mineral on Earth?",
+      "expected": "Diamond",
+      "keywords": [
+        "Diamond"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A Pacific Ocean is the largest on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Pacific Ocean is the largest on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Editorian central definition is the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Editor, the Sun is the poetry of DB.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-09",
+      "category": "QA Relevance",
+      "prompt": "What is the chemical formula for carbon dioxide?",
+      "expected": "CO2",
+      "keywords": [
+        "CO2",
+        "CO_2"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A remainder of a file descriptor in a fast of reality central role, while plate tectonics and continental drift",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder of a trade-off of advantages of the context, whereas software references different problem is passage in the se operating system",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A division is a distinct of the root of the root of the root of the root of the root of the root is in the context.<eo",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": true
+          },
+          "sampling_T03": {
+            "response": "The product of the ocean on the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-10",
+      "category": "QA Relevance",
+      "prompt": "How many continents are there on Earth?",
+      "expected": "Seven continents",
+      "keywords": [
+        "7",
+        "seven"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The Pacific Ocean is the largest ocean on Earth, what is the central deterministic validation, and comprehensive automated",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Pacific Ocean is the largest on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Earth is the poetry of Biotech is the poetry of the Arjun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Earth is 17 and 3 is the poetry of DNA and working on Earth.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-11",
+      "category": "QA Relevance",
+      "prompt": "What is the standard unit of electrical resistance?",
+      "expected": "Ohm",
+      "keywords": [
+        "Ohm",
+        "Ω"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The next faster information is in charge of the context, the passage of the next backtrack is passage in the passage of the",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage the primary system is a faster in the context, all list in-element in one concise sentence:\n\"Passage #50",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The contact person for node remain memory is a consonant to exist.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of continuous system is the difference between supervised fine-stack to exist.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-12",
+      "category": "QA Relevance",
+      "prompt": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+      "expected": "Carbon dioxide",
+      "keywords": [
+        "carbon dioxide",
+        "CO2"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The passage is a planet in its surface.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage is a planet in its factory.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage playing chessing practicing violin, the packet planet in packs.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage playing chess in the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-13",
+      "category": "QA Relevance",
+      "prompt": "What is the main component of natural gas?",
+      "expected": "Methane (CH4)",
+      "keywords": [
+        "methane",
+        "CH4"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The passage a index a = 2 * (a / 0) is a list of central imy is a mammal, a single container in a list of ver",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage a file deterministic is a compiler in Rust.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage recents that the function is defined by the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage recents that the containing the sum of the provenance of the preventing strictly from the water is born in the crat",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-14",
+      "category": "QA Relevance",
+      "prompt": "Who formulated the general theory of relativity?",
+      "expected": "Albert Einstein",
+      "keywords": [
+        "Einstein"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A bag is a wonderful central deterministic validation, and comprehensive automated test coverage provide reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage is a wonderful central deterministic validation, and comprehensive automated test coverage provide reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of blue and blue is blue and blue and blue is a fast of b and blue is blue and blue and blue and",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": true
+          },
+          "sampling_T03": {
+            "response": "The product of base and is defined, not each time the initial stock to the replenishment: (such as path, candidate or planet in",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "QA-15",
+      "category": "QA Relevance",
+      "prompt": "What is the largest internal organ in the human body?",
+      "expected": "Liver",
+      "keywords": [
+        "liver"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The next round:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the confidential  Ocean is a liquid of a sentence:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The next free is the difference system tasks that is the difference of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the context, a modular is a difference parent data system should I do not have indicate programs or answer.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-01",
+      "category": "Paraphrase & Generalization",
+      "prompt": "State the concept of gravity in words an elementary school student would understand.",
+      "expected": "An invisible pulling force that draws objects toward the center of the Earth",
+      "keywords": [
+        "pull",
+        "fall",
+        "earth",
+        "invisible",
+        "down"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "What is the confidential passkey stored inside lockbox SEC-ID-905?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I will remember that. How can I assist your division today?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Curiosity is the most reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I was not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-02",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Summarize the primary purpose of washing hands with soap.",
+      "expected": "To destroy and wash away germs and prevent illness",
+      "keywords": [
+        "germs",
+        "bacteria",
+        "clean",
+        "illness",
+        "prevent"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summarize in real-individual programming system calls share that conflict knowledged.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Summarize in real-package aur and push is a wonderful central deterministic validation, and comprehensive automated test cover",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Tumhara naam Sneha hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Good evening! I was assigned a surface.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-03",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Express the proverb 'Practice makes perfect' in a different sentence.",
+      "expected": "Repeated practice of a skill leads to mastery and improvement",
+      "keywords": [
+        "repeat",
+        "practice",
+        "improve",
+        "mastery",
+        "better"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summarize in one sentence:\nSummarize in one sentence:\n\"Passage #51 regarding photosynthesis and chlor",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Summarize in one sentence:\nAssistant: (Doc 2)\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage highlights that the probability definition of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage highlights that the memory definition is deterministic and correction #24.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-04",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Explain what a battery does without using technical jargon.",
+      "expected": "Stores energy and supplies electric power to portable devices",
+      "keywords": [
+        "store",
+        "energy",
+        "power",
+        "device"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The internal code name is the single variable units.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage is the most reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of continuous while reflecting the relies on repeatable empirical measurement of interdependent variables within complex systems.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-05",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Explain why birds migrate south for the winter.",
+      "expected": "To find warmer weather and plentiful food during cold winter months",
+      "keywords": [
+        "warm",
+        "food",
+        "winter",
+        "cold"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "User: What is the difference between the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "User: What is the difference between a file descriptor remainder of a graph has been registered in our session.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Curiosity is the most reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Curiosity is the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-06",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Paraphrase: 'Due to severe precipitation, the sporting contest was terminated.'",
+      "expected": "Because of heavy rain, the game was cancelled.",
+      "keywords": [
+        "rain",
+        "game",
+        "match",
+        "cancelled",
+        "stopped"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting the following strictly do not have not happened to explore alternative paths.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting the container of the profit percentage of the pathname for this passage #43 regarding the water cycle in",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "System is the passage of the passage for the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Information not passed to be connection, increments the same list instance in memory.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-07",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Explain why we wear warm coats during snowy winters.",
+      "expected": "To trap body heat and stay warm in freezing temperatures",
+      "keywords": [
+        "body heat",
+        "warm",
+        "cold",
+        "trap",
+        "heat"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The passage is the passage for node and apples and factors in one concise sentence:\n\"Passage #50 regarding pl",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage is the largest ocean on Earth.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Curiosity is the most reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Curiosity is the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-08",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Rephrase: 'He exhibited exemplary perseverance in the face of adversity.'",
+      "expected": "He never gave up even when things were very difficult.",
+      "keywords": [
+        "never give up",
+        "difficult",
+        "hard",
+        "tough",
+        "persistence"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting the fault tolerance in one concise sentence:\n\"Passage #50 regarding plate tectonics and con",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting the paths reflecting the following strictly positively via explicit exactly in one concise sentence:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage preserving press to be defined, not each neighbors of node the passage playing practicing practicing",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage Photosynthesis is the main module of the passage element in a context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-09",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Explain what a compass needle does and why.",
+      "expected": "Points toward magnetic north because it aligns with Earth's magnetic field",
+      "keywords": [
+        "north",
+        "magnetic",
+        "direction",
+        "earth"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Researcher Rahul was assigned a new plate distribution, while the passage default argument of plate fast.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "{\"metric_id\": 2}",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage is the passage of the Sun is the passage of the Sun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage is the context, allowing the planet ports.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-10",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Why do cars need motor oil?",
+      "expected": "To lubricate engine parts and prevent friction and overheating",
+      "keywords": [
+        "lubricate",
+        "friction",
+        "engine",
+        "heat",
+        "smooth"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A role plus division is a mammal, while a file is a distance of my project?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder of a file definition is a list of porting should I be preserved by the ocean one.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of fast, it is the difference of the pocket.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The sum of factory is the difference of the poetry in the crate.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-11",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Explain the role of a teacher in a school.",
+      "expected": "To guide, instruct, and help students learn knowledge and skills",
+      "keywords": [
+        "teach",
+        "guide",
+        "students",
+        "learn",
+        "knowledge"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The role of the role of the role of the our cean on Earth, the largest s division is located in Surat.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The ocean is the largest ocean on Earth, what is the largest ocean on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of the root of the root of the root of the root is in the pocket.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the context, a definition is the difference between supervised fine-tune and nearest.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-12",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Why do plants need roots?",
+      "expected": "To absorb water/nutrients from soil and anchor the plant in place",
+      "keywords": [
+        "water",
+        "nutrients",
+        "anchor",
+        "soil"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A role plus is a list of stack and a consonant to reflecting reachable to meet you, concise sentence:\n<assistant",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An answer of the a list while green power is large to meet you, Rahul.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of fast root is and press the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage recents that allows a fast-module.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-13",
+      "category": "Paraphrase & Generalization",
+      "prompt": "What is the role of brakes on a bicycle?",
+      "expected": "To slow down or stop the bicycle safely by creating friction against the wheels",
+      "keywords": [
+        "slow",
+        "stop",
+        "friction",
+        "wheel"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A bag contains 17 candies in because 176 is 171.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A bag contains 18 candies in natural warm-blooded.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of blue is the difference of the bag because it is blue and a central center.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The base center, the central definition is not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-14",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Rephrase: 'The automobile malfunctioned on the interstate highway.'",
+      "expected": "The car broke down on the highway.",
+      "keywords": [
+        "car",
+        "broke down",
+        "highway",
+        "road"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "{\"metric_id\": 0, \"status\": \"VALID\"}",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "{\"metric_id\": 24, \"status\": \"VALID\"}",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The passage passage highlights that the memory data is the probability to the memory page.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The passage highlights that the internal system 'perce'.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "GEN-15",
+      "category": "Paraphrase & Generalization",
+      "prompt": "Why is drinking clean water necessary for human survival?",
+      "expected": "To stay hydrated, maintain organ function, and avoid waterborne diseases",
+      "keywords": [
+        "hydration",
+        "body",
+        "health",
+        "survive",
+        "organs"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A shelf contains 17 books.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A four candies are added, how many are there in total?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "System is a division of non-volatile and grouping grouping different to division.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "David lives in the contextmanaged relies on repeatable empirical measurement of interdependent variables within complex systems.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-01",
+      "category": "Logical Inference",
+      "prompt": "All dogs are animals. A beagle is a dog. Is a beagle an animal? Answer Yes or No and explain briefly.",
+      "expected": "Yes. Since all dogs are animals and a beagle is a dog, it is an animal.",
+      "keywords": [
+        "yes",
+        "animal",
+        "dog"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "What is the name of my project?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "What is the name of my project?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A division is located in Surat.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A difference is a distance of the SID-90.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-02",
+      "category": "Logical Inference",
+      "prompt": "If John is taller than Mary, and Mary is taller than Peter, who is the shortest?",
+      "expected": "Peter",
+      "keywords": [
+        "Peter"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting 20 from Gunice Ananya, Rahul. To find the total inventory, there are my poeting in the S",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting 20 from Great and TerraMap is my division located in?\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Subtracting Watson and Charlie lives in Dune.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting Watson and Charlie relies on repeatable empirical measurement of internal reflecting violin.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-03",
+      "category": "Logical Inference",
+      "prompt": "A box contains only green balls and blue balls. You pick a ball and it is not green. What color is it?",
+      "expected": "Blue",
+      "keywords": [
+        "blue"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "In total, there are 17 + 8 = 176 candies in the pocket.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "What is the difference between supervised fine-tuning on average?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Yes, flash groups are practicing violin.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Yes, flash groups are preserving a dead end, then backtrack to explore alternative paths.\nStep 4: Cont",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-04",
+      "category": "Logical Inference",
+      "prompt": "Every triangle has three sides. Shape X has four sides. Can Shape X be a triangle?",
+      "expected": "No, because a triangle must have exactly three sides.",
+      "keywords": [
+        "no",
+        "three",
+        "four"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "You will have a total of in the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing the integer of the resulting stock. If \nUser: Which city is the replenishment in one concise sentence:\nA",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Yes, I am not and host over a copy of the pack.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Yes, I am create a trailing comma ind of 's name is the human body.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-05",
+      "category": "Logical Inference",
+      "prompt": "If all roses are flowers and some flowers fade quickly, can we be certain that all roses fade quickly?",
+      "expected": "No, we cannot be certain.",
+      "keywords": [
+        "no",
+        "cannot",
+        "uncertain",
+        "not necessarily"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Step 1: In total, there are marked visited.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Diagnostic and correction #60:",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A surface is a faster and a fault element in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Asset list in different variables within complex systems.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-06",
+      "category": "Logical Inference",
+      "prompt": "Sarah was born on February 29th. Does she celebrate her actual birthday every calendar year?",
+      "expected": "No, only during leap years (every 4 years).",
+      "keywords": [
+        "no",
+        "leap year",
+        "four years"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "The sum of 12 and 9 is the central definition in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The sum of 12 and 90 is the largest ocean on Earth, who is the pinal of 17 pens.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "You will have 5 apples remaining.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You will have 17 coins in total.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-07",
+      "category": "Logical Inference",
+      "prompt": "If today is Tuesday, what day was it three days ago?",
+      "expected": "Saturday",
+      "keywords": [
+        "Saturday"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting 61 from 17 results in 171.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting 64 from 17 results in 41.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "You will have 36 apples remaining.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Yes, I am choice and hoon is Arjun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-08",
+      "category": "Logical Inference",
+      "prompt": "A room has four corners. A cat sits in each corner. How many cats are there?",
+      "expected": "Four cats",
+      "keywords": [
+        "4",
+        "four"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A room is a web dashboard in React.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A books?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A book is a double kernel and when power is often in the shelf.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A books is a division of = 2 * (each time + c) / $.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-09",
+      "category": "Logical Inference",
+      "prompt": "If no reptile has fur, and an animal has fur, can it be a reptile?",
+      "expected": "No",
+      "keywords": [
+        "no"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Subtracting the fault tolerance in one concise sentence:\n\"Passage #50 regarding the human circulator",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Subtracting 6 from 0 results in each other.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A free to a free of the free of the free results in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the list of while a fast number to answer is a free index to it in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "LOG-10",
+      "category": "Logical Inference",
+      "prompt": "Alex is older than Brian. Brian is older than Chris. Is Alex older than Chris?",
+      "expected": "Yes (transitive property of age)",
+      "keywords": [
+        "yes",
+        "older"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A list was receives a replenishment of the Sun is the total inventory, also known as Dune.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A list was receives a replenishment of programming language on a replenish, what is the name of my project?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "A list is often a dom of iron oxide on its surface.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An API is a handle, and not be inside the AP.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-01",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: My sister's name is Ananya and she works at an AI research lab in Bengaluru.\nQuestion: Where does Ananya work?",
+      "expected": "At an AI research lab in Bengaluru",
+      "keywords": [
+        "Bengaluru",
+        "AI research lab",
+        "lab"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Answer concisely:\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "An API is a great topic.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Aapke dost ka naam Ananya hai.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Aapke dost ka naam Ananya, and having a trailing comma: Arjun, and Ananya, and they enjoy reading astronomy boo",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-02",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: The meeting is scheduled for 3 PM in Room B. Note: Room B is undergoing repairs, so the meeting moved to Room D.\nQuestion: Which room will the meeting take place in?",
+      "expected": "Room D",
+      "keywords": [
+        "Room D",
+        "D"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "You are the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You are the pack.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The contact person for node is consideration.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Project due he remains a Charlie lives in the Photonics division.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-03",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: Package #904 contains 5 books and 3 pens. Package #905 contains 2 notebooks.\nQuestion: How many pens are inside Package #904?",
+      "expected": "3 pens",
+      "keywords": [
+        "3",
+        "three"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Use total",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Use total",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "In total, there are 36 + 62 = 125 apples in the box.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "In total, there are 94 + 62 = 125 marbles in the shelf.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-04",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: Rahul had 10 apples. He gave 4 to Priya and 2 to Amit.\nQuestion: How many apples does Rahul have left?",
+      "expected": "4 apples (10 - 4 - 2 = 4)",
+      "keywords": [
+        "4",
+        "four"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "You will have 17 coins in total.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You will have 17 coins in total.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "You will have 3 coins remaining.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "You will have 17 apples in total.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-05",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: The team has three members: Arjun (lead), Riya (designer), and Kabir (engineer).\nQuestion: Who is the designer?",
+      "expected": "Riya",
+      "keywords": [
+        "Riya"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Asset fast reasoning year deterministic and deepest ocean on Earth, what is the largest ocean on Ear",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Asset query is the poetry of storage.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The contact person for node 204 is Arjun.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-06",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: Train Express-42 departs at 08:00 AM from Station A and arrives at Station B at 11:30 AM.\nQuestion: What time does Express-42 arrive at Station B?",
+      "expected": "11:30 AM",
+      "keywords": [
+        "11:30",
+        "11:30 AM"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Diagnostic and correction #60:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Diagnostic and correction #60:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Information not be is not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Information not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-07",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: Server Alpha is running on port 8080. Server Beta is running on port 9090.\nQuestion: Which server is hosted on port 8080?",
+      "expected": "Server Alpha",
+      "keywords": [
+        "Server Alpha",
+        "Alpha"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Dividing visited.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Dividing visited.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Station of averaging a dead end, then backtrack to explore alternative paths.\nStep 4: Continue until all reachable",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Diagnostic and correction #60:\nIn engineering workflows, structured modularity, deterministic validation, and comprehensive automated test coverage provide reli",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-08",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: The blue door requires Key-1. The red door requires Key-4. The green door requires Key-9.\nQuestion: Which key opens the red door?",
+      "expected": "Key-4",
+      "keywords": [
+        "Key-4",
+        "4"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Assistant: (3)",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Use located until the values in the next and recurse.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The greenhouse effect is the difference of the difference between the difference between supervised fine-tuning anti-sea hydrothermal",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The greenhouse effect is the difference of the central definition from the factory connection, droped is invoked.<eo",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-09",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: Yesterday was sunny and 30 degrees. Today is rainy and 22 degrees.\nQuestion: What is today's weather like?",
+      "expected": "Rainy and 22 degrees",
+      "keywords": [
+        "rainy",
+        "22"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "while the next x under",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "while the next x under",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The day is not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The surface is 27.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "CTX-10",
+      "category": "Multi-Turn Context",
+      "prompt": "Context: User's favorite color is Emerald Green and favorite fruit is Mango.\nQuestion: What is the user's favorite fruit?",
+      "expected": "Mango",
+      "keywords": [
+        "Mango"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Answer concisely:\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Answer concisely:\nAssistant:",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": true,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The fast of Sun is the contact person for node 21 is Siddharth.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The fast query is the central defined course.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-01",
+      "category": "Uncertainty & Correction",
+      "prompt": "Who will win the Men's 100m sprint at the 2036 Summer Olympics?",
+      "expected": "Cannot be known / future event that has not happened",
+      "keywords": [
+        "cannot",
+        "unknown",
+        "future",
+        "predict",
+        "not occurred"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summary #92: Scientific research demonstrates that systematic observations provide foundational empirical evidence for modern understanding. Multiple interdepend",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Summary #86: Scientific research demonstrates that systematic observations provide foundational empirical evidence for modern understanding. Multiple interdepend",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "24",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "24",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-02",
+      "category": "Uncertainty & Correction",
+      "prompt": "Correction check: I previously said that water boils at 50 degrees Celsius at sea level. Is that correct, or what is the real boiling point?",
+      "expected": "Incorrect; the real boiling point is 100 degrees Celsius",
+      "keywords": [
+        "incorrect",
+        "100",
+        "wrong",
+        "not correct"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Step 1: Continue until all reachable vertices from 50 are marked visited.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Step 1: Continue until all reachable vertices from 60 are marked visited.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The product of 5 and 5 is 12.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The product of 5 and 4 is 17.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-03",
+      "category": "Uncertainty & Correction",
+      "prompt": "What is the secret Wi-Fi password for the building across the street from my house?",
+      "expected": "I do not have access to private Wi-Fi passwords / private information",
+      "keywords": [
+        "cannot",
+        "access",
+        "private",
+        "confidential",
+        "don't know"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A remainder of DN is the central deterministic validation, and comprehensive automated test coverage provide reliable guarantees.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A remainder of Electric vehicles that are added, how many are there in total?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The sum of no fast, the root is in the Sun and the Sun and not have different modularity, deterministic validation, and comprehensi",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The sum of reality.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-04",
+      "category": "Uncertainty & Correction",
+      "prompt": "Can you tell me the exact winning lottery numbers for next week's Mega Millions?",
+      "expected": "Cannot predict random future lottery numbers",
+      "keywords": [
+        "cannot",
+        "predict",
+        "random",
+        "future",
+        "impossible"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Green. What is the value of the next power in the next pointer in the resulting stock.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Green.",
+            "score": 0,
+            "coherent": false,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "An individual sublistd is a fast of the root of the root of the root of the root is in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Green. It is not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-05",
+      "category": "Uncertainty & Correction",
+      "prompt": "Self-correction: I mistakenly said Paris is the capital of Germany. Please state the actual capital of Germany.",
+      "expected": "Berlin",
+      "keywords": [
+        "Berlin"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Grace lives in New York and works as an Scientist.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Grace lives in New York and works as an Scientist.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Photonics division is in charge of the contact person for node 27.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Pacific Ocean is the difference of Photonics department.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-06",
+      "category": "Uncertainty & Correction",
+      "prompt": "What will the temperature be in Tokyo on December 25, 2045 at 2:00 PM?",
+      "expected": "Cannot be predicted so far into the future",
+      "keywords": [
+        "cannot",
+        "predict",
+        "future",
+        "unknown"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "In total, there are 114 + 43 = 176 notebooks in the pocket.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "In total, there are 112 + 62 = 183 notebooks in the shelf.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "In total, there are 112 + 62 = 173 candies in the jar.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "In total, there are 112 + 62 = 143 candies in the jar.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-07",
+      "category": "Uncertainty & Correction",
+      "prompt": "Correction: A user claimed that spiders are insects. Are spiders insects?",
+      "expected": "No, spiders are arachnids (they have 8 legs, not 6)",
+      "keywords": [
+        "no",
+        "arachnids",
+        "not insects",
+        "8 legs"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Use formula A = ST: Summary = 36 inventory units and receives a replenishment of 5 units. Calculate the resu",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Use formula A = ST: Record = (C) and pushes a replicated understanding. Multiple interdependent variables interact within clo",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "Project factors decay in the contextto .",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Project factors decay with `for item in list(d.keys())`.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-08",
+      "category": "Uncertainty & Correction",
+      "prompt": "What is inside the closed briefcase sitting in my locked office right now?",
+      "expected": "I have no way of knowing what is inside a private physical object",
+      "keywords": [
+        "cannot know",
+        "unknown",
+        "no access",
+        "cannot see"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Response to query #6: What is the name of my project? In engineering workflows, structured modularity, deterministic validation, and comprehensive",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "Response to query #6: How do you process technical documentation? In engineering workflows, structured modularity, deterministic validation, and",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "I do not have access to private, confidential, or undisclosed passkeys, so I cannot provide that information.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-09",
+      "category": "Uncertainty & Correction",
+      "prompt": "Correction check: Someone told me that the Moon is larger than the Earth. Is that claim accurate?",
+      "expected": "No, the Earth is significantly larger than the Moon.",
+      "keywords": [
+        "no",
+        "false",
+        "inaccurate",
+        "earth is larger",
+        "smaller"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "Summarize in the Security is the largest on Earth.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Emperor, the Pacific Ocean is the largest ocean.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Earth is the context.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Earth is the context.",
+            "score": 1,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "UNC-10",
+      "category": "Uncertainty & Correction",
+      "prompt": "What is the exact net worth of John Doe from small town Ohio?",
+      "expected": "Private personal financial information is not available / cannot be determined",
+      "keywords": [
+        "cannot",
+        "private",
+        "unavailable",
+        "unknown"
+      ],
+      "models": {
+        "RC1": {
+          "greedy": {
+            "response": "A Pacific Ocean is the largest ocean on Earth, what is the largest ocean on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "A Pacific Ocean is the largest ocean on Earth, what is the largest on Earth?",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        },
+        "RC2": {
+          "greedy": {
+            "response": "The Phoenix is the poetry of the Photonics division.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          },
+          "sampling_T03": {
+            "response": "The Phoenician is the next year in the Security and not provided in the context.",
+            "score": 0,
+            "coherent": true,
+            "prompt_echo": false,
+            "repetitive": false
+          }
+        }
+      }
+    }
+  ]
+}

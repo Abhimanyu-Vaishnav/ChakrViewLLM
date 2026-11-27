@@ -80,6 +80,10 @@ class RotaryEmbedding(nn.Module):
         self.register_buffer("sin_cached", freqs.sin(), persistent=False)
 
     def forward(self, x: torch.Tensor, seq_len: int) -> Tuple[torch.Tensor, torch.Tensor]:
+        if seq_len > self.cos_cached.shape[0]:
+            t = torch.arange(seq_len, dtype=torch.float32, device=x.device)
+            freqs = torch.outer(t, self.inv_freq.to(x.device))
+            return freqs.cos(), freqs.sin()
         return self.cos_cached[:seq_len], self.sin_cached[:seq_len]
 
 

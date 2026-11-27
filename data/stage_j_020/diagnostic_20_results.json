@@ -1,0 +1,546 @@
+{
+  "summary": {
+    "System_A_Pure_Neural": {
+      "total": 20,
+      "correct": 0,
+      "overall_acc": 0.0,
+      "id_total": 20,
+      "id_correct": 0,
+      "id_acc": 0.0,
+      "ood_total": 0,
+      "ood_correct": 0,
+      "ood_acc": 0.0,
+      "langs": {
+        "en": 0,
+        "hi": 0,
+        "hinglish": 0
+      }
+    },
+    "System_B_Deterministic_Parser": {
+      "total": 20,
+      "correct": 5,
+      "overall_acc": 25.0,
+      "id_total": 20,
+      "id_correct": 5,
+      "id_acc": 25.0,
+      "ood_total": 0,
+      "ood_correct": 0,
+      "ood_acc": 0.0,
+      "langs": {
+        "en": 5,
+        "hi": 0,
+        "hinglish": 0
+      }
+    },
+    "System_C_Neural_Router_Direct": {
+      "total": 20,
+      "correct": 0,
+      "overall_acc": 0.0,
+      "id_total": 20,
+      "id_correct": 0,
+      "id_acc": 0.0,
+      "ood_total": 0,
+      "ood_correct": 0,
+      "ood_acc": 0.0,
+      "langs": {
+        "en": 0,
+        "hi": 0,
+        "hinglish": 0
+      }
+    },
+    "System_D_Neural_Source_Grounded": {
+      "total": 20,
+      "correct": 5,
+      "overall_acc": 25.0,
+      "id_total": 20,
+      "id_correct": 5,
+      "id_acc": 25.0,
+      "ood_total": 0,
+      "ood_correct": 0,
+      "ood_acc": 0.0,
+      "langs": {
+        "en": 4,
+        "hi": 0,
+        "hinglish": 1
+      }
+    },
+    "System_E_Cascaded_Hybrid": {
+      "total": 20,
+      "correct": 6,
+      "overall_acc": 30.0,
+      "id_total": 20,
+      "id_correct": 6,
+      "id_acc": 30.0,
+      "ood_total": 0,
+      "ood_correct": 0,
+      "ood_acc": 0.0,
+      "langs": {
+        "en": 5,
+        "hi": 0,
+        "hinglish": 1
+      }
+    }
+  },
+  "details": [
+    {
+      "task_id": "BMK-0001",
+      "prompt": "Add 45 to 15.",
+      "expected": "60",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_div",
+      "answers": {
+        "System_A": "#### 36",
+        "System_B": "60",
+        "System_C": "1.0",
+        "System_D": "3.0",
+        "System_E": "60"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": true,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": true
+      }
+    },
+    {
+      "task_id": "BMK-0002",
+      "prompt": "21 me atharah jodo.",
+      "expected": "39",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 2",
+        "System_B": "UNSUPPORTED",
+        "System_C": "3",
+        "System_D": "3",
+        "System_E": "3"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0003",
+      "prompt": "2 + 8 की गणना करें।",
+      "expected": "10",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "The total amount of 5 is 120.",
+        "System_B": "UNSUPPORTED",
+        "System_C": "2",
+        "System_D": "-6",
+        "System_E": "-6"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0004",
+      "prompt": "34 + 9 की गणना करें।",
+      "expected": "43",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 15",
+        "System_B": "UNSUPPORTED",
+        "System_C": "23",
+        "System_D": "25",
+        "System_E": "25"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0005",
+      "prompt": "Calculate the sum of 6 and 9.",
+      "expected": "15",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_add",
+      "answers": {
+        "System_A": "The total amount of total, there are 18 + 1 = 170 candies in the crate.",
+        "System_B": "15",
+        "System_C": "48",
+        "System_D": "15",
+        "System_E": "15"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": true,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": true,
+        "System_E_Cascaded_Hybrid": true
+      }
+    },
+    {
+      "task_id": "BMK-0006",
+      "prompt": "13 + 8 की गणना करें।",
+      "expected": "21",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 15",
+        "System_B": "UNSUPPORTED",
+        "System_C": "14",
+        "System_D": "5",
+        "System_E": "5"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0007",
+      "prompt": "34 me 19 jodo.",
+      "expected": "53",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 3",
+        "System_B": "UNSUPPORTED",
+        "System_C": "-1",
+        "System_D": "15",
+        "System_E": "15"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0008",
+      "prompt": "What is 45 plus 14?",
+      "expected": "59",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 5",
+        "System_B": "UNSUPPORTED",
+        "System_C": "0",
+        "System_D": "31",
+        "System_E": "31"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0009",
+      "prompt": "Calculate the sum of 23 and 13.",
+      "expected": "36",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_add",
+      "answers": {
+        "System_A": "The total amount of 50 is 170.",
+        "System_B": "36",
+        "System_C": "44",
+        "System_D": "36",
+        "System_E": "36"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": true,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": true,
+        "System_E_Cascaded_Hybrid": true
+      }
+    },
+    {
+      "task_id": "BMK-0010",
+      "prompt": "47 me atharah jodo.",
+      "expected": "65",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 3",
+        "System_B": "UNSUPPORTED",
+        "System_C": "36",
+        "System_D": "29",
+        "System_E": "29"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0011",
+      "prompt": "29 me 13 jodo.",
+      "expected": "42",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 3",
+        "System_B": "UNSUPPORTED",
+        "System_C": "0",
+        "System_D": "16",
+        "System_E": "16"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0012",
+      "prompt": "35 में 13 जोड़ें।",
+      "expected": "48",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 16",
+        "System_B": "UNSUPPORTED",
+        "System_C": "22",
+        "System_D": "22",
+        "System_E": "22"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0013",
+      "prompt": "Calculate the sum of 5 and 4.",
+      "expected": "9",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_add",
+      "answers": {
+        "System_A": "#### 3",
+        "System_B": "9",
+        "System_C": "83",
+        "System_D": "9",
+        "System_E": "9"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": true,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": true,
+        "System_E_Cascaded_Hybrid": true
+      }
+    },
+    {
+      "task_id": "BMK-0014",
+      "prompt": "19 plus 12 kitna hoga?",
+      "expected": "31",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 36",
+        "System_B": "UNSUPPORTED",
+        "System_C": "7",
+        "System_D": "7",
+        "System_E": "7"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0015",
+      "prompt": "5 तथा 13 को जोड़ने पर क्या आएगा?",
+      "expected": "18",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 16",
+        "System_B": "UNSUPPORTED",
+        "System_C": "27",
+        "System_D": "-8",
+        "System_E": "-8"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0016",
+      "prompt": "15 + 19 की गणना करें।",
+      "expected": "34",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 15",
+        "System_B": "UNSUPPORTED",
+        "System_C": "-1",
+        "System_D": "-4",
+        "System_E": "-4"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0017",
+      "prompt": "12 तथा 16 को जोड़ने पर क्या आएगा?",
+      "expected": "28",
+      "is_ood": false,
+      "lang": "hi",
+      "op": "math_add",
+      "detected_op": "math_sub",
+      "answers": {
+        "System_A": "#### 16",
+        "System_B": "UNSUPPORTED",
+        "System_C": "6",
+        "System_D": "-4",
+        "System_E": "-4"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0018",
+      "prompt": "chaudah aur das ko add karo.",
+      "expected": "24",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "none",
+      "answers": {
+        "System_A": "There are 17 + 66 = 176 candies in the pack.",
+        "System_B": "UNSUPPORTED",
+        "System_C": "CLARIFY",
+        "System_D": "UNSUPPORTED",
+        "System_E": "UNSUPPORTED"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": false,
+        "System_E_Cascaded_Hybrid": false
+      }
+    },
+    {
+      "task_id": "BMK-0019",
+      "prompt": "28 and 15 ka total nikalo.",
+      "expected": "43",
+      "is_ood": false,
+      "lang": "hinglish",
+      "op": "math_add",
+      "detected_op": "math_add",
+      "answers": {
+        "System_A": "#### 24",
+        "System_B": "UNSUPPORTED",
+        "System_C": "42",
+        "System_D": "43",
+        "System_E": "43"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": false,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": true,
+        "System_E_Cascaded_Hybrid": true
+      }
+    },
+    {
+      "task_id": "BMK-0020",
+      "prompt": "Calculate the sum of 15 and 17.",
+      "expected": "32",
+      "is_ood": false,
+      "lang": "en",
+      "op": "math_add",
+      "detected_op": "math_add",
+      "answers": {
+        "System_A": "#### 36",
+        "System_B": "32",
+        "System_C": "36",
+        "System_D": "32",
+        "System_E": "32"
+      },
+      "passes": {
+        "System_A_Pure_Neural": false,
+        "System_B_Deterministic_Parser": true,
+        "System_C_Neural_Router_Direct": false,
+        "System_D_Neural_Source_Grounded": true,
+        "System_E_Cascaded_Hybrid": true
+      }
+    }
+  ]
+}
