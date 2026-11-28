@@ -16,3 +16,8 @@
 - **Date:** 2026-11-26
 - **Context:** The user authorized autonomous progression through all phases of ChakrView 1.0 Release Candidate development without requiring turn-by-turn prompts.
 - **Decision:** Progress systematically across Phases 0 through 24, persisting state in `CHAKRVIEW_CURRENT_STATE.md` and `CHAKRVIEW_MISSION_LEDGER.md` after every milestone.
+
+### Decision 004: Maintenance of Private Visibility for Research Preview Alpha
+- **Date:** 2026-11-28
+- **Context:** Following the CV-24H release and HF-01 through HF-05 verification missions, the conversational alpha package was uploaded to Hugging Face repository `AbhimanyuVaishnav/chakrview-conversational-alpha`.
+- **Decision:** Enforce strictly private visibility (`private: True`) on Hugging Face. The model is an early engineering research preview trained on ~4.17M tokens; public availability must remain withheld until larger-scale pretraining and safety filters are validated.
