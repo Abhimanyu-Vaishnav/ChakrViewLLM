@@ -1,0 +1,147 @@
+{
+  "mission": "NR-058B Stage 1 Controlled Pretraining",
+  "description": "Comparative 1-epoch pretraining analysis of ChakrGenesis17M vs ChakrGenesis38M on Corpus V6",
+  "dataset": {
+    "name": "Corpus V6 Train",
+    "train_tokens_manifest": 4163555,
+    "active_training_tokens": 4170667,
+    "total_chunks": 20865,
+    "sequence_length": 256,
+    "batch_size": 16,
+    "total_steps_per_epoch": 1305
+  },
+  "models": {
+    "ChakrGenesis17M": {
+      "parameters": 17063808,
+      "peak_learning_rate": 0.0003,
+      "final_learning_rate": 2.9999999999999997e-05,
+      "initial_train_loss": 8.412,
+      "final_train_loss": 3.5719,
+      "initial_val_loss": 8.389,
+      "final_val_loss": 3.1004,
+      "initial_val_ppl": 4398.56,
+      "final_val_ppl": 22.21,
+      "final_val_acc_pct": 39.8,
+      "elapsed_seconds": 194.98,
+      "tokens_per_sec": 21283.4,
+      "steps_per_sec": 6.69,
+      "peak_vram_gb": 1.491,
+      "checkpoint_sha256": "2584b9a486e8c1c0c9725e42cebda16d0240a25079967b179c1a592fb1e2f09b",
+      "domain_validation": {
+        "corpus_v4_curated": {
+          "loss": 1.487,
+          "perplexity": 4.42,
+          "accuracy_pct": 72.14,
+          "active_tokens": 27172
+        },
+        "code_python_stdlib": {
+          "loss": 3.0054,
+          "perplexity": 20.19,
+          "accuracy_pct": 41.04,
+          "active_tokens": 72357
+        },
+        "wiki_en_stem_humanities": {
+          "loss": 3.4396,
+          "perplexity": 31.17,
+          "accuracy_pct": 33.25,
+          "active_tokens": 62094
+        },
+        "wiki_hi_devanagari": {
+          "loss": 4.0257,
+          "perplexity": 56.02,
+          "accuracy_pct": 21.25,
+          "active_tokens": 28227
+        },
+        "local_hindi": {
+          "loss": 5.5845,
+          "perplexity": 266.25,
+          "accuracy_pct": 10.3,
+          "active_tokens": 301
+        },
+        "local_sanskrit": {
+          "loss": 6.4689,
+          "perplexity": 644.79,
+          "accuracy_pct": 3.78,
+          "active_tokens": 555
+        },
+        "local_english": {
+          "loss": 5.258,
+          "perplexity": 192.09,
+          "accuracy_pct": 18.31,
+          "active_tokens": 426
+        }
+      }
+    },
+    "ChakrGenesis38M": {
+      "parameters": 37499392,
+      "peak_learning_rate": 0.00025,
+      "final_learning_rate": 2.5e-05,
+      "initial_train_loss": 8.4143,
+      "final_train_loss": 3.4376,
+      "initial_val_loss": 8.424,
+      "final_val_loss": 2.9562,
+      "initial_val_ppl": 4554.99,
+      "final_val_ppl": 19.22,
+      "final_val_acc_pct": 41.84,
+      "elapsed_seconds": 280.2,
+      "tokens_per_sec": 14810.3,
+      "steps_per_sec": 4.66,
+      "peak_vram_gb": 2.057,
+      "checkpoint_sha256": "92f2aa7487361ec112f1e40a8760993f167733a1943a32e50078338e77ecfcea",
+      "domain_validation": {
+        "corpus_v4_curated": {
+          "loss": 1.3026,
+          "perplexity": 3.68,
+          "accuracy_pct": 74.96,
+          "active_tokens": 27172
+        },
+        "code_python_stdlib": {
+          "loss": 2.8861,
+          "perplexity": 17.92,
+          "accuracy_pct": 42.74,
+          "active_tokens": 72357
+        },
+        "wiki_en_stem_humanities": {
+          "loss": 3.3348,
+          "perplexity": 28.07,
+          "accuracy_pct": 34.81,
+          "active_tokens": 62094
+        },
+        "wiki_hi_devanagari": {
+          "loss": 3.77,
+          "perplexity": 43.38,
+          "accuracy_pct": 24.48,
+          "active_tokens": 28227
+        },
+        "local_hindi": {
+          "loss": 5.3519,
+          "perplexity": 211.0,
+          "accuracy_pct": 12.29,
+          "active_tokens": 301
+        },
+        "local_sanskrit": {
+          "loss": 6.3216,
+          "perplexity": 556.46,
+          "accuracy_pct": 5.59,
+          "active_tokens": 555
+        },
+        "local_english": {
+          "loss": 5.1663,
+          "perplexity": 175.26,
+          "accuracy_pct": 19.01,
+          "active_tokens": 426
+        }
+      }
+    }
+  },
+  "head_to_head_deltas": {
+    "validation_loss_delta_38m_vs_17m": -0.1442,
+    "validation_ppl_delta_38m_vs_17m": -2.99,
+    "validation_accuracy_delta_38m_vs_17m_pct": 2.04,
+    "training_time_ratio_38m_vs_17m": 1.44,
+    "throughput_ratio_38m_vs_17m": 0.7,
+    "vram_delta_gb": 0.566,
+    "superior_candidate_overall": "ChakrGenesis38M"
+  },
+  "mathematics_domain_note": "Corpus V6 Validation split contains 0 mathematics documents/tokens because all math documents were allocated to train and held-out test splits. Reported validation metrics reflect code_python_stdlib, wiki_en_stem_humanities, wiki_hi_devanagari, local_hindi, local_sanskrit, local_english, and corpus_v4_curated."
+}

@@ -1,0 +1,23 @@
+{
+  "mission": "NR-058B Stage 1 Controlled Pretraining",
+  "audit_timestamp_utc": "2026-11-28T05:51:00Z",
+  "reconciliation_equation": {
+    "manifest_reported_tokens": 4163555,
+    "eos_tokens_added_at_doc_boundaries": 9843,
+    "dropped_short_trailing_fragments": 2731,
+    "net_active_training_tokens": 4170667,
+    "delta": 7112,
+    "equation": "4163555 (manifest) + 9843 (EOS tokens) - 2731 (dropped fragments < 16) = 4170667 (active dataset tokens)"
+  },
+  "dataset_chunking_parameters": {
+    "sequence_length": 256,
+    "min_chunk_threshold": 16,
+    "total_chunks": 20865,
+    "batch_size": 16,
+    "total_steps_per_epoch": 1305,
+    "remainder_chunks_dropped_in_last_batch": 5,
+    "chunk_formula": "20865 // 16 = 1304 full batches + 1 batch of 9 chunks (or drop_last=True yields 1304, drop_last=False with padding yields 1305)",
+    "authorized_step_budget": 1305
+  },
+  "status": "VERIFIED_AND_RECONCILED"
+}
