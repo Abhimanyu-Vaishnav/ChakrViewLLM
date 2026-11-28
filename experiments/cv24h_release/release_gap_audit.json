@@ -1,0 +1,43 @@
+# MISSION CV-24H: RELEASE-READINESS GAP AUDIT REPORT
+**Timestamp:** 2026-11-28T06:35:00Z  
+**Branch:** `exp/cbr-01-conversational-breakthrough` (`f98c7ea`)  
+**Mission Objective:** Emergency 24-Hour Conversational Release Preparation (`v0.10.0-alpha.1`)
+
+---
+
+## 1. Executive Summary & Repository Status
+
+A full audit of the ChakrView repository was completed.
+- **Git Status:** Clean working tree, synchronized with `origin/exp/cbr-01-conversational-breakthrough` at commit `f98c7ea`.
+- **Hardware Platform:** NVIDIA RTX A1000 6GB Laptop GPU (CUDA 12.6, PyTorch 2.14.1+cu126). 75.9 GB free on D: drive, 136.2 GB free on C: drive.
+- **Canonical Release History:** Tags `v0.1.0` through `v0.9.0` exist. Historical candidates `RC1` (`cf585ebf`), `RC2` (`33f93c75`), and `RC3` (`61b39ae2`) remain completely preserved and frozen.
+- **Canonical Tokenizer:** Byte-Level BPE 4096 (`data/experiments/vocab_4096`, vocab hash: `db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a`).
+
+---
+
+## 2. Pretraining Foundation Verification (Phase B & C Audited)
+
+In the immediately preceding mission (NR-058B Stage 1), both `ChakrGenesis17M` and `ChakrGenesis38M` completed exactly 1 full epoch (1,305 optimizer steps each) from scratch (`seed=42`) on Corpus V6:
+- **Token Accounting Reconciled:** 4,163,555 manifest + 9,843 EOS - 2,731 dropped fragments = 4,170,667 active training tokens.
+- **17M Final Metrics:** Val Loss: `3.1004`, Val PPL: `22.21`, Accuracy: `39.80%`.
+- **38M Final Metrics:** Val Loss: `2.9562`, Val PPL: `19.22`, Accuracy: `41.84%`.
+- **Foundation Winner:** **ChakrGenesis38M** (`chakr_chakrgenesis38m_stage1_final.pt`, SHA-256: `92f2aa7487361ec112f1e40a8760993f167733a1943a32e50078338e77ecfcea`) decisively outperformed 17M across all 7 evaluation domains, establishing the neural base candidate for conversational fine-tuning.
+
+---
+
+## 3. Critical Release Gaps & Action Plan
+
+1. **Conversational Data SFT Audit (Phase D):**
+   - Need to survey existing clean conversational datasets (`data/sft/cbr_sft_*`, `data/sft/m3_conversational`, `data/corpus_v4`).
+   - Audit dialogue formats, language distribution (English, Hindi, Hinglish), deduplication, and contamination boundaries.
+   - Design response-only supervised fine-tuning (SFT) engine with strict prompt masking (`loss ignore_index=-100` on user prompt).
+2. **Conversational Evaluation Suite (Phase E):**
+   - Establish held-out conversational test benchmark with unseen English, Hindi, and Hinglish dialogue turns.
+   - Evaluate raw neural model standalone (measuring coherence, context retention, repetition, UTF-8 validity) separately from deterministic runtime.
+3. **Inference & Chat CLI Package (Phase F):**
+   - Implement clean, reproducible standalone inference module (`chakrview.inference.generator` and `chat_cli.py`) supporting greedy decoding, top-k/top-p sampling, temperature, repetition penalty, context truncation, and multi-turn chat history.
+4. **Hugging Face Publication Environment (Phase J):**
+   - `huggingface_hub` is not currently installed in `.venv_gpu`.
+   - Action: Package the model and repository files locally first (safetensors/pt + model card + config + tokenizer) so that upload can be triggered once destination repository and token are verified by the user.
+5. **Documentation & Gates (Phase G & H):**
+   - Prepare `README.md`, `MODEL_CARD.md`, `MODEL_LIMITATIONS.md`, `INFERENCE_GUIDE.md`, and complete release packaging.

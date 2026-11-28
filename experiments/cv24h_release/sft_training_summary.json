@@ -1,0 +1,40 @@
+{
+  "mission": "CV-24H Conversational SFT",
+  "model_architecture": "ChakrGenesis38M",
+  "parameters": 37499392,
+  "base_pretrained_checkpoint": "experiments/stage1_nr058b/chakr_chakrgenesis38m_stage1_final.pt",
+  "sft_checkpoint_path": "experiments\\cv24h_release\\chakr_38m_conversational_sft.pt",
+  "sft_checkpoint_sha256": "e4beba3ae20f66eccc2cd06a45582087a059eb9117ed15b8ed9ab8e5500ff106",
+  "epochs": 3,
+  "total_steps": 273,
+  "batch_size": 16,
+  "learning_rate": 5e-05,
+  "initial_val_loss": 4.1777,
+  "final_val_loss": 2.8924,
+  "initial_val_ppl": 65.21,
+  "final_val_ppl": 18.04,
+  "initial_val_acc": 27.04,
+  "final_val_acc": 49.7,
+  "elapsed_seconds": 54.41,
+  "peak_vram_gb": 2.49,
+  "history": [
+    {
+      "epoch": 1,
+      "val_loss": 3.135,
+      "val_ppl": 22.99,
+      "val_acc": 44.98
+    },
+    {
+      "epoch": 2,
+      "val_loss": 2.9191,
+      "val_ppl": 18.52,
+      "val_acc": 48.86
+    },
+    {
+      "epoch": 3,
+      "val_loss": 2.8924,
+      "val_ppl": 18.04,
+      "val_acc": 49.7
+    }
+  ]
+}
