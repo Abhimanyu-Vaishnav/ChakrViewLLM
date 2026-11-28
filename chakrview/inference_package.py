@@ -2,12 +2,19 @@
 ChakrView Inference Package: Conversational Generator & Interactive CLI
 Provides a standalone, reproducible generator for ChakrView models.
 
-Features:
-- Configurable generation: greedy decoding, temperature sampling, top-k, top-p, repetition penalty
-- Multi-turn conversation history management
-- Truncation to maximum context window (256 tokens)
-- Transparent attribution: purely neural generation without hidden deterministic fakes
-- Device agnostic: CUDA or CPU
+Special Token Contract & Generation Stopping Specification:
+- Canonical Special Token IDs:
+  * BOS = 0 (<BOS>)
+  * EOS = 1 (<EOS>)
+  * PAD = 2 (<PAD>)
+- Training Delimiter Invariant:
+  * Pretraining and SFT data pipelines appended token ID 2 at document & response boundaries.
+  * In SFT, response padding also used token ID 0 or token ID 2 with target loss masking (-100).
+- Robust Inference Stopping Rule:
+  * Prompt Prefix: Input prompt text tokens (never truncated unless exceeding max_context - max_new_tokens).
+  * Generation Loop: Only tokens produced *after* the prompt are evaluated for stopping.
+  * Stopping Tokens: A generated token terminates generation if next_token in [1, 2].
+  * Padding Invariance: Padding inside input tensors (whether 0 or 2) is part of prompt context and NEVER prematurely halts generation.
 """
 
 import os
@@ -15,43 +22,57 @@ import sys
 import json
 import torch
 import torch.nn.functional as F
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Union
 
 sys.path.insert(0, os.path.abspath("."))
-from chakrview.brain.genesis.chakr_genesis_38m import ChakrGenesis38M, Genesis38MConfig
-from chakrview.brain.genesis.chakr_genesis_17m import ChakrGenesis17M, Genesis17MConfig
-from chakrview.tokenizer.serialization import load_tokenizer_artifacts
+try:
+    from modeling_chakrgenesis import ChakrGenesis38M, Genesis38MConfig
+    from tokenization_chakrview import load_tokenizer_artifacts
+except ImportError:
+    from chakrview.brain.genesis.chakr_genesis_38m import ChakrGenesis38M, Genesis38MConfig
+    from chakrview.tokenizer.serialization import load_tokenizer_artifacts
 
 class ChakrViewGenerator:
-    def __init__(self, checkpoint_path: str, tokenizer_path: str = "data/experiments/vocab_4096", device: Optional[str] = None):
+    def __init__(
+        self,
+        checkpoint_path: str,
+        tokenizer_path: str = "data/experiments/vocab_4096",
+        device: Optional[str] = None
+    ):
         if device is None:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         else:
             self.device = torch.device(device)
 
-        print(f"Loading ChakrView checkpoint from {checkpoint_path} onto {self.device}...")
-        self.ckpt = torch.load(checkpoint_path, map_location=self.device, weights_only=False)
-        self.config = self.ckpt["config"]
-
-        # Select model class based on config dimensions
-        if hasattr(self.config, "d_model") and self.config.d_model == 512:
+        # Determine loader based on file extension
+        if checkpoint_path.endswith(".safetensors"):
+            import safetensors.torch
+            self.config = Genesis38MConfig()
             self.model = ChakrGenesis38M(self.config).to(self.device)
+            safetensors.torch.load_model(self.model, checkpoint_path, strict=True)
         else:
-            self.model = ChakrGenesis17M(self.config).to(self.device)
+            self.ckpt = torch.load(checkpoint_path, map_location=self.device, weights_only=False)
+            self.config = self.ckpt.get("config", Genesis38MConfig())
+            self.model = ChakrGenesis38M(self.config).to(self.device)
+            self.model.load_state_dict(self.ckpt["model_state_dict"])
 
-        self.model.load_state_dict(self.ckpt["model_state_dict"])
         self.model.eval()
 
-        print(f"Loading tokenizer from {tokenizer_path}...")
-        self.tokenizer, _ = load_tokenizer_artifacts(tokenizer_path)
-
+        self.tokenizer, self.tok_config = load_tokenizer_artifacts(tokenizer_path)
         self.max_context = getattr(self.config, "max_seq_len", 256)
-        self.eos_token_id = 2
-        self.pad_token_id = 0
+        
+        # Explicit special token mapping
+        self.bos_token_id = 0
+        self.canonical_eos_token_id = 1
+        self.delimiter_eos_token_id = 2  # Delimiter emitted by trained model
+        self.pad_token_id = 2
+        
+        # Stop on canonical EOS (1) or trained delimiter (2)
+        self.stop_token_ids = {self.canonical_eos_token_id, self.delimiter_eos_token_id}
 
     def generate(
         self,
-        prompt: str,
+        prompt: Union[str, List[int]],
         max_new_tokens: int = 64,
         temperature: float = 0.7,
         top_k: int = 40,
@@ -59,17 +80,29 @@ class ChakrViewGenerator:
         repetition_penalty: float = 1.15
     ) -> Tuple[str, Dict]:
         self.model.eval()
-        tokens = self.tokenizer.encode(prompt)
         
+        if isinstance(prompt, str):
+            if not prompt.strip():
+                # Empty prompt safe fallback
+                tokens = [self.bos_token_id]
+            else:
+                tokens = self.tokenizer.encode(prompt)
+        else:
+            tokens = list(prompt)
+            if len(tokens) == 0:
+                tokens = [self.bos_token_id]
+
         # Enforce context window headroom
         if len(tokens) > (self.max_context - max_new_tokens):
             tokens = tokens[-(self.max_context - max_new_tokens):]
 
         input_ids = torch.tensor([tokens], dtype=torch.long, device=self.device)
+        prompt_len = input_ids.shape[1]
         generated_tokens = []
+        stopped_on = None
 
         with torch.no_grad():
-            for _ in range(max_new_tokens):
+            for step in range(max_new_tokens):
                 if self.device.type == "cuda":
                     with torch.amp.autocast('cuda', dtype=torch.float16):
                         out = self.model(input_ids)
@@ -79,7 +112,7 @@ class ChakrViewGenerator:
                 logits = out[0] if isinstance(out, tuple) else (out.logits if hasattr(out, "logits") else out)
                 next_token_logits = logits[0, -1, :].clone()
 
-                # Repetition penalty
+                # Repetition penalty applied to all generated + prompt tokens
                 if repetition_penalty != 1.0:
                     for t in set(input_ids[0].tolist()):
                         if next_token_logits[t] < 0:
@@ -110,20 +143,29 @@ class ChakrViewGenerator:
                 else:
                     next_token = torch.argmax(next_token_logits, dim=-1).item()
 
-                if next_token == self.eos_token_id or next_token == self.pad_token_id:
+                # STOPPING CRITERION:
+                # Evaluated strictly on newly generated tokens.
+                if next_token in self.stop_token_ids:
+                    stopped_on = f"EOS/Delimiter (token {next_token})"
                     break
 
                 generated_tokens.append(next_token)
                 input_ids = torch.cat([input_ids, torch.tensor([[next_token]], device=self.device)], dim=1)
 
                 if input_ids.shape[1] >= self.max_context:
+                    stopped_on = f"Max Context ({self.max_context} tokens)"
                     break
+
+        if stopped_on is None:
+            stopped_on = f"Max New Tokens ({max_new_tokens})"
 
         decoded = self.tokenizer.decode(generated_tokens)
         meta = {
-            "prompt_tokens": len(tokens),
-            "generated_tokens": len(generated_tokens),
-            "total_tokens": len(tokens) + len(generated_tokens),
+            "prompt_tokens_count": prompt_len,
+            "generated_tokens_count": len(generated_tokens),
+            "total_tokens_count": prompt_len + len(generated_tokens),
+            "generated_token_ids": generated_tokens,
+            "stopped_on": stopped_on,
             "temperature": temperature,
             "top_k": top_k,
             "top_p": top_p,
