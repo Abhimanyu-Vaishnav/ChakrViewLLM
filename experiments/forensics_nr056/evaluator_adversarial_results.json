@@ -1,0 +1,227 @@
+[
+  {
+    "name": "clean_factual_tokyo",
+    "input": "Tokyo",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "clean_factual_hit",
+    "reason": "Factual target 'tokyo' directly stated"
+  },
+  {
+    "name": "clean_factual_in_sentence",
+    "input": "The capital is Tokyo.",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "clean_factual_hit",
+    "reason": "Factual target 'tokyo' directly stated"
+  },
+  {
+    "name": "clean_number_single",
+    "input": "12",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "exact_numerical",
+    "reason": "Exact single number"
+  },
+  {
+    "name": "clean_number_in_equation",
+    "input": "5 + 7 = 12",
+    "expected_score": 2,
+    "evaluator_score": 2,
+    "is_exact_match": true,
+    "verdict": "equation_containment",
+    "reason": "Valid equation context"
+  },
+  {
+    "name": "sub_ice_in_service",
+    "input": "Customer service is great.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "factual_miss",
+    "reason": "No target factual entities matched with word boundaries"
+  },
+  {
+    "name": "sub_red_in_hundred",
+    "input": "One hundred people attended.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "factual_miss",
+    "reason": "No target factual entities matched with word boundaries"
+  },
+  {
+    "name": "sub_cat_in_category",
+    "input": "This is a new category.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "factual_miss",
+    "reason": "No target factual entities matched with word boundaries"
+  },
+  {
+    "name": "num_2_in_year_2024",
+    "input": "Published in 2024.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "incorrect_number",
+    "reason": "Expected 2, got [2024]"
+  },
+  {
+    "name": "num_5_in_500",
+    "input": "There are 500 items.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "incorrect_number",
+    "reason": "Expected 5, got [500]"
+  },
+  {
+    "name": "num_conflicting_numbers",
+    "input": "The answer might be 12, or maybe 7, or 99.",
+    "expected_score": 1,
+    "evaluator_score": 1,
+    "is_exact_match": true,
+    "verdict": "ambiguous_numbers",
+    "reason": "Multiple conflicting numbers present"
+  },
+  {
+    "name": "strict_yes_perfect",
+    "input": "YES",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "strict_single_token_match",
+    "reason": "Clean exact single token"
+  },
+  {
+    "name": "strict_yes_lower",
+    "input": "yes",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "strict_single_token_match",
+    "reason": "Clean exact single token"
+  },
+  {
+    "name": "strict_yes_with_preamble",
+    "input": "Yes, absolutely.",
+    "expected_score": 2,
+    "evaluator_score": 2,
+    "is_exact_match": true,
+    "verdict": "target_prefixed",
+    "reason": "Target followed by extra tokens"
+  },
+  {
+    "name": "strict_single_char_violation",
+    "input": "The single digit is 2.",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "constraint_violation",
+    "reason": "Expected single token '2', got 'the single digit is 2.'"
+  },
+  {
+    "name": "loop_repetition_target",
+    "input": "Tokyo Tokyo Tokyo Tokyo Tokyo Tokyo Tokyo",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "repetition_loop",
+    "reason": "Severe repetition detected"
+  },
+  {
+    "name": "loop_phrase_repetition",
+    "input": "the capital is the capital is the capital is Tokyo",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "repetition_loop",
+    "reason": "Severe repetition detected"
+  },
+  {
+    "name": "hin_clean_delhi",
+    "input": "\u092d\u093e\u0930\u0924 \u0915\u0940 \u0930\u093e\u091c\u0927\u093e\u0928\u0940 \u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940 \u0939\u0948\u0964",
+    "expected_score": 3,
+    "evaluator_score": 0,
+    "is_exact_match": false,
+    "verdict": "factual_miss",
+    "reason": "No target factual entities matched with word boundaries"
+  },
+  {
+    "name": "hin_sub_vowel",
+    "input": "\u0905\u0928\u0941\u0938\u093e\u0930 \u0905\u0927\u093f\u0915 \u0905\u091a\u094d\u091b\u093e",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "factual_miss",
+    "reason": "No target factual entities matched with word boundaries"
+  },
+  {
+    "name": "hin_number_clean",
+    "input": "7",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "exact_numerical",
+    "reason": "Exact single number"
+  },
+  {
+    "name": "contradictory_negation",
+    "input": "No, it is definitely not Paris, it is London.",
+    "expected_score": 1,
+    "evaluator_score": 2,
+    "is_exact_match": false,
+    "verdict": "factual_hit_in_sentence",
+    "reason": "Factual target 'paris' embedded in sentence"
+  },
+  {
+    "name": "empty_resp",
+    "input": "",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "empty_response",
+    "reason": "No text generated"
+  },
+  {
+    "name": "whitespace_resp",
+    "input": "   \n\t  ",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "empty_response",
+    "reason": "No text generated"
+  },
+  {
+    "name": "token_set_complete",
+    "input": "Red, yellow, green",
+    "expected_score": 3,
+    "evaluator_score": 3,
+    "is_exact_match": true,
+    "verdict": "complete_set_match",
+    "reason": "All set elements present"
+  },
+  {
+    "name": "token_set_partial",
+    "input": "Red and green only",
+    "expected_score": 1,
+    "evaluator_score": 1,
+    "is_exact_match": true,
+    "verdict": "partial_set_match",
+    "reason": "2/3 elements present"
+  },
+  {
+    "name": "token_set_none",
+    "input": "Blue and purple",
+    "expected_score": 0,
+    "evaluator_score": 0,
+    "is_exact_match": true,
+    "verdict": "missing_set_elements",
+    "reason": "Elements missing"
+  }
+]

@@ -1,0 +1,893 @@
+{
+  "total_benchmark_items": 95,
+  "classification_summary": {
+    "CONFIRMED_EXACT": 6,
+    "CONFIRMED_NEAR_DUPLICATE": 4,
+    "ANSWER_ONLY_OVERLAP": 23,
+    "FACTUAL_EXPOSURE": 38,
+    "NO_MATCH_FOUND": 24
+  },
+  "items": [
+    {
+      "id": "FQA-01",
+      "prompt": "What is the capital city of Japan?",
+      "expected_answer": "Tokyo",
+      "classification": "CONFIRMED_NEAR_DUPLICATE",
+      "evidence": [
+        "Near-duplicate phrasing in Corpus_V1: what is the capital"
+      ]
+    },
+    {
+      "id": "FQA-02",
+      "prompt": "Which is the largest ocean on Earth?",
+      "expected_answer": "Pacific Ocean",
+      "classification": "CONFIRMED_NEAR_DUPLICATE",
+      "evidence": [
+        "Near-duplicate phrasing in Corpus_V1: is the largest ocean"
+      ]
+    },
+    {
+      "id": "FQA-03",
+      "prompt": "What is the capital of France?",
+      "expected_answer": "Paris",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V3 (Noun + Answer 'paris')",
+        "Fact link in Corpus_V3 (Noun + Answer 'paris')",
+        "Fact link in Corpus_V3 (Noun + Answer 'paris')"
+      ]
+    },
+    {
+      "id": "FQA-04",
+      "prompt": "Which planet is known as the Red Planet?",
+      "expected_answer": "Mars",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V1"
+      ]
+    },
+    {
+      "id": "FQA-05",
+      "prompt": "What is the boiling point of water in Celsius?",
+      "expected_answer": "100",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100 degrees')"
+      ]
+    },
+    {
+      "id": "FQA-06",
+      "prompt": "What chemical element does the symbol 'Au' represent?",
+      "expected_answer": "Gold",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'gold')",
+        "Fact link in Corpus_V1 (Noun + Answer 'gold')",
+        "Fact link in Corpus_V1 (Noun + Answer 'gold')"
+      ]
+    },
+    {
+      "id": "FQA-07",
+      "prompt": "What is the capital of Germany?",
+      "expected_answer": "Berlin",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V1"
+      ]
+    },
+    {
+      "id": "FQA-08",
+      "prompt": "How many continents are there on Earth?",
+      "expected_answer": "7",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V1"
+      ]
+    },
+    {
+      "id": "FQA-09",
+      "prompt": "Who painted the Mona Lisa?",
+      "expected_answer": "Leonardo da Vinci",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "FQA-10",
+      "prompt": "What is the capital of Australia?",
+      "expected_answer": "Canberra",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'canberra')",
+        "Fact link in Corpus_V1 (Noun + Answer 'canberra')",
+        "Fact link in Corpus_V1 (Noun + Answer 'canberra')"
+      ]
+    },
+    {
+      "id": "FQA-11",
+      "prompt": "What gas do plants absorb from the atmosphere for photosynthesis?",
+      "expected_answer": "Carbon dioxide",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'carbon dioxide')",
+        "Fact link in Corpus_V1 (Noun + Answer 'carbon dioxide')",
+        "Fact link in Corpus_V1 (Noun + Answer 'carbon dioxide')"
+      ]
+    },
+    {
+      "id": "FQA-12",
+      "prompt": "What is the hardest natural mineral on Earth?",
+      "expected_answer": "Diamond",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'diamond')",
+        "Fact link in Corpus_V1 (Noun + Answer 'diamond')",
+        "Fact link in Corpus_V2 (Noun + Answer 'diamond')"
+      ]
+    },
+    {
+      "id": "FQA-13",
+      "prompt": "What is the capital city of India?",
+      "expected_answer": "New Delhi",
+      "classification": "CONFIRMED_NEAR_DUPLICATE",
+      "evidence": [
+        "Near-duplicate phrasing in Corpus_V1: what is the capital"
+      ]
+    },
+    {
+      "id": "FQA-14",
+      "prompt": "What is the currency of the United Kingdom?",
+      "expected_answer": "Pound",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V3"
+      ]
+    },
+    {
+      "id": "FQA-15",
+      "prompt": "Which organ pumps blood throughout the human body?",
+      "expected_answer": "Heart",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "MTH-01",
+      "prompt": "What is 5 plus 7?",
+      "expected_answer": "12",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '12' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-02",
+      "prompt": "What is 15 minus 6?",
+      "expected_answer": "9",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '9' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-03",
+      "prompt": "What is 4 multiplied by 8?",
+      "expected_answer": "32",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '32' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-04",
+      "prompt": "What is 20 divided by 4?",
+      "expected_answer": "5",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '5' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-05",
+      "prompt": "What is 12 plus 19?",
+      "expected_answer": "31",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '31' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-06",
+      "prompt": "What is 50 minus 23?",
+      "expected_answer": "27",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '27' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-07",
+      "prompt": "What is 9 times 6?",
+      "expected_answer": "54",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '54' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-08",
+      "prompt": "What is half of 100?",
+      "expected_answer": "50",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '50' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-09",
+      "prompt": "If a train travels 60 miles per hour, how many miles does it travel in 3 hours?",
+      "expected_answer": "180",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in NR051_Pretrain (Noun + Answer '180')",
+        "Fact link in NR051_Pretrain (Noun + Answer '180')",
+        "Fact link in NR051_Pretrain (Noun + Answer '180')"
+      ]
+    },
+    {
+      "id": "MTH-10",
+      "prompt": "What is 10 plus 15?",
+      "expected_answer": "25",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '25' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-11",
+      "prompt": "What is 100 minus 35?",
+      "expected_answer": "65",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "MTH-12",
+      "prompt": "What is 7 times 7?",
+      "expected_answer": "49",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "MTH-13",
+      "prompt": "What is 80 divided by 8?",
+      "expected_answer": "10",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-14",
+      "prompt": "If you have 3 apples and buy 4 more, how many apples do you have?",
+      "expected_answer": "7",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '7' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "MTH-15",
+      "prompt": "A pen costs 5 dollars. How much do 4 pens cost?",
+      "expected_answer": "20",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '20' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "INS-01",
+      "prompt": "Reply with only the word 'YES'.",
+      "expected_answer": "YES",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')"
+      ]
+    },
+    {
+      "id": "INS-02",
+      "prompt": "Reply with only the word 'BANANA'.",
+      "expected_answer": "BANANA",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'banana')",
+        "Fact link in Corpus_V1 (Noun + Answer 'banana')",
+        "Fact link in Corpus_V1 (Noun + Answer 'banana')"
+      ]
+    },
+    {
+      "id": "INS-03",
+      "prompt": "What is 5 minus 3? Reply with only the single digit number.",
+      "expected_answer": "2",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '2' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "INS-04",
+      "prompt": "Spell the word 'WORLD' backwards using uppercase letters.",
+      "expected_answer": "DLROW",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "INS-05",
+      "prompt": "Reply with the number 42 and nothing else.",
+      "expected_answer": "42",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '42' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "INS-06",
+      "prompt": "Write the colors of a standard traffic light separated by commas.",
+      "expected_answer": "Red, Yellow, Green",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "INS-07",
+      "prompt": "Repeat this sentence exactly: The sky is blue.",
+      "expected_answer": "The sky is blue.",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'the sky is blue')",
+        "Fact link in Corpus_V1 (Noun + Answer 'the sky is blue')",
+        "Fact link in Corpus_V1 (Noun + Answer 'the sky is blue')"
+      ]
+    },
+    {
+      "id": "INS-08",
+      "prompt": "Reply with only the name of the third day of the week (starting Monday).",
+      "expected_answer": "Wednesday",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'wednesday')",
+        "Fact link in Corpus_V1 (Noun + Answer 'wednesday')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'wednesday')"
+      ]
+    },
+    {
+      "id": "INS-09",
+      "prompt": "Print the first three letters of the English alphabet in lowercase.",
+      "expected_answer": "abc",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in NR051_Pretrain (Noun + Answer 'a b c')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'a b c')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'a b c')"
+      ]
+    },
+    {
+      "id": "INS-10",
+      "prompt": "Reply with exactly two words: 'HELLO WORLD'.",
+      "expected_answer": "HELLO WORLD",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'hello world')",
+        "Fact link in Corpus_V1 (Noun + Answer 'hello world')",
+        "Fact link in Corpus_V2 (Noun + Answer 'hello world')"
+      ]
+    },
+    {
+      "id": "INS-11",
+      "prompt": "Say hello in French with one word.",
+      "expected_answer": "Bonjour",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in NR051_Pretrain (Noun + Answer 'bonjour')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'bonjour')"
+      ]
+    },
+    {
+      "id": "INS-12",
+      "prompt": "Which is larger: 10 or 100? Reply with only the larger number.",
+      "expected_answer": "100",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100')"
+      ]
+    },
+    {
+      "id": "INS-13",
+      "prompt": "Reply with 'TRUE' if ice is cold, or 'FALSE' if ice is hot.",
+      "expected_answer": "TRUE",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'true')",
+        "Fact link in Corpus_V1 (Noun + Answer 'true')",
+        "Fact link in Corpus_V1 (Noun + Answer 'true')"
+      ]
+    },
+    {
+      "id": "INS-14",
+      "prompt": "Output the word 'SUN' three times separated by spaces.",
+      "expected_answer": "SUN SUN SUN",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "INS-15",
+      "prompt": "Reply with only the color of a ripe banana.",
+      "expected_answer": "Yellow",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V3 (Noun + Answer 'yellow')",
+        "Fact link in Corpus_V3 (Noun + Answer 'yellow')",
+        "Fact link in Corpus_V3 (Noun + Answer 'yellow')"
+      ]
+    },
+    {
+      "id": "LOG-01",
+      "prompt": "If all humans are mortal and Socrates is a human, is Socrates mortal? Answer Yes or No.",
+      "expected_answer": "Yes",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')"
+      ]
+    },
+    {
+      "id": "LOG-02",
+      "prompt": "A cat has 4 legs. How many legs do 2 cats have?",
+      "expected_answer": "8",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '8' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "LOG-03",
+      "prompt": "If yesterday was Tuesday, what day is tomorrow?",
+      "expected_answer": "Thursday",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "LOG-04",
+      "prompt": "Is fire hot or cold?",
+      "expected_answer": "Hot",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "LOG-05",
+      "prompt": "If you turn left three times, is that the same as turning right once? Answer Yes or No.",
+      "expected_answer": "Yes",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')",
+        "Fact link in Corpus_V1 (Noun + Answer 'yes')"
+      ]
+    },
+    {
+      "id": "LOG-06",
+      "prompt": "Can a bird fly if its wings are broken? Answer Yes or No.",
+      "expected_answer": "No",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity 'no' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "LOG-07",
+      "prompt": "John is older than Mary, and Mary is older than David. Who is the oldest?",
+      "expected_answer": "John",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'john')",
+        "Fact link in Corpus_V1 (Noun + Answer 'john')",
+        "Fact link in Corpus_V1 (Noun + Answer 'john')"
+      ]
+    },
+    {
+      "id": "LOG-08",
+      "prompt": "Does the sun rise in the east or the west?",
+      "expected_answer": "East",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'east')",
+        "Fact link in Corpus_V1 (Noun + Answer 'east')",
+        "Fact link in Corpus_V1 (Noun + Answer 'east')"
+      ]
+    },
+    {
+      "id": "LOG-09",
+      "prompt": "If a box contains 5 red balls and 0 blue balls, what color ball will you pick?",
+      "expected_answer": "Red",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'red')",
+        "Fact link in Corpus_V1 (Noun + Answer 'red')",
+        "Fact link in Corpus_V1 (Noun + Answer 'red')"
+      ]
+    },
+    {
+      "id": "LOG-10",
+      "prompt": "Do fish live in water or in trees?",
+      "expected_answer": "Water",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'water')",
+        "Fact link in Corpus_V1 (Noun + Answer 'water')",
+        "Fact link in Corpus_V1 (Noun + Answer 'water')"
+      ]
+    },
+    {
+      "id": "RC-01",
+      "prompt": "Passage: Alice lives in a small blue house near the river. Question: What color is Alice's house?",
+      "expected_answer": "Blue",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'blue')",
+        "Fact link in Corpus_V1 (Noun + Answer 'blue')",
+        "Fact link in Corpus_V1 (Noun + Answer 'blue')"
+      ]
+    },
+    {
+      "id": "RC-02",
+      "prompt": "Passage: The brown dog barked loudly at the mailman. Question: What animal barked?",
+      "expected_answer": "Dog",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'dog')",
+        "Fact link in Corpus_V1 (Noun + Answer 'dog')",
+        "Fact link in Corpus_V2 (Noun + Answer 'dog')"
+      ]
+    },
+    {
+      "id": "RC-03",
+      "prompt": "Passage: Rahul bought 3 pencils and 2 notebooks from the stationery shop. Question: How many notebooks did Rahul buy?",
+      "expected_answer": "2",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'two')",
+        "Fact link in Corpus_V1 (Noun + Answer 'two')",
+        "Fact link in Corpus_V1 (Noun + Answer 'two')"
+      ]
+    },
+    {
+      "id": "RC-04",
+      "prompt": "Passage: In 1969, Apollo 11 landed humans on the Moon for the first time. Question: In what year did Apollo 11 land on the Moon?",
+      "expected_answer": "1969",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer '1969')",
+        "Fact link in Corpus_V1 (Noun + Answer '1969')",
+        "Fact link in Corpus_V1 (Noun + Answer '1969')"
+      ]
+    },
+    {
+      "id": "RC-05",
+      "prompt": "Passage: Rohan went to Delhi by train, while Priya traveled to Mumbai by plane. Question: Who traveled to Mumbai?",
+      "expected_answer": "Priya",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'priya')",
+        "Fact link in Corpus_V1 (Noun + Answer 'priya')",
+        "Fact link in Corpus_V1 (Noun + Answer 'priya')"
+      ]
+    },
+    {
+      "id": "RC-06",
+      "prompt": "Passage: An apple is a sweet fruit that grows on trees. Question: What kind of plant do apples grow on?",
+      "expected_answer": "Trees",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'trees')",
+        "Fact link in Corpus_V1 (Noun + Answer 'trees')",
+        "Fact link in Corpus_V1 (Noun + Answer 'tree')"
+      ]
+    },
+    {
+      "id": "RC-07",
+      "prompt": "Passage: The meeting starts at 4 PM in room 302. Question: Which room is the meeting in?",
+      "expected_answer": "302",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer '302')",
+        "Fact link in Corpus_V1 (Noun + Answer 'room 302')",
+        "Fact link in Corpus_V1 (Noun + Answer '302')"
+      ]
+    },
+    {
+      "id": "RC-08",
+      "prompt": "Passage: Vikram wore a red coat because it was freezing outside. Question: What color was Vikram's coat?",
+      "expected_answer": "Red",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'red')",
+        "Fact link in Corpus_V1 (Noun + Answer 'red')",
+        "Fact link in Corpus_V1 (Noun + Answer 'red')"
+      ]
+    },
+    {
+      "id": "RC-09",
+      "prompt": "Passage: The solar panel produced 500 watts in morning and 700 watts at noon. Question: What was the power production at noon?",
+      "expected_answer": "700 watts",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "RC-10",
+      "prompt": "Passage: Maya's favorite pet is a golden retriever named Bruno. Question: What is Maya's pet's name?",
+      "expected_answer": "Bruno",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'bruno')",
+        "Fact link in Corpus_V1 (Noun + Answer 'bruno')",
+        "Fact link in Corpus_V2 (Noun + Answer 'bruno')"
+      ]
+    },
+    {
+      "id": "HIN-01",
+      "prompt": "भारत की राजधानी क्या है?",
+      "expected_answer": "नई दिल्ली",
+      "classification": "CONFIRMED_EXACT",
+      "evidence": [
+        "Exact prompt in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-02",
+      "prompt": "सूर्य किस दिशा से निकलता है?",
+      "expected_answer": "पूर्व",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-03",
+      "prompt": "एक सप्ताह में कितने दिन होते हैं?",
+      "expected_answer": "7",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '7' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-04",
+      "prompt": "पानी का रासायनिक सूत्र क्या है?",
+      "expected_answer": "H2O",
+      "classification": "CONFIRMED_NEAR_DUPLICATE",
+      "evidence": [
+        "Near-duplicate phrasing in Corpus_V1: क र स यन"
+      ]
+    },
+    {
+      "id": "HIN-05",
+      "prompt": "दूध का रंग कैसा होता है?",
+      "expected_answer": "सफेद",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-06",
+      "prompt": "पेड़ हमें कौन सी गैस देते हैं?",
+      "expected_answer": "ऑक्सीजन",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity 'ऑक स जन' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-07",
+      "prompt": "५ में ३ जोड़ने पर क्या मिलता है?",
+      "expected_answer": "8",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '8' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-08",
+      "prompt": "भारत का राष्ट्रीय पशु कौन सा है?",
+      "expected_answer": "बाघ",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-09",
+      "prompt": "साल में कितने महीने होते हैं?",
+      "expected_answer": "12",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '12' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-10",
+      "prompt": "आसमान का रंग कैसा होता है?",
+      "expected_answer": "नीला",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-11",
+      "prompt": "यदि आज सोमवार है तो कल कौन सा दिन होगा?",
+      "expected_answer": "मंगलवार",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-12",
+      "prompt": "१० में से ४ घटाने पर क्या बचेगा?",
+      "expected_answer": "6",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '6' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-13",
+      "prompt": "बर्फ ठंडी होती है या गरम?",
+      "expected_answer": "ठंडी",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HIN-14",
+      "prompt": "पृथ्वी गोल है या चपटी?",
+      "expected_answer": "गोल",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity 'ग ल' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HIN-15",
+      "prompt": "नमस्ते का अर्थ क्या होता है?",
+      "expected_answer": "अभिवादन",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HNG-01",
+      "prompt": "India ki capital kya hai?",
+      "expected_answer": "New Delhi",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HNG-02",
+      "prompt": "Ek week me kitne days hote hain?",
+      "expected_answer": "7",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '7' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HNG-03",
+      "prompt": "Ice garam hoti hai ya thandi?",
+      "expected_answer": "Thandi",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HNG-04",
+      "prompt": "5 plus 5 kitna hota hai?",
+      "expected_answer": "10",
+      "classification": "ANSWER_ONLY_OVERLAP",
+      "evidence": [
+        "Answer entity '10' found in Corpus_V1"
+      ]
+    },
+    {
+      "id": "HNG-05",
+      "prompt": "Sun morning me kidhar se nikalta hai?",
+      "expected_answer": "East",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HNG-06",
+      "prompt": "Human body me blood kaun pump karta hai?",
+      "expected_answer": "Heart",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "HNG-07",
+      "prompt": "Agar kal Tuesday tha toh aaj kaun sa day hai?",
+      "expected_answer": "Wednesday",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'wednesday')",
+        "Fact link in Corpus_V1 (Noun + Answer 'wednesday')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'wednesday')"
+      ]
+    },
+    {
+      "id": "HNG-08",
+      "prompt": "Earth par sabse bada ocean kaun sa hai?",
+      "expected_answer": "Pacific Ocean",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'pacific ocean')",
+        "Fact link in Corpus_V1 (Noun + Answer 'pacific')",
+        "Fact link in Corpus_V1 (Noun + Answer 'pacific ocean')"
+      ]
+    },
+    {
+      "id": "HNG-09",
+      "prompt": "Water ka boiling point Celsius me kya hai?",
+      "expected_answer": "100",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100')",
+        "Fact link in Corpus_V1 (Noun + Answer '100 degrees')"
+      ]
+    },
+    {
+      "id": "HNG-10",
+      "prompt": "Traffic light me red light ka kya meaning hota hai?",
+      "expected_answer": "Stop",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "CTX-01",
+      "prompt": "Context: My favorite color is green.\nQuestion: What is my favorite color?",
+      "expected_answer": "Green",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'green')",
+        "Fact link in Corpus_V1 (Noun + Answer 'green')",
+        "Fact link in Corpus_V1 (Noun + Answer 'green')"
+      ]
+    },
+    {
+      "id": "CTX-02",
+      "prompt": "Context: The secret passcode is 9876.\nQuestion: What is the secret passcode?",
+      "expected_answer": "9876",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    },
+    {
+      "id": "CTX-03",
+      "prompt": "Context: I have two dogs named Max and Leo.\nQuestion: Name one of my dogs.",
+      "expected_answer": "Max",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in NR051_Pretrain (Noun + Answer 'max')",
+        "Fact link in NR051_Pretrain (Noun + Answer 'max')"
+      ]
+    },
+    {
+      "id": "CTX-04",
+      "prompt": "Context: The meeting was rescheduled from Monday to Friday.\nQuestion: On what day is the meeting now?",
+      "expected_answer": "Friday",
+      "classification": "FACTUAL_EXPOSURE",
+      "evidence": [
+        "Fact link in Corpus_V1 (Noun + Answer 'friday')",
+        "Fact link in Corpus_V1 (Noun + Answer 'friday')",
+        "Fact link in Corpus_V1 (Noun + Answer 'friday')"
+      ]
+    },
+    {
+      "id": "CTX-05",
+      "prompt": "Context: The capital city of Atlantis is Poseidonia.\nQuestion: What is the capital of Atlantis according to the context?",
+      "expected_answer": "Poseidonia",
+      "classification": "NO_MATCH_FOUND",
+      "evidence": []
+    }
+  ]
+}

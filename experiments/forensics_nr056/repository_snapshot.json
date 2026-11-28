@@ -1,0 +1,126 @@
+{
+  "mission": "NR-056",
+  "timestamp": "2026-11-28T08:18:00+05:30",
+  "git": {
+    "branch": "exp/cbr-01-conversational-breakthrough",
+    "remote": "https://github.com/Abhimanyu-Vaishnav/ChakrViewLLM.git",
+    "head_commit": "7429bf764f61f9dfa0ae58c89c8942b826b1c85d",
+    "head_commit_msg": "feat(nr-055): architecture forensics, model loader validation, and Benchmark V2 evaluation"
+  },
+  "key_artifacts": {
+    "tokenizer_vocab": {
+      "path": "data/experiments/vocab_4096/vocab.json",
+      "exists": true,
+      "size_bytes": 112627,
+      "sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a"
+    },
+    "tokenizer_merges": {
+      "path": "data/experiments/vocab_4096/merges.txt",
+      "exists": false,
+      "size_bytes": 0,
+      "sha256": null
+    },
+    "benchmark_v2_json": {
+      "path": "data/evaluation/benchmark_v2/benchmark_v2_100.json",
+      "exists": true,
+      "size_bytes": 37109,
+      "sha256": "d5d3fad2759c11386740be6cec5bddcb642d6abc6229921191c06ef512b476bd"
+    },
+    "benchmark_v2_manifest": {
+      "path": "data/manifests/benchmark_v2_manifest.json",
+      "exists": true,
+      "size_bytes": 618,
+      "sha256": "a706ea0f98776494eb53df2989c819b287984285b889afacfaa8cb634635abe7"
+    },
+    "benchmark_v2_results": {
+      "path": "experiments/forensics_nr055/benchmark_v2_results.json",
+      "exists": true,
+      "size_bytes": 264364,
+      "sha256": "a5c458163ea5d3e7ee03571e19d7e0b9f3d432753da170d66ea3d2d6ef9abe02"
+    },
+    "benchmark_v2_blind_records": {
+      "path": "experiments/forensics_nr055/blind_evaluation_records.json",
+      "exists": true,
+      "size_bytes": 233505,
+      "sha256": "0d96b8c5c75dbe0b67444ee2b73a8a7442a3557aeb8733a19172c7ce9c686b10"
+    },
+    "robust_evaluator_script": {
+      "path": "experiments/forensics_nr055/robust_evaluator.py",
+      "exists": true,
+      "size_bytes": 11101,
+      "sha256": "548eb4260a2811327ab90228bab2c39d0ac44c4a2e6180ba13422ac2025fbfdf"
+    },
+    "checkpoint_staged_best": {
+      "path": "experiments/genesis_stage_d_011/checkpoints/genesis_17m_staged_best.pt",
+      "exists": true,
+      "size_bytes": 68292655,
+      "sha256": "2c21632ebae4f0b05b9ff7091797ecc956ac0ad00ef6ec934381223bc273b269"
+    },
+    "checkpoint_rc1": {
+      "path": "release/v1.0.0-rc1/chakr_1_0_rc1_best.pt",
+      "exists": true,
+      "size_bytes": 68292101,
+      "sha256": "cf585ebf9aa70f630516eec9c45e85f127e29ed91d6b6ae6a26d44fd20fcce4e"
+    },
+    "checkpoint_rc2": {
+      "path": "experiments/genesis_stage_rc2_046/chakr_1_0_rc2_best.pt",
+      "exists": true,
+      "size_bytes": 68292293,
+      "sha256": "33f93c75ba6c4ccd06a87ddb68ad300e11ce0f67aef45d6aa0a6ae7868c2be30"
+    },
+    "checkpoint_rc3": {
+      "path": "experiments/fast_track_047_049/chakr_1_0_rc3_best.pt",
+      "exists": true,
+      "size_bytes": 68292293,
+      "sha256": "61b39ae2bc55c116ed3ec8164497ec798d1fb6994a449d852248b266cd9dc73c"
+    },
+    "checkpoint_nr051_17m_base": {
+      "path": "experiments/pretraining_nr051/chakr_17m_pretrained_base.pt",
+      "exists": true,
+      "size_bytes": 68292915,
+      "sha256": "8d871ca0aff6e23398bdb17f86521eb26dfb4b778d227035d77e2fe44803c25f"
+    },
+    "checkpoint_nr051_38m_base": {
+      "path": "experiments/pretraining_nr051/chakr_38m_pretrained_base.pt",
+      "exists": true,
+      "size_bytes": 150043019,
+      "sha256": "22306c9a479c80cd9ce3e937e3145fb1520241d96c3b17b3ff8aed2af4d7f304"
+    },
+    "checkpoint_nr051_17m_sft": {
+      "path": "experiments/pretraining_nr051/chakr_17m_sft_candidate.pt",
+      "exists": true,
+      "size_bytes": 68292911,
+      "sha256": "9f63e097108f4c3ef2fdc882826d570845a101d02f036bc1c055ad66183600b4"
+    },
+    "checkpoint_nr051_38m_sft": {
+      "path": "experiments/pretraining_nr051/chakr_38m_sft_candidate.pt",
+      "exists": true,
+      "size_bytes": 150042979,
+      "sha256": "a0639a3fba90352c47b151fb70e60209a1889cd3265b80c3cadcb751e3c5b31f"
+    },
+    "checkpoint_nr052_17m_base": {
+      "path": "experiments/pretraining_nr052/chakr_17m_v4_base.pt",
+      "exists": true,
+      "size_bytes": 68292067,
+      "sha256": "58781710bb4d85b40d77281eb6ccecb1754a3f3fadc468db8c1fa8b51a2dd062"
+    },
+    "checkpoint_nr052_38m_base": {
+      "path": "experiments/pretraining_nr052/chakr_38m_v4_base.pt",
+      "exists": true,
+      "size_bytes": 150042027,
+      "sha256": "7fb29b3519a957dbb4ffc12bdcc1cc50d6ea9bf49739458ebb9e3de031f504fb"
+    },
+    "checkpoint_nr052_17m_sft": {
+      "path": "experiments/pretraining_nr052/chakr_17m_nr052_sft.pt",
+      "exists": true,
+      "size_bytes": 68292199,
+      "sha256": "c13211bea859ab6ff8cb89c749b29ae57df638a85f2bef60908e23827fa5a4bb"
+    },
+    "checkpoint_nr052_38m_sft": {
+      "path": "experiments/pretraining_nr052/chakr_38m_nr052_sft.pt",
+      "exists": true,
+      "size_bytes": 150042195,
+      "sha256": "e08d363efdaac44cc62fa854ad1802de8ffb9de4060e090ad5373d66174c53ed"
+    }
+  }
+}
