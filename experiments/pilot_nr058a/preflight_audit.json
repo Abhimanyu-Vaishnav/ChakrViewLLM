@@ -1,0 +1,55 @@
+{
+  "mission": "NR-058A",
+  "manifest_path": "data/manifests/corpus_v6_manifest.json",
+  "manifest_total_docs": 10935,
+  "manifest_total_tokens": 4573231,
+  "splits": {
+    "train": {
+      "file": "data/corpus_v6/splits\\corpus_v6_train.jsonl",
+      "document_count": 9843,
+      "token_count": 4163555,
+      "token_pct": 91.04
+    },
+    "validation": {
+      "file": "data/corpus_v6/splits\\corpus_v6_val.jsonl",
+      "document_count": 546,
+      "token_count": 191686,
+      "token_pct": 4.19
+    },
+    "test": {
+      "file": "data/corpus_v6/splits\\corpus_v6_test.jsonl",
+      "document_count": 546,
+      "token_count": 217990,
+      "token_pct": 4.77
+    }
+  },
+  "tokenizer": {
+    "path": "data/experiments/vocab_4096",
+    "vocab_sha256": "db4d6119feddbcc08d0ca8c580965bfc2b6d9729aed741e83044181307e7218a",
+    "vocab_size": 4096,
+    "bos_id": null,
+    "eos_id": null,
+    "pad_id": null,
+    "unk_id": null
+  },
+  "architectures": {
+    "ChakrGenesis17M": {
+      "params": 17063808,
+      "d_model": 384,
+      "layers": 10,
+      "q_heads": 12,
+      "kv_heads": 3,
+      "ffn_dim": 1024,
+      "max_seq_len": 1024
+    },
+    "ChakrGenesis38M": {
+      "params": 37499392,
+      "d_model": 512,
+      "layers": 12,
+      "q_heads": 8,
+      "kv_heads": 4,
+      "ffn_dim": 1408,
+      "max_seq_len": 512
+    }
+  }
+}

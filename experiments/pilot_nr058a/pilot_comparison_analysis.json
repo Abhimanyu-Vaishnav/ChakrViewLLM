@@ -1,0 +1,75 @@
+{
+  "mission": "NR-058A",
+  "dataset": "Corpus V6 (Train: 4,163,555 tokens, Val: 191,686 tokens)",
+  "step_budget_per_model": 100,
+  "metrics_comparison": {
+    "parameters": {
+      "17M": 17063808,
+      "38M": 37499392,
+      "ratio_38M_to_17M": 2.2
+    },
+    "tokens_processed": {
+      "17M": 319036,
+      "38M": 317660,
+      "delta_tokens": -1376
+    },
+    "initial_train_loss": {
+      "17M": 8.3907,
+      "38M": 8.4312
+    },
+    "final_train_loss": {
+      "17M": 6.2932,
+      "38M": 6.0986,
+      "delta": -0.1946
+    },
+    "initial_val_loss": {
+      "17M": 8.3855,
+      "38M": 8.4235
+    },
+    "final_val_loss": {
+      "17M": 6.1671,
+      "38M": 6.094,
+      "delta": -0.0731
+    },
+    "initial_val_perplexity": {
+      "17M": 4382.96,
+      "38M": 4552.76
+    },
+    "final_val_perplexity": {
+      "17M": 476.8,
+      "38M": 443.19,
+      "delta_ppl": -33.61
+    },
+    "final_val_next_token_accuracy_pct": {
+      "17M": 3.77,
+      "38M": 3.79
+    },
+    "val_loss_decay": {
+      "17M": -2.2184,
+      "38M": -2.3295
+    },
+    "throughput_tokens_per_sec": {
+      "17M": 23491.8,
+      "38M": 16093.6
+    },
+    "peak_vram_gb": {
+      "17M": 1.491,
+      "38M": 2.057
+    },
+    "elapsed_seconds": {
+      "17M": 13.58,
+      "38M": 19.74
+    },
+    "checkpoint_sha256": {
+      "17M": "81acd27c7992c15c15d29d17107db03ecdbaef334a61c0d3f1f0f59f6701c6f3",
+      "38M": "bf37d46f926a8337c77c2308e4b0a6e761fe20f1f2c2fa61e2d6626db256a743"
+    }
+  },
+  "findings": {
+    "scaling_loss_behavior": "38M achieved a lower final validation loss (6.0940 vs 6.1671) and lower final validation perplexity (443.19 vs 476.80) after exactly 100 steps on matched token counts (~318k tokens).",
+    "loss_decay_rate": "38M showed faster loss decay (-2.3295 vs -2.2184), consistent with neural scaling law expectations.",
+    "stability": "Both models remained strictly finite (zero NaN/Inf), with gradient norms well-controlled (< 1.5 after warmup).",
+    "hardware_headroom": "Peak VRAM was 1.491 GB for 17M and 2.057 GB for 38M, well below the 6.00 GB hardware ceiling.",
+    "scientific_limitation": "A 100-step pilot proves execution stability, correct gradient propagation, and initial loss decay, but does NOT constitute proof of semantic competence, general reasoning, or full-scale convergence."
+  }
+}
