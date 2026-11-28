@@ -1,0 +1,72 @@
+{
+  "mission": "NR-057",
+  "data_architecture": {
+    "corpus_target": "Corpus V5",
+    "objective": "Expand clean, verified, deduplicated pretraining corpus and establish training readiness without pretraining weights or synthetic LLM answers.",
+    "tokenizer": "tokenizer/bpe_v2_4096.json"
+  },
+  "sources": [
+    {
+      "source_id": "SRC_LOCAL_CLEAN_FOUNDATION",
+      "name": "ChakrView Curated Multi-Domain Foundation",
+      "origin": "Local repository verified human/technical sources (data/raw and verified Corpus V4 clean segments)",
+      "license": "Internal Project Domain / Apache 2.0 / Public Domain",
+      "domain": "Multi-domain (English CS, Systems, Mathematics, Hindi, Hinglish, Algorithms, Classics)",
+      "estimated_tokens": 750000,
+      "status": "APPROVED",
+      "verification_method": "SHA-256 hash deduplication, length filter, unicode normalization"
+    },
+    {
+      "source_id": "SRC_WIKIPEDIA_EN_CURATED",
+      "name": "Wikipedia English Expository Articles",
+      "origin": "Wikimedia REST API / MediaWiki API (expository encyclopedic topics: Computer Science, Mathematics, Physical Sciences, History, Linguistics, World Geography, Engineering)",
+      "license": "CC-BY-SA 4.0 / GFDL (Open Knowledge License)",
+      "domain": "English Expository / Scientific / Humanities Prose",
+      "estimated_tokens": 1500000,
+      "status": "APPROVED",
+      "verification_method": "API text extract extraction, section header cleanup, min length 200 chars, strict deduplication"
+    },
+    {
+      "source_id": "SRC_WIKIPEDIA_HI_CURATED",
+      "name": "Wikipedia Hindi Expository Articles",
+      "origin": "Wikimedia REST API (hi.wikipedia.org: Science, Geography, History, Literature, Technology, Mathematics in Devanagari)",
+      "license": "CC-BY-SA 4.0 / GFDL (Open Knowledge License)",
+      "domain": "Hindi Devanagari Expository Prose",
+      "estimated_tokens": 600000,
+      "status": "APPROVED",
+      "verification_method": "API text extract extraction, Devanagari Unicode NFKC normalization, script purity check >= 70%"
+    },
+    {
+      "source_id": "SRC_PYTHON_STANDARD_LIBRARY",
+      "name": "Python 3.11 Standard Library Clean Code & Docstrings",
+      "origin": "Python Software Foundation (PSF-2.0 License, python/cpython standard library modules: math, collections, itertools, json, statistics, pathlib, functools, heapq, bisect, etc.)",
+      "license": "PSF License 2.0 (Open Source)",
+      "domain": "Python Technical Code, Docstrings, and Algorithmic Logic",
+      "estimated_tokens": 800000,
+      "status": "APPROVED",
+      "verification_method": "Syntax parseable via ast, comment and docstring preservation, deduplication"
+    },
+    {
+      "source_id": "SRC_MATHEMATICS_EXPOSITORY",
+      "name": "ChakrView Formal Mathematical & Logical Proofs",
+      "origin": "Curated mathematical derivations, algebraic transformations, geometric proofs, and logical truth tables (data/raw/mathematics/)",
+      "license": "Public Domain / CC0",
+      "domain": "Formal Mathematics & Logic",
+      "estimated_tokens": 150000,
+      "status": "APPROVED",
+      "verification_method": "Formula balance check, exact deduplication"
+    }
+  ],
+  "exclusion_rules": {
+    "no_pretrained_weights": true,
+    "no_synthetic_llm_evaluator": true,
+    "no_external_llm_api_answers": true,
+    "exclude_test_benchmarks": [
+      "fresh_heldout_benchmark_50.json",
+      "fresh_eval_report_50.json",
+      "benchmark_v2_100.json",
+      "benchmark_v2_100_manifest.json",
+      "data/benchmarks/benchmark_v3_sealed_300.json"
+    ]
+  }
+}
