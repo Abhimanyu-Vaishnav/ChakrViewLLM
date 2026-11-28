@@ -1,0 +1,50 @@
+{
+  "mission": "NR-057-R1",
+  "dataset_name": "Corpus V6",
+  "creation_date": "2026-11-28",
+  "tokenizer_vocab_size": 4096,
+  "total_documents": 10935,
+  "total_tokens": 4573231,
+  "splits": {
+    "train": {
+      "file": "data/corpus_v6/splits\\corpus_v6_train.jsonl",
+      "document_count": 9843,
+      "token_count": 4163555,
+      "token_pct": 91.04
+    },
+    "validation": {
+      "file": "data/corpus_v6/splits\\corpus_v6_val.jsonl",
+      "document_count": 546,
+      "token_count": 191686,
+      "token_pct": 4.19
+    },
+    "test": {
+      "file": "data/corpus_v6/splits\\corpus_v6_test.jsonl",
+      "document_count": 546,
+      "token_count": 217990,
+      "token_pct": 4.77
+    }
+  },
+  "domain_distribution": {
+    "corpus_v4_curated": 547488,
+    "code_python_stdlib": 1510114,
+    "wiki_en_stem_humanities": 1446636,
+    "wiki_hi_devanagari": 568894,
+    "local_english": 124964,
+    "local_hinglish": 50146,
+    "local_code": 96521,
+    "local_mathematics": 68469,
+    "local_sanskrit": 22596,
+    "local_numbers": 13802,
+    "local_mixed": 1146,
+    "local_hindi": 91459,
+    "local_reasoning": 30996
+  },
+  "filtering_audit": {
+    "raw_candidates_seen": 11047,
+    "rejected_too_short": 13,
+    "rejected_duplicate": 59,
+    "rejected_contaminated": 40,
+    "contamination_rate_pct": 0.362
+  }
+}

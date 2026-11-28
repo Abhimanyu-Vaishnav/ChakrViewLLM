@@ -1,0 +1,62 @@
+{
+  "mission": "NR-057-R1",
+  "planning_targets": {
+    "english_natural_language_pct": 30.0,
+    "hindi_devanagari_pct": 20.0,
+    "hinglish_pct": 10.0,
+    "programming_and_code_pct": 20.0,
+    "mathematics_and_science_pct": 10.0,
+    "logic_and_structured_reasoning_pct": 10.0
+  },
+  "existing_corpus_v5_distribution": {
+    "total_tokens": 3565296,
+    "programming_and_code": {
+      "tokens": 1606635,
+      "actual_pct": 45.06,
+      "target_pct": 20.0,
+      "delta_pct": 25.06,
+      "assessment": "HEAVILY_OVERREPRESENTED"
+    },
+    "english_natural_language": {
+      "tokens": 1282110,
+      "actual_pct": 35.96,
+      "target_pct": 30.0,
+      "delta_pct": 5.96,
+      "assessment": "APPROXIMATELY_ALIGNED"
+    },
+    "hindi_devanagari": {
+      "tokens": 263007,
+      "actual_pct": 7.38,
+      "target_pct": 20.0,
+      "delta_pct": -12.62,
+      "assessment": "SEVERELY_UNDERREPRESENTED"
+    },
+    "mathematics_and_science": {
+      "tokens": 250000,
+      "actual_pct": 7.01,
+      "target_pct": 10.0,
+      "delta_pct": -2.99,
+      "assessment": "SLIGHTLY_UNDERREPRESENTED"
+    },
+    "hinglish": {
+      "tokens": 50146,
+      "actual_pct": 1.41,
+      "target_pct": 10.0,
+      "delta_pct": -8.59,
+      "assessment": "SEVERELY_UNDERREPRESENTED"
+    },
+    "logic_and_structured_reasoning": {
+      "tokens": 113398,
+      "actual_pct": 3.18,
+      "target_pct": 10.0,
+      "delta_pct": -6.82,
+      "assessment": "UNDERREPRESENTED"
+    }
+  },
+  "rebalancing_strategy_for_corpus_v6": {
+    "priority_1_hindi_expansion": "Incorporate broad Devanagari educational and literature articles from Hindi Wikipedia and verified classical Hindi foundations",
+    "priority_2_hinglish_expansion": "Incorporate natural conversational and technical code-switching dialogues from local human archives without mechanical translation",
+    "priority_3_math_logic_expansion": "Incorporate step-by-step mathematical proofs, arithmetic calculations, and structured procedural logic",
+    "priority_4_code_capping": "Limit code ingestion to prevent dominance over natural language reasoning"
+  }
+}
