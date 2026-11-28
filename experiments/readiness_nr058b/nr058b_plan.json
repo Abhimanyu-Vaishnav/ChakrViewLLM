@@ -1,0 +1,72 @@
+{
+  "mission": "NR-058B",
+  "status": "PROPOSED_GATED_PLAN",
+  "dataset": {
+    "manifest": "data/manifests/corpus_v6_manifest.json",
+    "train_split": "data/corpus_v6/splits/corpus_v6_train.jsonl",
+    "val_split": "data/corpus_v6/splits/corpus_v6_val.jsonl",
+    "test_split_isolated": "data/corpus_v6/splits/corpus_v6_test.jsonl",
+    "total_usable_tokens": 4573231,
+    "train_tokens": 4163555,
+    "sequence_length": 256,
+    "train_chunks": 20865,
+    "exact_steps_per_epoch": 1305
+  },
+  "configurations": {
+    "ChakrGenesis17M": {
+      "d_model": 384,
+      "n_layers": 10,
+      "n_q_heads": 12,
+      "n_kv_heads": 3,
+      "intermediate_dim": 1024,
+      "unique_parameters": 17063808,
+      "tied_embeddings": true,
+      "batch_size": 16,
+      "seq_len": 256,
+      "total_steps": 1305,
+      "learning_rate": 0.0003,
+      "min_lr_ratio": 0.1,
+      "warmup_steps": 100,
+      "weight_decay": 0.01,
+      "grad_clip_norm": 1.0,
+      "precision": "amp_fp16",
+      "val_interval_steps": 200,
+      "save_interval_steps": 200,
+      "projected_runtime_minutes": 2.86,
+      "peak_vram_gb": 1.491
+    },
+    "ChakrGenesis38M": {
+      "d_model": 512,
+      "n_layers": 12,
+      "n_q_heads": 8,
+      "n_kv_heads": 4,
+      "intermediate_dim": 1408,
+      "unique_parameters": 37499392,
+      "tied_embeddings": true,
+      "batch_size": 16,
+      "seq_len": 256,
+      "total_steps": 1305,
+      "learning_rate": 0.00025,
+      "min_lr_ratio": 0.1,
+      "warmup_steps": 100,
+      "weight_decay": 0.01,
+      "grad_clip_norm": 1.0,
+      "precision": "amp_fp16",
+      "val_interval_steps": 200,
+      "save_interval_steps": 200,
+      "projected_runtime_minutes": 4.03,
+      "peak_vram_gb": 2.057
+    }
+  },
+  "checkpointing_and_rollback_policy": {
+    "workspace_dir": "experiments/stage1_nr058b/",
+    "checkpoint_retention": "Every 200 steps and final epoch step 1305",
+    "early_stopping_condition": "Monotonic divergence in validation loss across 3 consecutive checks (> 600 steps)",
+    "rollback_mechanism": "Revert to best validated intermediate checkpoint if NaN or loss explosion occurs"
+  },
+  "readiness_verdict": {
+    "17M": "READY",
+    "38M": "READY",
+    "overall": "READY FOR USER AUTHORIZATION (NO TRAINING EXECUTED IN NR-058B)"
+  }
+}
